@@ -1,0 +1,71 @@
+[
+  {
+    "file": "Source/Game/Math/Square.asm",
+    "start": 34751,
+    "end_exclusive": 34760,
+    "length": 9,
+    "instructions": 8,
+    "sha256_decoded": "19c971023802a5ef3389827b79169118fc4c3d0b3141873941f25bf240c60e20",
+    "entries": {
+      "Square": 34751
+    },
+    "verification": "Сверка инструкций с исходным кодом, изолированное исполнение Tools/Disasm/Reports/MathValidation.json, сборка sjasmplus и полное совпадение TRD подтверждены",
+    "initial_verification": "source instruction text and resolved operands compared to decoded original, assembler not run"
+  },
+  {
+    "file": "Source/Game/Math/SquareRoot.asm",
+    "start": 40689,
+    "end_exclusive": 40769,
+    "length": 80,
+    "instructions": 47,
+    "sha256_decoded": "ef05f96937df1e3f879f6792ee535b4b74c4b781b301c16b109b8235476b076b",
+    "entries": {
+      "SquareRoot": 40689,
+      "SqrtCore": 40728,
+      "SqrtStep": 40747,
+      "SqrtMean": 40757
+    },
+    "verification": "Сверка инструкций с исходным кодом, изолированное исполнение Tools/Disasm/Reports/MathValidation.json, сборка sjasmplus и полное совпадение TRD подтверждены",
+    "initial_verification": "source instruction text and resolved operands compared to decoded original, assembler not run"
+  },
+  {
+    "file": "Source/Game/Math/Divide.asm",
+    "start": 44968,
+    "end_exclusive": 45001,
+    "length": 33,
+    "instructions": 19,
+    "sha256_decoded": "51c58fe58f57f34ea7c5188c733b3b24c5a771b595e560e564af895d41dc165a",
+    "entries": {
+      "Divide": 44968
+    },
+    "verification": "Сверка инструкций с исходным кодом, изолированное исполнение Tools/Disasm/Reports/MathValidation.json, сборка sjasmplus и полное совпадение TRD подтверждены",
+    "initial_verification": "source instruction text and resolved operands compared to decoded original, assembler not run"
+  },
+  {
+    "file": "Source/Game/Math/AddSigned.asm",
+    "start": 45001,
+    "end_exclusive": 45040,
+    "length": 39,
+    "instructions": 26,
+    "sha256_decoded": "07b4fc8ebd41ce4425cbbcd5b1e90e2804483be660c1ef31da28ebf825fbc3d7",
+    "entries": {
+      "HalfDelta": 45001,
+      "AddSigned": 45005
+    },
+    "verification": "Сверка инструкций с исходным кодом, изолированное исполнение Tools/Disasm/Reports/MathValidation.json, сборка sjasmplus и полное совпадение TRD подтверждены",
+    "initial_verification": "source instruction text and resolved operands compared to decoded original, assembler not run"
+  },
+  {
+    "file": "Source/Game/Math/NextRandom.asm",
+    "start": 57443,
+    "end_exclusive": 57466,
+    "length": 23,
+    "instructions": 10,
+    "sha256_decoded": "82d45bf6769c447139029bf5974041466b9d48fa47cc72c1901d52489e2fd848",
+    "entries": {
+      "NextRandom": 57443
+    },
+    "verification": "Сверка инструкций с исходным кодом, изолированное исполнение Tools/Disasm/Reports/MathValidation.json, сборка sjasmplus и полное совпадение TRD подтверждены",
+    "initial_verification": "source instruction text and resolved operands compared to decoded original, assembler not run"
+  }
+]

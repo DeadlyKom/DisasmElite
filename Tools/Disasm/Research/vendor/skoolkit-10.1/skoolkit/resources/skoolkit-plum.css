@@ -1,0 +1,67 @@
+body {
+  color: #ffffff;
+  background-color: #330019;
+}
+a {
+  color: #ff00ff;
+}
+a:hover, a.map-entry-title:hover {
+  color: #00ffff;
+}
+div.box-1, div.list-entry-1 {
+  background-color: #7f194c;
+}
+div.box-2, div.list-entry-2 {
+  background-color: #660033;
+}
+table table.default th, table.default th {
+  background-color: #b24c7f;
+}
+table table.default td, table.default td {
+  background-color: #7f194c;
+}
+table.asm-navigation td {
+  background-color: #66334c;
+}
+table.input td, table.output td {
+  background-color: #5e5e5e;
+}
+table.input th, table.output th {
+  background-color: #8e8e8e;
+}
+span.register, td.register {
+  color: #ffffbe;
+}
+td.asm-label, td.address-1, td.address-2 {
+  color: #00ffff;
+}
+td.bytes {
+  color: #beffbe;
+}
+td.instruction {
+  color: #ffffbe;
+}
+td.comment-1 {
+  background-color: #4c1933;
+}
+table.map th {
+  background-color: #b24c7f;
+}
+table.map td {
+  background-color: #660033;
+}
+td.map-c-desc {
+  color: #bebeff;
+}
+td.map-b-desc, td.map-w-desc {
+  color: #ffffbe;
+}
+td.map-g-desc {
+  color: #beffff;
+}
+td.map-t-desc {
+  color: #bebebe;
+}
+div.map-entry-title-11, div.map-entry-desc, td.map-s-desc, td.map-u-desc {
+  color: #ffffff;
+}

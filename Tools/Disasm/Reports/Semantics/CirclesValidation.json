@@ -1,0 +1,7 @@
+{
+  "files": 42,
+  "instructions": 1630,
+  "data_bytes": 152,
+  "errors": [],
+  "scope": "Статическая сверка мнемоник, адресов, буквальных данных и комментариев с Tools/Disasm/Research/GameCode.bin, без запуска ассемблера"
+}

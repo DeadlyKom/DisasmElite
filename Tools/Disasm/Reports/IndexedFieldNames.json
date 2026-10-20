@@ -1,0 +1,4913 @@
+{
+  "changes": [
+    {
+      "file": "Source/Game/Combat/CreatePlayerWreckScene.asm",
+      "line": 28,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 114,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 116,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 118,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 127,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 129,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 133,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 139,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 140,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 31,
+      "before": "(IY+#01)",
+      "after": "(IY+FModel.Collision)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 32,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 34,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 38,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 42,
+      "before": "(IX+#00)",
+      "after": "(IX+FSpaceObject.X.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 43,
+      "before": "(IX+#01)",
+      "after": "(IX+FSpaceObject.X.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 47,
+      "before": "(IX+#03)",
+      "after": "(IX+FSpaceObject.Y.Fraction)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 48,
+      "before": "(IX+#04)",
+      "after": "(IX+FSpaceObject.Y.Low)",
+      "offset": 4
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 52,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 53,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 57,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 60,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 62,
+      "before": "(IX+#05)",
+      "after": "(IX+FSpaceObject.Y.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 68,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 73,
+      "before": "(IY+#00)",
+      "after": "(IY+FModel.Cargo)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 92,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 94,
+      "before": "(IX+#0E)",
+      "after": "(IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+      "offset": 14
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 98,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 100,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 105,
+      "before": "(IX+#0C)",
+      "after": "(IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+      "offset": 12
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 130,
+      "before": "(IY+#01)",
+      "after": "(IY+FModel.Collision)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 131,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 141,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 143,
+      "before": "(IY+#15)",
+      "after": "(IY+FModel.Rating)",
+      "offset": 21
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 151,
+      "before": "(IY+#15)",
+      "after": "(IY+FModel.Rating)",
+      "offset": 21
+    },
+    {
+      "file": "Source/Game/Combat/InitializeSpawnedObjectLinks.asm",
+      "line": 24,
+      "before": "(IX+#00)",
+      "after": "(IX+FSpaceObject.X.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Combat/SetObjectEnergyAndDrawMissedLaser.asm",
+      "line": 22,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 71,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 74,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 92,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 98,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 105,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 107,
+      "before": "(IY+#06)",
+      "after": "(IY+FModel.MaxSpeed)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 110,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 112,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 114,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 128,
+      "before": "(IX+#24)",
+      "after": "(IX+FSpaceObject.Blueprint+FSignWord.SignHigh)",
+      "offset": 36
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 129,
+      "before": "(IX+#23)",
+      "after": "(IX+FSpaceObject.Blueprint)",
+      "offset": 35
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 132,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 137,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 138,
+      "before": "(IX+#1E)",
+      "after": "(IX+FSpaceObject.Pitch)",
+      "offset": 30
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 140,
+      "before": "(IX+#1D)",
+      "after": "(IX+FSpaceObject.Roll)",
+      "offset": 29
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 141,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 150,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 153,
+      "before": "(IY+#01)",
+      "after": "(IY+FModel.Collision)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 160,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 162,
+      "before": "(IY+#09)",
+      "after": "(IY+FModel.Bounty+FSignWord.SignHigh)",
+      "offset": 9
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 163,
+      "before": "(IY+#08)",
+      "after": "(IY+FModel.Bounty)",
+      "offset": 8
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 165,
+      "before": "(IY+#16)",
+      "after": "(IY+FModel.Rating+FSignWord.SignHigh)",
+      "offset": 22
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 166,
+      "before": "(IY+#15)",
+      "after": "(IY+FModel.Rating)",
+      "offset": 21
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 170,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 182,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 204,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 205,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 209,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 210,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Combat/ReleaseMissileTargets.asm",
+      "line": 31,
+      "before": "(IY+#22)",
+      "after": "(IY+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Combat/ReleaseMissileTargets.asm",
+      "line": 34,
+      "before": "(IY+#25)",
+      "after": "(IY+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "line": 31,
+      "before": "(IX+#1C)",
+      "after": "(IX+FSpaceObject.Acceleration)",
+      "offset": 28
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "line": 34,
+      "before": "(IX+#1B)",
+      "after": "(IX+FSpaceObject.Speed)",
+      "offset": 27
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "line": 41,
+      "before": "(IY+#06)",
+      "after": "(IY+FModel.MaxSpeed)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "line": 42,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "line": 49,
+      "before": "(IX+#1B)",
+      "after": "(IX+FSpaceObject.Speed)",
+      "offset": 27
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "line": 53,
+      "before": "(IX+#1B)",
+      "after": "(IX+FSpaceObject.Speed)",
+      "offset": 27
+    },
+    {
+      "file": "Source/Game/Motion/AnimateIntroObject.asm",
+      "line": 21,
+      "before": "(IX+#24)",
+      "after": "(IX+FSpaceObject.Blueprint+FSignWord.SignHigh)",
+      "offset": 36
+    },
+    {
+      "file": "Source/Game/Motion/AnimateIntroObject.asm",
+      "line": 22,
+      "before": "(IX+#23)",
+      "after": "(IX+FSpaceObject.Blueprint)",
+      "offset": 35
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 26,
+      "before": "(IX+#01)",
+      "after": "(IX+FSpaceObject.X.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 27,
+      "before": "(IX+#00)",
+      "after": "(IX+FSpaceObject.X.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 31,
+      "before": "(IX+#04)",
+      "after": "(IX+FSpaceObject.Y.Low)",
+      "offset": 4
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 32,
+      "before": "(IX+#03)",
+      "after": "(IX+FSpaceObject.Y.Fraction)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 37,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 38,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 51,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 56,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 62,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 70,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 74,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 78,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 88,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 99,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 27,
+      "before": "(IY+#07)",
+      "after": "(IY+FModel.MaxEnergy)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 28,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 63,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 64,
+      "before": "(IY+#07)",
+      "after": "(IY+FModel.MaxEnergy)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 76,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 86,
+      "before": "(IY+#0A)",
+      "after": "(IY+FModel.LaunchMask)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 96,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 105,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 107,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 112,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 113,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 115,
+      "before": "(IY+#00)",
+      "after": "(IY+FModel.Cargo)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 121,
+      "before": "(IY+#12)",
+      "after": "(IY+FModel.Flags)",
+      "offset": 18
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 129,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 132,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 139,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 140,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 141,
+      "before": "(IX+#1B)",
+      "after": "(IX+FSpaceObject.Speed)",
+      "offset": 27
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 144,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 157,
+      "before": "(IX+#23)",
+      "after": "(IX+FSpaceObject.Blueprint)",
+      "offset": 35
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 167,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 173,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 54,
+      "before": "(IY+#01)",
+      "after": "(IY+FModel.Collision)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 67,
+      "before": "(IX+#01)",
+      "after": "(IX+FSpaceObject.X.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 68,
+      "before": "(IX+#00)",
+      "after": "(IX+FSpaceObject.X.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 75,
+      "before": "(IX+#04)",
+      "after": "(IX+FSpaceObject.Y.Low)",
+      "offset": 4
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 76,
+      "before": "(IX+#03)",
+      "after": "(IX+FSpaceObject.Y.Fraction)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 82,
+      "before": "(IX+#02)",
+      "after": "(IX+FSpaceObject.X.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 85,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 86,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 93,
+      "before": "(IX+#04)",
+      "after": "(IX+FSpaceObject.Y.Low)",
+      "offset": 4
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 94,
+      "before": "(IX+#03)",
+      "after": "(IX+FSpaceObject.Y.Fraction)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 100,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 102,
+      "before": "(IX+#05)",
+      "after": "(IX+FSpaceObject.Y.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 136,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 145,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 147,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 151,
+      "before": "(IX+#0E)",
+      "after": "(IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+      "offset": 14
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 152,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 154,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 155,
+      "before": "(IX+#01)",
+      "after": "(IX+FSpaceObject.X.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 163,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 165,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 171,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 176,
+      "before": "(IY+#0B)",
+      "after": "(IY+FModel.DotDistance)",
+      "offset": 11
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 74,
+      "before": "(IX+#1D)",
+      "after": "(IX+FSpaceObject.Roll)",
+      "offset": 29
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 94,
+      "before": "(IX+#1E)",
+      "after": "(IX+FSpaceObject.Pitch)",
+      "offset": 30
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 97,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 100,
+      "before": "(IX+#1C)",
+      "after": "(IX+FSpaceObject.Acceleration)",
+      "offset": 28
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 108,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 117,
+      "before": "(IX+#1C)",
+      "after": "(IX+FSpaceObject.Acceleration)",
+      "offset": 28
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 119,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 121,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 122,
+      "before": "(IX+#0E)",
+      "after": "(IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+      "offset": 14
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 125,
+      "before": "(IY+#02)",
+      "after": "(IY+FModel.LaserChance)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 134,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 152,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 164,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 173,
+      "before": "(IX+#1C)",
+      "after": "(IX+FSpaceObject.Acceleration)",
+      "offset": 28
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "line": 28,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "line": 38,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "line": 41,
+      "before": "(IX+#02)",
+      "after": "(IX+FSpaceObject.X.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "line": 44,
+      "before": "(IX+#05)",
+      "after": "(IX+FSpaceObject.Y.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "line": 57,
+      "before": "(IX+#1D)",
+      "after": "(IX+FSpaceObject.Roll)",
+      "offset": 29
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "line": 66,
+      "before": "(IX+#1D)",
+      "after": "(IX+FSpaceObject.Roll)",
+      "offset": 29
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "line": 68,
+      "before": "(IX+#1D)",
+      "after": "(IX+FSpaceObject.Roll)",
+      "offset": 29
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "line": 73,
+      "before": "(IX+#1E)",
+      "after": "(IX+FSpaceObject.Pitch)",
+      "offset": 30
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "line": 82,
+      "before": "(IX+#1E)",
+      "after": "(IX+FSpaceObject.Pitch)",
+      "offset": 30
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "line": 84,
+      "before": "(IX+#1E)",
+      "after": "(IX+FSpaceObject.Pitch)",
+      "offset": 30
+    },
+    {
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 55,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8
+    },
+    {
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 56,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 57,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 62,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 89,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 96,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 97,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8
+    },
+    {
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 98,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "line": 32,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "line": 67,
+      "before": "(IY+#26)",
+      "after": "(IY+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "line": 77,
+      "before": "(IY+#26)",
+      "after": "(IY+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "line": 79,
+      "before": "(IY+#20)",
+      "after": "(IY+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "line": 33,
+      "before": "(IX+#02)",
+      "after": "(IX+FCoordinate.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "line": 34,
+      "before": "(IX+#01)",
+      "after": "(IX+FCoordinate.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "line": 35,
+      "before": "(IX+#00)",
+      "after": "(IX+FCoordinate.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "line": 70,
+      "before": "(IY+#02)",
+      "after": "(IY+FCoordinate.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "line": 71,
+      "before": "(IY+#01)",
+      "after": "(IY+FCoordinate.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "line": 72,
+      "before": "(IY+#00)",
+      "after": "(IY+FCoordinate.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "line": 121,
+      "before": "(IY+#02)",
+      "after": "(IY+FCoordinate.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "line": 122,
+      "before": "(IY+#01)",
+      "after": "(IY+FCoordinate.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "line": 123,
+      "before": "(IY+#00)",
+      "after": "(IY+FCoordinate.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinateDifference.asm",
+      "line": 23,
+      "before": "(IY+#00)",
+      "after": "(IY+FCoordinate.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinateDifference.asm",
+      "line": 24,
+      "before": "(IY+#01)",
+      "after": "(IY+FCoordinate.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinateDifference.asm",
+      "line": 25,
+      "before": "(IY+#02)",
+      "after": "(IY+FCoordinate.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinateDifference.asm",
+      "line": 26,
+      "before": "(IX+#00)",
+      "after": "(IX+FCoordinate.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinateDifference.asm",
+      "line": 27,
+      "before": "(IX+#01)",
+      "after": "(IX+FCoordinate.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinateDifference.asm",
+      "line": 28,
+      "before": "(IX+#02)",
+      "after": "(IX+FCoordinate.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/NegatedQuarterCoordinate.asm",
+      "line": 21,
+      "before": "(IX+#02)",
+      "after": "(IX+FCoordinate.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinate.asm",
+      "line": 21,
+      "before": "(IX+#02)",
+      "after": "(IX+FCoordinate.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinate.asm",
+      "line": 23,
+      "before": "(IX+#00)",
+      "after": "(IX+FCoordinate.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinate.asm",
+      "line": 24,
+      "before": "(IX+#01)",
+      "after": "(IX+FCoordinate.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/TransformNormalWithObjectCoordinate.asm",
+      "line": 27,
+      "before": "(IX+#00)",
+      "after": "(IX+FCoordinate.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/TransformNormalWithObjectCoordinate.asm",
+      "line": 28,
+      "before": "(IX+#01)",
+      "after": "(IX+FCoordinate.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/TransformNormalWithObjectCoordinate.asm",
+      "line": 29,
+      "before": "(IX+#02)",
+      "after": "(IX+FCoordinate.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/DotProductAxisHighBytes.asm",
+      "line": 21,
+      "before": "(IX+#01)",
+      "after": "(IX+FAxis.X+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/DotProductAxisHighBytes.asm",
+      "line": 22,
+      "before": "(IY+#01)",
+      "after": "(IY+FAxis.X+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/DotProductAxisHighBytes.asm",
+      "line": 25,
+      "before": "(IX+#03)",
+      "after": "(IX+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Motion/DotProductAxisHighBytes.asm",
+      "line": 26,
+      "before": "(IY+#03)",
+      "after": "(IY+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Motion/DotProductAxisHighBytes.asm",
+      "line": 29,
+      "before": "(IX+#05)",
+      "after": "(IX+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Motion/DotProductAxisHighBytes.asm",
+      "line": 30,
+      "before": "(IY+#05)",
+      "after": "(IY+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Motion/RenormalizeAxisHighBytes.asm",
+      "line": 21,
+      "before": "(IX+#01)",
+      "after": "(IX+FAxis.X+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/RenormalizeAxisHighBytes.asm",
+      "line": 24,
+      "before": "(IX+#03)",
+      "after": "(IX+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Motion/RenormalizeAxisHighBytes.asm",
+      "line": 27,
+      "before": "(IX+#05)",
+      "after": "(IX+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 24,
+      "before": "(IX+#03)",
+      "after": "(IX+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 25,
+      "before": "(IX+#05)",
+      "after": "(IX+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 27,
+      "before": "(IX+#05)",
+      "after": "(IX+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 32,
+      "before": "(IX+#03)",
+      "after": "(IX+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 33,
+      "before": "(IX+#01)",
+      "after": "(IX+FAxis.X+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 35,
+      "before": "(IX+#01)",
+      "after": "(IX+FAxis.X+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 38,
+      "before": "(IX+#01)",
+      "after": "(IX+FAxis.X+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 39,
+      "before": "(IX+#03)",
+      "after": "(IX+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 41,
+      "before": "(IX+#03)",
+      "after": "(IX+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 46,
+      "before": "(IX+#05)",
+      "after": "(IX+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 47,
+      "before": "(IX+#03)",
+      "after": "(IX+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 49,
+      "before": "(IX+#03)",
+      "after": "(IX+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Motion/DivideVectorComponent.asm",
+      "line": 25,
+      "before": "(IX+#01)",
+      "after": "(IX+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/DivideVectorComponent.asm",
+      "line": 26,
+      "before": "(IX+#00)",
+      "after": "(IX+FSignWord.Low)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/DivideVectorComponent.asm",
+      "line": 37,
+      "before": "(IX+#00)",
+      "after": "(IX+FSignWord.Low)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/DivideVectorComponent.asm",
+      "line": 38,
+      "before": "(IX+#01)",
+      "after": "(IX+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/ScaleAxisHighByte.asm",
+      "line": 22,
+      "before": "(IX+#01)",
+      "after": "(IX+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/ScaleAxisHighByte.asm",
+      "line": 26,
+      "before": "(IX+#01)",
+      "after": "(IX+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/ScaleAxisHighByte.asm",
+      "line": 28,
+      "before": "(IX+#01)",
+      "after": "(IX+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/SquareVectorComponent.asm",
+      "line": 21,
+      "before": "(IX+#01)",
+      "after": "(IX+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/SquareVectorComponent.asm",
+      "line": 22,
+      "before": "(IX+#00)",
+      "after": "(IX+FSignWord.Low)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceOneCoordinate.asm",
+      "line": 24,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceOneCoordinate.asm",
+      "line": 25,
+      "before": "(IX+#09)",
+      "after": "(IX+FSpaceObject.AxisX+FSignWord.Low)",
+      "offset": 9
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceOneCoordinate.asm",
+      "line": 27,
+      "before": "(IY+#02)",
+      "after": "(IY+FCoordinate.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceOneCoordinate.asm",
+      "line": 28,
+      "before": "(IY+#01)",
+      "after": "(IY+FCoordinate.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceOneCoordinate.asm",
+      "line": 29,
+      "before": "(IY+#00)",
+      "after": "(IY+FCoordinate.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceOneCoordinate.asm",
+      "line": 31,
+      "before": "(IY+#02)",
+      "after": "(IY+FCoordinate.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceOneCoordinate.asm",
+      "line": 32,
+      "before": "(IY+#01)",
+      "after": "(IY+FCoordinate.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceOneCoordinate.asm",
+      "line": 33,
+      "before": "(IY+#00)",
+      "after": "(IY+FCoordinate.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 23,
+      "before": "(IX+#10)",
+      "after": "(IX+FSpaceObject.AxisY+FSignWord.SignHigh)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 24,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 26,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 31,
+      "before": "(IX+#10)",
+      "after": "(IX+FSpaceObject.AxisY+FSignWord.SignHigh)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 32,
+      "before": "(IX+#16)",
+      "after": "(IX+FSpaceObject.AxisZ+FSignWord.SignHigh)",
+      "offset": 22
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 34,
+      "before": "(IX+#16)",
+      "after": "(IX+FSpaceObject.AxisZ+FSignWord.SignHigh)",
+      "offset": 22
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 37,
+      "before": "(IX+#16)",
+      "after": "(IX+FSpaceObject.AxisZ+FSignWord.SignHigh)",
+      "offset": 22
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 38,
+      "before": "(IX+#10)",
+      "after": "(IX+FSpaceObject.AxisY+FSignWord.SignHigh)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 40,
+      "before": "(IX+#10)",
+      "after": "(IX+FSpaceObject.AxisY+FSignWord.SignHigh)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 44,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 45,
+      "before": "(IX+#10)",
+      "after": "(IX+FSpaceObject.AxisY+FSignWord.SignHigh)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 47,
+      "before": "(IX+#10)",
+      "after": "(IX+FSpaceObject.AxisY+FSignWord.SignHigh)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Objects/FindFreeObjectSlot.asm",
+      "line": 25,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "line": 69,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "line": 70,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "line": 83,
+      "before": "(IX+#0E)",
+      "after": "(IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+      "offset": 14
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "line": 84,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "line": 86,
+      "before": "(IX+#1D)",
+      "after": "(IX+FSpaceObject.Roll)",
+      "offset": 29
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "line": 135,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Objects/InitializeAtPlayer.asm",
+      "line": 22,
+      "before": "(IX+#0E)",
+      "after": "(IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+      "offset": 14
+    },
+    {
+      "file": "Source/Game/Objects/InitializeAtPlayer.asm",
+      "line": 23,
+      "before": "(IX+#16)",
+      "after": "(IX+FSpaceObject.AxisZ.X+FSignWord.SignHigh)",
+      "offset": 22
+    },
+    {
+      "file": "Source/Game/Objects/InitializeAtPlayer.asm",
+      "line": 24,
+      "before": "(IX+#00)",
+      "after": "(IX+FSpaceObject.X.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Objects/InitializeAtPlayer.asm",
+      "line": 25,
+      "before": "(IX+#01)",
+      "after": "(IX+FSpaceObject.X.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Objects/InitializeAtPlayer.asm",
+      "line": 26,
+      "before": "(IX+#04)",
+      "after": "(IX+FSpaceObject.Y.Low)",
+      "offset": 4
+    },
+    {
+      "file": "Source/Game/Objects/InitializeAtPlayer.asm",
+      "line": 27,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Objects/InitializeAtPlayer.asm",
+      "line": 28,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "line": 25,
+      "before": "(IX+#1D)",
+      "after": "(IX+FSpaceObject.Roll)",
+      "offset": 29
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "line": 26,
+      "before": "(IX+#1E)",
+      "after": "(IX+FSpaceObject.Pitch)",
+      "offset": 30
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "line": 28,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "line": 29,
+      "before": "(IX+#00)",
+      "after": "(IX+FSpaceObject.X.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "line": 30,
+      "before": "(IX+#01)",
+      "after": "(IX+FSpaceObject.X.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "line": 31,
+      "before": "(IX+#03)",
+      "after": "(IX+FSpaceObject.Y.Fraction)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "line": 32,
+      "before": "(IX+#04)",
+      "after": "(IX+FSpaceObject.Y.Low)",
+      "offset": 4
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "line": 33,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "line": 34,
+      "before": "(IX+#1B)",
+      "after": "(IX+FSpaceObject.Speed)",
+      "offset": 27
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "line": 35,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "line": 38,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 42,
+      "before": "(IX+#24)",
+      "after": "(IX+FSpaceObject.Blueprint+FSignWord.SignHigh)",
+      "offset": 36
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 43,
+      "before": "(IX+#23)",
+      "after": "(IX+FSpaceObject.Blueprint)",
+      "offset": 35
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 51,
+      "before": "(IY+#07)",
+      "after": "(IY+FModel.MaxEnergy)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 52,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 54,
+      "before": "(IY+#12)",
+      "after": "(IY+FModel.Flags)",
+      "offset": 18
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 57,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 64,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 66,
+      "before": "(IY+#06)",
+      "after": "(IY+FModel.MaxSpeed)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 68,
+      "before": "(IX+#1B)",
+      "after": "(IX+FSpaceObject.Speed)",
+      "offset": 27
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 70,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 72,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 73,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 75,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 79,
+      "before": "(IX+#01)",
+      "after": "(IX+FSpaceObject.X.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 82,
+      "before": "(IX+#04)",
+      "after": "(IX+FSpaceObject.Y.Low)",
+      "offset": 4
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 85,
+      "before": "(IX+#00)",
+      "after": "(IX+FSpaceObject.X.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 87,
+      "before": "(IX+#03)",
+      "after": "(IX+FSpaceObject.Y.Fraction)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 90,
+      "before": "(IX+#02)",
+      "after": "(IX+FSpaceObject.X.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 92,
+      "before": "(IX+#05)",
+      "after": "(IX+FSpaceObject.Y.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Objects/RandomizeSpawnDirection.asm",
+      "line": 20,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Objects/RandomizeSpawnDirection.asm",
+      "line": 23,
+      "before": "(IX+#0C)",
+      "after": "(IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+      "offset": 12
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 19,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 20,
+      "before": "(IX+#10)",
+      "after": "(IX+FSpaceObject.AxisY.X+FSignWord.SignHigh)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 21,
+      "before": "(IX+#10)",
+      "after": "(IX+FSpaceObject.AxisY.X+FSignWord.SignHigh)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 22,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 24,
+      "before": "(IX+#16)",
+      "after": "(IX+FSpaceObject.AxisZ.X+FSignWord.SignHigh)",
+      "offset": 22
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 26,
+      "before": "(IX+#16)",
+      "after": "(IX+FSpaceObject.AxisZ.X+FSignWord.SignHigh)",
+      "offset": 22
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 31,
+      "before": "(IX+#10)",
+      "after": "(IX+FSpaceObject.AxisY.X+FSignWord.SignHigh)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 33,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 34,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 35,
+      "before": "(IX+#10)",
+      "after": "(IX+FSpaceObject.AxisY.X+FSignWord.SignHigh)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 36,
+      "before": "(IX+#12)",
+      "after": "(IX+FSpaceObject.AxisY.Y+FSignWord.SignHigh)",
+      "offset": 18
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 38,
+      "before": "(IX+#0C)",
+      "after": "(IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+      "offset": 12
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 39,
+      "before": "(IX+#0C)",
+      "after": "(IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+      "offset": 12
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 40,
+      "before": "(IX+#12)",
+      "after": "(IX+FSpaceObject.AxisY.Y+FSignWord.SignHigh)",
+      "offset": 18
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 41,
+      "before": "(IX+#14)",
+      "after": "(IX+FSpaceObject.AxisY.Z+FSignWord.SignHigh)",
+      "offset": 20
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 43,
+      "before": "(IX+#0E)",
+      "after": "(IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+      "offset": 14
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 44,
+      "before": "(IX+#0E)",
+      "after": "(IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+      "offset": 14
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 45,
+      "before": "(IX+#14)",
+      "after": "(IX+FSpaceObject.AxisY.Z+FSignWord.SignHigh)",
+      "offset": 20
+    },
+    {
+      "file": "Source/Game/Objects/SpawnEscapePod.asm",
+      "line": 28,
+      "before": "(IX+#05)",
+      "after": "(IX+FSpaceObject.Y.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Objects/SpawnEscapePod.asm",
+      "line": 30,
+      "before": "(IX+#03)",
+      "after": "(IX+FSpaceObject.Y.Fraction)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Objects/SpawnEscapePod.asm",
+      "line": 31,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Objects/SpawnEscapePod.asm",
+      "line": 33,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Objects/SpawnEscapePod.asm",
+      "line": 35,
+      "before": "(IX+#1E)",
+      "after": "(IX+FSpaceObject.Pitch)",
+      "offset": 30
+    },
+    {
+      "file": "Source/Game/Objects/SpawnEscapePod.asm",
+      "line": 37,
+      "before": "(IX+#1B)",
+      "after": "(IX+FSpaceObject.Speed)",
+      "offset": 27
+    },
+    {
+      "file": "Source/Game/Objects/SpawnEscapePod.asm",
+      "line": 38,
+      "before": "(IX+#1B)",
+      "after": "(IX+FSpaceObject.Speed)",
+      "offset": 27
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "line": 28,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "line": 38,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "line": 40,
+      "before": "(IX+#03)",
+      "after": "(IX+FSpaceObject.Y.Fraction)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "line": 42,
+      "before": "(IX+#05)",
+      "after": "(IX+FSpaceObject.Y.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "line": 49,
+      "before": "(IX+#1B)",
+      "after": "(IX+FSpaceObject.Speed)",
+      "offset": 27
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "line": 50,
+      "before": "(IX+#1B)",
+      "after": "(IX+FSpaceObject.Speed)",
+      "offset": 27
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "line": 52,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "line": 53,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "line": 24,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "line": 28,
+      "before": "(IX+#00)",
+      "after": "(IX+FSpaceObject.X.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "line": 29,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "line": 32,
+      "before": "(IX+#02)",
+      "after": "(IX+FSpaceObject.X.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "line": 36,
+      "before": "(IX+#03)",
+      "after": "(IX+FSpaceObject.Y.Fraction)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "line": 37,
+      "before": "(IX+#0C)",
+      "after": "(IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+      "offset": 12
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "line": 40,
+      "before": "(IX+#05)",
+      "after": "(IX+FSpaceObject.Y.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "line": 42,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "line": 44,
+      "before": "(IX+#1D)",
+      "after": "(IX+FSpaceObject.Roll)",
+      "offset": 29
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "line": 48,
+      "before": "(IX+#1B)",
+      "after": "(IX+FSpaceObject.Speed)",
+      "offset": 27
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipCargoOrPod.asm",
+      "line": 27,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipCargoOrPod.asm",
+      "line": 29,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipCargoOrPod.asm",
+      "line": 31,
+      "before": "(IX+#1D)",
+      "after": "(IX+FSpaceObject.Roll)",
+      "offset": 29
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipDebris.asm",
+      "line": 29,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipDebris.asm",
+      "line": 30,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipDebris.asm",
+      "line": 31,
+      "before": "(IX+#1D)",
+      "after": "(IX+FSpaceObject.Roll)",
+      "offset": 29
+    },
+    {
+      "file": "Source/Game/Objects/SpawnThargonWave.asm",
+      "line": 29,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37
+    },
+    {
+      "file": "Source/Game/Objects/SpawnThargonWave.asm",
+      "line": 33,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Objects/SpawnThargonWave.asm",
+      "line": 38,
+      "before": "(IX+#01)",
+      "after": "(IX+FSpaceObject.X.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Objects/SpawnThargonWave.asm",
+      "line": 40,
+      "before": "(IX+#04)",
+      "after": "(IX+FSpaceObject.Y.Low)",
+      "offset": 4
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipClass.asm",
+      "line": 45,
+      "before": "(IY+#26)",
+      "after": "(IY+FSpaceObject.Flags2)",
+      "offset": 38
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipClass.asm",
+      "line": 47,
+      "before": "(IY+#21)",
+      "after": "(IY+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipClass.asm",
+      "line": 49,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Objects/ComputeFaceVisibility.asm",
+      "line": 29,
+      "before": "(IX+#11)",
+      "after": "(IX+FModel.Normals+FSignWord.SignHigh)",
+      "offset": 17
+    },
+    {
+      "file": "Source/Game/Objects/ComputeFaceVisibility.asm",
+      "line": 34,
+      "before": "(IY+#13)",
+      "after": "(IY+FModel.NormalScale)",
+      "offset": 19
+    },
+    {
+      "file": "Source/Game/Objects/ComputeFaceVisibility.asm",
+      "line": 36,
+      "before": "(IY+#05)",
+      "after": "(IY+FModel.NormalCount)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Objects/DotProduct16By8.asm",
+      "line": 21,
+      "before": "(IY+#01)",
+      "after": "(IY+FAxis.X+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Objects/DotProduct16By8.asm",
+      "line": 22,
+      "before": "(IY+#00)",
+      "after": "(IY+FAxis.X+FSignWord.Low)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Objects/DotProduct16By8.asm",
+      "line": 23,
+      "before": "(IX+#00)",
+      "after": "(IX+FVector3.X)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Objects/DotProduct16By8.asm",
+      "line": 27,
+      "before": "(IY+#03)",
+      "after": "(IY+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Objects/DotProduct16By8.asm",
+      "line": 28,
+      "before": "(IY+#02)",
+      "after": "(IY+FAxis.Y+FSignWord.Low)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Objects/DotProduct16By8.asm",
+      "line": 29,
+      "before": "(IX+#01)",
+      "after": "(IX+FVector3.Y)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Objects/DotProduct16By8.asm",
+      "line": 33,
+      "before": "(IY+#05)",
+      "after": "(IY+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Objects/DotProduct16By8.asm",
+      "line": 34,
+      "before": "(IY+#04)",
+      "after": "(IY+FAxis.Z+FSignWord.Low)",
+      "offset": 4
+    },
+    {
+      "file": "Source/Game/Objects/DotProduct16By8.asm",
+      "line": 35,
+      "before": "(IX+#02)",
+      "after": "(IX+FVector3.Z)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 22,
+      "before": "(IX+#0C)",
+      "after": "(IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+      "offset": 12
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 23,
+      "before": "(IX+#14)",
+      "after": "(IX+FSpaceObject.AxisY.Z+FSignWord.SignHigh)",
+      "offset": 20
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 24,
+      "before": "(IX+#0E)",
+      "after": "(IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+      "offset": 14
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 25,
+      "before": "(IX+#12)",
+      "after": "(IX+FSpaceObject.AxisY.Y+FSignWord.SignHigh)",
+      "offset": 18
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 27,
+      "before": "(IX+#16)",
+      "after": "(IX+FSpaceObject.AxisZ.X+FSignWord.SignHigh)",
+      "offset": 22
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 28,
+      "before": "(IY+#01)",
+      "after": "(IY+FMatrix3.X.X+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 29,
+      "before": "(IX+#0E)",
+      "after": "(IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+      "offset": 14
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 30,
+      "before": "(IY+#11)",
+      "after": "(IY+FMatrix3.Z.Z+FSignWord.SignHigh)",
+      "offset": 17
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 31,
+      "before": "(IX+#10)",
+      "after": "(IX+FSpaceObject.AxisY.X+FSignWord.SignHigh)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 32,
+      "before": "(IY+#03)",
+      "after": "(IY+FMatrix3.X.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 33,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 34,
+      "before": "(IX+#14)",
+      "after": "(IX+FSpaceObject.AxisY.Z+FSignWord.SignHigh)",
+      "offset": 20
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 35,
+      "before": "(IY+#0F)",
+      "after": "(IY+FMatrix3.Z.Y+FSignWord.SignHigh)",
+      "offset": 15
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 37,
+      "before": "(IX+#18)",
+      "after": "(IX+FSpaceObject.AxisZ.Y+FSignWord.SignHigh)",
+      "offset": 24
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 38,
+      "before": "(IY+#07)",
+      "after": "(IY+FMatrix3.Y.X+FSignWord.SignHigh)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 39,
+      "before": "(IX+#0A)",
+      "after": "(IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+      "offset": 10
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 40,
+      "before": "(IY+#05)",
+      "after": "(IY+FMatrix3.X.Z+FSignWord.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 41,
+      "before": "(IX+#12)",
+      "after": "(IX+FSpaceObject.AxisY.Y+FSignWord.SignHigh)",
+      "offset": 18
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 42,
+      "before": "(IY+#09)",
+      "after": "(IY+FMatrix3.Y.Y+FSignWord.SignHigh)",
+      "offset": 9
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 43,
+      "before": "(IX+#0C)",
+      "after": "(IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+      "offset": 12
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 44,
+      "before": "(IY+#0B)",
+      "after": "(IY+FMatrix3.Y.Z+FSignWord.SignHigh)",
+      "offset": 11
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 45,
+      "before": "(IX+#10)",
+      "after": "(IX+FSpaceObject.AxisY.X+FSignWord.SignHigh)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 47,
+      "before": "(IX+#1A)",
+      "after": "(IX+FSpaceObject.AxisZ.Z+FSignWord.SignHigh)",
+      "offset": 26
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 48,
+      "before": "(IY+#0D)",
+      "after": "(IY+FMatrix3.Z.X+FSignWord.SignHigh)",
+      "offset": 13
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "line": 29,
+      "before": "(IY+#03)",
+      "after": "(IY+FModel.VertexCount)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "line": 31,
+      "before": "(IY+#0D)",
+      "after": "(IY+FModel.Vertices+FSignWord.SignHigh)",
+      "offset": 13
+    },
+    {
+      "file": "Source/Game/Wireframe/LocateFaceNormalData.asm",
+      "line": 23,
+      "before": "(IX+#10)",
+      "after": "(IX+FModel.Normals)",
+      "offset": 16
+    },
+    {
+      "file": "Source/Game/Wireframe/LocateFaceNormalData.asm",
+      "line": 25,
+      "before": "(IY+#05)",
+      "after": "(IY+FModel.NormalCount)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Wireframe/LocateVertexCoordinateData.asm",
+      "line": 26,
+      "before": "(IY+#0C)",
+      "after": "(IY+FModel.Vertices)",
+      "offset": 12
+    },
+    {
+      "file": "Source/Game/Wireframe/CorrectYAxisComponent.asm",
+      "line": 23,
+      "before": "(IX+#01)",
+      "after": "(IX+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/CorrectYAxisComponent.asm",
+      "line": 30,
+      "before": "(IX+#01)",
+      "after": "(IX+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/CorrectYAxisComponent.asm",
+      "line": 33,
+      "before": "(IY+#01)",
+      "after": "(IY+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/CorrectYAxisComponent.asm",
+      "line": 55,
+      "before": "(IY+#01)",
+      "after": "(IY+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 48,
+      "before": "(IX+#00)",
+      "after": "(IX+FVector3.X)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 49,
+      "before": "(IX+#01)",
+      "after": "(IX+FVector3.Y)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 50,
+      "before": "(IX+#02)",
+      "after": "(IX+FVector3.Z)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 77,
+      "before": "(IX+#00)",
+      "after": "(IX+FSpaceObject.X.Fraction)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 78,
+      "before": "(IX+#01)",
+      "after": "(IX+FSpaceObject.X.Low)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 79,
+      "before": "(IX+#02)",
+      "after": "(IX+FSpaceObject.X.SignHigh)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 89,
+      "before": "(IX+#03)",
+      "after": "(IX+FSpaceObject.Y.Fraction)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 90,
+      "before": "(IX+#04)",
+      "after": "(IX+FSpaceObject.Y.Low)",
+      "offset": 4
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 91,
+      "before": "(IX+#05)",
+      "after": "(IX+FSpaceObject.Y.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 101,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 102,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 103,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "line": 156,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "line": 49,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "line": 51,
+      "before": "(IY+#14)",
+      "after": "(IY+FModel.LaserVertex)",
+      "offset": 20
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "line": 73,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Wireframe/FinishObjectAndDrawLaser.asm",
+      "line": 22,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadObjectTacticsGates.asm",
+      "line": 30,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33
+    },
+    {
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "line": 25,
+      "before": "(IX+#1C)",
+      "after": "(IX+FSpaceObject.Acceleration)",
+      "offset": 28
+    },
+    {
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "line": 27,
+      "before": "(IX+#1D)",
+      "after": "(IX+FSpaceObject.Roll)",
+      "offset": 29
+    },
+    {
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "line": 29,
+      "before": "(IX+#1F)",
+      "after": "(IX+FSpaceObject.Payload)",
+      "offset": 31
+    },
+    {
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "line": 44,
+      "before": "(IX+#1E)",
+      "after": "(IX+FSpaceObject.Pitch)",
+      "offset": 30
+    },
+    {
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "line": 45,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyScaledVertexComponent.asm",
+      "line": 26,
+      "before": "(IY+#01)",
+      "after": "(IY+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 24,
+      "before": "(IX+#00)",
+      "after": "(IX+FVector3.X)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 25,
+      "before": "(IY+#01)",
+      "after": "(IY+FAxis.X+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 30,
+      "before": "(IY+#01)",
+      "after": "(IY+FAxis.X+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 33,
+      "before": "(IY+#12)",
+      "after": "(IY+FMatrix3+FAxis.X+FSignWord.Low)",
+      "offset": 18
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 34,
+      "before": "(IY+#13)",
+      "after": "(IY+FMatrix3+FAxis.X+FSignWord.SignHigh)",
+      "offset": 19
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 36,
+      "before": "(IX+#01)",
+      "after": "(IX+FVector3.Y)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 37,
+      "before": "(IY+#03)",
+      "after": "(IY+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 45,
+      "before": "(IY+#03)",
+      "after": "(IY+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 3
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 48,
+      "before": "(IY+#14)",
+      "after": "(IY+FMatrix3+FAxis.Y+FSignWord.Low)",
+      "offset": 20
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 49,
+      "before": "(IY+#15)",
+      "after": "(IY+FMatrix3+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 21
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 53,
+      "before": "(IX+#02)",
+      "after": "(IX+FVector3.Z)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 54,
+      "before": "(IY+#05)",
+      "after": "(IY+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 63,
+      "before": "(IY+#05)",
+      "after": "(IY+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 5
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 66,
+      "before": "(IY+#16)",
+      "after": "(IY+FMatrix3+FAxis.Z+FSignWord.Low)",
+      "offset": 22
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 67,
+      "before": "(IY+#17)",
+      "after": "(IY+FMatrix3+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 23
+    },
+    {
+      "file": "Source/Game/Wireframe/SumCachedVertexProducts.asm",
+      "line": 27,
+      "before": "(IY+#12)",
+      "after": "(IY+FMatrix3+FAxis.X+FSignWord.Low)",
+      "offset": 18
+    },
+    {
+      "file": "Source/Game/Wireframe/SumCachedVertexProducts.asm",
+      "line": 28,
+      "before": "(IY+#13)",
+      "after": "(IY+FMatrix3+FAxis.X+FSignWord.SignHigh)",
+      "offset": 19
+    },
+    {
+      "file": "Source/Game/Wireframe/SumCachedVertexProducts.asm",
+      "line": 29,
+      "before": "(IY+#14)",
+      "after": "(IY+FMatrix3+FAxis.Y+FSignWord.Low)",
+      "offset": 20
+    },
+    {
+      "file": "Source/Game/Wireframe/SumCachedVertexProducts.asm",
+      "line": 30,
+      "before": "(IY+#15)",
+      "after": "(IY+FMatrix3+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 21
+    },
+    {
+      "file": "Source/Game/Wireframe/SumCachedVertexProducts.asm",
+      "line": 34,
+      "before": "(IY+#13)",
+      "after": "(IY+FMatrix3+FAxis.X+FSignWord.SignHigh)",
+      "offset": 19
+    },
+    {
+      "file": "Source/Game/Wireframe/SumCachedVertexProducts.asm",
+      "line": 40,
+      "before": "(IY+#15)",
+      "after": "(IY+FMatrix3+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 21
+    },
+    {
+      "file": "Source/Game/Wireframe/SumCachedVertexProducts.asm",
+      "line": 43,
+      "before": "(IY+#16)",
+      "after": "(IY+FMatrix3+FAxis.Z+FSignWord.Low)",
+      "offset": 22
+    },
+    {
+      "file": "Source/Game/Wireframe/SumCachedVertexProducts.asm",
+      "line": 44,
+      "before": "(IY+#17)",
+      "after": "(IY+FMatrix3+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 23
+    },
+    {
+      "file": "Source/Game/Wireframe/SumCachedVertexProducts.asm",
+      "line": 50,
+      "before": "(IY+#17)",
+      "after": "(IY+FMatrix3+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 23
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 36,
+      "before": "(IY+#12)",
+      "after": "(IY+FMatrix3+FSignWord.Low)",
+      "offset": 18
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 37,
+      "before": "(IY+#13)",
+      "after": "(IY+FMatrix3+FSignWord.SignHigh)",
+      "offset": 19
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 38,
+      "before": "(IY+#14)",
+      "after": "(IY+FMatrix3+FAxis.Y+FSignWord.Low)",
+      "offset": 20
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 39,
+      "before": "(IY+#15)",
+      "after": "(IY+FMatrix3+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 21
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 43,
+      "before": "(IY+#13)",
+      "after": "(IY+FMatrix3+FSignWord.SignHigh)",
+      "offset": 19
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 49,
+      "before": "(IY+#15)",
+      "after": "(IY+FMatrix3+FAxis.Y+FSignWord.SignHigh)",
+      "offset": 21
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 52,
+      "before": "(IY+#16)",
+      "after": "(IY+FMatrix3+FAxis.Z+FSignWord.Low)",
+      "offset": 22
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 53,
+      "before": "(IY+#17)",
+      "after": "(IY+FMatrix3+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 23
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 59,
+      "before": "(IY+#17)",
+      "after": "(IY+FMatrix3+FAxis.Z+FSignWord.SignHigh)",
+      "offset": 23
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 66,
+      "before": "(IX+#00)",
+      "after": "(IX+FVector3.X)",
+      "offset": 0
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 69,
+      "before": "(IY+#01)",
+      "after": "(IY+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 72,
+      "before": "(IY+#12)",
+      "after": "(IY+FMatrix3+FSignWord.Low)",
+      "offset": 18
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 73,
+      "before": "(IY+#13)",
+      "after": "(IY+FMatrix3+FSignWord.SignHigh)",
+      "offset": 19
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 77,
+      "before": "(IX+#01)",
+      "after": "(IX+FVector3.Y)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 81,
+      "before": "(IY+#01)",
+      "after": "(IY+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 84,
+      "before": "(IY+#12)",
+      "after": "(IY+FMatrix3+FSignWord.Low)",
+      "offset": 18
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 85,
+      "before": "(IY+#13)",
+      "after": "(IY+FMatrix3+FSignWord.SignHigh)",
+      "offset": 19
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 91,
+      "before": "(IX+#02)",
+      "after": "(IX+FVector3.Z)",
+      "offset": 2
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 96,
+      "before": "(IY+#01)",
+      "after": "(IY+FSignWord.SignHigh)",
+      "offset": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 99,
+      "before": "(IY+#12)",
+      "after": "(IY+FMatrix3+FSignWord.Low)",
+      "offset": 18
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 100,
+      "before": "(IY+#13)",
+      "after": "(IY+FMatrix3+FSignWord.SignHigh)",
+      "offset": 19
+    },
+    {
+      "file": "Source/Game/Universe/AdvanceCircularObjectEffect.asm",
+      "line": 36,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEcmToStandardMissile.asm",
+      "line": 19,
+      "before": "(IX+#23)",
+      "after": "(IX+FSpaceObject.Blueprint)",
+      "offset": 35,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEcmToStandardMissile.asm",
+      "line": 22,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEcmToStandardMissile.asm",
+      "line": 23,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/SetStationEnergy.asm",
+      "line": 19,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "line": 29,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "line": 41,
+      "before": "(IX+#24)",
+      "after": "(IX+FSpaceObject.Blueprint+1)",
+      "offset": 36,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "line": 42,
+      "before": "(IX+#23)",
+      "after": "(IX+FSpaceObject.Blueprint)",
+      "offset": 35,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "line": 79,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "line": 82,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "line": 96,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "line": 98,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "line": 99,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+      "line": 28,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+      "line": 35,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+      "line": 38,
+      "before": "(IX+#02)",
+      "after": "(IX+FSpaceObject.X.SignHigh)",
+      "offset": 2,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+      "line": 41,
+      "before": "(IX+#05)",
+      "after": "(IX+FSpaceObject.Y.SignHigh)",
+      "offset": 5,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+      "line": 45,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "IX передаётся из обхода основного пула либо явно установлен в #6048"
+    },
+    {
+      "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+      "line": 32,
+      "before": "(IY+#08)",
+      "after": "(IY+FEffectRecord10.Links)",
+      "offset": 8,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+      "line": 34,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/FindInteractingObject.asm",
+      "line": 24,
+      "before": "(IY+#00)",
+      "after": "(IY+FEffectRecord10.TypeFlags)",
+      "offset": 0,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/FindInteractingObject.asm",
+      "line": 25,
+      "before": "(IY+#08)",
+      "after": "(IY+FEffectRecord10.Links)",
+      "offset": 8,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/FindInteractingObject.asm",
+      "line": 27,
+      "before": "(IX+#23)",
+      "after": "(IX+FSpaceObject.Blueprint)",
+      "offset": 35,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/FindInteractingObject.asm",
+      "line": 30,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/FindInteractingObject.asm",
+      "line": 32,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 48,
+      "before": "(IY+#07)",
+      "after": "(IY+FEffectRecord10.Timer)",
+      "offset": 7,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 51,
+      "before": "(IX+#16)",
+      "after": "(IX+FSpaceObject.AxisZ.X+FSignWord.SignHigh)",
+      "offset": 22,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 58,
+      "before": "(IY+#07)",
+      "after": "(IY+FEffectRecord10.Timer)",
+      "offset": 7,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 62,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 76,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 80,
+      "before": "(IY+#08)",
+      "after": "(IY+FEffectRecord10.Links)",
+      "offset": 8,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 107,
+      "before": "(IY+#04)",
+      "after": "(IY+FEffectRecord10.SecondFlags)",
+      "offset": 4,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 108,
+      "before": "(IY+#05)",
+      "after": "(IY+FEffectRecord10.SecondX)",
+      "offset": 5,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 109,
+      "before": "(IY+#06)",
+      "after": "(IY+FEffectRecord10.SecondY)",
+      "offset": 6,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 113,
+      "before": "(IY+#01)",
+      "after": "(IY+FEffectRecord10.FirstFlags)",
+      "offset": 1,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 114,
+      "before": "(IY+#02)",
+      "after": "(IY+FEffectRecord10.FirstX)",
+      "offset": 2,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 115,
+      "before": "(IY+#03)",
+      "after": "(IY+FEffectRecord10.FirstY)",
+      "offset": 3,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 158,
+      "before": "(IY+#07)",
+      "after": "(IY+FEffectRecord10.Timer)",
+      "offset": 7,
+      "evidence": "IX проходит основной пул, IY указывает в десятибайтовый параллельный пул"
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "line": 40,
+      "before": "(IX+#23)",
+      "after": "(IX+FSpaceObject.Blueprint)",
+      "offset": 35,
+      "evidence": "основной вход читает указатель модели из IX, отдельный #7B15 получает IY модели"
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "line": 41,
+      "before": "(IX+#24)",
+      "after": "(IX+FSpaceObject.Blueprint+1)",
+      "offset": 36,
+      "evidence": "основной вход читает указатель модели из IX, отдельный #7B15 получает IY модели"
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "line": 98,
+      "before": "(IY+#14)",
+      "after": "(IY+FModel.LaserVertex)",
+      "offset": 20,
+      "evidence": "основной вход читает указатель модели из IX, отдельный #7B15 получает IY модели"
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "line": 30,
+      "before": "(IY+#00)",
+      "after": "(IY+FEffectRecord10.TypeFlags)",
+      "offset": 0,
+      "evidence": "IY+0/+8 читаются из метаданных, EX (SP),IY перед уроном выбирает основной слот цели для +20/+22"
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "line": 43,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37,
+      "evidence": "IY+0/+8 читаются из метаданных, EX (SP),IY перед уроном выбирает основной слот цели для +20/+22"
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "line": 60,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "IY+0/+8 читаются из метаданных, EX (SP),IY перед уроном выбирает основной слот цели для +20/+22"
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "line": 80,
+      "before": "(IY+#08)",
+      "after": "(IY+FEffectRecord10.Links)",
+      "offset": 8,
+      "evidence": "IY+0/+8 читаются из метаданных, EX (SP),IY перед уроном выбирает основной слот цели для +20/+22"
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "line": 86,
+      "before": "(IY+#08)",
+      "after": "(IY+FEffectRecord10.Links)",
+      "offset": 8,
+      "evidence": "IY+0/+8 читаются из метаданных, EX (SP),IY перед уроном выбирает основной слот цели для +20/+22"
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "line": 90,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IY+0/+8 читаются из метаданных, EX (SP),IY перед уроном выбирает основной слот цели для +20/+22"
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "line": 96,
+      "before": "(IY+#22)",
+      "after": "(IY+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IY+0/+8 читаются из метаданных, EX (SP),IY перед уроном выбирает основной слот цели для +20/+22"
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "line": 100,
+      "before": "(IY+#20)",
+      "after": "(IY+FSpaceObject.Flags)",
+      "offset": 32,
+      "evidence": "IY+0/+8 читаются из метаданных, EX (SP),IY перед уроном выбирает основной слот цели для +20/+22"
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "line": 111,
+      "before": "(IY+#22)",
+      "after": "(IY+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IY+0/+8 читаются из метаданных, EX (SP),IY перед уроном выбирает основной слот цели для +20/+22"
+    },
+    {
+      "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+      "line": 21,
+      "before": "(IX+#08)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.SignHigh)",
+      "offset": 8,
+      "evidence": "#7EDE передаёт солнце, планету и станцию, общим является только девятибайтовое положение"
+    },
+    {
+      "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+      "line": 22,
+      "before": "(IX+#07)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.Low)",
+      "offset": 7,
+      "evidence": "#7EDE передаёт солнце, планету и станцию, общим является только девятибайтовое положение"
+    },
+    {
+      "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+      "line": 32,
+      "before": "(IX+#08)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.SignHigh)",
+      "offset": 8,
+      "evidence": "#7EDE передаёт солнце, планету и станцию, общим является только девятибайтовое положение"
+    },
+    {
+      "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+      "line": 33,
+      "before": "(IX+#07)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.Low)",
+      "offset": 7,
+      "evidence": "#7EDE передаёт солнце, планету и станцию, общим является только девятибайтовое положение"
+    },
+    {
+      "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+      "line": 37,
+      "before": "(IX+#06)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.Fraction)",
+      "offset": 6,
+      "evidence": "#7EDE передаёт солнце, планету и станцию, общим является только девятибайтовое положение"
+    },
+    {
+      "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+      "line": 41,
+      "before": "(IX+#08)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.SignHigh)",
+      "offset": 8,
+      "evidence": "#7EDE передаёт солнце, планету и станцию, общим является только девятибайтовое положение"
+    },
+    {
+      "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+      "line": 42,
+      "before": "(IX+#07)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.Low)",
+      "offset": 7,
+      "evidence": "#7EDE передаёт солнце, планету и станцию, общим является только девятибайтовое положение"
+    },
+    {
+      "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+      "line": 43,
+      "before": "(IX+#06)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.Fraction)",
+      "offset": 6,
+      "evidence": "#7EDE передаёт солнце, планету и станцию, общим является только девятибайтовое положение"
+    },
+    {
+      "file": "Source/Game/Universe/CompareObjectAxisDistance.asm",
+      "line": 26,
+      "before": "(IX-#01)",
+      "after": "(IX-PrevSign)",
+      "offset": -1,
+      "evidence": "перед чтением оба указателя увеличены на три, отрицательные отступы относятся к прежней координате"
+    },
+    {
+      "file": "Source/Game/Universe/CompareObjectAxisDistance.asm",
+      "line": 27,
+      "before": "(IY-#01)",
+      "after": "(IY-PrevSign)",
+      "offset": -1,
+      "evidence": "перед чтением оба указателя увеличены на три, отрицательные отступы относятся к прежней координате"
+    },
+    {
+      "file": "Source/Game/Universe/CompareObjectAxisDistance.asm",
+      "line": 28,
+      "before": "(IX-#02)",
+      "after": "(IX-PrevLow)",
+      "offset": -2,
+      "evidence": "перед чтением оба указателя увеличены на три, отрицательные отступы относятся к прежней координате"
+    },
+    {
+      "file": "Source/Game/Universe/CompareObjectAxisDistance.asm",
+      "line": 29,
+      "before": "(IY-#02)",
+      "after": "(IY-PrevLow)",
+      "offset": -2,
+      "evidence": "перед чтением оба указателя увеличены на три, отрицательные отступы относятся к прежней координате"
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "line": 21,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37,
+      "evidence": "IX сохраняет адрес основного слота, изменение слота выполняется штатными конструкторами"
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "line": 22,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "IX сохраняет адрес основного слота, изменение слота выполняется штатными конструкторами"
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "line": 24,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32,
+      "evidence": "IX сохраняет адрес основного слота, изменение слота выполняется штатными конструкторами"
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "line": 59,
+      "before": "(IX+#23)",
+      "after": "(IX+FSpaceObject.Blueprint)",
+      "offset": 35,
+      "evidence": "IX сохраняет адрес основного слота, изменение слота выполняется штатными конструкторами"
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "line": 60,
+      "before": "(IX+#24)",
+      "after": "(IX+FSpaceObject.Blueprint+1)",
+      "offset": 36,
+      "evidence": "IX сохраняет адрес основного слота, изменение слота выполняется штатными конструкторами"
+    },
+    {
+      "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+      "line": 21,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "IX сохраняет адрес основного слота, изменение слота выполняется штатными конструкторами"
+    },
+    {
+      "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+      "line": 23,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX сохраняет адрес основного слота, изменение слота выполняется штатными конструкторами"
+    },
+    {
+      "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+      "line": 27,
+      "before": "(IX+#25)",
+      "after": "(IX+FSpaceObject.Target)",
+      "offset": 37,
+      "evidence": "IX сохраняет адрес основного слота, изменение слота выполняется штатными конструкторами"
+    },
+    {
+      "file": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm",
+      "line": 25,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "IX сохраняет адрес основного слота, изменение слота выполняется штатными конструкторами"
+    },
+    {
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "line": 23,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "IX сохраняет адрес основного слота, изменение слота выполняется штатными конструкторами"
+    },
+    {
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "line": 26,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33,
+      "evidence": "IX сохраняет адрес основного слота, изменение слота выполняется штатными конструкторами"
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "line": 17,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "IX и IY переданы как два основных слота столкновения"
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "line": 28,
+      "before": "(IY+#26)",
+      "after": "(IY+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "IX и IY переданы как два основных слота столкновения"
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "line": 34,
+      "before": "(IY+#22)",
+      "after": "(IY+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX и IY переданы как два основных слота столкновения"
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "line": 38,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX и IY переданы как два основных слота столкновения"
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "line": 21,
+      "before": "(IY+#00)",
+      "after": "(IY+FEffectRecord10.TypeFlags)",
+      "offset": 0,
+      "evidence": "IY сохраняется и загружается из #B452, затем восстанавливается до работы с IX объекта"
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "line": 28,
+      "before": "(IY+#09)",
+      "after": "(IY+FEffectRecord10.Fallback)",
+      "offset": 9,
+      "evidence": "IY сохраняется и загружается из #B452, затем восстанавливается до работы с IX объекта"
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "line": 30,
+      "before": "(IY+#08)",
+      "after": "(IY+FEffectRecord10.Links)",
+      "offset": 8,
+      "evidence": "IY сохраняется и загружается из #B452, затем восстанавливается до работы с IX объекта"
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "line": 32,
+      "before": "(IY+#07)",
+      "after": "(IY+FEffectRecord10.Timer)",
+      "offset": 7,
+      "evidence": "IY сохраняется и загружается из #B452, затем восстанавливается до работы с IX объекта"
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "line": 54,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32,
+      "evidence": "IY сохраняется и загружается из #B452, затем восстанавливается до работы с IX объекта"
+    },
+    {
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "line": 20,
+      "before": "(IY+#02)",
+      "after": "(IY+FCoordinate.SignHigh)",
+      "offset": 2,
+      "evidence": "IY сначала увеличен на три, +1/+2 относятся уже к выбранной следующей координате"
+    },
+    {
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "line": 23,
+      "before": "(IX+#02)",
+      "after": "(IX+FCoordinate.SignHigh)",
+      "offset": 2,
+      "evidence": "IY сначала увеличен на три, +1/+2 относятся уже к выбранной следующей координате"
+    },
+    {
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "line": 31,
+      "before": "(IX+#01)",
+      "after": "(IX+FCoordinate.Low)",
+      "offset": 1,
+      "evidence": "IY сначала увеличен на три, +1/+2 относятся уже к выбранной следующей координате"
+    },
+    {
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "line": 32,
+      "before": "(IY+#01)",
+      "after": "(IY+FCoordinate.Low)",
+      "offset": 1,
+      "evidence": "IY сначала увеличен на три, +1/+2 относятся уже к выбранной следующей координате"
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "line": 52,
+      "before": "(IX+#08)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.SignHigh)",
+      "offset": 8,
+      "evidence": "отдельный вход #5FD5 проверяет Z тройки координат, в частности IX=#7110 для планеты"
+    },
+    {
+      "file": "Source/Game/Extensions/AllocateVariantObjectSlot.asm",
+      "line": 46,
+      "before": "(IX+#00)",
+      "after": "(IX+FEffectRecord10.TypeFlags)",
+      "offset": 0,
+      "evidence": "перед RES GetObjectMetadataAddress возвращает в IX десятибайтовую запись, POP IX восстанавливает слот"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "line": 58,
+      "before": "(IX+#49)",
+      "after": "(IX+FSpaceObject+FSpaceObject.Energy)",
+      "offset": 73,
+      "evidence": "IX=#6048, +49 есть #27+Energy, энергия следующего слота, а не поле станции"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "line": 80,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33,
+      "evidence": "IX=#6048, +49 есть #27+Energy, энергия следующего слота, а не поле станции"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "line": 96,
+      "before": "(IX+#49)",
+      "after": "(IX+FSpaceObject+FSpaceObject.Energy)",
+      "offset": 73,
+      "evidence": "IX=#6048, +49 есть #27+Energy, энергия следующего слота, а не поле станции"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 27,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "первый IX+26 относится к объекту, EX (SP),IX и ADD IX,DE выбирают блок рёбер, в цикле IX движется по потоку граней"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 33,
+      "before": "(IY+#0E)",
+      "after": "(IY+FModel.Edges)",
+      "offset": 14,
+      "evidence": "первый IX+26 относится к объекту, EX (SP),IX и ADD IX,DE выбирают блок рёбер, в цикле IX движется по потоку граней"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 34,
+      "before": "(IY+#0F)",
+      "after": "(IY+FModel.Edges+1)",
+      "offset": 15,
+      "evidence": "первый IX+26 относится к объекту, EX (SP),IX и ADD IX,DE выбирают блок рёбер, в цикле IX движется по потоку граней"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 35,
+      "before": "(IY+#04)",
+      "after": "(IY+FModel.EdgeCount)",
+      "offset": 4,
+      "evidence": "первый IX+26 относится к объекту, EX (SP),IX и ADD IX,DE выбирают блок рёбер, в цикле IX движется по потоку граней"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 40,
+      "before": "(IX+#00)",
+      "after": "(IX+ThresholdPtr)",
+      "offset": 0,
+      "evidence": "первый IX+26 относится к объекту, EX (SP),IX и ADD IX,DE выбирают блок рёбер, в цикле IX движется по потоку граней"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 41,
+      "before": "(IX+#01)",
+      "after": "(IX+ThresholdPtr+1)",
+      "offset": 1,
+      "evidence": "первый IX+26 относится к объекту, EX (SP),IX и ADD IX,DE выбирают блок рёбер, в цикле IX движется по потоку граней"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 42,
+      "before": "(IX+#02)",
+      "after": "(IX+VertexPtr)",
+      "offset": 2,
+      "evidence": "первый IX+26 относится к объекту, EX (SP),IX и ADD IX,DE выбирают блок рёбер, в цикле IX движется по потоку граней"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 43,
+      "before": "(IX+#03)",
+      "after": "(IX+VertexPtr+1)",
+      "offset": 3,
+      "evidence": "первый IX+26 относится к объекту, EX (SP),IX и ADD IX,DE выбирают блок рёбер, в цикле IX движется по потоку граней"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 69,
+      "before": "(IX+#04)",
+      "after": "(IX+FaceStream)",
+      "offset": 4,
+      "evidence": "первый IX+26 относится к объекту, EX (SP),IX и ADD IX,DE выбирают блок рёбер, в цикле IX движется по потоку граней"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 112,
+      "before": "(IX+#05)",
+      "after": "(IX+FaceStream+1)",
+      "offset": 5,
+      "evidence": "первый IX+26 относится к объекту, EX (SP),IX и ADD IX,DE выбирают блок рёбер, в цикле IX движется по потоку граней"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "line": 90,
+      "before": "(IX+#00)",
+      "after": "(IX+ProfileByte)",
+      "offset": 0,
+      "evidence": "IX временно загружен адресом #A8FA и проходит байты профиля вперёд, затем назад"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 33,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 36,
+      "before": "(IX+#01)",
+      "after": "(IX+FSpaceObject.X.Low)",
+      "offset": 1,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 39,
+      "before": "(IX+#04)",
+      "after": "(IX+FSpaceObject.Y.Low)",
+      "offset": 4,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 42,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 46,
+      "before": "(IX+#01)",
+      "after": "(IX+FSpaceObject.X.Low)",
+      "offset": 1,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 49,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 63,
+      "before": "(IX+#00)",
+      "after": "(IX+FSpaceObject.X.Fraction)",
+      "offset": 0,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 64,
+      "before": "(IX+#01)",
+      "after": "(IX+FSpaceObject.X.Low)",
+      "offset": 1,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 75,
+      "before": "(IX+#02)",
+      "after": "(IX+FSpaceObject.X.SignHigh)",
+      "offset": 2,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 80,
+      "before": "(IX+#03)",
+      "after": "(IX+FSpaceObject.Y.Fraction)",
+      "offset": 3,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 81,
+      "before": "(IX+#04)",
+      "after": "(IX+FSpaceObject.Y.Low)",
+      "offset": 4,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 88,
+      "before": "(IX+#05)",
+      "after": "(IX+FSpaceObject.Y.SignHigh)",
+      "offset": 5,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 96,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 97,
+      "before": "(IX+#07)",
+      "after": "(IX+FSpaceObject.Z.Low)",
+      "offset": 7,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 104,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8,
+      "evidence": "IX начинается с #6048 и продвигается общим хвостом сканера на размер слота"
+    },
+    {
+      "file": "Source/Game/Screen/CheckDockingAlignment.asm",
+      "line": 25,
+      "before": "(IX+#1A)",
+      "after": "(IX+FSpaceObject.AxisZ.Z+FSignWord.SignHigh)",
+      "offset": 26,
+      "evidence": "вызывающий HandleObjectCollision передаёт основной объект станции"
+    },
+    {
+      "file": "Source/Game/Screen/CheckDockingAlignment.asm",
+      "line": 30,
+      "before": "(IX+#00)",
+      "after": "(IX+FSpaceObject.X.Fraction)",
+      "offset": 0,
+      "evidence": "вызывающий HandleObjectCollision передаёт основной объект станции"
+    },
+    {
+      "file": "Source/Game/Screen/CheckDockingAlignment.asm",
+      "line": 32,
+      "before": "(IX+#03)",
+      "after": "(IX+FSpaceObject.Y.Fraction)",
+      "offset": 3,
+      "evidence": "вызывающий HandleObjectCollision передаёт основной объект станции"
+    },
+    {
+      "file": "Source/Game/Screen/SunDistanceHint.asm",
+      "line": 27,
+      "before": "(IX+#08)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.SignHigh)",
+      "offset": 8,
+      "evidence": "IX явно выбирает девятибайтовое положение солнца либо планеты"
+    },
+    {
+      "file": "Source/Game/Screen/SunDistanceHint.asm",
+      "line": 28,
+      "before": "(IX+#05)",
+      "after": "(IX+FCoordinate+FCoordinate.SignHigh)",
+      "offset": 5,
+      "evidence": "IX явно выбирает девятибайтовое положение солнца либо планеты"
+    },
+    {
+      "file": "Source/Game/Screen/SunDistanceHint.asm",
+      "line": 29,
+      "before": "(IX+#02)",
+      "after": "(IX+FCoordinate.SignHigh)",
+      "offset": 2,
+      "evidence": "IX явно выбирает девятибайтовое положение солнца либо планеты"
+    },
+    {
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "line": 26,
+      "before": "(IX+#02)",
+      "after": "(IX+FCoordinate.SignHigh)",
+      "offset": 2,
+      "evidence": "IX явно выбирает девятибайтовое положение солнца либо планеты"
+    },
+    {
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "line": 27,
+      "before": "(IX+#05)",
+      "after": "(IX+FCoordinate+FCoordinate.SignHigh)",
+      "offset": 5,
+      "evidence": "IX явно выбирает девятибайтовое положение солнца либо планеты"
+    },
+    {
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "line": 28,
+      "before": "(IX+#08)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.SignHigh)",
+      "offset": 8,
+      "evidence": "IX явно выбирает девятибайтовое положение солнца либо планеты"
+    },
+    {
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "line": 69,
+      "before": "(IX+#02)",
+      "after": "(IX+FCoordinate.SignHigh)",
+      "offset": 2,
+      "evidence": "IX явно выбирает девятибайтовое положение солнца либо планеты"
+    },
+    {
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "line": 70,
+      "before": "(IX+#05)",
+      "after": "(IX+FCoordinate+FCoordinate.SignHigh)",
+      "offset": 5,
+      "evidence": "IX явно выбирает девятибайтовое положение солнца либо планеты"
+    },
+    {
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "line": 71,
+      "before": "(IX+#08)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.SignHigh)",
+      "offset": 8,
+      "evidence": "IX явно выбирает девятибайтовое положение солнца либо планеты"
+    },
+    {
+      "file": "Source/Game/Screen/CompassFarAxis.asm",
+      "line": 20,
+      "before": "(IX+#00)",
+      "after": "(IX+FCoordinate.Fraction)",
+      "offset": 0,
+      "evidence": "IX указывает на начало текущей трёхбайтовой координаты, сохраняется общим делителем"
+    },
+    {
+      "file": "Source/Game/Screen/CompassFarAxis.asm",
+      "line": 21,
+      "before": "(IX+#01)",
+      "after": "(IX+FCoordinate.Low)",
+      "offset": 1,
+      "evidence": "IX указывает на начало текущей трёхбайтовой координаты, сохраняется общим делителем"
+    },
+    {
+      "file": "Source/Game/Screen/CompassFarAxis.asm",
+      "line": 22,
+      "before": "(IX+#02)",
+      "after": "(IX+FCoordinate.SignHigh)",
+      "offset": 2,
+      "evidence": "IX указывает на начало текущей трёхбайтовой координаты, сохраняется общим делителем"
+    },
+    {
+      "file": "Source/Game/Screen/CompassFarAxis.asm",
+      "line": 33,
+      "before": "(IX+#02)",
+      "after": "(IX+FCoordinate.SignHigh)",
+      "offset": 2,
+      "evidence": "IX указывает на начало текущей трёхбайтовой координаты, сохраняется общим делителем"
+    },
+    {
+      "file": "Source/Game/Screen/CompassNearAxis.asm",
+      "line": 23,
+      "before": "(IX+#00)",
+      "after": "(IX+FCoordinate.Fraction)",
+      "offset": 0,
+      "evidence": "в первом входе IX=текущая координата, перед последним чтением указатель уже продвинут к Y, +5 даёт знак Z"
+    },
+    {
+      "file": "Source/Game/Screen/CompassNearAxis.asm",
+      "line": 24,
+      "before": "(IX+#01)",
+      "after": "(IX+FCoordinate.Low)",
+      "offset": 1,
+      "evidence": "в первом входе IX=текущая координата, перед последним чтением указатель уже продвинут к Y, +5 даёт знак Z"
+    },
+    {
+      "file": "Source/Game/Screen/CompassNearAxis.asm",
+      "line": 48,
+      "before": "(IX+#05)",
+      "after": "(IX+FCoordinate+FCoordinate.SignHigh)",
+      "offset": 5,
+      "evidence": "в первом входе IX=текущая координата, перед последним чтением указатель уже продвинут к Y, +5 даёт знак Z"
+    },
+    {
+      "file": "Source/Game/Screen/LoadVectorWords.asm",
+      "line": 19,
+      "before": "(IX+#00)",
+      "after": "(IX+FirstLow)",
+      "offset": 0,
+      "evidence": "IX выбирает младшее либо старшее слово первой координаты, поэтому части координаты нельзя именовать одинаково"
+    },
+    {
+      "file": "Source/Game/Screen/LoadVectorWords.asm",
+      "line": 20,
+      "before": "(IX+#01)",
+      "after": "(IX+FirstHigh)",
+      "offset": 1,
+      "evidence": "IX выбирает младшее либо старшее слово первой координаты, поэтому части координаты нельзя именовать одинаково"
+    },
+    {
+      "file": "Source/Game/Screen/LoadVectorWords.asm",
+      "line": 21,
+      "before": "(IX+#03)",
+      "after": "(IX+SecondLow)",
+      "offset": 3,
+      "evidence": "IX выбирает младшее либо старшее слово первой координаты, поэтому части координаты нельзя именовать одинаково"
+    },
+    {
+      "file": "Source/Game/Screen/LoadVectorWords.asm",
+      "line": 22,
+      "before": "(IX+#04)",
+      "after": "(IX+SecondHigh)",
+      "offset": 4,
+      "evidence": "IX выбирает младшее либо старшее слово первой координаты, поэтому части координаты нельзя именовать одинаково"
+    },
+    {
+      "file": "Source/Game/Screen/LoadVectorWords.asm",
+      "line": 23,
+      "before": "(IX+#06)",
+      "after": "(IX+ThirdLow)",
+      "offset": 6,
+      "evidence": "IX выбирает младшее либо старшее слово первой координаты, поэтому части координаты нельзя именовать одинаково"
+    },
+    {
+      "file": "Source/Game/Screen/LoadVectorWords.asm",
+      "line": 24,
+      "before": "(IX+#07)",
+      "after": "(IX+ThirdHigh)",
+      "offset": 7,
+      "evidence": "IX выбирает младшее либо старшее слово первой координаты, поэтому части координаты нельзя именовать одинаково"
+    },
+    {
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "line": 35,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX явно устанавливается в станционный слот #6048, очистка проходит последующие слоты"
+    },
+    {
+      "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+      "line": 19,
+      "before": "(IX+#21)",
+      "after": "(IX+FSpaceObject.Hostility)",
+      "offset": 33,
+      "evidence": "IX явно устанавливается в станционный слот #6048, очистка проходит последующие слоты"
+    },
+    {
+      "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+      "line": 25,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX явно устанавливается в станционный слот #6048, очистка проходит последующие слоты"
+    },
+    {
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 107,
+      "before": "(IX+#06)",
+      "after": "(IX+FSpaceObject.Z.Fraction)",
+      "offset": 6,
+      "evidence": "IX явно устанавливается в станционный слот #6048, очистка проходит последующие слоты"
+    },
+    {
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 109,
+      "before": "(IX+#08)",
+      "after": "(IX+FSpaceObject.Z.SignHigh)",
+      "offset": 8,
+      "evidence": "IX явно устанавливается в станционный слот #6048, очистка проходит последующие слоты"
+    },
+    {
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 111,
+      "before": "(IX+#0E)",
+      "after": "(IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+      "offset": 14,
+      "evidence": "IX явно устанавливается в станционный слот #6048, очистка проходит последующие слоты"
+    },
+    {
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 112,
+      "before": "(IX+#12)",
+      "after": "(IX+FSpaceObject.AxisY.Y+FSignWord.SignHigh)",
+      "offset": 18,
+      "evidence": "IX явно устанавливается в станционный слот #6048, очистка проходит последующие слоты"
+    },
+    {
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 113,
+      "before": "(IX+#16)",
+      "after": "(IX+FSpaceObject.AxisZ.X+FSignWord.SignHigh)",
+      "offset": 22,
+      "evidence": "IX явно устанавливается в станционный слот #6048, очистка проходит последующие слоты"
+    },
+    {
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 115,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "IX явно устанавливается в станционный слот #6048, очистка проходит последующие слоты"
+    },
+    {
+      "file": "Source/Game/Flight/HalfCoordinateDifference.asm",
+      "line": 17,
+      "before": "(IY+#02)",
+      "after": "(IY+FCoordinate.SignHigh)",
+      "offset": 2,
+      "evidence": "RebaseSunAgainstStation передаёт координаты станции и солнца, RebaseCoordinateAxis продвигает обе базы на три"
+    },
+    {
+      "file": "Source/Game/Flight/HalfCoordinateDifference.asm",
+      "line": 18,
+      "before": "(IY+#01)",
+      "after": "(IY+FCoordinate.Low)",
+      "offset": 1,
+      "evidence": "RebaseSunAgainstStation передаёт координаты станции и солнца, RebaseCoordinateAxis продвигает обе базы на три"
+    },
+    {
+      "file": "Source/Game/Flight/HalfCoordinateDifference.asm",
+      "line": 19,
+      "before": "(IX+#02)",
+      "after": "(IX+FCoordinate.SignHigh)",
+      "offset": 2,
+      "evidence": "RebaseSunAgainstStation передаёт координаты станции и солнца, RebaseCoordinateAxis продвигает обе базы на три"
+    },
+    {
+      "file": "Source/Game/Flight/HalfCoordinateDifference.asm",
+      "line": 20,
+      "before": "(IX+#01)",
+      "after": "(IX+FCoordinate.Low)",
+      "offset": 1,
+      "evidence": "RebaseSunAgainstStation передаёт координаты станции и солнца, RebaseCoordinateAxis продвигает обе базы на три"
+    },
+    {
+      "file": "Source/Game/Flight/RebaseCoordinateAxis.asm",
+      "line": 23,
+      "before": "(IY+#02)",
+      "after": "(IY+FCoordinate.SignHigh)",
+      "offset": 2,
+      "evidence": "запись производится до продвижения IY к следующей координате"
+    },
+    {
+      "file": "Source/Game/Flight/RebaseCoordinateAxis.asm",
+      "line": 24,
+      "before": "(IY+#01)",
+      "after": "(IY+FCoordinate.Low)",
+      "offset": 1,
+      "evidence": "запись производится до продвижения IY к следующей координате"
+    },
+    {
+      "file": "Source/Game/Circles/DetachMissileTarget.asm",
+      "line": 16,
+      "before": "(IY+#23)",
+      "after": "(IY+FSpaceObject.Blueprint)",
+      "offset": 35,
+      "evidence": "ReleaseMissileTargets передаёт IY основного слота зависимой ракеты"
+    },
+    {
+      "file": "Source/Game/Circles/DetachMissileTarget.asm",
+      "line": 18,
+      "before": "(IY+#20)",
+      "after": "(IY+FSpaceObject.Flags)",
+      "offset": 32,
+      "evidence": "ReleaseMissileTargets передаёт IY основного слота зависимой ракеты"
+    },
+    {
+      "file": "Source/Game/Circles/DetachMissileTarget.asm",
+      "line": 21,
+      "before": "(IY+#26)",
+      "after": "(IY+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "ReleaseMissileTargets передаёт IY основного слота зависимой ракеты"
+    },
+    {
+      "file": "Source/Game/Circles/DetachMissileTarget.asm",
+      "line": 22,
+      "before": "(IY+#25)",
+      "after": "(IY+FSpaceObject.Target)",
+      "offset": 37,
+      "evidence": "ReleaseMissileTargets передаёт IY основного слота зависимой ракеты"
+    },
+    {
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "line": 20,
+      "before": "(IX+#23)",
+      "after": "(IX+FSpaceObject.Blueprint)",
+      "offset": 35,
+      "evidence": "IX сохраняет слот поражённого объекта и затем создаваемого в том же месте контейнера"
+    },
+    {
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "line": 33,
+      "before": "(IX+#26)",
+      "after": "(IX+FSpaceObject.Flags2)",
+      "offset": 38,
+      "evidence": "IX сохраняет слот поражённого объекта и затем создаваемого в том же месте контейнера"
+    },
+    {
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "line": 37,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32,
+      "evidence": "StartObjectExplosion заменяет смысл полей движения экранными параметрами взрыва"
+    },
+    {
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "line": 45,
+      "before": "(IX+#1C)",
+      "after": "(IX+ExplodeX)",
+      "offset": 28,
+      "evidence": "StartObjectExplosion заменяет смысл полей движения экранными параметрами взрыва"
+    },
+    {
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "line": 46,
+      "before": "(IX+#1D)",
+      "after": "(IX+ExplodeY)",
+      "offset": 29,
+      "evidence": "StartObjectExplosion заменяет смысл полей движения экранными параметрами взрыва"
+    },
+    {
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "line": 48,
+      "before": "(IX+#1E)",
+      "after": "(IX+SignPhase)",
+      "offset": 30,
+      "evidence": "StartObjectExplosion заменяет смысл полей движения экранными параметрами взрыва"
+    },
+    {
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "line": 49,
+      "before": "(IX+#1F)",
+      "after": "(IX+Radius)",
+      "offset": 31,
+      "evidence": "StartObjectExplosion заменяет смысл полей движения экранными параметрами взрыва"
+    },
+    {
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "line": 65,
+      "before": "(IX+#20)",
+      "after": "(IX+FSpaceObject.Flags)",
+      "offset": 32,
+      "evidence": "StartObjectExplosion заменяет смысл полей движения экранными параметрами взрыва"
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "line": 20,
+      "before": "(IX+#23)",
+      "after": "(IX+FSpaceObject.Blueprint)",
+      "offset": 35,
+      "evidence": "#D6AA получает основной слот, сравнивает младший адрес Blueprint и меняет Energy"
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "line": 37,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "evidence": "#D6AA получает основной слот, сравнивает младший адрес Blueprint и меняет Energy"
+    },
+    {
+      "file": "Source/Game/Text/CheckObjectRandomGate.asm",
+      "line": 23,
+      "before": "(IX+#27)",
+      "after": "(IX+FSpaceObject)",
+      "offset": 39,
+      "evidence": "InitializeObject передаёт IX=слот и IY=заголовок модели, +27 является байтом сразу за слотом, не полем структуры"
+    },
+    {
+      "file": "Source/Game/Text/CheckObjectRandomGate.asm",
+      "line": 24,
+      "before": "(IY+#0A)",
+      "after": "(IY+FModel.LaunchMask)",
+      "offset": 10,
+      "evidence": "InitializeObject передаёт IX=слот и IY=заголовок модели, +27 является байтом сразу за слотом, не полем структуры"
+    },
+    {
+      "file": "Source/Game/Text/DrawViewFrame.asm",
+      "line": 25,
+      "before": "(IX+#00)",
+      "after": "(IX+LeftColumn)",
+      "offset": 0,
+      "evidence": "IX временно получает адрес начала пиксельной строки, +0/+31 её крайние байты"
+    },
+    {
+      "file": "Source/Game/Text/DrawViewFrame.asm",
+      "line": 26,
+      "before": "(IX+#1F)",
+      "after": "(IX+RightColumn)",
+      "offset": 31,
+      "evidence": "IX временно получает адрес начала пиксельной строки, +0/+31 её крайние байты"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 55,
+      "before": "(IX+#08)",
+      "after": "(IX+FCoordinate+FCoordinate+FCoordinate.SignHigh)",
+      "offset": 8,
+      "stage": "completion"
+    },
+    {
+      "file": "Source/Game/Input/MarkModelVisibilityMask.asm",
+      "line": 15,
+      "before": "(IX+#23)",
+      "after": "(IX+FSpaceObject.Blueprint)",
+      "offset": 35,
+      "stage": "completion"
+    },
+    {
+      "file": "Source/Game/Menus/ReadVisibleObjectByte.asm",
+      "line": 22,
+      "before": "(IX+#22)",
+      "after": "(IX+FSpaceObject.Energy)",
+      "offset": 34,
+      "stage": "completion"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 441,
+      "before": "(IX+#00)",
+      "after": "(IX+MaskByte)",
+      "offset": 0,
+      "stage": "completion"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 464,
+      "before": "(IX+#00)",
+      "after": "(IX+MaskByte)",
+      "offset": 0,
+      "stage": "completion"
+    }
+  ],
+  "count": 638,
+  "purpose": "проверенные базы IX/IY и равные числовые смещения, без перемещения памяти",
+  "remaining_phase_proof": [
+    {
+      "file": "Source/Game/Universe/AdvanceCircularObjectEffect.asm",
+      "before_sha256": "a7a8ff285eaca5d9487903bccbd14fa72a370d5d2616dec9e78ea32de0a29b69",
+      "after_sha256": "a7a8ff285eaca5d9487903bccbd14fa72a370d5d2616dec9e78ea32de0a29b69",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEcmToStandardMissile.asm",
+      "before_sha256": "b01919a7aed9a018069fa260f16b0f1a7dde230fe8e21127fd61bbffec772d39",
+      "after_sha256": "b01919a7aed9a018069fa260f16b0f1a7dde230fe8e21127fd61bbffec772d39",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Universe/SetStationEnergy.asm",
+      "before_sha256": "1171e3b7ad284cd61abca7d7fb3c4ff65864125e37f5bd4a795a4229b4bf1b39",
+      "after_sha256": "1171e3b7ad284cd61abca7d7fb3c4ff65864125e37f5bd4a795a4229b4bf1b39",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "before_sha256": "52d66672a9d14600f654486cbd0cc4e36b117f41cd400fcd8ea42ca698f6c595",
+      "after_sha256": "52d66672a9d14600f654486cbd0cc4e36b117f41cd400fcd8ea42ca698f6c595",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+      "before_sha256": "d18bb390699363d9cf5a2491c0c22a392db02faf7d81cc62d68d30e19aeba212",
+      "after_sha256": "d18bb390699363d9cf5a2491c0c22a392db02faf7d81cc62d68d30e19aeba212",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+      "before_sha256": "29e9ca5e93fc6d9888ee7ab18bc1f241f2e624747cd7ce4e18410d7d61458823",
+      "after_sha256": "29e9ca5e93fc6d9888ee7ab18bc1f241f2e624747cd7ce4e18410d7d61458823",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Universe/FindInteractingObject.asm",
+      "before_sha256": "2b3474c40712bcaded68121625b2ccf12e920023a2bd6263cc9de914aa29c9fd",
+      "after_sha256": "2b3474c40712bcaded68121625b2ccf12e920023a2bd6263cc9de914aa29c9fd",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "before_sha256": "21c9e604f3e5c80902fc0126478c95149ac8e7e4bd91a899ea97513a43e1f781",
+      "after_sha256": "21c9e604f3e5c80902fc0126478c95149ac8e7e4bd91a899ea97513a43e1f781",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "before_sha256": "1e43169bcff5fed500a15aa10bf742da17d3aa005bd8fdd590c772e6e17f32fd",
+      "after_sha256": "1e43169bcff5fed500a15aa10bf742da17d3aa005bd8fdd590c772e6e17f32fd",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "before_sha256": "d1f3fefca4b5bdacdfc00480d7dc8f0e2f42a5cf3d95b11309d9ce0455b523a4",
+      "after_sha256": "d1f3fefca4b5bdacdfc00480d7dc8f0e2f42a5cf3d95b11309d9ce0455b523a4",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+      "before_sha256": "7277dce49958aed77ab858b34411fc684a1c96df5749003301827843b27521d3",
+      "after_sha256": "7277dce49958aed77ab858b34411fc684a1c96df5749003301827843b27521d3",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Universe/CompareObjectAxisDistance.asm",
+      "before_sha256": "7c62f5be10b6e54e10b9fc5df24956d2186f917e7305b086c4fc73bd9514b631",
+      "after_sha256": "7c62f5be10b6e54e10b9fc5df24956d2186f917e7305b086c4fc73bd9514b631",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "before_sha256": "0a461957dbda70bfe26e0c4588b293f9f5b125fbd55a9458023467d26986636d",
+      "after_sha256": "0a461957dbda70bfe26e0c4588b293f9f5b125fbd55a9458023467d26986636d",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "before_sha256": "f0eb6a69edf0cfb80ed62405e1c9f0ebd657658a876cf0d81aab885915f014f5",
+      "after_sha256": "f0eb6a69edf0cfb80ed62405e1c9f0ebd657658a876cf0d81aab885915f014f5",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+      "before_sha256": "a51529a4b9a1204008f58b8f199bf27bf9a5138c99b20d93c645dfccb26c61af",
+      "after_sha256": "a51529a4b9a1204008f58b8f199bf27bf9a5138c99b20d93c645dfccb26c61af",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm",
+      "before_sha256": "22e7db197071fa8ee02db27e6f350d9b29f49e0bc535ab5e71c5e37047ea5c20",
+      "after_sha256": "22e7db197071fa8ee02db27e6f350d9b29f49e0bc535ab5e71c5e37047ea5c20",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "before_sha256": "0667d65282bd6347cfa2528de852bff22a0a5224b8431776c34ae18618d27ece",
+      "after_sha256": "0667d65282bd6347cfa2528de852bff22a0a5224b8431776c34ae18618d27ece",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "before_sha256": "9a03e65f8ee7e106182dea1aa4126fbe4ef83f5e9010edc410cf8c707742776d",
+      "after_sha256": "9a03e65f8ee7e106182dea1aa4126fbe4ef83f5e9010edc410cf8c707742776d",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "before_sha256": "17123c523075fb01611705fe66444ec8b20e44989f7f3d2e86f1c9b1bc4da2d4",
+      "after_sha256": "17123c523075fb01611705fe66444ec8b20e44989f7f3d2e86f1c9b1bc4da2d4",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "before_sha256": "42f157a52c506714a2a51b3f69a1cf52e36ff670c0110de1913bd66ed825310b",
+      "after_sha256": "42f157a52c506714a2a51b3f69a1cf52e36ff670c0110de1913bd66ed825310b",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "before_sha256": "94cfe76f8778e97a6799553dd6b8f53e257ccdb26e0cac71b1fb9744e756aa57",
+      "after_sha256": "94cfe76f8778e97a6799553dd6b8f53e257ccdb26e0cac71b1fb9744e756aa57",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/AllocateVariantObjectSlot.asm",
+      "before_sha256": "9d40424818f6571ed23c00bc90bb3ffb178e9d3437124d29e2e1e15f628d4a55",
+      "after_sha256": "9d40424818f6571ed23c00bc90bb3ffb178e9d3437124d29e2e1e15f628d4a55",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "before_sha256": "45edd3d718866e1a1e9f6d10d3c7646196e0a5a023b1590b6f58fa7c12238163",
+      "after_sha256": "45edd3d718866e1a1e9f6d10d3c7646196e0a5a023b1590b6f58fa7c12238163",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "before_sha256": "ad7c0b8e0cf2805095419bb72922efbbdb52cf170a3aecb53766bfcedc7585c2",
+      "after_sha256": "ad7c0b8e0cf2805095419bb72922efbbdb52cf170a3aecb53766bfcedc7585c2",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "before_sha256": "9ef01e664d8ce1442311857394d004c9ff819425a529559dba12d0c4b2a4fabf",
+      "after_sha256": "9ef01e664d8ce1442311857394d004c9ff819425a529559dba12d0c4b2a4fabf",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "before_sha256": "f96a46930960725275e779a9eba6d2eb158ddf5f5fd91c72e73cb96d1a2f1108",
+      "after_sha256": "f96a46930960725275e779a9eba6d2eb158ddf5f5fd91c72e73cb96d1a2f1108",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Screen/CheckDockingAlignment.asm",
+      "before_sha256": "ee5143742dab0b85326a7551178b887133b8146b3f9fea499ed70707405848e9",
+      "after_sha256": "ee5143742dab0b85326a7551178b887133b8146b3f9fea499ed70707405848e9",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Screen/SunDistanceHint.asm",
+      "before_sha256": "1c2748057fd116ebb1a3494f5bd3ce06b902e781bf88c5cb3b3d125763d41d31",
+      "after_sha256": "1c2748057fd116ebb1a3494f5bd3ce06b902e781bf88c5cb3b3d125763d41d31",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "before_sha256": "6b159e4b649e8f33089bdf1d684781c2096de14d1d53d8d8cba90c9d0a1b1d81",
+      "after_sha256": "6b159e4b649e8f33089bdf1d684781c2096de14d1d53d8d8cba90c9d0a1b1d81",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Screen/CompassFarAxis.asm",
+      "before_sha256": "6e89239431f9216af21e5c68c0dd806b8ac682d7fc35ae63feda83926b215d71",
+      "after_sha256": "6e89239431f9216af21e5c68c0dd806b8ac682d7fc35ae63feda83926b215d71",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Screen/CompassNearAxis.asm",
+      "before_sha256": "6ed6b03b17cc55bddc83f62b82751dcc9150dc8d64f47aabab1d4d650e03fd25",
+      "after_sha256": "6ed6b03b17cc55bddc83f62b82751dcc9150dc8d64f47aabab1d4d650e03fd25",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Screen/LoadVectorWords.asm",
+      "before_sha256": "63c94c931c4eefe54e3bed6439b5dd544167543ffac1e8a6f24d7057c096fd83",
+      "after_sha256": "63c94c931c4eefe54e3bed6439b5dd544167543ffac1e8a6f24d7057c096fd83",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "before_sha256": "82f94d70c5ae399da731d9ad65410ea480dea3a8d65cf0b8fb00daffe887d024",
+      "after_sha256": "82f94d70c5ae399da731d9ad65410ea480dea3a8d65cf0b8fb00daffe887d024",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+      "before_sha256": "4fcb870b1578dfdd98520bac8a428cb9ba0dedd2c461b62d3990e90638c86b07",
+      "after_sha256": "4fcb870b1578dfdd98520bac8a428cb9ba0dedd2c461b62d3990e90638c86b07",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "before_sha256": "e7c0ba8123a813818829f7b99d63dc8b2f9c1a35aa5f2049ea994eaeb6f1a270",
+      "after_sha256": "e7c0ba8123a813818829f7b99d63dc8b2f9c1a35aa5f2049ea994eaeb6f1a270",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Flight/HalfCoordinateDifference.asm",
+      "before_sha256": "db9d05926499e70f8c744f9bdae045c8b63d4238be78ac3c6084f4d0b53a2228",
+      "after_sha256": "db9d05926499e70f8c744f9bdae045c8b63d4238be78ac3c6084f4d0b53a2228",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Flight/RebaseCoordinateAxis.asm",
+      "before_sha256": "75a11a2a45fa829a737cbe8e8163f53bf1cf3e4d6fd4d001b4f197636d0c078b",
+      "after_sha256": "75a11a2a45fa829a737cbe8e8163f53bf1cf3e4d6fd4d001b4f197636d0c078b",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Circles/DetachMissileTarget.asm",
+      "before_sha256": "28948ba8b36fe7e47f705714621ee809e6ec334f09bf2807279bc542fe34e531",
+      "after_sha256": "28948ba8b36fe7e47f705714621ee809e6ec334f09bf2807279bc542fe34e531",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "before_sha256": "a79a22494f1469d736d8c7d6990476cde8d30f1236aa0905793530a63042e5bb",
+      "after_sha256": "a79a22494f1469d736d8c7d6990476cde8d30f1236aa0905793530a63042e5bb",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "before_sha256": "71e9134c647021e32b90e4ee9daefca560e086a889f191f7ea1e6893ccc3dcbb",
+      "after_sha256": "71e9134c647021e32b90e4ee9daefca560e086a889f191f7ea1e6893ccc3dcbb",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "before_sha256": "66319ef91e6cf2f3fb4bdf0b1323e362f3fc71d4863db419a742d67078658756",
+      "after_sha256": "66319ef91e6cf2f3fb4bdf0b1323e362f3fc71d4863db419a742d67078658756",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Text/CheckObjectRandomGate.asm",
+      "before_sha256": "0a2b382e4ee6bd25728d04de038779861200eb463d68998f9a65a652b4204c92",
+      "after_sha256": "0a2b382e4ee6bd25728d04de038779861200eb463d68998f9a65a652b4204c92",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Text/DrawViewFrame.asm",
+      "before_sha256": "e146439d1317ba5ffa5f4caa68519a0414ad710f9ec17ce09a6eef5501c618eb",
+      "after_sha256": "e146439d1317ba5ffa5f4caa68519a0414ad710f9ec17ce09a6eef5501c618eb",
+      "equal": true
+    }
+  ],
+  "remaining_phase_basis": "только инструкции и вызывающие участки целевого TRD"
+}

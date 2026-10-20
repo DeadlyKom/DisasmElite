@@ -1,0 +1,12 @@
+{
+  "entry": "8ACD",
+  "cases": 2624,
+  "formula": "A_out=floor(sqrt((D_in^2-A_in^2-C_in) mod 65536))",
+  "preserved": [
+    "HL",
+    "DE",
+    "BC"
+  ],
+  "flags": "Z=1, C=1",
+  "scope": "Исполнение байтов GameCode.bin в SkoolKit Simulator, без ROM, прерываний и видеоконтенции"
+}

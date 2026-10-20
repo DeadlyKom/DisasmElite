@@ -1,0 +1,766 @@
+{
+  "plans": {
+    "CommanderFlagEdits": 100,
+    "ObjectFlagEdits": 177,
+    "RuntimeFlagEdits": 84,
+    "GraphicsFlagEdits": 81,
+    "DiskFlagEdits": 34,
+    "MissionCommentEdits": 29
+  },
+  "files": [
+    {
+      "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+      "before_sha256": "c4798540fdb3322554e8b2a3d4ad069e145fa26de5da351464602b8d22e4a96e",
+      "after_sha256": "5424308fef69d312fda20e56473764032ab8dff2b7355b4f9ac15f3d594b65b6"
+    },
+    {
+      "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
+      "before_sha256": "9a0c2dfc0da471471c315436a2f32e9b465a8f06b057423860941b6377cf9587",
+      "after_sha256": "722aaecae957d3d216840694f1275ce5a0aa7c3a1833006bb8eabc57e44ea4cc"
+    },
+    {
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "before_sha256": "2a22695009ee3bc6578b764ef486ec7e4f2f59b1d6a34bf37bdf8056437e626a",
+      "after_sha256": "4638ab29c10a8f603f29aefa30266e02bd56a1a0167560a5b72fa51718bc6173"
+    },
+    {
+      "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+      "before_sha256": "4d1985df18144a531d185abfdcc3276b5e930238e428cd7c3e8d1530cb2d16b0",
+      "after_sha256": "068fcdd83b19556a7406d0b48aa3d34829606456030f1585ec9fee8056f4ef3a"
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "before_sha256": "1099a8f2f194dc3af52d22428abcd54b8b0e764bea349d520da913e1ac544c86",
+      "after_sha256": "56925683c2272c85d0f349a0335022c9f216f0f6979c43e708e7fedc6f863534"
+    },
+    {
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "before_sha256": "f6ec0d632f7d2e59d528df4761e5c34713ebf41f85698f1bcd957ce0dcd1d6a7",
+      "after_sha256": "10e2ca49af0b1a12fdbb41174ea8ac44423db7d8f7b406fa3db71ef6b82371fa"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "before_sha256": "960c057621d94c207b069e8f132eb62e1c180025a4b8970cd14a9cf438090522",
+      "after_sha256": "4fe866884fbf9f991be22ba718547454092d505ff25a143d0ac103947cbf5400"
+    },
+    {
+      "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+      "before_sha256": "a8e9fa35d6ef8e0ad5684c7ef0be1b6ec9eff7e0504246f6d386142e1c775d51",
+      "after_sha256": "debc29ce4f5fec9dfc3e720a76628d37509a40e4304b7fce1512d4e0ce163d3d"
+    },
+    {
+      "file": "Source/Game/Input/CheckMissionSystem.asm",
+      "before_sha256": "8982e920cd5d62d167420b3a358e732df4c63bb2b90248a0d31df93f62a3c4c3",
+      "after_sha256": "d6f6a79432373a50686c03b72c25564fb8e71a67abf540f6dc213657cd8031f7"
+    },
+    {
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "before_sha256": "867a3e12a5332392b1d0575c007d9d477275dbe3180979cfd49e86d826fc1bc1",
+      "after_sha256": "b9050119b8bcb33ef3a2485bbb2766152e71a53a182c7f16865d55ff4e00b9dc"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "before_sha256": "a73ae8b176b10d6f71e6979c7e6c0fa59f5ec790b171a27ffcb717a45924e750",
+      "after_sha256": "c160a04042cde336af6404f8b74142afd04ebe73289696bc2f6719ff1f5b0a3f"
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "before_sha256": "54bef76c10a19752ace7e58b9fcd34bfca12e3123820969058cdc495442fcb7c",
+      "after_sha256": "3dc8ce9dcbf960655b0fd91a95e46c2529c05601e0100f4a19efcf731ae715b5"
+    },
+    {
+      "file": "Source/Game/Missions/CompleteThirdMission.asm",
+      "before_sha256": "82bc8078bf29e69972d8af89f6a8ea5dab600011da52810853e00d76b378db44",
+      "after_sha256": "766fb83fc77b48a6a49ad490e17e7315a7a917fe3891790e29bb0d146c1cf488"
+    },
+    {
+      "file": "Source/Game/Missions/OfferThirdMission.asm",
+      "before_sha256": "b547c1f6370a499caa10763fab3441efb27968c749efbbc358fb1d3b6da175ff",
+      "after_sha256": "aa33a6e43a530a0d478f7a98eac4fd5a9cce5fec74f8d85c7dda14322d5c3eb9"
+    },
+    {
+      "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+      "before_sha256": "b35214ae9ed39b03b204113269cb8dbbfda2bec2fcd904d6ae46797cd192dfa8",
+      "after_sha256": "2368ef2b520fa99008153859f5ae6715c5b6da04194fb0c8562e47ae548f320d"
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "before_sha256": "85ef8957e2b077342f455c2799b403d8dc41397f1ca2e2d31143e2b8462c4a59",
+      "after_sha256": "6e29a29f5c4d43634a1abb68e956f4583774bf2bf71c0e22ae62c13f41533dcc"
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "before_sha256": "d984f2355ba7b42062797c69b1bdd02052858f17456425b2dff9fe9e9d9df00c",
+      "after_sha256": "208710e19f994b68ab9e8966feea93f0143395c4f2ac45f440473018384e5ea2"
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "before_sha256": "6df9b5b6dae74965880c8d8c3d9a0d5909f15748d139440a9d1dc5dbb09cda91",
+      "after_sha256": "08ae4c090bec4368d1c002f3ac59e95db0c80f0c9ce4939ad7f44e6636d1f4a6"
+    },
+    {
+      "file": "Source/Game/Text/CheckMineralLifeColony.asm",
+      "before_sha256": "f382de2145bf39d00fca6c0b5c9289d979b80c7737c444fdff6af7c0faa58875",
+      "after_sha256": "63f55d089d4ce7ea1cb8026068304b7987651f89c73b31e9a15a525f026906f2"
+    },
+    {
+      "file": "Source/Game/Text/CheckMissionRegion.asm",
+      "before_sha256": "5f4b5a9c5f3cd2c0e478256d6a50f4478623080ea45f200164b39900690ff8f9",
+      "after_sha256": "69c944157a6ccbe3fe39a17dee70e51fb300c7df584c0b5aa80cf6d0c12a1a01"
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "before_sha256": "15080ed80484b5c243616ac31f50ba10999db3a61275a69d437457dbdc9d87aa",
+      "after_sha256": "35616c249824e6359d5ecd71116e3dd5c3442b3f6afe78081fa3348862679aac"
+    },
+    {
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "before_sha256": "c8aca2bdf02ae800a9033531fe0526f8a69d3d0bb84bad25aae3c30271cf0e50",
+      "after_sha256": "53fd19ba8fa079068ce23a2f565faeec69021e03b1d580d500b83eb28fcd86a3"
+    },
+    {
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "before_sha256": "91698fa8d5e5f269a2daf05951a62b79144fe58f28c2c6e16d1a7ae0369509d2",
+      "after_sha256": "9b3a47748e80d53689f6ed68ba1d7315a6adda6489f7355aae0bbbc28d54d803"
+    },
+    {
+      "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+      "before_sha256": "ffb3113f55a68005d2b1b99af6c1125a0e2ee3503c461a2cd911fbada3429f2b",
+      "after_sha256": "3e053437fc4223a654016588e6d170a0f1434871ac850a54c1bda9e3d26c935d"
+    },
+    {
+      "file": "Source/Game/Trade/MissionRegionMetric.asm",
+      "before_sha256": "eaaff0dc0e4f4cfda25248edd5cba0564c55442bfb34bfea3450c1b3cb5090c6",
+      "after_sha256": "5d20d58c27f13665aabc506f58ab0d4ed25420537a288ef42aa8aa67f36f6cee"
+    },
+    {
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "before_sha256": "05aab0eaddebd59fb21d1dd10e19d358e286c007e7a493b51a66da778c03ca91",
+      "after_sha256": "0b51bb3e16869ca99dbbb6cf47f57c11fd6d5b297d25b5209b9745f2138146ae"
+    },
+    {
+      "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+      "before_sha256": "0fb6048d162c797e4718ea9b908b435e2808db394c942530cf880a1c0065e1f5",
+      "after_sha256": "61d190aa0b74f49e36a6310b9fd24d99f24f9b0bba873d35e6d6b4114feb6476"
+    },
+    {
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "before_sha256": "b4494bb661a0a943a6406aa638965f85c55db77b3962b0bb2bd5929c8f00e759",
+      "after_sha256": "04624c3fa950ffff3e395e31ac1c9468453303c96cb2c20e39c1339a0d228547"
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "before_sha256": "ec269f82f195ed5291ff24fef1e0bf7bc5701b5a6926161383b7973318bb9d71",
+      "after_sha256": "2a77c19fcb89cc75320da153b5d285e5d2a3f31567fc2345dfe1fd3ca60654a9"
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "before_sha256": "23d3aea4d4f431c8dc3796648eaa900335b0c1368b559502d2f16f3c86d29940",
+      "after_sha256": "2d6074be44092ba82541d6e2bec99d7878f1b58a2d9e19437019fcb736b9aeb2"
+    },
+    {
+      "file": "Source/Game/Universe/SelectSpecialCargoText.asm",
+      "before_sha256": "5567ff7839083d5bd638ff81a00a3943ae47a7218c11695ec467b02c3b7f6b0a",
+      "after_sha256": "995994c4c10890ed7c76e605f41ce17057ddc66d4dddfa5f2f36b92a5d37ec9d"
+    },
+    {
+      "file": "Includes/Variables/GameState.inc",
+      "before_sha256": "63ad5eb762b6bfdcf47c7e127a7549a0d6903b6174c7418c1652cd6f5dd1c324",
+      "after_sha256": "1356469786605e4d08a77fde99beb56f054ab2907c15e015919b450f75f8809f"
+    },
+    {
+      "file": "Source/Game/Objects/ActivateEnemyECM.asm",
+      "before_sha256": "28868051eab3b7705fb339106248f9e0f74a221f5b2da399eaa67537a519c2bf",
+      "after_sha256": "ce8136da26f3a270cf8b8a0eb4ba779cc1af0eaa5cd6d287c5577d148d3cae6d"
+    },
+    {
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "before_sha256": "dd51cd9a0bf54dab0a56cc997dd6693f92ec2f43810fc4299e21d9d90260d39c",
+      "after_sha256": "1d9d35aacc79de89bbac1c98b0480aab7e4af95ab8b7fad7fad2f834a504295b"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CheckAttackTarget.asm",
+      "before_sha256": "cc1f80fcc8ebd727aae022247652bf6229594eb8ece260b11f65e5a3fa695749",
+      "after_sha256": "19eed74f1cfa54bb91d4377fecd422adc49247285acf97769dadbc84c6e84d2f"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseObjectAimPrecision.asm",
+      "before_sha256": "f36651356345992017a642d8a3d351f2f86a646b92ec9178678293584d226246",
+      "after_sha256": "2f8ae17507d58ed2e857b087695fee6db3f553bae347c4478a5841cfa8f73b4b"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CountHostileTargets.asm",
+      "before_sha256": "6bb8ca6357fb5d4a08c32a42c12d52c055c378d2df7126c166b7d7130c9baa61",
+      "after_sha256": "3157faa38bffbc64042f8dbc8340854881250fea167afeade5022299f8f87301"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/RejectCargoTarget.asm",
+      "before_sha256": "27cba685b2a885047a0a060aba24986892a2cd510470770a4c506e20d0d89d0f",
+      "after_sha256": "26361600cb2b67d7fa5728f12d2e38605295d37cc9fd721697d2d9b00faec544"
+    },
+    {
+      "file": "Source/Game/Circles/DetachMissileTarget.asm",
+      "before_sha256": "9b6566bcb8cfb03e76b5442c34ba95a02fe84adc7f455497cf1e730dc6def80e",
+      "after_sha256": "249488d772736eaf2c146dbeb91432ac43a71288992f777fd94eade00d5bd3b3"
+    },
+    {
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "before_sha256": "8c25bed52959ddc0c2d0adcc7f1f02cfb0a9ae68402add410f4dc7cbc3a0d4bc",
+      "after_sha256": "6ba35036d1b454ea726a6e7a87a07b59b62ae3c5d1d5c1fcfb671379d0cad642"
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "before_sha256": "952000fc4a0499f0d32442f8f3c555464ba7e8a5c197451c5ee1e7869102991e",
+      "after_sha256": "2b1d6b0c7dee583f17d7418a765bc9f076836d9cd65259cb9ee4a76b97540480"
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "before_sha256": "f3084bc84f36643f5349945f0ad4f4baea1fc9262d547f23d3546b5ad4029d59",
+      "after_sha256": "5789dfd03295b7b01885cb429f93ac3ad0552a6463dcd6791442147657463d7c"
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "before_sha256": "660b9bf4071dd08b4a89c666482944a643853b247ea0210a0737db4ac22ed631",
+      "after_sha256": "8f7f68f23ed78acb6ecc30bc4d06d2702f62434cac414d22c5f88c9483bd6fb5"
+    },
+    {
+      "file": "Source/Game/Extensions/AllocateVariantObjectSlot.asm",
+      "before_sha256": "85e79eff06861134f186efaeae15d783fd1e45aa6d0fde95b4c5375d6d248604",
+      "after_sha256": "cce9c76c32fde7d30a81f798b5221d03908feecab5fb382c3519969bfc1c9d3f"
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "before_sha256": "9c9bf7badb62f9bba313ff2d3a3302ab84684a2bb579f2107cd3b18e0aae9b52",
+      "after_sha256": "30b82a47bed48af0d88f4f1c5c8fe46e4a183836d912607d2ca385850726012d"
+    },
+    {
+      "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+      "before_sha256": "980916a2497bf789a5c1995a4d013d73ed9f2800c9251c0839138bad6e867c29",
+      "after_sha256": "cb40424dbce1d9e30e15c50722c8323fcc691b03aa0a313ef638743c0509e339"
+    },
+    {
+      "file": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm",
+      "before_sha256": "e8d26dde658a8e79c257ea39a8fba8d5af5ec46f4025a84b498d3ed3ffe4c217",
+      "after_sha256": "f452a1e3cd19cf2349ec175d004c0362e7d1631179d39340a1f40fc8f372e921"
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "before_sha256": "39c4813287364c568c560844fac8c14c784b1fc9c9762f25d0ec03318036c71b",
+      "after_sha256": "c82b166dc0d0cd4f8c4a8dedbb881c83af99763968bcbf56bc788f54db9a37fd"
+    },
+    {
+      "file": "Source/Game/Extensions/ResetObjectMetadata.asm",
+      "before_sha256": "feeea1760fb78752f8ca0d2175b5ccf096c697416f3997075b53b0849cc150bb",
+      "after_sha256": "beb7fecb0b7fb39d674491594f77f292d712ccd235c9220ff224035f2a0139c7"
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "before_sha256": "71963d0fb01de85aadf88170276156bb63ff29724e8244f0c38af0bdfbd056fb",
+      "after_sha256": "7e6a72bbdcd19d4610424d488c3f0042f25767aa1de6b4f8220ce0adc3a078b7"
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "before_sha256": "e1e12d75f0ccf8e1ca4603bb9df18b4f1f78f87db2c05388a0fb479d49ab6fec",
+      "after_sha256": "ab2976165df7936903d9b6add1a32046a5dd1bf1aca4561d4907c128fdcc216d"
+    },
+    {
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "before_sha256": "6d7f4fcbe9a76ba7cd5baa301a1cef49ff7dcf7b12873d9b2e77336c85d99e50",
+      "after_sha256": "d41f2aca061efc292cbe2b04c6e7dd7a0da96e9da8b8e400aa0568e3f0870b09"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "before_sha256": "0a6edc81c81451258b38e39ca79516cd22cde133a1be918244a69e76d8c22064",
+      "after_sha256": "e42e9bf8cbcd96b9d946b2dc604fe72992a2f6322972f1d9cdeae47b1762bcbb"
+    },
+    {
+      "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+      "before_sha256": "77dbebfd520b39d5f79c1c8694e13edcc9ef305367f4bcd361025087ce4bf0c9",
+      "after_sha256": "4bd151025c75a4f4ab375d7f9de8d7ba9f50b6041cce714674db3e71118d57a3"
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "before_sha256": "c772a53cf19722c3047f6883c6b45052bd4471195091b0e25a5f0841be0b37c7",
+      "after_sha256": "d1c5227e34ac59bb19d9c9a98758ff245b3a12446d148888cd51137e0fec7d4a"
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "before_sha256": "5aaeae7fbd7bbe24db4e4a08db829de752f4ed58c562dc05f6c05238ed6b2742",
+      "after_sha256": "8aac4bec6824e95d9c8c599ac27cd8bdb5bc2800529ade6a763043041e8bcca1"
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "before_sha256": "1f3b0b0c20ae8c1a0ee7d4c410edc6dbd82b754fc35890b4614afd30da7e2205",
+      "after_sha256": "eb3c3f3dd1f1bddc3c39cc02df4818403067b7d716bf34d3f0f6a5910d53aa94"
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "before_sha256": "73061bfe371f442051803f74e380294982e2a251cc8f3a77a9dfa1aa8fdc3774",
+      "after_sha256": "f8c6074e12f79474f3953309b5b88fd9424b9713a358e3eb8a542e58d06475a6"
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "before_sha256": "0e2327e488c15de9c776cf7462616433b0f27ab04ff9584fe61de8da901518ed",
+      "after_sha256": "caa64aa07a8caf87d81cc3e3dbe75e2514c66afabdc84d54d3d0e88b687c8abb"
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "before_sha256": "40967aa869d84bf3de592299216f890a7d876a1060ad1e67b4a0c8819313dacf",
+      "after_sha256": "c31c0793ae02d4995d1cbe0db9309a9aa5876772249aa5e0fb89b4d097fc3096"
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "before_sha256": "90121399febe8c3862694df424aa0680b1f127fa3c822b99bc4a9640a269ba81",
+      "after_sha256": "d97b9abdbc7d5b1eac0f35d84eb01e7259269a8ffe3fb2bdf137bda0cad3ad8a"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnEscapePod.asm",
+      "before_sha256": "2b19748171143d85a0a13b26eb0c2cc14fc41695a97985579ad199d1f02a9126",
+      "after_sha256": "afbf85238d58891bde3f2beb6918f3e63f0f9eabc201eb375bec25e3d7ec1dd4"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "before_sha256": "acea283f6185e70642683efa543c6de7ad2604d88769599f9071f597ae0dc866",
+      "after_sha256": "86b47deba960222d0bf8815fae54af1d343c624a76eb339e28f2494ded959695"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "before_sha256": "1f4f56faa723bf408b0374ddd5640f45d18c9e651b07dfa8ae11c1c87b8da870",
+      "after_sha256": "0d9b6d0bd8b4b16be4ed7eee647ce4f41b56b3ff0b0f44100e303e2e520ed1e8"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipCargoOrPod.asm",
+      "before_sha256": "9af3134ac53e6be67e03cb616e3945b80a38389aee06c9ca46e2a1f86d09ecee",
+      "after_sha256": "006a8ba950c048e529925557d90ccf502fbc96a0216a0ab74148ca2b9874990c"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipClass.asm",
+      "before_sha256": "7d109d1cd5f4755252288fc7a37f40d2e79d4ebcc5891164866b466c6e0f5392",
+      "after_sha256": "dac26f57a946bae77f252ed5cc9906a48445daf6fddc2258ad8ecc39eb747eaf"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipDebris.asm",
+      "before_sha256": "7e855b372b5d3707cfb8cc265913cc36ebd217c3b7868a10d5629fbc70af3c15",
+      "after_sha256": "0c08e89287937d320df22e5b8512ba9bdbde6d7f693883a612eb41579c46afcd"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnThargonWave.asm",
+      "before_sha256": "60cc0962010466ffb89b1cb9eb62f7da9a4cd3576fb4dc00c9cf72b3459c622f",
+      "after_sha256": "aca6c03db7bd807dceaa15f76f5608d6b43a24efc4d6e34d125ad30c58b595bf"
+    },
+    {
+      "file": "Source/Game/Universe/AdvanceCircularObjectEffect.asm",
+      "before_sha256": "730223259fd38ad5a3789c815153f6cef8f26a873a9caccbd5f492a1995893fb",
+      "after_sha256": "f5260a643fd10b58c5a13c042f33aab10b8cc27c74378dec75f0971268a74b9f"
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEcmToStandardMissile.asm",
+      "before_sha256": "550cd3b6552eae63cf17984bf199a97e9678dad409625cdebd8bd84987c7cf75",
+      "after_sha256": "829c9c0264ef24bffa7d5b0cd0f6d67fff005cb71b9381e5e8821579b2095fe1"
+    },
+    {
+      "file": "Source/Game/Universe/AwardOrStoreLinkedDestruction.asm",
+      "before_sha256": "3289c9aac4a738323ae0691c72508a15ac22a128a2f065123dadb99143ef83be",
+      "after_sha256": "736818bc9437c46dc50f78058ea1e6522d7925600ecea0fee9630f59bcb9f3f9"
+    },
+    {
+      "file": "Source/Game/Universe/AwardUnlinkedDestructionBounty.asm",
+      "before_sha256": "0123a6761f2aeb6e320fefb5315904fcd713aa30e07d886ca40e8ca970ed6e48",
+      "after_sha256": "cc7e0c74b114febada565a221def659d6c53d64a78b894c18f999697e5184720"
+    },
+    {
+      "file": "Source/Game/Universe/CheckLinkedObjectInteraction.asm",
+      "before_sha256": "fa8b43ebf6b5843433b02115619c3320a73071244e58e568d960585939eebb22",
+      "after_sha256": "7c51377526c4ed705f041ba66b3722e4ad4e61594e46bd6c2e07d6e11f0da794"
+    },
+    {
+      "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+      "before_sha256": "8834528b8a64370b23e744f7263e9d5f7bd829a33736ea766d3444ef065b291f",
+      "after_sha256": "56ea50d93c41f220a256f64188dbd745a240ddbe1280e5fddb7e748f12b3071b"
+    },
+    {
+      "file": "Source/Game/Universe/FindInteractingObject.asm",
+      "before_sha256": "b3c5ff31046ecd5452d931054f63e7c190d18fa9c5cac20048d8fa5834e86c47",
+      "after_sha256": "7c9576ff3396d1da97bc982207ba107a1f0ed239200fb77b697a204aa72ca1e9"
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "before_sha256": "b8b2e36734470f8fc648aa20157a98ef775def99fe3634bf8bea0dc716a74576",
+      "after_sha256": "e98bbe6cf3de764857a30c66f3f16557c18e30f04c0ead0ba4289e122a835d7d"
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "before_sha256": "b02c34e616ae576b7382db81253bb0a3ef88e7dd93ebffc41356ec757fd2b1a7",
+      "after_sha256": "94a95eb14ffb433b7010b73b3c94ba5232ad92a3e6078c4632717087432c7acb"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "before_sha256": "44ddb45aaa4f573eae23e5bb686a88d8e837bc54985cda4fbfe08e6a3419d4d9",
+      "after_sha256": "09c0fa4ac5f7d13c6a30be4a9880922ccbf7ef231ac46b46b1ae4211e598b526"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+      "before_sha256": "c2247c1cad60a4830bd6b3ce081148dc427fb09e0132eb5837476bb0ad30a91f",
+      "after_sha256": "33e62dd15dfce5508fef7f6948f51d4b3030540e31966d72666ad229894461ce"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "before_sha256": "6cef9a7ab5f4c356aaa31c5b911007b4db737f8247ad846884aa1715c7048200",
+      "after_sha256": "d39cf87d124e738d9133a6362ef055e9552b84fb22170e6720eb8bb245b0c153"
+    },
+    {
+      "file": "Source/Game/Wireframe/FinishObjectAndDrawLaser.asm",
+      "before_sha256": "82899a5feb94eaea870718e9ba570c46a58f684261e8616429c7474e4e2351ea",
+      "after_sha256": "0357cf268254ddcd5c073662531bf9442d0f8a9bd255926f72f1b6457b51517f"
+    },
+    {
+      "file": "Source/Game/Wireframe/MergeInverseHostilityFlag.asm",
+      "before_sha256": "c36211507d5f3048dc77bb79d706fbfc02d3c0c352abf29816f11e395fd71103",
+      "after_sha256": "b9fb59dc0f3487d2a8b54d694e516c46196bcccf1d607967c66badfdbb3baeb1"
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadObjectTacticsGates.asm",
+      "before_sha256": "3d09f2ea4081efe547d324046eb576fa654eb30490205e709fb02c8a5424fdc9",
+      "after_sha256": "061f5014fae721bdabcebe3b8f2db230076f1a0cd2b2d9773b54b77f30edd3c7"
+    },
+    {
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "before_sha256": "11b509ff37f38ec56245074209b102774db702c0deb4b287b5ee60376b2f0f38",
+      "after_sha256": "6c1425246e8f9634ba46470dd32ee16757da82340fb9397b399a845b80d2fa63"
+    },
+    {
+      "file": "Source/Game/Flight/RaiseLaserThreshold.asm",
+      "before_sha256": "aa99ed287d2df661253fb4ad8965814766ff076bbf685dfd531fb49ceae788d5",
+      "after_sha256": "b1ac692d0cf1631bfa30ca9023602bec3431d2fa4b96a17b13b3b418067e2f9b"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "before_sha256": "1bd3fd52e56eff204f62d6a14ab4030dbdd79cddf0ee8327b8dbe0d9f341a5e7",
+      "after_sha256": "ea5f0803c23b16f3c232263de63e12ec0a95227c6cf8e042a344469fa0454cf7"
+    },
+    {
+      "file": "Source/Game/Input/IntegrateFlightControls.asm",
+      "before_sha256": "49ec904ee0a3b7206fe93e6ef9f3a3edf10302828f21f5e31652f03648f1b1c2",
+      "after_sha256": "98ed6c450d3f59bb3a2403cba6313904fa5b8422ff4a387cece7de16dc3b1179"
+    },
+    {
+      "file": "Source/Game/Input/InterruptGateAndAcceleration.asm",
+      "before_sha256": "139273ec0d338d71f4c1d076f05dc1dd60a1fe8d8a0baa57dd7e3a4bfebb7fc1",
+      "after_sha256": "617fbd4a9380cd4c50c8b7b41b21f371511fbf659fe1256932c1a6c7b1e3d932"
+    },
+    {
+      "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+      "before_sha256": "4867e3997f5c3e2dc2c0a305ee3a84f36d9c612db5e83eae9a668c2399fd886f",
+      "after_sha256": "e6ddd7aff2e36ed8b70a393ade0b8e4733dd192158284e08bf1fde9169a9b715"
+    },
+    {
+      "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+      "before_sha256": "3244bdd882e9839086bcb03a05eb516673bcf18230ec708ab283a4721f85521f",
+      "after_sha256": "b86d096940afbbcecbc1a310a367ea0d6ef0a4e7f0b083a2e02f29cecab7cd4b"
+    },
+    {
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "before_sha256": "e2671d138cb64c017df3c9a9632aee50a7576e1dc4014b2f02fb7d6b4b00830e",
+      "after_sha256": "8d3c681b3da1518f81e7d887759540515fa341ed4cb9af6a264685950e3cbdcc"
+    },
+    {
+      "file": "Source/Game/Flight/HandleMapCursorKeys.asm",
+      "before_sha256": "157e70b76cd64b031e0d0eeb4fa147c138674f9051cbf50b4c4e09aeeb889a9b",
+      "after_sha256": "218928b26cf24faf007e1ca2762bb439d2b8e64a97c40ace40f3ea98f533ee77"
+    },
+    {
+      "file": "Source/Game/Flight/HandlePauseMenu.asm",
+      "before_sha256": "de370ff6c1e6010fdc14569b28642d7c7e4f2d4af8ff4404d2ab119aa0fdde91",
+      "after_sha256": "96b6a4d12b22bc6188053957caee535ee20a4426599021805f253bd33907c985"
+    },
+    {
+      "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+      "before_sha256": "366d61bc3d5ae68b01016a316f9b366907f3f2dd3e6e5508c8d2f24cba587e11",
+      "after_sha256": "ddf0a8d4bb343a2ebc2c618cebaf38b136acc90c879df81f395d52530e135dc3"
+    },
+    {
+      "file": "Source/Game/Input/FinishKeyboardRowAndSelectJoystick.asm",
+      "before_sha256": "9153d02496b14d29190c55cc6d5339c94b12286db2e3741b60af27583cf69545",
+      "after_sha256": "8c8f7761106b66eca0d5a8c7239fd6a6e3430e32acc7ab44e19b71dfeb99cb30"
+    },
+    {
+      "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+      "before_sha256": "667537d0f969f8283ba91114994a4565717aa13bf8751640b74b6670072db3d7",
+      "after_sha256": "f62519d3904dd39873edf93547ee8ff6474cdbdcd9e789444c9c9f6c62d4fc68"
+    },
+    {
+      "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+      "before_sha256": "6f19cc4b6b21978b4a8642aab4daa67e7487a5cf3455683b22d615fef20399c7",
+      "after_sha256": "ad47e786d3e4cbfec8ce0b6340ab3808e51c7a916b1ffeeec58b4d53a1b553cb"
+    },
+    {
+      "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+      "before_sha256": "57cafa02f4f398c2ebd0ba707daf051325bdf47e4ebbd7b3e6ea733d7de5177a",
+      "after_sha256": "c29e5e4b4f1ecf46dd2792eec07d5f129bdf758a6ed3814b486133808ac76270"
+    },
+    {
+      "file": "Source/Game/Travel/EmptyFuelWithWarning.asm",
+      "before_sha256": "e08e2b64daa367470d6453a94bb7400b86e3a79ad45a42f94a17926e7caa51aa",
+      "after_sha256": "6d6810a810e291798e9d1d29ed6c50b5f4ecc9a31abcce8386b1aedadf00d0df"
+    },
+    {
+      "file": "Source/Game/Travel/SelectQueuedFlightMessage.asm",
+      "before_sha256": "2ca94778f5b8a8a875889a1c1787a33e229544cabbdfbb17c0f6975ea2060306",
+      "after_sha256": "598b625f860c950c199369204fee7bb0b58095ae6012576fb50b5770611db460"
+    },
+    {
+      "file": "Source/Game/Combat/ProcessCombatControls.asm",
+      "before_sha256": "911cbb3f8a8171d480b42606ca06f004ae3e4aa56dd13544de92fa112e0ce125",
+      "after_sha256": "e0e2e44a9a9d5ae7d7c9cd0143da8493eb578dba8d3ce524e8d132f78bf1c917"
+    },
+    {
+      "file": "Source/Game/Combat/HandleMissileControls.asm",
+      "before_sha256": "7d870b934bb4a0fad95d252494ba2db7a5dde1ac4849d9a5df28d6d213dab150",
+      "after_sha256": "40e99743d12d97287921f898fe42a7cea65a98588a9c1214ce5d8c108adc73ce"
+    },
+    {
+      "file": "Source/Game/Combat/CreatePlayerWreckScene.asm",
+      "before_sha256": "215c1bc83d4d9516f63ae664d705fefd52dbd81abd4f32ecb3a339d52191a27a",
+      "after_sha256": "149ed0ccdda24f44ef91001145828b1f8891f7cb882809fd25252f5af3abf426"
+    },
+    {
+      "file": "Source/Game/Sound/StepNoise.asm",
+      "before_sha256": "e929eef0fa68d0066527cd7b4357d4912796ad4b76fef287994ac1fd6e6d1a19",
+      "after_sha256": "513db5cd0703094b4f45cde07da9f03081cc6b7a83fb7e53fba3a6d4ccffedf4"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "before_sha256": "043560c194e143f88c27b4a67f3f51353d822aea4a7f96b9bb6bac1aeff05eed",
+      "after_sha256": "0c268b7acd36f5a9287b67c018d92fd920845e6ab68e629f06991a8a610ac79a"
+    },
+    {
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "before_sha256": "489abe2a4373862adcf6d067d57bea1b7792f03428f8507cb1eaf561d4586198",
+      "after_sha256": "dc35bd30976a3ba74d5723e642b621f6b33fa6eb4459f26338c886508c839cb4"
+    },
+    {
+      "file": "Source/Game/Combat/ReleaseMissileTargets.asm",
+      "before_sha256": "73723af63788629dd7b70370b8a26f5fe97fe7882a6e98c0fd35cd8d1a766424",
+      "after_sha256": "6a78c993b093512591dfa7dce24fb4dcb715e249fab110da9433251ac3e79d30"
+    },
+    {
+      "file": "Source/Game/Trade/OptionalBeep.asm",
+      "before_sha256": "7769d717b8d4cad9ddb9df4f89b5e9bd50dca1724f2868f70c4c84b05baaf3cb",
+      "after_sha256": "b6a2ac5644823ab73194390752e479c53813cea8b3fa049b9c2fee84ef2a31fa"
+    },
+    {
+      "file": "Source/Game/Galaxy/GenerateSystemName.asm",
+      "before_sha256": "24fe8a81548595f85a4e858bc54dea4d11b04d7884524273c85d562ed2c3e05f",
+      "after_sha256": "c9e8f7de4d8f96a30525b4413e9e2880039ed10a2f1f4b39d36cd4e13931ad08"
+    },
+    {
+      "file": "Source/Game/Galaxy/DeriveSystemProperties.asm",
+      "before_sha256": "14e59b95ddbb50b9aeedfbe404dada4dd2814ed2a1e0e3917a0ca4cdcce07eb3",
+      "after_sha256": "e0d72180863c70546684b18c39856f3c95a7576c97f2498f5134c6390cf6188b"
+    },
+    {
+      "file": "Source/Game/Galaxy/AppendSystemNameSyllable.asm",
+      "before_sha256": "fddc01764777b1ac9606daef592646cd3e91cec1257932971adc55c0750da771",
+      "after_sha256": "37384e7b2639ca8bd46faacf8269b7316e5b91e98854b3c4ffd55a9f14885d03"
+    },
+    {
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "before_sha256": "d55a5724effa50c08c7263930e447b63d76ad9bf1a27dbae05f0997204e981d4",
+      "after_sha256": "40468d0ca76b31ccf77e0a757eb53b893c7c13b2ebbba19d6283cb7b9bcace86"
+    },
+    {
+      "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+      "before_sha256": "ce3e36e2c4f3d113ed141a4eecf7cbd2ae8c7067cc820571875161f9cfe3643e",
+      "after_sha256": "c83d3f1971f169b7cfd9ce9272ee82d797afff39b6ec5c9adc48f07113613ae3"
+    },
+    {
+      "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+      "before_sha256": "0c52afe5e14f92b8e4e551ef3c7b5a2fd00f1fb804c28dac9c99e51e29c989d9",
+      "after_sha256": "cb3d5f146d336a12d9f42707052bceb0deeed839095319b8efdd11b475931338"
+    },
+    {
+      "file": "Source/Game/Circles/DrawCornerLeftContour.asm",
+      "before_sha256": "bf28b61cafbfbca67626d887d7459892dc2d03dbcbccb602acbf8b7b66fafb19",
+      "after_sha256": "fb8e9d4306ea027d38e9a91f5887df4f4e1b5e3362c89629b94687a735e61c3e"
+    },
+    {
+      "file": "Source/Game/Circles/DrawCornerRightContour.asm",
+      "before_sha256": "56de1ee3de2515bb02827821baae36035d2d767cc8a4af895ad08f9ee9fbd6fa",
+      "after_sha256": "9fdd536286ad8fe677a2fe34b550a38f31311f6abf5d5595227a900c2d3fde56"
+    },
+    {
+      "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+      "before_sha256": "1d26ef46125c4d12a8fb89a91dbd4e6681370cecb6f552346acd4ebce28c0cfd",
+      "after_sha256": "e24058718d266440b978eacbf4a65b0d28bd0a7c3ab2046ebdfa192ae2fb5f06"
+    },
+    {
+      "file": "Source/Game/Circles/DrawOneSideClippedCircle.asm",
+      "before_sha256": "877d3c57f4909c03222fc7ef468dc56fe61a8a92c379f635a52021947afa9016",
+      "after_sha256": "5932a0824d60f6710b60d30b5b09f97409b8b70c4bb56cf368e9c22e3e52d2c4"
+    },
+    {
+      "file": "Source/Game/Circles/DrawVerticalClippedCircle.asm",
+      "before_sha256": "07f7361f07dded74cb96cb9c675570589ba5e88c1899869c9074ae9c9925d2b9",
+      "after_sha256": "82a832827edec81603534720ba1d9329dc5114824105ba297059e0211c94cc4b"
+    },
+    {
+      "file": "Source/Game/Circles/DrawWideCircleAcrossBothSides.asm",
+      "before_sha256": "1dee314729b60c6f6ac7bd8a6c6510073a48a1a1c31026982e02dd677f0703ab",
+      "after_sha256": "e643c6d60ed01cc9abb8bbb3516ce974c0bedaccbafb925c99a60940f1985cf0"
+    },
+    {
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "before_sha256": "c1ef6cdbc8c881c62071d79e3671aebc5bee46443aa69ac26c44dedd5c646f78",
+      "after_sha256": "bd6709fef1912199ce4c1e06f06acb3631baaeb305f0cd0ef1c1d5af1417c7c8"
+    },
+    {
+      "file": "Source/Game/Universe/DivideCelestialAxis.asm",
+      "before_sha256": "3698dfa2258240bb4c9306dae5a2531a0a214ac964c618351ec1b0b56dcbef04",
+      "after_sha256": "63bdf6839038d06b9557b760226b38037dedb8d631ade8c69035ef5980197806"
+    },
+    {
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "before_sha256": "2712273edf072cd95f854ce7350b72af943c5b54cba345f8d5f7684b9375395f",
+      "after_sha256": "1dc9073a8de738ad6e56d21824539f6af581d54f7a4e253a33b170a7c1016b19"
+    },
+    {
+      "file": "Source/Game/Extensions/GetViewAdjustedProjectedPoint.asm",
+      "before_sha256": "ccf5b04897cb5d4c990b744448893a05d58906918c7773260db0450837480c77",
+      "after_sha256": "ad46415a5e792b67885d25812c90b546e073adf30d5ce827e96e712a8f39b34e"
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "before_sha256": "a561250f48c6d76fe6101fafc94772151d1deb67c0110c026a740d67e0fb0472",
+      "after_sha256": "6da23c624ff7650b1ae8071e7ce7f6dc9143f860fdbd6889ae6817de4e65de51"
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadProjectedVertex.asm",
+      "before_sha256": "a3fc877a34e988ff61a195ca7c1ba11799b2fe83ec2869263e28460a84709cc3",
+      "after_sha256": "caed9624f1ae38995372d8cf567d23c5b0877417da618cf66aa58dd743365595"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "before_sha256": "e28226ec5bfb3311c3009b5f6a35857b3a3176965129b5037ab85d9763c9e0a8",
+      "after_sha256": "a06ffa10092143320ef10c9ccb959db2109b772a4832091e80b05d3ee2e7eafd"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "before_sha256": "9f49d097832970e4430ac165032c1c0788d4dd213e2f17423dacd83d7d08c089",
+      "after_sha256": "6d1026cd8e2d7c68a4a812ae556a6f825f1a55e76377feffdf5da55b17a1b357"
+    },
+    {
+      "file": "Source/Loader/Load.asm",
+      "before_sha256": "529b756f459292dac7a9bc61fcbb8be3fddba3d41eb70138c3ce366d883b60e8",
+      "after_sha256": "f7c288b47ccff8660f6475e70162971b8d7c603503632959afc1b7e5edbe9620"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/AllocateSaveRecord.asm",
+      "before_sha256": "12a1701abba801e2a4b7a5b550b02757857ae0c0968fe7c354a3f060f1d020d6",
+      "after_sha256": "5b925fd83765cac831c5142902b9baf5d9912d709cb8689710131b0a8aacd468"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/UpdateProtectionMark.asm",
+      "before_sha256": "553c0a592a0d6ab4015e06839675eea6ccddc1adb31b18db723f77359dbef92d",
+      "after_sha256": "6adf5b16aa67400efe93323590b1b38d79d57e4e5658799c53689784ac3c1524"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/CheckMenuAbort.asm",
+      "before_sha256": "6604be6a2758cdca51dac05d06bb881ea1ba8cde95e4fabf3bf4c198bd9ebd1e",
+      "after_sha256": "0d686b996a3b8e4e438731a1e713dc11126d4248c4c41b2f715bcbf2ef1570c7"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/EditSaveName.asm",
+      "before_sha256": "ace3dd2aa1c33453ad0f9cd01ce87c03f77c2764e3b420e471a226169823840c",
+      "after_sha256": "ad932fe873eabc8e44f8495aac03eaa01c2c61700f38f8050463e8d022e61140"
+    },
+    {
+      "file": "Source/Manual/ReadControls.asm",
+      "before_sha256": "5c44e6ac45cb60d3c7df45d182da0e7b21bcca2ad98704530090943d3bd94c15",
+      "after_sha256": "972a2fd0ad67a12c7dd52d0c6ee0c14b9a03aa8fb1d3961120329e718d5d0694"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/MenuBeep.asm",
+      "before_sha256": "f58b60a367e26e1e57369b4c18a4ca70c19ece9f19ec00375b76e133a3f61af4",
+      "after_sha256": "99bc1f4e5e2b3c79bff2a389da30b57dd77d9c954fc9f681a87eac0951ef2efc"
+    },
+    {
+      "file": "Source/Manual/UndoDirection.asm",
+      "before_sha256": "bd40964d1a8ebe76fbda05566d5a654c4525a10421db4742c624c7cd82b4feef",
+      "after_sha256": "24c6bbf203dffc46baa3a98a062d0c7820c82291323dee88cf71839ecd0e27f0"
+    },
+    {
+      "file": "Source/Manual/UpdateKeys.asm",
+      "before_sha256": "8aaa21476a87f95c67621d947dafeaf03928b301e9e657f93c33652056afb9eb",
+      "after_sha256": "40d62dd173d4e0f87221da7e7d5aef29685770d75a3ee63623f5b90af3d74955"
+    },
+    {
+      "file": "Source/Manual/RenderEdge.asm",
+      "before_sha256": "9d0aa323dd29255f2541e6b416c6aea9963bf46772a21c7d10a376f25ef0e6b3",
+      "after_sha256": "c2956785a521d12c77b85844617c80eaf5e898b151964eb71911c7975f71f4c5"
+    },
+    {
+      "file": "Source/Manual/Interrupt.asm",
+      "before_sha256": "f6e87a7f2d3c47130745818ed94f137223610a2571a3c78df050a02ef5ebfd91",
+      "after_sha256": "1a6a1438c2759967ffa07e070ebf162333e37fe6bde15b72463615ae4f1454e8"
+    },
+    {
+      "file": "Source/Manual/UnpackText.asm",
+      "before_sha256": "3f17fcf8e47f253d5153243b7797a88d46ee04b33baba1b13cce60e25d74fb22",
+      "after_sha256": "a8f52bb6db4c97a05ce88971bf7dac7b3f03cb6428baa7dd390c22b9b3897972"
+    },
+    {
+      "file": "Source/Manual/Data.asm",
+      "before_sha256": "cbf06f95e4a6ff5b4c4343e31f9cb1d1baad8d20d743b79819ee598031eb4669",
+      "after_sha256": "7220ef50c5e57f70c9550f30b71082be531299a7d41fd7807c86ad7f5e6edfdf"
+    },
+    {
+      "file": "Source/Game/Flight/DispatchThirdMissionStage.asm",
+      "before_sha256": "6750cdbae88e86f3f7640c85dc612708280dd6eba9e7e986023a1aed30662e7e",
+      "after_sha256": "8e7efe22c771eb3f72a2d4b5b2c4add66c279cc5e446fb8069a794fd449bfa6f"
+    },
+    {
+      "file": "Source/Game/Flight/TryColonizeMinerals.asm",
+      "before_sha256": "f6d9bc534e6144b78bf8c6bf5695bbf528c64116aae0458fa397d8f07ecc1f90",
+      "after_sha256": "380e6c238303ae479fc42f6036f8174b7291520410cf2368f0466da06a923db0"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateSpecialCargoStatus.asm",
+      "before_sha256": "6d7cbd474203e30289c56ec0fa3a806e88c4c56850d32eeed7c4288a0d87af84",
+      "after_sha256": "775fce2fd3c772c8c5b18064509d2f0364ee7ccabc25ac841c265c48f8a7cdd5"
+    },
+    {
+      "file": "Source/Game/Menus/CheckMissionRegionBand.asm",
+      "before_sha256": "a0db5eccbb078b1ff4a89618ab3ee7f24edd2c4d4cadbf36b5722a3b4453a1b1",
+      "after_sha256": "3aa00889dac4c82ae04c46823a426cf12320689a72915af6b5a70510aab776ff"
+    },
+    {
+      "file": "Source/Game/Universe/CheckSpecialSystemOrRandom.asm",
+      "before_sha256": "54b421bbc9e030e8e90e3cddfce5926f9a520958991e7678f398c02598af1ea9",
+      "after_sha256": "36188dbea7d3577a0266ffd6aca3e0589c1958b53cd6bd7ba35ad62134677959"
+    },
+    {
+      "file": "README.md",
+      "before_sha256": "e6441852df1ffe5cf1dc41f68ed762e3b41976e3abfc60596c6e68e6b2ac438f",
+      "after_sha256": "2e9576e45c2e298c144c02be0e7a2fa3460226ebff84a283922e71d460160a28"
+    }
+  ],
+  "field_layout_verified": {
+    "FCommander": 102,
+    "FCommander.RankState": 14,
+    "FCommander.JumpFlags": 16,
+    "State.RankState": 53346,
+    "State.JumpFlags": 53348
+  },
+  "build_verification": "Tools/Disasm/Reports/BuildVerification.json",
+  "source_verification": "15055 instructions, 20180 literals, 184 separately reviewed math bytes, 49152 bytes covered",
+  "constant_files": [
+    "Includes/Const/Commander.inc",
+    "Includes/Const/DiskFlags.inc",
+    "Includes/Const/Graphics.inc",
+    "Includes/Const/InputCommands.inc",
+    "Includes/Const/Objects.inc",
+    "Includes/Const/Runtime.inc"
+  ],
+  "constant_count": 217,
+  "asm_mission_references": 28
+}

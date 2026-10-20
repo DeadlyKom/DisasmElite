@@ -1,0 +1,3723 @@
+{
+  "scope": "имена доказанных входов и адресных операндов, без изменения байтов",
+  "counts": {
+    "entry": 53,
+    "branch": 178,
+    "state": 307
+  },
+  "changes": [
+    {
+      "kind": "entry",
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "address": 28896,
+      "name": "StartGame"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "address": 29405,
+      "name": "ToggleScanner"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "address": 29461,
+      "name": "ScannerKey"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "address": 29480,
+      "name": "ToggleJoystick"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Flight/PlaySweepingBeeperAndBootstrap.asm",
+      "address": 29542,
+      "name": "Bootstrap"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+      "address": 29734,
+      "name": "DrawDemoTitle"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "address": 37687,
+      "name": "FadeTunnel"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "address": 37732,
+      "name": "EndDocking"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Flight/DivideByteFractionForTunnel.asm",
+      "address": 37824,
+      "name": "FinishTunnel"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "address": 53272,
+      "name": "OpenCargo"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "address": 53275,
+      "name": "CursorLeft"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "address": 53278,
+      "name": "CursorRight"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "address": 53281,
+      "name": "CursorDown"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "address": 53284,
+      "name": "CursorUp"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "address": 53287,
+      "name": "CurrentSystem"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "address": 53290,
+      "name": "SelectSystem"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "address": 53293,
+      "name": "FindSystem"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "address": 53296,
+      "name": "NextGalaxy"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "address": 53463,
+      "name": "ShowBoarding"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Economy/FinishWordDecimal.asm",
+      "address": 54061,
+      "name": "PrintCash"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Text/FillInnerAttributeRow.asm",
+      "address": 54620,
+      "name": "IgnoreToken"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "address": 54773,
+      "name": "CheckWarSupply"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "address": 55330,
+      "name": "PrintCashLine"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "address": 55371,
+      "name": "PrintGalaxy"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "address": 55429,
+      "name": "RandomName"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Text/SetDescriptionModeAndHelpers.asm",
+      "address": 55529,
+      "name": "Disable"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Text/SetDescriptionModeAndHelpers.asm",
+      "address": 55535,
+      "name": "RowSix"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Disk/LoadDiskMenuOverlay.asm",
+      "address": 55638,
+      "name": "CallDosInline"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Disk/BlackAttributesAndOverlayState.asm",
+      "address": 55707,
+      "name": "LoadDemo"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Disk/TransferDiskSectors.asm",
+      "address": 55751,
+      "name": "Write"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Galaxy/OnesComplementDifference.asm",
+      "address": 57326,
+      "name": "ToggleBit1"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Trade/PrintKilometreSuffix.asm",
+      "address": 58188,
+      "name": "UsesTonnes"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Charts/TextInputLoop.asm",
+      "address": 58459,
+      "name": "SelectSystem"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "address": 58580,
+      "name": "CursorUp"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "address": 58598,
+      "name": "CursorDown"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "address": 58617,
+      "name": "CursorLeft"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "address": 58633,
+      "name": "CursorRight"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "address": 58650,
+      "name": "CurrentSystem"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+      "address": 59054,
+      "name": "OfferRefugees"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Trade/MissionRegionMetric.asm",
+      "address": 59094,
+      "name": "BoardRefugees"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+      "address": 59130,
+      "name": "PrepareBuy"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Trade/BuyCargoLoop.asm",
+      "address": 59230,
+      "name": "ClearTradeAttr"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Trade/IndirectTradeCallbackAndBuy.asm",
+      "address": 59355,
+      "name": "BuyQuantity"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Trade/TradeErrorMessage.asm",
+      "address": 59424,
+      "name": "NoCargoSpace"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "address": 59566,
+      "name": "UnloadRefugees"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
+      "address": 59626,
+      "name": "SellCargo"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
+      "address": 59701,
+      "name": "SellQuantity"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Trade/EquipmentPaymentFailed.asm",
+      "address": 60205,
+      "name": "AcceptInput"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Menus/MapCaptionAndGalaxyChart.asm",
+      "address": 60284,
+      "name": "GalaxyChart"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Menus/LocalSystemPixelPosition.asm",
+      "address": 60711,
+      "name": "PlotStar"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "address": 60895,
+      "name": "ShowSystem"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Menus/BlankLineAndEconomyText.asm",
+      "address": 61096,
+      "name": "EconomyText"
+    },
+    {
+      "kind": "entry",
+      "file": "Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm",
+      "address": 61256,
+      "name": "MarketPrices"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "line": 82,
+      "address": 58479,
+      "symbol": "Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "line": 91,
+      "address": 58479,
+      "symbol": "Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "line": 100,
+      "address": 58479,
+      "symbol": "Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "line": 106,
+      "address": 58479,
+      "symbol": "Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "line": 107,
+      "address": 58479,
+      "symbol": "Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "line": 115,
+      "address": 58479,
+      "symbol": "Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+      "line": 38,
+      "address": 53602,
+      "symbol": "Game.Missions.SpecialMessageAndScoopReward.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+      "line": 39,
+      "address": 59094,
+      "symbol": "Game.Trade.MissionRegionMetric.BoardRefugees"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Charts/TextInputLoop.asm",
+      "line": 76,
+      "address": 57184,
+      "symbol": "Game.Galaxy.SelectNearestSystemWithCursor.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "line": 143,
+      "address": 36334,
+      "symbol": "Game.Circles.StepCircleRowUp.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "line": 145,
+      "address": 36360,
+      "symbol": "Game.Circles.StepCircleRowDown.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "line": 22,
+      "address": 28933,
+      "symbol": "FlightState.RandomByte"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "line": 154,
+      "address": 36334,
+      "symbol": "Game.Circles.StepCircleRowUp.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "line": 156,
+      "address": 36360,
+      "symbol": "Game.Circles.StepCircleRowDown.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "line": 19,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "line": 24,
+      "address": 28910,
+      "symbol": "GaugeState + FGaugeState.CabinHeat.Current"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "line": 152,
+      "address": 36334,
+      "symbol": "Game.Circles.StepCircleRowUp.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "line": 154,
+      "address": 36360,
+      "symbol": "Game.Circles.StepCircleRowDown.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+      "line": 20,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+      "line": 24,
+      "address": 28924,
+      "symbol": "GaugeState + FGaugeState.Energy4.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+      "line": 28,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+      "line": 31,
+      "address": 28904,
+      "symbol": "GaugeState + FGaugeState.FrontShield.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+      "line": 32,
+      "address": 40099,
+      "symbol": "CombatState.FrontDamage"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+      "line": 34,
+      "address": 28906,
+      "symbol": "GaugeState + FGaugeState.RearShield.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+      "line": 35,
+      "address": 40100,
+      "symbol": "CombatState.RearDamage"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+      "line": 39,
+      "address": 40098,
+      "symbol": "CombatState.EnergyDrain"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/CreatePlayerWreckScene.asm",
+      "line": 19,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/CreatePlayerWreckScene.asm",
+      "line": 22,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Combat/CreateWreckAndDamageState.asm",
+      "line": 39,
+      "address": 40834,
+      "symbol": "Game.Motion.UpdateObjectCoordinatesAndRotation.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Combat/CreateWreckAndDamageState.asm",
+      "line": 53,
+      "address": 41613,
+      "symbol": "Game.Motion.AnimateIntroObject.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Combat/DivideAndCombatState.asm",
+      "line": 40,
+      "address": 45124,
+      "symbol": "Game.Wireframe.DrawClippedLine.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Combat/DivideAndCombatState.asm",
+      "line": 54,
+      "address": 47028,
+      "symbol": "Game.Combat.ProcessLaserAndEcm.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/DrainEnergyBanks.asm",
+      "line": 20,
+      "address": 28918,
+      "symbol": "GaugeState + FGaugeState.Energy1.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/DrainEnergyBanks.asm",
+      "line": 33,
+      "address": 28959,
+      "symbol": "FlightState.PlayerDead"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/FinishObjectFrame.asm",
+      "line": 21,
+      "address": 40084,
+      "symbol": "CombatState.ShipsPresent"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/FinishObjectFrame.asm",
+      "line": 24,
+      "address": 40089,
+      "symbol": "CombatState.Danger"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 33,
+      "address": 28912,
+      "symbol": "GaugeState + FGaugeState.LaserHeat.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 38,
+      "address": 28912,
+      "symbol": "GaugeState + FGaugeState.LaserHeat.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 46,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 68,
+      "address": 40083,
+      "symbol": "CombatState.SpawnCounter"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 72,
+      "address": 40098,
+      "symbol": "CombatState.EnergyDrain"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 75,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 94,
+      "address": 28912,
+      "symbol": "GaugeState + FGaugeState.LaserHeat.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 96,
+      "address": 40087,
+      "symbol": "CombatState.CrosshairTarget"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 111,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
+      "line": 41,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleMissileControls.asm",
+      "line": 34,
+      "address": 40087,
+      "symbol": "CombatState.CrosshairTarget"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleMissileControls.asm",
+      "line": 84,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 27,
+      "address": 28959,
+      "symbol": "FlightState.PlayerDead"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 90,
+      "address": 53476,
+      "symbol": "Game.Missions.DispatchMissionEvents.ScoopItem"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 115,
+      "address": 40090,
+      "symbol": "CombatState.DockRequest"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 118,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 120,
+      "address": 28902,
+      "symbol": "FlightState.Speed"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 121,
+      "address": 40099,
+      "symbol": "CombatState.FrontDamage"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 125,
+      "address": 40099,
+      "symbol": "CombatState.FrontDamage"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 139,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 145,
+      "address": 40100,
+      "symbol": "CombatState.RearDamage"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 149,
+      "address": 28959,
+      "symbol": "FlightState.PlayerDead"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "line": 153,
+      "address": 40099,
+      "symbol": "CombatState.FrontDamage"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ProcessCombatControls.asm",
+      "line": 20,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "line": 25,
+      "address": 28959,
+      "symbol": "FlightState.PlayerDead"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "line": 28,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "line": 73,
+      "address": 40091,
+      "symbol": "CombatState.EcmTimer"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "line": 78,
+      "address": 40091,
+      "symbol": "CombatState.EcmTimer"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "line": 82,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "line": 88,
+      "address": 40098,
+      "symbol": "CombatState.EnergyDrain"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "line": 90,
+      "address": 40098,
+      "symbol": "CombatState.EnergyDrain"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/RecoverOneEnergyUnit.asm",
+      "line": 19,
+      "address": 28924,
+      "symbol": "GaugeState + FGaugeState.Energy4.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/RecoverOneEnergyUnit.asm",
+      "line": 30,
+      "address": 28904,
+      "symbol": "GaugeState + FGaugeState.FrontShield.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/RecoverOneEnergyUnit.asm",
+      "line": 32,
+      "address": 28906,
+      "symbol": "GaugeState + FGaugeState.RearShield.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 32,
+      "address": 28960,
+      "symbol": "FlightState.XorObjects"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 42,
+      "address": 40083,
+      "symbol": "CombatState.SpawnCounter"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 44,
+      "address": 40083,
+      "symbol": "CombatState.SpawnCounter"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 46,
+      "address": 28956,
+      "symbol": "FlightState.StationZone"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 49,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 60,
+      "address": 40098,
+      "symbol": "CombatState.EnergyDrain"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 61,
+      "address": 40100,
+      "symbol": "CombatState.RearDamage"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 62,
+      "address": 40099,
+      "symbol": "CombatState.FrontDamage"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 63,
+      "address": 40087,
+      "symbol": "CombatState.CrosshairTarget"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 66,
+      "address": 40086,
+      "symbol": "CombatState.ObjectsPresent"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 67,
+      "address": 40084,
+      "symbol": "CombatState.ShipsPresent"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 102,
+      "address": 40084,
+      "symbol": "CombatState.ShipsPresent"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 103,
+      "address": 40085,
+      "symbol": "CombatState.DestroyAll"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 119,
+      "address": 40089,
+      "symbol": "CombatState.Danger"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 123,
+      "address": 40089,
+      "symbol": "CombatState.Danger"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 144,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+      "line": 23,
+      "address": 28892,
+      "symbol": "FlightState.InvasionClock"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateEcmAndDriveIndicators.asm",
+      "line": 19,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateEcmAndDriveIndicators.asm",
+      "line": 23,
+      "address": 40091,
+      "symbol": "CombatState.EcmTimer"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Combat/UpdateEcmAndDriveIndicators.asm",
+      "line": 26,
+      "address": 28956,
+      "symbol": "FlightState.StationZone"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Data/MenuDispatchTable.asm",
+      "line": 13,
+      "address": 59054,
+      "symbol": "Game.Charts.NextScreenCharacterRowAndRefugees.OfferRefugees"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Data/MenuDispatchTable.asm",
+      "line": 14,
+      "address": 59566,
+      "symbol": "Game.Trade.PromptCargoQuantityAndRefugees.UnloadRefugees"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Data/MenuDispatchTable.asm",
+      "line": 15,
+      "address": 59763,
+      "symbol": "Game.Trade.OpenEquipmentShop.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Data/MenuDispatchTable.asm",
+      "line": 16,
+      "address": 60284,
+      "symbol": "Game.Menus.MapCaptionAndGalaxyChart.GalaxyChart"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Data/MenuDispatchTable.asm",
+      "line": 17,
+      "address": 60504,
+      "symbol": "Game.Menus.OpenLocalChart.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Data/MenuDispatchTable.asm",
+      "line": 18,
+      "address": 60895,
+      "symbol": "Game.Menus.PrintLabelOnUnusedRow.ShowSystem"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Data/MenuDispatchTable.asm",
+      "line": 19,
+      "address": 61256,
+      "symbol": "Game.Menus.CompareSystemSeedToGalaxyBase.MarketPrices"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 33,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Disk/BlackAttributesAndOverlayState.asm",
+      "line": 41,
+      "address": 55745,
+      "symbol": "Game.Disk.TransferDiskSectors.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Disk/BlackAttributesAndOverlayState.asm",
+      "line": 44,
+      "address": 55745,
+      "symbol": "Game.Disk.TransferDiskSectors.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 118,
+      "address": 40085,
+      "symbol": "CombatState.DestroyAll"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 119,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "line": 28,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Extensions/EnergyBombAndFlashVectors.asm",
+      "line": 19,
+      "address": 28841,
+      "symbol": "Game.Extensions.FlashViewAttributes.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Extensions/GetViewAdjustedProjectedPoint.asm",
+      "line": 19,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm",
+      "line": 17,
+      "address": 40086,
+      "symbol": "CombatState.ObjectsPresent"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "line": 50,
+      "address": 24643,
+      "symbol": "Game.Data.SystemBoundaryAndObjects.ClampZ"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "line": 54,
+      "address": 24643,
+      "symbol": "Game.Data.SystemBoundaryAndObjects.ClampZ"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Extensions/PrintEquipmentAndSelectIcon.asm",
+      "line": 46,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Extensions/UpdateStationAndFinishGlyph.asm",
+      "line": 21,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "line": 64,
+      "address": 28935,
+      "symbol": "FlightState.Sun"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "line": 30,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "line": 125,
+      "address": 32896,
+      "symbol": "Game.Screen.ClearFlightBuffer.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "line": 126,
+      "address": 32702,
+      "symbol": "Game.Screen.CopyFlightView.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "line": 127,
+      "address": 37824,
+      "symbol": "Game.Flight.DivideByteFractionForTunnel.FinishTunnel"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "line": 150,
+      "address": 28902,
+      "symbol": "FlightState.Speed"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+      "line": 21,
+      "address": 40089,
+      "symbol": "CombatState.Danger"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/DispatchThirdMissionStage.asm",
+      "line": 21,
+      "address": 53469,
+      "symbol": "Game.Missions.DispatchMissionEvents.OfferMission"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/DispatchThirdMissionStage.asm",
+      "line": 24,
+      "address": 53485,
+      "symbol": "Game.Missions.DispatchRatingAndMissionEnd.EndMission"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/DivideByteFractionForTunnel.asm",
+      "line": 39,
+      "address": 28664,
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/DivideByteFractionForTunnel.asm",
+      "line": 41,
+      "address": 30083,
+      "symbol": "Game.Flight.MainGameLoop.NovaRadius"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "line": 49,
+      "address": 29542,
+      "symbol": "Game.Flight.PlaySweepingBeeperAndBootstrap.Bootstrap"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/HandleMapCursorKeys.asm",
+      "line": 18,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "line": 54,
+      "address": 29405,
+      "symbol": "ToggleScanner"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "line": 84,
+      "address": 57326,
+      "symbol": "Game.Galaxy.OnesComplementDifference.ToggleBit1"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 22,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 37,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 44,
+      "address": 28902,
+      "symbol": "FlightState.Speed"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 46,
+      "address": 28901,
+      "symbol": "FlightState.Pitch"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 47,
+      "address": 28900,
+      "symbol": "FlightState.Roll"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 48,
+      "address": 40091,
+      "symbol": "CombatState.EcmTimer"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 50,
+      "address": 28964,
+      "symbol": "FlightState.ControlsLocked"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 66,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 76,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 80,
+      "address": 40090,
+      "symbol": "CombatState.DockRequest"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 81,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 82,
+      "address": 28957,
+      "symbol": "FlightState.StationFar"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 91,
+      "address": 28944,
+      "symbol": "FlightState.Planet"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 142,
+      "address": 28964,
+      "symbol": "FlightState.ControlsLocked"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 23,
+      "address": 28964,
+      "symbol": "FlightState.ControlsLocked"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 32,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 37,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 50,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 58,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 62,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 80,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 98,
+      "address": 28959,
+      "symbol": "FlightState.PlayerDead"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 103,
+      "address": 28902,
+      "symbol": "FlightState.Speed"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 104,
+      "address": 28960,
+      "symbol": "FlightState.XorObjects"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 106,
+      "address": 28964,
+      "symbol": "FlightState.ControlsLocked"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 144,
+      "address": 28964,
+      "symbol": "FlightState.ControlsLocked"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 145,
+      "address": 28959,
+      "symbol": "FlightState.PlayerDead"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/PlaySweepingBeeperAndBootstrap.asm",
+      "line": 48,
+      "address": 30072,
+      "symbol": "Game.Flight.MainGameLoop.SavedSP"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/PlaySweepingBeeperAndBootstrap.asm",
+      "line": 49,
+      "address": 38132,
+      "symbol": "Game.Flight.ResetFlightControls.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/PlaySweepingBeeperAndBootstrap.asm",
+      "line": 50,
+      "address": 32834,
+      "symbol": "Game.Screen.RestoreCockpitIfNeeded.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/RebaseSunAgainstStation.asm",
+      "line": 17,
+      "address": 28935,
+      "symbol": "FlightState.Sun"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/ReportBoardingAndReturnToTitle.asm",
+      "line": 25,
+      "address": 30072,
+      "symbol": "Game.Flight.MainGameLoop.SavedSP"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+      "line": 23,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+      "line": 83,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+      "line": 84,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+      "line": 86,
+      "address": 28958,
+      "symbol": "FlightState.SunScooping"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+      "line": 88,
+      "address": 30083,
+      "symbol": "Game.Flight.MainGameLoop.NovaRadius"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+      "line": 95,
+      "address": 29767,
+      "symbol": "Game.Flight.DrawDemoHeading.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+      "line": 39,
+      "address": 28922,
+      "symbol": "GaugeState + FGaugeState.Energy3.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+      "line": 48,
+      "address": 40089,
+      "symbol": "CombatState.Danger"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+      "line": 19,
+      "address": 40090,
+      "symbol": "CombatState.DockRequest"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+      "line": 23,
+      "address": 40090,
+      "symbol": "CombatState.DockRequest"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+      "line": 34,
+      "address": 28956,
+      "symbol": "FlightState.StationZone"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+      "line": 41,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+      "line": 52,
+      "address": 28969,
+      "symbol": "FlightState.AutoDock"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+      "line": 54,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+      "line": 19,
+      "address": 28900,
+      "symbol": "FlightState.Roll"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+      "line": 28,
+      "address": 28926,
+      "symbol": "GaugeState + FGaugeState.Roll.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+      "line": 33,
+      "address": 28901,
+      "symbol": "FlightState.Pitch"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+      "line": 42,
+      "address": 28928,
+      "symbol": "GaugeState + FGaugeState.Pitch.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+      "line": 47,
+      "address": 28902,
+      "symbol": "FlightState.Speed"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+      "line": 53,
+      "address": 28916,
+      "symbol": "GaugeState + FGaugeState.Speed.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Galaxy/SelectNearestSystemWithCursor.asm",
+      "line": 19,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Input/IntegrateFlightControls.asm",
+      "line": 21,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+      "line": 46,
+      "address": 53463,
+      "symbol": "Game.Interface.DispatchDiskAndCommanderState.ShowBoarding"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "line": 26,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "line": 34,
+      "address": 28956,
+      "symbol": "FlightState.StationZone"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "line": 44,
+      "address": 60480,
+      "symbol": "Game.Menus.CheckMissionRegionBand.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Interface/DispatchResetCommander.asm",
+      "line": 17,
+      "address": 53912,
+      "symbol": "Game.Missions.RatingBountyDamageAndNewCommander.ResetCommander"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "line": 22,
+      "address": 58617,
+      "symbol": "Game.Charts.MapCursorTransformAndKeys.CursorLeft"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "line": 23,
+      "address": 58633,
+      "symbol": "Game.Charts.MapCursorTransformAndKeys.CursorRight"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "line": 24,
+      "address": 58598,
+      "symbol": "Game.Charts.MapCursorTransformAndKeys.CursorDown"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "line": 25,
+      "address": 58580,
+      "symbol": "Game.Charts.MapCursorTransformAndKeys.CursorUp"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "line": 26,
+      "address": 58650,
+      "symbol": "Game.Charts.MapCursorTransformAndKeys.CurrentSystem"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "line": 27,
+      "address": 58459,
+      "symbol": "Game.Charts.TextInputLoop.SelectSystem"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "line": 28,
+      "address": 58264,
+      "symbol": "Game.Charts.FindSystemNameDialog.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "line": 29,
+      "address": 57091,
+      "symbol": "Game.Galaxy.AdvanceGalaxySeed.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/BlankLineAndEconomyText.asm",
+      "line": 23,
+      "address": 58002,
+      "symbol": "Game.Trade.PrintDescriptionColon.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/BlankLineAndEconomyText.asm",
+      "line": 30,
+      "address": 54309,
+      "symbol": "Game.Text.PrintMainToken.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/BlankLineAndEconomyText.asm",
+      "line": 35,
+      "address": 61085,
+      "symbol": "Game.Menus.PrintTokenAndBlankLine.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/BlankLineAndEconomyText.asm",
+      "line": 36,
+      "address": 54305,
+      "symbol": "Game.Text.PrintInlineToken.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/BlankLineAndEconomyText.asm",
+      "line": 44,
+      "address": 54309,
+      "symbol": "Game.Text.PrintMainToken.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm",
+      "line": 32,
+      "address": 59130,
+      "symbol": "Game.Trade.ResetCloakingAndSeedFlightRandom.PrepareBuy"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm",
+      "line": 42,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/LocalSystemPixelPosition.asm",
+      "line": 44,
+      "address": 60669,
+      "symbol": "Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/LocalSystemPixelPosition.asm",
+      "line": 59,
+      "address": 64259,
+      "symbol": "Game.Extensions.BuildSmallCircleProfile.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/LocalSystemPixelPosition.asm",
+      "line": 72,
+      "address": 57284,
+      "symbol": "Game.Galaxy.AdvanceSystemSeed.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/MapCaptionAndGalaxyChart.asm",
+      "line": 32,
+      "address": 54813,
+      "symbol": "Game.Text.ClearViewAndFrame.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Menus/OpenCommanderStatus.asm",
+      "line": 20,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 33,
+      "address": 57184,
+      "symbol": "Game.Galaxy.SelectNearestSystemWithCursor.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 34,
+      "address": 59621,
+      "symbol": "Game.Trade.TradeTitleAndSellLoop.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 36,
+      "address": 54632,
+      "symbol": "Game.Text.ApplyAttributeRuns.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 38,
+      "address": 58118,
+      "symbol": "Game.Trade.PrintScreenCaption.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 40,
+      "address": 58056,
+      "symbol": "Game.Trade.SetTextRow.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 41,
+      "address": 57607,
+      "symbol": "Game.Galaxy.PrintTargetDistance.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 42,
+      "address": 58025,
+      "symbol": "Game.Trade.Newline.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 43,
+      "address": 61096,
+      "symbol": "Game.Menus.BlankLineAndEconomyText.EconomyText"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 45,
+      "address": 58007,
+      "symbol": "Game.Trade.PrintMainTokenColon.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 50,
+      "address": 61085,
+      "symbol": "Game.Menus.PrintTokenAndBlankLine.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 52,
+      "address": 58007,
+      "symbol": "Game.Trade.PrintMainTokenColon.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 57,
+      "address": 53985,
+      "symbol": "Game.Economy.PrintByteInteger.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 58,
+      "address": 61090,
+      "symbol": "Game.Menus.BlankLineAndEconomyText.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 60,
+      "address": 58002,
+      "symbol": "Game.Trade.PrintDescriptionColon.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 62,
+      "address": 53982,
+      "symbol": "Game.Economy.PrintBytePrice.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 64,
+      "address": 61085,
+      "symbol": "Game.Menus.PrintTokenAndBlankLine.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 65,
+      "address": 54305,
+      "symbol": "Game.Text.PrintInlineToken.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "line": 68,
+      "address": 54305,
+      "symbol": "Game.Text.PrintInlineToken.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Menus/PrintStatusFieldAndCargoScreen.asm",
+      "line": 32,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "line": 80,
+      "address": 28933,
+      "symbol": "FlightState.RandomByte"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "line": 239,
+      "address": 28935,
+      "symbol": "FlightState.Sun"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 31,
+      "address": 28900,
+      "symbol": "FlightState.Roll"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 38,
+      "address": 28900,
+      "symbol": "FlightState.Roll"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 45,
+      "address": 28901,
+      "symbol": "FlightState.Pitch"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 51,
+      "address": 28902,
+      "symbol": "FlightState.Speed"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "line": 27,
+      "address": 40091,
+      "symbol": "CombatState.EcmTimer"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 82,
+      "address": 40091,
+      "symbol": "CombatState.EcmTimer"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 152,
+      "address": 40091,
+      "symbol": "CombatState.EcmTimer"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 163,
+      "address": 40091,
+      "symbol": "CombatState.EcmTimer"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 143,
+      "address": 40087,
+      "symbol": "CombatState.CrosshairTarget"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 149,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 187,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 150,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 154,
+      "address": 40100,
+      "symbol": "CombatState.RearDamage"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 156,
+      "address": 40100,
+      "symbol": "CombatState.RearDamage"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 158,
+      "address": 40099,
+      "symbol": "CombatState.FrontDamage"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 160,
+      "address": 40099,
+      "symbol": "CombatState.FrontDamage"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "line": 47,
+      "address": 28900,
+      "symbol": "FlightState.Roll"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Objects/ActivateEnemyECM.asm",
+      "line": 26,
+      "address": 40091,
+      "symbol": "CombatState.EcmTimer"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Objects/SpawnEscapePod.asm",
+      "line": 36,
+      "address": 28902,
+      "symbol": "FlightState.Speed"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "line": 48,
+      "address": 28902,
+      "symbol": "FlightState.Speed"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "line": 22,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "line": 27,
+      "address": 28904,
+      "symbol": "GaugeState + FGaugeState.FrontShield.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "line": 30,
+      "address": 28906,
+      "symbol": "GaugeState + FGaugeState.RearShield.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "line": 51,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 24,
+      "address": 40086,
+      "symbol": "CombatState.ObjectsPresent"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+      "line": 26,
+      "address": 28912,
+      "symbol": "GaugeState + FGaugeState.LaserHeat.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+      "line": 27,
+      "address": 28910,
+      "symbol": "GaugeState + FGaugeState.CabinHeat.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+      "line": 28,
+      "address": 28969,
+      "symbol": "FlightState.AutoDock"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+      "line": 29,
+      "address": 40091,
+      "symbol": "CombatState.EcmTimer"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+      "line": 33,
+      "address": 28904,
+      "symbol": "GaugeState + FGaugeState.FrontShield.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+      "line": 34,
+      "address": 28906,
+      "symbol": "GaugeState + FGaugeState.RearShield.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+      "line": 35,
+      "address": 28914,
+      "symbol": "GaugeState + FGaugeState.Altitude.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+      "line": 36,
+      "address": 28918,
+      "symbol": "GaugeState + FGaugeState.Energy1.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/ResetDangerIndicator.asm",
+      "line": 18,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/SetCockpitDeviceAttributes.asm",
+      "line": 20,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/SetYellowFlightStatus.asm",
+      "line": 20,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Scanner/SetYellowFlightStatus.asm",
+      "line": 27,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "line": 40,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "line": 52,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/RestrictDockingView.asm",
+      "line": 22,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/ScaleProximity.asm",
+      "line": 27,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/ScaleProximity.asm",
+      "line": 46,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/SelectScreen.asm",
+      "line": 21,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/SelectScreen.asm",
+      "line": 35,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/SelectTrafficType.asm",
+      "line": 42,
+      "address": 28956,
+      "symbol": "FlightState.StationZone"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/SetGameOver.asm",
+      "line": 18,
+      "address": 28959,
+      "symbol": "FlightState.PlayerDead"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "line": 24,
+      "address": 28935,
+      "symbol": "FlightState.Sun"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "line": 25,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "line": 57,
+      "address": 28958,
+      "symbol": "FlightState.SunScooping"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "line": 65,
+      "address": 28944,
+      "symbol": "FlightState.Planet"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "line": 66,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/UpdateIndicators.asm",
+      "line": 25,
+      "address": 28904,
+      "symbol": "GaugeState + FGaugeState.FrontShield.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "line": 88,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/WriteStridedTriple.asm",
+      "line": 52,
+      "address": 28914,
+      "symbol": "GaugeState + FGaugeState.Altitude.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/WriteStridedTriple.asm",
+      "line": 55,
+      "address": 28956,
+      "symbol": "FlightState.StationZone"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Screen/WriteStridedTriple.asm",
+      "line": 56,
+      "address": 28957,
+      "symbol": "FlightState.StationFar"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Sound/PlayDestructionSound.asm",
+      "line": 30,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Sound/StepDataTone.asm",
+      "line": 60,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Sound/UpdateSound.asm",
+      "line": 28,
+      "address": 28968,
+      "symbol": "FlightState.SoundRequests"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "line": 23,
+      "address": 55423,
+      "symbol": "Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "line": 24,
+      "address": 54753,
+      "symbol": "Game.Text.NextDescriptionRandom.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "line": 27,
+      "address": 54753,
+      "symbol": "Game.Text.NextDescriptionRandom.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "line": 49,
+      "address": 58025,
+      "symbol": "Game.Trade.Newline.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "line": 50,
+      "address": 57832,
+      "symbol": "Game.Trade.OptionalBeep.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "line": 51,
+      "address": 54813,
+      "symbol": "Game.Text.ClearViewAndFrame.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "line": 52,
+      "address": 58033,
+      "symbol": "Game.Trade.IncrementTextRow.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "line": 53,
+      "address": 54620,
+      "symbol": "Game.Text.FillInnerAttributeRow.IgnoreToken"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "line": 54,
+      "address": 58219,
+      "symbol": "Game.Trade.ClearPromptRows.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "line": 55,
+      "address": 58202,
+      "symbol": "Game.Trade.Wait20Interrupts.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 24,
+      "address": 30080,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 25,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 30,
+      "address": 30071,
+      "symbol": "Game.Flight.MainGameLoop.BodyX-FCoordinate"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 66,
+      "address": 58007,
+      "symbol": "Game.Trade.PrintMainTokenColon.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 67,
+      "address": 54061,
+      "symbol": "Game.Economy.FinishWordDecimal.PrintCash"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 75,
+      "address": 58007,
+      "symbol": "Game.Trade.PrintMainTokenColon.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 76,
+      "address": 54305,
+      "symbol": "Game.Text.PrintInlineToken.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 87,
+      "address": 53985,
+      "symbol": "Game.Economy.PrintByteInteger.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 92,
+      "address": 57372,
+      "symbol": "Game.Galaxy.GenerateSystemName.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 95,
+      "address": 55423,
+      "symbol": "Game.Text.CapitalizeNextLetterAndTextCommands.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 98,
+      "address": 55423,
+      "symbol": "Game.Text.CapitalizeNextLetterAndTextCommands.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 100,
+      "address": 58129,
+      "symbol": "Game.Trade.PrintZeroTerminatedString.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 101,
+      "address": 58044,
+      "symbol": "Game.Trade.SetInlineTextColumn.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Text/InvalidateObjectLineCache.asm",
+      "line": 25,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "line": 37,
+      "address": 60480,
+      "symbol": "Game.Menus.CheckMissionRegionBand.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/SetDescriptionModeAndHelpers.asm",
+      "line": 29,
+      "address": 58056,
+      "symbol": "Game.Trade.SetTextRow.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Text/SetDescriptionModeAndHelpers.asm",
+      "line": 33,
+      "address": 54309,
+      "symbol": "Game.Text.PrintMainToken.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/IndirectTradeCallbackAndBuy.asm",
+      "line": 22,
+      "address": 59452,
+      "symbol": "Game.Trade.SnapshotTrade.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/IndirectTradeCallbackAndBuy.asm",
+      "line": 34,
+      "address": 54269,
+      "symbol": "Game.Economy.SubtractCashLow.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/IndirectTradeCallbackAndBuy.asm",
+      "line": 35,
+      "address": 59420,
+      "symbol": "Game.Trade.TradeErrorMessage.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/IndirectTradeCallbackAndBuy.asm",
+      "line": 37,
+      "address": 58188,
+      "symbol": "Game.Trade.PrintKilometreSuffix.UsesTonnes"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/IndirectTradeCallbackAndBuy.asm",
+      "line": 44,
+      "address": 59424,
+      "symbol": "Game.Trade.TradeErrorMessage.NoCargoSpace"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/IndirectTradeCallbackAndBuy.asm",
+      "line": 49,
+      "address": 59424,
+      "symbol": "Game.Trade.TradeErrorMessage.NoCargoSpace"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/IndirectTradeCallbackAndBuy.asm",
+      "line": 52,
+      "address": 53685,
+      "symbol": "Game.Missions.SpecialMessageAndScoopReward.CheckIllegal"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/MissionRegionMetric.asm",
+      "line": 29,
+      "address": 57847,
+      "symbol": "Game.Trade.WaitForKeyCode.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "line": 53,
+      "address": 59626,
+      "symbol": "Game.Trade.TradeTitleAndSellLoop.SellCargo"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "line": 56,
+      "address": 59626,
+      "symbol": "Game.Trade.TradeTitleAndSellLoop.SellCargo"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "line": 62,
+      "address": 32961,
+      "symbol": "Game.Screen.ResetCargoCapacity.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "line": 67,
+      "address": 53576,
+      "symbol": "Game.Missions.OfferThirdMission.ShowAndWait"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+      "line": 24,
+      "address": 28933,
+      "symbol": "FlightState.RandomByte"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+      "line": 38,
+      "address": 59130,
+      "symbol": "PrepareBuy"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+      "line": 39,
+      "address": 54813,
+      "symbol": "Game.Text.ClearViewAndFrame.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+      "line": 40,
+      "address": 58044,
+      "symbol": "Game.Trade.SetInlineTextColumn.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
+      "line": 23,
+      "address": 59609,
+      "symbol": "Game.Trade.PrepareTradeScreen.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
+      "line": 24,
+      "address": 54305,
+      "symbol": "Game.Text.PrintInlineToken.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
+      "line": 57,
+      "address": 59452,
+      "symbol": "Game.Trade.SnapshotTrade.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
+      "line": 64,
+      "address": 58188,
+      "symbol": "Game.Trade.PrintKilometreSuffix.UsesTonnes"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
+      "line": 65,
+      "address": 54773,
+      "symbol": "Game.Text.NextDescriptionRandom.CheckWarSupply"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/BuildStationGeometry.asm",
+      "line": 22,
+      "address": 28944,
+      "symbol": "FlightState.Planet"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+      "line": 43,
+      "address": 28932,
+      "symbol": "FlightState.FlightStatus"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+      "line": 78,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+      "line": 82,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+      "line": 47,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+      "line": 65,
+      "address": 28956,
+      "symbol": "FlightState.StationZone"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/EnterTargetSystem.asm",
+      "line": 21,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/EnterTargetSystem.asm",
+      "line": 39,
+      "address": 28935,
+      "symbol": "FlightState.Sun"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/EnterTargetSystem.asm",
+      "line": 44,
+      "address": 28957,
+      "symbol": "FlightState.StationFar"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "line": 62,
+      "address": 28933,
+      "symbol": "FlightState.RandomByte"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "line": 74,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "line": 75,
+      "address": 28910,
+      "symbol": "GaugeState + FGaugeState.CabinHeat.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "line": 76,
+      "address": 28958,
+      "symbol": "FlightState.SunScooping"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "line": 80,
+      "address": 28914,
+      "symbol": "GaugeState + FGaugeState.Altitude.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/SetFuelAndGauge.asm",
+      "line": 29,
+      "address": 28908,
+      "symbol": "GaugeState + FGaugeState.Fuel.Current"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
+      "line": 28,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/UpdateFlightMessages.asm",
+      "line": 21,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Travel/UpdateFlightMessages.asm",
+      "line": 36,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/AddSignedStarCoordinate.asm",
+      "line": 84,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/AdvanceCircularObjectEffect.asm",
+      "line": 23,
+      "address": 40083,
+      "symbol": "CombatState.SpawnCounter"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "line": 29,
+      "address": 28900,
+      "symbol": "FlightState.Roll"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "line": 40,
+      "address": 28901,
+      "symbol": "FlightState.Pitch"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "line": 74,
+      "address": 60480,
+      "symbol": "Game.Menus.CheckMissionRegionBand.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+      "line": 39,
+      "address": 40087,
+      "symbol": "CombatState.CrosshairTarget"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/DrawStarsWithJumpEffect.asm",
+      "line": 25,
+      "address": 28902,
+      "symbol": "FlightState.Speed"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/DrawStarsWithJumpEffect.asm",
+      "line": 28,
+      "address": 28902,
+      "symbol": "FlightState.Speed"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/DrawSunAndPlanet.asm",
+      "line": 23,
+      "address": 28960,
+      "symbol": "FlightState.XorObjects"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/DrawSunAndPlanet.asm",
+      "line": 24,
+      "address": 28935,
+      "symbol": "FlightState.Sun"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/DrawSunAndPlanet.asm",
+      "line": 25,
+      "address": 30074,
+      "symbol": "Game.Flight.MainGameLoop.BodyX"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/DrawSunAndPlanet.asm",
+      "line": 39,
+      "address": 28960,
+      "symbol": "FlightState.XorObjects"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/DrawSunAndPlanet.asm",
+      "line": 41,
+      "address": 28944,
+      "symbol": "FlightState.Planet"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/DrawSunAndPlanet.asm",
+      "line": 42,
+      "address": 30074,
+      "symbol": "Game.Flight.MainGameLoop.BodyX"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ExpandNovaRadius.asm",
+      "line": 25,
+      "address": 30083,
+      "symbol": "Game.Flight.MainGameLoop.NovaRadius"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ExpandNovaRadius.asm",
+      "line": 35,
+      "address": 28959,
+      "symbol": "FlightState.PlayerDead"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ExpandNovaRadius.asm",
+      "line": 38,
+      "address": 30083,
+      "symbol": "Game.Flight.MainGameLoop.NovaRadius"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+      "line": 31,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+      "line": 35,
+      "address": 28957,
+      "symbol": "FlightState.StationFar"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+      "line": 40,
+      "address": 40084,
+      "symbol": "CombatState.ShipsPresent"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+      "line": 53,
+      "address": 40083,
+      "symbol": "CombatState.SpawnCounter"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+      "line": 56,
+      "address": 28935,
+      "symbol": "FlightState.Sun"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+      "line": 58,
+      "address": 28944,
+      "symbol": "FlightState.Planet"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 30,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 34,
+      "address": 30082,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.SignHigh"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 38,
+      "address": 30082,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.SignHigh"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 40,
+      "address": 30081,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 42,
+      "address": 30075,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 43,
+      "address": 30080,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 45,
+      "address": 30074,
+      "symbol": "Game.Flight.MainGameLoop.BodyX"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 59,
+      "address": 30081,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 61,
+      "address": 30078,
+      "symbol": "Game.Flight.MainGameLoop.BodyY+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 62,
+      "address": 30080,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 64,
+      "address": 30077,
+      "symbol": "Game.Flight.MainGameLoop.BodyY"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 82,
+      "address": 30082,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.SignHigh"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 86,
+      "address": 30080,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 93,
+      "address": 30081,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 97,
+      "address": 30082,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.SignHigh"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 101,
+      "address": 30081,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 117,
+      "address": 30081,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 126,
+      "address": 30082,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.SignHigh"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 130,
+      "address": 30082,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.SignHigh"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 131,
+      "address": 30081,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 133,
+      "address": 30075,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 134,
+      "address": 30080,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 136,
+      "address": 30074,
+      "symbol": "Game.Flight.MainGameLoop.BodyX"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 150,
+      "address": 30076,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.SignHigh"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 154,
+      "address": 30076,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.SignHigh"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 156,
+      "address": 30075,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 158,
+      "address": 30081,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 159,
+      "address": 30074,
+      "symbol": "Game.Flight.MainGameLoop.BodyX"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 161,
+      "address": 30080,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 175,
+      "address": 30075,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 177,
+      "address": 30078,
+      "symbol": "Game.Flight.MainGameLoop.BodyY+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 178,
+      "address": 30074,
+      "symbol": "Game.Flight.MainGameLoop.BodyX"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 180,
+      "address": 30077,
+      "symbol": "Game.Flight.MainGameLoop.BodyY"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 198,
+      "address": 30076,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.SignHigh"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 202,
+      "address": 30074,
+      "symbol": "Game.Flight.MainGameLoop.BodyX"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 208,
+      "address": 30075,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 212,
+      "address": 30076,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.SignHigh"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 216,
+      "address": 30075,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 231,
+      "address": 30075,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 238,
+      "address": 30076,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.SignHigh"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 241,
+      "address": 30075,
+      "symbol": "Game.Flight.MainGameLoop.BodyX+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 243,
+      "address": 30081,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ+FCoordinate.Low"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 244,
+      "address": 30074,
+      "symbol": "Game.Flight.MainGameLoop.BodyX"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 246,
+      "address": 30080,
+      "symbol": "Game.Flight.MainGameLoop.BodyZ"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "line": 112,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+      "line": 28,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+      "line": 44,
+      "address": 28902,
+      "symbol": "FlightState.Speed"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+      "line": 50,
+      "address": 28900,
+      "symbol": "FlightState.Roll"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+      "line": 92,
+      "address": 28931,
+      "symbol": "FlightState.SpaceMode"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/UpdateCelestialCoordinates.asm",
+      "line": 19,
+      "address": 28935,
+      "symbol": "FlightState.Sun"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/UpdateCelestialCoordinates.asm",
+      "line": 21,
+      "address": 28944,
+      "symbol": "FlightState.Planet"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 26,
+      "address": 40085,
+      "symbol": "CombatState.DestroyAll"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+      "line": 24,
+      "address": 28957,
+      "symbol": "FlightState.StationFar"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+      "line": 32,
+      "address": 28957,
+      "symbol": "FlightState.StationFar"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+      "line": 48,
+      "address": 28957,
+      "symbol": "FlightState.StationFar"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/CrossProductComponent.asm",
+      "line": 101,
+      "address": 43828,
+      "symbol": "Game.Wireframe.MultiplyBytesApprox.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/CrossProductComponent.asm",
+      "line": 108,
+      "address": 43828,
+      "symbol": "Game.Wireframe.MultiplyBytesApprox.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/CrossProductComponent.asm",
+      "line": 121,
+      "address": 43828,
+      "symbol": "Game.Wireframe.MultiplyBytesApprox.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/CrossProductComponent.asm",
+      "line": 136,
+      "address": 43828,
+      "symbol": "Game.Wireframe.MultiplyBytesApprox.Entry"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 113,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 165,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 185,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 76,
+      "address": 45161,
+      "symbol": "Measure"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 79,
+      "address": 45161,
+      "symbol": "Measure"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 122,
+      "address": 45284,
+      "symbol": "ClipY"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 126,
+      "address": 45223,
+      "symbol": "ClipX"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 128,
+      "address": 45348,
+      "symbol": "SortEnds"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 146,
+      "address": 45727,
+      "symbol": "Game.Wireframe.UnscaleClippingRatio.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 148,
+      "address": 45702,
+      "symbol": "Game.Wireframe.MultiplyClippingDistance.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 179,
+      "address": 45137,
+      "symbol": "ClipAgain"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 197,
+      "address": 45727,
+      "symbol": "Game.Wireframe.UnscaleClippingRatio.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 199,
+      "address": 45702,
+      "symbol": "Game.Wireframe.MultiplyClippingDistance.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 230,
+      "address": 45137,
+      "symbol": "ClipAgain"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 244,
+      "address": 45371,
+      "symbol": "SetDirection"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 307,
+      "address": 45738,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.Entry"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 313,
+      "address": 45460,
+      "symbol": "Steep"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 315,
+      "address": 45550,
+      "symbol": "Shallow"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 317,
+      "address": 45550,
+      "symbol": "Shallow"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 343,
+      "address": 45487,
+      "symbol": "RotateMask"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 364,
+      "address": 45512,
+      "symbol": "SteepDown"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 366,
+      "address": 45493,
+      "symbol": "SteepStep"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 374,
+      "address": 45494,
+      "symbol": "SteepPixel"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 378,
+      "address": 45494,
+      "symbol": "SteepPixel"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 380,
+      "address": 45493,
+      "symbol": "SteepStep"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 388,
+      "address": 45494,
+      "symbol": "SteepPixel"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 392,
+      "address": 45494,
+      "symbol": "SteepPixel"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 449,
+      "address": 45654,
+      "symbol": "RowDone"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 453,
+      "address": 45641,
+      "symbol": "LastByte"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 459,
+      "address": 45628,
+      "symbol": "FullBytes"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 462,
+      "address": 45654,
+      "symbol": "RowDone"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 476,
+      "address": 45664,
+      "symbol": "ShallowDown"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 478,
+      "address": 45581,
+      "symbol": "ShallowStep"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 486,
+      "address": 45582,
+      "symbol": "ShallowRow"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 490,
+      "address": 45582,
+      "symbol": "ShallowRow"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 492,
+      "address": 45581,
+      "symbol": "ShallowStep"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 500,
+      "address": 45582,
+      "symbol": "ShallowRow"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 504,
+      "address": 45582,
+      "symbol": "ShallowRow"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Wireframe/GetSystemVariationByte.asm",
+      "line": 20,
+      "address": 28933,
+      "symbol": "FlightState.RandomByte"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Wireframe/GetSystemVariationByte.asm",
+      "line": 55,
+      "address": 28933,
+      "symbol": "FlightState.RandomByte"
+    },
+    {
+      "kind": "state",
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "line": 30,
+      "address": 28899,
+      "symbol": "FlightState.View"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/DivideByteFractionForTunnel.asm",
+      "line": 42,
+      "address": 38194,
+      "symbol": "Game.Sound.PlayLaunchSound.HyperSound"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "line": 29,
+      "address": 31364,
+      "symbol": "Game.Universe.AddSignedStarCoordinate.ToggleScanner"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Sound/PlayDestructionSound.asm",
+      "line": 47,
+      "address": 38520,
+      "symbol": "Game.Sound.StepPitchSweep.SlowNoise"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Sound/PlayDestructionSound.asm",
+      "line": 48,
+      "address": 38516,
+      "symbol": "Game.Sound.StepPitchSweep.FastNoise"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Sound/PlayDestructionSound.asm",
+      "line": 49,
+      "address": 38546,
+      "symbol": "Game.Sound.StepPitchSweep.ChainedNoise"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Sound/PlayDestructionSound.asm",
+      "line": 50,
+      "address": 38494,
+      "symbol": "Game.Sound.StepPitchSweep.ShiftedTone"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Sound/PlayDestructionSound.asm",
+      "line": 51,
+      "address": 38465,
+      "symbol": "Game.Sound.StepPitchSweep.FallingTone"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Sound/PlayDestructionSound.asm",
+      "line": 52,
+      "address": 38472,
+      "symbol": "Game.Sound.StepPitchSweep.LongTone"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Sound/PlayDestructionSound.asm",
+      "line": 53,
+      "address": 38487,
+      "symbol": "Game.Sound.StepPitchSweep.AddedTone"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Sound/PlayDestructionSound.asm",
+      "line": 54,
+      "address": 38487,
+      "symbol": "Game.Sound.StepPitchSweep.AddedTone"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Sound/PlayLaunchSound.asm",
+      "line": 44,
+      "address": 38569,
+      "symbol": "Game.Sound.StartLaunchNoise.HyperParams"
+    },
+    {
+      "kind": "branch",
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "line": 55,
+      "address": 32673,
+      "symbol": "Game.Universe.ApplyEnhancedFlightControl.CheckRefugees"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "method": "исполнение исходных инструкций SkoolKit 10.1 Simulator",
+  "scope": "без прерываний, ROM и видеоконтенции",
+  "passed": {
+    "next_scanline": 955,
+    "swap_and_skip": 118,
+    "copied_view_rows": 120,
+    "copied_view_bytes": 3840,
+    "cleared_view_rows": 120,
+    "compass_background_rows": 23,
+    "compass_background_width": 24
+  }
+}

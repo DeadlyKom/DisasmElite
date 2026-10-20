@@ -1,0 +1,64 @@
+{
+  "scope": "покрытие ручными реестрами и проверка оформления, не автоматическое доказательство семантики",
+  "game_bytes": 49152,
+  "game_fragments": 598,
+  "registered_fragments": 598,
+  "reviewed_fragments": 598,
+  "missing": [],
+  "unresolved": [],
+  "checked_source_files": 787,
+  "conditional_instructions": 1979,
+  "format_issues": [],
+  "categories": {
+    "Resources": 5,
+    "Extensions": 39,
+    "Data": 5,
+    "Flight": 41,
+    "Universe": 33,
+    "Screen": 54,
+    "Circles": 42,
+    "Math": 5,
+    "Sound": 14,
+    "Scanner": 13,
+    "Combat": 35,
+    "Motion": 32,
+    "Wireframe": 40,
+    "Objects": 26,
+    "Interface": 8,
+    "Missions": 8,
+    "Economy": 13,
+    "Text": 31,
+    "Disk": 8,
+    "Travel": 16,
+    "Galaxy": 19,
+    "Trade": 60,
+    "Charts": 9,
+    "Menus": 29,
+    "Input": 13
+  },
+  "all_fragments_manually_reviewed": true,
+  "format_passed": true,
+  "historical_unknowns": [
+    {
+      "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+      "details": [
+        "Причина присутствия #AE48..#AE4E и намерение автора этой последовательности не установлены"
+      ]
+    }
+  ],
+  "hardware_effects": [
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndFinishGlyph.asm",
+      "details": {
+        "instructions": [
+          24051,
+          24056
+        ],
+        "operation": "OUT (#0F),A",
+        "bus_address": "A*256+#0F",
+        "status": "отключено штатным загрузчиком",
+        "reason": "Loader.Load записывает нули в слова #5DF3 и #5DF8 до JP #7394, на штатном пути исполняются NOP/NOP, историческое назначение отключённых OUT не установлено"
+      }
+    }
+  ]
+}

@@ -1,0 +1,3295 @@
+{
+  "files": {},
+  "symbols": {},
+  "new_labels": [
+    {
+      "address": 32773,
+      "symbol": "Game.Screen.SelectTrafficType.CheckSpecial",
+      "file": "Source/Game/Screen/SelectTrafficType.asm",
+      "meaning": "проверка допуска специального корабля"
+    },
+    {
+      "address": 32794,
+      "symbol": "Game.Screen.SelectTrafficType.ChooseSpecial",
+      "file": "Source/Game/Screen/SelectTrafficType.asm",
+      "meaning": "выбор специального типа корабля"
+    },
+    {
+      "address": 32798,
+      "symbol": "Game.Screen.SelectTrafficType.KeepType",
+      "file": "Source/Game/Screen/SelectTrafficType.asm",
+      "meaning": "возврат с прежним типом корабля"
+    },
+    {
+      "address": 32812,
+      "symbol": "Game.Screen.MatchTargetPlanet.SetDistance",
+      "file": "Source/Game/Screen/MatchTargetPlanet.asm",
+      "meaning": "расчёт расстояния для несовпадающей системы"
+    },
+    {
+      "address": 32819,
+      "symbol": "Game.Screen.MatchTargetPlanet.SaveMatch",
+      "file": "Source/Game/Screen/MatchTargetPlanet.asm",
+      "meaning": "сохранение точно совпавшей целевой системы"
+    },
+    {
+      "address": 32857,
+      "symbol": "Game.Screen.RestoreCockpit.DrawBorderRow",
+      "file": "Source/Game/Screen/RestoreCockpit.asm",
+      "meaning": "вывод очередной строки рамки приборной панели"
+    },
+    {
+      "address": 32956,
+      "symbol": "Game.Screen.CargoTripleOffset.SpecialCargo",
+      "file": "Source/Game/Screen/CargoTripleOffset.asm",
+      "meaning": "особое смещение для расширенных грузовых позиций"
+    },
+    {
+      "address": 32968,
+      "symbol": "Game.Screen.ResetCargoCapacity.SumCapacity",
+      "file": "Source/Game/Screen/ResetCargoCapacity.asm",
+      "meaning": "суммирование вместимости грузовых отсеков"
+    },
+    {
+      "address": 33008,
+      "symbol": "Game.Screen.HandleScreenKeys.SecondViewKey",
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "meaning": "обработка второй видовой клавиши"
+    },
+    {
+      "address": 33028,
+      "symbol": "Game.Screen.HandleScreenKeys.SetSecondView",
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "meaning": "переключение второго вида в полёте"
+    },
+    {
+      "address": 33033,
+      "symbol": "Game.Screen.HandleScreenKeys.FirstViewKey",
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "meaning": "обработка первой видовой клавиши"
+    },
+    {
+      "address": 33044,
+      "symbol": "Game.Screen.HandleScreenKeys.SetFirstView",
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "meaning": "переключение первого вида в полёте"
+    },
+    {
+      "address": 33049,
+      "symbol": "Game.Screen.HandleScreenKeys.ReadInfoKeys",
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "meaning": "чтение клавиш информационных экранов"
+    },
+    {
+      "address": 33060,
+      "symbol": "Game.Screen.HandleScreenKeys.FindInfoKey",
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "meaning": "поиск нажатой клавиши информационного экрана"
+    },
+    {
+      "address": 33066,
+      "symbol": "Game.Screen.HandleScreenKeys.OpenInfoView",
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "meaning": "выбор найденного информационного экрана"
+    },
+    {
+      "address": 33078,
+      "symbol": "Game.Screen.HandleScreenKeys.ClearEvents",
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "meaning": "сброс обработанных событий клавиатуры"
+    },
+    {
+      "address": 33104,
+      "symbol": "Game.Screen.DispatchMenu.PatchMenuCall",
+      "file": "Source/Game/Screen/DispatchMenu.asm",
+      "meaning": "запись адреса выбранного обработчика меню"
+    },
+    {
+      "address": 33132,
+      "symbol": "Game.Screen.SelectScreen.CheckDockView",
+      "file": "Source/Game/Screen/SelectScreen.asm",
+      "meaning": "проверка ограничения вида стыковочным туннелем"
+    },
+    {
+      "address": 33139,
+      "symbol": "Game.Screen.SelectScreen.StoreView",
+      "file": "Source/Game/Screen/SelectScreen.asm",
+      "meaning": "сохранение нового номера экрана"
+    },
+    {
+      "address": 33260,
+      "symbol": "Game.Screen.UpdateCelestialProximity.StoreScooping",
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "meaning": "сохранение признака сбора топлива у солнца"
+    },
+    {
+      "address": 33271,
+      "symbol": "Game.Screen.UpdateCelestialProximity.CheckPlanet",
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "meaning": "проверка близости планеты"
+    },
+    {
+      "address": 33310,
+      "symbol": "Game.Screen.WriteStridedTriple.PlanetIsNear",
+      "file": "Source/Game/Screen/WriteStridedTriple.asm",
+      "meaning": "обработка близкой планеты"
+    },
+    {
+      "address": 33350,
+      "symbol": "Game.Screen.WriteStridedTriple.SelectStation",
+      "file": "Source/Game/Screen/WriteStridedTriple.asm",
+      "meaning": "выбор станции целью компаса"
+    },
+    {
+      "address": 33373,
+      "symbol": "Game.Screen.WriteStridedTriple.NormalizeX",
+      "file": "Source/Game/Screen/WriteStridedTriple.asm",
+      "meaning": "нормирование первой координаты компаса"
+    },
+    {
+      "address": 33402,
+      "symbol": "Game.Screen.CompassNearAxis.FarCompass",
+      "file": "Source/Game/Screen/CompassNearAxis.asm",
+      "meaning": "выбор дальней цели компаса"
+    },
+    {
+      "address": 33406,
+      "symbol": "Game.Screen.CompassNearAxis.HighWordLength",
+      "file": "Source/Game/Screen/CompassNearAxis.asm",
+      "meaning": "длина вектора по старшим словам координат"
+    },
+    {
+      "address": 33416,
+      "symbol": "Game.Screen.CompassNearAxis.NormalizeFar",
+      "file": "Source/Game/Screen/CompassNearAxis.asm",
+      "meaning": "нормирование дальней цели компаса"
+    },
+    {
+      "address": 33436,
+      "symbol": "Game.Screen.CompassNearAxis.StoreCompassY",
+      "file": "Source/Game/Screen/CompassNearAxis.asm",
+      "meaning": "сохранение вертикального смещения указателя компаса"
+    },
+    {
+      "address": 33450,
+      "symbol": "Game.Screen.CompassNearAxis.StoreSide",
+      "file": "Source/Game/Screen/CompassNearAxis.asm",
+      "meaning": "сохранение передней или задней полусферы цели"
+    },
+    {
+      "address": 33467,
+      "symbol": "Game.Screen.CompassFarAxis.ScaleAxis",
+      "file": "Source/Game/Screen/CompassFarAxis.asm",
+      "meaning": "деление координаты на длину вектора и масштабирование"
+    },
+    {
+      "address": 33488,
+      "symbol": "Game.Screen.CompassFarAxis.AxisReady",
+      "file": "Source/Game/Screen/CompassFarAxis.asm",
+      "meaning": "возврат нормированной знаковой координаты"
+    },
+    {
+      "address": 33524,
+      "symbol": "Game.Screen.ScaleProximity.CriticalRange",
+      "file": "Source/Game/Screen/ScaleProximity.asm",
+      "meaning": "переход к критическому состоянию близости"
+    },
+    {
+      "address": 33528,
+      "symbol": "Game.Screen.ScaleProximity.CheckRecovery",
+      "file": "Source/Game/Screen/ScaleProximity.asm",
+      "meaning": "проверка выхода из опасной зоны"
+    },
+    {
+      "address": 33534,
+      "symbol": "Game.Screen.ScaleProximity.StoreStatus",
+      "file": "Source/Game/Screen/ScaleProximity.asm",
+      "meaning": "сохранение состояния полёта"
+    },
+    {
+      "address": 33575,
+      "symbol": "Game.Screen.VectorLength.Normalize",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "совместное удвоение координат вектора"
+    },
+    {
+      "address": 33592,
+      "symbol": "Game.Screen.VectorLength.UndoFirstShift",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "отмена последнего сдвига первой координаты"
+    },
+    {
+      "address": 33596,
+      "symbol": "Game.Screen.VectorLength.UndoTwoShifts",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "отмена сдвига первых двух координат"
+    },
+    {
+      "address": 33602,
+      "symbol": "Game.Screen.VectorLength.UndoAllShifts",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "отмена сдвига всех трёх координат"
+    },
+    {
+      "address": 33608,
+      "symbol": "Game.Screen.VectorLength.SumSquares",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "суммирование квадратов нормированных координат"
+    },
+    {
+      "address": 33625,
+      "symbol": "Game.Screen.VectorLength.AddThirdSquare",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "добавление квадрата третьей координаты"
+    },
+    {
+      "address": 33633,
+      "symbol": "Game.Screen.VectorLength.CheckOverflow",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "проверка старших разрядов суммы квадратов"
+    },
+    {
+      "address": 33655,
+      "symbol": "Game.Screen.VectorLength.TakeRoot",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "извлечение приближённого квадратного корня"
+    },
+    {
+      "address": 33659,
+      "symbol": "Game.Screen.VectorLength.RestoreScale",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "возврат к исходному двоичному масштабу длины"
+    },
+    {
+      "address": 33670,
+      "symbol": "Game.Screen.VectorLength.DoubleRoot",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "удвоение корня после уменьшения суммы квадратов"
+    },
+    {
+      "address": 33679,
+      "symbol": "Game.Screen.VectorLength.LengthReady",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "возврат рассчитанной длины"
+    },
+    {
+      "address": 33680,
+      "symbol": "Game.Screen.VectorLength.DrawCompass",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "вывод спрайта указателя компаса"
+    },
+    {
+      "address": 33701,
+      "symbol": "Game.Screen.VectorLength.PositionY",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "расчёт вертикального положения указателя компаса"
+    },
+    {
+      "address": 33717,
+      "symbol": "Game.Screen.VectorLength.NegativeY",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "вертикальное смещение для отрицательной координаты"
+    },
+    {
+      "address": 33720,
+      "symbol": "Game.Screen.VectorLength.SetRowCount",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "подготовка числа строк вертикального смещения"
+    },
+    {
+      "address": 33721,
+      "symbol": "Game.Screen.VectorLength.MoveDown",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "переход к экранной строке указателя компаса"
+    },
+    {
+      "address": 33732,
+      "symbol": "Game.Screen.VectorLength.DrawSpriteRow",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "вывод очередной строки спрайта указателя"
+    },
+    {
+      "address": 33751,
+      "symbol": "Game.Screen.VectorLength.ShiftRight",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "сдвиг строки указателя вправо"
+    },
+    {
+      "address": 33759,
+      "symbol": "Game.Screen.VectorLength.ShiftLeft",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "сдвиг строки указателя влево"
+    },
+    {
+      "address": 33765,
+      "symbol": "Game.Screen.VectorLength.MergeSprite",
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "meaning": "наложение трёхбайтовой строки указателя"
+    },
+    {
+      "address": 33881,
+      "symbol": "Game.Screen.PreviousCharacterRow.RestorePanel",
+      "file": "Source/Game/Screen/PreviousCharacterRow.asm",
+      "meaning": "восстановление фона компаса и сканера"
+    },
+    {
+      "address": 33890,
+      "symbol": "Game.Screen.PreviousCharacterRow.CopySpriteRow",
+      "file": "Source/Game/Screen/PreviousCharacterRow.asm",
+      "meaning": "копирование очередной трёхбайтовой строки спрайта"
+    },
+    {
+      "address": 33982,
+      "symbol": "Game.Screen.RestoreCompassBackground.CopyBackRow",
+      "file": "Source/Game/Screen/RestoreCompassBackground.asm",
+      "meaning": "восстановление очередной строки фона компаса"
+    },
+    {
+      "address": 33998,
+      "symbol": "Game.Screen.RestoreCompassBackground.NextScreenRow",
+      "file": "Source/Game/Screen/RestoreCompassBackground.asm",
+      "meaning": "переход к следующей строке экрана"
+    },
+    {
+      "address": 34019,
+      "symbol": "Game.Screen.UpdateIndicators.OrdinaryGauge",
+      "file": "Source/Game/Screen/UpdateIndicators.asm",
+      "meaning": "проверка очередного обычного индикатора"
+    },
+    {
+      "address": 34036,
+      "symbol": "Game.Screen.UpdateIndicators.NextOrdinary",
+      "file": "Source/Game/Screen/UpdateIndicators.asm",
+      "meaning": "переход к следующему обычному индикатору"
+    },
+    {
+      "address": 34055,
+      "symbol": "Game.Screen.UpdateIndicators.SpecialGauge",
+      "file": "Source/Game/Screen/UpdateIndicators.asm",
+      "meaning": "проверка индикатора второго режима"
+    },
+    {
+      "address": 34068,
+      "symbol": "Game.Screen.UpdateIndicators.NextSpecial",
+      "file": "Source/Game/Screen/UpdateIndicators.asm",
+      "meaning": "переход к следующему индикатору второго режима"
+    },
+    {
+      "address": 34139,
+      "symbol": "Game.Screen.DrawIndicatorBar.ReadBarAddress",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "meaning": "получение экранного адреса полосы индикатора"
+    },
+    {
+      "address": 34170,
+      "symbol": "Game.Screen.DrawIndicatorBar.BuildMask",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "meaning": "построение маски частично заполненного байта"
+    },
+    {
+      "address": 34174,
+      "symbol": "Game.Screen.DrawIndicatorBar.StoreMask",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "meaning": "сохранение маски границы полосы"
+    },
+    {
+      "address": 34178,
+      "symbol": "Game.Screen.DrawIndicatorBar.CountBarBytes",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "meaning": "расчёт полных и пустых байтов индикатора"
+    },
+    {
+      "address": 34197,
+      "symbol": "Game.Screen.DrawIndicatorBar.DrawBarRow",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "meaning": "вывод строки заполненной и пустой частей полосы"
+    },
+    {
+      "address": 34200,
+      "symbol": "Game.Screen.DrawIndicatorBar.FillBarBytes",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "meaning": "заполнение полных байтов индикатора"
+    },
+    {
+      "address": 34213,
+      "symbol": "Game.Screen.DrawIndicatorBar.ClearBarBytes",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "meaning": "очистка пустых байтов индикатора"
+    },
+    {
+      "address": 34217,
+      "symbol": "Game.Screen.DrawIndicatorBar.DrawRightEdge",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "meaning": "вывод правой границы индикатора"
+    },
+    {
+      "address": 34229,
+      "symbol": "Game.Screen.DrawIndicatorBar.FullWidthBar",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "meaning": "подготовка полосы до правой границы"
+    },
+    {
+      "address": 34231,
+      "symbol": "Game.Screen.DrawIndicatorBar.DrawFullRow",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "meaning": "вывод полностью заполненной строки"
+    },
+    {
+      "address": 34234,
+      "symbol": "Game.Screen.DrawIndicatorBar.FillFullRow",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "meaning": "заполнение байтов полной строки"
+    },
+    {
+      "address": 34254,
+      "symbol": "Game.Screen.DrawShortIndicator.DrawShortRow",
+      "file": "Source/Game/Screen/DrawShortIndicator.asm",
+      "meaning": "вывод строки короткого индикатора"
+    },
+    {
+      "address": 34275,
+      "symbol": "Game.Screen.DrawEmptyIndicator.DrawEmptyRow",
+      "file": "Source/Game/Screen/DrawEmptyIndicator.asm",
+      "meaning": "вывод строки пустого индикатора"
+    },
+    {
+      "address": 34303,
+      "symbol": "Game.Screen.IndicatorMarkerMask.ShiftMarker",
+      "file": "Source/Game/Screen/IndicatorMarkerMask.asm",
+      "meaning": "сдвиг маркера внутри байта"
+    },
+    {
+      "address": 34307,
+      "symbol": "Game.Screen.IndicatorMarkerMask.MarkerReady",
+      "file": "Source/Game/Screen/IndicatorMarkerMask.asm",
+      "meaning": "передача готовой маски маркера"
+    },
+    {
+      "address": 34324,
+      "symbol": "Game.Screen.WriteIndicatorMask.MarkerAtEdge",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "meaning": "вывод маркера на границе байтов"
+    },
+    {
+      "address": 34537,
+      "symbol": "Game.Screen.DrawLargeOutline.DrawAndEnable",
+      "file": "Source/Game/Screen/DrawLargeOutline.asm",
+      "meaning": "рисование окружности и разрешение прерываний"
+    },
+    {
+      "address": 34562,
+      "symbol": "Game.Circles.DispatchClippedCircle.FinishCenterY",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "получение экранной координаты центра по Y"
+    },
+    {
+      "address": 34574,
+      "symbol": "Game.Circles.DispatchClippedCircle.FinishCenterX",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "получение экранной координаты центра по X"
+    },
+    {
+      "address": 34600,
+      "symbol": "Game.Circles.DispatchClippedCircle.CheckOuterY",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "проверка вертикального случая по признаку проекции"
+    },
+    {
+      "address": 34603,
+      "symbol": "Game.Circles.DispatchClippedCircle.CheckOuterX",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "проверка горизонтального случая по признаку проекции"
+    },
+    {
+      "address": 34604,
+      "symbol": "Game.Circles.DispatchClippedCircle.OuterX",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "обработка центра за боковой границей"
+    },
+    {
+      "address": 34611,
+      "symbol": "Game.Circles.DispatchClippedCircle.OuterYCorner",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "проверка вертикальной границы внешнего угла"
+    },
+    {
+      "address": 34614,
+      "symbol": "Game.Circles.DispatchClippedCircle.InnerCenter",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "проверка диаметра круга с внутренним центром"
+    },
+    {
+      "address": 34623,
+      "symbol": "Game.Circles.DispatchClippedCircle.CheckHalfWidth",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "проверка внутренней полуширины круга"
+    },
+    {
+      "address": 34629,
+      "symbol": "Game.Circles.DispatchClippedCircle.SelectSideClip",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "выбор одного или двух боковых отсечений"
+    },
+    {
+      "address": 34635,
+      "symbol": "Game.Circles.DispatchClippedCircle.MeasureSideGap",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "расстояние внешнего центра до боковой границы"
+    },
+    {
+      "address": 34654,
+      "symbol": "Game.Circles.DispatchClippedCircle.OuterY",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "проверка пересечения вертикальной границы"
+    },
+    {
+      "address": 34702,
+      "symbol": "Game.Circles.DispatchClippedCircle.OuterCorner",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "проверка пересечения внешнего угла"
+    },
+    {
+      "address": 34748,
+      "symbol": "Game.Circles.DispatchClippedCircle.NarrowCorner",
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "meaning": "рисование узкого углового участка"
+    },
+    {
+      "address": 34814,
+      "symbol": "Game.Circles.DrawWideCircleAcrossBothSides.FarSideLimit",
+      "file": "Source/Game/Circles/DrawWideCircleAcrossBothSides.asm",
+      "meaning": "расчёт катета пересечения дальней стороны"
+    },
+    {
+      "address": 34818,
+      "symbol": "Game.Circles.DrawWideCircleAcrossBothSides.SaveFarLimit",
+      "file": "Source/Game/Circles/DrawWideCircleAcrossBothSides.asm",
+      "meaning": "сохранение предела дальней стороны в AF'"
+    },
+    {
+      "address": 34890,
+      "symbol": "Game.Circles.DrawCornerWideCircle.CrossingHeight",
+      "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+      "meaning": "высота пересечения внешнего угла"
+    },
+    {
+      "address": 34893,
+      "symbol": "Game.Circles.DrawCornerWideCircle.SaveRowLimit",
+      "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+      "meaning": "сохранение ограничения полных строк"
+    },
+    {
+      "address": 34935,
+      "symbol": "Game.Circles.DrawCornerWideCircle.FillUpward",
+      "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+      "meaning": "заливка полных строк снизу вверх"
+    },
+    {
+      "address": 34968,
+      "symbol": "Game.Circles.DrawOneSideClippedCircle.SideLimit",
+      "file": "Source/Game/Circles/DrawOneSideClippedCircle.asm",
+      "meaning": "расчёт предела единственного бокового отсечения"
+    },
+    {
+      "address": 34971,
+      "symbol": "Game.Circles.DrawOneSideClippedCircle.ChooseSide",
+      "file": "Source/Game/Circles/DrawOneSideClippedCircle.asm",
+      "meaning": "выбор левого или правого отсечения"
+    },
+    {
+      "address": 34988,
+      "symbol": "Game.Circles.DrawOneSideClippedCircle.ClipLeft",
+      "file": "Source/Game/Circles/DrawOneSideClippedCircle.asm",
+      "meaning": "подготовка двух половин с левым отсечением"
+    },
+    {
+      "address": 35010,
+      "symbol": "Game.Circles.DrawCornerClippedArc.CornerCathetus",
+      "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+      "meaning": "расчёт катета пересечения угла"
+    },
+    {
+      "address": 35013,
+      "symbol": "Game.Circles.DrawCornerClippedArc.SaveCornerCut",
+      "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+      "meaning": "сохранение углового ограничения в AF'"
+    },
+    {
+      "address": 35054,
+      "symbol": "Game.Circles.DrawCornerClippedArc.PrepareLeft",
+      "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+      "meaning": "подготовка левой краевой маски"
+    },
+    {
+      "address": 35088,
+      "symbol": "Game.Circles.DrawCornerClippedArc.MoveRightEdge",
+      "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+      "meaning": "расчёт подвижного правого края"
+    },
+    {
+      "address": 35105,
+      "symbol": "Game.Circles.DrawCornerClippedArc.PrepareRight",
+      "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+      "meaning": "подготовка правой маски и фиксированного левого края"
+    },
+    {
+      "address": 35163,
+      "symbol": "Game.Circles.DrawVerticalClippedCircle.CrossingEnds",
+      "file": "Source/Game/Circles/DrawVerticalClippedCircle.asm",
+      "meaning": "расчёт экранных концов пересечения круга"
+    },
+    {
+      "address": 35264,
+      "symbol": "Game.Circles.PrepareLeftClippedCircle.OutlineMask",
+      "file": "Source/Game/Circles/PrepareLeftClippedCircle.asm",
+      "meaning": "одиночный пиксель левого контура вместо маски заливки"
+    },
+    {
+      "address": 35304,
+      "symbol": "Game.Circles.ComputeLeftEdgeMask.ShiftLeftMask",
+      "file": "Source/Game/Circles/ComputeLeftEdgeMask.asm",
+      "meaning": "формирование левой сплошной маски"
+    },
+    {
+      "address": 35340,
+      "symbol": "Game.Circles.ComputeRightEdgeMask.ShiftRightMask",
+      "file": "Source/Game/Circles/ComputeRightEdgeMask.asm",
+      "meaning": "формирование правой сплошной маски"
+    },
+    {
+      "address": 35383,
+      "symbol": "Game.Circles.PrepareBothClippedMasksAndFillRows.PatchUpward",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "meaning": "настройка заполнения полных строк вверх"
+    },
+    {
+      "address": 35406,
+      "symbol": "Game.Circles.PrepareBothClippedMasksAndFillRows.PatchDownward",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "meaning": "настройка заполнения полных строк вниз"
+    },
+    {
+      "address": 35427,
+      "symbol": "Game.Circles.PrepareBothClippedMasksAndFillRows.SaveContext",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "meaning": "сохранение регистров после настройки направления"
+    },
+    {
+      "address": 35446,
+      "symbol": "Game.Circles.PrepareBothClippedMasksAndFillRows.FillRow",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "meaning": "заполнение тридцати байтов текущей строки"
+    },
+    {
+      "address": 35467,
+      "symbol": "Game.Circles.PrepareBothClippedMasksAndFillRows.CountRow",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "meaning": "проверка остатка полных строк"
+    },
+    {
+      "address": 35469,
+      "symbol": "Game.Circles.PrepareBothClippedMasksAndFillRows.RestoreContext",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "meaning": "восстановление сохранённых регистров"
+    },
+    {
+      "address": 35473,
+      "symbol": "Game.Circles.PrepareBothClippedMasksAndFillRows.CrossCharRow",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "meaning": "коррекция экранного адреса на границе знакоместа"
+    },
+    {
+      "address": 35485,
+      "symbol": "Game.Circles.PrepareBothClippedMasksAndFillRows.CheckViewport",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "meaning": "проверка изменяемого предела экранного буфера"
+    },
+    {
+      "address": 35555,
+      "symbol": "Game.Circles.IntegerCircleCathetus.TryRootBit",
+      "file": "Source/Game/Circles/IntegerCircleCathetus.asm",
+      "meaning": "проверка очередного пробного бита корня"
+    },
+    {
+      "address": 35567,
+      "symbol": "Game.Circles.IntegerCircleCathetus.NextRootBit",
+      "file": "Source/Game/Circles/IntegerCircleCathetus.asm",
+      "meaning": "выбор следующего пробного бита корня"
+    },
+    {
+      "address": 35592,
+      "symbol": "Game.Circles.BeginFilledUnclippedHalf.CheckBottom",
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "meaning": "проверка нижнего предела заливки"
+    },
+    {
+      "address": 35597,
+      "symbol": "Game.Circles.BeginFilledUnclippedHalf.EmptyHalf",
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "meaning": "возврат без рисования пустой половины круга"
+    },
+    {
+      "address": 35599,
+      "symbol": "Game.Circles.BeginFilledUnclippedHalf.SaveRealStack",
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "meaning": "сохранение рабочего стека перед экранной заливкой"
+    },
+    {
+      "address": 35603,
+      "symbol": "Game.Circles.BeginFilledUnclippedHalf.FillEdgeRow",
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "meaning": "наложение краевых масок и заполнение строки"
+    },
+    {
+      "address": 35621,
+      "symbol": "Game.Circles.BeginFilledUnclippedHalf.FillMiddle",
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "meaning": "заполнение внутренних байтов между краями"
+    },
+    {
+      "address": 35638,
+      "symbol": "Game.Circles.ScanUpgradeKeyRow.TestKey",
+      "file": "Source/Game/Circles/ScanUpgradeKeyRow.asm",
+      "meaning": "проверка очередной клавиши дополнительного ряда"
+    },
+    {
+      "address": 35644,
+      "symbol": "Game.Circles.ScanUpgradeKeyRow.KeepKeyState",
+      "file": "Source/Game/Circles/ScanUpgradeKeyRow.asm",
+      "meaning": "возврат резервного состояния клавиатуры"
+    },
+    {
+      "address": 35655,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.StoreHeat",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "сохранение рассчитанного нагрева кабины"
+    },
+    {
+      "address": 35659,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.NextArcRow",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "выбор направления следующей строки дуги"
+    },
+    {
+      "address": 35666,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.StepArcDown",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "переход на следующую строку вниз"
+    },
+    {
+      "address": 35669,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.AddYError",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "обновление ошибки окружности после шага Y"
+    },
+    {
+      "address": 35682,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.MoveRightMask",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "сужение правой краевой маски"
+    },
+    {
+      "address": 35686,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.AddXError",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "обновление ошибки после шага X"
+    },
+    {
+      "address": 35689,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.FinishXError",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "завершение поправки ошибки после шага X"
+    },
+    {
+      "address": 35693,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.TestRowError",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "выбор следующей строки или сужения текущей"
+    },
+    {
+      "address": 35698,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.CrossLeftByte",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "переход левого края в следующий байт"
+    },
+    {
+      "address": 35707,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.CrossRightByte",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "переход правого края в предыдущий байт"
+    },
+    {
+      "address": 35716,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.FinishHalf",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "восстановление стека при завершении половины круга"
+    },
+    {
+      "address": 35722,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.SweepLeftByte",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "переход левого края при горизонтальном проходе"
+    },
+    {
+      "address": 35731,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.SweepRightByte",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "переход правого края при горизонтальном проходе"
+    },
+    {
+      "address": 35740,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.SweepEdges",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "сужение обоих краёв без смены строки"
+    },
+    {
+      "address": 35744,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.SweepRightMask",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "сужение правой маски в горизонтальном проходе"
+    },
+    {
+      "address": 35748,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.SweepXError",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "обновление ошибки горизонтального шага"
+    },
+    {
+      "address": 35753,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.EndSweepError",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "завершение поправки горизонтального шага"
+    },
+    {
+      "address": 35782,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.SetFillPairs",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "выбор числа пар байтов для быстрой заливки"
+    },
+    {
+      "address": 35794,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.FillPairsJump",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "изменяемый вход в последовательность парных записей"
+    },
+    {
+      "address": 35827,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.StepFillDown",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "переход вниз после заполнения строки через стек"
+    },
+    {
+      "address": 35832,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.LeftFixedFill",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "вход заливки с фиксированным левым краем"
+    },
+    {
+      "address": 35852,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.LeftFillBottom",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "проверка нижнего предела левой отсечённой заливки"
+    },
+    {
+      "address": 35857,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.EmptyLeftFill",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "возврат при пустой левой отсечённой половине"
+    },
+    {
+      "address": 35859,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.LeftFillStack",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "сохранение стека для левой отсечённой заливки"
+    },
+    {
+      "address": 35863,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.FillLeft",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "заполнение строки до фиксированного левого края"
+    },
+    {
+      "address": 35876,
+      "symbol": "Game.Circles.SetCabinHeatAndContinueFilledCircle.FillLeftMiddle",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "meaning": "заливка внутренних байтов левого отсечённого участка"
+    },
+    {
+      "address": 35892,
+      "symbol": "Game.Circles.DetachMissileTarget.DetachTarget",
+      "file": "Source/Game/Circles/DetachMissileTarget.asm",
+      "meaning": "сброс ракетной цели без прямого уничтожения"
+    },
+    {
+      "address": 35914,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.NextLeftRow",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "выбор следующей строки левой отсечённой заливки"
+    },
+    {
+      "address": 35921,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.LeftRowDown",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "переход левой отсечённой дуги вниз"
+    },
+    {
+      "address": 35924,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.AddLeftYError",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "ошибка левой дуги после шага Y"
+    },
+    {
+      "address": 35937,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.AddLeftXError",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "ошибка левой дуги после шага X"
+    },
+    {
+      "address": 35949,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.TestLeftError",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "выбор строки или сужения левой заливки"
+    },
+    {
+      "address": 35954,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.CrossRightByte",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "переход подвижного правого края в соседний байт"
+    },
+    {
+      "address": 35964,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.JoinBothArc",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "снятие отсечения и переход к общей дуге"
+    },
+    {
+      "address": 35974,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.JoinBothSweep",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "снятие отсечения в горизонтальном проходе"
+    },
+    {
+      "address": 35984,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.FinishLeft",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "завершение левой отсечённой заливки"
+    },
+    {
+      "address": 35990,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.SweepRightByte",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "переход правой маски в горизонтальном проходе"
+    },
+    {
+      "address": 36000,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.SweepLeftFill",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "горизонтальное сужение левой отсечённой заливки"
+    },
+    {
+      "address": 36004,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.LeftSweepError",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "ошибка горизонтального шага левой заливки"
+    },
+    {
+      "address": 36038,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.SetFillPairs",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "расчёт числа пар для быстрой заливки строки"
+    },
+    {
+      "address": 36050,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.FillPairsJump",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "изменяемый вход в последовательность парных записей"
+    },
+    {
+      "address": 36083,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.StepFillDown",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "переход вниз после быстрой заливки"
+    },
+    {
+      "address": 36088,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.RightFixedFill",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "вход заливки с фиксированным правым краем"
+    },
+    {
+      "address": 36108,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.RightBottom",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "проверка нижнего предела правой отсечённой заливки"
+    },
+    {
+      "address": 36113,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.EmptyRightFill",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "возврат при пустой правой отсечённой половине"
+    },
+    {
+      "address": 36115,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.RightFillStack",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "сохранение стека для правой отсечённой заливки"
+    },
+    {
+      "address": 36119,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.FillToRight",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "заливка строки до фиксированного правого края"
+    },
+    {
+      "address": 36134,
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.FillRightCore",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "meaning": "заполнение середины правого отсечённого участка"
+    },
+    {
+      "address": 36149,
+      "symbol": "Game.Circles.CheckSystemCoordinateBand.TestBandWidth",
+      "file": "Source/Game/Circles/CheckSystemCoordinateBand.asm",
+      "meaning": "проверка ширины диагональной полосы системы"
+    },
+    {
+      "address": 36172,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.NextRightRow",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "выбор следующей строки правой отсечённой заливки"
+    },
+    {
+      "address": 36179,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.RightRowDown",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "переход правой отсечённой дуги вниз"
+    },
+    {
+      "address": 36182,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.AddRightYError",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "ошибка правой дуги после шага Y"
+    },
+    {
+      "address": 36195,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.AddRightXError",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "ошибка правой дуги после шага X"
+    },
+    {
+      "address": 36207,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.TestRightError",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "выбор строки или сужения правой заливки"
+    },
+    {
+      "address": 36212,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.CrossLeftByte",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "переход подвижного левого края в соседний байт"
+    },
+    {
+      "address": 36221,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.JoinBothArc",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "снятие отсечения и переход к общей дуге"
+    },
+    {
+      "address": 36225,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.JoinBothSweep",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "снятие отсечения в горизонтальном проходе"
+    },
+    {
+      "address": 36229,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.FinishRight",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "завершение правой отсечённой заливки"
+    },
+    {
+      "address": 36235,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.SweepLeftByte",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "переход левой маски в горизонтальном проходе"
+    },
+    {
+      "address": 36244,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.SweepRightFill",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "горизонтальное сужение правой отсечённой заливки"
+    },
+    {
+      "address": 36248,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.RightSweepErr",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "ошибка горизонтального шага правой заливки"
+    },
+    {
+      "address": 36284,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.SetFillPairs",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "расчёт числа пар для быстрой заливки строки"
+    },
+    {
+      "address": 36296,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.FillPairsJump",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "изменяемый вход в последовательность парных записей"
+    },
+    {
+      "address": 36329,
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.StepFillDown",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "meaning": "переход вниз после быстрой заливки"
+    },
+    {
+      "address": 36355,
+      "symbol": "Game.Circles.CrossCircleCharacterRowUp.SameThird",
+      "file": "Source/Game/Circles/CrossCircleCharacterRowUp.asm",
+      "meaning": "коррекция адреса строки внутри трети экрана"
+    },
+    {
+      "address": 36381,
+      "symbol": "Game.Circles.CrossCircleCharacterRowDown.SameThird",
+      "file": "Source/Game/Circles/CrossCircleCharacterRowDown.asm",
+      "meaning": "коррекция адреса строки внутри трети экрана"
+    },
+    {
+      "address": 36386,
+      "symbol": "Game.Circles.CrossCircleCharacterRowDown.FinishHalf",
+      "file": "Source/Game/Circles/CrossCircleCharacterRowDown.asm",
+      "meaning": "нелокальный выход половины круга за пределы экрана"
+    },
+    {
+      "address": 36407,
+      "symbol": "Game.Circles.DrawChartCircleWithPatchedViewport.NegativeX",
+      "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+      "meaning": "модуль отрицательного смещения центра карты"
+    },
+    {
+      "address": 36410,
+      "symbol": "Game.Circles.DrawChartCircleWithPatchedViewport.StoreCenterX",
+      "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+      "meaning": "сохранение горизонтального положения окружности карты"
+    },
+    {
+      "address": 36426,
+      "symbol": "Game.Circles.DrawChartCircleWithPatchedViewport.StoreGeometry",
+      "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+      "meaning": "сохранение геометрии окружности карты"
+    },
+    {
+      "address": 36460,
+      "symbol": "Game.Circles.CheckBodiesAndRestoreViewport.CheckPlanet",
+      "file": "Source/Game/Circles/CheckBodiesAndRestoreViewport.asm",
+      "meaning": "проверка грубой оценки расстояния до планеты"
+    },
+    {
+      "address": 36468,
+      "symbol": "Game.Circles.CheckBodiesAndRestoreViewport.NormalViewport",
+      "file": "Source/Game/Circles/CheckBodiesAndRestoreViewport.asm",
+      "meaning": "выбор таблицы штатных границ области обзора"
+    },
+    {
+      "address": 36481,
+      "symbol": "Game.Circles.ApplyCircleViewportPatches.ApplyByte",
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "meaning": "применение очередного байта патча области обзора"
+    },
+    {
+      "address": 36655,
+      "symbol": "Game.Circles.DrawPendingObjectExplosions.CheckObject",
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "meaning": "проверка признаков взрыва очередного объекта"
+    },
+    {
+      "address": 36691,
+      "symbol": "Game.Circles.DrawPendingObjectExplosions.DrawRing",
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "meaning": "вывод очередного круга взрыва"
+    },
+    {
+      "address": 36716,
+      "symbol": "Game.Circles.DrawPendingObjectExplosions.NextObject",
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "meaning": "переход к следующему экземпляру объекта"
+    },
+    {
+      "address": 36838,
+      "symbol": "Game.Circles.BuildLeftContourPixelMask.RotatePixel",
+      "file": "Source/Game/Circles/BuildLeftContourPixelMask.asm",
+      "meaning": "поворот однобитовой маски левого контура"
+    },
+    {
+      "address": 36847,
+      "symbol": "Game.Circles.BuildRightContourPixelMask.RotatePixel",
+      "file": "Source/Game/Circles/BuildRightContourPixelMask.asm",
+      "meaning": "поворот однобитовой маски правого контура"
+    },
+    {
+      "address": 36884,
+      "symbol": "Game.Circles.SkipViewportRowsUp.StepUp",
+      "file": "Source/Game/Circles/SkipViewportRowsUp.asm",
+      "meaning": "пропуск очередной строки вверх"
+    },
+    {
+      "address": 36890,
+      "symbol": "Game.Circles.SkipViewportRowsUp.CountRow",
+      "file": "Source/Game/Circles/SkipViewportRowsUp.asm",
+      "meaning": "проверка остатка пропускаемых строк"
+    },
+    {
+      "address": 36892,
+      "symbol": "Game.Circles.SkipViewportRowsUp.RestoreContext",
+      "file": "Source/Game/Circles/SkipViewportRowsUp.asm",
+      "meaning": "восстановление регистров после пропуска строк"
+    },
+    {
+      "address": 36895,
+      "symbol": "Game.Circles.SkipViewportRowsUp.CrossCharRow",
+      "file": "Source/Game/Circles/SkipViewportRowsUp.asm",
+      "meaning": "переход вверх через границу знакоместа"
+    },
+    {
+      "address": 36907,
+      "symbol": "Game.Circles.SkipViewportRowsUp.CheckTop",
+      "file": "Source/Game/Circles/SkipViewportRowsUp.asm",
+      "meaning": "проверка верхнего предела экранного буфера"
+    },
+    {
+      "address": 36930,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.StepDown",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "пропуск очередной строки вниз"
+    },
+    {
+      "address": 36936,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.CountSkipRow",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "проверка остатка пропускаемых строк"
+    },
+    {
+      "address": 36938,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.EndSkipRows",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "возврат после пропуска строк"
+    },
+    {
+      "address": 36941,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.CrossSkipRow",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход вниз через границу знакоместа"
+    },
+    {
+      "address": 36953,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.CheckSkipLimit",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "проверка нижнего предела пропуска строк"
+    },
+    {
+      "address": 36960,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "вход контура с фиксированным правым краем"
+    },
+    {
+      "address": 36980,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutBottom",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "проверка нижнего предела правого отсечённого контура"
+    },
+    {
+      "address": 36985,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.EmptyRightArc",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "возврат при пустом правом отсечённом контуре"
+    },
+    {
+      "address": 36987,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.SaveRightStack",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "сохранение стека для правого отсечённого контура"
+    },
+    {
+      "address": 36991,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.DrawLeftPixel",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "вывод подвижного левого пикселя контура"
+    },
+    {
+      "address": 37008,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.RightArcDown",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход правой отсечённой дуги вниз"
+    },
+    {
+      "address": 37011,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.RightYError",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "ошибка правой отсечённой дуги после шага Y"
+    },
+    {
+      "address": 37024,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.RightXError",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "ошибка правой отсечённой дуги после шага X"
+    },
+    {
+      "address": 37040,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.RightCrossLeft",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход подвижного левого края в соседний байт"
+    },
+    {
+      "address": 37047,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.JoinArcRight",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "снятие правого отсечения в дуговом проходе"
+    },
+    {
+      "address": 37051,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.JoinSweepRight",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "снятие правого отсечения в горизонтальном проходе"
+    },
+    {
+      "address": 37055,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.FinishRightArc",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "восстановление стека правого отсечённого контура"
+    },
+    {
+      "address": 37061,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.RightSweepByte",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход левого края правого горизонтального участка"
+    },
+    {
+      "address": 37068,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.SweepLeftPixel",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "вывод левого пикселя горизонтального участка"
+    },
+    {
+      "address": 37078,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.RightSweepErr",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "ошибка горизонтального шага правого отсечённого контура"
+    },
+    {
+      "address": 37110,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.RightSweepDown",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход на следующую строку правого горизонтального участка"
+    },
+    {
+      "address": 37115,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothArc",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "вход контура с двумя подвижными краями"
+    },
+    {
+      "address": 37132,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothArcBottom",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "проверка нижнего предела двухкраевого контура"
+    },
+    {
+      "address": 37137,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.EmptyBothArc",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "возврат при пустом двухкраевом контуре"
+    },
+    {
+      "address": 37139,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.SaveBothStack",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "сохранение стека двухкраевого контура"
+    },
+    {
+      "address": 37143,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.DrawBothPixels",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "вывод двух граничных пикселей контура"
+    },
+    {
+      "address": 37167,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothArcDown",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход двухкраевой дуги вниз"
+    },
+    {
+      "address": 37174,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothYError",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "ошибка двухкраевой дуги после шага Y"
+    },
+    {
+      "address": 37188,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.MoveRightPixel",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "перемещение правого пикселя дуги"
+    },
+    {
+      "address": 37192,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothXError",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "ошибка двухкраевой дуги после шага X"
+    },
+    {
+      "address": 37195,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.EndBothXError",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "завершение поправки шага X двухкраевой дуги"
+    },
+    {
+      "address": 37205,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothCrossLeft",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход левого края двухкраевой дуги в соседний байт"
+    },
+    {
+      "address": 37213,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothCrossRight",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход правого края двухкраевой дуги в соседний байт"
+    },
+    {
+      "address": 37221,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.FinishBothArc",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "восстановление стека двухкраевого контура"
+    },
+    {
+      "address": 37227,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothSweepLeft",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход левого края горизонтального двухкраевого участка"
+    },
+    {
+      "address": 37235,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothSweepRight",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход правого края горизонтального двухкраевого участка"
+    },
+    {
+      "address": 37243,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.SweepBothBits",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "вывод двух пикселей горизонтального участка"
+    },
+    {
+      "address": 37256,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.SweepRightBit",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "перемещение правого пикселя горизонтального участка"
+    },
+    {
+      "address": 37260,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothSweepError",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "ошибка горизонтального шага двухкраевого контура"
+    },
+    {
+      "address": 37265,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.EndBothSweep",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "завершение поправки горизонтального шага двухкраевого контура"
+    },
+    {
+      "address": 37287,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothSweepDown",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход на следующую строку двухкраевого горизонтального участка"
+    },
+    {
+      "address": 37292,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.CloseLeftEnd",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "закрытие остатка левого конечного участка"
+    },
+    {
+      "address": 37302,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.FindLeftBit",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "поиск установленного бита левого остатка"
+    },
+    {
+      "address": 37309,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.StoreLeftEnd",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "сохранение расширенного левого конечного участка"
+    },
+    {
+      "address": 37312,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.CloseRightEnd",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "закрытие остатка правого конечного участка"
+    },
+    {
+      "address": 37318,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.FindRightBit",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "поиск установленного бита правого остатка"
+    },
+    {
+      "address": 37325,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.StoreEndMask",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "сохранение сплошной маски конечного участка"
+    },
+    {
+      "address": 37326,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.LeaveClosedArc",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "возврат после закрытия конечных участков контура"
+    },
+    {
+      "address": 37329,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.CloseBothEnds",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "закрытие обоих конечных участков контура"
+    },
+    {
+      "address": 37337,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.FindFirstBit",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "поиск границы первого конечного участка"
+    },
+    {
+      "address": 37344,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.FillFirstEnd",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "сплошное заполнение пустого первого остатка"
+    },
+    {
+      "address": 37346,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.StoreFirstEnd",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "сохранение первого и чтение второго конечного участка"
+    },
+    {
+      "address": 37354,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.FindSecondBit",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "поиск границы второго конечного участка"
+    },
+    {
+      "address": 37361,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.StoreSecondEnd",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "сохранение маски второго конечного участка"
+    },
+    {
+      "address": 37364,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutArc",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "вход контура с фиксированным левым краем"
+    },
+    {
+      "address": 37384,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutBottom",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "проверка нижнего предела левого отсечённого контура"
+    },
+    {
+      "address": 37389,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.EmptyLeftArc",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "возврат при пустом левом отсечённом контуре"
+    },
+    {
+      "address": 37391,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.SaveLeftStack",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "сохранение стека для левого отсечённого контура"
+    },
+    {
+      "address": 37395,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.DrawRightPixel",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "вывод подвижного правого пикселя контура"
+    },
+    {
+      "address": 37409,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.LeftArcDown",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход левой отсечённой дуги вниз"
+    },
+    {
+      "address": 37412,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.LeftYError",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "ошибка левой отсечённой дуги после шага Y"
+    },
+    {
+      "address": 37425,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.LeftXError",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "ошибка левой отсечённой дуги после шага X"
+    },
+    {
+      "address": 37441,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCrossRight",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход подвижного правого края в соседний байт"
+    },
+    {
+      "address": 37449,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.JoinArcLeft",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "снятие левого отсечения в дуговом проходе"
+    },
+    {
+      "address": 37453,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.JoinSweepLeft",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "снятие левого отсечения в горизонтальном проходе"
+    },
+    {
+      "address": 37457,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.FinishLeftArc",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "восстановление стека левого отсечённого контура"
+    },
+    {
+      "address": 37463,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.LeftSweepByte",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход правого края левого горизонтального участка"
+    },
+    {
+      "address": 37471,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.DrawRightSweep",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "вывод правого пикселя горизонтального участка"
+    },
+    {
+      "address": 37478,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.LeftSweepError",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "ошибка горизонтального шага левого отсечённого контура"
+    },
+    {
+      "address": 37510,
+      "symbol": "Game.Circles.SkipRowsDownAndDrawCircleContours.LeftSweepDown",
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "meaning": "переход на следующую строку левого горизонтального участка"
+    },
+    {
+      "address": 38637,
+      "symbol": "Game.Scanner.DrawScannerObjects.CheckSlot",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "проверка активности и дальности очередного объекта сканера"
+    },
+    {
+      "address": 38757,
+      "symbol": "Game.Scanner.DrawScannerObjects.StoreHeight",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "сохранение высоты маркера со знаком"
+    },
+    {
+      "address": 38789,
+      "symbol": "Game.Scanner.DrawScannerObjects.StoreDepth",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "сохранение глубины маркера со знаком"
+    },
+    {
+      "address": 38819,
+      "symbol": "Game.Scanner.DrawScannerObjects.CheckSide",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "выбор стороны сканера по знаку X"
+    },
+    {
+      "address": 38826,
+      "symbol": "Game.Scanner.DrawScannerObjects.MoveRightByte",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "горизонтальное смещение основания вправо"
+    },
+    {
+      "address": 38829,
+      "symbol": "Game.Scanner.DrawScannerObjects.RightMask",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "подготовка битовой маски правой стороны"
+    },
+    {
+      "address": 38838,
+      "symbol": "Game.Scanner.DrawScannerObjects.RotateRight",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "сдвиг маски правой стороны внутри байта"
+    },
+    {
+      "address": 38843,
+      "symbol": "Game.Scanner.DrawScannerObjects.CentralByte",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "расчёт маски в центральном байте сетки"
+    },
+    {
+      "address": 38855,
+      "symbol": "Game.Scanner.DrawScannerObjects.MoveLeftByte",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "горизонтальное смещение основания влево"
+    },
+    {
+      "address": 38858,
+      "symbol": "Game.Scanner.DrawScannerObjects.LeftMask",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "подготовка битовой маски левой стороны"
+    },
+    {
+      "address": 38867,
+      "symbol": "Game.Scanner.DrawScannerObjects.RotateLeft",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "сдвиг маски левой стороны внутри байта"
+    },
+    {
+      "address": 38870,
+      "symbol": "Game.Scanner.DrawScannerObjects.OffsetDepth",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "смещение основания по глубине сканера"
+    },
+    {
+      "address": 38885,
+      "symbol": "Game.Scanner.DrawScannerObjects.MoveBaseUp",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "смещение основания маркера вверх"
+    },
+    {
+      "address": 38896,
+      "symbol": "Game.Scanner.DrawScannerObjects.MoveBaseDown",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "смещение основания маркера вниз"
+    },
+    {
+      "address": 38905,
+      "symbol": "Game.Scanner.DrawScannerObjects.CheckHeight",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "выбор направления ножки маркера"
+    },
+    {
+      "address": 38919,
+      "symbol": "Game.Scanner.DrawScannerObjects.DrawStemUp",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "рисование восходящей ножки маркера"
+    },
+    {
+      "address": 38933,
+      "symbol": "Game.Scanner.DrawScannerObjects.DrawStemDown",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "рисование нисходящей ножки маркера"
+    },
+    {
+      "address": 38945,
+      "symbol": "Game.Scanner.DrawScannerObjects.DrawHead",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "рисование трёхпиксельной головки маркера"
+    },
+    {
+      "address": 38958,
+      "symbol": "Game.Scanner.DrawScannerObjects.NextObject",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "переход к следующему объекту сканера"
+    },
+    {
+      "address": 38975,
+      "symbol": "Game.Scanner.DrawScannerObjects.ClearTop",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "очистка области над маркерами сканера"
+    },
+    {
+      "address": 38981,
+      "symbol": "Game.Scanner.DrawScannerObjects.ClearTopRow",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "очистка очередной строки верхнего края"
+    },
+    {
+      "address": 38984,
+      "symbol": "Game.Scanner.DrawScannerObjects.ClearTopByte",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "очистка байтов текущей строки верхнего края"
+    },
+    {
+      "address": 38994,
+      "symbol": "Game.Scanner.DrawScannerObjects.HeadAcrossBit7",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "вывод головки через границу байтов при первом переносе"
+    },
+    {
+      "address": 39006,
+      "symbol": "Game.Scanner.DrawScannerObjects.HeadAcrossBit6",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "meaning": "вывод головки через границу байтов при втором переносе"
+    },
+    {
+      "address": 39031,
+      "symbol": "Game.Scanner.StepScannerStemDown.AdjustHigh",
+      "file": "Source/Game/Scanner/StepScannerStemDown.asm",
+      "meaning": "коррекция старшего байта адреса следующего знакоместа"
+    },
+    {
+      "address": 39045,
+      "symbol": "Game.Scanner.StepScannerStemUp.PreviousRow",
+      "file": "Source/Game/Scanner/StepScannerStemUp.asm",
+      "meaning": "переход к предыдущему знакоместу сканера"
+    },
+    {
+      "address": 39131,
+      "symbol": "Game.Scanner.RestoreScannerBackground.ClearExtraRow",
+      "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+      "meaning": "очистка очередной строки дополнительной области"
+    },
+    {
+      "address": 39134,
+      "symbol": "Game.Scanner.RestoreScannerBackground.ClearExtraByte",
+      "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+      "meaning": "очистка байтов дополнительной области"
+    },
+    {
+      "address": 39180,
+      "symbol": "Game.Scanner.RestoreScannerBackground.CopyBackground",
+      "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+      "meaning": "подготовка копирования фона между экраном и буфером"
+    },
+    {
+      "address": 39189,
+      "symbol": "Game.Scanner.RestoreScannerBackground.CopyCharRow",
+      "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+      "meaning": "копирование восьми строк очередного ряда знакомест"
+    },
+    {
+      "address": 39194,
+      "symbol": "Game.Scanner.RestoreScannerBackground.CopyPixelRow",
+      "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+      "meaning": "копирование тринадцати байтов пиксельной строки"
+    },
+    {
+      "address": 39221,
+      "symbol": "Game.Scanner.ScaleValueAndFinishBackground.AdvanceCopy",
+      "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+      "meaning": "переход к следующей строке копируемого фона"
+    },
+    {
+      "address": 39279,
+      "symbol": "Game.Scanner.ResetCockpitForLaunch.ResetDevice",
+      "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+      "meaning": "сброс очередной записи устройства панели"
+    },
+    {
+      "address": 39295,
+      "symbol": "Game.Scanner.SetCockpitDeviceAttributes.SelectColor",
+      "file": "Source/Game/Scanner/SetCockpitDeviceAttributes.asm",
+      "meaning": "выбор цвета панелей по наличию капсулы"
+    },
+    {
+      "address": 39305,
+      "symbol": "Game.Scanner.SetCockpitDeviceAttributes.FillPanels",
+      "file": "Source/Game/Scanner/SetCockpitDeviceAttributes.asm",
+      "meaning": "заливка атрибутов левой и правой панели"
+    },
+    {
+      "address": 39319,
+      "symbol": "Game.Scanner.FillCockpitAttributePanel.FillPanelRow",
+      "file": "Source/Game/Scanner/FillCockpitAttributePanel.asm",
+      "meaning": "заливка очередной строки панели"
+    },
+    {
+      "address": 39322,
+      "symbol": "Game.Scanner.FillCockpitAttributePanel.FillPanelByte",
+      "file": "Source/Game/Scanner/FillCockpitAttributePanel.asm",
+      "meaning": "запись атрибутов текущей строки панели"
+    },
+    {
+      "address": 39350,
+      "symbol": "Game.Scanner.DrawDangerAndMissileIndicators.CheckOverride",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "meaning": "проверка приоритета специального сигнала тревоги"
+    },
+    {
+      "address": 39357,
+      "symbol": "Game.Scanner.DrawDangerAndMissileIndicators.CheckBlink",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "meaning": "выбор фазы мигания сигнала тревоги"
+    },
+    {
+      "address": 39373,
+      "symbol": "Game.Scanner.DrawDangerAndMissileIndicators.RedPhase",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "meaning": "выбор красной фазы сигнала"
+    },
+    {
+      "address": 39375,
+      "symbol": "Game.Scanner.DrawDangerAndMissileIndicators.SelectLayout",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "meaning": "выбор полного или компактного индикатора"
+    },
+    {
+      "address": 39407,
+      "symbol": "Game.Scanner.DrawDangerAndMissileIndicators.MissileColor",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "meaning": "преобразование состояния ракеты в экранный атрибут"
+    },
+    {
+      "address": 39416,
+      "symbol": "Game.Scanner.DrawDangerAndMissileIndicators.DrawCompact",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "meaning": "вывод компактной пары символов индикатора"
+    },
+    {
+      "address": 39453,
+      "symbol": "Game.Scanner.DrawDangerAndMissileIndicators.ReplaceBlack",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "meaning": "замена чёрной фазы цветом компактной пары"
+    },
+    {
+      "address": 39455,
+      "symbol": "Game.Scanner.DrawDangerAndMissileIndicators.CompactColor",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "meaning": "формирование атрибута компактного индикатора"
+    },
+    {
+      "address": 39459,
+      "symbol": "Game.Scanner.DrawDangerAndMissileIndicators.PrintPair",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "meaning": "печать пары символов компактного индикатора"
+    },
+    {
+      "address": 39471,
+      "symbol": "Game.Scanner.DrawDangerAndMissileIndicators.StoreColor",
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "meaning": "запись атрибутов и восстановление XOR-печати"
+    },
+    {
+      "address": 40647,
+      "symbol": "Game.Motion.SquareVectorComponent.RestoreVector",
+      "file": "Source/Game/Motion/SquareVectorComponent.asm",
+      "meaning": "восстановление указателя следующей компоненты вектора"
+    },
+    {
+      "address": 40678,
+      "symbol": "Game.Motion.DivideVectorComponent.StoreQuotient",
+      "file": "Source/Game/Motion/DivideVectorComponent.asm",
+      "meaning": "сохранение знаковой компоненты после деления"
+    },
+    {
+      "address": 40848,
+      "symbol": "Game.Motion.UpdateObjectCoordinatesAndRotation.CheckDepthHigh",
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "meaning": "проверка старшего модуля глубины"
+    },
+    {
+      "address": 40853,
+      "symbol": "Game.Motion.UpdateObjectCoordinatesAndRotation.ReleaseObject",
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "meaning": "освобождение слота объекта за рабочим диапазоном"
+    },
+    {
+      "address": 40860,
+      "symbol": "Game.Motion.UpdateObjectCoordinatesAndRotation.CheckSideRange",
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "meaning": "проверка боковых координат объекта"
+    },
+    {
+      "address": 40915,
+      "symbol": "Game.Motion.UpdateObjectCoordinatesAndRotation.SetRollStep",
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "meaning": "выбор величины непрерывного вращения LR"
+    },
+    {
+      "address": 40925,
+      "symbol": "Game.Motion.UpdateObjectCoordinatesAndRotation.StoreRollStep",
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "meaning": "сохранение шага вращения LR"
+    },
+    {
+      "address": 40947,
+      "symbol": "Game.Motion.UpdateObjectCoordinatesAndRotation.SetPitchStep",
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "meaning": "выбор величины непрерывного вращения DU"
+    },
+    {
+      "address": 40990,
+      "symbol": "Game.Motion.AdvanceObjectAlongLocalAxis.LimitSpeed",
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "meaning": "определение максимальной скорости объекта"
+    },
+    {
+      "address": 41003,
+      "symbol": "Game.Motion.AdvanceObjectAlongLocalAxis.ClampSpeed",
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "meaning": "ограничение скорости максимумом модели"
+    },
+    {
+      "address": 41007,
+      "symbol": "Game.Motion.AdvanceObjectAlongLocalAxis.StoreSpeed",
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "meaning": "сохранение новой скорости объекта"
+    },
+    {
+      "address": 41010,
+      "symbol": "Game.Motion.AdvanceObjectAlongLocalAxis.AdvanceAxes",
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "meaning": "перемещение по трём координатам вдоль локальной оси"
+    },
+    {
+      "address": 41091,
+      "symbol": "Game.Motion.VelocityComponentDelta.MultiplyBit",
+      "file": "Source/Game/Motion/VelocityComponentDelta.asm",
+      "meaning": "добавление вклада очередного бита скорости"
+    },
+    {
+      "address": 41100,
+      "symbol": "Game.Motion.VelocityComponentDelta.NextSpeedBit",
+      "file": "Source/Game/Motion/VelocityComponentDelta.asm",
+      "meaning": "переход к следующему биту скорости"
+    },
+    {
+      "address": 41121,
+      "symbol": "Game.Motion.AddCoordinateDelta.SubtractDelta",
+      "file": "Source/Game/Motion/AddCoordinateDelta.asm",
+      "meaning": "вычитание противоположно направленного смещения"
+    },
+    {
+      "address": 41244,
+      "symbol": "Game.Motion.AddSignedAngularProduct.SubtractTerms",
+      "file": "Source/Game/Motion/AddSignedAngularProduct.asm",
+      "meaning": "вычитание произведения с противоположным знаком"
+    },
+    {
+      "address": 41251,
+      "symbol": "Game.Motion.AddSignedAngularProduct.PackResult",
+      "file": "Source/Game/Motion/AddSignedAngularProduct.asm",
+      "meaning": "упаковка знака и модуля результата"
+    },
+    {
+      "address": 41424,
+      "symbol": "Game.Motion.ApplyPlayerMotionToObject.MovePositiveZ",
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "meaning": "уменьшение положительной глубины движением игрока"
+    },
+    {
+      "address": 41438,
+      "symbol": "Game.Motion.ApplyPlayerMotionToObject.FlipFraction",
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "meaning": "смена знака дробной части при переходе через ноль"
+    },
+    {
+      "address": 41443,
+      "symbol": "Game.Motion.ApplyPlayerMotionToObject.StoreDepth",
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "meaning": "сохранение целой части глубины"
+    },
+    {
+      "address": 41449,
+      "symbol": "Game.Motion.ApplyPlayerMotionToObject.DepthReady",
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "meaning": "возврат после обновления глубины"
+    },
+    {
+      "address": 41508,
+      "symbol": "Game.Motion.AddScaledCoordinate.AlignProduct",
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "meaning": "выравнивание произведения к разрядам координаты"
+    },
+    {
+      "address": 41554,
+      "symbol": "Game.Motion.AddScaledCoordinate.SubtractTerms",
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "meaning": "вычитание произведения с противоположным знаком"
+    },
+    {
+      "address": 41561,
+      "symbol": "Game.Motion.AddScaledCoordinate.SubtractHigh",
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "meaning": "вычитание старших разрядов с учётом займа"
+    },
+    {
+      "address": 41580,
+      "symbol": "Game.Motion.AddScaledCoordinate.PackSign",
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "meaning": "упаковка знака новой координаты"
+    },
+    {
+      "address": 41587,
+      "symbol": "Game.Motion.AddScaledCoordinate.StoreAxis",
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "meaning": "сохранение трёхбайтовой координаты"
+    },
+    {
+      "address": 41678,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.ClampEnergy",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "ограничение восстановленной энергии максимумом модели"
+    },
+    {
+      "address": 41682,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.CheckMission",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "проверка специальных энергетических порогов миссии"
+    },
+    {
+      "address": 41702,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.CheckPhaseOne",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "проверка расхода энергии в первой фазе миссии"
+    },
+    {
+      "address": 41716,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.DrainEnergy",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "уменьшение энергии первой фазы миссии"
+    },
+    {
+      "address": 41719,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.StoreEnergy",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "сохранение энергии и проверка аварийного поведения"
+    },
+    {
+      "address": 41741,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.TryLaunch",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "проверка остатка и вероятности запуска"
+    },
+    {
+      "address": 41770,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.SelectPayload",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "преобразование типа запускаемого средства"
+    },
+    {
+      "address": 41795,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.TryEscape",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "выбор спасения при критическом уровне энергии"
+    },
+    {
+      "address": 41825,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.CheckCargoPod",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "проверка создания спасательного объекта по модели"
+    },
+    {
+      "address": 41836,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.CheckLeader",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "проверка потребности специальной группы в ведущем"
+    },
+    {
+      "address": 41854,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.FindLeader",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "просмотр следующего слота в поиске ведущего"
+    },
+    {
+      "address": 41869,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.NextLeader",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "переход к следующему кандидату на ведущего"
+    },
+    {
+      "address": 41872,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.LeaderResult",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "возврат к исходному объекту после поиска ведущего"
+    },
+    {
+      "address": 41890,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.CheckEcm",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "проверка возможности ответного применения ECM"
+    },
+    {
+      "address": 41910,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.CheckEcmTimer",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "проверка уже работающего ECM"
+    },
+    {
+      "address": 41937,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.EcmPadding",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "две резервные инструкции после проверки ECM"
+    },
+    {
+      "address": 41939,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.ChooseFlight",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "выбор обычного полёта или порождения объектов"
+    },
+    {
+      "address": 41982,
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.PeacefulSpawn",
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "meaning": "проверка редкой вероятности мирного порождения"
+    },
+    {
+      "address": 42031,
+      "symbol": "Game.Motion.CheckObjectBoxAndChooseCourse.ChooseCourse",
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "meaning": "выбор курса после обновления энергии объекта"
+    },
+    {
+      "address": 42048,
+      "symbol": "Game.Motion.CheckObjectBoxAndChooseCourse.CheckInnerBox",
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "meaning": "проверка внутренней области удаления"
+    },
+    {
+      "address": 42069,
+      "symbol": "Game.Motion.CheckObjectBoxAndChooseCourse.CheckHostility",
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "meaning": "проверка необходимости преследования игрока"
+    },
+    {
+      "address": 42095,
+      "symbol": "Game.Motion.CheckObjectBoxAndChooseCourse.CheckBehavior",
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "meaning": "выбор курса по параметру поведения"
+    },
+    {
+      "address": 42108,
+      "symbol": "Game.Motion.CheckObjectBoxAndChooseCourse.FlyAway",
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "meaning": "построение вектора удаления от игрока"
+    },
+    {
+      "address": 42136,
+      "symbol": "Game.Motion.CheckObjectBoxAndChooseCourse.FlyToward",
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "meaning": "построение вектора сближения с игроком"
+    },
+    {
+      "address": 42162,
+      "symbol": "Game.Motion.CheckObjectBoxAndChooseCourse.SteerCourse",
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "meaning": "передача рассчитанного вектора автопилоту"
+    },
+    {
+      "address": 42180,
+      "symbol": "Game.Motion.GuideMissileAndCheckImpact.FindTarget",
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "meaning": "поиск слота ракетной цели"
+    },
+    {
+      "address": 42199,
+      "symbol": "Game.Motion.GuideMissileAndCheckImpact.NextTarget",
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "meaning": "переход к следующему слоту ракетной цели"
+    },
+    {
+      "address": 42279,
+      "symbol": "Game.Motion.GuideMissileAndCheckImpact.DestroyTarget",
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "meaning": "установка запроса уничтожения поражённой цели"
+    },
+    {
+      "address": 42283,
+      "symbol": "Game.Motion.GuideMissileAndCheckImpact.RestoreTarget",
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "meaning": "восстановление указателя модели после обработки попадания"
+    },
+    {
+      "address": 42286,
+      "symbol": "Game.Motion.GuideMissileAndCheckImpact.ClearMetadata",
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "meaning": "очистка метаданных пустого слота из общего обхода объектов"
+    },
+    {
+      "address": 42290,
+      "symbol": "Game.Motion.GuideMissileAndCheckImpact.SteerMissile",
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "meaning": "наведение ракеты по рассчитанному вектору"
+    },
+    {
+      "address": 42354,
+      "symbol": "Game.Motion.QuarterCoordinate.QuarterModule",
+      "file": "Source/Game/Motion/QuarterCoordinate.asm",
+      "meaning": "деление модуля координаты на четыре"
+    },
+    {
+      "address": 42455,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.PackRoll",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "упаковка направления и величины команды LR"
+    },
+    {
+      "address": 42471,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.CalculatePitch",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "расчёт команды DU при малом отклонении LR"
+    },
+    {
+      "address": 42491,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.LimitPitch",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "ограничение модуля команды DU"
+    },
+    {
+      "address": 42493,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.PackPitch",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "упаковка направления команды DU"
+    },
+    {
+      "address": 42501,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.CheckForced",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "проверка принудительного ускорения"
+    },
+    {
+      "address": 42510,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.StoreForced",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "сохранение принудительного ускорения"
+    },
+    {
+      "address": 42533,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.CheckRange",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "проверка расстояния для разгона"
+    },
+    {
+      "address": 42543,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.StoreSpeedup",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "сохранение ускорения при сближении"
+    },
+    {
+      "address": 42546,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.CheckLaser",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "проверка возможности лазерного выстрела"
+    },
+    {
+      "address": 42571,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.TryLaser",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "случайная проверка вероятности выстрела"
+    },
+    {
+      "address": 42601,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.HitPlayer",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "запрос лазерного звука и урона защите игрока"
+    },
+    {
+      "address": 42621,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.DamageFront",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "накопление урона передней защите"
+    },
+    {
+      "address": 42630,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.BrakeAway",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "выбор торможения при курсе от цели"
+    },
+    {
+      "address": 42640,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.CheckBrake",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "проверка расстояния для торможения"
+    },
+    {
+      "address": 42649,
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.StoreBrake",
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "meaning": "сохранение отрицательного ускорения"
+    },
+    {
+      "address": 42705,
+      "symbol": "Game.Motion.DotProductAxisHighBytes.AddThirdTerm",
+      "file": "Source/Game/Motion/DotProductAxisHighBytes.asm",
+      "meaning": "добавление третьего произведения скалярной суммы"
+    },
+    {
+      "address": 42714,
+      "symbol": "Game.Motion.DotProductAxisHighBytes.PackProduct",
+      "file": "Source/Game/Motion/DotProductAxisHighBytes.asm",
+      "meaning": "упаковка знака скалярного произведения"
+    },
+    {
+      "address": 42737,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.ReadDepth",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "чтение координаты глубины выбранного вида"
+    },
+    {
+      "address": 42767,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.ProjectCenter",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "проекция центра объекта для выбранного вида"
+    },
+    {
+      "address": 42811,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.ProjectSide",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "горизонтальная проекция Z для бокового вида"
+    },
+    {
+      "address": 42846,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.PackProjection",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "упаковка знаков и расчёт экранного радиуса"
+    },
+    {
+      "address": 42881,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.CheckWidth",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "проверка видимости объекта по горизонтали"
+    },
+    {
+      "address": 42893,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.CheckCrosshair",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "проверка близости центра объекта к прицелу"
+    },
+    {
+      "address": 42915,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.CheckAwayMode",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "проверка сброса режима удаления враждебного корабля"
+    },
+    {
+      "address": 42946,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.CheckAxis",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "проверка направления выбранной компоненты оси"
+    },
+    {
+      "address": 42962,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.DispatchEffect",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "передача уничтожения и специальных эффектов"
+    },
+    {
+      "address": 42969,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.CheckMission",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "проверка миссионной видимости после обработки эффектов"
+    },
+    {
+      "address": 42982,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.SelectDetail",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "выбор каркаса или дальней точки объекта"
+    },
+    {
+      "address": 43021,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.CheckMirrorX",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "выбор направления горизонтального смещения точки"
+    },
+    {
+      "address": 43032,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.SubtractX",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "вычитание горизонтального смещения из центра обзора"
+    },
+    {
+      "address": 43036,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.ProjectY",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "выбор направления вертикального смещения точки"
+    },
+    {
+      "address": 43046,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.SubtractY",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "вычитание вертикального смещения из центра обзора"
+    },
+    {
+      "address": 43050,
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.DrawFarDot",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "meaning": "вывод дальней точки четырьмя XOR-пикселями"
+    },
+    {
+      "address": 43076,
+      "symbol": "Game.Motion.XorFarObjectPixel.RotatePixel",
+      "file": "Source/Game/Motion/XorFarObjectPixel.asm",
+      "meaning": "выбор битовой маски дальней точки"
+    },
+    {
+      "address": 43105,
+      "symbol": "Game.Wireframe.DrawWireframeObject.SubtractDetail",
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "meaning": "вычитание базового смещения уровня детализации"
+    },
+    {
+      "address": 43111,
+      "symbol": "Game.Wireframe.DrawWireframeObject.StoreDetail",
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "meaning": "сохранение уровня детализации и подготовка геометрии"
+    },
+    {
+      "address": 43128,
+      "symbol": "Game.Wireframe.DrawWireframeObject.CheckLaser",
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "meaning": "проверка одноразового запроса лазерного луча"
+    },
+    {
+      "address": 43140,
+      "symbol": "Game.Wireframe.DrawWireframeObject.DrawLaser",
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "meaning": "отдельный вход вывода лазерного луча объекта"
+    },
+    {
+      "address": 43175,
+      "symbol": "Game.Wireframe.DrawWireframeObject.ClearLaser",
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "meaning": "сброс одноразового запроса лазерного луча"
+    },
+    {
+      "address": 43210,
+      "symbol": "Game.Wireframe.StartObjectExplosion.PackCenterSign",
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "meaning": "упаковка знаков центра взрыва"
+    },
+    {
+      "address": 43486,
+      "symbol": "Game.Wireframe.BuildProjectedVertexTable.ProjectVertex",
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "meaning": "обработка очередной вершины модели"
+    },
+    {
+      "address": 43511,
+      "symbol": "Game.Wireframe.BuildProjectedVertexTable.CheckFaces",
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "meaning": "проверка видимости пар граней вершины"
+    },
+    {
+      "address": 43523,
+      "symbol": "Game.Wireframe.BuildProjectedVertexTable.SelectVertex",
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "meaning": "выбор пропуска или проекции по флагам проверки граней"
+    },
+    {
+      "address": 43659,
+      "symbol": "Game.Wireframe.RotateNearVertexComponent.RebuildCache",
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "meaning": "полный расчёт трёх произведений ближней вершины"
+    },
+    {
+      "address": 43747,
+      "symbol": "Game.Wireframe.RotateNearVertexComponent.RestoreScale",
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "meaning": "обратное масштабирование ближней компоненты"
+    },
+    {
+      "address": 43755,
+      "symbol": "Game.Wireframe.RotateNearVertexComponent.ShiftFraction",
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "meaning": "возврат разрядов компоненты с сохранением дробной части"
+    },
+    {
+      "address": 43765,
+      "symbol": "Game.Wireframe.RotateNearVertexComponent.RestoreSign",
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "meaning": "восстановление знака повёрнутой компоненты"
+    },
+    {
+      "address": 43779,
+      "symbol": "Game.Wireframe.AddSignedByteMagnitudes.SubtractTerms",
+      "file": "Source/Game/Wireframe/AddSignedByteMagnitudes.asm",
+      "meaning": "вычитание модулей с противоположными знаками"
+    },
+    {
+      "address": 43793,
+      "symbol": "Game.Wireframe.MultiplyHighByteApprox.HalfDifference",
+      "file": "Source/Game/Wireframe/MultiplyHighByteApprox.asm",
+      "meaning": "расчёт индекса половины разности для таблицы квадратов"
+    },
+    {
+      "address": 43809,
+      "symbol": "Game.Wireframe.MultiplyScaledVertexComponent.ScaleComponent",
+      "file": "Source/Game/Wireframe/MultiplyScaledVertexComponent.asm",
+      "meaning": "предварительное масштабирование компоненты вершины"
+    },
+    {
+      "address": 43834,
+      "symbol": "Game.Wireframe.MultiplyBytesApprox.HalfDifference",
+      "file": "Source/Game/Wireframe/MultiplyBytesApprox.asm",
+      "meaning": "расчёт индекса половины разности для таблицы квадратов"
+    },
+    {
+      "address": 43867,
+      "symbol": "Game.Wireframe.AddRotatedVertexCoordinate.SubtractVertex",
+      "file": "Source/Game/Wireframe/AddRotatedVertexCoordinate.asm",
+      "meaning": "вычитание вершины с противоположным знаком"
+    },
+    {
+      "address": 43878,
+      "symbol": "Game.Wireframe.AddRotatedVertexCoordinate.CheckFraction",
+      "file": "Source/Game/Wireframe/AddRotatedVertexCoordinate.asm",
+      "meaning": "проверка коррекции дробной части разности"
+    },
+    {
+      "address": 43920,
+      "symbol": "Game.Wireframe.RotateDistantVertex.RebuildCache",
+      "file": "Source/Game/Wireframe/RotateDistantVertex.asm",
+      "meaning": "полный расчёт дальней вершины"
+    },
+    {
+      "address": 43935,
+      "symbol": "Game.Wireframe.RotateDistantVertex.StoreZ",
+      "file": "Source/Game/Wireframe/RotateDistantVertex.asm",
+      "meaning": "сохранение третьей компоненты дальней вершины"
+    },
+    {
+      "address": 44139,
+      "symbol": "Game.Wireframe.DivideProjectionRatio.NormalizeRatio",
+      "file": "Source/Game/Wireframe/DivideProjectionRatio.asm",
+      "meaning": "согласование масштаба делимого и делителя"
+    },
+    {
+      "address": 44160,
+      "symbol": "Game.Wireframe.DivideProjectionRatio.UndoOverflow",
+      "file": "Source/Game/Wireframe/DivideProjectionRatio.asm",
+      "meaning": "отмена переполнившего сдвига делителя"
+    },
+    {
+      "address": 44164,
+      "symbol": "Game.Wireframe.DivideProjectionRatio.CheckSaturate",
+      "file": "Source/Game/Wireframe/DivideProjectionRatio.asm",
+      "meaning": "проверка насыщения перед дробным делением"
+    },
+    {
+      "address": 44184,
+      "symbol": "Game.Wireframe.DivideFractionAndProjectVertex.SubtractDiv",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "meaning": "вычитание делителя и установка очередного бита частного"
+    },
+    {
+      "address": 44194,
+      "symbol": "Game.Wireframe.DivideFractionAndProjectVertex.Project",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "meaning": "отдельный вход проекции вершины"
+    },
+    {
+      "address": 44216,
+      "symbol": "Game.Wireframe.DivideFractionAndProjectVertex.FindScale",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "meaning": "поиск предварительного масштаба ближней вершины"
+    },
+    {
+      "address": 44255,
+      "symbol": "Game.Wireframe.DivideFractionAndProjectVertex.AddObjectPos",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "meaning": "переход к сложению вершины с координатами объекта"
+    },
+    {
+      "address": 44418,
+      "symbol": "Game.Wireframe.DivideFractionAndProjectVertex.ProjectSide",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "meaning": "расчёт бокового вида вершины"
+    },
+    {
+      "address": 44469,
+      "symbol": "Game.Wireframe.DivideFractionAndProjectVertex.PackSigns",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "meaning": "упаковка знаков и зеркалирование проекции"
+    },
+    {
+      "address": 44485,
+      "symbol": "Game.Wireframe.DivideFractionAndProjectVertex.StoreSigns",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "meaning": "сохранение знаков и вычисление адреса записи вершины"
+    },
+    {
+      "address": 44500,
+      "symbol": "Game.Wireframe.DivideFractionAndProjectVertex.StorePosition",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "meaning": "запись двух экранных координат вершины"
+    },
+    {
+      "address": 44526,
+      "symbol": "Game.Wireframe.DivideFractionAndProjectVertex.StoreHidden",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "meaning": "запись признака скрытой вершины"
+    },
+    {
+      "address": 44530,
+      "symbol": "Game.Wireframe.DivideFractionAndProjectVertex.NextVertex",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "meaning": "переход к следующей вершине модели"
+    },
+    {
+      "address": 44566,
+      "symbol": "Game.Wireframe.LocateFaceNormalData.StoreStream",
+      "file": "Source/Game/Wireframe/LocateFaceNormalData.asm",
+      "meaning": "сохранение указателя потока признаков нормалей"
+    },
+    {
+      "address": 44589,
+      "symbol": "Game.Wireframe.AdvanceNormalFlags.StoreFlags",
+      "file": "Source/Game/Wireframe/AdvanceNormalFlags.asm",
+      "meaning": "сохранение указателя следующей записи признаков"
+    },
+    {
+      "address": 44632,
+      "symbol": "Game.Wireframe.ReadProjectedVertex.AddThirdIndex",
+      "file": "Source/Game/Wireframe/ReadProjectedVertex.asm",
+      "meaning": "расчёт трёхбайтового смещения вершины"
+    },
+    {
+      "address": 44636,
+      "symbol": "Game.Wireframe.ReadProjectedVertex.AddTableBase",
+      "file": "Source/Game/Wireframe/ReadProjectedVertex.asm",
+      "meaning": "добавление базы таблицы проекций"
+    },
+    {
+      "address": 44641,
+      "symbol": "Game.Wireframe.ReadProjectedVertex.ReadPosition",
+      "file": "Source/Game/Wireframe/ReadProjectedVertex.asm",
+      "meaning": "чтение экранной позиции и признака скрытой вершины"
+    },
+    {
+      "address": 44726,
+      "symbol": "Game.Wireframe.CorrectYAxisComponent.SubtractTerm",
+      "file": "Source/Game/Wireframe/CorrectYAxisComponent.asm",
+      "meaning": "вычитание корректирующего произведения из оси Y"
+    },
+    {
+      "address": 44733,
+      "symbol": "Game.Wireframe.CorrectYAxisComponent.PackComponent",
+      "file": "Source/Game/Wireframe/CorrectYAxisComponent.asm",
+      "meaning": "упаковка исправленной компоненты оси Y"
+    },
+    {
+      "address": 44881,
+      "symbol": "Game.Wireframe.CrossProductComponent.SubtractTerms",
+      "file": "Source/Game/Wireframe/CrossProductComponent.asm",
+      "meaning": "вычитание произведений с одинаковыми знаками"
+    },
+    {
+      "address": 44894,
+      "symbol": "Game.Wireframe.CrossProductComponent.PackProduct",
+      "file": "Source/Game/Wireframe/CrossProductComponent.asm",
+      "meaning": "упаковка знака компоненты векторного произведения"
+    },
+    {
+      "address": 44936,
+      "symbol": "Game.Wireframe.CrossProductComponent.AddCrossTerm",
+      "file": "Source/Game/Wireframe/CrossProductComponent.asm",
+      "meaning": "добавление второго перекрёстного произведения"
+    },
+    {
+      "address": 44955,
+      "symbol": "Game.Wireframe.CrossProductComponent.AddHighWord",
+      "file": "Source/Game/Wireframe/CrossProductComponent.asm",
+      "meaning": "добавление старших разрядов произведения"
+    },
+    {
+      "address": 45149,
+      "symbol": "Game.Wireframe.DrawClippedLine.CheckXSide",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "проверка общей внешней стороны отрезка по X"
+    },
+    {
+      "address": 45178,
+      "symbol": "Game.Wireframe.DrawClippedLine.SubtractY",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "разность модулей Y концов с одинаковыми знаками"
+    },
+    {
+      "address": 45183,
+      "symbol": "Game.Wireframe.DrawClippedLine.IncludeLastY",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "учёт последней строки в вертикальной протяжённости"
+    },
+    {
+      "address": 45185,
+      "symbol": "Game.Wireframe.DrawClippedLine.StoreYSpan",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "сохранение вертикальной протяжённости отрезка"
+    },
+    {
+      "address": 45194,
+      "symbol": "Game.Wireframe.DrawClippedLine.SubtractX",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "разность модулей X концов с одинаковыми знаками"
+    },
+    {
+      "address": 45200,
+      "symbol": "Game.Wireframe.DrawClippedLine.StoreXSpan",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "сохранение горизонтальной протяжённости отрезка"
+    },
+    {
+      "address": 45265,
+      "symbol": "Game.Wireframe.DrawClippedLine.SubtractYClip",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "уменьшение модуля Y при отсечении по X"
+    },
+    {
+      "address": 45271,
+      "symbol": "Game.Wireframe.DrawClippedLine.StoreYClip",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "сохранение Y без перехода через ось"
+    },
+    {
+      "address": 45274,
+      "symbol": "Game.Wireframe.DrawClippedLine.FlipYSign",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "смена знака Y после пересечения оси"
+    },
+    {
+      "address": 45279,
+      "symbol": "Game.Wireframe.DrawClippedLine.ClipXDone",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "установка горизонтальной границы и повторное отсечение"
+    },
+    {
+      "address": 45294,
+      "symbol": "Game.Wireframe.DrawClippedLine.MeasureYClip",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "расчёт выхода за вертикальную границу"
+    },
+    {
+      "address": 45329,
+      "symbol": "Game.Wireframe.DrawClippedLine.SubtractXClip",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "уменьшение модуля X при отсечении по Y"
+    },
+    {
+      "address": 45335,
+      "symbol": "Game.Wireframe.DrawClippedLine.StoreXClip",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "сохранение X без перехода через ось"
+    },
+    {
+      "address": 45338,
+      "symbol": "Game.Wireframe.DrawClippedLine.FlipXSign",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "смена знака X после пересечения оси"
+    },
+    {
+      "address": 45343,
+      "symbol": "Game.Wireframe.DrawClippedLine.ClipYDone",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "установка вертикальной границы и повторное отсечение"
+    },
+    {
+      "address": 45357,
+      "symbol": "Game.Wireframe.DrawClippedLine.CompareX",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "сравнение модулей X при одинаковых знаках"
+    },
+    {
+      "address": 45363,
+      "symbol": "Game.Wireframe.DrawClippedLine.CheckSwap",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "проверка необходимости перестановки концов"
+    },
+    {
+      "address": 45383,
+      "symbol": "Game.Wireframe.DrawClippedLine.CompareY",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "сравнение модулей Y для направления строк"
+    },
+    {
+      "address": 45389,
+      "symbol": "Game.Wireframe.DrawClippedLine.SelectRowStep",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "выбор растрового шага вверх или вниз"
+    },
+    {
+      "address": 45395,
+      "symbol": "Game.Wireframe.DrawClippedLine.SaveDirection",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "сохранение кода направления растрового шага"
+    },
+    {
+      "address": 45406,
+      "symbol": "Game.Wireframe.DrawClippedLine.AddCenterY",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "прибавление вертикального модуля к центру обзора"
+    },
+    {
+      "address": 45407,
+      "symbol": "Game.Wireframe.DrawClippedLine.PixelYReady",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "сохранение пиксельной строки конца отрезка"
+    },
+    {
+      "address": 45417,
+      "symbol": "Game.Wireframe.DrawClippedLine.SubtractPixelX",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "вычитание горизонтального модуля из центра обзора"
+    },
+    {
+      "address": 45418,
+      "symbol": "Game.Wireframe.DrawClippedLine.PixelXReady",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "сохранение пиксельного столбца конца отрезка"
+    },
+    {
+      "address": 45440,
+      "symbol": "Game.Wireframe.DrawClippedLine.PrepareSlope",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "подготовка дробного наклона растрового отрезка"
+    },
+    {
+      "address": 45469,
+      "symbol": "Game.Wireframe.DrawClippedLine.PatchSteep",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "настройка дробного шага крутого отрезка"
+    },
+    {
+      "address": 45510,
+      "symbol": "Game.Wireframe.DrawClippedLine.SteepRowJump",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "изменяемая ветвь направления смены знакоместа"
+    },
+    {
+      "address": 45585,
+      "symbol": "Game.Wireframe.DrawClippedLine.AddRunError",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "добавление дробного остатка длины группы"
+    },
+    {
+      "address": 45590,
+      "symbol": "Game.Wireframe.DrawClippedLine.GroupReady",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "сохранение ошибки и расчёт границы следующей группы"
+    },
+    {
+      "address": 45611,
+      "symbol": "Game.Wireframe.DrawClippedLine.SelectRunMask",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "выбор маски конечного байта группы пикселей"
+    },
+    {
+      "address": 45653,
+      "symbol": "Game.Wireframe.DrawClippedLine.NextRunByte",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "переход к байту начала следующей группы"
+    },
+    {
+      "address": 45660,
+      "symbol": "Game.Wireframe.DrawClippedLine.LoadNextBit",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "meaning": "восстановление начального бита следующей строки"
+    },
+    {
+      "address": 45708,
+      "symbol": "Game.Wireframe.MultiplyClippingDistance.CheckBits",
+      "file": "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+      "meaning": "проверка остатка множителя расстояния"
+    },
+    {
+      "address": 45711,
+      "symbol": "Game.Wireframe.MultiplyClippingDistance.MultiplyBit",
+      "file": "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+      "meaning": "добавление вклада очередного бита расстояния"
+    },
+    {
+      "address": 45719,
+      "symbol": "Game.Wireframe.MultiplyClippingDistance.ShiftProduct",
+      "file": "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+      "meaning": "сдвиг частичного произведения"
+    },
+    {
+      "address": 45722,
+      "symbol": "Game.Wireframe.MultiplyClippingDistance.Saturate",
+      "file": "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+      "meaning": "насыщение произведения при переполнении"
+    },
+    {
+      "address": 45723,
+      "symbol": "Game.Wireframe.MultiplyClippingDistance.OverflowSkip",
+      "file": "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+      "meaning": "перекрывающаяся инструкция CP, сохраняющая насыщенный результат"
+    },
+    {
+      "address": 45724,
+      "symbol": "Game.Wireframe.MultiplyClippingDistance.ProductHigh",
+      "file": "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+      "meaning": "вход LD A,D во второй байт инструкции CP"
+    },
+    {
+      "address": 45744,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.Normalize",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "нормирование знаменателя до масштаба числителя"
+    },
+    {
+      "address": 45753,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.CarryKeep",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "перекрывающаяся инструкция LD A,#A7, сохраняющая перенос нормирования"
+    },
+    {
+      "address": 45754,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.ClearCarry",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "вход AND A во второй байт инструкции LD A,#A7"
+    },
+    {
+      "address": 45755,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.DivideInteger",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "деление очередного разряда целой части наклона"
+    },
+    {
+      "address": 45771,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.DivideFraction",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "расчёт дробной части наклона"
+    },
+    {
+      "address": 45781,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.FractionBit",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "деление очередного дробного разряда наклона"
+    },
+    {
+      "address": 45795,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.SubtractDiv",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "вычитание знаменателя и установка бита частного"
+    },
+    {
+      "address": 45801,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.RatioReady",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "возврат наклона в формате 8.8"
+    },
+    {
+      "address": 45807,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.DrawMarker",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "отдельный вход альтернативного маркера сканера"
+    },
+    {
+      "address": 45817,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.NormalizeAxes",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "нормирование координат маркера по длине вектора"
+    },
+    {
+      "address": 45852,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.AddCenterY",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "прибавление вертикального смещения к центру сканера"
+    },
+    {
+      "address": 45853,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.StoreRow",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "учёт смещения сканера и сохранение строки маркера"
+    },
+    {
+      "address": 45874,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.SubtractX",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "вычитание горизонтального смещения из центра"
+    },
+    {
+      "address": 45875,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.StoreColumn",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "учёт смещения сканера и сохранение столбца маркера"
+    },
+    {
+      "address": 45890,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.CheckMidRange",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "проверка средних разрядов дальности для размера маркера"
+    },
+    {
+      "address": 45897,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.CheckNearRange",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "проверка младших разрядов дальности для размера маркера"
+    },
+    {
+      "address": 45903,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.SpreadMarkers",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "разведение маркеров по адресу слота"
+    },
+    {
+      "address": 45914,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.DrawCenter",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "настройка прямого экрана и вывод центра маркера"
+    },
+    {
+      "address": 45947,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.RearMarker",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "вывод развёрнутого маркера задней полусферы"
+    },
+    {
+      "address": 45961,
+      "symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.LastSegment",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "meaning": "вывод последнего отрезка и восстановление пиксельного обработчика"
+    },
+    {
+      "address": 46018,
+      "symbol": "Game.Wireframe.RefreshScannerBackground.ReadControl",
+      "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+      "meaning": "чтение управляющего байта восстановления фона"
+    },
+    {
+      "address": 46029,
+      "symbol": "Game.Wireframe.RefreshScannerBackground.FindBlock",
+      "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+      "meaning": "поиск блока по младшему установленному биту"
+    },
+    {
+      "address": 46033,
+      "symbol": "Game.Wireframe.RefreshScannerBackground.CopyBlockRow",
+      "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+      "meaning": "перенос очередной строки блока фона"
+    },
+    {
+      "address": 46058,
+      "symbol": "Game.Wireframe.RefreshScannerBackground.CopyBackground",
+      "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+      "meaning": "восстановление обычного фона сканера"
+    },
+    {
+      "address": 46063,
+      "symbol": "Game.Wireframe.RefreshScannerBackground.SetAttributes",
+      "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+      "meaning": "обновление атрибутов индикатора"
+    },
+    {
+      "address": 46068,
+      "symbol": "Game.Wireframe.RefreshScannerBackground.NextAttribute",
+      "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+      "meaning": "чтение следующей позиции таблицы атрибутов"
+    },
+    {
+      "address": 46150,
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.DrawPixel",
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "meaning": "изменяемый шаг координат и вывод очередного пикселя отрезка"
+    },
+    {
+      "address": 48597,
+      "symbol": "Game.Motion.TransformNormalWithObjectCoordinate.ScaleNormal",
+      "file": "Source/Game/Motion/TransformNormalWithObjectCoordinate.asm",
+      "meaning": "сдвиг нормали к масштабу координаты"
+    },
+    {
+      "address": 48613,
+      "symbol": "Game.Motion.TransformNormalWithObjectCoordinate.SubtractNormal",
+      "file": "Source/Game/Motion/TransformNormalWithObjectCoordinate.asm",
+      "meaning": "вычитание нормали с противоположным знаком"
+    },
+    {
+      "address": 48628,
+      "symbol": "Game.Motion.TransformNormalWithObjectCoordinate.PackCoordinate",
+      "file": "Source/Game/Motion/TransformNormalWithObjectCoordinate.asm",
+      "meaning": "упаковка знака преобразованной координаты"
+    }
+  ],
+  "comment_corrections": [
+    {
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "before": "; Особенность этого образа, ненулевая первая пара флагов граней пропускает вершину через AA03.\n; Проекция ACA2 достигается только при нулевой первой паре и ненулевой второй.\n; Это отличается от справочника, текущие байты сохранены.",
+      "after": "; SelectVertex использует Z, оставшийся от сравнения детализации либо проверки граней.\n; При уровне строго больше порога выполняется проекция, при равенстве вершина пропускается.\n; При уровне меньше порога или пороге #1F проверяются пары граней.\n; Ненулевая первая пара сразу разрешает проекцию, иначе её определяет вторая пара."
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "before": "; переход, если первая пара флагов граней ненулевая и текущая версия пропускает вершину",
+      "after": "; переход, если первая пара граней ненулевая, передать NZ входу проекции"
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "before": "; переход, если первая пара нулевая, вторая ненулевая и вершина передаётся на проекцию",
+      "after": "; переход, если проверка детализации или граней оставила NZ, спроецировать вершину"
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "before": "; пропуск вершины и запрет прежнего кэша",
+      "after": "; выбор проекции по Z, затем запрет прежнего кэша для пропущенной вершины"
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "before": "; переход, если миссионная проверка выбрала переход в обработчик #9E5C",
+      "after": "; переход, если миссионный обработчик вернул NZ, восстановить указатель модели и выйти"
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+      "before": "; В #B29B хранится CP #7A, его второй байт одновременно является LD A,D при входе #B29C.",
+      "after": "; OverflowSkip содержит CP #7A, его второй байт является LD A,D при входе ProductHigh."
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+      "before": "; насыщение результата через перекрывающиеся входы #B29B/#B29C",
+      "after": "; насыщение до #FF, CP поглощает байт обычного входа ProductHigh и сохраняет A"
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "before": "; B2B9 содержит LD A,A7, вход B2BA исполняет второй байт как AND A.",
+      "after": "; CarryKeep содержит LD A,#A7, вход ClearCarry исполняет второй байт как AND A.\n; LD сохраняет перенос нормирования, AND сбрасывает его перед очередным RR."
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "before": "; перекрывающиеся входы LD A,A7 и AND A",
+      "after": "; сохранение переноса после нормирования, второй байт даёт вход ClearCarry с AND A"
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "before": "; переход, если ведущий найден и нужно продолжать управляемый полёт",
+      "after": "; переход, если поиск оставил Z, продолжить управляемый полёт",
+      "fact": "INC A после исчерпания поиска также даёт Z, если последняя разность Hostility-#0C равна #FF"
+    }
+  ],
+  "remaining_targets": [],
+  "verification": {
+    "instructions_unchanged": true,
+    "replaced_control_transfers": 697,
+    "changed_files": 118,
+    "overlap_instructions": {
+      "B29B": "FE 7A",
+      "B2B9": "3E A7"
+    }
+  },
+  "remaining_targets_at_handoff": [
+    {
+      "address": 32831,
+      "target": 57250,
+      "file": "Source/Game/Screen/MatchTargetPlanet.asm",
+      "instruction": "JP #DFA2"
+    },
+    {
+      "address": 33858,
+      "target": 28457,
+      "file": "Source/Game/Screen/CompassShape.asm",
+      "instruction": "JP #6F29"
+    },
+    {
+      "address": 41419,
+      "target": 24533,
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "instruction": "JP #5FD5"
+    },
+    {
+      "address": 42287,
+      "target": 40540,
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "instruction": "JP #9E5C"
+    },
+    {
+      "address": 42966,
+      "target": 32258,
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "instruction": "JP #7E02"
+    },
+    {
+      "address": 44601,
+      "target": 47260,
+      "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+      "instruction": "JP #B89C"
+    }
+  ],
+  "integrated": true,
+  "current_name_audit": "Tools/Disasm/Reports/SemanticNamingAudit.json"
+}

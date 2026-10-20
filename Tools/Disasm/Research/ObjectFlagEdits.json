@@ -1,0 +1,1064 @@
+[
+  {
+    "file": "Source/DiskUtility/Demo/CheckAttackTarget.asm",
+    "line": 17,
+    "old": "                CP #0C\n",
+    "new": "                CP OBJ_STATION_FL\n"
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CheckAttackTarget.asm",
+    "line": 38,
+    "old": "                BIT 2, (IY + FSpaceObject.Hostility)\n",
+    "new": "                BIT OBJ_HOSTILE_BIT, (IY + FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ChooseObjectAimPrecision.asm",
+    "line": 23,
+    "old": "                CP #0A\n",
+    "new": "                CP OBJ_CARGO_FL\n"
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CountHostileTargets.asm",
+    "line": 29,
+    "old": "                BIT 2, (IY + FSpaceObject.Hostility)\n",
+    "new": "                BIT OBJ_HOSTILE_BIT, (IY + FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/DiskUtility/Demo/RejectCargoTarget.asm",
+    "line": 16,
+    "old": "                CP #0C\n",
+    "new": "                CP OBJ_STATION_FL\n"
+  },
+  {
+    "file": "Source/Game/Circles/DetachMissileTarget.asm",
+    "line": 19,
+    "old": "                SET 4, (IY + FSpaceObject.Flags)\n",
+    "new": "                SET OBJ_DESTROY_BIT, (IY + FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Circles/DetachMissileTarget.asm",
+    "line": 23,
+    "old": "DetachTarget:   LD (IY + FSpaceObject.Flags2), #03\n",
+    "new": "DetachTarget:   LD (IY + FSpaceObject.Flags2), OBJ_LOST_FL\n"
+  },
+  {
+    "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+    "line": 46,
+    "old": "                AND #30\n                CP #30\n",
+    "new": "                AND OBJ_DEATH_MASK\n                CP OBJ_DEATH_MASK\n"
+  },
+  {
+    "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+    "line": 74,
+    "old": "                RES 4, (IX + FSpaceObject.Flags)\n",
+    "new": "                RES OBJ_DESTROY_BIT, (IX + FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Combat/FirePlayerLaser.asm",
+    "line": 128,
+    "old": "                BIT 2,(IX+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_SPECIAL_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Combat/FirePlayerLaser.asm",
+    "line": 131,
+    "old": "                BIT 5,(IX+FSpaceObject.Flags)\n",
+    "new": "                BIT OBJ_EXPLODE_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Combat/FirePlayerLaser.asm",
+    "line": 159,
+    "old": "                SET 4,(IX+FSpaceObject.Flags)\n",
+    "new": "                SET OBJ_DESTROY_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Combat/HandleObjectCollision.asm",
+    "line": 33,
+    "old": "                BIT 0,(IX+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_MISSILE_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Combat/HandleObjectCollision.asm",
+    "line": 41,
+    "old": "CheckCargo:     BIT 1,(IX+FSpaceObject.Flags2)\n",
+    "new": "CheckCargo:     BIT OBJ_SCOOP_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Combat/HandleObjectCollision.asm",
+    "line": 68,
+    "old": "                BIT 1,(IX+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_SCOOP_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Combat/HandleObjectCollision.asm",
+    "line": 109,
+    "old": "CheckStation:   BIT 2,(IX+FSpaceObject.Flags2)\n",
+    "new": "CheckStation:   BIT OBJ_SPECIAL_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Combat/HandleObjectCollision.asm",
+    "line": 118,
+    "old": "                BIT 2,(IX+FSpaceObject.Hostility)\n",
+    "new": "                BIT OBJ_HOSTILE_BIT,(IX+FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Combat/HandleObjectCollision.asm",
+    "line": 158,
+    "old": "                BIT 6,(IX+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_MISSION_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 79,
+    "old": "                JR Z,NextCount                                                  ; переход, если проверяемый обычный слот пуст\n\n                BIT 6,(IX+FSpaceObject.Flags)\n",
+    "new": "                JR Z,NextCount                                                  ; переход, если проверяемый обычный слот пуст\n\n                BIT OBJ_ACTIVE_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 102,
+    "old": "                CALL Game.Extensions.MarkObjectEventAndUpdateMetadata.Entry\n                BIT 2,(IX+FSpaceObject.Flags2)\n",
+    "new": "                CALL Game.Extensions.MarkObjectEventAndUpdateMetadata.Entry\n                BIT OBJ_SPECIAL_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 110,
+    "old": "                BIT 3,(IX+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_NOTSHIP_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 117,
+    "old": "                JR Z,CheckDanger                                                ; переход, если массовое уничтожение не запрошено\n\n                BIT 2,(IX+FSpaceObject.Flags2)\n",
+    "new": "                JR Z,CheckDanger                                                ; переход, если массовое уничтожение не запрошено\n\n                BIT OBJ_SPECIAL_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 126,
+    "old": "                SET 4,(IX+FSpaceObject.Flags)\n",
+    "new": "                SET OBJ_DESTROY_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 128,
+    "old": "CheckDanger:    BIT 2,(IX+FSpaceObject.Hostility)\n                JR Z,CheckMissile                                               ; переход, если объект не враждебен\n\n                LD A,(IX+FSpaceObject.Hostility)\n                AND #60\n",
+    "new": "CheckDanger:    BIT OBJ_HOSTILE_BIT,(IX+FSpaceObject.Hostility)\n                JR Z,CheckMissile                                               ; переход, если объект не враждебен\n\n                LD A,(IX+FSpaceObject.Hostility)\n                AND OBJ_LAW_MASK\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 151,
+    "old": "                POP IY\n                LD A,(IX+FSpaceObject.Flags)\n                AND #30\n",
+    "new": "                POP IY\n                LD A,(IX+FSpaceObject.Flags)\n                AND OBJ_DEATH_MASK\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 156,
+    "old": "                SUB #20\n",
+    "new": "                SUB ObjectFlag.Exploding\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 159,
+    "old": "                RES 5,(IX+FSpaceObject.Flags)\n",
+    "new": "                RES OBJ_EXPLODE_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 163,
+    "old": "                BIT 0,(IX+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_MISSILE_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 175,
+    "old": "                BIT 6,(IX+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_MISSION_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 199,
+    "old": "                CALL Game.Universe.AwardOrStoreLinkedDestruction.Entry\n                LD A,(IX+FSpaceObject.Hostility)\n                AND #60\n",
+    "new": "                CALL Game.Universe.AwardOrStoreLinkedDestruction.Entry\n                LD A,(IX+FSpaceObject.Hostility)\n                AND OBJ_LAW_MASK\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 213,
+    "old": "                AND #0F\n                BIT 6,(IX+FSpaceObject.Flags)\n",
+    "new": "                AND #0F\n                BIT OBJ_ACTIVE_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 240,
+    "old": "AfterProject:   RES 3,(IX+FSpaceObject.Flags)\n                LD A,(IX+FSpaceObject.Flags)\n                AND #30\n                CP #10\n",
+    "new": "AfterProject:   RES OBJ_LASER_BIT,(IX+FSpaceObject.Flags)\n                LD A,(IX+FSpaceObject.Flags)\n                AND OBJ_DEATH_MASK\n                CP ObjectFlag.Destroy\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 246,
+    "old": "                SET 5,(IX+FSpaceObject.Flags)\n                RES 4,(IX+FSpaceObject.Flags)\n",
+    "new": "                SET OBJ_EXPLODE_BIT,(IX+FSpaceObject.Flags)\n                RES OBJ_DESTROY_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/AllocateVariantObjectSlot.asm",
+    "line": 52,
+    "old": "                RES 5,(IX+FEffectRecord10.TypeFlags)\n",
+    "new": "                RES FX_TIMER_BIT,(IX+FEffectRecord10.TypeFlags)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+    "line": 22,
+    "old": "                BIT 0,(IX+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_MISSILE_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+    "line": 56,
+    "old": "                AND #0F\n",
+    "new": "                AND FX_LINK_MASK\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+    "line": 69,
+    "old": "CheckSearch:    BIT 4,E\n",
+    "new": "CheckSearch:    BIT FX_SEARCH_BIT,E\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+    "line": 72,
+    "old": "                BIT 6,E\n",
+    "new": "                BIT FX_GROUP_BIT,E\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+    "line": 80,
+    "old": "                AND #F0\n                CP #90\n",
+    "new": "                AND FX_KIND_MASK\n                CP FX_RESERVE_KIND\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+    "line": 92,
+    "old": "                BIT 2,E\n",
+    "new": "                BIT FX_ALLOW_BIT,E\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+    "line": 95,
+    "old": "                BIT 7,(HL)\n",
+    "new": "                BIT FX_NOSTAT_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+    "line": 114,
+    "old": "                AND #80\n",
+    "new": "                AND FX_NOSTAT_MASK\n"
+  },
+  {
+    "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+    "line": 21,
+    "old": "CheckSlot:      BIT 0,(IX+FSpaceObject.Flags2)\n",
+    "new": "CheckSlot:      BIT OBJ_MISSILE_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm",
+    "line": 27,
+    "old": "                BIT 1,(IX+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_SCOOP_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+    "line": 27,
+    "old": "                XOR #0C\n",
+    "new": "                XOR OBJ_STATION_FL\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ResetObjectMetadata.asm",
+    "line": 22,
+    "old": "                SET 2,(HL)\n",
+    "new": "                SET FX_ALLOW_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+    "line": 17,
+    "old": "Entry:          BIT 0,(IX+FSpaceObject.Flags2)\n",
+    "new": "Entry:          BIT OBJ_MISSILE_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+    "line": 25,
+    "old": "                AND #D0\n                XOR #D0\n",
+    "new": "                AND FX_SEARCH_MASK\n                XOR FX_SEARCH_MASK\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+    "line": 31,
+    "old": "                CP #0C\n",
+    "new": "                CP OBJ_STATION_FL\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+    "line": 35,
+    "old": "                AND #02\n",
+    "new": "                AND ObjectFlag2.Scoopable\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+    "line": 24,
+    "old": "                AND #03\n",
+    "new": "                AND FX_GROUP_MASK\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+    "line": 28,
+    "old": "                BIT 2,A\n",
+    "new": "                BIT FX_ALLOW_BIT,A\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+    "line": 33,
+    "old": "                AND #0F\n",
+    "new": "                AND FX_LINK_MASK\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+    "line": 64,
+    "old": "                SET 3,(IX+FSpaceObject.Flags)\n",
+    "new": "                SET OBJ_LASER_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+    "line": 21,
+    "old": "                AND #04\n",
+    "new": "                AND 1 << FX_ALLOW_BIT\n"
+  },
+  {
+    "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+    "line": 25,
+    "old": "                BIT 3,(IX+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_NOTSHIP_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+    "line": 29,
+    "old": "EnableAttack:   SET 2,(IX+FSpaceObject.Hostility)\n",
+    "new": "EnableAttack:   SET OBJ_HOSTILE_BIT,(IX+FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+    "line": 93,
+    "old": "                RES 2,(IX+FSpaceObject.Hostility)\n",
+    "new": "                RES OBJ_HOSTILE_BIT,(IX+FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+    "line": 19,
+    "old": "                RES 2,(IX+FSpaceObject.Hostility)\n",
+    "new": "                RES OBJ_HOSTILE_BIT,(IX+FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+    "line": 60,
+    "old": "ClassifyScoop:  BIT 7,(IX+FSpaceObject.Flags2)\n",
+    "new": "ClassifyScoop:  BIT OBJ_ALIEN_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+    "line": 45,
+    "old": "                BIT 0, (IX + FSpaceObject.Hostility)\n",
+    "new": "                BIT OBJ_FAST_BIT, (IX + FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+    "line": 57,
+    "old": "                SET 2, (IX + FSpaceObject.Hostility)\n",
+    "new": "                SET OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+    "line": 63,
+    "old": "                BIT 5, (IX + FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+    "line": 71,
+    "old": "CheckHostility: BIT 2, (IX + FSpaceObject.Hostility)\n",
+    "new": "CheckHostility: BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+    "line": 82,
+    "old": "                BIT 3, (IX + FSpaceObject.Hostility)\n",
+    "new": "                BIT OBJ_FLEE_BIT, (IX + FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+    "line": 89,
+    "old": "                AND #7F\n",
+    "new": "                AND TARGET_AI_MASK\n"
+  },
+  {
+    "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+    "line": 93,
+    "old": "                SET 7, (IX + FSpaceObject.Target)\n",
+    "new": "                SET TARGET_ACCL_BIT, (IX + FSpaceObject.Target)\n"
+  },
+  {
+    "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+    "line": 103,
+    "old": "                SET 5, (IX + FSpaceObject.Flags2)\n",
+    "new": "                SET OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+    "line": 115,
+    "old": "                RES 5, (IX + FSpaceObject.Flags2)\n",
+    "new": "                RES OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+    "line": 34,
+    "old": "                SET 4, (IX + FSpaceObject.Flags)\n",
+    "new": "                SET OBJ_DESTROY_BIT, (IX + FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+    "line": 75,
+    "old": "                BIT 2, (IY + FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_SPECIAL_BIT, (IY + FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+    "line": 87,
+    "old": "                SET 7, (IY + FSpaceObject.Flags2)\n",
+    "new": "                SET OBJ_HIT_BIT, (IY + FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+    "line": 89,
+    "old": "DestroyTarget:  SET 4, (IY + FSpaceObject.Flags)\n",
+    "new": "DestroyTarget:  SET OBJ_DESTROY_BIT, (IY + FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "line": 89,
+    "old": "                AND #07\n",
+    "new": "                AND OBJ_LAUNCH_MASK\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "line": 102,
+    "old": "                AND #F0\n",
+    "new": "                AND MODEL_SHOT_MASK\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "line": 127,
+    "old": "                BIT 7, (IX + FSpaceObject.Flags)\n",
+    "new": "                BIT OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "line": 134,
+    "old": "                RES 7, (IX + FSpaceObject.Flags)\n                RES 6, (IX + FSpaceObject.Flags)\n",
+    "new": "                RES OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)\n                RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "line": 167,
+    "old": "                JP Z,Game.Motion.CheckObjectBoxAndChooseCourse.ChooseCourse     ; переход, если поиск оставил Z, продолжить управляемый полёт\n\n                RES 6, (IX + FSpaceObject.Flags)\n                SET 1, (IX + FSpaceObject.Flags2)\n",
+    "new": "                JP Z,Game.Motion.CheckObjectBoxAndChooseCourse.ChooseCourse     ; переход, если поиск оставил Z, продолжить управляемый полёт\n\n                RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)\n                SET OBJ_SCOOP_BIT, (IX + FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "line": 175,
+    "old": "CheckEcm:       BIT 0, (IX + FSpaceObject.Target)\n",
+    "new": "CheckEcm:       BIT TARGET_ECM_BIT, (IX + FSpaceObject.Target)\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "line": 204,
+    "old": "ChooseFlight:   BIT 2, (IX + FSpaceObject.Flags2)\n",
+    "new": "ChooseFlight:   BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "line": 212,
+    "old": "                BIT 2, (IX + FSpaceObject.Hostility)\n",
+    "new": "                BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+    "line": 159,
+    "old": "CheckAwayMode:  BIT 6, (IX + FSpaceObject.Flags)\n",
+    "new": "CheckAwayMode:  BIT OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+    "line": 162,
+    "old": "                BIT 2, (IX + FSpaceObject.Hostility)\n",
+    "new": "                BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+    "line": 182,
+    "old": "                RES 5, (IX + FSpaceObject.Flags2)\n",
+    "new": "                RES OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+    "line": 184,
+    "old": "DispatchEffect: BIT 4, (IX + FSpaceObject.Flags)\n",
+    "new": "DispatchEffect: BIT OBJ_DESTROY_BIT, (IX + FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+    "line": 192,
+    "old": "                BIT 6, (IX + FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_MISSION_BIT, (IX + FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+    "line": 102,
+    "old": "                BIT 7, (IX + FSpaceObject.Target)\n",
+    "new": "                BIT TARGET_ACCL_BIT, (IX + FSpaceObject.Target)\n"
+  },
+  {
+    "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+    "line": 115,
+    "old": "                LD B,#0A\n                BIT 0, (IX + FSpaceObject.Flags2)\n",
+    "new": "                LD B,#0A\n                BIT OBJ_MISSILE_BIT, (IX + FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+    "line": 130,
+    "old": "CheckLaser:     BIT 2, (IX + FSpaceObject.Hostility)\n",
+    "new": "CheckLaser:     BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+    "line": 150,
+    "old": "                AND #0F\n",
+    "new": "                AND OBJ_CLASS_MASK\n"
+  },
+  {
+    "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+    "line": 187,
+    "old": "BrakeAway:      LD B,#0B\n                BIT 0, (IX + FSpaceObject.Flags2)\n",
+    "new": "BrakeAway:      LD B,#0B\n                BIT OBJ_MISSILE_BIT, (IX + FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+    "line": 28,
+    "old": "                BIT 2, (IX + FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+    "line": 73,
+    "old": "                SET 6,(IX+FSpaceObject.Flags2)\n                SET 2,(IX+FSpaceObject.Flags)\n",
+    "new": "                SET OBJ_MISSION_BIT,(IX+FSpaceObject.Flags2)\n                SET OBJ_LAUNCH4_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+    "line": 93,
+    "old": "                RES 6,(IX+FSpaceObject.Flags)\n",
+    "new": "                RES OBJ_ACTIVE_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+    "line": 157,
+    "old": "EnableEcm:      SET 0,(IX+FSpaceObject.Target)\n",
+    "new": "EnableEcm:      SET TARGET_ECM_BIT,(IX+FSpaceObject.Target)\n"
+  },
+  {
+    "file": "Source/Game/Objects/InitializeIntroModel.asm",
+    "line": 35,
+    "old": "                RES 6,(IX+FSpaceObject.Flags)\n",
+    "new": "                RES OBJ_ACTIVE_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Objects/InitializeObject.asm",
+    "line": 57,
+    "old": "                AND #6F\n",
+    "new": "                AND MODEL_AI_MASK\n"
+  },
+  {
+    "file": "Source/Game/Objects/InitializeObject.asm",
+    "line": 60,
+    "old": "                CALL Game.Text.CheckObjectRandomGate.Entry\n                AND #07\n",
+    "new": "                CALL Game.Text.CheckObjectRandomGate.Entry\n                AND OBJ_LAUNCH_MASK\n"
+  },
+  {
+    "file": "Source/Game/Objects/InitializeObject.asm",
+    "line": 74,
+    "old": "                SET 6,(IX+FSpaceObject.Flags)\n",
+    "new": "                SET OBJ_ACTIVE_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Objects/InitializeObject.asm",
+    "line": 76,
+    "old": "                BIT 2,(IX+FSpaceObject.Hostility)\n",
+    "new": "                BIT OBJ_HOSTILE_BIT,(IX+FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Objects/SpawnEscapePod.asm",
+    "line": 32,
+    "old": "                RES 6,(IX+FSpaceObject.Flags)\n",
+    "new": "                RES OBJ_ACTIVE_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Objects/SpawnMissile.asm",
+    "line": 58,
+    "old": "                SET 0,(IX+FSpaceObject.Flags2)\n",
+    "new": "                SET OBJ_MISSILE_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+    "line": 25,
+    "old": "                RES 6,(IX+FSpaceObject.Flags)\n",
+    "new": "                RES OBJ_ACTIVE_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Objects/SpawnShipCargoOrPod.asm",
+    "line": 28,
+    "old": "                RES 6,(IX+FSpaceObject.Flags)\n",
+    "new": "                RES OBJ_ACTIVE_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Objects/SpawnShipClass.asm",
+    "line": 52,
+    "old": "                BIT 2,(IY+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_SPECIAL_BIT,(IY+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Objects/SpawnShipClass.asm",
+    "line": 54,
+    "old": "                BIT 2,(IY+FSpaceObject.Hostility)\n",
+    "new": "                BIT OBJ_HOSTILE_BIT,(IY+FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Objects/SpawnShipClass.asm",
+    "line": 57,
+    "old": "                SET 2,(IX+FSpaceObject.Hostility)\n",
+    "new": "                SET OBJ_HOSTILE_BIT,(IX+FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Objects/SpawnShipDebris.asm",
+    "line": 31,
+    "old": "                RES 6,(IX+FSpaceObject.Flags)\n",
+    "new": "                RES OBJ_ACTIVE_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Objects/SpawnThargonWave.asm",
+    "line": 30,
+    "old": "                SET 0,(IX+FSpaceObject.Target)\n",
+    "new": "                SET TARGET_ECM_BIT,(IX+FSpaceObject.Target)\n"
+  },
+  {
+    "file": "Source/Game/Universe/AdvanceCircularObjectEffect.asm",
+    "line": 27,
+    "old": "                AND #F8\n                CP #A0\n",
+    "new": "                AND EffectRecord.TypeMask\n                CP EffectRecord.CircleType\n"
+  },
+  {
+    "file": "Source/Game/Universe/AdvanceCircularObjectEffect.asm",
+    "line": 33,
+    "old": "                AND #07\n",
+    "new": "                AND EffectRecord.PhaseMask\n"
+  },
+  {
+    "file": "Source/Game/Universe/ApplyEcmToStandardMissile.asm",
+    "line": 23,
+    "old": "                RES 6,(IX+FSpaceObject.Flags)\n                SET 4,(IX+FSpaceObject.Flags)\n",
+    "new": "                RES OBJ_ACTIVE_BIT,(IX+FSpaceObject.Flags)\n                SET OBJ_DESTROY_BIT,(IX+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Universe/AwardOrStoreLinkedDestruction.asm",
+    "line": 27,
+    "old": "                AND #0F\n",
+    "new": "                AND FX_LINK_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/AwardUnlinkedDestructionBounty.asm",
+    "line": 28,
+    "old": "                AND #0F\n",
+    "new": "                AND FX_LINK_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/CheckLinkedObjectInteraction.asm",
+    "line": 23,
+    "old": "Entry:          AND #0F\n",
+    "new": "Entry:          AND FX_LINK_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+    "line": 34,
+    "old": "                LD A,(IY+FEffectRecord10.Links)\n                AND #0F\n",
+    "new": "                LD A,(IY+FEffectRecord10.Links)\n                AND FX_LINK_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+    "line": 53,
+    "old": "CheckType:      BIT 6,(HL)\n",
+    "new": "CheckType:      BIT FX_GROUP_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+    "line": 57,
+    "old": "                OR #FC\n",
+    "new": "                OR FX_GROUP_KEEP\n"
+  },
+  {
+    "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+    "line": 68,
+    "old": "                LD A,(HL)\n                AND #0F\n",
+    "new": "                LD A,(HL)\n                AND FX_LINK_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+    "line": 79,
+    "old": "                AND #04\n",
+    "new": "                AND 1 << FX_ALLOW_BIT\n"
+  },
+  {
+    "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+    "line": 105,
+    "old": "                SET 2,(HL)\n",
+    "new": "                SET FX_ALLOW_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Universe/FindInteractingObject.asm",
+    "line": 31,
+    "old": "                BIT 0,(IX+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_MISSILE_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+    "line": 39,
+    "old": "                SET 7,(HL)\n",
+    "new": "                SET FX_NOSTAT_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+    "line": 68,
+    "old": "                CP #C0\n",
+    "new": "                CP FX_PAIR_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+    "line": 72,
+    "old": "                AND #03\n",
+    "new": "                AND FX_GROUP_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+    "line": 74,
+    "old": "StoreFlags:     LD (HL),A\n                BIT 6,A\n",
+    "new": "StoreFlags:     LD (HL),A\n                BIT FX_GROUP_BIT,A\n"
+  },
+  {
+    "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+    "line": 79,
+    "old": "                BIT 3,C\n",
+    "new": "                BIT FX_ENERGY_BIT,C\n"
+  },
+  {
+    "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+    "line": 82,
+    "old": "                RES 3,(HL)\n",
+    "new": "                RES FX_ENERGY_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+    "line": 91,
+    "old": "                SET 3,(HL)\nRandomBitFour:  BIT 4,(HL)\n",
+    "new": "                SET FX_ENERGY_BIT,(HL)\nRandomBitFour:  BIT FX_SEARCH_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+    "line": 99,
+    "old": "                RES 4,(HL)\nCheckBitFive:   BIT 5,(HL)\n",
+    "new": "                RES FX_SEARCH_BIT,(HL)\nCheckBitFive:   BIT FX_TIMER_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+    "line": 111,
+    "old": "                RES 5,(HL)\n",
+    "new": "                RES FX_TIMER_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+    "line": 29,
+    "old": "Entry:          BIT 6,(IX+FSpaceObject.Flags2)\n",
+    "new": "Entry:          BIT OBJ_MISSION_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+    "line": 48,
+    "old": "                AND #0F\n",
+    "new": "                AND MODEL_LOOT_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+    "line": 81,
+    "old": "                AND #F8\n                CP #A0\n",
+    "new": "                AND EffectRecord.TypeMask\n                CP EffectRecord.CircleType\n"
+  },
+  {
+    "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+    "line": 85,
+    "old": "                BIT 3,A\n",
+    "new": "                BIT FX_ENERGY_BIT,A\n"
+  },
+  {
+    "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+    "line": 123,
+    "old": "                AND #07\n",
+    "new": "                AND EffectRecord.PhaseMask\n"
+  },
+  {
+    "file": "Source/Game/Universe/TryObjectInteraction.asm",
+    "line": 32,
+    "old": "                BIT 7,A\n",
+    "new": "                BIT FX_ACTIVE_BIT,A\n"
+  },
+  {
+    "file": "Source/Game/Universe/TryObjectInteraction.asm",
+    "line": 35,
+    "old": "                BIT 6,A\n",
+    "new": "                BIT FX_GROUP_BIT,A\n"
+  },
+  {
+    "file": "Source/Game/Universe/TryObjectInteraction.asm",
+    "line": 39,
+    "old": "                BIT 2,A\n",
+    "new": "                BIT FX_ALLOW_BIT,A\n"
+  },
+  {
+    "file": "Source/Game/Universe/TryObjectInteraction.asm",
+    "line": 46,
+    "old": "                XOR (IX+FSpaceObject.Target)\n                AND #0F\n",
+    "new": "                XOR (IX+FSpaceObject.Target)\n                AND FX_LINK_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/TryObjectInteraction.asm",
+    "line": 59,
+    "old": "                OR C\n                AND #03\n",
+    "new": "                OR C\n                AND FX_GROUP_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/TryObjectInteraction.asm",
+    "line": 64,
+    "old": "                XOR C\n                AND #03\n",
+    "new": "                XOR C\n                AND FX_GROUP_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/TryObjectInteraction.asm",
+    "line": 68,
+    "old": "                BIT 0,(IX+FSpaceObject.Flags2)\n",
+    "new": "                BIT OBJ_MISSILE_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Universe/TryObjectInteraction.asm",
+    "line": 71,
+    "old": "                BIT 2,E\n",
+    "new": "                BIT FX_ALLOW_BIT,E\n"
+  },
+  {
+    "file": "Source/Game/Universe/TryObjectInteraction.asm",
+    "line": 74,
+    "old": "                BIT 2,C\n",
+    "new": "                BIT FX_ALLOW_BIT,C\n"
+  },
+  {
+    "file": "Source/Game/Universe/TryObjectInteraction.asm",
+    "line": 113,
+    "old": "                SET 4,(IY+FSpaceObject.Flags)\n",
+    "new": "                SET OBJ_DESTROY_BIT,(IY+FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+    "line": 28,
+    "old": "                INC (HL)\n                LD A,(HL)\n                AND #03\n",
+    "new": "                INC (HL)\n                LD A,(HL)\n                AND FX_GROUP_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+    "line": 42,
+    "old": "                AND #C0\n                XOR #C0\n",
+    "new": "                AND FX_PAIR_MASK\n                XOR FX_PAIR_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+    "line": 46,
+    "old": "                JR Z,TickTimer                                                  ; переход, если оба старших бита записи установлены и нужно обновить таймер\n\n                BIT 5,(HL)\n",
+    "new": "                JR Z,TickTimer                                                  ; переход, если оба старших бита записи установлены и нужно обновить таймер\n\n                BIT FX_TIMER_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+    "line": 64,
+    "old": "                BIT 6,(HL)\n",
+    "new": "                BIT FX_GROUP_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+    "line": 69,
+    "old": "                JR Z,CheckCarry                                                 ; переход, если байт управления объекта нулевой и взаимодействие пропускается\n\n                BIT 5,(HL)\n                JR Z,FindPartner                                                ; переход, если bit5 записи сброшен и можно сразу искать взаимодействие\n\n                LD A,(HL)\n                AND #03\n                XOR #03\n",
+    "new": "                JR Z,CheckCarry                                                 ; переход, если байт управления объекта нулевой и взаимодействие пропускается\n\n                BIT FX_TIMER_BIT,(HL)\n                JR Z,FindPartner                                                ; переход, если bit5 записи сброшен и можно сразу искать взаимодействие\n\n                LD A,(HL)\n                AND FX_GROUP_MASK\n                XOR FX_GROUP_MASK\n"
+  },
+  {
+    "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+    "line": 107,
+    "old": "FindPartner:    RES 7,(HL)\n",
+    "new": "FindPartner:    RES FX_ACTIVE_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+    "line": 109,
+    "old": "                SET 7,(HL)\n",
+    "new": "                SET FX_ACTIVE_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+    "line": 178,
+    "old": "StartCircle:    LD (HL),#A0\n",
+    "new": "StartCircle:    LD (HL),EffectRecord.CircleType\n"
+  },
+  {
+    "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+    "line": 50,
+    "old": "CheckNearFlag:  BIT 7,(IX+FSpaceObject.Flags2)\n",
+    "new": "CheckNearFlag:  BIT OBJ_FAR_BIT,(IX+FSpaceObject.Flags2)\n"
+  },
+  {
+    "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+    "line": 52,
+    "old": "CheckLaser:     BIT 3, (IX + FSpaceObject.Flags)\n",
+    "new": "CheckLaser:     BIT OBJ_LASER_BIT, (IX + FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+    "line": 77,
+    "old": "ClearLaser:     RES 3, (IX + FSpaceObject.Flags)\n",
+    "new": "ClearLaser:     RES OBJ_LASER_BIT, (IX + FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Wireframe/FinishObjectAndDrawLaser.asm",
+    "line": 22,
+    "old": "                BIT 3, (IX + FSpaceObject.Flags)\n",
+    "new": "                BIT OBJ_LASER_BIT, (IX + FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Wireframe/MergeInverseHostilityFlag.asm",
+    "line": 20,
+    "old": "Entry:          BIT 2,(HL)\n",
+    "new": "Entry:          BIT FX_ALLOW_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Wireframe/MergeInverseHostilityFlag.asm",
+    "line": 23,
+    "old": "                SET 2,A\n",
+    "new": "                SET FX_ALLOW_BIT,A\n"
+  },
+  {
+    "file": "Source/Game/Wireframe/ReadObjectTacticsGates.asm",
+    "line": 30,
+    "old": "                BIT 1, (IX + FSpaceObject.Hostility)\n",
+    "new": "                BIT OBJ_ANGER_BIT, (IX + FSpaceObject.Hostility)\n"
+  },
+  {
+    "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+    "line": 46,
+    "old": "                SET 5, (IX + FSpaceObject.Flags)\n",
+    "new": "                SET OBJ_EXPLODE_BIT, (IX + FSpaceObject.Flags)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+    "line": 34,
+    "old": "                LD E,A\n                BIT 0,(HL)\n",
+    "new": "                LD E,A\n                BIT FX_SEARCH_TICK,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+    "line": 63,
+    "old": "                DEC HL\n                BIT 0,(HL)\n",
+    "new": "                DEC HL\n                BIT FX_SEARCH_TICK,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm",
+    "line": 20,
+    "old": "                SET 7,(HL)\n",
+    "new": "                SET FX_ACTIVE_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm",
+    "line": 24,
+    "old": "                BIT 6,(HL)\n",
+    "new": "                BIT FX_GROUP_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+    "line": 37,
+    "old": "                BIT 1,(IY+FEffectRecord10.Timer)\n",
+    "new": "                BIT FX_LASER_TICK,(IY+FEffectRecord10.Timer)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+    "line": 57,
+    "old": "                SET 7,(HL)\n",
+    "new": "                SET LASER_PASS_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+    "line": 61,
+    "old": "                SET 5,(HL)\n",
+    "new": "                SET LASER_BASE_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+    "line": 53,
+    "old": "                CP #20\n",
+    "new": "                CP 1 << LASER_BASE_BIT\n"
+  },
+  {
+    "file": "Source/Game/Flight/RaiseLaserThreshold.asm",
+    "line": 19,
+    "old": "                SET 7,(HL)\n",
+    "new": "                SET LASER_PASS_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 31,
+    "old": "                LD HL, Memory.Station + FSpaceObject.Hostility\n                SET 2,(HL)\n",
+    "new": "                LD HL, Memory.Station + FSpaceObject.Hostility\n                SET OBJ_HOSTILE_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+    "line": 156,
+    "old": "                BIT 2,A\n",
+    "new": "                BIT FX_PHASE4_BIT,A\n"
+  },
+  {
+    "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+    "line": 58,
+    "old": "                BIT 5,A\n",
+    "new": "                BIT EDGE_DIRECT_BIT,A\n"
+  },
+  {
+    "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+    "line": 64,
+    "old": "UseThreshold:   LD (VertexFlags.Current), A\n                AND #1F\n",
+    "new": "UseThreshold:   LD (VertexFlags.Current), A\n                AND EDGE_LOD_MASK\n"
+  },
+  {
+    "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+    "line": 75,
+    "old": "                CP #1F\n",
+    "new": "                CP EDGE_LOD_MASK\n"
+  },
+  {
+    "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+    "line": 52,
+    "old": "LaserThreshold  EQU $ + 1                                                       ; порог CP и одновременно сдвигаемая история случайных проверок\n",
+    "new": "; -----------------------------------------\n; адаптивный порог CP, одновременно сдвигаемая история допусков лазерного огня\n;      7    6    5    4    3    2    1    0\n;   +----+----+----+----+----+----+----+----+\n;   | PS | H6 | H5 | H4 | H3 | H2 | H1 | H0 |\n;   +----+----+----+----+----+----+----+----+\n;\n;   PS      [7]     - новый допуск либо внешнее попадание, LASER_PASS_BIT\n;   H6..H0  [6..0]  - числовая история, сдвигается SRL, разряды не независимые флаги\n;   после SRL бит LASER_BASE_BIT устанавливается, поэтому порог не меньше 32\n;   PUSH/POP AF сохраняет результат сравнения при изменении следующего порога\n; -----------------------------------------\nLaserThreshold  EQU $ + 1                                                       ; порог CP и одновременно сдвигаемая история случайных проверок\n"
+  }
+]

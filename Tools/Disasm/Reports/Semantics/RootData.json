@@ -1,0 +1,233 @@
+[
+  {
+    "start": 16384,
+    "end": 23296,
+    "file": "Source/Game/Resources/LoadingScreen.asm",
+    "semantic_name": "LoadingScreen",
+    "status": "reviewed",
+    "kind": "resource",
+    "summary": "загрузочный экран ZX Spectrum, 6144 байта пикселей и 768 атрибутов",
+    "unresolved": [],
+    "evidence": [
+      "пиксели используют стандартную перестановку строк видеопамяти Spectrum",
+      "адрес пиксельного байта равен #4000 + ((y & #C0) << 5)",
+      "  + ((y & 7) << 8) + ((y & #38) << 2) + (x >> 3)",
+      "атрибут ячейки равен #5800 + (y >> 3) * 32 + (x >> 3)",
+      "после запуска область становится рабочим экраном и стеком",
+      "загрузчик устанавливает SP = #4120, начало изображения не является кодом"
+    ],
+    "resource_file": "Source/Game/Resources/Loading.scr"
+  },
+  {
+    "start": 23296,
+    "end": 23552,
+    "file": "Source/Game/Resources/CockpitAttrs.asm",
+    "semantic_name": "CockpitAttrs",
+    "status": "reviewed",
+    "kind": "resource",
+    "summary": "буфер 256 атрибутов нижней трети экрана, восемь строк по 32 ячейки",
+    "unresolved": [],
+    "evidence": [
+      "PrnCockpit по #804B копирует буфер в видеопамять #5A00",
+      "SaveCockpitInBuffer по #817E сохраняет текущие атрибуты обратно сюда",
+      "поэтому это одновременно исходный ресурс и изменяемый буфер кабины",
+      "при выводе сканера #98A2 использует #5B00..#5D6F для 624 байтов чистого фона",
+      "#98CD возвращает этот фон в экран перед новым выводом маркеров",
+      "бит 7 задаёт FLASH, бит 6 BRIGHT, биты 5..3 PAPER, биты 2..0 INK"
+    ],
+    "resource_file": "Source/Game/Resources/CockpitAttributes.bin"
+  },
+  {
+    "start": 23552,
+    "end": 23920,
+    "file": "Source/Game/Resources/SystemShadow.asm",
+    "semantic_name": "SystemShadow",
+    "status": "reviewed",
+    "kind": "resource",
+    "summary": "сохранённый участок низкой памяти игры, загружаемый через временную область",
+    "unresolved": [],
+    "evidence": [
+      "загрузчик читает #5C00..#5FFF во временную область #CC00..#CFFF",
+      "ExchangeState обменивает обе области перед входом в игру и вызовами TR-DOS",
+      "внутри игры эти байты не являются действующими системными переменными BASIC",
+      "при входе в TR-DOS обмен возвращает системную область, сохранённую загрузчиком",
+      "начальные байты этого участка сохраняются буквально для совпадения образа",
+      "во время полёта это также продолжение буфера фона сканера #5B00..#5D6F",
+      "общий копировщик #9912 переносит шесть строк знакомест по восемь строк и 13 байтов"
+    ],
+    "resource_file": "Source/Game/Resources/SystemShadow.bin"
+  },
+  {
+    "start": 49152,
+    "end": 51200,
+    "file": "Source/Game/Resources/CockpitPixels.asm",
+    "semantic_name": "CockpitPixels",
+    "status": "reviewed",
+    "kind": "resource",
+    "summary": "буфер 2048 пиксельных байтов нижней трети экрана, строки 128..191",
+    "unresolved": [],
+    "evidence": [
+      "это копия страницы видеопамяти #5000..#57FF в порядке строк Spectrum",
+      "PrnCockpit переносит сохранённую кабину в экран через LDIR",
+      "SaveCockpitInBuffer обновляет копию после изменения приборной панели",
+      "атрибуты этой же панели находятся отдельно по адресу #5B00",
+      "во время полёта #C000..#CFDF используется уже как буфер вида",
+      "ClearScrBuffer создаёт рамку, CopyBuf2Screen выводит 120 строк этого буфера"
+    ],
+    "resource_file": "Source/Game/Resources/CockpitPixels.bin"
+  },
+  {
+    "start": 51200,
+    "end": 53248,
+    "file": "Source/Game/Resources/SkippedSectors.asm",
+    "semantic_name": "SkippedSectors",
+    "status": "reviewed",
+    "kind": "resource",
+    "summary": "2048 байтов исходного игрового файла, пропускаемых штатным загрузчиком",
+    "unresolved": [],
+    "evidence": [
+      "соответствуют файловым смещениям #8800..#8FFF, это восемь секторов",
+      "эти байты не выполняются по адресам #C800..#CFFF",
+      "в живой памяти здесь находятся загрузчик, оверлей cl.C и обменная область",
+      "ресурс сохраняет содержимое пропущенных секторов для точного возврата в TRD",
+      "Дополнительное чтение #CC00..#CEFF сохранённым путём cl.C #CF9C проверено в Tools/Disasm/Reports/HiddenCopyPath.json, нового подтверждённого копировщика в этих байтах нет"
+    ],
+    "resource_file": "Source/Game/Resources/SkippedSectors.bin"
+  },
+  {
+    "start": 45040,
+    "end": 45124,
+    "file": "Source/Game/Data/LegacyClipTables.asm",
+    "semantic_name": "LegacyClipTables",
+    "status": "reviewed",
+    "kind": "data",
+    "summary": "сохранившиеся таблицы предыдущего алгоритма отсечения",
+    "evidence": [
+      "новый алгоритм #B044 таблицы не читает, данные сохраняются без изменения"
+    ],
+    "unresolved": []
+  },
+  {
+    "start": 48640,
+    "end": 49152,
+    "file": "Source/Game/Data/SquareTables.asm",
+    "semantic_name": "SquareTables",
+    "status": "reviewed",
+    "kind": "data",
+    "summary": "младшие и старшие байты квадратов аргументов 0..255",
+    "evidence": [
+      "потребители #87BF, #AB0B и #AB34"
+    ],
+    "unresolved": []
+  },
+  {
+    "start": 53248,
+    "end": 53269,
+    "file": "Source/Game/Data/MenuDispatchTable.asm",
+    "semantic_name": "MenuDispatchTable",
+    "status": "reviewed",
+    "kind": "data",
+    "summary": "семь исполняемых JP основных экранов",
+    "evidence": [
+      "диспетчер #813E вычисляет адрес записи как #D000+A*3"
+    ],
+    "unresolved": []
+  },
+  {
+    "start": 57466,
+    "end": 57472,
+    "file": "Source/Game/Data/LaunchCounter.asm",
+    "semantic_name": "LaunchCounter",
+    "status": "reviewed",
+    "kind": "data",
+    "summary": "отложенный флаг и счётчик вылетов",
+    "evidence": [
+      "#D8DD устанавливает флаг, #5E55 увеличивает счётчик, #FC33 очищает"
+    ],
+    "unresolved": []
+  },
+  {
+    "start": 34751,
+    "end": 34760,
+    "file": "Source/Game/Math/Square.asm",
+    "semantic_name": "Square",
+    "status": "reviewed",
+    "summary": "квадрат беззнакового восьмибитного числа",
+    "evidence": [
+      "ручной разбор контракта и исходных инструкций",
+      "исполнение оригинального кода, Tools/Disasm/Reports/MathValidation.json"
+    ],
+    "unresolved": [],
+    "entries": {
+      "Square": 34751
+    }
+  },
+  {
+    "start": 40689,
+    "end": 40769,
+    "file": "Source/Game/Math/SquareRoot.asm",
+    "semantic_name": "SquareRoot",
+    "status": "reviewed",
+    "summary": "приближённый квадратный корень беззнакового шестнадцатибитного числа",
+    "evidence": [
+      "ручной разбор контракта и исходных инструкций",
+      "исполнение оригинального кода, Tools/Disasm/Reports/MathValidation.json"
+    ],
+    "unresolved": [],
+    "entries": {
+      "SquareRoot": 40689,
+      "SqrtCore": 40728,
+      "SqrtStep": 40747,
+      "SqrtMean": 40757
+    }
+  },
+  {
+    "start": 44968,
+    "end": 45001,
+    "file": "Source/Game/Math/Divide.asm",
+    "semantic_name": "Divide",
+    "status": "reviewed",
+    "summary": "шестнадцать двоичных разрядов беззнакового частного",
+    "evidence": [
+      "ручной разбор контракта и исходных инструкций",
+      "исполнение оригинального кода, Tools/Disasm/Reports/MathValidation.json"
+    ],
+    "unresolved": [],
+    "entries": {
+      "Divide": 44968
+    }
+  },
+  {
+    "start": 45001,
+    "end": 45040,
+    "file": "Source/Game/Math/AddSigned.asm",
+    "semantic_name": "AddSigned",
+    "status": "reviewed",
+    "summary": "половина разности координат в формате знак и модуль",
+    "evidence": [
+      "ручной разбор контракта и исходных инструкций",
+      "исполнение оригинального кода, Tools/Disasm/Reports/MathValidation.json"
+    ],
+    "unresolved": [],
+    "entries": {
+      "HalfDelta": 45001,
+      "AddSigned": 45005
+    }
+  },
+  {
+    "start": 57443,
+    "end": 57466,
+    "file": "Source/Game/Math/NextRandom.asm",
+    "semantic_name": "NextRandom",
+    "status": "reviewed",
+    "summary": "следующий шаг генератора последовательности планет",
+    "evidence": [
+      "ручной разбор контракта и исходных инструкций",
+      "исполнение оригинального кода, Tools/Disasm/Reports/MathValidation.json"
+    ],
+    "unresolved": [],
+    "entries": {
+      "NextRandom": 57443
+    }
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "start": 24576,
+    "end": 25053,
+    "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+    "semantic_name": "SystemBoundaryAndObjects",
+    "status": "reviewed",
+    "summary": "продолжение смены системы, восемь объектов и индекс 23 моделей",
+    "evidence": [
+      "потребители #5FD5, #B936, #B99F, #7ABA и #B89C"
+    ],
+    "unresolved": []
+  }
+]

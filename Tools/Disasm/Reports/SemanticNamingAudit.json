@@ -1,0 +1,8 @@
+{
+  "scope": "текущие Source и Includes, исторические карты и сторонний декодер исключены",
+  "address_filenames": [],
+  "address_symbols": [],
+  "numeric_direct_branches": [],
+  "mechanical_comments": [],
+  "passed": true
+}

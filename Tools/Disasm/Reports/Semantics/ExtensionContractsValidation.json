@@ -1,0 +1,17 @@
+{
+  "scope": "Исполнение исходных байтов GameCode.bin в SkoolKit Simulator, без ROM и прерываний",
+  "checks": [
+    {
+      "entry": "FCEA",
+      "input": "D062=0, Galaxy=1, Y=FF, X=50",
+      "output": "A=0, Z=1, C=0",
+      "meaning": "Ранний RET NC сохраняет Z от Y+1, совпадение специальных координат не является единственным путём Z=1"
+    },
+    {
+      "entry": "5E78",
+      "input": "D062=42, D064=02, Invasion=1, Mission1=Mission3=0, AlienComputer=1",
+      "output": "D062=02, D064=81, HL=D0C9",
+      "meaning": "RES6 меняет старший рейтинг, затем SET7 и условный DEC работают со старшим счётчиком переходов"
+    }
+  ]
+}

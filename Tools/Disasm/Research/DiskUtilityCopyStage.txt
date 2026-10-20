@@ -1,0 +1,637 @@
+C500 fd 7d        LD A,IYl
+C502 e5           PUSH HL
+C503 d5           PUSH DE
+C504 ad           XOR L
+C505 8d           ADC A,L
+C506 75           LD (HL),L
+C507 25           DEC H
+C508 dd 9d        SBC A,IXl
+C50A 45           LD B,L
+C50B b5           OR L
+C50C 6d           LD L,L
+C50D 6d           LD L,L
+C50E d5           PUSH DE
+C50F 44           LD B,H
+C510 e5           PUSH HL
+C511 fd a4        AND IYh
+C513 15           DEC D
+C514 ed 4d        RETI
+C516 35           DEC (HL)
+C517 e5           PUSH HL
+C518 9d           SBC A,L
+C519 5d           LD E,L
+C51A 05           DEC B
+C51B 75           LD (HL),L
+C51C cd ad 94     CALL $94AD
+C51F 85           ADD A,L
+C520 7d           LD A,L
+C521 fd 65        LD IYh,IYl
+C523 55           LD D,L
+C524 2d           DEC L
+C525 0d           DEC C
+C526 f5           PUSH AF
+C527 a5           AND L
+C528 5d           LD E,L
+C529 1d           DEC E
+C52A c5           PUSH BC
+C52B 35           DEC (HL)
+C52C cd ed 54     CALL $54ED
+C52F c9           RET
+C530 fd           DEFB $FD
+C531 dd 55        LD D,IXl
+C533 95           SUB L
+C534 6d           LD L,L
+C535 cd b5 65     CALL $65B5
+C538 1d           DEC E
+C539 dd 85        ADD A,IXl
+C53B f5           PUSH AF
+C53C 4d           LD C,L
+C53D 2d           DEC L
+C53E 14           INC D
+C53F 05           DEC B
+C540 fd 7d        LD A,IYl
+C542 e5           PUSH HL
+C543 d5           PUSH DE
+C544 ad           XOR L
+C545 8d           ADC A,L
+C546 75           LD (HL),L
+C547 25           DEC H
+C548 dd 9d        SBC A,IXl
+C54A 45           LD B,L
+C54B b4           OR H
+C54C 8d           ADC A,L
+C54D 6d           LD L,L
+C54E 55           LD D,L
+C54F 07           RLCA
+C550 bd           CP L
+C551 34           INC (HL)
+C552 a5           AND L
+C553 15           DEC D
+C554 ed 4d        RETI
+C556 35           DEC (HL)
+C557 e5           PUSH HL
+C558 9d           SBC A,L
+C559 5d           LD E,L
+C55A 05           DEC B
+C55B 75           LD (HL),L
+C55C cd ad 94     CALL $94AD
+C55F 85           ADD A,L
+C560 7d           LD A,L
+C561 fd 65        LD IYh,IYl
+C563 55           LD D,L
+C564 2d           DEC L
+C565 0d           DEC C
+C566 f5           PUSH AF
+C567 a5           AND L
+C568 5d           LD E,L
+C569 1d           DEC E
+C56A c5           PUSH BC
+C56B 39           ADD HL,SP
+C56C 0d           DEC C
+C56D ad           XOR L
+C56E 4d           LD C,L
+C56F d5           PUSH DE
+C570 3d           DEC A
+C571 7d           LD A,L
+C572 25           DEC H
+C573 95           SUB L
+C574 6d           LD L,L
+C575 cd b5 65     CALL $65B5
+C578 1d           DEC E
+C579 dd 85        ADD A,IXl
+C57B f5           PUSH AF
+C57C 4d           LD C,L
+C57D 2d           DEC L
+C57E 14           INC D
+C57F 05           DEC B
+C580 fd 7d        LD A,IYl
+C582 e5           PUSH HL
+C583 d5           PUSH DE
+C584 ad           XOR L
+C585 8d           ADC A,L
+C586 75           LD (HL),L
+C587 25           DEC H
+C588 dd 9d        SBC A,IXl
+C58A 45           LD B,L
+C58B bd           CP L
+C58C 4d           LD C,L
+C58D 6d           LD L,L
+C58E 55           LD D,L
+C58F c5           PUSH BC
+C590 dd           DEFB $DD
+C591 3d           DEC A
+C592 a5           AND L
+C593 15           DEC D
+C594 ed 4d        RETI
+C596 35           DEC (HL)
+C597 e5           PUSH HL
+C598 9d           SBC A,L
+C599 5d           LD E,L
+C59A 05           DEC B
+C59B 75           LD (HL),L
+C59C cd ad 94     CALL $94AD
+C59F 85           ADD A,L
+C5A0 7d           LD A,L
+C5A1 fd 65        LD IYh,IYl
+C5A3 55           LD D,L
+C5A4 2d           DEC L
+C5A5 0d           DEC C
+C5A6 f5           PUSH AF
+C5A7 a5           AND L
+C5A8 5d           LD E,L
+C5A9 1d           DEC E
+C5AA c5           PUSH BC
+C5AB 45           LD B,L
+C5AC 0d           DEC C
+C5AD dd           DEFB $DD
+C5AE 59           LD E,C
+C5AF d5           PUSH DE
+C5B0 3d           DEC A
+C5B1 bd           CP L
+C5B2 25           DEC H
+C5B3 95           SUB L
+C5B4 6d           LD L,L
+C5B5 cd b5 65     CALL $65B5
+C5B8 1d           DEC E
+C5B9 dd 85        ADD A,IXl
+C5BB f5           PUSH AF
+C5BC 4d           LD C,L
+C5BD 2d           DEC L
+C5BE 14           INC D
+C5BF 05           DEC B
+C5C0 fd 7d        LD A,IYl
+C5C2 e5           PUSH HL
+C5C3 d5           PUSH DE
+C5C4 ad           XOR L
+C5C5 09           ADD HL,BC
+C5C6 55           LD D,L
+C5C7 dd 19        ADD IX,DE
+C5C9 19           ADD HL,DE
+C5CA 45           LD B,L
+C5CB 33           INC SP
+C5CC 32 ab ed     LD ($EDAB),A
+C5CF 3d           DEC A
+C5D0 bd           CP L
+C5D1 3d           DEC A
+C5D2 65           LD H,L
+C5D3 d9           EXX
+C5D4 21 71 e1     LD HL,$E171
+C5D7 29           ADD HL,HL
+C5D8 69           LD L,C
+C5D9 85           ADD A,L
+C5DA e5           PUSH HL
+C5DB 75           LD (HL),L
+C5DC cd ad 94     CALL $94AD
+C5DF 85           ADD A,L
+C5E0 7d           LD A,L
+C5E1 fd 65        LD IYh,IYl
+C5E3 55           LD D,L
+C5E4 2d           DEC L
+C5E5 0d           DEC C
+C5E6 f5           PUSH AF
+C5E7 a5           AND L
+C5E8 5d           LD E,L
+C5E9 1d           DEC E
+C5EA c5           PUSH BC
+C5EB 35           DEC (HL)
+C5EC 0d           DEC C
+C5ED ed 55        DEFB $ED,$55
+C5EF c5           PUSH BC
+C5F0 3d           DEC A
+C5F1 bd           CP L
+C5F2 25           DEC H
+C5F3 95           SUB L
+C5F4 6d           LD L,L
+C5F5 cd b5 65     CALL $65B5
+C5F8 1d           DEC E
+C5F9 dd 85        ADD A,IXl
+C5FB f5           PUSH AF
+C5FC 4d           LD C,L
+C5FD 2d           DEC L
+C5FE 14           INC D
+C5FF 05           DEC B
+C600 fd 7d        LD A,IYl
+C602 e5           PUSH HL
+C603 d5           PUSH DE
+C604 ad           XOR L
+C605 8d           ADC A,L
+C606 75           LD (HL),L
+C607 25           DEC H
+C608 dd 9d        SBC A,IXl
+C60A 45           LD B,L
+C60B b5           OR L
+C60C 6d           LD L,L
+C60D 6d           LD L,L
+C60E d5           PUSH DE
+C60F 47           LD B,A
+C610 8d           ADC A,L
+C611 fd           DEFB $FD
+C612 a7           AND A
+C613 15           DEC D
+C614 ed 4d        RETI
+C616 35           DEC (HL)
+C617 e5           PUSH HL
+C618 9d           SBC A,L
+C619 5d           LD E,L
+C61A 05           DEC B
+C61B 75           LD (HL),L
+C61C cd ad 94     CALL $94AD
+C61F 85           ADD A,L
+C620 7d           LD A,L
+C621 fd 65        LD IYh,IYl
+C623 55           LD D,L
+C624 2d           DEC L
+C625 0d           DEC C
+C626 f5           PUSH AF
+C627 a5           AND L
+C628 5d           LD E,L
+C629 1d           DEC E
+C62A c5           PUSH BC
+C62B 35           DEC (HL)
+C62C cd ed 57     CALL $57ED
+C62F c9           RET
+C630 bd           CP L
+C631 cd 45 95     CALL $9545
+C634 6d           LD L,L
+C635 cd b5 65     CALL $65B5
+C638 1d           DEC E
+C639 dd 85        ADD A,IXl
+C63B f5           PUSH AF
+C63C 4d           LD C,L
+C63D 2d           DEC L
+C63E 14           INC D
+C63F 05           DEC B
+C640 fd 7d        LD A,IYl
+C642 e5           PUSH HL
+C643 d5           PUSH DE
+C644 ad           XOR L
+C645 8d           ADC A,L
+C646 75           LD (HL),L
+C647 25           DEC H
+C648 dd 9d        SBC A,IXl
+C64A 45           LD B,L
+C64B b4           OR H
+C64C 8d           ADC A,L
+C64D 6c           LD L,H
+C64E d5           PUSH DE
+C64F c7           RST $00
+C650 bd           CP L
+C651 37           SCF
+C652 a5           AND L
+C653 15           DEC D
+C654 ed 4d        RETI
+C656 35           DEC (HL)
+C657 e5           PUSH HL
+C658 9d           SBC A,L
+C659 5d           LD E,L
+C65A 05           DEC B
+C65B 75           LD (HL),L
+C65C cd ad 94     CALL $94AD
+C65F 85           ADD A,L
+C660 7d           LD A,L
+C661 fd 65        LD IYh,IYl
+C663 55           LD D,L
+C664 2d           DEC L
+C665 0d           DEC C
+C666 f5           PUSH AF
+C667 a5           AND L
+C668 5d           LD E,L
+C669 1d           DEC E
+C66A c5           PUSH BC
+C66B 39           ADD HL,SP
+C66C 0d           DEC C
+C66D 6d           LD L,L
+C66E 4d           LD C,L
+C66F d5           PUSH DE
+C670 3d           DEC A
+C671 3d           DEC A
+C672 25           DEC H
+C673 95           SUB L
+C674 6d           LD L,L
+C675 cd b5 65     CALL $65B5
+C678 1d           DEC E
+C679 dd 85        ADD A,IXl
+C67B f5           PUSH AF
+C67C 4d           LD C,L
+C67D 2d           DEC L
+C67E 14           INC D
+C67F 05           DEC B
+C680 fd 7d        LD A,IYl
+C682 e5           PUSH HL
+C683 d5           PUSH DE
+C684 ad           XOR L
+C685 8d           ADC A,L
+C686 75           LD (HL),L
+C687 25           DEC H
+C688 dd 9d        SBC A,IXl
+C68A 45           LD B,L
+C68B bd           CP L
+C68C 0d           DEC C
+C68D 6c           LD L,H
+C68E d5           PUSH DE
+C68F c5           PUSH BC
+C690 7d           LD A,L
+C691 3d           DEC A
+C692 a5           AND L
+C693 15           DEC D
+C694 ed 4d        RETI
+C696 35           DEC (HL)
+C697 e5           PUSH HL
+C698 9d           SBC A,L
+C699 5d           LD E,L
+C69A 05           DEC B
+C69B 75           LD (HL),L
+C69C cd ad 94     CALL $94AD
+C69F 85           ADD A,L
+C6A0 7d           LD A,L
+C6A1 fd 65        LD IYh,IYl
+C6A3 55           LD D,L
+C6A4 2d           DEC L
+C6A5 0d           DEC C
+C6A6 f5           PUSH AF
+C6A7 a5           AND L
+C6A8 5d           LD E,L
+C6A9 1d           DEC E
+C6AA c5           PUSH BC
+C6AB 52           LD D,D
+C6AC 0d           DEC C
+C6AD dd           DEFB $DD
+C6AE 59           LD E,C
+C6AF e5           PUSH HL
+C6B0 3d           DEC A
+C6B1 bd           CP L
+C6B2 25           DEC H
+C6B3 95           SUB L
+C6B4 6d           LD L,L
+C6B5 cd b5 65     CALL $65B5
+C6B8 1d           DEC E
+C6B9 dd 85        ADD A,IXl
+C6BB f5           PUSH AF
+C6BC 4d           LD C,L
+C6BD 2d           DEC L
+C6BE 14           INC D
+C6BF 05           DEC B
+C6C0 fd 7d        LD A,IYl
+C6C2 e5           PUSH HL
+C6C3 d5           PUSH DE
+C6C4 ad           XOR L
+C6C5 4d           LD C,L
+C6C6 55           LD D,L
+C6C7 e5           PUSH HL
+C6C8 e1           POP HL
+C6C9 91           SUB C
+C6CA 45           LD B,L
+C6CB b7           OR A
+C6CC 49           LD C,C
+C6CD b0           OR B
+C6CE 85           ADD A,L
+C6CF 05           DEC B
+C6D0 c5           PUSH BC
+C6D1 3d           DEC A
+C6D2 67           LD H,A
+C6D3 d9           EXX
+C6D4 21 71 f9     LD HL,$F971
+C6D7 29           ADD HL,HL
+C6D8 61           LD H,C
+C6D9 9d           SBC A,L
+C6DA e5           PUSH HL
+C6DB 75           LD (HL),L
+C6DC cd ad 94     CALL $94AD
+C6DF 85           ADD A,L
+C6E0 7d           LD A,L
+C6E1 fd 65        LD IYh,IYl
+C6E3 55           LD D,L
+C6E4 2d           DEC L
+C6E5 0d           DEC C
+C6E6 f5           PUSH AF
+C6E7 a5           AND L
+C6E8 5d           LD E,L
+C6E9 1d           DEC E
+C6EA c5           PUSH BC
+C6EB 35           DEC (HL)
+C6EC 0d           DEC C
+C6ED ed 55        DEFB $ED,$55
+C6EF c5           PUSH BC
+C6F0 3d           DEC A
+C6F1 bd           CP L
+C6F2 25           DEC H
+C6F3 95           SUB L
+C6F4 6d           LD L,L
+C6F5 cd b5 65     CALL $65B5
+C6F8 1d           DEC E
+C6F9 dd 85        ADD A,IXl
+C6FB f5           PUSH AF
+C6FC 4d           LD C,L
+C6FD 2d           DEC L
+C6FE 14           INC D
+C6FF 05           DEC B
+C700 fd 7d        LD A,IYl
+C702 e5           PUSH HL
+C703 d5           PUSH DE
+C704 ad           XOR L
+C705 8d           ADC A,L
+C706 75           LD (HL),L
+C707 25           DEC H
+C708 dd 9d        SBC A,IXl
+C70A 45           LD B,L
+C70B b5           OR L
+C70C 6d           LD L,L
+C70D 6d           LD L,L
+C70E d5           PUSH DE
+C70F 49           LD C,C
+C710 8d           ADC A,L
+C711 fd           DEFB $FD
+C712 a7           AND A
+C713 15           DEC D
+C714 ed 4d        RETI
+C716 35           DEC (HL)
+C717 e5           PUSH HL
+C718 9d           SBC A,L
+C719 5d           LD E,L
+C71A 05           DEC B
+C71B 75           LD (HL),L
+C71C cd ad 94     CALL $94AD
+C71F 85           ADD A,L
+C720 7d           LD A,L
+C721 fd 65        LD IYh,IYl
+C723 55           LD D,L
+C724 2d           DEC L
+C725 0d           DEC C
+C726 f5           PUSH AF
+C727 a5           AND L
+C728 5d           LD E,L
+C729 1d           DEC E
+C72A c5           PUSH BC
+C72B 35           DEC (HL)
+C72C 8d           ADC A,L
+C72D ed 57        LD A,I
+C72F cd bd cd     CALL $CDBD
+C732 45           LD B,L
+C733 95           SUB L
+C734 6d           LD L,L
+C735 cd b5 65     CALL $65B5
+C738 1d           DEC E
+C739 dd 85        ADD A,IXl
+C73B f5           PUSH AF
+C73C 4d           LD C,L
+C73D 2d           DEC L
+C73E 14           INC D
+C73F 05           DEC B
+C740 fd 7d        LD A,IYl
+C742 e5           PUSH HL
+C743 d5           PUSH DE
+C744 ad           XOR L
+C745 8d           ADC A,L
+C746 75           LD (HL),L
+C747 25           DEC H
+C748 dd 9d        SBC A,IXl
+C74A 45           LD B,L
+C74B b4           OR H
+C74C 8d           ADC A,L
+C74D 6f           LD L,A
+C74E d5           PUSH DE
+C74F c9           RET
+C750 bd           CP L
+C751 37           SCF
+C752 a5           AND L
+C753 15           DEC D
+C754 ed 4d        RETI
+C756 35           DEC (HL)
+C757 e5           PUSH HL
+C758 9d           SBC A,L
+C759 5d           LD E,L
+C75A 05           DEC B
+C75B 75           LD (HL),L
+C75C cd ad 94     CALL $94AD
+C75F 85           ADD A,L
+C760 7d           LD A,L
+C761 fd 65        LD IYh,IYl
+C763 55           LD D,L
+C764 2d           DEC L
+C765 0d           DEC C
+C766 f5           PUSH AF
+C767 a5           AND L
+C768 5d           LD E,L
+C769 1d           DEC E
+C76A c5           PUSH BC
+C76B 39           ADD HL,SP
+C76C 0c           INC C
+C76D ed 65        DEFB $ED,$65
+C76F e5           PUSH HL
+C770 3d           DEC A
+C771 3d           DEC A
+C772 25           DEC H
+C773 95           SUB L
+C774 6d           LD L,L
+C775 cd b5 65     CALL $65B5
+C778 1d           DEC E
+C779 dd 85        ADD A,IXl
+C77B f5           PUSH AF
+C77C 4d           LD C,L
+C77D 2d           DEC L
+C77E 14           INC D
+C77F 05           DEC B
+C780 fd 7d        LD A,IYl
+C782 e5           PUSH HL
+C783 d5           PUSH DE
+C784 ad           XOR L
+C785 8d           ADC A,L
+C786 75           LD (HL),L
+C787 25           DEC H
+C788 dd 9d        SBC A,IXl
+C78A 45           LD B,L
+C78B a5           AND L
+C78C 0d           DEC C
+C78D 6c           LD L,H
+C78E d4 45 3d     CALL NC,$3D45
+C791 3d           DEC A
+C792 a5           AND L
+C793 15           DEC D
+C794 ed 4d        RETI
+C796 35           DEC (HL)
+C797 e5           PUSH HL
+C798 9d           SBC A,L
+C799 5d           LD E,L
+C79A 05           DEC B
+C79B 75           LD (HL),L
+C79C cd ad 94     CALL $94AD
+C79F 85           ADD A,L
+C7A0 7d           LD A,L
+C7A1 fd 65        LD IYh,IYl
+C7A3 55           LD D,L
+C7A4 2d           DEC L
+C7A5 0d           DEC C
+C7A6 f5           PUSH AF
+C7A7 a5           AND L
+C7A8 5d           LD E,L
+C7A9 1d           DEC E
+C7AA c5           PUSH BC
+C7AB 21 1d 8d     LD HL,$8D1D
+C7AE 4d           LD C,L
+C7AF 85           ADD A,L
+C7B0 3d           DEC A
+C7B1 bd           CP L
+C7B2 25           DEC H
+C7B3 95           SUB L
+C7B4 6d           LD L,L
+C7B5 cd b5 65     CALL $65B5
+C7B8 1d           DEC E
+C7B9 dd 85        ADD A,IXl
+C7BB f5           PUSH AF
+C7BC 4d           LD C,L
+C7BD 2d           DEC L
+C7BE 14           INC D
+C7BF 05           DEC B
+C7C0 fd 7d        LD A,IYl
+C7C2 e5           PUSH HL
+C7C3 d5           PUSH DE
+C7C4 ad           XOR L
+C7C5 4d           LD C,L
+C7C6 55           LD D,L
+C7C7 e1           POP HL
+C7C8 15           DEC D
+C7C9 45           LD B,L
+C7CA 45           LD B,L
+C7CB 33           INC SP
+C7CC 4d           LD C,L
+C7CD ea 01 01     JP PE,$0101
+C7D0 c5           PUSH BC
+C7D1 3d           DEC A
+C7D2 33           INC SP
+C7D3 ed 21        DEFB $ED,$21
+C7D5 71           LD (HL),C
+C7D6 a1           AND C
+C7D7 29           ADD HL,HL
+C7D8 99           SBC A,C
+C7D9 99           SBC A,C
+C7DA e5           PUSH HL
+C7DB 75           LD (HL),L
+C7DC cd ad 94     CALL $94AD
+C7DF 85           ADD A,L
+C7E0 7d           LD A,L
+C7E1 fd 65        LD IYh,IYl
+C7E3 55           LD D,L
+C7E4 2d           DEC L
+C7E5 0d           DEC C
+C7E6 f5           PUSH AF
+C7E7 a5           AND L
+C7E8 5d           LD E,L
+C7E9 1d           DEC E
+C7EA c5           PUSH BC
+C7EB 35           DEC (HL)
+C7EC 0d           DEC C
+C7ED ed 55        DEFB $ED,$55
+C7EF c5           PUSH BC
+C7F0 3d           DEC A
+C7F1 bd           CP L
+C7F2 25           DEC H
+C7F3 95           SUB L
+C7F4 6d           LD L,L
+C7F5 cd b5 65     CALL $65B5
+C7F8 1d           DEC E
+C7F9 dd 85        ADD A,IXl
+C7FB f5           PUSH AF
+C7FC 4d           LD C,L
+C7FD 2d           DEC L
+C7FE 14           INC D
+C7FF 05           DEC B

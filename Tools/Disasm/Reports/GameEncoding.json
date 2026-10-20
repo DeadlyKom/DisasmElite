@@ -1,0 +1,3972 @@
+{
+  "description": "Код после XOR, исходные семена PRNG сохранены. Не снимок RAM.",
+  "source_sha256": "d53383a89c841c0859699d928b1f65c671247f970d1e6b9176ac426a2041be61",
+  "decoded_sha256": "fdce23d7ab81512b49cb26e7e9edd7583123425d1c9c087ca5915eabe6f0cbf0",
+  "accepted_iterations": 256,
+  "prng_calls": 398,
+  "mutation_count": 245,
+  "original_seed_hex": "bc57820a63ad",
+  "runtime_final_seed_hex": "d1ad4da7cc45",
+  "skipped": [
+    {
+      "iteration": 34,
+      "address": 51986
+    },
+    {
+      "iteration": 49,
+      "address": 52899
+    },
+    {
+      "iteration": 63,
+      "address": 51697
+    },
+    {
+      "iteration": 71,
+      "address": 53246
+    },
+    {
+      "iteration": 88,
+      "address": 52309
+    },
+    {
+      "iteration": 107,
+      "address": 51630
+    },
+    {
+      "iteration": 122,
+      "address": 52962
+    },
+    {
+      "iteration": 134,
+      "address": 51945
+    },
+    {
+      "iteration": 156,
+      "address": 52509
+    },
+    {
+      "iteration": 208,
+      "address": 52107
+    },
+    {
+      "iteration": 212,
+      "address": 51757
+    }
+  ],
+  "mutations": [
+    {
+      "iteration": 0,
+      "address": 27297,
+      "file_offset": 10913,
+      "mask": 128,
+      "original": 255,
+      "decoded": 127
+    },
+    {
+      "iteration": 1,
+      "address": 57226,
+      "file_offset": 40842,
+      "mask": 32,
+      "original": 24,
+      "decoded": 56
+    },
+    {
+      "iteration": 2,
+      "address": 46769,
+      "file_offset": 30385,
+      "mask": 16,
+      "original": 42,
+      "decoded": 58
+    },
+    {
+      "iteration": 3,
+      "address": 58108,
+      "file_offset": 41724,
+      "mask": 4,
+      "original": 2,
+      "decoded": 6
+    },
+    {
+      "iteration": 4,
+      "address": 58990,
+      "file_offset": 42606,
+      "mask": 2,
+      "original": 58,
+      "decoded": 56
+    },
+    {
+      "iteration": 5,
+      "address": 28718,
+      "file_offset": 12334,
+      "mask": 64,
+      "original": 79,
+      "decoded": 15
+    },
+    {
+      "iteration": 6,
+      "address": 63982,
+      "file_offset": 47598,
+      "mask": 32,
+      "original": 197,
+      "decoded": 229
+    },
+    {
+      "iteration": 7,
+      "address": 56753,
+      "file_offset": 40369,
+      "mask": 16,
+      "original": 111,
+      "decoded": 127
+    },
+    {
+      "iteration": 8,
+      "address": 37325,
+      "file_offset": 20941,
+      "mask": 8,
+      "original": 120,
+      "decoded": 112
+    },
+    {
+      "iteration": 9,
+      "address": 45932,
+      "file_offset": 29548,
+      "mask": 4,
+      "original": 201,
+      "decoded": 205
+    },
+    {
+      "iteration": 10,
+      "address": 27882,
+      "file_offset": 11498,
+      "mask": 2,
+      "original": 42,
+      "decoded": 40
+    },
+    {
+      "iteration": 11,
+      "address": 64547,
+      "file_offset": 48163,
+      "mask": 1,
+      "original": 25,
+      "decoded": 24
+    },
+    {
+      "iteration": 12,
+      "address": 26233,
+      "file_offset": 9849,
+      "mask": 128,
+      "original": 143,
+      "decoded": 15
+    },
+    {
+      "iteration": 13,
+      "address": 50722,
+      "file_offset": 34338,
+      "mask": 32,
+      "original": 33,
+      "decoded": 1
+    },
+    {
+      "iteration": 14,
+      "address": 36897,
+      "file_offset": 20513,
+      "mask": 16,
+      "original": 48,
+      "decoded": 32
+    },
+    {
+      "iteration": 15,
+      "address": 47561,
+      "file_offset": 31177,
+      "mask": 8,
+      "original": 213,
+      "decoded": 221
+    },
+    {
+      "iteration": 16,
+      "address": 60918,
+      "file_offset": 44534,
+      "mask": 2,
+      "original": 5,
+      "decoded": 7
+    },
+    {
+      "iteration": 17,
+      "address": 56781,
+      "file_offset": 40397,
+      "mask": 128,
+      "original": 130,
+      "decoded": 2
+    },
+    {
+      "iteration": 18,
+      "address": 24974,
+      "file_offset": 8590,
+      "mask": 64,
+      "original": 34,
+      "decoded": 98
+    },
+    {
+      "iteration": 19,
+      "address": 54566,
+      "file_offset": 38182,
+      "mask": 32,
+      "original": 246,
+      "decoded": 214
+    },
+    {
+      "iteration": 20,
+      "address": 24193,
+      "file_offset": 7809,
+      "mask": 16,
+      "original": 42,
+      "decoded": 58
+    },
+    {
+      "iteration": 21,
+      "address": 57141,
+      "file_offset": 40757,
+      "mask": 8,
+      "original": 211,
+      "decoded": 219
+    },
+    {
+      "iteration": 22,
+      "address": 23772,
+      "file_offset": 7388,
+      "mask": 4,
+      "original": 4,
+      "decoded": 0
+    },
+    {
+      "iteration": 23,
+      "address": 58514,
+      "file_offset": 42130,
+      "mask": 2,
+      "original": 60,
+      "decoded": 62
+    },
+    {
+      "iteration": 24,
+      "address": 27299,
+      "file_offset": 10915,
+      "mask": 1,
+      "original": 142,
+      "decoded": 143
+    },
+    {
+      "iteration": 25,
+      "address": 62993,
+      "file_offset": 46609,
+      "mask": 128,
+      "original": 215,
+      "decoded": 87
+    },
+    {
+      "iteration": 26,
+      "address": 36678,
+      "file_offset": 20294,
+      "mask": 64,
+      "original": 90,
+      "decoded": 26
+    },
+    {
+      "iteration": 27,
+      "address": 43484,
+      "file_offset": 27100,
+      "mask": 4,
+      "original": 144,
+      "decoded": 148
+    },
+    {
+      "iteration": 28,
+      "address": 50606,
+      "file_offset": 34222,
+      "mask": 64,
+      "original": 64,
+      "decoded": 0
+    },
+    {
+      "iteration": 29,
+      "address": 29086,
+      "file_offset": 12702,
+      "mask": 32,
+      "original": 26,
+      "decoded": 58
+    },
+    {
+      "iteration": 30,
+      "address": 47377,
+      "file_offset": 30993,
+      "mask": 16,
+      "original": 167,
+      "decoded": 183
+    },
+    {
+      "iteration": 31,
+      "address": 44812,
+      "file_offset": 28428,
+      "mask": 4,
+      "original": 249,
+      "decoded": 253
+    },
+    {
+      "iteration": 32,
+      "address": 60538,
+      "file_offset": 44154,
+      "mask": 2,
+      "original": 210,
+      "decoded": 208
+    },
+    {
+      "iteration": 33,
+      "address": 23494,
+      "file_offset": 7110,
+      "mask": 64,
+      "original": 87,
+      "decoded": 23
+    },
+    {
+      "iteration": 35,
+      "address": 30273,
+      "file_offset": 13889,
+      "mask": 16,
+      "original": 34,
+      "decoded": 50
+    },
+    {
+      "iteration": 36,
+      "address": 59161,
+      "file_offset": 42777,
+      "mask": 8,
+      "original": 197,
+      "decoded": 205
+    },
+    {
+      "iteration": 37,
+      "address": 29292,
+      "file_offset": 12908,
+      "mask": 4,
+      "original": 62,
+      "decoded": 58
+    },
+    {
+      "iteration": 38,
+      "address": 48459,
+      "file_offset": 32075,
+      "mask": 1,
+      "original": 37,
+      "decoded": 36
+    },
+    {
+      "iteration": 39,
+      "address": 37757,
+      "file_offset": 21373,
+      "mask": 128,
+      "original": 178,
+      "decoded": 50
+    },
+    {
+      "iteration": 40,
+      "address": 46222,
+      "file_offset": 29838,
+      "mask": 64,
+      "original": 64,
+      "decoded": 0
+    },
+    {
+      "iteration": 41,
+      "address": 57697,
+      "file_offset": 41313,
+      "mask": 16,
+      "original": 206,
+      "decoded": 222
+    },
+    {
+      "iteration": 42,
+      "address": 43516,
+      "file_offset": 27132,
+      "mask": 4,
+      "original": 36,
+      "decoded": 32
+    },
+    {
+      "iteration": 43,
+      "address": 38662,
+      "file_offset": 22278,
+      "mask": 64,
+      "original": 112,
+      "decoded": 48
+    },
+    {
+      "iteration": 44,
+      "address": 54204,
+      "file_offset": 37820,
+      "mask": 4,
+      "original": 163,
+      "decoded": 167
+    },
+    {
+      "iteration": 45,
+      "address": 32270,
+      "file_offset": 15886,
+      "mask": 2,
+      "original": 80,
+      "decoded": 82
+    },
+    {
+      "iteration": 46,
+      "address": 53547,
+      "file_offset": 37163,
+      "mask": 1,
+      "original": 208,
+      "decoded": 209
+    },
+    {
+      "iteration": 47,
+      "address": 27893,
+      "file_offset": 11509,
+      "mask": 128,
+      "original": 136,
+      "decoded": 8
+    },
+    {
+      "iteration": 48,
+      "address": 36430,
+      "file_offset": 20046,
+      "mask": 32,
+      "original": 18,
+      "decoded": 50
+    },
+    {
+      "iteration": 50,
+      "address": 29529,
+      "file_offset": 13145,
+      "mask": 128,
+      "original": 199,
+      "decoded": 71
+    },
+    {
+      "iteration": 51,
+      "address": 39174,
+      "file_offset": 22790,
+      "mask": 64,
+      "original": 55,
+      "decoded": 119
+    },
+    {
+      "iteration": 52,
+      "address": 31585,
+      "file_offset": 15201,
+      "mask": 16,
+      "original": 52,
+      "decoded": 36
+    },
+    {
+      "iteration": 53,
+      "address": 33641,
+      "file_offset": 17257,
+      "mask": 8,
+      "original": 195,
+      "decoded": 203
+    },
+    {
+      "iteration": 54,
+      "address": 28108,
+      "file_offset": 11724,
+      "mask": 4,
+      "original": 154,
+      "decoded": 158
+    },
+    {
+      "iteration": 55,
+      "address": 46742,
+      "file_offset": 30358,
+      "mask": 2,
+      "original": 13,
+      "decoded": 15
+    },
+    {
+      "iteration": 56,
+      "address": 61899,
+      "file_offset": 45515,
+      "mask": 1,
+      "original": 144,
+      "decoded": 145
+    },
+    {
+      "iteration": 57,
+      "address": 24621,
+      "file_offset": 8237,
+      "mask": 128,
+      "original": 145,
+      "decoded": 17
+    },
+    {
+      "iteration": 58,
+      "address": 61062,
+      "file_offset": 44678,
+      "mask": 32,
+      "original": 37,
+      "decoded": 5
+    },
+    {
+      "iteration": 59,
+      "address": 60225,
+      "file_offset": 43841,
+      "mask": 16,
+      "original": 9,
+      "decoded": 25
+    },
+    {
+      "iteration": 60,
+      "address": 30293,
+      "file_offset": 13909,
+      "mask": 8,
+      "original": 54,
+      "decoded": 62
+    },
+    {
+      "iteration": 61,
+      "address": 39452,
+      "file_offset": 23068,
+      "mask": 4,
+      "original": 22,
+      "decoded": 18
+    },
+    {
+      "iteration": 62,
+      "address": 40995,
+      "file_offset": 24611,
+      "mask": 1,
+      "original": 32,
+      "decoded": 33
+    },
+    {
+      "iteration": 64,
+      "address": 63942,
+      "file_offset": 47558,
+      "mask": 64,
+      "original": 72,
+      "decoded": 8
+    },
+    {
+      "iteration": 65,
+      "address": 44506,
+      "file_offset": 28122,
+      "mask": 32,
+      "original": 26,
+      "decoded": 58
+    },
+    {
+      "iteration": 66,
+      "address": 48017,
+      "file_offset": 31633,
+      "mask": 16,
+      "original": 205,
+      "decoded": 221
+    },
+    {
+      "iteration": 67,
+      "address": 44337,
+      "file_offset": 27953,
+      "mask": 8,
+      "original": 83,
+      "decoded": 91
+    },
+    {
+      "iteration": 68,
+      "address": 24732,
+      "file_offset": 8348,
+      "mask": 4,
+      "original": 4,
+      "decoded": 0
+    },
+    {
+      "iteration": 69,
+      "address": 27435,
+      "file_offset": 11051,
+      "mask": 1,
+      "original": 136,
+      "decoded": 137
+    },
+    {
+      "iteration": 70,
+      "address": 61870,
+      "file_offset": 45486,
+      "mask": 64,
+      "original": 221,
+      "decoded": 157
+    },
+    {
+      "iteration": 72,
+      "address": 36684,
+      "file_offset": 20300,
+      "mask": 4,
+      "original": 98,
+      "decoded": 102
+    },
+    {
+      "iteration": 73,
+      "address": 26723,
+      "file_offset": 10339,
+      "mask": 1,
+      "original": 102,
+      "decoded": 103
+    },
+    {
+      "iteration": 74,
+      "address": 36937,
+      "file_offset": 20553,
+      "mask": 128,
+      "original": 120,
+      "decoded": 248
+    },
+    {
+      "iteration": 75,
+      "address": 37190,
+      "file_offset": 20806,
+      "mask": 64,
+      "original": 120,
+      "decoded": 56
+    },
+    {
+      "iteration": 76,
+      "address": 54258,
+      "file_offset": 37874,
+      "mask": 32,
+      "original": 205,
+      "decoded": 237
+    },
+    {
+      "iteration": 77,
+      "address": 61113,
+      "file_offset": 44729,
+      "mask": 8,
+      "original": 162,
+      "decoded": 170
+    },
+    {
+      "iteration": 78,
+      "address": 50278,
+      "file_offset": 33894,
+      "mask": 2,
+      "original": 253,
+      "decoded": 255
+    },
+    {
+      "iteration": 79,
+      "address": 41949,
+      "file_offset": 25565,
+      "mask": 128,
+      "original": 132,
+      "decoded": 4
+    },
+    {
+      "iteration": 80,
+      "address": 64398,
+      "file_offset": 48014,
+      "mask": 64,
+      "original": 120,
+      "decoded": 56
+    },
+    {
+      "iteration": 81,
+      "address": 37989,
+      "file_offset": 21605,
+      "mask": 8,
+      "original": 167,
+      "decoded": 175
+    },
+    {
+      "iteration": 82,
+      "address": 53857,
+      "file_offset": 37473,
+      "mask": 128,
+      "original": 131,
+      "decoded": 3
+    },
+    {
+      "iteration": 83,
+      "address": 30598,
+      "file_offset": 14214,
+      "mask": 64,
+      "original": 15,
+      "decoded": 79
+    },
+    {
+      "iteration": 84,
+      "address": 51018,
+      "file_offset": 34634,
+      "mask": 32,
+      "original": 32,
+      "decoded": 0
+    },
+    {
+      "iteration": 85,
+      "address": 23345,
+      "file_offset": 6961,
+      "mask": 16,
+      "original": 23,
+      "decoded": 7
+    },
+    {
+      "iteration": 86,
+      "address": 58369,
+      "file_offset": 41985,
+      "mask": 8,
+      "original": 76,
+      "decoded": 68
+    },
+    {
+      "iteration": 87,
+      "address": 55726,
+      "file_offset": 39342,
+      "mask": 2,
+      "original": 195,
+      "decoded": 193
+    },
+    {
+      "iteration": 89,
+      "address": 46766,
+      "file_offset": 30382,
+      "mask": 32,
+      "original": 18,
+      "decoded": 50
+    },
+    {
+      "iteration": 90,
+      "address": 24077,
+      "file_offset": 7693,
+      "mask": 8,
+      "original": 83,
+      "decoded": 91
+    },
+    {
+      "iteration": 91,
+      "address": 29676,
+      "file_offset": 13292,
+      "mask": 4,
+      "original": 14,
+      "decoded": 10
+    },
+    {
+      "iteration": 92,
+      "address": 55266,
+      "file_offset": 38882,
+      "mask": 32,
+      "original": 1,
+      "decoded": 33
+    },
+    {
+      "iteration": 93,
+      "address": 25249,
+      "file_offset": 8865,
+      "mask": 16,
+      "original": 12,
+      "decoded": 28
+    },
+    {
+      "iteration": 94,
+      "address": 35081,
+      "file_offset": 18697,
+      "mask": 8,
+      "original": 204,
+      "decoded": 196
+    },
+    {
+      "iteration": 95,
+      "address": 48781,
+      "file_offset": 32397,
+      "mask": 128,
+      "original": 41,
+      "decoded": 169
+    },
+    {
+      "iteration": 96,
+      "address": 28558,
+      "file_offset": 12174,
+      "mask": 64,
+      "original": 95,
+      "decoded": 31
+    },
+    {
+      "iteration": 97,
+      "address": 39910,
+      "file_offset": 23526,
+      "mask": 32,
+      "original": 222,
+      "decoded": 254
+    },
+    {
+      "iteration": 98,
+      "address": 26997,
+      "file_offset": 10613,
+      "mask": 8,
+      "original": 91,
+      "decoded": 83
+    },
+    {
+      "iteration": 99,
+      "address": 25436,
+      "file_offset": 9052,
+      "mask": 4,
+      "original": 4,
+      "decoded": 0
+    },
+    {
+      "iteration": 100,
+      "address": 53318,
+      "file_offset": 36934,
+      "mask": 64,
+      "original": 65,
+      "decoded": 1
+    },
+    {
+      "iteration": 101,
+      "address": 30138,
+      "file_offset": 13754,
+      "mask": 32,
+      "original": 247,
+      "decoded": 215
+    },
+    {
+      "iteration": 102,
+      "address": 43473,
+      "file_offset": 27089,
+      "mask": 16,
+      "original": 243,
+      "decoded": 227
+    },
+    {
+      "iteration": 103,
+      "address": 41820,
+      "file_offset": 25436,
+      "mask": 4,
+      "original": 217,
+      "decoded": 221
+    },
+    {
+      "iteration": 104,
+      "address": 53502,
+      "file_offset": 37118,
+      "mask": 2,
+      "original": 96,
+      "decoded": 98
+    },
+    {
+      "iteration": 105,
+      "address": 63531,
+      "file_offset": 47147,
+      "mask": 1,
+      "original": 241,
+      "decoded": 240
+    },
+    {
+      "iteration": 106,
+      "address": 46725,
+      "file_offset": 30341,
+      "mask": 128,
+      "original": 64,
+      "decoded": 192
+    },
+    {
+      "iteration": 108,
+      "address": 49758,
+      "file_offset": 33374,
+      "mask": 32,
+      "original": 161,
+      "decoded": 129
+    },
+    {
+      "iteration": 109,
+      "address": 35985,
+      "file_offset": 19601,
+      "mask": 16,
+      "original": 107,
+      "decoded": 123
+    },
+    {
+      "iteration": 110,
+      "address": 25245,
+      "file_offset": 8861,
+      "mask": 8,
+      "original": 132,
+      "decoded": 140
+    },
+    {
+      "iteration": 111,
+      "address": 64396,
+      "file_offset": 48012,
+      "mask": 4,
+      "original": 250,
+      "decoded": 254
+    },
+    {
+      "iteration": 112,
+      "address": 56547,
+      "file_offset": 40163,
+      "mask": 1,
+      "original": 51,
+      "decoded": 50
+    },
+    {
+      "iteration": 113,
+      "address": 45766,
+      "file_offset": 29382,
+      "mask": 64,
+      "original": 57,
+      "decoded": 121
+    },
+    {
+      "iteration": 114,
+      "address": 33985,
+      "file_offset": 17601,
+      "mask": 16,
+      "original": 176,
+      "decoded": 160
+    },
+    {
+      "iteration": 115,
+      "address": 45657,
+      "file_offset": 29273,
+      "mask": 8,
+      "original": 213,
+      "decoded": 221
+    },
+    {
+      "iteration": 116,
+      "address": 45548,
+      "file_offset": 29164,
+      "mask": 4,
+      "original": 28,
+      "decoded": 24
+    },
+    {
+      "iteration": 117,
+      "address": 57675,
+      "file_offset": 41291,
+      "mask": 1,
+      "original": 16,
+      "decoded": 17
+    },
+    {
+      "iteration": 118,
+      "address": 28302,
+      "file_offset": 11918,
+      "mask": 64,
+      "original": 5,
+      "decoded": 69
+    },
+    {
+      "iteration": 119,
+      "address": 43542,
+      "file_offset": 27158,
+      "mask": 32,
+      "original": 209,
+      "decoded": 241
+    },
+    {
+      "iteration": 120,
+      "address": 29409,
+      "file_offset": 13025,
+      "mask": 16,
+      "original": 8,
+      "decoded": 24
+    },
+    {
+      "iteration": 121,
+      "address": 54661,
+      "file_offset": 38277,
+      "mask": 8,
+      "original": 56,
+      "decoded": 48
+    },
+    {
+      "iteration": 123,
+      "address": 32833,
+      "file_offset": 16449,
+      "mask": 128,
+      "original": 95,
+      "decoded": 223
+    },
+    {
+      "iteration": 124,
+      "address": 50182,
+      "file_offset": 33798,
+      "mask": 64,
+      "original": 64,
+      "decoded": 0
+    },
+    {
+      "iteration": 125,
+      "address": 47402,
+      "file_offset": 31018,
+      "mask": 32,
+      "original": 151,
+      "decoded": 183
+    },
+    {
+      "iteration": 126,
+      "address": 63822,
+      "file_offset": 47438,
+      "mask": 2,
+      "original": 114,
+      "decoded": 112
+    },
+    {
+      "iteration": 127,
+      "address": 43819,
+      "file_offset": 27435,
+      "mask": 1,
+      "original": 212,
+      "decoded": 213
+    },
+    {
+      "iteration": 128,
+      "address": 29454,
+      "file_offset": 13070,
+      "mask": 32,
+      "original": 107,
+      "decoded": 75
+    },
+    {
+      "iteration": 129,
+      "address": 55626,
+      "file_offset": 39242,
+      "mask": 2,
+      "original": 207,
+      "decoded": 205
+    },
+    {
+      "iteration": 130,
+      "address": 30627,
+      "file_offset": 14243,
+      "mask": 1,
+      "original": 216,
+      "decoded": 217
+    },
+    {
+      "iteration": 131,
+      "address": 49433,
+      "file_offset": 33049,
+      "mask": 128,
+      "original": 128,
+      "decoded": 0
+    },
+    {
+      "iteration": 132,
+      "address": 23558,
+      "file_offset": 7174,
+      "mask": 64,
+      "original": 192,
+      "decoded": 128
+    },
+    {
+      "iteration": 133,
+      "address": 57026,
+      "file_offset": 40642,
+      "mask": 32,
+      "original": 6,
+      "decoded": 38
+    },
+    {
+      "iteration": 135,
+      "address": 38038,
+      "file_offset": 21654,
+      "mask": 2,
+      "original": 74,
+      "decoded": 72
+    },
+    {
+      "iteration": 136,
+      "address": 58155,
+      "file_offset": 41771,
+      "mask": 1,
+      "original": 14,
+      "decoded": 15
+    },
+    {
+      "iteration": 137,
+      "address": 64365,
+      "file_offset": 47981,
+      "mask": 128,
+      "original": 192,
+      "decoded": 64
+    },
+    {
+      "iteration": 138,
+      "address": 48430,
+      "file_offset": 32046,
+      "mask": 64,
+      "original": 244,
+      "decoded": 180
+    },
+    {
+      "iteration": 139,
+      "address": 58822,
+      "file_offset": 42438,
+      "mask": 32,
+      "original": 58,
+      "decoded": 26
+    },
+    {
+      "iteration": 140,
+      "address": 59489,
+      "file_offset": 43105,
+      "mask": 16,
+      "original": 118,
+      "decoded": 102
+    },
+    {
+      "iteration": 141,
+      "address": 54613,
+      "file_offset": 38229,
+      "mask": 8,
+      "original": 22,
+      "decoded": 30
+    },
+    {
+      "iteration": 142,
+      "address": 60796,
+      "file_offset": 44412,
+      "mask": 4,
+      "original": 201,
+      "decoded": 205
+    },
+    {
+      "iteration": 143,
+      "address": 62770,
+      "file_offset": 46386,
+      "mask": 2,
+      "original": 82,
+      "decoded": 80
+    },
+    {
+      "iteration": 144,
+      "address": 28646,
+      "file_offset": 12262,
+      "mask": 64,
+      "original": 240,
+      "decoded": 176
+    },
+    {
+      "iteration": 145,
+      "address": 60058,
+      "file_offset": 43674,
+      "mask": 32,
+      "original": 245,
+      "decoded": 213
+    },
+    {
+      "iteration": 146,
+      "address": 54065,
+      "file_offset": 37681,
+      "mask": 16,
+      "original": 75,
+      "decoded": 91
+    },
+    {
+      "iteration": 147,
+      "address": 30641,
+      "file_offset": 14257,
+      "mask": 8,
+      "original": 239,
+      "decoded": 231
+    },
+    {
+      "iteration": 148,
+      "address": 32636,
+      "file_offset": 16252,
+      "mask": 4,
+      "original": 54,
+      "decoded": 50
+    },
+    {
+      "iteration": 149,
+      "address": 59214,
+      "file_offset": 42830,
+      "mask": 64,
+      "original": 167,
+      "decoded": 231
+    },
+    {
+      "iteration": 150,
+      "address": 47678,
+      "file_offset": 31294,
+      "mask": 32,
+      "original": 233,
+      "decoded": 201
+    },
+    {
+      "iteration": 151,
+      "address": 41242,
+      "file_offset": 24858,
+      "mask": 2,
+      "original": 26,
+      "decoded": 24
+    },
+    {
+      "iteration": 152,
+      "address": 62386,
+      "file_offset": 46002,
+      "mask": 32,
+      "original": 108,
+      "decoded": 76
+    },
+    {
+      "iteration": 153,
+      "address": 50209,
+      "file_offset": 33825,
+      "mask": 16,
+      "original": 176,
+      "decoded": 160
+    },
+    {
+      "iteration": 154,
+      "address": 43110,
+      "file_offset": 26726,
+      "mask": 2,
+      "original": 173,
+      "decoded": 175
+    },
+    {
+      "iteration": 155,
+      "address": 36011,
+      "file_offset": 19627,
+      "mask": 1,
+      "original": 41,
+      "decoded": 40
+    },
+    {
+      "iteration": 157,
+      "address": 61430,
+      "file_offset": 45046,
+      "mask": 32,
+      "original": 16,
+      "decoded": 48
+    },
+    {
+      "iteration": 158,
+      "address": 55653,
+      "file_offset": 39269,
+      "mask": 8,
+      "original": 8,
+      "decoded": 0
+    },
+    {
+      "iteration": 159,
+      "address": 26268,
+      "file_offset": 9884,
+      "mask": 4,
+      "original": 59,
+      "decoded": 63
+    },
+    {
+      "iteration": 160,
+      "address": 56642,
+      "file_offset": 40258,
+      "mask": 2,
+      "original": 207,
+      "decoded": 205
+    },
+    {
+      "iteration": 161,
+      "address": 26435,
+      "file_offset": 10051,
+      "mask": 1,
+      "original": 152,
+      "decoded": 153
+    },
+    {
+      "iteration": 162,
+      "address": 62753,
+      "file_offset": 46369,
+      "mask": 128,
+      "original": 160,
+      "decoded": 32
+    },
+    {
+      "iteration": 163,
+      "address": 33702,
+      "file_offset": 17318,
+      "mask": 64,
+      "original": 97,
+      "decoded": 33
+    },
+    {
+      "iteration": 164,
+      "address": 60625,
+      "file_offset": 44241,
+      "mask": 16,
+      "original": 244,
+      "decoded": 228
+    },
+    {
+      "iteration": 165,
+      "address": 58497,
+      "file_offset": 42113,
+      "mask": 8,
+      "original": 208,
+      "decoded": 216
+    },
+    {
+      "iteration": 166,
+      "address": 24750,
+      "file_offset": 8366,
+      "mask": 2,
+      "original": 2,
+      "decoded": 0
+    },
+    {
+      "iteration": 167,
+      "address": 54411,
+      "file_offset": 38027,
+      "mask": 1,
+      "original": 194,
+      "decoded": 195
+    },
+    {
+      "iteration": 168,
+      "address": 50325,
+      "file_offset": 33941,
+      "mask": 128,
+      "original": 144,
+      "decoded": 16
+    },
+    {
+      "iteration": 169,
+      "address": 31057,
+      "file_offset": 14673,
+      "mask": 16,
+      "original": 56,
+      "decoded": 40
+    },
+    {
+      "iteration": 170,
+      "address": 39427,
+      "file_offset": 23043,
+      "mask": 1,
+      "original": 255,
+      "decoded": 254
+    },
+    {
+      "iteration": 171,
+      "address": 62374,
+      "file_offset": 45990,
+      "mask": 64,
+      "original": 80,
+      "decoded": 16
+    },
+    {
+      "iteration": 172,
+      "address": 56738,
+      "file_offset": 40354,
+      "mask": 32,
+      "original": 64,
+      "decoded": 96
+    },
+    {
+      "iteration": 173,
+      "address": 34156,
+      "file_offset": 17772,
+      "mask": 4,
+      "original": 10,
+      "decoded": 14
+    },
+    {
+      "iteration": 174,
+      "address": 58926,
+      "file_offset": 42542,
+      "mask": 64,
+      "original": 57,
+      "decoded": 121
+    },
+    {
+      "iteration": 175,
+      "address": 40742,
+      "file_offset": 24358,
+      "mask": 32,
+      "original": 241,
+      "decoded": 209
+    },
+    {
+      "iteration": 176,
+      "address": 54389,
+      "file_offset": 38005,
+      "mask": 8,
+      "original": 8,
+      "decoded": 0
+    },
+    {
+      "iteration": 177,
+      "address": 49852,
+      "file_offset": 33468,
+      "mask": 4,
+      "original": 251,
+      "decoded": 255
+    },
+    {
+      "iteration": 178,
+      "address": 58962,
+      "file_offset": 42578,
+      "mask": 2,
+      "original": 80,
+      "decoded": 82
+    },
+    {
+      "iteration": 179,
+      "address": 51075,
+      "file_offset": 34691,
+      "mask": 1,
+      "original": 254,
+      "decoded": 255
+    },
+    {
+      "iteration": 180,
+      "address": 47761,
+      "file_offset": 31377,
+      "mask": 128,
+      "original": 247,
+      "decoded": 119
+    },
+    {
+      "iteration": 181,
+      "address": 45670,
+      "file_offset": 29286,
+      "mask": 64,
+      "original": 71,
+      "decoded": 7
+    },
+    {
+      "iteration": 182,
+      "address": 32378,
+      "file_offset": 15994,
+      "mask": 32,
+      "original": 137,
+      "decoded": 169
+    },
+    {
+      "iteration": 183,
+      "address": 45137,
+      "file_offset": 28753,
+      "mask": 8,
+      "original": 112,
+      "decoded": 120
+    },
+    {
+      "iteration": 184,
+      "address": 44604,
+      "file_offset": 28220,
+      "mask": 4,
+      "original": 2,
+      "decoded": 6
+    },
+    {
+      "iteration": 185,
+      "address": 56830,
+      "file_offset": 40446,
+      "mask": 2,
+      "original": 108,
+      "decoded": 110
+    },
+    {
+      "iteration": 186,
+      "address": 34443,
+      "file_offset": 18059,
+      "mask": 1,
+      "original": 32,
+      "decoded": 33
+    },
+    {
+      "iteration": 187,
+      "address": 23749,
+      "file_offset": 7365,
+      "mask": 128,
+      "original": 152,
+      "decoded": 24
+    },
+    {
+      "iteration": 188,
+      "address": 60081,
+      "file_offset": 43697,
+      "mask": 16,
+      "original": 0,
+      "decoded": 16
+    },
+    {
+      "iteration": 189,
+      "address": 30877,
+      "file_offset": 14493,
+      "mask": 8,
+      "original": 27,
+      "decoded": 19
+    },
+    {
+      "iteration": 190,
+      "address": 58860,
+      "file_offset": 42476,
+      "mask": 4,
+      "original": 39,
+      "decoded": 35
+    },
+    {
+      "iteration": 191,
+      "address": 37690,
+      "file_offset": 21306,
+      "mask": 2,
+      "original": 63,
+      "decoded": 61
+    },
+    {
+      "iteration": 192,
+      "address": 65257,
+      "file_offset": 48873,
+      "mask": 128,
+      "original": 138,
+      "decoded": 10
+    },
+    {
+      "iteration": 193,
+      "address": 40082,
+      "file_offset": 23698,
+      "mask": 32,
+      "original": 32,
+      "decoded": 0
+    },
+    {
+      "iteration": 194,
+      "address": 64865,
+      "file_offset": 48481,
+      "mask": 16,
+      "original": 82,
+      "decoded": 66
+    },
+    {
+      "iteration": 195,
+      "address": 64473,
+      "file_offset": 48089,
+      "mask": 8,
+      "original": 35,
+      "decoded": 43
+    },
+    {
+      "iteration": 196,
+      "address": 57292,
+      "file_offset": 40908,
+      "mask": 4,
+      "original": 253,
+      "decoded": 249
+    },
+    {
+      "iteration": 197,
+      "address": 38269,
+      "file_offset": 21885,
+      "mask": 128,
+      "original": 255,
+      "decoded": 127
+    },
+    {
+      "iteration": 198,
+      "address": 29526,
+      "file_offset": 13142,
+      "mask": 32,
+      "original": 48,
+      "decoded": 16
+    },
+    {
+      "iteration": 199,
+      "address": 40449,
+      "file_offset": 24065,
+      "mask": 16,
+      "original": 246,
+      "decoded": 230
+    },
+    {
+      "iteration": 200,
+      "address": 42629,
+      "file_offset": 26245,
+      "mask": 8,
+      "original": 193,
+      "decoded": 201
+    },
+    {
+      "iteration": 201,
+      "address": 36962,
+      "file_offset": 20578,
+      "mask": 2,
+      "original": 29,
+      "decoded": 31
+    },
+    {
+      "iteration": 202,
+      "address": 33475,
+      "file_offset": 17091,
+      "mask": 1,
+      "original": 22,
+      "decoded": 23
+    },
+    {
+      "iteration": 203,
+      "address": 24321,
+      "file_offset": 7937,
+      "mask": 128,
+      "original": 174,
+      "decoded": 46
+    },
+    {
+      "iteration": 204,
+      "address": 48166,
+      "file_offset": 31782,
+      "mask": 64,
+      "original": 239,
+      "decoded": 175
+    },
+    {
+      "iteration": 205,
+      "address": 59370,
+      "file_offset": 42986,
+      "mask": 32,
+      "original": 10,
+      "decoded": 42
+    },
+    {
+      "iteration": 206,
+      "address": 47644,
+      "file_offset": 31260,
+      "mask": 4,
+      "original": 249,
+      "decoded": 253
+    },
+    {
+      "iteration": 207,
+      "address": 35918,
+      "file_offset": 19534,
+      "mask": 2,
+      "original": 143,
+      "decoded": 141
+    },
+    {
+      "iteration": 209,
+      "address": 23541,
+      "file_offset": 7157,
+      "mask": 128,
+      "original": 135,
+      "decoded": 7
+    },
+    {
+      "iteration": 210,
+      "address": 64974,
+      "file_offset": 48590,
+      "mask": 64,
+      "original": 9,
+      "decoded": 73
+    },
+    {
+      "iteration": 211,
+      "address": 28494,
+      "file_offset": 12110,
+      "mask": 32,
+      "original": 24,
+      "decoded": 56
+    },
+    {
+      "iteration": 213,
+      "address": 38540,
+      "file_offset": 22156,
+      "mask": 4,
+      "original": 54,
+      "decoded": 50
+    },
+    {
+      "iteration": 214,
+      "address": 48586,
+      "file_offset": 32202,
+      "mask": 2,
+      "original": 225,
+      "decoded": 227
+    },
+    {
+      "iteration": 215,
+      "address": 26755,
+      "file_offset": 10371,
+      "mask": 1,
+      "original": 59,
+      "decoded": 58
+    },
+    {
+      "iteration": 216,
+      "address": 30502,
+      "file_offset": 14118,
+      "mask": 64,
+      "original": 224,
+      "decoded": 160
+    },
+    {
+      "iteration": 217,
+      "address": 63617,
+      "file_offset": 47233,
+      "mask": 16,
+      "original": 16,
+      "decoded": 0
+    },
+    {
+      "iteration": 218,
+      "address": 59945,
+      "file_offset": 43561,
+      "mask": 8,
+      "original": 9,
+      "decoded": 1
+    },
+    {
+      "iteration": 219,
+      "address": 23852,
+      "file_offset": 7468,
+      "mask": 4,
+      "original": 4,
+      "decoded": 0
+    },
+    {
+      "iteration": 220,
+      "address": 35286,
+      "file_offset": 18902,
+      "mask": 2,
+      "original": 122,
+      "decoded": 120
+    },
+    {
+      "iteration": 221,
+      "address": 60550,
+      "file_offset": 44166,
+      "mask": 32,
+      "original": 246,
+      "decoded": 214
+    },
+    {
+      "iteration": 222,
+      "address": 48609,
+      "file_offset": 32225,
+      "mask": 16,
+      "original": 19,
+      "decoded": 3
+    },
+    {
+      "iteration": 223,
+      "address": 23410,
+      "file_offset": 7026,
+      "mask": 2,
+      "original": 5,
+      "decoded": 7
+    },
+    {
+      "iteration": 224,
+      "address": 63747,
+      "file_offset": 47363,
+      "mask": 1,
+      "original": 1,
+      "decoded": 0
+    },
+    {
+      "iteration": 225,
+      "address": 49777,
+      "file_offset": 33393,
+      "mask": 128,
+      "original": 192,
+      "decoded": 64
+    },
+    {
+      "iteration": 226,
+      "address": 24806,
+      "file_offset": 8422,
+      "mask": 64,
+      "original": 64,
+      "decoded": 0
+    },
+    {
+      "iteration": 227,
+      "address": 26202,
+      "file_offset": 9818,
+      "mask": 32,
+      "original": 23,
+      "decoded": 55
+    },
+    {
+      "iteration": 228,
+      "address": 54193,
+      "file_offset": 37809,
+      "mask": 16,
+      "original": 222,
+      "decoded": 206
+    },
+    {
+      "iteration": 229,
+      "address": 58609,
+      "file_offset": 42225,
+      "mask": 8,
+      "original": 10,
+      "decoded": 2
+    },
+    {
+      "iteration": 230,
+      "address": 26876,
+      "file_offset": 10492,
+      "mask": 4,
+      "original": 109,
+      "decoded": 105
+    },
+    {
+      "iteration": 231,
+      "address": 27550,
+      "file_offset": 11166,
+      "mask": 2,
+      "original": 75,
+      "decoded": 73
+    },
+    {
+      "iteration": 232,
+      "address": 56142,
+      "file_offset": 39758,
+      "mask": 64,
+      "original": 125,
+      "decoded": 61
+    },
+    {
+      "iteration": 233,
+      "address": 37489,
+      "file_offset": 21105,
+      "mask": 16,
+      "original": 219,
+      "decoded": 203
+    },
+    {
+      "iteration": 234,
+      "address": 32835,
+      "file_offset": 16451,
+      "mask": 1,
+      "original": 33,
+      "decoded": 32
+    },
+    {
+      "iteration": 235,
+      "address": 64969,
+      "file_offset": 48585,
+      "mask": 128,
+      "original": 205,
+      "decoded": 77
+    },
+    {
+      "iteration": 236,
+      "address": 53606,
+      "file_offset": 37222,
+      "mask": 64,
+      "original": 150,
+      "decoded": 214
+    },
+    {
+      "iteration": 237,
+      "address": 39282,
+      "file_offset": 22898,
+      "mask": 32,
+      "original": 48,
+      "decoded": 16
+    },
+    {
+      "iteration": 238,
+      "address": 45729,
+      "file_offset": 29345,
+      "mask": 16,
+      "original": 208,
+      "decoded": 192
+    },
+    {
+      "iteration": 239,
+      "address": 26489,
+      "file_offset": 10105,
+      "mask": 8,
+      "original": 16,
+      "decoded": 24
+    },
+    {
+      "iteration": 240,
+      "address": 64908,
+      "file_offset": 48524,
+      "mask": 4,
+      "original": 9,
+      "decoded": 13
+    },
+    {
+      "iteration": 241,
+      "address": 24998,
+      "file_offset": 8614,
+      "mask": 2,
+      "original": 96,
+      "decoded": 98
+    },
+    {
+      "iteration": 242,
+      "address": 47581,
+      "file_offset": 31197,
+      "mask": 128,
+      "original": 155,
+      "decoded": 27
+    },
+    {
+      "iteration": 243,
+      "address": 30254,
+      "file_offset": 13870,
+      "mask": 64,
+      "original": 96,
+      "decoded": 32
+    },
+    {
+      "iteration": 244,
+      "address": 35510,
+      "file_offset": 19126,
+      "mask": 32,
+      "original": 253,
+      "decoded": 221
+    },
+    {
+      "iteration": 245,
+      "address": 51074,
+      "file_offset": 34690,
+      "mask": 2,
+      "original": 253,
+      "decoded": 255
+    },
+    {
+      "iteration": 246,
+      "address": 35395,
+      "file_offset": 19011,
+      "mask": 1,
+      "original": 32,
+      "decoded": 33
+    },
+    {
+      "iteration": 247,
+      "address": 50401,
+      "file_offset": 34017,
+      "mask": 128,
+      "original": 47,
+      "decoded": 175
+    },
+    {
+      "iteration": 248,
+      "address": 24742,
+      "file_offset": 8358,
+      "mask": 64,
+      "original": 64,
+      "decoded": 0
+    },
+    {
+      "iteration": 249,
+      "address": 63946,
+      "file_offset": 47562,
+      "mask": 32,
+      "original": 143,
+      "decoded": 175
+    },
+    {
+      "iteration": 250,
+      "address": 26961,
+      "file_offset": 10577,
+      "mask": 16,
+      "original": 8,
+      "decoded": 24
+    },
+    {
+      "iteration": 251,
+      "address": 47836,
+      "file_offset": 31452,
+      "mask": 4,
+      "original": 201,
+      "decoded": 205
+    },
+    {
+      "iteration": 252,
+      "address": 31726,
+      "file_offset": 15342,
+      "mask": 2,
+      "original": 93,
+      "decoded": 95
+    },
+    {
+      "iteration": 253,
+      "address": 36491,
+      "file_offset": 20107,
+      "mask": 1,
+      "original": 250,
+      "decoded": 251
+    },
+    {
+      "iteration": 254,
+      "address": 25550,
+      "file_offset": 9166,
+      "mask": 64,
+      "original": 64,
+      "decoded": 0
+    },
+    {
+      "iteration": 255,
+      "address": 41164,
+      "file_offset": 24780,
+      "mask": 4,
+      "original": 5,
+      "decoded": 1
+    }
+  ],
+  "disk_patches": [
+    {
+      "iteration": 0,
+      "address": 27297,
+      "file_offset": 10913,
+      "mask": 128,
+      "original": 255,
+      "decoded": 127
+    },
+    {
+      "iteration": 1,
+      "address": 57226,
+      "file_offset": 40842,
+      "mask": 32,
+      "original": 24,
+      "decoded": 56
+    },
+    {
+      "iteration": 2,
+      "address": 46769,
+      "file_offset": 30385,
+      "mask": 16,
+      "original": 42,
+      "decoded": 58
+    },
+    {
+      "iteration": 3,
+      "address": 58108,
+      "file_offset": 41724,
+      "mask": 4,
+      "original": 2,
+      "decoded": 6
+    },
+    {
+      "iteration": 4,
+      "address": 58990,
+      "file_offset": 42606,
+      "mask": 2,
+      "original": 58,
+      "decoded": 56
+    },
+    {
+      "iteration": 5,
+      "address": 28718,
+      "file_offset": 12334,
+      "mask": 64,
+      "original": 79,
+      "decoded": 15
+    },
+    {
+      "iteration": 6,
+      "address": 63982,
+      "file_offset": 47598,
+      "mask": 32,
+      "original": 197,
+      "decoded": 229
+    },
+    {
+      "iteration": 7,
+      "address": 56753,
+      "file_offset": 40369,
+      "mask": 16,
+      "original": 111,
+      "decoded": 127
+    },
+    {
+      "iteration": 8,
+      "address": 37325,
+      "file_offset": 20941,
+      "mask": 8,
+      "original": 120,
+      "decoded": 112
+    },
+    {
+      "iteration": 9,
+      "address": 45932,
+      "file_offset": 29548,
+      "mask": 4,
+      "original": 201,
+      "decoded": 205
+    },
+    {
+      "iteration": 10,
+      "address": 27882,
+      "file_offset": 11498,
+      "mask": 2,
+      "original": 42,
+      "decoded": 40
+    },
+    {
+      "iteration": 11,
+      "address": 64547,
+      "file_offset": 48163,
+      "mask": 1,
+      "original": 25,
+      "decoded": 24
+    },
+    {
+      "iteration": 12,
+      "address": 26233,
+      "file_offset": 9849,
+      "mask": 128,
+      "original": 143,
+      "decoded": 15
+    },
+    {
+      "iteration": 13,
+      "address": 50722,
+      "file_offset": 34338,
+      "mask": 32,
+      "original": 33,
+      "decoded": 1
+    },
+    {
+      "iteration": 14,
+      "address": 36897,
+      "file_offset": 20513,
+      "mask": 16,
+      "original": 48,
+      "decoded": 32
+    },
+    {
+      "iteration": 15,
+      "address": 47561,
+      "file_offset": 31177,
+      "mask": 8,
+      "original": 213,
+      "decoded": 221
+    },
+    {
+      "iteration": 16,
+      "address": 60918,
+      "file_offset": 44534,
+      "mask": 2,
+      "original": 5,
+      "decoded": 7
+    },
+    {
+      "iteration": 17,
+      "address": 56781,
+      "file_offset": 40397,
+      "mask": 128,
+      "original": 130,
+      "decoded": 2
+    },
+    {
+      "iteration": 18,
+      "address": 24974,
+      "file_offset": 8590,
+      "mask": 64,
+      "original": 34,
+      "decoded": 98
+    },
+    {
+      "iteration": 19,
+      "address": 54566,
+      "file_offset": 38182,
+      "mask": 32,
+      "original": 246,
+      "decoded": 214
+    },
+    {
+      "iteration": 20,
+      "address": 24193,
+      "file_offset": 7809,
+      "mask": 16,
+      "original": 42,
+      "decoded": 58
+    },
+    {
+      "iteration": 21,
+      "address": 57141,
+      "file_offset": 40757,
+      "mask": 8,
+      "original": 211,
+      "decoded": 219
+    },
+    {
+      "iteration": 22,
+      "address": 23772,
+      "file_offset": 7388,
+      "mask": 4,
+      "original": 4,
+      "decoded": 0
+    },
+    {
+      "iteration": 23,
+      "address": 58514,
+      "file_offset": 42130,
+      "mask": 2,
+      "original": 60,
+      "decoded": 62
+    },
+    {
+      "iteration": 24,
+      "address": 27299,
+      "file_offset": 10915,
+      "mask": 1,
+      "original": 142,
+      "decoded": 143
+    },
+    {
+      "iteration": 25,
+      "address": 62993,
+      "file_offset": 46609,
+      "mask": 128,
+      "original": 215,
+      "decoded": 87
+    },
+    {
+      "iteration": 26,
+      "address": 36678,
+      "file_offset": 20294,
+      "mask": 64,
+      "original": 90,
+      "decoded": 26
+    },
+    {
+      "iteration": 27,
+      "address": 43484,
+      "file_offset": 27100,
+      "mask": 4,
+      "original": 144,
+      "decoded": 148
+    },
+    {
+      "iteration": 28,
+      "address": 50606,
+      "file_offset": 34222,
+      "mask": 64,
+      "original": 64,
+      "decoded": 0
+    },
+    {
+      "iteration": 29,
+      "address": 29086,
+      "file_offset": 12702,
+      "mask": 32,
+      "original": 26,
+      "decoded": 58
+    },
+    {
+      "iteration": 30,
+      "address": 47377,
+      "file_offset": 30993,
+      "mask": 16,
+      "original": 167,
+      "decoded": 183
+    },
+    {
+      "iteration": 31,
+      "address": 44812,
+      "file_offset": 28428,
+      "mask": 4,
+      "original": 249,
+      "decoded": 253
+    },
+    {
+      "iteration": 32,
+      "address": 60538,
+      "file_offset": 44154,
+      "mask": 2,
+      "original": 210,
+      "decoded": 208
+    },
+    {
+      "iteration": 33,
+      "address": 23494,
+      "file_offset": 7110,
+      "mask": 64,
+      "original": 87,
+      "decoded": 23
+    },
+    {
+      "iteration": 35,
+      "address": 30273,
+      "file_offset": 13889,
+      "mask": 16,
+      "original": 34,
+      "decoded": 50
+    },
+    {
+      "iteration": 36,
+      "address": 59161,
+      "file_offset": 42777,
+      "mask": 8,
+      "original": 197,
+      "decoded": 205
+    },
+    {
+      "iteration": 37,
+      "address": 29292,
+      "file_offset": 12908,
+      "mask": 4,
+      "original": 62,
+      "decoded": 58
+    },
+    {
+      "iteration": 38,
+      "address": 48459,
+      "file_offset": 32075,
+      "mask": 1,
+      "original": 37,
+      "decoded": 36
+    },
+    {
+      "iteration": 39,
+      "address": 37757,
+      "file_offset": 21373,
+      "mask": 128,
+      "original": 178,
+      "decoded": 50
+    },
+    {
+      "iteration": 40,
+      "address": 46222,
+      "file_offset": 29838,
+      "mask": 64,
+      "original": 64,
+      "decoded": 0
+    },
+    {
+      "iteration": 41,
+      "address": 57697,
+      "file_offset": 41313,
+      "mask": 16,
+      "original": 206,
+      "decoded": 222
+    },
+    {
+      "iteration": 42,
+      "address": 43516,
+      "file_offset": 27132,
+      "mask": 4,
+      "original": 36,
+      "decoded": 32
+    },
+    {
+      "iteration": 43,
+      "address": 38662,
+      "file_offset": 22278,
+      "mask": 64,
+      "original": 112,
+      "decoded": 48
+    },
+    {
+      "iteration": 44,
+      "address": 54204,
+      "file_offset": 37820,
+      "mask": 4,
+      "original": 163,
+      "decoded": 167
+    },
+    {
+      "iteration": 45,
+      "address": 32270,
+      "file_offset": 15886,
+      "mask": 2,
+      "original": 80,
+      "decoded": 82
+    },
+    {
+      "iteration": 46,
+      "address": 53547,
+      "file_offset": 37163,
+      "mask": 1,
+      "original": 208,
+      "decoded": 209
+    },
+    {
+      "iteration": 47,
+      "address": 27893,
+      "file_offset": 11509,
+      "mask": 128,
+      "original": 136,
+      "decoded": 8
+    },
+    {
+      "iteration": 48,
+      "address": 36430,
+      "file_offset": 20046,
+      "mask": 32,
+      "original": 18,
+      "decoded": 50
+    },
+    {
+      "iteration": 50,
+      "address": 29529,
+      "file_offset": 13145,
+      "mask": 128,
+      "original": 199,
+      "decoded": 71
+    },
+    {
+      "iteration": 51,
+      "address": 39174,
+      "file_offset": 22790,
+      "mask": 64,
+      "original": 55,
+      "decoded": 119
+    },
+    {
+      "iteration": 52,
+      "address": 31585,
+      "file_offset": 15201,
+      "mask": 16,
+      "original": 52,
+      "decoded": 36
+    },
+    {
+      "iteration": 53,
+      "address": 33641,
+      "file_offset": 17257,
+      "mask": 8,
+      "original": 195,
+      "decoded": 203
+    },
+    {
+      "iteration": 54,
+      "address": 28108,
+      "file_offset": 11724,
+      "mask": 4,
+      "original": 154,
+      "decoded": 158
+    },
+    {
+      "iteration": 55,
+      "address": 46742,
+      "file_offset": 30358,
+      "mask": 2,
+      "original": 13,
+      "decoded": 15
+    },
+    {
+      "iteration": 56,
+      "address": 61899,
+      "file_offset": 45515,
+      "mask": 1,
+      "original": 144,
+      "decoded": 145
+    },
+    {
+      "iteration": 57,
+      "address": 24621,
+      "file_offset": 8237,
+      "mask": 128,
+      "original": 145,
+      "decoded": 17
+    },
+    {
+      "iteration": 58,
+      "address": 61062,
+      "file_offset": 44678,
+      "mask": 32,
+      "original": 37,
+      "decoded": 5
+    },
+    {
+      "iteration": 59,
+      "address": 60225,
+      "file_offset": 43841,
+      "mask": 16,
+      "original": 9,
+      "decoded": 25
+    },
+    {
+      "iteration": 60,
+      "address": 30293,
+      "file_offset": 13909,
+      "mask": 8,
+      "original": 54,
+      "decoded": 62
+    },
+    {
+      "iteration": 61,
+      "address": 39452,
+      "file_offset": 23068,
+      "mask": 4,
+      "original": 22,
+      "decoded": 18
+    },
+    {
+      "iteration": 62,
+      "address": 40995,
+      "file_offset": 24611,
+      "mask": 1,
+      "original": 32,
+      "decoded": 33
+    },
+    {
+      "iteration": 64,
+      "address": 63942,
+      "file_offset": 47558,
+      "mask": 64,
+      "original": 72,
+      "decoded": 8
+    },
+    {
+      "iteration": 65,
+      "address": 44506,
+      "file_offset": 28122,
+      "mask": 32,
+      "original": 26,
+      "decoded": 58
+    },
+    {
+      "iteration": 66,
+      "address": 48017,
+      "file_offset": 31633,
+      "mask": 16,
+      "original": 205,
+      "decoded": 221
+    },
+    {
+      "iteration": 67,
+      "address": 44337,
+      "file_offset": 27953,
+      "mask": 8,
+      "original": 83,
+      "decoded": 91
+    },
+    {
+      "iteration": 68,
+      "address": 24732,
+      "file_offset": 8348,
+      "mask": 4,
+      "original": 4,
+      "decoded": 0
+    },
+    {
+      "iteration": 69,
+      "address": 27435,
+      "file_offset": 11051,
+      "mask": 1,
+      "original": 136,
+      "decoded": 137
+    },
+    {
+      "iteration": 70,
+      "address": 61870,
+      "file_offset": 45486,
+      "mask": 64,
+      "original": 221,
+      "decoded": 157
+    },
+    {
+      "iteration": 72,
+      "address": 36684,
+      "file_offset": 20300,
+      "mask": 4,
+      "original": 98,
+      "decoded": 102
+    },
+    {
+      "iteration": 73,
+      "address": 26723,
+      "file_offset": 10339,
+      "mask": 1,
+      "original": 102,
+      "decoded": 103
+    },
+    {
+      "iteration": 74,
+      "address": 36937,
+      "file_offset": 20553,
+      "mask": 128,
+      "original": 120,
+      "decoded": 248
+    },
+    {
+      "iteration": 75,
+      "address": 37190,
+      "file_offset": 20806,
+      "mask": 64,
+      "original": 120,
+      "decoded": 56
+    },
+    {
+      "iteration": 76,
+      "address": 54258,
+      "file_offset": 37874,
+      "mask": 32,
+      "original": 205,
+      "decoded": 237
+    },
+    {
+      "iteration": 77,
+      "address": 61113,
+      "file_offset": 44729,
+      "mask": 8,
+      "original": 162,
+      "decoded": 170
+    },
+    {
+      "iteration": 78,
+      "address": 50278,
+      "file_offset": 33894,
+      "mask": 2,
+      "original": 253,
+      "decoded": 255
+    },
+    {
+      "iteration": 79,
+      "address": 41949,
+      "file_offset": 25565,
+      "mask": 128,
+      "original": 132,
+      "decoded": 4
+    },
+    {
+      "iteration": 80,
+      "address": 64398,
+      "file_offset": 48014,
+      "mask": 64,
+      "original": 120,
+      "decoded": 56
+    },
+    {
+      "iteration": 81,
+      "address": 37989,
+      "file_offset": 21605,
+      "mask": 8,
+      "original": 167,
+      "decoded": 175
+    },
+    {
+      "iteration": 82,
+      "address": 53857,
+      "file_offset": 37473,
+      "mask": 128,
+      "original": 131,
+      "decoded": 3
+    },
+    {
+      "iteration": 83,
+      "address": 30598,
+      "file_offset": 14214,
+      "mask": 64,
+      "original": 15,
+      "decoded": 79
+    },
+    {
+      "iteration": 84,
+      "address": 51018,
+      "file_offset": 34634,
+      "mask": 32,
+      "original": 32,
+      "decoded": 0
+    },
+    {
+      "iteration": 85,
+      "address": 23345,
+      "file_offset": 6961,
+      "mask": 16,
+      "original": 23,
+      "decoded": 7
+    },
+    {
+      "iteration": 86,
+      "address": 58369,
+      "file_offset": 41985,
+      "mask": 8,
+      "original": 76,
+      "decoded": 68
+    },
+    {
+      "iteration": 87,
+      "address": 55726,
+      "file_offset": 39342,
+      "mask": 2,
+      "original": 195,
+      "decoded": 193
+    },
+    {
+      "iteration": 89,
+      "address": 46766,
+      "file_offset": 30382,
+      "mask": 32,
+      "original": 18,
+      "decoded": 50
+    },
+    {
+      "iteration": 90,
+      "address": 24077,
+      "file_offset": 7693,
+      "mask": 8,
+      "original": 83,
+      "decoded": 91
+    },
+    {
+      "iteration": 91,
+      "address": 29676,
+      "file_offset": 13292,
+      "mask": 4,
+      "original": 14,
+      "decoded": 10
+    },
+    {
+      "iteration": 92,
+      "address": 55266,
+      "file_offset": 38882,
+      "mask": 32,
+      "original": 1,
+      "decoded": 33
+    },
+    {
+      "iteration": 93,
+      "address": 25249,
+      "file_offset": 8865,
+      "mask": 16,
+      "original": 12,
+      "decoded": 28
+    },
+    {
+      "iteration": 94,
+      "address": 35081,
+      "file_offset": 18697,
+      "mask": 8,
+      "original": 204,
+      "decoded": 196
+    },
+    {
+      "iteration": 95,
+      "address": 48781,
+      "file_offset": 32397,
+      "mask": 128,
+      "original": 41,
+      "decoded": 169
+    },
+    {
+      "iteration": 96,
+      "address": 28558,
+      "file_offset": 12174,
+      "mask": 64,
+      "original": 95,
+      "decoded": 31
+    },
+    {
+      "iteration": 97,
+      "address": 39910,
+      "file_offset": 23526,
+      "mask": 32,
+      "original": 222,
+      "decoded": 254
+    },
+    {
+      "iteration": 98,
+      "address": 26997,
+      "file_offset": 10613,
+      "mask": 8,
+      "original": 91,
+      "decoded": 83
+    },
+    {
+      "iteration": 99,
+      "address": 25436,
+      "file_offset": 9052,
+      "mask": 4,
+      "original": 4,
+      "decoded": 0
+    },
+    {
+      "iteration": 100,
+      "address": 53318,
+      "file_offset": 36934,
+      "mask": 64,
+      "original": 65,
+      "decoded": 1
+    },
+    {
+      "iteration": 101,
+      "address": 30138,
+      "file_offset": 13754,
+      "mask": 32,
+      "original": 247,
+      "decoded": 215
+    },
+    {
+      "iteration": 102,
+      "address": 43473,
+      "file_offset": 27089,
+      "mask": 16,
+      "original": 243,
+      "decoded": 227
+    },
+    {
+      "iteration": 103,
+      "address": 41820,
+      "file_offset": 25436,
+      "mask": 4,
+      "original": 217,
+      "decoded": 221
+    },
+    {
+      "iteration": 104,
+      "address": 53502,
+      "file_offset": 37118,
+      "mask": 2,
+      "original": 96,
+      "decoded": 98
+    },
+    {
+      "iteration": 105,
+      "address": 63531,
+      "file_offset": 47147,
+      "mask": 1,
+      "original": 241,
+      "decoded": 240
+    },
+    {
+      "iteration": 106,
+      "address": 46725,
+      "file_offset": 30341,
+      "mask": 128,
+      "original": 64,
+      "decoded": 192
+    },
+    {
+      "iteration": 108,
+      "address": 49758,
+      "file_offset": 33374,
+      "mask": 32,
+      "original": 161,
+      "decoded": 129
+    },
+    {
+      "iteration": 109,
+      "address": 35985,
+      "file_offset": 19601,
+      "mask": 16,
+      "original": 107,
+      "decoded": 123
+    },
+    {
+      "iteration": 110,
+      "address": 25245,
+      "file_offset": 8861,
+      "mask": 8,
+      "original": 132,
+      "decoded": 140
+    },
+    {
+      "iteration": 111,
+      "address": 64396,
+      "file_offset": 48012,
+      "mask": 4,
+      "original": 250,
+      "decoded": 254
+    },
+    {
+      "iteration": 112,
+      "address": 56547,
+      "file_offset": 40163,
+      "mask": 1,
+      "original": 51,
+      "decoded": 50
+    },
+    {
+      "iteration": 113,
+      "address": 45766,
+      "file_offset": 29382,
+      "mask": 64,
+      "original": 57,
+      "decoded": 121
+    },
+    {
+      "iteration": 114,
+      "address": 33985,
+      "file_offset": 17601,
+      "mask": 16,
+      "original": 176,
+      "decoded": 160
+    },
+    {
+      "iteration": 115,
+      "address": 45657,
+      "file_offset": 29273,
+      "mask": 8,
+      "original": 213,
+      "decoded": 221
+    },
+    {
+      "iteration": 116,
+      "address": 45548,
+      "file_offset": 29164,
+      "mask": 4,
+      "original": 28,
+      "decoded": 24
+    },
+    {
+      "iteration": 117,
+      "address": 57675,
+      "file_offset": 41291,
+      "mask": 1,
+      "original": 16,
+      "decoded": 17
+    },
+    {
+      "iteration": 118,
+      "address": 28302,
+      "file_offset": 11918,
+      "mask": 64,
+      "original": 5,
+      "decoded": 69
+    },
+    {
+      "iteration": 119,
+      "address": 43542,
+      "file_offset": 27158,
+      "mask": 32,
+      "original": 209,
+      "decoded": 241
+    },
+    {
+      "iteration": 120,
+      "address": 29409,
+      "file_offset": 13025,
+      "mask": 16,
+      "original": 8,
+      "decoded": 24
+    },
+    {
+      "iteration": 121,
+      "address": 54661,
+      "file_offset": 38277,
+      "mask": 8,
+      "original": 56,
+      "decoded": 48
+    },
+    {
+      "iteration": 123,
+      "address": 32833,
+      "file_offset": 16449,
+      "mask": 128,
+      "original": 95,
+      "decoded": 223
+    },
+    {
+      "iteration": 124,
+      "address": 50182,
+      "file_offset": 33798,
+      "mask": 64,
+      "original": 64,
+      "decoded": 0
+    },
+    {
+      "iteration": 125,
+      "address": 47402,
+      "file_offset": 31018,
+      "mask": 32,
+      "original": 151,
+      "decoded": 183
+    },
+    {
+      "iteration": 126,
+      "address": 63822,
+      "file_offset": 47438,
+      "mask": 2,
+      "original": 114,
+      "decoded": 112
+    },
+    {
+      "iteration": 127,
+      "address": 43819,
+      "file_offset": 27435,
+      "mask": 1,
+      "original": 212,
+      "decoded": 213
+    },
+    {
+      "iteration": 128,
+      "address": 29454,
+      "file_offset": 13070,
+      "mask": 32,
+      "original": 107,
+      "decoded": 75
+    },
+    {
+      "iteration": 129,
+      "address": 55626,
+      "file_offset": 39242,
+      "mask": 2,
+      "original": 207,
+      "decoded": 205
+    },
+    {
+      "iteration": 130,
+      "address": 30627,
+      "file_offset": 14243,
+      "mask": 1,
+      "original": 216,
+      "decoded": 217
+    },
+    {
+      "iteration": 131,
+      "address": 49433,
+      "file_offset": 33049,
+      "mask": 128,
+      "original": 128,
+      "decoded": 0
+    },
+    {
+      "iteration": 132,
+      "address": 23558,
+      "file_offset": 7174,
+      "mask": 64,
+      "original": 192,
+      "decoded": 128
+    },
+    {
+      "iteration": 135,
+      "address": 38038,
+      "file_offset": 21654,
+      "mask": 2,
+      "original": 74,
+      "decoded": 72
+    },
+    {
+      "iteration": 136,
+      "address": 58155,
+      "file_offset": 41771,
+      "mask": 1,
+      "original": 14,
+      "decoded": 15
+    },
+    {
+      "iteration": 137,
+      "address": 64365,
+      "file_offset": 47981,
+      "mask": 128,
+      "original": 192,
+      "decoded": 64
+    },
+    {
+      "iteration": 138,
+      "address": 48430,
+      "file_offset": 32046,
+      "mask": 64,
+      "original": 244,
+      "decoded": 180
+    },
+    {
+      "iteration": 139,
+      "address": 58822,
+      "file_offset": 42438,
+      "mask": 32,
+      "original": 58,
+      "decoded": 26
+    },
+    {
+      "iteration": 140,
+      "address": 59489,
+      "file_offset": 43105,
+      "mask": 16,
+      "original": 118,
+      "decoded": 102
+    },
+    {
+      "iteration": 141,
+      "address": 54613,
+      "file_offset": 38229,
+      "mask": 8,
+      "original": 22,
+      "decoded": 30
+    },
+    {
+      "iteration": 142,
+      "address": 60796,
+      "file_offset": 44412,
+      "mask": 4,
+      "original": 201,
+      "decoded": 205
+    },
+    {
+      "iteration": 143,
+      "address": 62770,
+      "file_offset": 46386,
+      "mask": 2,
+      "original": 82,
+      "decoded": 80
+    },
+    {
+      "iteration": 144,
+      "address": 28646,
+      "file_offset": 12262,
+      "mask": 64,
+      "original": 240,
+      "decoded": 176
+    },
+    {
+      "iteration": 145,
+      "address": 60058,
+      "file_offset": 43674,
+      "mask": 32,
+      "original": 245,
+      "decoded": 213
+    },
+    {
+      "iteration": 146,
+      "address": 54065,
+      "file_offset": 37681,
+      "mask": 16,
+      "original": 75,
+      "decoded": 91
+    },
+    {
+      "iteration": 147,
+      "address": 30641,
+      "file_offset": 14257,
+      "mask": 8,
+      "original": 239,
+      "decoded": 231
+    },
+    {
+      "iteration": 148,
+      "address": 32636,
+      "file_offset": 16252,
+      "mask": 4,
+      "original": 54,
+      "decoded": 50
+    },
+    {
+      "iteration": 149,
+      "address": 59214,
+      "file_offset": 42830,
+      "mask": 64,
+      "original": 167,
+      "decoded": 231
+    },
+    {
+      "iteration": 150,
+      "address": 47678,
+      "file_offset": 31294,
+      "mask": 32,
+      "original": 233,
+      "decoded": 201
+    },
+    {
+      "iteration": 151,
+      "address": 41242,
+      "file_offset": 24858,
+      "mask": 2,
+      "original": 26,
+      "decoded": 24
+    },
+    {
+      "iteration": 152,
+      "address": 62386,
+      "file_offset": 46002,
+      "mask": 32,
+      "original": 108,
+      "decoded": 76
+    },
+    {
+      "iteration": 153,
+      "address": 50209,
+      "file_offset": 33825,
+      "mask": 16,
+      "original": 176,
+      "decoded": 160
+    },
+    {
+      "iteration": 154,
+      "address": 43110,
+      "file_offset": 26726,
+      "mask": 2,
+      "original": 173,
+      "decoded": 175
+    },
+    {
+      "iteration": 155,
+      "address": 36011,
+      "file_offset": 19627,
+      "mask": 1,
+      "original": 41,
+      "decoded": 40
+    },
+    {
+      "iteration": 157,
+      "address": 61430,
+      "file_offset": 45046,
+      "mask": 32,
+      "original": 16,
+      "decoded": 48
+    },
+    {
+      "iteration": 158,
+      "address": 55653,
+      "file_offset": 39269,
+      "mask": 8,
+      "original": 8,
+      "decoded": 0
+    },
+    {
+      "iteration": 159,
+      "address": 26268,
+      "file_offset": 9884,
+      "mask": 4,
+      "original": 59,
+      "decoded": 63
+    },
+    {
+      "iteration": 160,
+      "address": 56642,
+      "file_offset": 40258,
+      "mask": 2,
+      "original": 207,
+      "decoded": 205
+    },
+    {
+      "iteration": 161,
+      "address": 26435,
+      "file_offset": 10051,
+      "mask": 1,
+      "original": 152,
+      "decoded": 153
+    },
+    {
+      "iteration": 162,
+      "address": 62753,
+      "file_offset": 46369,
+      "mask": 128,
+      "original": 160,
+      "decoded": 32
+    },
+    {
+      "iteration": 163,
+      "address": 33702,
+      "file_offset": 17318,
+      "mask": 64,
+      "original": 97,
+      "decoded": 33
+    },
+    {
+      "iteration": 164,
+      "address": 60625,
+      "file_offset": 44241,
+      "mask": 16,
+      "original": 244,
+      "decoded": 228
+    },
+    {
+      "iteration": 165,
+      "address": 58497,
+      "file_offset": 42113,
+      "mask": 8,
+      "original": 208,
+      "decoded": 216
+    },
+    {
+      "iteration": 166,
+      "address": 24750,
+      "file_offset": 8366,
+      "mask": 2,
+      "original": 2,
+      "decoded": 0
+    },
+    {
+      "iteration": 167,
+      "address": 54411,
+      "file_offset": 38027,
+      "mask": 1,
+      "original": 194,
+      "decoded": 195
+    },
+    {
+      "iteration": 168,
+      "address": 50325,
+      "file_offset": 33941,
+      "mask": 128,
+      "original": 144,
+      "decoded": 16
+    },
+    {
+      "iteration": 169,
+      "address": 31057,
+      "file_offset": 14673,
+      "mask": 16,
+      "original": 56,
+      "decoded": 40
+    },
+    {
+      "iteration": 170,
+      "address": 39427,
+      "file_offset": 23043,
+      "mask": 1,
+      "original": 255,
+      "decoded": 254
+    },
+    {
+      "iteration": 171,
+      "address": 62374,
+      "file_offset": 45990,
+      "mask": 64,
+      "original": 80,
+      "decoded": 16
+    },
+    {
+      "iteration": 172,
+      "address": 56738,
+      "file_offset": 40354,
+      "mask": 32,
+      "original": 64,
+      "decoded": 96
+    },
+    {
+      "iteration": 173,
+      "address": 34156,
+      "file_offset": 17772,
+      "mask": 4,
+      "original": 10,
+      "decoded": 14
+    },
+    {
+      "iteration": 174,
+      "address": 58926,
+      "file_offset": 42542,
+      "mask": 64,
+      "original": 57,
+      "decoded": 121
+    },
+    {
+      "iteration": 175,
+      "address": 40742,
+      "file_offset": 24358,
+      "mask": 32,
+      "original": 241,
+      "decoded": 209
+    },
+    {
+      "iteration": 176,
+      "address": 54389,
+      "file_offset": 38005,
+      "mask": 8,
+      "original": 8,
+      "decoded": 0
+    },
+    {
+      "iteration": 177,
+      "address": 49852,
+      "file_offset": 33468,
+      "mask": 4,
+      "original": 251,
+      "decoded": 255
+    },
+    {
+      "iteration": 178,
+      "address": 58962,
+      "file_offset": 42578,
+      "mask": 2,
+      "original": 80,
+      "decoded": 82
+    },
+    {
+      "iteration": 179,
+      "address": 51075,
+      "file_offset": 34691,
+      "mask": 1,
+      "original": 254,
+      "decoded": 255
+    },
+    {
+      "iteration": 180,
+      "address": 47761,
+      "file_offset": 31377,
+      "mask": 128,
+      "original": 247,
+      "decoded": 119
+    },
+    {
+      "iteration": 181,
+      "address": 45670,
+      "file_offset": 29286,
+      "mask": 64,
+      "original": 71,
+      "decoded": 7
+    },
+    {
+      "iteration": 182,
+      "address": 32378,
+      "file_offset": 15994,
+      "mask": 32,
+      "original": 137,
+      "decoded": 169
+    },
+    {
+      "iteration": 183,
+      "address": 45137,
+      "file_offset": 28753,
+      "mask": 8,
+      "original": 112,
+      "decoded": 120
+    },
+    {
+      "iteration": 184,
+      "address": 44604,
+      "file_offset": 28220,
+      "mask": 4,
+      "original": 2,
+      "decoded": 6
+    },
+    {
+      "iteration": 185,
+      "address": 56830,
+      "file_offset": 40446,
+      "mask": 2,
+      "original": 108,
+      "decoded": 110
+    },
+    {
+      "iteration": 186,
+      "address": 34443,
+      "file_offset": 18059,
+      "mask": 1,
+      "original": 32,
+      "decoded": 33
+    },
+    {
+      "iteration": 187,
+      "address": 23749,
+      "file_offset": 7365,
+      "mask": 128,
+      "original": 152,
+      "decoded": 24
+    },
+    {
+      "iteration": 188,
+      "address": 60081,
+      "file_offset": 43697,
+      "mask": 16,
+      "original": 0,
+      "decoded": 16
+    },
+    {
+      "iteration": 189,
+      "address": 30877,
+      "file_offset": 14493,
+      "mask": 8,
+      "original": 27,
+      "decoded": 19
+    },
+    {
+      "iteration": 190,
+      "address": 58860,
+      "file_offset": 42476,
+      "mask": 4,
+      "original": 39,
+      "decoded": 35
+    },
+    {
+      "iteration": 191,
+      "address": 37690,
+      "file_offset": 21306,
+      "mask": 2,
+      "original": 63,
+      "decoded": 61
+    },
+    {
+      "iteration": 192,
+      "address": 65257,
+      "file_offset": 48873,
+      "mask": 128,
+      "original": 138,
+      "decoded": 10
+    },
+    {
+      "iteration": 193,
+      "address": 40082,
+      "file_offset": 23698,
+      "mask": 32,
+      "original": 32,
+      "decoded": 0
+    },
+    {
+      "iteration": 194,
+      "address": 64865,
+      "file_offset": 48481,
+      "mask": 16,
+      "original": 82,
+      "decoded": 66
+    },
+    {
+      "iteration": 195,
+      "address": 64473,
+      "file_offset": 48089,
+      "mask": 8,
+      "original": 35,
+      "decoded": 43
+    },
+    {
+      "iteration": 196,
+      "address": 57292,
+      "file_offset": 40908,
+      "mask": 4,
+      "original": 253,
+      "decoded": 249
+    },
+    {
+      "iteration": 197,
+      "address": 38269,
+      "file_offset": 21885,
+      "mask": 128,
+      "original": 255,
+      "decoded": 127
+    },
+    {
+      "iteration": 198,
+      "address": 29526,
+      "file_offset": 13142,
+      "mask": 32,
+      "original": 48,
+      "decoded": 16
+    },
+    {
+      "iteration": 199,
+      "address": 40449,
+      "file_offset": 24065,
+      "mask": 16,
+      "original": 246,
+      "decoded": 230
+    },
+    {
+      "iteration": 200,
+      "address": 42629,
+      "file_offset": 26245,
+      "mask": 8,
+      "original": 193,
+      "decoded": 201
+    },
+    {
+      "iteration": 201,
+      "address": 36962,
+      "file_offset": 20578,
+      "mask": 2,
+      "original": 29,
+      "decoded": 31
+    },
+    {
+      "iteration": 202,
+      "address": 33475,
+      "file_offset": 17091,
+      "mask": 1,
+      "original": 22,
+      "decoded": 23
+    },
+    {
+      "iteration": 203,
+      "address": 24321,
+      "file_offset": 7937,
+      "mask": 128,
+      "original": 174,
+      "decoded": 46
+    },
+    {
+      "iteration": 204,
+      "address": 48166,
+      "file_offset": 31782,
+      "mask": 64,
+      "original": 239,
+      "decoded": 175
+    },
+    {
+      "iteration": 205,
+      "address": 59370,
+      "file_offset": 42986,
+      "mask": 32,
+      "original": 10,
+      "decoded": 42
+    },
+    {
+      "iteration": 206,
+      "address": 47644,
+      "file_offset": 31260,
+      "mask": 4,
+      "original": 249,
+      "decoded": 253
+    },
+    {
+      "iteration": 207,
+      "address": 35918,
+      "file_offset": 19534,
+      "mask": 2,
+      "original": 143,
+      "decoded": 141
+    },
+    {
+      "iteration": 209,
+      "address": 23541,
+      "file_offset": 7157,
+      "mask": 128,
+      "original": 135,
+      "decoded": 7
+    },
+    {
+      "iteration": 210,
+      "address": 64974,
+      "file_offset": 48590,
+      "mask": 64,
+      "original": 9,
+      "decoded": 73
+    },
+    {
+      "iteration": 211,
+      "address": 28494,
+      "file_offset": 12110,
+      "mask": 32,
+      "original": 24,
+      "decoded": 56
+    },
+    {
+      "iteration": 213,
+      "address": 38540,
+      "file_offset": 22156,
+      "mask": 4,
+      "original": 54,
+      "decoded": 50
+    },
+    {
+      "iteration": 214,
+      "address": 48586,
+      "file_offset": 32202,
+      "mask": 2,
+      "original": 225,
+      "decoded": 227
+    },
+    {
+      "iteration": 215,
+      "address": 26755,
+      "file_offset": 10371,
+      "mask": 1,
+      "original": 59,
+      "decoded": 58
+    },
+    {
+      "iteration": 216,
+      "address": 30502,
+      "file_offset": 14118,
+      "mask": 64,
+      "original": 224,
+      "decoded": 160
+    },
+    {
+      "iteration": 217,
+      "address": 63617,
+      "file_offset": 47233,
+      "mask": 16,
+      "original": 16,
+      "decoded": 0
+    },
+    {
+      "iteration": 218,
+      "address": 59945,
+      "file_offset": 43561,
+      "mask": 8,
+      "original": 9,
+      "decoded": 1
+    },
+    {
+      "iteration": 219,
+      "address": 23852,
+      "file_offset": 7468,
+      "mask": 4,
+      "original": 4,
+      "decoded": 0
+    },
+    {
+      "iteration": 220,
+      "address": 35286,
+      "file_offset": 18902,
+      "mask": 2,
+      "original": 122,
+      "decoded": 120
+    },
+    {
+      "iteration": 221,
+      "address": 60550,
+      "file_offset": 44166,
+      "mask": 32,
+      "original": 246,
+      "decoded": 214
+    },
+    {
+      "iteration": 222,
+      "address": 48609,
+      "file_offset": 32225,
+      "mask": 16,
+      "original": 19,
+      "decoded": 3
+    },
+    {
+      "iteration": 223,
+      "address": 23410,
+      "file_offset": 7026,
+      "mask": 2,
+      "original": 5,
+      "decoded": 7
+    },
+    {
+      "iteration": 224,
+      "address": 63747,
+      "file_offset": 47363,
+      "mask": 1,
+      "original": 1,
+      "decoded": 0
+    },
+    {
+      "iteration": 225,
+      "address": 49777,
+      "file_offset": 33393,
+      "mask": 128,
+      "original": 192,
+      "decoded": 64
+    },
+    {
+      "iteration": 226,
+      "address": 24806,
+      "file_offset": 8422,
+      "mask": 64,
+      "original": 64,
+      "decoded": 0
+    },
+    {
+      "iteration": 227,
+      "address": 26202,
+      "file_offset": 9818,
+      "mask": 32,
+      "original": 23,
+      "decoded": 55
+    },
+    {
+      "iteration": 228,
+      "address": 54193,
+      "file_offset": 37809,
+      "mask": 16,
+      "original": 222,
+      "decoded": 206
+    },
+    {
+      "iteration": 229,
+      "address": 58609,
+      "file_offset": 42225,
+      "mask": 8,
+      "original": 10,
+      "decoded": 2
+    },
+    {
+      "iteration": 230,
+      "address": 26876,
+      "file_offset": 10492,
+      "mask": 4,
+      "original": 109,
+      "decoded": 105
+    },
+    {
+      "iteration": 231,
+      "address": 27550,
+      "file_offset": 11166,
+      "mask": 2,
+      "original": 75,
+      "decoded": 73
+    },
+    {
+      "iteration": 232,
+      "address": 56142,
+      "file_offset": 39758,
+      "mask": 64,
+      "original": 125,
+      "decoded": 61
+    },
+    {
+      "iteration": 233,
+      "address": 37489,
+      "file_offset": 21105,
+      "mask": 16,
+      "original": 219,
+      "decoded": 203
+    },
+    {
+      "iteration": 234,
+      "address": 32835,
+      "file_offset": 16451,
+      "mask": 1,
+      "original": 33,
+      "decoded": 32
+    },
+    {
+      "iteration": 235,
+      "address": 64969,
+      "file_offset": 48585,
+      "mask": 128,
+      "original": 205,
+      "decoded": 77
+    },
+    {
+      "iteration": 236,
+      "address": 53606,
+      "file_offset": 37222,
+      "mask": 64,
+      "original": 150,
+      "decoded": 214
+    },
+    {
+      "iteration": 237,
+      "address": 39282,
+      "file_offset": 22898,
+      "mask": 32,
+      "original": 48,
+      "decoded": 16
+    },
+    {
+      "iteration": 238,
+      "address": 45729,
+      "file_offset": 29345,
+      "mask": 16,
+      "original": 208,
+      "decoded": 192
+    },
+    {
+      "iteration": 239,
+      "address": 26489,
+      "file_offset": 10105,
+      "mask": 8,
+      "original": 16,
+      "decoded": 24
+    },
+    {
+      "iteration": 240,
+      "address": 64908,
+      "file_offset": 48524,
+      "mask": 4,
+      "original": 9,
+      "decoded": 13
+    },
+    {
+      "iteration": 241,
+      "address": 24998,
+      "file_offset": 8614,
+      "mask": 2,
+      "original": 96,
+      "decoded": 98
+    },
+    {
+      "iteration": 242,
+      "address": 47581,
+      "file_offset": 31197,
+      "mask": 128,
+      "original": 155,
+      "decoded": 27
+    },
+    {
+      "iteration": 243,
+      "address": 30254,
+      "file_offset": 13870,
+      "mask": 64,
+      "original": 96,
+      "decoded": 32
+    },
+    {
+      "iteration": 244,
+      "address": 35510,
+      "file_offset": 19126,
+      "mask": 32,
+      "original": 253,
+      "decoded": 221
+    },
+    {
+      "iteration": 245,
+      "address": 51074,
+      "file_offset": 34690,
+      "mask": 2,
+      "original": 253,
+      "decoded": 255
+    },
+    {
+      "iteration": 246,
+      "address": 35395,
+      "file_offset": 19011,
+      "mask": 1,
+      "original": 32,
+      "decoded": 33
+    },
+    {
+      "iteration": 247,
+      "address": 50401,
+      "file_offset": 34017,
+      "mask": 128,
+      "original": 47,
+      "decoded": 175
+    },
+    {
+      "iteration": 248,
+      "address": 24742,
+      "file_offset": 8358,
+      "mask": 64,
+      "original": 64,
+      "decoded": 0
+    },
+    {
+      "iteration": 249,
+      "address": 63946,
+      "file_offset": 47562,
+      "mask": 32,
+      "original": 143,
+      "decoded": 175
+    },
+    {
+      "iteration": 250,
+      "address": 26961,
+      "file_offset": 10577,
+      "mask": 16,
+      "original": 8,
+      "decoded": 24
+    },
+    {
+      "iteration": 251,
+      "address": 47836,
+      "file_offset": 31452,
+      "mask": 4,
+      "original": 201,
+      "decoded": 205
+    },
+    {
+      "iteration": 252,
+      "address": 31726,
+      "file_offset": 15342,
+      "mask": 2,
+      "original": 93,
+      "decoded": 95
+    },
+    {
+      "iteration": 253,
+      "address": 36491,
+      "file_offset": 20107,
+      "mask": 1,
+      "original": 250,
+      "decoded": 251
+    },
+    {
+      "iteration": 254,
+      "address": 25550,
+      "file_offset": 9166,
+      "mask": 64,
+      "original": 64,
+      "decoded": 0
+    },
+    {
+      "iteration": 255,
+      "address": 41164,
+      "file_offset": 24780,
+      "mask": 4,
+      "original": 5,
+      "decoded": 1
+    }
+  ]
+}

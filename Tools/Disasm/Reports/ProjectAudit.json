@@ -1,0 +1,60 @@
+{
+  "documentation_local_links_checked": 1524,
+  "broken_links": [],
+  "game_bytes": 49152,
+  "game_fragments_reviewed": 598,
+  "game_instructions": 15165,
+  "auxiliary": {
+    "disk_utility_fragments": 115,
+    "disk_utility_reviewed": 115,
+    "manual_loader_asm_reviewed": 31,
+    "commander_files": 2,
+    "basic_and_robot_files": 2,
+    "unresolved": [],
+    "scope": "статическое описание дополнительных файлов, без запуска дискового ROM и полного игрового сеанса"
+  },
+  "source_format_issues": 0,
+  "build_status": "passed",
+  "build_checked_at_utc": "2026-10-20T21:20:40.3296442Z",
+  "trd_bytes": 655360,
+  "trd_sha256": "35784a3be331360d214e182d75c5664aaca1b8d79b62e0d2035a4f9cb5515074",
+  "all_seven_files_identical": true,
+  "limitations": "Ручной статический разбор и изолированные проверки не являются прохождением всех игровых сценариев",
+  "semantic_corrections": {
+    "indexed_operands_named": 638,
+    "runtime_state_aliases": 55,
+    "additional_mission_cases": 617,
+    "working_data_7578_7583_named": true,
+    "bit_diagrams": "SpaceObject, Commander, EffectRecord, Keyboard, InputState, GraphicsWorkspace, GameWorkspace, Market",
+    "basis": "инструкции и данные пользовательского TRD, без переноса поведения Elite Legend",
+    "ordinary_presence_is_not_station_zone": true,
+    "laser_threshold_is_not_line_metadata": true
+  },
+  "semantic_names": {
+    "address_filenames": 0,
+    "address_symbols": 0,
+    "numeric_direct_branches": 0,
+    "mechanical_comments": 0,
+    "new_labels_verified_against_assembler": 1309,
+    "renamed_address_files": 115,
+    "renamed_disk_symbols": 239,
+    "registry": "Tools/Disasm/Reports/SemanticLabelIndex.json",
+    "documentation": "Docs/Labels.md"
+  },
+  "source_byte_check": {
+    "instructions": 15055,
+    "literal_and_resource_bytes": 20180,
+    "manual_math_bytes": 184,
+    "continuous_game_bytes": 49152,
+    "whole_trd_identical": true,
+    "all_seven_files_identical": true
+  },
+  "variable_names": {
+    "bindings_checked": 634,
+    "address_issues": [],
+    "raw_memory_operands": [],
+    "raw_indexed_operands": [],
+    "registry": "Tools/Disasm/Reports/VariableAudit.json",
+    "documentation": "Docs/Variables.md"
+  }
+}

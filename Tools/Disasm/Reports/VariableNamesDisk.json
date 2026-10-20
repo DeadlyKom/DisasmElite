@@ -1,0 +1,1895 @@
+{
+  "bindings": [
+    {
+      "address": "#EA80",
+      "symbol": "DiskUtility.Demo.ActionTimer",
+      "file": "Source/DiskUtility/Demo/ActionTimer.asm",
+      "kind": "physical-data",
+      "meaning": "число уступок кадра до смены поведения",
+      "evidence": "исходный cl.C, строка 13, длина 2 байтов"
+    },
+    {
+      "address": "#EA34",
+      "symbol": "DiskUtility.Demo.BombDelay",
+      "file": "Source/DiskUtility/Demo/BombDelayCounter.asm",
+      "kind": "physical-data",
+      "meaning": "данные #EA34..#EA34",
+      "evidence": "исходный cl.C, строка 13, длина 1 байтов"
+    },
+    {
+      "address": "#E6DC",
+      "symbol": "DiskUtility.Demo.SavedStacks",
+      "file": "Source/DiskUtility/Demo/CoroutineStackPointers.asm",
+      "kind": "physical-data",
+      "meaning": "SP игрового обработчика прерывания",
+      "evidence": "исходный cl.C, строка 13, длина 2 байтов"
+    },
+    {
+      "address": "#E6DE",
+      "symbol": "DiskUtility.Demo.DemoStack",
+      "file": "Source/DiskUtility/Demo/CoroutineStackPointers.asm",
+      "kind": "physical-data",
+      "meaning": "SP сохранённых регистров корутины",
+      "evidence": "исходный cl.C, строка 14, длина 2 байтов"
+    },
+    {
+      "address": "#ED2F",
+      "symbol": "DiskUtility.Demo.MarkCellMap",
+      "file": "Source/DiskUtility/Demo/DemoMarkCellMap.asm",
+      "kind": "physical-data",
+      "meaning": "данные #ED2F..#ED36",
+      "evidence": "исходный cl.C, строка 13, длина 8 байтов"
+    },
+    {
+      "address": "#ED5C",
+      "symbol": "DiskUtility.Demo.MarkShapes",
+      "file": "Source/DiskUtility/Demo/DemoMarkCellShapes.asm",
+      "kind": "physical-data",
+      "meaning": "данные #ED5C..#ED63",
+      "evidence": "исходный cl.C, строка 14, длина 8 байтов"
+    },
+    {
+      "address": "#ED2A",
+      "symbol": "DiskUtility.Demo.ShapeMasks",
+      "file": "Source/DiskUtility/Demo/DemoMarkShapeMasks.asm",
+      "kind": "physical-data",
+      "meaning": "данные #ED2A..#ED2E",
+      "evidence": "исходный cl.C, строка 13, длина 5 байтов"
+    },
+    {
+      "address": "#EDCE",
+      "symbol": "DiskUtility.Demo.MarkTail",
+      "file": "Source/DiskUtility/Demo/DemoMarkTail.asm",
+      "kind": "physical-data",
+      "meaning": "данные #EDCE..#EDD5",
+      "evidence": "исходный cl.C, строка 15, длина 8 байтов"
+    },
+    {
+      "address": "#0000",
+      "symbol": "DiskUtility.Demo.ShapeIndex",
+      "file": "Source/DiskUtility/Demo/DrawDemoMarkXor.asm",
+      "kind": "operand-or-offset",
+      "meaning": "нулевое смещение текущего индекса фигуры, IX является курсором потока",
+      "evidence": "определение EQU, строка 1"
+    },
+    {
+      "address": "#EB9A",
+      "symbol": "DiskUtility.Demo.ObjectCursor",
+      "file": "Source/DiskUtility/Demo/ObjectCursor.asm",
+      "kind": "physical-data",
+      "meaning": "адрес текущей записи FSpaceObject, начально станция",
+      "evidence": "исходный cl.C, строка 12, длина 2 байтов"
+    },
+    {
+      "address": "#EBE1",
+      "symbol": "DiskUtility.Demo.SlotFlagCache",
+      "file": "Source/DiskUtility/Demo/ObjectMetadataCache.asm",
+      "kind": "physical-data",
+      "meaning": "данные #EBE1..#EBE8",
+      "evidence": "исходный cl.C, строка 32, длина 8 байтов"
+    },
+    {
+      "address": "#E992",
+      "symbol": "DiskUtility.Demo.PitchWindow",
+      "file": "Source/DiskUtility/Demo/PitchWindowCounter.asm",
+      "kind": "physical-data",
+      "meaning": "данные #E992..#E992",
+      "evidence": "исходный cl.C, строка 12, длина 1 байтов"
+    },
+    {
+      "address": "#E825",
+      "symbol": "DiskUtility.Demo.ReservedBytes",
+      "file": "Source/DiskUtility/Demo/ReservedDemoBytes.asm",
+      "kind": "physical-data",
+      "meaning": "данные #E825..#E82C",
+      "evidence": "исходный cl.C, строка 13, длина 8 байтов"
+    },
+    {
+      "address": "#E939",
+      "symbol": "DiskUtility.Demo.RollWindow",
+      "file": "Source/DiskUtility/Demo/RollWindowCounter.asm",
+      "kind": "physical-data",
+      "meaning": "данные #E939..#E939",
+      "evidence": "исходный cl.C, строка 13, длина 1 байтов"
+    },
+    {
+      "address": "#C8C4",
+      "symbol": "DiskUtility.DemoSetup.RestartPatch",
+      "file": "Source/DiskUtility/DemoSetup/RestartPatch.asm",
+      "kind": "physical-data",
+      "meaning": "данные #C8C4..#C8C9",
+      "evidence": "исходный cl.C, строка 13, длина 6 байтов"
+    },
+    {
+      "address": "#C8CA",
+      "symbol": "DiskUtility.DemoSetup.InputPatches",
+      "file": "Source/DiskUtility/DemoSetup/VirtualInputPatches.asm",
+      "kind": "physical-data",
+      "meaning": "данные #C8CA..#C8D1",
+      "evidence": "исходный cl.C, строка 14, длина 8 байтов"
+    },
+    {
+      "address": "#CD67",
+      "symbol": "DiskUtility.Menu.ReadCatalogID",
+      "file": "Source/DiskUtility/Menu/AllocateSaveRecord.asm",
+      "kind": "physical-data",
+      "meaning": "номер сектора каталога для новой записи",
+      "evidence": "исходный cl.C, строка 62, длина 1 байтов"
+    },
+    {
+      "address": "#CD8A",
+      "symbol": "DiskUtility.Menu.WriteCatalogID",
+      "file": "Source/DiskUtility/Menu/AllocateSaveRecord.asm",
+      "kind": "physical-data",
+      "meaning": "номер изменённого сектора каталога",
+      "evidence": "исходный cl.C, строка 83, длина 1 байтов"
+    },
+    {
+      "address": "#CA97",
+      "symbol": "DiskUtility.Menu.CatalogSector",
+      "file": "Source/DiskUtility/Menu/BuildCommanderCatalog.asm",
+      "kind": "physical-data",
+      "meaning": "номер читаемого сектора каталога, изменяет ReadCatalog",
+      "evidence": "исходный cl.C, строка 69, длина 1 байтов"
+    },
+    {
+      "address": "#CFC8",
+      "symbol": "DiskUtility.Menu.CopySector",
+      "file": "Source/DiskUtility/Menu/ConfirmAndPrepareCopy.asm",
+      "kind": "physical-data",
+      "meaning": "номер одного из трёх секторов копировщика",
+      "evidence": "исходный cl.C, строка 48, длина 1 байтов"
+    },
+    {
+      "address": "#CEB0",
+      "symbol": "DiskUtility.Menu.CopyText",
+      "file": "Source/DiskUtility/Menu/CopyServiceMessages.asm",
+      "kind": "physical-data",
+      "meaning": "начало сообщения служебных счётчиков",
+      "evidence": "исходный cl.C, строка 16, длина 1 байтов"
+    },
+    {
+      "address": "#CEB1",
+      "symbol": "DiskUtility.Menu.CounterText",
+      "file": "Source/DiskUtility/Menu/CopyServiceMessages.asm",
+      "kind": "physical-data",
+      "meaning": "изменяемая строка трёх чисел и суффиксов",
+      "evidence": "исходный cl.C, строка 17, длина 8 байтов"
+    },
+    {
+      "address": "#CECF",
+      "symbol": "DiskUtility.Menu.MissingText",
+      "file": "Source/DiskUtility/Menu/CopyServiceMessages.asm",
+      "kind": "physical-data",
+      "meaning": "сообщение о недостающем количестве",
+      "evidence": "исходный cl.C, строка 21, длина 8 байтов"
+    },
+    {
+      "address": "#CEEC",
+      "symbol": "DiskUtility.Menu.MissingDigits",
+      "file": "Source/DiskUtility/Menu/CopyServiceMessages.asm",
+      "kind": "physical-data",
+      "meaning": "три изменяемые десятичные цифры",
+      "evidence": "исходный cl.C, строка 25, длина 8 байтов"
+    },
+    {
+      "address": "#CEFA",
+      "symbol": "DiskUtility.Menu.ConfirmText",
+      "file": "Source/DiskUtility/Menu/CopyServiceMessages.asm",
+      "kind": "physical-data",
+      "meaning": "запрос подтверждения Y/N",
+      "evidence": "исходный cl.C, строка 27, длина 8 байтов"
+    },
+    {
+      "address": "#CF96",
+      "symbol": "DiskUtility.Menu.ReadTrackBuffer",
+      "file": "Source/DiskUtility/Menu/CopyServicePointers.asm",
+      "kind": "physical-data",
+      "meaning": "начало принимаемого потока дорожки",
+      "evidence": "исходный cl.C, строка 16, длина 2 байтов"
+    },
+    {
+      "address": "#CF98",
+      "symbol": "DiskUtility.Menu.TrackBuffer",
+      "file": "Source/DiskUtility/Menu/CopyServicePointers.asm",
+      "kind": "physical-data",
+      "meaning": "начало потока форматируемой дорожки",
+      "evidence": "исходный cl.C, строка 17, длина 2 байтов"
+    },
+    {
+      "address": "#CF9A",
+      "symbol": "DiskUtility.Menu.CopyParameter",
+      "file": "Source/DiskUtility/Menu/CopyServicePointers.asm",
+      "kind": "physical-data",
+      "meaning": "подтверждённый параметр для перехода в копировщик",
+      "evidence": "исходный cl.C, строка 18, длина 2 байтов"
+    },
+    {
+      "address": "#0000",
+      "symbol": "DiskUtility.Menu.TrackByte",
+      "file": "Source/DiskUtility/Menu/EmitRepeatedByte.asm",
+      "kind": "operand-or-offset",
+      "meaning": "нулевое смещение выходного байта, IX является курсором потока дорожки",
+      "evidence": "определение EQU, строка 1"
+    },
+    {
+      "address": "#0000",
+      "symbol": "DiskUtility.Menu.DigitByte",
+      "file": "Source/DiskUtility/Menu/FormatDecimalDigit.asm",
+      "kind": "operand-or-offset",
+      "meaning": "нулевое смещение текущей цифры, IX является курсором строки",
+      "evidence": "определение EQU, строка 1"
+    },
+    {
+      "address": "#CDCE",
+      "symbol": "DiskUtility.Menu.VerifySectorID",
+      "file": "Source/DiskUtility/Menu/FormatTrack.asm",
+      "kind": "physical-data",
+      "meaning": "номер сектора после форматирования",
+      "evidence": "исходный cl.C, строка 43, длина 1 байтов"
+    },
+    {
+      "address": "#C82C",
+      "symbol": "DiskUtility.Menu.MenuText",
+      "file": "Source/DiskUtility/Menu/MenuMessages.asm",
+      "kind": "physical-data",
+      "meaning": "команды загрузки, сохранения и демонстрации",
+      "evidence": "исходный cl.C, строка 16, длина 8 байтов"
+    },
+    {
+      "address": "#C84B",
+      "symbol": "DiskUtility.Menu.NamePrompt",
+      "file": "Source/DiskUtility/Menu/MenuMessages.asm",
+      "kind": "physical-data",
+      "meaning": "запрос имени командира",
+      "evidence": "исходный cl.C, строка 20, длина 8 байтов"
+    },
+    {
+      "address": "#C854",
+      "symbol": "DiskUtility.Menu.SaveFormat",
+      "file": "Source/DiskUtility/Menu/MenuMessages.asm",
+      "kind": "physical-data",
+      "meaning": "параметр 0, длина #0066, один сектор",
+      "evidence": "исходный cl.C, строка 22, длина 5 байтов"
+    },
+    {
+      "address": "#CFF6",
+      "symbol": "DiskUtility.Menu.PreservedTail",
+      "file": "Source/DiskUtility/Menu/PreservedMenuTail.asm",
+      "kind": "physical-data",
+      "meaning": "",
+      "evidence": "исходный cl.C, строка 15, длина 10 байтов"
+    },
+    {
+      "address": "#CE77",
+      "symbol": "DiskUtility.Menu.SectorIds",
+      "file": "Source/DiskUtility/Menu/PreservedSectorOrder.asm",
+      "kind": "physical-data",
+      "meaning": "",
+      "evidence": "исходный cl.C, строка 14, длина 12 байтов"
+    },
+    {
+      "address": "#C859",
+      "symbol": "DiskUtility.Menu.LegacyNoSpace",
+      "file": "Source/DiskUtility/Menu/PreservedSectorReader.asm",
+      "kind": "physical-data",
+      "meaning": "",
+      "evidence": "исходный cl.C, строка 24, длина 10 байтов"
+    },
+    {
+      "address": "#CCE7",
+      "symbol": "DiskUtility.Menu.SaveSector",
+      "file": "Source/DiskUtility/Menu/SaveNamedCommander.asm",
+      "kind": "physical-data",
+      "meaning": "номер записываемого сектора, изменяет OverwriteSave",
+      "evidence": "исходный cl.C, строка 41, длина 1 байтов"
+    },
+    {
+      "address": "#CE55",
+      "symbol": "DiskUtility.Menu.FormatPattern",
+      "file": "Source/DiskUtility/Menu/SectorFormatPattern.asm",
+      "kind": "physical-data",
+      "meaning": "пары количество и значение, начало шаблона дорожки",
+      "evidence": "исходный cl.C, строка 17, длина 8 байтов"
+    },
+    {
+      "address": "#CE5E",
+      "symbol": "DiskUtility.Menu.TrackID",
+      "file": "Source/DiskUtility/Menu/SectorFormatPattern.asm",
+      "kind": "physical-data",
+      "meaning": "байт дорожки внутри серии идентификатора",
+      "evidence": "исходный cl.C, строка 19, длина 1 байтов"
+    },
+    {
+      "address": "#CE5F",
+      "symbol": "DiskUtility.Menu.SidePattern",
+      "file": "Source/DiskUtility/Menu/SectorFormatPattern.asm",
+      "kind": "physical-data",
+      "meaning": "серии стороны и количества байтов номера сектора",
+      "evidence": "исходный cl.C, строка 20, длина 3 байтов"
+    },
+    {
+      "address": "#CE62",
+      "symbol": "DiskUtility.Menu.SectorID",
+      "file": "Source/DiskUtility/Menu/SectorFormatPattern.asm",
+      "kind": "physical-data",
+      "meaning": "байт номера сектора внутри серии идентификатора",
+      "evidence": "исходный cl.C, строка 21, длина 1 байтов"
+    },
+    {
+      "address": "#CE63",
+      "symbol": "DiskUtility.Menu.SizePattern",
+      "file": "Source/DiskUtility/Menu/SectorFormatPattern.asm",
+      "kind": "physical-data",
+      "meaning": "длина серии кода размера сектора",
+      "evidence": "исходный cl.C, строка 22, длина 1 байтов"
+    },
+    {
+      "address": "#CE64",
+      "symbol": "DiskUtility.Menu.SectorSize",
+      "file": "Source/DiskUtility/Menu/SectorFormatPattern.asm",
+      "kind": "physical-data",
+      "meaning": "код размера сектора в идентификаторе",
+      "evidence": "исходный cl.C, строка 23, длина 1 байтов"
+    },
+    {
+      "address": "#CE65",
+      "symbol": "DiskUtility.Menu.DataPattern",
+      "file": "Source/DiskUtility/Menu/SectorFormatPattern.asm",
+      "kind": "physical-data",
+      "meaning": "серии CRC, промежутка, синхронизации и маркера данных",
+      "evidence": "исходный cl.C, строка 24, длина 8 байтов"
+    },
+    {
+      "address": "#CE6F",
+      "symbol": "DiskUtility.Menu.SectorFill",
+      "file": "Source/DiskUtility/Menu/SectorFormatPattern.asm",
+      "kind": "physical-data",
+      "meaning": "значение заполнителя 256 байтов данных",
+      "evidence": "исходный cl.C, строка 26, длина 1 байтов"
+    },
+    {
+      "address": "#CE70",
+      "symbol": "DiskUtility.Menu.CrcPattern",
+      "file": "Source/DiskUtility/Menu/SectorFormatPattern.asm",
+      "kind": "physical-data",
+      "meaning": "серия завершения CRC",
+      "evidence": "исходный cl.C, строка 27, длина 3 байтов"
+    },
+    {
+      "address": "#CE73",
+      "symbol": "DiskUtility.Menu.GapCount",
+      "file": "Source/DiskUtility/Menu/SectorFormatPattern.asm",
+      "kind": "physical-data",
+      "meaning": "число байтов промежутка после сектора",
+      "evidence": "исходный cl.C, строка 28, длина 1 байтов"
+    },
+    {
+      "address": "#CE74",
+      "symbol": "DiskUtility.Menu.PatternEnd",
+      "file": "Source/DiskUtility/Menu/SectorFormatPattern.asm",
+      "kind": "physical-data",
+      "meaning": "заполнитель промежутка и пара завершителя",
+      "evidence": "исходный cl.C, строка 29, длина 3 байтов"
+    },
+    {
+      "address": "#C88F",
+      "symbol": "DiskUtility.Menu.SideValue",
+      "file": "Source/DiskUtility/Menu/SelectTrackAndSide.asm",
+      "kind": "physical-data",
+      "meaning": "значение выбора стороны, изменяет SetTrackSide",
+      "evidence": "исходный cl.C, строка 26, длина 1 байтов"
+    },
+    {
+      "address": "#C894",
+      "symbol": "DiskUtility.Menu.Cylinder",
+      "file": "Source/DiskUtility/Menu/SelectTrackAndSide.asm",
+      "kind": "physical-data",
+      "meaning": "номер цилиндра, логическая дорожка делённая на два",
+      "evidence": "исходный cl.C, строка 29, длина 1 байтов"
+    },
+    {
+      "address": "#0000",
+      "symbol": "DiskUtility.Menu.TextByte",
+      "file": "Source/DiskUtility/Menu/ShowCopyServiceMenu.asm",
+      "kind": "operand-or-offset",
+      "meaning": "нулевое смещение текущего символа, IX является курсором строки",
+      "evidence": "определение EQU, строка 1"
+    },
+    {
+      "address": "#C8C6",
+      "symbol": "DiskUtility.Menu.TransferID",
+      "file": "Source/DiskUtility/Menu/TransferSector.asm",
+      "kind": "physical-data",
+      "meaning": "номер сектора, извлекается из потока после CALL",
+      "evidence": "исходный cl.C, строка 35, длина 1 байтов"
+    },
+    {
+      "address": "#C8CB",
+      "symbol": "DiskUtility.Menu.TransferCmd",
+      "file": "Source/DiskUtility/Menu/TransferSector.asm",
+      "kind": "physical-data",
+      "meaning": "команда #84 чтение либо #A4 запись",
+      "evidence": "исходный cl.C, строка 38, длина 1 байтов"
+    },
+    {
+      "address": "#C8CF",
+      "symbol": "DiskUtility.Menu.TransferCall",
+      "file": "Source/DiskUtility/Menu/TransferSector.asm",
+      "kind": "operand-or-offset",
+      "meaning": "адрес обработчика потока в операнде следующего CALL",
+      "evidence": "определение EQU, строка 41"
+    },
+    {
+      "address": "#0001",
+      "symbol": "DiskUtility.Menu.KeyNext",
+      "file": "Source/DiskUtility/Menu/TransformProtectionMark.asm",
+      "kind": "operand-or-offset",
+      "meaning": "следующий элемент таблицы относительно IY",
+      "evidence": "определение EQU, строка 1"
+    },
+    {
+      "address": "#0002",
+      "symbol": "DiskUtility.Menu.KeyAfterNext",
+      "file": "Source/DiskUtility/Menu/TransformProtectionMark.asm",
+      "kind": "operand-or-offset",
+      "meaning": "элемент таблицы через один относительно IY",
+      "evidence": "определение EQU, строка 2"
+    },
+    {
+      "address": "#FF36",
+      "symbol": "Game.Input.KeyboardControlInterrupt.KeyboardCall",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#FD72",
+      "symbol": "Game.Input.ScanKeyboardMatrix.RowPort",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#FD76",
+      "symbol": "Game.Input.ScanKeyboardMatrix.ScanRow",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#FD78",
+      "symbol": "Game.Input.ScanKeyboardMatrix.KeyReadTail",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#7576",
+      "symbol": "Game.Flight.MainGameLoop.DeathTarget",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#EF8D",
+      "symbol": "Game.Menus.OpenCommanderStatus.FormatCall",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#F0BE",
+      "symbol": "Game.Menus.PrintStatusFieldAndCargoScreen.FormatCall",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#9470",
+      "symbol": "Game.Flight.LaunchOrDockShip.RestoreCall",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#7503",
+      "symbol": "Game.Flight.MainGameLoop.DrawCall",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#D223",
+      "symbol": "Game.Missions.RatingBountyDamageAndNewCommander.CargoOffset",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#FD2C",
+      "symbol": "Game.Input.ToggleSecondaryCoordinateObject.InvasionCall",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#7FB2",
+      "symbol": "Game.Universe.ApplyEnhancedFlightControl.InvasionCall",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#7F87",
+      "symbol": "Game.Universe.ApplyEnhancedFlightControl.DirectKeyRead",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#9D3D",
+      "symbol": "Game.Combat.UpdateAllSpaceObjects.EnergyRead",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#D983",
+      "symbol": "OverlayTrack",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "overlay-source",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#C8D6",
+      "symbol": "DiskUtility.DemoSetup.DemoPayload",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "overlay-source",
+      "meaning": "исходная точка записи установщика демонстрации",
+      "evidence": "операнд определён физической меткой владельца соответствующего игрового модуля, размещение сохранено"
+    },
+    {
+      "address": "#4700",
+      "symbol": "Keyboard",
+      "file": "Includes/Variables/Keyboard.inc",
+      "kind": "workspace-view",
+      "meaning": "матрица восьми полурядов в экранной памяти",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#4708",
+      "symbol": "Keyboard.ScannedMarker",
+      "file": "Includes/Variables/Keyboard.inc",
+      "kind": "workspace-view",
+      "meaning": "маркер после восьми полурядов, ReadKeyboard записывает 1",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#5000",
+      "symbol": "DiskBuffer.Catalog",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "каталог TR-DOS в экранном буфере",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#606F",
+      "symbol": "DiskBuffer.Work",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "повторное использование игрового пула как буфера сектора",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#6150",
+      "symbol": "DiskService.FreeSector",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "следующие свободные сектор и дорожка",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#6153",
+      "symbol": "DiskService.FileCount",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "число записей каталога",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#6154",
+      "symbol": "DiskService.FreeCount",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "число свободных секторов",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#6071",
+      "symbol": "DiskMark.NextValue",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "следующее контрольное слово защитного сектора",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#6073",
+      "symbol": "DiskMark.TimingKey",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "слово измерения и ключа XOR",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#6075",
+      "symbol": "DiskMark.Counters",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "три печатаемых счётчика",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#607B",
+      "symbol": "DiskMark.Suffix",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "дополнительное слово служебного вывода",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#6161",
+      "symbol": "DiskMark.OpenKey",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "открытый байт ключа",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#FFFE",
+      "symbol": "DiskBuffer.SavedSP",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "место сохранения SP на время форматирования",
+      "evidence": "адреса записей и чтений исходного cl.C, EQU не выделяет память"
+    },
+    {
+      "address": "#800D",
+      "symbol": "Game.Screen.SelectTrafficType.InvasionCall",
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "kind": "external-patch-operand",
+      "meaning": "операнд CALL проверки полосы вторжения",
+      "evidence": "физическая EQU перед CALL в Source/Game/Screen/SelectTrafficType.asm"
+    },
+    {
+      "address": "#DED0",
+      "symbol": "SaveName",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "восемь байтов имени в общем строковом буфере игры",
+      "evidence": "EditSaveName, CopyPilotName, SaveCommander читают и изменяют эти восемь байтов"
+    },
+    {
+      "address": "#DED8",
+      "symbol": "SaveName.Extension",
+      "file": "Includes/Variables/Disk.inc",
+      "kind": "workspace-view",
+      "meaning": "расширение файла непосредственно после имени",
+      "evidence": "EditSaveName записывает C, AllocateSave копирует все девять байтов"
+    },
+    {
+      "address": "#9768",
+      "symbol": "Manual.Selection",
+      "file": "Source/Manual/State.asm",
+      "kind": "physical-data",
+      "meaning": "ASCII-код выбранного раздела",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#9769",
+      "symbol": "Manual.ViewState",
+      "file": "Source/Manual/State.asm",
+      "kind": "physical-data",
+      "meaning": "состояние просмотра, 255 продолжение",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#976A",
+      "symbol": "Manual.TextPointer",
+      "file": "Source/Manual/State.asm",
+      "kind": "physical-data",
+      "meaning": "адрес текущей строки распакованного текста",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#977F",
+      "symbol": "Manual.Title",
+      "file": "Source/Manual/Data.asm",
+      "kind": "physical-data",
+      "meaning": "заголовок с управляющими кодами ROM и ограничителем 255",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#97C2",
+      "symbol": "Manual.MenuHint",
+      "file": "Source/Manual/Data.asm",
+      "kind": "physical-data",
+      "meaning": "подсказка выбора раздела",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#97E4",
+      "symbol": "Manual.ScrollHint",
+      "file": "Source/Manual/Data.asm",
+      "kind": "physical-data",
+      "meaning": "подсказка клавиш скорости, остановки и выхода",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#982D",
+      "symbol": "Manual.LoadCommand",
+      "file": "Source/Manual/Data.asm",
+      "kind": "physical-data",
+      "meaning": "токенизированная команда REM, двоеточие, LOAD ELITE3 и ENTER",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#9839",
+      "symbol": "Manual.DoubleStep",
+      "file": "Source/Manual/Data.asm",
+      "kind": "physical-data",
+      "meaning": "режим шага, 0 одна строка и 1 две строки",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#983A",
+      "symbol": "Manual.FrameDelay",
+      "file": "Source/Manual/Data.asm",
+      "kind": "physical-data",
+      "meaning": "задержка между сдвигами в кадрах",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#983B",
+      "symbol": "Manual.ScrollTimer",
+      "file": "Source/Manual/Data.asm",
+      "kind": "physical-data",
+      "meaning": "счётчик кадров, 0 означает паузу",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#983C",
+      "symbol": "Manual.KeyTimer",
+      "file": "Source/Manual/Data.asm",
+      "kind": "physical-data",
+      "meaning": "счётчик до очередного опроса клавиатуры",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#983D",
+      "symbol": "Manual.UnusedState",
+      "file": "Source/Manual/Data.asm",
+      "kind": "physical-data",
+      "meaning": "исходный байт 8, обращений из кода просмотрщика не найдено",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#983E",
+      "symbol": "Manual.GlyphRow",
+      "file": "Source/Manual/Data.asm",
+      "kind": "physical-data",
+      "meaning": "номер растровой строки символа, 0-7",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#983F",
+      "symbol": "Manual.Reverse",
+      "file": "Source/Manual/Data.asm",
+      "kind": "physical-data",
+      "meaning": "направление просмотра, 0 обычное и 1 обратное",
+      "evidence": "побайтовая статическая сверка с оригинальным ELITE3HL.B"
+    },
+    {
+      "address": "#4700",
+      "symbol": "Keyboard.RowShiftZXCV",
+      "file": "Includes/Variables/Keyboard.inc",
+      "kind": "workspace-field",
+      "meaning": "полуряд виртуальной матрицы, младшие пять бит соответствуют клавишам",
+      "evidence": "ReadPhysicalKeyboard заполняет восемь байтов с RLC B, InstallDemo переводит игровой опрос на чтение из BC"
+    },
+    {
+      "address": "#4701",
+      "symbol": "Keyboard.RowASDFG",
+      "file": "Includes/Variables/Keyboard.inc",
+      "kind": "workspace-field",
+      "meaning": "полуряд виртуальной матрицы, младшие пять бит соответствуют клавишам",
+      "evidence": "ReadPhysicalKeyboard заполняет восемь байтов с RLC B, InstallDemo переводит игровой опрос на чтение из BC"
+    },
+    {
+      "address": "#4702",
+      "symbol": "Keyboard.RowQWERT",
+      "file": "Includes/Variables/Keyboard.inc",
+      "kind": "workspace-field",
+      "meaning": "полуряд виртуальной матрицы, младшие пять бит соответствуют клавишам",
+      "evidence": "ReadPhysicalKeyboard заполняет восемь байтов с RLC B, InstallDemo переводит игровой опрос на чтение из BC"
+    },
+    {
+      "address": "#4703",
+      "symbol": "Keyboard.Row12345",
+      "file": "Includes/Variables/Keyboard.inc",
+      "kind": "workspace-field",
+      "meaning": "полуряд виртуальной матрицы, младшие пять бит соответствуют клавишам",
+      "evidence": "ReadPhysicalKeyboard заполняет восемь байтов с RLC B, InstallDemo переводит игровой опрос на чтение из BC"
+    },
+    {
+      "address": "#4704",
+      "symbol": "Keyboard.Row09876",
+      "file": "Includes/Variables/Keyboard.inc",
+      "kind": "workspace-field",
+      "meaning": "полуряд виртуальной матрицы, младшие пять бит соответствуют клавишам",
+      "evidence": "ReadPhysicalKeyboard заполняет восемь байтов с RLC B, InstallDemo переводит игровой опрос на чтение из BC"
+    },
+    {
+      "address": "#4705",
+      "symbol": "Keyboard.RowPOIUY",
+      "file": "Includes/Variables/Keyboard.inc",
+      "kind": "workspace-field",
+      "meaning": "полуряд виртуальной матрицы, младшие пять бит соответствуют клавишам",
+      "evidence": "ReadPhysicalKeyboard заполняет восемь байтов с RLC B, InstallDemo переводит игровой опрос на чтение из BC"
+    },
+    {
+      "address": "#4706",
+      "symbol": "Keyboard.RowEnterLKJH",
+      "file": "Includes/Variables/Keyboard.inc",
+      "kind": "workspace-field",
+      "meaning": "полуряд виртуальной матрицы, младшие пять бит соответствуют клавишам",
+      "evidence": "ReadPhysicalKeyboard заполняет восемь байтов с RLC B, InstallDemo переводит игровой опрос на чтение из BC"
+    },
+    {
+      "address": "#4707",
+      "symbol": "Keyboard.RowSpaceSMNB",
+      "file": "Includes/Variables/Keyboard.inc",
+      "kind": "workspace-field",
+      "meaning": "полуряд виртуальной матрицы, младшие пять бит соответствуют клавишам",
+      "evidence": "ReadPhysicalKeyboard заполняет восемь байтов с RLC B, InstallDemo переводит игровой опрос на чтение из BC"
+    },
+    {
+      "address": "#5C00",
+      "symbol": "Manual.BOOT_STACK",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "временный стек переноса, верхняя граница исходной области #5B00..#5BFF",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#0000",
+      "symbol": "Manual.STACK_TOP",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "верх памяти с 16-битным оборотом, первый PUSH записывает #FFFE/#FFFF",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#3C00",
+      "symbol": "Manual.ROM_FONT",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "исходная база CHARS стандартного шрифта ПЗУ",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#4040",
+      "symbol": "Manual.VIEW_TOP",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "левая граница растровой строки 16, верх окна",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#4140",
+      "symbol": "Manual.VIEW_NEXT",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "растровая строка 17, источник сдвига вверх на один пиксель",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#5780",
+      "symbol": "Manual.VIEW_BOTTOM",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "левая граница растровой строки 167, низ окна",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#5680",
+      "symbol": "Manual.VIEW_PREV",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "растровая строка 166, источник сдвига вниз на один пиксель",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#50A0",
+      "symbol": "Manual.EDGE_BOTTOM",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "растровая строка 168, новый нижний край перед сдвигом вверх",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#51A0",
+      "symbol": "Manual.EDGE_NEXT",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "растровая строка 169, второй нижний срез при двойном шаге",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#4720",
+      "symbol": "Manual.EDGE_TOP",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "растровая строка 15, новый верхний край перед сдвигом вниз",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#4620",
+      "symbol": "Manual.EDGE_PREV",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "растровая строка 14, второй верхний срез при двойном шаге",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#5AE0",
+      "symbol": "Manual.SPEED_ATTR",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "атрибутная строка 23, индикатор скорости прокрутки",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#FFFF",
+      "symbol": "Manual.PACK_LAST",
+      "file": "Source/Manual/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "последний байт назначения LDDR, конец упакованного текста и словаря",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#6000",
+      "symbol": "Loader.SNAP_MIDDLE",
+      "file": "Source/Loader/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "начало загружаемого блока снимка #6000..#C7FF",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#D000",
+      "symbol": "Loader.SNAP_HIGH",
+      "file": "Source/Loader/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "начало загружаемого блока снимка #D000..#FFFF",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#5FFF",
+      "symbol": "Loader.RAM_LIMIT",
+      "file": "Source/Loader/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "восстанавливаемая верхняя граница памяти BASIC",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#4120",
+      "symbol": "Loader.START_STACK",
+      "file": "Source/Loader/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "исходный стек перед передачей управления игре",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#5B00",
+      "symbol": "Loader.MUTATE_BASE",
+      "file": "Source/Loader/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "нижняя граница выбираемых адресов XOR-преобразования",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#3FCA",
+      "symbol": "DiskUtility.Menu.ROM_FDC_WRITE",
+      "file": "Source/DiskUtility/Menu/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "обработчик вывода потока TR-DOS, вызывается через шлюз и стек",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#0000",
+      "symbol": "DiskUtility.Menu.ROM_SEED_BASE",
+      "file": "Source/DiskUtility/Menu/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "начало ПЗУ, откуда в защитный сектор копируются #F2 исходных байта",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#C500",
+      "symbol": "DiskUtility.Menu.CopyEntry",
+      "file": "Source/DiskUtility/Menu/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "первый из трёх секторов копировщика, адрес последующего RET",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#C700",
+      "symbol": "DiskUtility.Menu.CopyReadPage",
+      "file": "Source/DiskUtility/Menu/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "адрес первого прочитанного сектора 3, далее страницы #C600/#C500",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#5900",
+      "symbol": "DiskUtility.Menu.CopyAttributes",
+      "file": "Source/DiskUtility/Menu/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "адрес в IY при передаче копировщику, атрибутная строка 8",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#E000",
+      "symbol": "DiskUtility.Menu.CopyEntryHL",
+      "file": "Source/DiskUtility/Menu/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "значение HL при RET в CopyEntry, последующее использование не подтверждено",
+      "evidence": "исходный LD либо адрес назначения копирования, проверено по инструкции и последующему потребителю"
+    },
+    {
+      "address": "#5820",
+      "symbol": "DiskUtility.Menu.ListAttributes",
+      "file": "Source/DiskUtility/Menu/Constants.inc",
+      "kind": "pointer-constant",
+      "meaning": "начало второй символьной строки, заливка внутренних столбцов рамки",
+      "evidence": "исходный LD HL перед обходом атрибутов экрана"
+    },
+    {
+      "address": "#5800",
+      "symbol": "Memory.Attributes",
+      "file": "Source/DiskUtility/Menu/HighlightSelectedSave.asm",
+      "kind": "pointer-expression",
+      "meaning": "база расчёта атрибутов выбранной каталожной записи",
+      "evidence": "исходный LD HL перед обходом атрибутов экрана"
+    },
+    {
+      "address": "#9AE6",
+      "symbol": "Manual.ReturnSP",
+      "file": "Source/Manual/ReadControls.asm",
+      "kind": "physical-operand",
+      "meaning": "сохранённый SP вызова ShowSection в операнде LD SP",
+      "evidence": "ShowSection записывает SP, ReadControls при SPACE восстанавливает этот операнд"
+    }
+  ],
+  "indexed_fields": [
+    {
+      "file": "Source/DiskUtility/Demo/AimAtNearBody.asm",
+      "register": "IY",
+      "offset": 34,
+      "field": "FSpaceObject.Energy",
+      "meaning": "энергия станции"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyAccelerationKey.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyAccelerationKey.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyAccelerationKey.asm",
+      "register": "IX",
+      "offset": 6,
+      "field": "FKeyboardRows.RowEnterLKJH",
+      "meaning": "полуряд EN,L,K,J,H"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyBrakeKey.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyBrakeKey.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyDefenceKeys.asm",
+      "register": "IX",
+      "offset": 2,
+      "field": "FKeyboardRows.RowQWERT",
+      "meaning": "полуряд Q,W,E,R,T"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyDefenceKeys.asm",
+      "register": "IX",
+      "offset": 5,
+      "field": "FKeyboardRows.RowPOIUY",
+      "meaning": "полуряд P,O,I,U,Y"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyPitchKeys.asm",
+      "register": "IX",
+      "offset": 3,
+      "field": "FKeyboardRows.Row12345",
+      "meaning": "полуряд 1,2,3,4,5"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyPitchKeys.asm",
+      "register": "IY",
+      "offset": 5,
+      "field": "FSpaceObject.Y.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyPitchKeys.asm",
+      "register": "IX",
+      "offset": 1,
+      "field": "FKeyboardRows.RowASDFG",
+      "meaning": "полуряд A,S,D,F,G"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyPitchKeys.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "FKeyboardRows.RowShiftZXCV",
+      "meaning": "полуряд CS,Z,X,C,V"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyPitchKeys.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "FKeyboardRows.RowShiftZXCV",
+      "meaning": "полуряд CS,Z,X,C,V"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyPitchKeys.asm",
+      "register": "IX",
+      "offset": 1,
+      "field": "FKeyboardRows.RowASDFG",
+      "meaning": "полуряд A,S,D,F,G"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyRollKeys.asm",
+      "register": "IX",
+      "offset": 3,
+      "field": "FKeyboardRows.Row12345",
+      "meaning": "полуряд 1,2,3,4,5"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyRollKeys.asm",
+      "register": "IY",
+      "offset": 2,
+      "field": "FSpaceObject.X.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyRollKeys.asm",
+      "register": "IY",
+      "offset": 5,
+      "field": "FSpaceObject.Y.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyRollKeys.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyRollKeys.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyRollKeys.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyRollKeys.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApproachCelestialBody.asm",
+      "register": "IY",
+      "offset": 34,
+      "field": "FSpaceObject.Energy",
+      "meaning": "энергия станции"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "FKeyboardRows.RowShiftZXCV",
+      "meaning": "полуряд CS,Z,X,C,V"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "FKeyboardRows.RowShiftZXCV",
+      "meaning": "полуряд CS,Z,X,C,V"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 6,
+      "field": "FKeyboardRows.RowEnterLKJH",
+      "meaning": "полуряд EN,L,K,J,H"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 3,
+      "field": "FKeyboardRows.Row12345",
+      "meaning": "полуряд 1,2,3,4,5"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IY",
+      "offset": 8,
+      "field": "FSpaceObject.Z.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "FKeyboardRows.RowShiftZXCV",
+      "meaning": "полуряд CS,Z,X,C,V"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 1,
+      "field": "FKeyboardRows.RowASDFG",
+      "meaning": "полуряд A,S,D,F,G"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 6,
+      "field": "FKeyboardRows.RowEnterLKJH",
+      "meaning": "полуряд EN,L,K,J,H"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 2,
+      "field": "FKeyboardRows.RowQWERT",
+      "meaning": "полуряд Q,W,E,R,T"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IY",
+      "offset": 2,
+      "field": "FSpaceObject.X.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IY",
+      "offset": 5,
+      "field": "FSpaceObject.Y.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IY",
+      "offset": 1,
+      "field": "FSpaceObject.X.Low",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IY",
+      "offset": 4,
+      "field": "FSpaceObject.Y.Low",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IY",
+      "offset": 0,
+      "field": "FSpaceObject.X.Fraction",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IY",
+      "offset": 3,
+      "field": "FSpaceObject.Y.Fraction",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IY",
+      "offset": 8,
+      "field": "FSpaceObject.Z.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "register": "IX",
+      "offset": 1,
+      "field": "FKeyboardRows.RowASDFG",
+      "meaning": "полуряд A,S,D,F,G"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/BrakeForDistantTarget.asm",
+      "register": "IY",
+      "offset": 8,
+      "field": "FSpaceObject.Z.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/BrakeForDistantTarget.asm",
+      "register": "IY",
+      "offset": 7,
+      "field": "FSpaceObject.Z.Low",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseDemoAction.asm",
+      "register": "IX",
+      "offset": 3,
+      "field": "FKeyboardRows.Row12345",
+      "meaning": "полуряд 1,2,3,4,5"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseDemoAction.asm",
+      "register": "IX",
+      "offset": 3,
+      "field": "FKeyboardRows.Row12345",
+      "meaning": "полуряд 1,2,3,4,5"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseDemoAction.asm",
+      "register": "IX",
+      "offset": 6,
+      "field": "FKeyboardRows.RowEnterLKJH",
+      "meaning": "полуряд EN,L,K,J,H"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseDemoAction.asm",
+      "register": "IX",
+      "offset": 6,
+      "field": "FKeyboardRows.RowEnterLKJH",
+      "meaning": "полуряд EN,L,K,J,H"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CollectNearbyTarget.asm",
+      "register": "IY",
+      "offset": 8,
+      "field": "FSpaceObject.Z.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CollectNearbyTarget.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "FKeyboardRows.RowShiftZXCV",
+      "meaning": "полуряд CS,Z,X,C,V"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CollectNearbyTarget.asm",
+      "register": "IX",
+      "offset": 1,
+      "field": "FKeyboardRows.RowASDFG",
+      "meaning": "полуряд A,S,D,F,G"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CollectNearbyTarget.asm",
+      "register": "IY",
+      "offset": 2,
+      "field": "FSpaceObject.X.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CompareCoordinateSum.asm",
+      "register": "IY",
+      "offset": 1,
+      "field": "FSpaceObject.X.Low",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CompareCoordinateSum.asm",
+      "register": "IY",
+      "offset": 2,
+      "field": "FSpaceObject.X.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CompareCoordinateSum.asm",
+      "register": "IY",
+      "offset": 4,
+      "field": "FSpaceObject.Y.Low",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CompareCoordinateSum.asm",
+      "register": "IY",
+      "offset": 5,
+      "field": "FSpaceObject.Y.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CompareCoordinateSum.asm",
+      "register": "IY",
+      "offset": 7,
+      "field": "FSpaceObject.Z.Low",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CompareCoordinateSum.asm",
+      "register": "IY",
+      "offset": 8,
+      "field": "FSpaceObject.Z.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/DrawDemoMarkXor.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "ShapeIndex",
+      "meaning": "индекс фигуры в потоке"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/DrawDemoMarkXor.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "ShapeIndex",
+      "meaning": "индекс фигуры в потоке"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/FollowStation.asm",
+      "register": "IY",
+      "offset": 34,
+      "field": "FSpaceObject.Energy",
+      "meaning": "энергия станции"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/InitializeDemoScenario.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/InitializeDemoScenario.asm",
+      "register": "IX",
+      "offset": 3,
+      "field": "FKeyboardRows.Row12345",
+      "meaning": "полуряд 1,2,3,4,5"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/PreservedSteeringEntry.asm",
+      "register": "IY",
+      "offset": 5,
+      "field": "FSpaceObject.Y.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ReverseCourse.asm",
+      "register": "IX",
+      "offset": 6,
+      "field": "FKeyboardRows.RowEnterLKJH",
+      "meaning": "полуряд EN,L,K,J,H"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ReverseCourse.asm",
+      "register": "IX",
+      "offset": 1,
+      "field": "FKeyboardRows.RowASDFG",
+      "meaning": "полуряд A,S,D,F,G"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ReverseCourse.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "FKeyboardRows.RowShiftZXCV",
+      "meaning": "полуряд CS,Z,X,C,V"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "register": "IY",
+      "offset": 8,
+      "field": "FSpaceObject.Z.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "register": "IY",
+      "offset": 2,
+      "field": "FSpaceObject.X.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "register": "IY",
+      "offset": 5,
+      "field": "FSpaceObject.Y.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "register": "IY",
+      "offset": 0,
+      "field": "FSpaceObject.X.Fraction",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "register": "IY",
+      "offset": 1,
+      "field": "FSpaceObject.X.Low",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "register": "IY",
+      "offset": 2,
+      "field": "FSpaceObject.X.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "register": "IY",
+      "offset": 3,
+      "field": "FSpaceObject.Y.Fraction",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "register": "IY",
+      "offset": 4,
+      "field": "FSpaceObject.Y.Low",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "register": "IY",
+      "offset": 5,
+      "field": "FSpaceObject.Y.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "register": "IY",
+      "offset": 3,
+      "field": "FSpaceObject.Y.Fraction",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "register": "IY",
+      "offset": 4,
+      "field": "FSpaceObject.Y.Low",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "register": "IY",
+      "offset": 5,
+      "field": "FSpaceObject.Y.SignHigh",
+      "meaning": "общее положение X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/YieldWithSteeringBrake.asm",
+      "register": "IX",
+      "offset": 6,
+      "field": "FKeyboardRows.RowEnterLKJH",
+      "meaning": "полуряд EN,L,K,J,H"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/YieldWithSteeringBrake.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "FKeyboardRows.RowShiftZXCV",
+      "meaning": "полуряд CS,Z,X,C,V"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/YieldWithSteeringBrake.asm",
+      "register": "IX",
+      "offset": 1,
+      "field": "FKeyboardRows.RowASDFG",
+      "meaning": "полуряд A,S,D,F,G"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/YieldWithSteeringBrake.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/YieldWithSteeringBrake.asm",
+      "register": "IX",
+      "offset": 7,
+      "field": "FKeyboardRows.RowSpaceSMNB",
+      "meaning": "полуряд SP,SS,M,N,B"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/BuildCommanderCatalog.asm",
+      "register": "IX",
+      "offset": 8,
+      "field": "FTrDosEntry.Extension",
+      "meaning": "поле каталожной записи TR-DOS"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/BuildCommanderCatalog.asm",
+      "register": "IX",
+      "offset": 11,
+      "field": "FTrDosEntry.LengthLow",
+      "meaning": "поле каталожной записи TR-DOS"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/BuildCommanderCatalog.asm",
+      "register": "IX",
+      "offset": 12,
+      "field": "FTrDosEntry.LengthHigh",
+      "meaning": "поле каталожной записи TR-DOS"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/BuildCommanderCatalog.asm",
+      "register": "IX",
+      "offset": 13,
+      "field": "FTrDosEntry.SectorCount",
+      "meaning": "поле каталожной записи TR-DOS"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/LoadCommander.asm",
+      "register": "IX",
+      "offset": 14,
+      "field": "FTrDosEntry.FirstSector",
+      "meaning": "поле каталожной записи TR-DOS"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/LoadCommander.asm",
+      "register": "IX",
+      "offset": 15,
+      "field": "FTrDosEntry.FirstTrack",
+      "meaning": "поле каталожной записи TR-DOS"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/SaveNamedCommander.asm",
+      "register": "IX",
+      "offset": 15,
+      "field": "FTrDosEntry.FirstTrack",
+      "meaning": "поле каталожной записи TR-DOS"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/SaveNamedCommander.asm",
+      "register": "IX",
+      "offset": 14,
+      "field": "FTrDosEntry.FirstSector",
+      "meaning": "поле каталожной записи TR-DOS"
+    },
+    {
+      "file": "Source/Manual/UnpackText.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "OutputByte",
+      "meaning": "нулевое смещение выходного байта, IX является курсором распаковки"
+    },
+    {
+      "file": "Source/Manual/UnpackText.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "OutputByte",
+      "meaning": "нулевое смещение выходного байта, IX является курсором распаковки"
+    },
+    {
+      "file": "Source/Manual/UnpackText.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "OutputByte",
+      "meaning": "нулевое смещение выходного байта, IX является курсором распаковки"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/EmitRepeatedByte.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "TrackByte",
+      "meaning": "нулевое смещение выходного байта, IX является курсором потока дорожки"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/FormatDecimalDigit.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "DigitByte",
+      "meaning": "нулевое смещение текущей цифры, IX является курсором строки"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/FormatDecimalDigit.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "DigitByte",
+      "meaning": "нулевое смещение текущей цифры, IX является курсором строки"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ShowCopyServiceMenu.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "TextByte",
+      "meaning": "нулевое смещение текущего символа, IX является курсором строки"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ShowCopyServiceMenu.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "TextByte",
+      "meaning": "нулевое смещение текущего символа, IX является курсором строки"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ShowCopyServiceMenu.asm",
+      "register": "IX",
+      "offset": 0,
+      "field": "TextByte",
+      "meaning": "нулевое смещение текущего символа, IX является курсором строки"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ShowCopyServiceMenu.asm",
+      "register": "IX",
+      "offset": 1,
+      "field": "TextByte + 1",
+      "meaning": "нулевое смещение текущего символа, IX является курсором строки"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/TransformProtectionMark.asm",
+      "register": "IY",
+      "offset": 1,
+      "field": "KeyNext",
+      "meaning": "смещение соседнего байта таблицы ключа, IYL является циклическим индексом"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/TransformProtectionMark.asm",
+      "register": "IY",
+      "offset": 2,
+      "field": "KeyAfterNext",
+      "meaning": "смещение соседнего байта таблицы ключа, IYL является циклическим индексом"
+    }
+  ],
+  "unresolved_external": [],
+  "static_check": {
+    "instructions": 1747,
+    "data_bytes": 490,
+    "errors": [],
+    "unresolved_symbols": [],
+    "scope": "сравнение исходных инструкций и DB/DW с cl.C через декодер, ассемблер не запускался",
+    "note": "После сверки заменены дополнительные числовые операнды #800D и операнды установщика точными физическими метками владельцев, соответствия перечислены в bindings. Окончательная сборка и полная сверка проекта выполняются родителем."
+  },
+  "manual_data_check": {
+    "bytes": 197,
+    "errors": []
+  },
+  "robot_data_check": {
+    "bytes": 256,
+    "equal": true
+  },
+  "pointer_pass": {
+    "bindings_added": 27,
+    "constants_intentionally_preserved": [
+      "#FFFF в ClearWorkBuffer, SP-1",
+      "#FFFE в Manual/Menu, расстояние до предшествующего байта",
+      "#FF00 в AimAtNearBody, порог сравнения",
+      "#0900 в Loader/Load, прибавка к паре сектор/дорожка",
+      "#0000 в счётчиках и шаблоне восстанавливаемого SP"
+    ],
+    "scope": "имена реально загружаемых указателей, без изменения адресов или машинных команд",
+    "static_check": {
+      "bindings": 27,
+      "screen_rows": 8,
+      "errors": [],
+      "scope": "вычисление новых EQU по символам предыдущей сборки и проверка растровых позиций, ассемблер не запускался"
+    }
+  },
+  "current_validation": "Tools/Disasm/Reports/VariableAudit.json",
+  "addresses_verified_with_current_assembly": true
+}

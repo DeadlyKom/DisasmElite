@@ -1,0 +1,1016 @@
+{
+  "files": {
+    "Source/Game/Extensions/MarkObjectEventAndMaybeRemove.asm": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm"
+  },
+  "symbols": {
+    "Game.Extensions.MarkObjectEventAndMaybeRemove": "Game.Extensions.MarkObjectEventAndUpdateMetadata"
+  },
+  "new_labels": [
+    {
+      "address": 64226,
+      "symbol": "Game.Extensions.AllocateVariantObjectSlot.MixVariant",
+      "file": "Source/Game/Extensions/AllocateVariantObjectSlot.asm",
+      "meaning": "смешивание случайного байта с промежуточным типом корабля"
+    },
+    {
+      "address": 64233,
+      "symbol": "Game.Extensions.AllocateVariantObjectSlot.ClearMetaFlag",
+      "file": "Source/Game/Extensions/AllocateVariantObjectSlot.asm",
+      "meaning": "очистка признака метаданных для выбранного типа"
+    },
+    {
+      "address": 28667,
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.ConfirmUpgrade",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "meaning": "обработка ответа на предложение улучшения"
+    },
+    {
+      "address": 28677,
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.SelectMenu",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "meaning": "выбор продолжения меню по наличию улучшения"
+    },
+    {
+      "address": 28691,
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.ColonyGate",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "meaning": "изменяемая команда NOP либо RET для проверки живой колонии"
+    },
+    {
+      "address": 28809,
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.UseEnergyBomb",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "meaning": "проверка команды и расход энергетической бомбы"
+    },
+    {
+      "address": 28834,
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.FlashAgain",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "meaning": "очередная вспышка экрана после расхода бомбы"
+    },
+    {
+      "address": 64272,
+      "symbol": "Game.Extensions.BuildSmallCircleProfile.ReadProfile",
+      "file": "Source/Game/Extensions/BuildSmallCircleProfile.asm",
+      "meaning": "чтение параметров профиля для заданного радиуса"
+    },
+    {
+      "address": 64283,
+      "symbol": "Game.Extensions.BuildSmallCircleProfile.SlopeRow",
+      "file": "Source/Game/Extensions/BuildSmallCircleProfile.asm",
+      "meaning": "запись очередной маски наклонной части силуэта"
+    },
+    {
+      "address": 64290,
+      "symbol": "Game.Extensions.BuildSmallCircleProfile.RepeatRow",
+      "file": "Source/Game/Extensions/BuildSmallCircleProfile.asm",
+      "meaning": "запись очередной строки с последней маской"
+    },
+    {
+      "address": 64071,
+      "symbol": "Game.Extensions.ChooseLinkedObjectTarget.ClearReserve",
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "meaning": "сброс недействительной резервной ссылки"
+    },
+    {
+      "address": 64072,
+      "symbol": "Game.Extensions.ChooseLinkedObjectTarget.CheckSearch",
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "meaning": "проверка разрешающих флагов перед поиском новой цели"
+    },
+    {
+      "address": 64084,
+      "symbol": "Game.Extensions.ChooseLinkedObjectTarget.FindLinked",
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "meaning": "поиск записи метаданных с признаком подходящей цели"
+    },
+    {
+      "address": 64121,
+      "symbol": "Game.Extensions.ChooseLinkedObjectTarget.NoTarget",
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "meaning": "возврат нулевого результата при отсутствии цели"
+    },
+    {
+      "address": 64123,
+      "symbol": "Game.Extensions.ChooseLinkedObjectTarget.FoundLinked",
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "meaning": "возврат указателя метаданных после выбора связанной цели"
+    },
+    {
+      "address": 64124,
+      "symbol": "Game.Extensions.ChooseLinkedObjectTarget.StoreTarget",
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "meaning": "сохранение выбранного номера цели с прежним старшим битом"
+    },
+    {
+      "address": 64129,
+      "symbol": "Game.Extensions.ChooseLinkedObjectTarget.ReturnTarget",
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "meaning": "возврат выбранного номера цели и ненулевого признака"
+    },
+    {
+      "address": 64512,
+      "symbol": "Game.Extensions.CompareObjectCoordinateDepth.AcceptDepth",
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "meaning": "возврат ненулевого признака принятия объекта по глубине"
+    },
+    {
+      "address": 64515,
+      "symbol": "Game.Extensions.CompareObjectCoordinateDepth.RejectDepth",
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "meaning": "возврат нуля при отбраковке объекта по глубине"
+    },
+    {
+      "address": 24300,
+      "symbol": "Game.Extensions.CreateMissileOrMissionCraft.SpendMissile",
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "meaning": "расход ракеты перед проверкой специального груза"
+    },
+    {
+      "address": 24329,
+      "symbol": "Game.Extensions.CreateMissileOrMissionCraft.SetBlueprint",
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "meaning": "назначение выбранной модели созданному объекту"
+    },
+    {
+      "address": 28507,
+      "symbol": "Game.Extensions.DrawCompressedEdges.ReadEdgeBlock",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "meaning": "чтение указателей потоков упакованных рёбер"
+    },
+    {
+      "address": 28536,
+      "symbol": "Game.Extensions.DrawCompressedEdges.ReadEdgeGroup",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "meaning": "чтение очередной группы порогов видимости"
+    },
+    {
+      "address": 28544,
+      "symbol": "Game.Extensions.DrawCompressedEdges.UseThreshold",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "meaning": "применение порога текущей группы рёбер"
+    },
+    {
+      "address": 28554,
+      "symbol": "Game.Extensions.DrawCompressedEdges.TestEdge",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "meaning": "проверка ограничения дальности и видимости ребра"
+    },
+    {
+      "address": 28568,
+      "symbol": "Game.Extensions.DrawCompressedEdges.TestFace",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "meaning": "проверка видимости грани текущего ребра"
+    },
+    {
+      "address": 28595,
+      "symbol": "Game.Extensions.DrawCompressedEdges.LowVertex",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "meaning": "извлечение номера вершины без добавочного старшего бита"
+    },
+    {
+      "address": 28597,
+      "symbol": "Game.Extensions.DrawCompressedEdges.ProjectFirst",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "meaning": "чтение проекции первой вершины ребра"
+    },
+    {
+      "address": 28629,
+      "symbol": "Game.Extensions.DrawCompressedEdges.NextEdge",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "meaning": "восстановление указателей и переход к следующему ребру"
+    },
+    {
+      "address": 28641,
+      "symbol": "Game.Extensions.DrawCompressedEdges.CountEdge",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "meaning": "уменьшение числа оставшихся рёбер"
+    },
+    {
+      "address": 64345,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.ClipLeft",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "проверка размещения левого края силуэта"
+    },
+    {
+      "address": 64351,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.ClipRight",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "проверка размещения правого края силуэта"
+    },
+    {
+      "address": 64357,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.CheckHeight",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "проверка вертикального диапазона центра"
+    },
+    {
+      "address": 64362,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.RejectCentre",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "отказ от вывода силуэта вне допустимого диапазона"
+    },
+    {
+      "address": 64364,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.ScreenY",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "расчёт экранной строки из знаковой проекции"
+    },
+    {
+      "address": 64373,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.AddRadius",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "смещение к нижней строке силуэта на радиус"
+    },
+    {
+      "address": 64387,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.NextScanline",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "переход к следующей экранной строке силуэта"
+    },
+    {
+      "address": 64408,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.BuildRowMask",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "построение трёхбайтовой маски строки"
+    },
+    {
+      "address": 64414,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.MirrorMask",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "перестановка битов профиля в старший байт маски"
+    },
+    {
+      "address": 64426,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.ShiftRowMask",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "смещение маски к пиксельной позиции центра"
+    },
+    {
+      "address": 64442,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.WriteCentre",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "наложение центрального байта силуэта"
+    },
+    {
+      "address": 64456,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.RestoreClip",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "восстановление флагов отсечения и радиуса"
+    },
+    {
+      "address": 64457,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.AdvanceProfile",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "переход к следующей строке прямой либо обратной половины профиля"
+    },
+    {
+      "address": 64472,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.ReverseRow",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "продвижение назад по симметричной половине профиля"
+    },
+    {
+      "address": 24141,
+      "symbol": "Game.Extensions.FillBackwardAndCountDemo.RestoreRegs",
+      "file": "Source/Game/Extensions/FillBackwardAndCountDemo.asm",
+      "meaning": "восстановление регистров после обратного заполнения"
+    },
+    {
+      "address": 24144,
+      "symbol": "Game.Extensions.FillBackwardAndCountDemo.ReturnState",
+      "file": "Source/Game/Extensions/FillBackwardAndCountDemo.asm",
+      "meaning": "возврат состояния результата после заполнения"
+    },
+    {
+      "address": 24149,
+      "symbol": "Game.Extensions.FillBackwardAndCountDemo.CountDemo",
+      "file": "Source/Game/Extensions/FillBackwardAndCountDemo.asm",
+      "meaning": "учёт завершения демонстрационного такта"
+    },
+    {
+      "address": 24165,
+      "symbol": "Game.Extensions.FillBackwardAndCountDemo.ShowMenu",
+      "file": "Source/Game/Extensions/FillBackwardAndCountDemo.asm",
+      "meaning": "возврат к обработке выбранного меню"
+    },
+    {
+      "address": 63843,
+      "symbol": "Game.Extensions.FindLiveTrackedObject.CheckSlot",
+      "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+      "meaning": "проверка флага ракеты, энергии и идентификатора слота"
+    },
+    {
+      "address": 63861,
+      "symbol": "Game.Extensions.FindLiveTrackedObject.PreviousSlot",
+      "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+      "meaning": "переход к предыдущему 39-байтовому слоту"
+    },
+    {
+      "address": 63832,
+      "symbol": "Game.Extensions.GetViewAdjustedProjectedPoint.ReturnFlags",
+      "file": "Source/Game/Extensions/GetViewAdjustedProjectedPoint.asm",
+      "meaning": "возврат признаков проекции с поправкой на вид"
+    },
+    {
+      "address": 24100,
+      "symbol": "Game.Extensions.HandleSpecialMessageToken.ApplyGates",
+      "file": "Source/Game/Extensions/HandleSpecialMessageToken.asm",
+      "meaning": "запись NOP либо RET в две команды допуска колонии"
+    },
+    {
+      "address": 24112,
+      "symbol": "Game.Extensions.HandleSpecialMessageToken.ShowColony",
+      "file": "Source/Game/Extensions/HandleSpecialMessageToken.asm",
+      "meaning": "замена исходного токена сообщением живой колонии"
+    },
+    {
+      "address": 63783,
+      "symbol": "Game.Extensions.MarkObjectEventAndMaybeRemove.UpdateMetadata",
+      "file": "Source/Game/Extensions/MarkObjectEventAndMaybeRemove.asm",
+      "meaning": "вызов обработчика метаданных с сохранением аккумулятора"
+    },
+    {
+      "address": 24533,
+      "symbol": "Game.Extensions.OfferUpgradeAndCorrectPosition.CorrectCentre",
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "meaning": "поправка координаты второго координатного объекта"
+    },
+    {
+      "address": 24575,
+      "symbol": "Game.Extensions.OfferUpgradeAndCorrectPosition.DoubleDominant",
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "meaning": "удвоение выбранной преобладающей координаты"
+    },
+    {
+      "address": 61693,
+      "symbol": "Game.Extensions.PrintCargoAndMessageBanks.StartCargoList",
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "meaning": "инициализация указателя и номера товара"
+    },
+    {
+      "address": 61703,
+      "symbol": "Game.Extensions.PrintCargoAndMessageBanks.PrintCargoRow",
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "meaning": "вывод очередной непустой товарной строки"
+    },
+    {
+      "address": 63668,
+      "symbol": "Game.Extensions.PrintCargoAndMessageBanks.ProjectSafely",
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "meaning": "проекция с временным рабочим стеком и отключённым IM2"
+    },
+    {
+      "address": 63691,
+      "symbol": "Game.Extensions.PrintCargoAndMessageBanks.RestoreStack",
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "meaning": "восстановление стека перед возвратом к выводу объекта"
+    },
+    {
+      "address": 63929,
+      "symbol": "Game.Extensions.ResetObjectMetadata.ClearRecords",
+      "file": "Source/Game/Extensions/ResetObjectMetadata.asm",
+      "meaning": "очистка восьмидесяти байтов записей метаданных"
+    },
+    {
+      "address": 63904,
+      "symbol": "Game.Extensions.ResolveSpecialObjectCollision.DestroyFirst",
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "meaning": "обнуление энергии первого участника столкновения"
+    },
+    {
+      "address": 64152,
+      "symbol": "Game.Extensions.ScheduleLinkedObjectLaser.CheckLinks",
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "meaning": "проверка наличия ссылок на цели"
+    },
+    {
+      "address": 64168,
+      "symbol": "Game.Extensions.ScheduleLinkedObjectLaser.PermitLaser",
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "meaning": "установка переноса для разрешённого действия"
+    },
+    {
+      "address": 64169,
+      "symbol": "Game.Extensions.ScheduleLinkedObjectLaser.RestoreTarget",
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "meaning": "восстановление указателя вызывающей процедуры"
+    },
+    {
+      "address": 64187,
+      "symbol": "Game.Extensions.ScheduleLinkedObjectLaser.TestRandom",
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "meaning": "проверка результата случайного сравнения либо безусловного допуска"
+    },
+    {
+      "address": 64191,
+      "symbol": "Game.Extensions.ScheduleLinkedObjectLaser.UpdateHistory",
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "meaning": "сдвиг накопленной истории случайного выбора"
+    },
+    {
+      "address": 24086,
+      "symbol": "Game.Extensions.SelectCharacterFont.ExtraFont",
+      "file": "Source/Game/Extensions/SelectCharacterFont.asm",
+      "meaning": "выбор дополнительного знакогенератора"
+    },
+    {
+      "address": 63964,
+      "symbol": "Game.Extensions.SetObjectAggressionFlag.EnableAttack",
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "meaning": "разрешение агрессивного поведения"
+    },
+    {
+      "address": 24220,
+      "symbol": "Game.Extensions.UpdateInvasionOnRatingOverflow.CheckRating",
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "meaning": "проверка рейтинга и битов счётчика переходов"
+    },
+    {
+      "address": 24247,
+      "symbol": "Game.Extensions.UpdateInvasionOnRatingOverflow.MarkJumpCount",
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "meaning": "установка старшего бита счётчика переходов"
+    },
+    {
+      "address": 24251,
+      "symbol": "Game.Extensions.UpdateInvasionOnRatingOverflow.ReturnInput",
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "meaning": "возврат указателя для вызывающего обработчика рейтинга"
+    },
+    {
+      "address": 24254,
+      "symbol": "Game.Extensions.UpdateInvasionOnRatingOverflow.ReduceIfEven",
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "meaning": "уменьшение чётного кода рейтинга либо счётчика переходов"
+    },
+    {
+      "address": 28367,
+      "symbol": "Game.Extensions.UpdateSpecialCargoStatus.StoreBalance",
+      "file": "Source/Game/Extensions/UpdateSpecialCargoStatus.asm",
+      "meaning": "запись разности в выбранное грузовое поле"
+    },
+    {
+      "address": 24048,
+      "symbol": "Game.Extensions.UpdateStationAndFinishGlyph.FinishGlyph",
+      "file": "Source/Game/Extensions/UpdateStationAndFinishGlyph.asm",
+      "meaning": "извлечение адреса глифа со стека и вывод восьми строк"
+    },
+    {
+      "address": 24383,
+      "symbol": "Game.Extensions.UpdateStationAndSpecialShips.NearSun",
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "meaning": "обработка станции в солнечной полосе"
+    },
+    {
+      "address": 24410,
+      "symbol": "Game.Extensions.UpdateStationAndSpecialShips.CopySunAxis",
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "meaning": "перенос средней части и знака очередной координаты солнца"
+    },
+    {
+      "address": 24449,
+      "symbol": "Game.Extensions.UpdateStationAndSpecialShips.OfferCobra",
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "meaning": "запись предложения Cobra Mk4 перед созданием Asp"
+    },
+    {
+      "address": 24455,
+      "symbol": "Game.Extensions.UpdateStationAndSpecialShips.SpawnShip",
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "meaning": "создание корабля с временной защитой второго слота"
+    },
+    {
+      "address": 63991,
+      "symbol": "Game.Extensions.ValidatePackedObjectTarget.FindEnergy",
+      "file": "Source/Game/Extensions/ValidatePackedObjectTarget.asm",
+      "meaning": "переход к энергии следующего объектного слота"
+    },
+    {
+      "address": 64011,
+      "symbol": "Game.Extensions.ValidatePackedObjectTarget.ReturnNumber",
+      "file": "Source/Game/Extensions/ValidatePackedObjectTarget.asm",
+      "meaning": "возврат номера подтверждённой цели"
+    },
+    {
+      "address": 54635,
+      "symbol": "Game.Text.ApplyAttributeRuns.ReadRun",
+      "file": "Source/Game/Text/ApplyAttributeRuns.asm",
+      "meaning": "чтение длины участка и шага до следующей строки"
+    },
+    {
+      "address": 54657,
+      "symbol": "Game.Text.ApplyAttributeRuns.AdvanceRow",
+      "file": "Source/Game/Text/ApplyAttributeRuns.asm",
+      "meaning": "переход на следующую строку атрибутов"
+    },
+    {
+      "address": 54664,
+      "symbol": "Game.Text.ApplyAttributeRuns.CountRows",
+      "file": "Source/Game/Text/ApplyAttributeRuns.asm",
+      "meaning": "учёт пройденной символьной строки"
+    },
+    {
+      "address": 54668,
+      "symbol": "Game.Text.ApplyAttributeRuns.FinishRuns",
+      "file": "Source/Game/Text/ApplyAttributeRuns.asm",
+      "meaning": "завершение списка и установка двух атрибутов рамки"
+    },
+    {
+      "address": 54456,
+      "symbol": "Game.Text.ApplyTextCase.CheckWordStart",
+      "file": "Source/Game/Text/ApplyTextCase.asm",
+      "meaning": "выбор регистра по признаку начала слова"
+    },
+    {
+      "address": 54476,
+      "symbol": "Game.Text.ApplyTextCase.Lowercase",
+      "file": "Source/Game/Text/ApplyTextCase.asm",
+      "meaning": "преобразование ASCII буквы в строчный регистр"
+    },
+    {
+      "address": 54482,
+      "symbol": "Game.Text.ApplyTextCase.MarkWordStart",
+      "file": "Source/Game/Text/ApplyTextCase.asm",
+      "meaning": "отметка границы слова после небуквенного символа"
+    },
+    {
+      "address": 54488,
+      "symbol": "Game.Text.ApplyTextCase.EmitCharacter",
+      "file": "Source/Game/Text/ApplyTextCase.asm",
+      "meaning": "восстановление символа перед выводом"
+    },
+    {
+      "address": 55437,
+      "symbol": "Game.Text.CapitalizeNextLetterAndTextCommands.NextSyllable",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "meaning": "генерация следующего двухбуквенного слога"
+    },
+    {
+      "address": 55472,
+      "symbol": "Game.Text.CapitalizeNextLetterAndTextCommands.StoreCaseMode",
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "meaning": "сохранение режима регистра текста"
+    },
+    {
+      "address": 54725,
+      "symbol": "Game.Text.CheckMineralLifeColony.KillColony",
+      "file": "Source/Game/Text/CheckMineralLifeColony.asm",
+      "meaning": "отметка гибели колонии при нехватке минералов"
+    },
+    {
+      "address": 54729,
+      "symbol": "Game.Text.CheckMineralLifeColony.AbsentResult",
+      "file": "Source/Game/Text/CheckMineralLifeColony.asm",
+      "meaning": "возврат FF для отсутствующей или FE для погибшей колонии"
+    },
+    {
+      "address": 54909,
+      "symbol": "Game.Text.CheckMissionRegion.CheckGalaxy",
+      "file": "Source/Game/Text/CheckMissionRegion.asm",
+      "meaning": "общий вход с выбранным указателем координат"
+    },
+    {
+      "address": 54929,
+      "symbol": "Game.Text.CheckMissionRegion.ConsumeLimit",
+      "file": "Source/Game/Text/CheckMissionRegion.asm",
+      "meaning": "пропуск встроенного порога в адресе возврата"
+    },
+    {
+      "address": 54952,
+      "symbol": "Game.Text.CheckMissionRegion.RadiusOverflow",
+      "file": "Source/Game/Text/CheckMissionRegion.asm",
+      "meaning": "возврат переноса при переполнении метрики радиуса"
+    },
+    {
+      "address": 54817,
+      "symbol": "Game.Text.ClearViewAndFrame.ClearScanline",
+      "file": "Source/Game/Text/ClearViewAndFrame.asm",
+      "meaning": "очистка очередной пиксельной строки окна"
+    },
+    {
+      "address": 54821,
+      "symbol": "Game.Text.ClearViewAndFrame.ClearByte",
+      "file": "Source/Game/Text/ClearViewAndFrame.asm",
+      "meaning": "очистка очередного байта пиксельной строки"
+    },
+    {
+      "address": 54513,
+      "symbol": "Game.Text.DrawCharacter8x8.GlyphAddress",
+      "file": "Source/Game/Text/DrawCharacter8x8.asm",
+      "meaning": "вычисление адреса глифа после обновления колонки"
+    },
+    {
+      "address": 54556,
+      "symbol": "Game.Text.DrawCharacter8x8.BottomThird",
+      "file": "Source/Game/Text/DrawCharacter8x8.asm",
+      "meaning": "выбор нижней трети экрана для строки текста"
+    },
+    {
+      "address": 54566,
+      "symbol": "Game.Text.DrawCharacter8x8.MiddleThird",
+      "file": "Source/Game/Text/DrawCharacter8x8.asm",
+      "meaning": "выбор средней трети экрана для строки текста"
+    },
+    {
+      "address": 54573,
+      "symbol": "Game.Text.DrawCharacter8x8.RowOffset",
+      "file": "Source/Game/Text/DrawCharacter8x8.asm",
+      "meaning": "добавление номера символьной строки внутри трети экрана"
+    },
+    {
+      "address": 55246,
+      "symbol": "Game.Text.DrawProjectedSunAndTextDispatch.CompareSectors",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "meaning": "рисование секторов с выбранной осью проекции"
+    },
+    {
+      "address": 55266,
+      "symbol": "Game.Text.DrawProjectedSunAndTextDispatch.MainCommand",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "meaning": "вход диспетчера основной таблицы текстовых команд"
+    },
+    {
+      "address": 55368,
+      "symbol": "Game.Text.DrawProjectedSunAndTextDispatch.PrintWithEol",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "meaning": "вывод токена с переводом строки"
+    },
+    {
+      "address": 55416,
+      "symbol": "Game.Text.DrawProjectedSunAndTextDispatch.PrintString",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "meaning": "вывод подготовленной строки до нулевого байта"
+    },
+    {
+      "address": 55268,
+      "symbol": "Game.Text.DrawProjectedSunAndTextDispatch.DescCommand",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "meaning": "перекрывающийся вход второй таблицы текстовых команд"
+    },
+    {
+      "address": 54862,
+      "symbol": "Game.Text.DrawViewFrame.DrawSides",
+      "file": "Source/Game/Text/DrawViewFrame.asm",
+      "meaning": "установка крайних пикселей очередной строки рамки"
+    },
+    {
+      "address": 55504,
+      "symbol": "Game.Text.EquipmentMenuLimit.OrdinaryLimit",
+      "file": "Source/Game/Text/EquipmentMenuLimit.asm",
+      "meaning": "загрузка обычного предела номера оборудования"
+    },
+    {
+      "address": 54973,
+      "symbol": "Game.Text.HandleSpecialObjectMission.CheckPermit",
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "meaning": "проверка старшего бита поля допуска миссии"
+    },
+    {
+      "address": 54979,
+      "symbol": "Game.Text.HandleSpecialObjectMission.ReturnCarry",
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "meaning": "преобразование переноса в результат события"
+    },
+    {
+      "address": 54981,
+      "symbol": "Game.Text.HandleSpecialObjectMission.DestroyStation",
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "meaning": "обнуление энергии особой станции и проверка фронта вторжения"
+    },
+    {
+      "address": 54996,
+      "symbol": "Game.Text.HandleSpecialObjectMission.ShrinkFront",
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "meaning": "сокращение области вторжения до освобождения текущей системы"
+    },
+    {
+      "address": 54741,
+      "symbol": "Game.Text.InitializeSixTriples.InitTriple",
+      "file": "Source/Game/Text/InitializeSixTriples.asm",
+      "meaning": "запись нулевых младших частей и начального старшего байта"
+    },
+    {
+      "address": 54781,
+      "symbol": "Game.Text.NextDescriptionRandom.CheckSupply",
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "meaning": "проверка области для поставки продовольствия или оружия"
+    },
+    {
+      "address": 54793,
+      "symbol": "Game.Text.NextDescriptionRandom.ReturnGoods",
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "meaning": "восстановление номера проданного товара"
+    },
+    {
+      "address": 55061,
+      "symbol": "Game.Text.OfferRegionDependentMission.WartimeTask",
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "meaning": "выбор военного задания в полосе сопротивления"
+    },
+    {
+      "address": 55081,
+      "symbol": "Game.Text.OfferRegionDependentMission.FindRewardBit",
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "meaning": "выбор бита награды и соответствующего токена"
+    },
+    {
+      "address": 55088,
+      "symbol": "Game.Text.OfferRegionDependentMission.OfferVolunteer",
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "meaning": "предложение вступить добровольцем"
+    },
+    {
+      "address": 55113,
+      "symbol": "Game.Text.OfferRegionDependentMission.AdvanceRank",
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "meaning": "увеличение кода военного этапа"
+    },
+    {
+      "address": 55114,
+      "symbol": "Game.Text.OfferRegionDependentMission.ShowTask",
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "meaning": "вывод выбранного миссионного сообщения"
+    },
+    {
+      "address": 55119,
+      "symbol": "Game.Text.OfferRegionDependentMission.OccupiedSystem",
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "meaning": "назначение состояния миссии для оккупированной системы"
+    },
+    {
+      "address": 54371,
+      "symbol": "Game.Text.PrintDescriptionToken.SkipToken",
+      "file": "Source/Game/Text/PrintDescriptionToken.asm",
+      "meaning": "проверка числа оставшихся строк перед искомым токеном"
+    },
+    {
+      "address": 54337,
+      "symbol": "Game.Text.PrintMainToken.ExtendToken",
+      "file": "Source/Game/Text/PrintMainToken.asm",
+      "meaning": "преобразование управляющего кода в расширенный токен"
+    },
+    {
+      "address": 54339,
+      "symbol": "Game.Text.PrintMainToken.FindToken",
+      "file": "Source/Game/Text/PrintMainToken.asm",
+      "meaning": "поиск строки основной таблицы"
+    },
+    {
+      "address": 54344,
+      "symbol": "Game.Text.PrintMainToken.SkipToken",
+      "file": "Source/Game/Text/PrintMainToken.asm",
+      "meaning": "пропуск строк перед искомым токеном"
+    },
+    {
+      "address": 54356,
+      "symbol": "Game.Text.PrintMainToken.ExpandString",
+      "file": "Source/Game/Text/PrintMainToken.asm",
+      "meaning": "рекурсивный вывод следующего байта строки"
+    },
+    {
+      "address": 55173,
+      "symbol": "Game.Text.PrintRankWithMissionSuffix.FinishLine",
+      "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+      "meaning": "перевод строки после звания и дополнительных отметок"
+    },
+    {
+      "address": 54684,
+      "symbol": "Game.Text.PrintTwoLetterSyllable.MainSyllable",
+      "file": "Source/Game/Text/PrintTwoLetterSyllable.asm",
+      "meaning": "выбор слога основной таблицы"
+    },
+    {
+      "address": 54689,
+      "symbol": "Game.Text.PrintTwoLetterSyllable.FindPair",
+      "file": "Source/Game/Text/PrintTwoLetterSyllable.asm",
+      "meaning": "поиск двух букв по удвоенному индексу"
+    },
+    {
+      "address": 55531,
+      "symbol": "Game.Text.SetDescriptionModeAndHelpers.StoreMode",
+      "file": "Source/Game/Text/SetDescriptionModeAndHelpers.asm",
+      "meaning": "сохранение режима второй таблицы описаний"
+    },
+    {
+      "address": 55541,
+      "symbol": "Game.Text.SetDescriptionModeAndHelpers.SetRow",
+      "file": "Source/Game/Text/SetDescriptionModeAndHelpers.asm",
+      "meaning": "назначение выбранной строки печати"
+    },
+    {
+      "address": 55544,
+      "symbol": "Game.Text.SetDescriptionModeAndHelpers.PrintLetter",
+      "file": "Source/Game/Text/SetDescriptionModeAndHelpers.asm",
+      "meaning": "вывод буквы слога с пропуском заполнителя"
+    },
+    {
+      "address": 64379,
+      "symbol": "Game.Extensions.DrawSmallSilhouette.DrawRaster",
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "meaning": "вывод готового профиля по экранному адресу HL и смещению пикселя A"
+    },
+    {
+      "address": 28687,
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.ReadCargoByte",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "meaning": "чтение текущей товарной строки с проверкой колонии"
+    },
+    {
+      "address": 28457,
+      "symbol": "Game.Extensions.PrintEquipmentAndSelectIcon.SelectIcon",
+      "file": "Source/Game/Extensions/PrintEquipmentAndSelectIcon.asm",
+      "meaning": "выбор значка специального пространства и режима координат"
+    },
+    {
+      "address": 63716,
+      "symbol": "Game.Extensions.DrawCircleAndProtectScratchStack.NextOrFinish",
+      "file": "Source/Game/Extensions/DrawCircleAndProtectScratchStack.asm",
+      "meaning": "продолжение обхода объектов либо восстановление временного стека"
+    }
+  ],
+  "unresolved_external": [],
+  "corrections": [
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "old": "если тип объекта ненулевой",
+      "new": "если дополнительные флаги Flags2 ненулевые"
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "old": "проверка специального типа и активности объекта",
+      "new": "проверка флага управляемой ракеты и активности объекта"
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "old": "объект имеет бит 0 типа",
+      "new": "у объекта установлен флаг управляемой ракеты"
+    },
+    {
+      "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+      "old": "проверка типа, энергии и идентификатора",
+      "new": "проверка флага ракеты, энергии и идентификатора"
+    },
+    {
+      "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+      "old": "бит 0 типа слота сброшен",
+      "new": "флаг управляемой ракеты сброшен"
+    },
+    {
+      "file": "Source/Game/Extensions/ResetObjectMetadata.asm",
+      "old": "параметр сложности системы",
+      "new": "правовой статус пилота"
+    },
+    {
+      "file": "Source/Game/Extensions/ResetObjectMetadata.asm",
+      "old": "проверка сложности",
+      "new": "проверка правового статуса"
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "old": "проверка специального типа первого участника",
+      "new": "проверка флага управляемой ракеты первого участника"
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "old": "объект имеет бит 0 типа",
+      "new": "у объекта установлен флаг управляемой ракеты"
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "old": "тип второго участника равен #0C",
+      "new": "байт Flags2 второго участника равен #0C"
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "old": "бит 1 типа второго участника сброшен",
+      "new": "флаг захвата ковшом второго участника сброшен"
+    },
+    {
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "old": "проверка защиты отдельного типа",
+      "new": "проверка признака исключения из обычных кораблей"
+    },
+    {
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "old": "объект имеет защитный бит 3 типа",
+      "new": "у объекта установлен бит 3 дополнительных флагов Flags2"
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "old": "типе #6095=#0C",
+      "new": "Flags2 второго слота #6095=#0C"
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "old": "проверка ресурса, типа корабля",
+      "new": "проверка денег, дополнительных флагов корабля"
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "old": "ресурс #D067 исчерпан",
+      "new": "старший байт CashHigh равен нулю, денег для улучшения недостаточно"
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "old": "тип объекта #6095 отличается от #0C",
+      "new": "Flags2 второго слота отличается от #0C"
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "old": "запись улучшения и расход единицы ресурса",
+      "new": "запись улучшения и вычитание 256000 кредитов через старший байт CashHigh"
+    },
+    {
+      "file": "Source/Game/Extensions/MarkObjectEventAndMaybeRemove.asm",
+      "old": "MarkObjectEventAndMaybeRemove",
+      "new": "MarkObjectEventAndUpdateMetadata"
+    },
+    {
+      "file": "Source/Game/Extensions/MarkObjectEventAndMaybeRemove.asm",
+      "old": "условная обработка его удаления",
+      "new": "условная повторная инициализация его метаданных"
+    },
+    {
+      "file": "Source/Game/Extensions/MarkObjectEventAndMaybeRemove.asm",
+      "old": "проверка двух флагов допуска удаления уже отмеченного объекта",
+      "new": "проверка двух флагов допуска повторной инициализации метаданных"
+    },
+    {
+      "file": "Source/Game/Extensions/MarkObjectEventAndMaybeRemove.asm",
+      "old": "бит 1 типа объекта сброшен",
+      "new": "флаг захвата объекта ковшом сброшен"
+    },
+    {
+      "file": "Source/Game/Extensions/MarkObjectEventAndMaybeRemove.asm",
+      "old": "вызвать #7A9E",
+      "new": "переинициализировать метаданные"
+    },
+    {
+      "file": "Source/Game/Extensions/PrintEquipmentAndSelectIcon.asm",
+      "old": "обновление младшего байта координатного указателя для специального вида",
+      "new": "включение чередования двух наборов координат через смещение JR Z"
+    },
+    {
+      "file": "Source/Game/Text/ClearViewAndFrame.asm",
+      "old": "перенос исходной последовательности данных",
+      "new": "заполнение атрибутов окна значением 7 из первого байта"
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "fact": "Нулевые ссылки ведут к SCF. После предварительного допуска SET3 включает луч при любом случайном результате, C передаётся вызывающей процедуре для проверки попадания."
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "fact": "D067 — старший байт CashHigh, уменьшение означает 256000 кредитов. Начало пилота D054. InitializeSixTriples восстанавливает шесть начальных координатных троек."
+    },
+    {
+      "file": "Source/Game/Extensions/HandleSpecialMessageToken.asm",
+      "fact": "LD A,C9 и записи ColonyGate/MineralGate сохраняют Z проверки токена DC и живой колонии."
+    }
+  ],
+  "unresolved_external_at_handoff": [
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "address": 60231
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "address": 59991
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCircleAndProtectScratchStack.asm",
+      "address": 40248
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "address": 31508
+    },
+    {
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "address": 8880
+    },
+    {
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "address": 40519
+    },
+    {
+      "file": "Source/Game/Extensions/SetAggressionThenContinue.asm",
+      "address": 32100
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "address": 30857
+    },
+    {
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "address": 58040
+    },
+    {
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "address": 53573
+    }
+  ],
+  "integrated": true,
+  "current_name_audit": "Tools/Disasm/Reports/SemanticNamingAudit.json"
+}

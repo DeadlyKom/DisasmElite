@@ -1,0 +1,506 @@
+[
+  {
+    "file": "Source/Game/Input/IntegrateFlightControls.asm",
+    "line": 32,
+    "old": "                BIT 0,B",
+    "new": "                BIT FLY_ROLL_N_BIT,B"
+  },
+  {
+    "file": "Source/Game/Input/IntegrateFlightControls.asm",
+    "line": 35,
+    "old": "                BIT 1,B",
+    "new": "                BIT FLY_ROLL_P_BIT,B"
+  },
+  {
+    "file": "Source/Game/Input/IntegrateFlightControls.asm",
+    "line": 39,
+    "old": "                BIT 3,C",
+    "new": "                BIT INPUT_BRAKE_BIT,C"
+  },
+  {
+    "file": "Source/Game/Input/IntegrateFlightControls.asm",
+    "line": 68,
+    "old": "NegativeRoll:   BIT 1,B",
+    "new": "NegativeRoll:   BIT FLY_ROLL_P_BIT,B"
+  },
+  {
+    "file": "Source/Game/Input/IntegrateFlightControls.asm",
+    "line": 94,
+    "old": "ReverseRoll:    BIT 2,C",
+    "new": "ReverseRoll:    BIT INPUT_STOP_BIT,C"
+  },
+  {
+    "file": "Source/Game/Input/IntegrateFlightControls.asm",
+    "line": 111,
+    "old": "                BIT 2,B",
+    "new": "                BIT FLY_PITCH_N_BIT,B"
+  },
+  {
+    "file": "Source/Game/Input/IntegrateFlightControls.asm",
+    "line": 114,
+    "old": "                BIT 3,B",
+    "new": "                BIT FLY_PITCH_P_BIT,B"
+  },
+  {
+    "file": "Source/Game/Input/IntegrateFlightControls.asm",
+    "line": 118,
+    "old": "                BIT 3,C",
+    "new": "                BIT INPUT_BRAKE_BIT,C"
+  },
+  {
+    "file": "Source/Game/Input/IntegrateFlightControls.asm",
+    "line": 147,
+    "old": "NegativePitch:  BIT 3,B",
+    "new": "NegativePitch:  BIT FLY_PITCH_P_BIT,B"
+  },
+  {
+    "file": "Source/Game/Input/IntegrateFlightControls.asm",
+    "line": 173,
+    "old": "ReversePitch:   BIT 2,C",
+    "new": "ReversePitch:   BIT INPUT_STOP_BIT,C"
+  },
+  {
+    "file": "Source/Game/Input/IntegrateFlightControls.asm",
+    "line": 191,
+    "old": "                BIT 4,B",
+    "new": "                BIT FLY_SPEED_BIT,B"
+  },
+  {
+    "file": "Source/Game/Input/IntegrateFlightControls.asm",
+    "line": 194,
+    "old": "                BIT 5,B",
+    "new": "                BIT FLY_BRAKE_BIT,B"
+  },
+  {
+    "file": "Source/Game/Input/InterruptGateAndAcceleration.asm",
+    "line": 19,
+    "old": "Accelerate:     BIT 5,B",
+    "new": "Accelerate:     BIT FLY_BRAKE_BIT,B"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 69,
+    "old": "                BIT 6,(HL)",
+    "new": "                BIT SYS_0_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 73,
+    "old": "                SET 0,(HL)",
+    "new": "                SET DEV_FIRE_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 75,
+    "old": "SwapAxisPairs:  BIT 4,E",
+    "new": "SwapAxisPairs:  BIT INPUT_INV_BIT,E"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 80,
+    "old": "                AND #05",
+    "new": "                AND FLY_NEG_MASK"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 84,
+    "old": "                AND #0A",
+    "new": "                AND FLY_POS_MASK"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 89,
+    "old": "SwapVertical:   BIT 5,E",
+    "new": "SwapVertical:   BIT INPUT_INVY_BIT,E"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 97,
+    "old": "                AND #0C",
+    "new": "                AND FLY_PITCH_MASK"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 102,
+    "old": "                AND #0C",
+    "new": "                AND FLY_PITCH_MASK"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 125,
+    "old": "                AND #F0",
+    "new": "                AND FLY_AUX_MASK"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 130,
+    "old": "                BIT 6,(HL)",
+    "new": "                BIT SYS_0_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 133,
+    "old": "                RES 6,(HL)",
+    "new": "                RES SYS_0_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 135,
+    "old": "                AND #80",
+    "new": "                AND 1 << VIEW_PAUSE_BIT"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 139,
+    "old": "                LD A,#FE",
+    "new": "                LD A,INPUT_ZERO_KEY"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 94,
+    "old": "                AND #03",
+    "new": "                AND FLY_ROLL_MASK"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 108,
+    "old": "                AND #03",
+    "new": "                AND INPUT_MODE_MASK"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 117,
+    "old": "                RES 7,(HL)",
+    "new": "                RES VIEW_PAUSE_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 119,
+    "old": "                RES 2,(HL)",
+    "new": "                RES DEV_LAUNCH_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+    "line": 120,
+    "old": "                RES 7,(HL)",
+    "new": "                RES DEV_DOCK_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+    "line": 63,
+    "old": "                BIT 1,(HL)",
+    "new": "                BIT NUM_5_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+    "line": 67,
+    "old": "                BIT 3,(HL)",
+    "new": "                BIT NUM_6_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+    "line": 78,
+    "old": "                AND #03",
+    "new": "                AND INPUT_MODE_MASK"
+  },
+  {
+    "file": "Source/Game/Flight/MainGameLoop.asm",
+    "line": 47,
+    "old": "                BIT 5,A",
+    "new": "                BIT FLY_BRAKE_BIT,A"
+  },
+  {
+    "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+    "line": 23,
+    "old": "                RES 7,(HL)",
+    "new": "                RES SYS_Y_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+    "line": 30,
+    "old": "                BIT 7,(HL)",
+    "new": "                BIT SYS_Y_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Flight/HandleMapCursorKeys.asm",
+    "line": 31,
+    "old": "                AND #0F",
+    "new": "                AND FLY_DIR_MASK"
+  },
+  {
+    "file": "Source/Game/Flight/HandleMapCursorKeys.asm",
+    "line": 34,
+    "old": "                AND #70",
+    "new": "                AND CHART_KEY_MASK"
+  },
+  {
+    "file": "Source/Game/Flight/HandlePauseMenu.asm",
+    "line": 21,
+    "old": "                AND #80",
+    "new": "                AND 1 << VIEW_PAUSE_BIT"
+  },
+  {
+    "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+    "line": 30,
+    "old": "                AND #80",
+    "new": "                AND 1 << DEV_DOCK_BIT"
+  },
+  {
+    "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+    "line": 31,
+    "old": "                RES 7,B",
+    "new": "                RES DEV_DOCK_BIT,B"
+  },
+  {
+    "file": "Source/Game/Input/FinishKeyboardRowAndSelectJoystick.asm",
+    "line": 26,
+    "old": "                AND #03",
+    "new": "                AND INPUT_MODE_MASK"
+  },
+  {
+    "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+    "line": 24,
+    "old": "                BIT 6,A",
+    "new": "                BIT VIEW_FAST_BIT,A"
+  },
+  {
+    "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+    "line": 26,
+    "old": "                AND #BF",
+    "new": "                AND VIEW_FAST_KEEP"
+  },
+  {
+    "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+    "line": 42,
+    "old": "                BIT 6,A",
+    "new": "                BIT INPUT_MJ_BIT,A"
+  },
+  {
+    "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+    "line": 22,
+    "old": "ClearEvent:     RES 7,(HL)",
+    "new": "ClearEvent:     RES EVENT_WAIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+    "line": 35,
+    "old": "                AND #30",
+    "new": "                AND VIEW_JUMP_MASK"
+  },
+  {
+    "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+    "line": 40,
+    "old": "                AND #CF",
+    "new": "                AND #FF - VIEW_JUMP_MASK"
+  },
+  {
+    "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+    "line": 50,
+    "old": "                BIT 5,B",
+    "new": "                BIT VIEW_GALAX_BIT,B"
+  },
+  {
+    "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+    "line": 53,
+    "old": "                BIT 4,B",
+    "new": "                BIT VIEW_HYPER_BIT,B"
+  },
+  {
+    "file": "Source/Game/Travel/EmptyFuelWithWarning.asm",
+    "line": 24,
+    "old": "                SET 7,(HL)",
+    "new": "                SET EVENT_WAIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Travel/SelectQueuedFlightMessage.asm",
+    "line": 35,
+    "old": "FindEvent:      BIT 7,(HL)",
+    "new": "FindEvent:      BIT EVENT_WAIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Travel/SelectQueuedFlightMessage.asm",
+    "line": 44,
+    "old": "TakeEvent:      RES 7,(HL)",
+    "new": "TakeEvent:      RES EVENT_WAIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/FirePlayerLaser.asm",
+    "line": 41,
+    "old": "                BIT 0,(HL)",
+    "new": "                BIT DEV_FIRE_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/FirePlayerLaser.asm",
+    "line": 44,
+    "old": "                RES 0,(HL)",
+    "new": "                RES DEV_FIRE_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/FirePlayerLaser.asm",
+    "line": 84,
+    "old": "                SET 6,(HL)",
+    "new": "                SET SND_HIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/FirePlayerLaser.asm",
+    "line": 126,
+    "old": "                SET 3,(HL)",
+    "new": "                SET SND_LASER_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
+    "line": 39,
+    "old": "                BIT 6,A",
+    "new": "                BIT DEV_ESCAPE_BIT,A"
+  },
+  {
+    "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+    "line": 75,
+    "old": "                RES 4,(HL)",
+    "new": "                RES DEV_ECM_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+    "line": 90,
+    "old": "                SET 5,(HL)",
+    "new": "                SET SND_ECM_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/ProcessCombatControls.asm",
+    "line": 31,
+    "old": "                AND #91",
+    "new": "                AND DEV_KEEP_MASK"
+  },
+  {
+    "file": "Source/Game/Combat/HandleMissileControls.asm",
+    "line": 93,
+    "old": "                SET 7,(HL)",
+    "new": "                SET EVENT_WAIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/HandleMissileControls.asm",
+    "line": 99,
+    "old": "                SET 1,(HL)",
+    "new": "                SET SND_MISSILE_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/CreatePlayerWreckScene.asm",
+    "line": 20,
+    "old": "                SET 2,(HL)",
+    "new": "                SET SND_BLAST_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/HandleObjectCollision.asm",
+    "line": 145,
+    "old": "                SET 6,(HL)",
+    "new": "                SET SND_HIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/HandleObjectCollision.asm",
+    "line": 169,
+    "old": "                SET 2,(HL)",
+    "new": "                SET SND_BLAST_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Sound/StepNoise.asm",
+    "line": 51,
+    "old": "                BIT 7,A",
+    "new": "                BIT SND_REPEAT_BIT,A"
+  },
+  {
+    "file": "Source/Game/Objects/ActivateEnemyECM.asm",
+    "line": 22,
+    "old": "                BIT 4,B",
+    "new": "                BIT DEV_ECM_BIT,B"
+  },
+  {
+    "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+    "line": 113,
+    "old": "                BIT 5,A",
+    "new": "                BIT DEV_BOMB_BIT,A"
+  },
+  {
+    "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+    "line": 127,
+    "old": "                SET 0,(HL)",
+    "new": "                SET SND_BOMB_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+    "line": 59,
+    "old": "SetEvent:       SET 7,(HL)",
+    "new": "SetEvent:       SET EVENT_WAIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+    "line": 110,
+    "old": "                SET 7,(HL)",
+    "new": "                SET DEVICE_SIGN_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+    "line": 116,
+    "old": "                SET 7,(HL)",
+    "new": "                SET EVENT_WAIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/ReleaseMissileTargets.asm",
+    "line": 52,
+    "old": "                SET 7,(HL)",
+    "new": "                SET EVENT_WAIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "line": 119,
+    "old": "                SET 7,(HL)",
+    "new": "                SET EVENT_WAIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "line": 167,
+    "old": "                SET 2,(HL)",
+    "new": "                SET SND_BLAST_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+    "line": 172,
+    "old": "                SET 6,(HL)",
+    "new": "                SET SND_HIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Trade/OptionalBeep.asm",
+    "line": 19,
+    "old": "                BIT 7,A",
+    "new": "                BIT INPUT_SND_BIT,A"
+  },
+  {
+    "file": "Source/Game/Galaxy/GenerateSystemName.asm",
+    "line": 29,
+    "old": "                AND #40",
+    "new": "                AND 1 << SEED_LONG_BIT"
+  },
+  {
+    "file": "Source/Game/Galaxy/DeriveSystemProperties.asm",
+    "line": 23,
+    "old": "                AND #07",
+    "new": "                AND SEED_ECON_MASK"
+  },
+  {
+    "file": "Source/Game/Galaxy/DeriveSystemProperties.asm",
+    "line": 33,
+    "old": "                AND #07",
+    "new": "                AND SEED_GOV_MASK"
+  },
+  {
+    "file": "Source/Game/Galaxy/DeriveSystemProperties.asm",
+    "line": 47,
+    "old": "                AND #03",
+    "new": "                AND SEED_TECH_MASK"
+  },
+  {
+    "file": "Source/Game/Galaxy/AppendSystemNameSyllable.asm",
+    "line": 21,
+    "old": "                AND #1F",
+    "new": "                AND SEED_SYLL_MASK"
+  }
+]

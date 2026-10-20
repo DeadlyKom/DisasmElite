@@ -1,0 +1,57 @@
+{
+  "scope": "Повторный статический разбор Loader и Manual, исправлены только комментарии, сборка и интерактивный просмотр не запускались",
+  "updated": [
+    {
+      "file": "Source/Manual/Menu.asm",
+      "code_unchanged": true,
+      "code_sha256": "1cd2a6484476b6d5184c0efe3db7fb858f3add27a42e7c638078456571b10361"
+    },
+    {
+      "file": "Source/Manual/Interrupt.asm",
+      "code_unchanged": true,
+      "code_sha256": "ecec86cb541e707afecd7a8826f01867f84caca6ae56021820600077aa03ee27"
+    },
+    {
+      "file": "Source/Manual/ReadControls.asm",
+      "code_unchanged": true,
+      "code_sha256": "32c1f00db807e14d4a12a31b750bd9d80c630010b3f8b5f13c7dd565a6b2352e"
+    },
+    {
+      "file": "Source/Manual/RenderEdge.asm",
+      "code_unchanged": true,
+      "code_sha256": "9a9ecfd9944e2d475031d571d3bb6af4c7b16d05b2af228ad167f996c89024e1"
+    },
+    {
+      "file": "Source/Manual/ScrollFrame.asm",
+      "code_unchanged": true,
+      "code_sha256": "e27ce5b50ba72cafa30eea75a61729699e75301e0074ebf4783b62aec286e21d"
+    },
+    {
+      "file": "Source/Manual/ShowSection.asm",
+      "code_unchanged": true,
+      "code_sha256": "b1d59f4203d8a8141489b73b3998c3c0a629e5c4ae4c0cfe1b54e3781d7f1205"
+    },
+    {
+      "file": "Source/Manual/PrintString.asm",
+      "code_unchanged": true,
+      "code_sha256": "ccb861584107b89874a3147750bcaa7ea53f13f98318f63858370c4f7a181f81"
+    },
+    {
+      "file": "Source/Loader/Load.asm",
+      "code_unchanged": true,
+      "code_sha256": "46b7acbdff87df12918be3b72257a96f14724b5f6a24832050e79bf8a1915606"
+    }
+  ],
+  "generic_label_comments_removed": 16,
+  "remarks": [
+    "LegacyLimit сохраняет полностью описанные инструкции без найденных прямых вызовов",
+    "UnusedState сохраняет исходный байт без найденного потребителя",
+    "Отключение OUT по5DF3/5DF8 подтверждено командами штатного загрузчика",
+    "Внешние вызовы ROM/TR-DOS описаны как внешние границы, их реализация не подменяется машинным кодом этой игры"
+  ],
+  "asm_files_reviewed": 31,
+  "style_errors": [],
+  "documentation_updated": [
+    "Source/Manual/README.md"
+  ]
+}

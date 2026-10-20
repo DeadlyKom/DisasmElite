@@ -1,0 +1,156 @@
+[
+  {
+    "file": "Source/Game/Sound/PlayLaunchSound.asm",
+    "start": 38194,
+    "end": 38205,
+    "instructions": 5,
+    "headers": 1,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Sound/PlayDestructionSound.asm",
+    "start": 38241,
+    "end": 38265,
+    "instructions": 8,
+    "headers": 1,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Sound/StepPitchSweep.asm",
+    "start": 38465,
+    "end": 38532,
+    "instructions": 28,
+    "headers": 6,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Sound/StepPitchSweep.asm",
+    "start": 38546,
+    "end": 38555,
+    "instructions": 4,
+    "headers": 1,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Sound/StartLaunchNoise.asm",
+    "start": 38569,
+    "end": 38575,
+    "instructions": 2,
+    "headers": 1,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Universe/AddSignedStarCoordinate.asm",
+    "start": 31364,
+    "end": 31390,
+    "instructions": 14,
+    "headers": 1,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+    "start": 32673,
+    "end": 32702,
+    "instructions": 18,
+    "headers": 1,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Wireframe/CrossProductComponent.asm",
+    "start": 44900,
+    "end": 44968,
+    "instructions": 47,
+    "headers": 1,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+    "start": 48114,
+    "end": 48125,
+    "instructions": 3,
+    "headers": 1,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+    "start": 41422,
+    "end": 41424,
+    "instructions": 1,
+    "headers": 1,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Wireframe/GetSystemVariationByte.asm",
+    "start": 43959,
+    "end": 43968,
+    "instructions": 5,
+    "headers": 2,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+    "start": 44616,
+    "end": 44623,
+    "instructions": 5,
+    "headers": 2,
+    "byte_source_verified": true,
+    "status": "reviewed",
+    "summary": "Чтение A по HL, запись HL в #F3D8, ожидание HALT и возврат. Запись меняет S и нулевой конец строки EXTRA PULSE LASERS",
+    "unresolved": [],
+    "historical_unknowns": [
+      "Причина присутствия и намерение автора не установлены"
+    ],
+    "evidence": [
+      "По прямым переходам и литеральным словам адресов во всех логических файлах входящих связей не обнаружено",
+      "Сопоставленный reference не покрывает этот диапазон, глобальная недостижимость не заявляется"
+    ]
+  },
+  {
+    "file": "Source/Game/Wireframe/MergeInverseHostilityFlag.asm",
+    "start": 46272,
+    "end": 46276,
+    "instructions": 1,
+    "headers": 1,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Combat/CalculateFuelPurchasePrice.asm",
+    "start": 39844,
+    "end": 39846,
+    "instructions": 2,
+    "headers": 1,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Combat/DivideAndCombatState.asm",
+    "start": 40076,
+    "end": 40082,
+    "instructions": 2,
+    "headers": 2,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Combat/CreateWreckAndDamageState.asm",
+    "start": 40104,
+    "end": 40110,
+    "instructions": 2,
+    "headers": 2,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
+    "start": 40037,
+    "end": 40049,
+    "instructions": 9,
+    "headers": 1,
+    "byte_source_verified": true
+  },
+  {
+    "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+    "start": 32160,
+    "end": 32164,
+    "instructions": 3,
+    "headers": 1,
+    "byte_source_verified": true
+  }
+]

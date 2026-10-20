@@ -1,0 +1,20 @@
+{
+  "checked_at_utc": "2026-10-20T22:26:58Z",
+  "status": "passed",
+  "method": "sjasmplus_lua",
+  "assembler": "Tools/Sjasmplus/sjasmplus.exe",
+  "image": "ELITE3HL.TRD",
+  "original": "Tools/Disasm/Disk/original.trd",
+  "image_bytes": 655360,
+  "byte_identical": true,
+  "files": [
+    { "file": "00_ELITE3HL.B", "bytes": 16754, "disk_offset": 4096, "source": "Tools/Disasm/Extracted/Active/00_ELITE3HL.B", "identical": true },
+    { "file": "01_ELITE3.B", "bytes": 385, "disk_offset": 20992, "source": "Tools/Disasm/Extracted/Active/01_ELITE3.B", "identical": true },
+    { "file": "02_ELITE3.C", "bytes": 49152, "disk_offset": 21504, "source": "Tools/Disasm/Extracted/Active/02_ELITE3.C", "identical": true },
+    { "file": "03_cl.C", "bytes": 4352, "disk_offset": 70656, "source": "Tools/Disasm/Extracted/Active/03_cl.C", "identical": true },
+    { "file": "04_boot.B", "bytes": 32, "disk_offset": 75008, "source": "Tools/Disasm/Extracted/Active/04_boot.B", "identical": true },
+    { "file": "05_QS1.C", "bytes": 102, "disk_offset": 75264, "source": "Tools/Disasm/Extracted/Active/05_QS1.C", "identical": true },
+    { "file": "06_DEADLY.C", "bytes": 102, "disk_offset": 75520, "source": "Tools/Disasm/Extracted/Active/06_DEADLY.C", "identical": true }
+  ],
+  "semantic_audit": "Tools/Disasm/Reports/SemanticAudit.json"
+}

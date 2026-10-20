@@ -1,0 +1,3554 @@
+[
+  {
+    "file": "Source/DiskUtility/DemoSetup/EnterDemoInstaller.asm",
+    "start": 51200,
+    "end": 51204,
+    "status": "reviewed",
+    "semantic_name": "EnterDemoInstaller",
+    "summary": "Вход установщика демонстрационного оверлея",
+    "in": "оверлей загружен в C800",
+    "out": "переход в Install по C82C",
+    "corrupt": "по контракту Install",
+    "evidence": [
+      "Байты исходного образа, диапазон #C800..#C803",
+      "In:",
+      "оверлей загружен в C800",
+      "Out:",
+      "переход в InstallDemo по C82C",
+      "Corrupt:",
+      "по контракту InstallDemo",
+      "Note:",
+      "NOP сохранён, остаточный LegacyMenuExit пропускается безусловным JP"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "85c394c76622265bea79b0d499e72e912371c1b77151abc832da766dcdf65d39",
+    "blocks": {
+      "C800": "вход сразу передаёт управление установщику, сохранившийся выход пропускается"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Вход установщика демонстрационного оверлея",
+      "исходный диапазон #C800..#C803",
+      "In:",
+      "оверлей загружен в C800",
+      "Out:",
+      "переход в InstallDemo по C82C",
+      "Corrupt:",
+      "по контракту InstallDemo",
+      "Note:",
+      "NOP сохранён, остаточный LegacyMenuExit пропускается безусловным JP"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/DemoSetup/PreservedMenuExit.asm",
+    "start": 51204,
+    "end": 51244,
+    "status": "reviewed",
+    "semantic_name": "PreservedMenuExit",
+    "summary": "Сохранённый выход прежнего дискового оверлея",
+    "in": "игровые обработчики текста и экрана",
+    "out": "восстановлены патчи печати, очищено 273 байта 606F..617F, A=1",
+    "corrupt": "HL, DE, BC, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #C804..#C82B",
+      "In:",
+      "игровые обработчики текста и экрана",
+      "Out:",
+      "восстановлены патчи печати, очищено 273 байта 606F..617F, A=1",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "Основной вход C800 сюда не передаёт управление, код сохранён в образе",
+      "После D975 B=0, первая запись и LDIR272 обнуляют 273 байта",
+      "CALL D421 поглощает встроенный токен 08, он не исполняется"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "10af710b5709054a1abd593e05b2616be291468e4b1507004ef0aaf7eba7b88c",
+    "blocks": {
+      "C804": "остаточный путь временно выключает очистку строки и восстанавливает XOR символов",
+      "C816": "печать встроенного токена 08 и очистка атрибутов",
+      "C81D": "нулевой B после D975 размножается на 273 байта объектного пула"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Сохранённый выход прежнего дискового оверлея",
+      "исходный диапазон #C804..#C82B",
+      "In:",
+      "игровые обработчики текста и экрана",
+      "Out:",
+      "восстановлены патчи печати, очищено 273 байта 606F..617F, A=1",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "Основной вход C800 сюда не передаёт управление, код сохранён в образе",
+      "После D975 B=0, первая запись и LDIR272 обнуляют 273 байта",
+      "CALL D421 поглощает встроенный токен 08, он не исполняется"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+    "start": 51244,
+    "end": 51396,
+    "status": "reviewed",
+    "semantic_name": "InstallDemoOverlay",
+    "summary": "Установка корутины и виртуальной клавиатуры демо",
+    "in": "командир D054, загруженный второй оверлей C800..CFFF",
+    "out": "код перенесён E6AE..EEFF, игровые вызовы и клавиатура переключены",
+    "corrupt": "HL, DE, BC, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #C82C..#C8C3",
+      "In:",
+      "командир D054, загруженный второй оверлей C800..CFFF",
+      "Out:",
+      "код перенесён E6AE..EEFF, игровые вызовы и клавиатура переключены",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "Копируются 102 байта командира в D232, кадровый CALL FF35 получает E6AE",
+      "FD71 становится LD BC,4700, FD76..79 становятся LD A,(BC),NOP,CPL,INC BC, остальная обработка",
+      "клавиш сохраняется",
+      "C8CA даёт 5 байтов для 5EF8,4 для 7F87 и 3 для 9D3D, последний заменяет CALL ED69 на LD A,(IX+22)",
+      "LDIR0852 читает C8D6..D127, первые 072A принадлежат cl.C, последние 0128 основной игре,",
+      "результат E6AE..EEFF",
+      "В D983 устанавливается LD(E07A),A / JP739E, переход гибели 7575 перенаправляется на него",
+      "D000..D014 заменяются 21 RET, D907 тоже RET, остальные патчи подменяют вызовы изменённых оверлеем",
+      "функций",
+      "DI сохраняется до возврата вызывающему, цвет бордюра меняется с 0 на 6"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "195bb3bef6a3a25fec61252e976acbb5f256e969623ab441154088fa026d5cef",
+    "blocks": {
+      "C82C": "чёрный бордюр и запрет прерываний на время патчей",
+      "C831": "снимок 102 байтов командира сохраняется в резерв D232",
+      "C83C": "встраивание корутины перед существующим опросом клавиатуры в IM2",
+      "C842": "перевод FD69 с физических портов на последовательные байты 4700..4707",
+      "C853": "подмена первого прямого чтения клавиши на виртуальную строку 4701",
+      "C85E": "подмена второго прямого чтения на 4706 с инверсией активного уровня",
+      "C865": "замена проверки ED69 прямым чтением энергии объекта, IX+FSpaceObject.Energy",
+      "C86C": "перенос 0852 байтов включает 0128 байтов уже загруженной игры за концом оверлея",
+      "C877": "маркер E07A будет сбрасываться при штатном выходе после гибели",
+      "C887": "отключение первых семи векторов экранов, каждый из 21 байта становится RET",
+      "C891": "отключение повторного дискового меню и перенос необходимых вызовов в новые копии",
+      "C895": "две команды сведений используют копию форматирующего токена 96",
+      "C89E": "вызов старта получает копию установки маскировки и случайного параметра",
+      "C8A4": "кадр дополняется сферой сканера, копированием экрана и маркерами",
+      "C8AA": "подмена функции сложения адреса, старое место занято демо",
+      "C8B0": "четыре вызова проверки полосы вторжения направляются в перенесённую копию",
+      "C8BF": "жёлтый бордюр означает завершение установки, EI выполняет внешний поток"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Установка корутины и виртуальной клавиатуры демо",
+      "исходный диапазон #C82C..#C8C3",
+      "In:",
+      "командир D054, загруженный второй оверлей C800..CFFF",
+      "Out:",
+      "код перенесён E6AE..EEFF, игровые вызовы и клавиатура переключены",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "Копируются 102 байта командира в D232, кадровый CALL FF35 получает E6AE",
+      "FD71 становится LD BC,4700, FD76..79 становятся LD A,(BC),NOP,CPL,INC BC, остальная обработка",
+      "клавиш сохраняется",
+      "C8CA даёт 5 байтов для 5EF8,4 для 7F87 и 3 для 9D3D, последний заменяет CALL ED69 на LD A,(IX+22)",
+      "LDIR0852 читает C8D6..D127, первые 072A принадлежат cl.C, последние 0128 основной игре,",
+      "результат E6AE..EEFF",
+      "В D983 устанавливается LD(E07A),A / JP739E, переход гибели 7575 перенаправляется на него",
+      "D000..D014 заменяются 21 RET, D907 тоже RET, остальные патчи подменяют вызовы изменённых оверлеем",
+      "функций",
+      "DI сохраняется до возврата вызывающему, цвет бордюра меняется с 0 на 6"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/DemoSetup/RestartPatch.asm",
+    "start": 51396,
+    "end": 51402,
+    "status": "reviewed",
+    "semantic_name": "RestartPatch",
+    "summary": "Шаблон восстановления демо после гибели",
+    "in": "A передаётся состоянием игрового выхода",
+    "out": "после переноса D983 записывает E07A=A и идёт 739E",
+    "corrupt": "регистры не меняются до перехода 739E",
+    "evidence": [
+      "Байты исходного образа, диапазон #C8C4..#C8C9",
+      "In:",
+      "A передаётся состоянием игрового выхода",
+      "Out:",
+      "после переноса D983 записывает E07A=A и идёт 739E",
+      "Corrupt:",
+      "регистры не меняются до перехода 739E",
+      "Note:",
+      "Шесть байтов переносятся C87D..C885, штатный путь гибели передаёт A=0"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Шаблон восстановления демо после гибели",
+      "исходный диапазон #C8C4..#C8C9",
+      "In:",
+      "A передаётся состоянием игрового выхода",
+      "Out:",
+      "после переноса D983 записывает E07A=A и идёт 739E",
+      "Corrupt:",
+      "регистры не меняются до перехода 739E",
+      "Note:",
+      "Шесть байтов переносятся C87D..C885, штатный путь гибели передаёт A=0"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/DemoSetup/VirtualInputPatches.asm",
+    "start": 51402,
+    "end": 51414,
+    "status": "reviewed",
+    "semantic_name": "VirtualInputPatches",
+    "summary": "Три шаблона подмены прямого ввода и проверки объекта",
+    "in": "установщик C853..C86A",
+    "out": "5EF8 читает 4701, 7F87 читает 4706 с CPL, 9D3D читает энергию IX+22",
+    "corrupt": "AF у перенесённых фрагментов",
+    "evidence": [
+      "Байты исходного образа, диапазон #C8CA..#C8D5",
+      "In:",
+      "установщик C853..C86A",
+      "Out:",
+      "5EF8 читает 4701, 7F87 читает 4706 с CPL, 9D3D читает энергию IX+22",
+      "Corrupt:",
+      "AF у перенесённых фрагментов",
+      "Note:",
+      "Первые 5 байтов LD A,(4701),NOP,NOP, следующие 4 LD A,(4706),CPL, последние 3 LD A,(IX+22)",
+      "Шаблоны являются данными установщика, исходный поток их не исполняет"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Три шаблона подмены прямого ввода и проверки объекта",
+      "исходный диапазон #C8CA..#C8D5",
+      "In:",
+      "установщик C853..C86A",
+      "Out:",
+      "5EF8 читает 4701, 7F87 читает 4706 с CPL, 9D3D читает энергию IX+22",
+      "Corrupt:",
+      "AF у перенесённых фрагментов",
+      "Note:",
+      "Первые 5 байтов LD A,(4701),NOP,NOP, следующие 4 LD A,(4706),CPL, последние 3 LD A,(IX+22)",
+      "Шаблоны являются данными установщика, исходный поток их не исполняет"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ResumeDemoBeforeKeyboard.asm",
+    "start": 59054,
+    "end": 59060,
+    "status": "reviewed",
+    "semantic_name": "ResumeDemoBeforeKeyboard",
+    "summary": "Кадровый вызов корутины перед опросом клавиатуры",
+    "in": "вызов из IM2 вместо FD69",
+    "out": "один участок демо выполнен, затем обычный опрос FD69",
+    "corrupt": "HL, DE, BC, AF, IX, IY по корутине",
+    "evidence": [
+      "Байты исходного образа, диапазон #E6AE..#E6B3",
+      "In:",
+      "вызов из IM2 вместо FD69",
+      "Out:",
+      "один участок демо выполнен, затем обычный опрос FD69",
+      "Corrupt:",
+      "HL, DE, BC, AF, IX, IY по корутине",
+      "Note:",
+      "Подмена операнда FF36 сохраняет существующий обработчик прерывания и его стек"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "f2f901e45c02ead87ed7b59a90826027bf19d0bbb46bf9f4fc0f120fe83cfea2",
+    "blocks": {
+      "E6AE": "возобновление демо завершается уступкой кадра, затем штатно сканируются клавиши"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Кадровый вызов корутины перед опросом клавиатуры",
+      "исходный диапазон #E6AE..#E6B3",
+      "In:",
+      "вызов из IM2 вместо FD69",
+      "Out:",
+      "один участок демо выполнен, затем обычный опрос FD69",
+      "Corrupt:",
+      "HL, DE, BC, AF, IX, IY по корутине",
+      "Note:",
+      "Подмена операнда FF36 сохраняет существующий обработчик прерывания и его стек"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/DrawDemoFlightView.asm",
+    "start": 59060,
+    "end": 59069,
+    "status": "reviewed",
+    "semantic_name": "DrawDemoFlightView",
+    "summary": "Вывод сферы сканера и наложение маркеров",
+    "in": "состояние основного игрового рендера",
+    "out": "выполнены 8F0D, копирование 7FBE и маркеры 96D9",
+    "corrupt": "HL, DE, BC, AF, IX, альтернативные регистры по 8F0D",
+    "evidence": [
+      "Байты исходного образа, диапазон #E6B4..#E6BC",
+      "In:",
+      "состояние основного игрового рендера",
+      "Out:",
+      "выполнены 8F0D, копирование 7FBE и маркеры 96D9",
+      "Corrupt:",
+      "HL, DE, BC, AF, IX, альтернативные регистры по 8F0D",
+      "Note:",
+      "Этот вызов заменяет 7502, переход 96D9 сохраняет исходный адрес возврата"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "d5698d411d009a6cb915ed33199f11ebcee1c18ebf4303b2439f8f43b87f5069",
+    "blocks": {
+      "E6B4": "подложка сферы рисуется до копирования буфера, маркеры накладываются после него"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Вывод сферы сканера и наложение маркеров",
+      "исходный диапазон #E6B4..#E6BC",
+      "In:",
+      "состояние основного игрового рендера",
+      "Out:",
+      "выполнены 8F0D, копирование 7FBE и маркеры 96D9",
+      "Corrupt:",
+      "HL, DE, BC, AF, IX, альтернативные регистры по 8F0D",
+      "Note:",
+      "Этот вызов заменяет 7502, переход 96D9 сохраняет исходный адрес возврата"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/AddByteOffset.asm",
+    "start": 59069,
+    "end": 59074,
+    "status": "reviewed",
+    "semantic_name": "AddByteOffset",
+    "summary": "Прибавление беззнакового индекса к указателю",
+    "in": "HL база, AF, A индекс 0..255",
+    "out": "HL=HL+A, DE=A, A сохранён",
+    "corrupt": "HL, DE, AF только флаги",
+    "evidence": [
+      "Байты исходного образа, диапазон #E6BD..#E6C1",
+      "In:",
+      "HL база, AF, A индекс 0..255",
+      "Out:",
+      "HL=HL+A, DE=A, A сохранён",
+      "Corrupt:",
+      "HL, DE, AF только флаги",
+      "Note:",
+      "Восстанавливает необходимый вызов EB3E, перекрытый новым оверлеем"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "753e34beb0963efc58ec22e0ebb08b51c12feeef55951c217f39a8f166713933",
+    "blocks": {
+      "E6BD": "преобразование A в беззнаковое слово и сложение с указателем"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Прибавление беззнакового индекса к указателю",
+      "исходный диапазон #E6BD..#E6C1",
+      "In:",
+      "HL база, AF, A индекс 0..255",
+      "Out:",
+      "HL=HL+A, DE=A, A сохранён",
+      "Corrupt:",
+      "HL, DE, AF только флаги",
+      "Note:",
+      "Восстанавливает необходимый вызов EB3E, перекрытый новым оверлеем"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CheckInvasionBand.asm",
+    "start": 59074,
+    "end": 59085,
+    "status": "reviewed",
+    "semantic_name": "CheckInvasionBand",
+    "summary": "Проверка полосы вторжения с двумя порогами",
+    "in": "поля текущей системы и вторжения для D67A",
+    "out": "штатно при Galaxy=3 возвращает C=0, структурно повторяет проверку полосы",
+    "corrupt": "HL, DE, BC, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E6C2..#E6CC",
+      "In:",
+      "поля текущей системы и вторжения для D67A",
+      "Out:",
+      "штатно при Galaxy=3 возвращает C=0, структурно повторяет проверку полосы",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "3C по E6C5 является порогом первого CALL либо INC A при раннем возврате",
+      "00 по E6CA является порогом второго CALL либо NOP, последний CCF инвертирует результат",
+      "Подменяет вызовы EC40, занятого демонстрационным кодом",
+      "ROBOT использует Galaxy=3, поэтому D67A возвращается до геометрии, его вызов метрики E6C6 уже",
+      "перекрыт оверлеем и полноценная геометрия Galaxy=0 здесь не гарантируется"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E6C6": "первая граница не охватывает систему либо геометрия выключена галактикой"
+    },
+    "operation_sha256": "6ae6ea902483ce3e992387b59bc472b693d19bde7894f74f4063d5207f102f36",
+    "blocks": {
+      "E6C2": "две проверки фронта используют встроенные байты 3C и 00 после CALL",
+      "E6C5": "INC A служит также порогом 3C, ранний возврат D67A оставляет его в потоке команд",
+      "E6C7": "вторая проверка вызывается только при переносе первой, её результат инвертируется"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Проверка полосы вторжения с двумя порогами",
+      "исходный диапазон #E6C2..#E6CC",
+      "In:",
+      "поля текущей системы и вторжения для D67A",
+      "Out:",
+      "штатно при Galaxy=3 возвращает C=0, структурно повторяет проверку полосы",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "3C по E6C5 является порогом первого CALL либо INC A при раннем возврате",
+      "00 по E6CA является порогом второго CALL либо NOP, последний CCF инвертирует результат",
+      "Подменяет вызовы EC40, занятого демонстрационным кодом",
+      "ROBOT использует Galaxy=3, поэтому D67A возвращается до геометрии, его вызов метрики E6C6 уже",
+      "перекрыт оверлеем и полноценная геометрия Galaxy=0 здесь не гарантируется"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/PrintFormattingToken.asm",
+    "start": 59085,
+    "end": 59090,
+    "status": "reviewed",
+    "semantic_name": "PrintFormattingToken",
+    "summary": "Совместимая подстановка форматирующего токена",
+    "in": "текстовый вывод D45F",
+    "out": "выведен токен 96 вторичной таблицы, байты 09,0B,01,08",
+    "corrupt": "HL, DE, BC, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E6CD..#E6D1",
+      "In:",
+      "текстовый вывод D45F",
+      "Out:",
+      "выведен токен 96 вторичной таблицы, байты 09,0B,01,08",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "Подменяет EF8C и F0BD, код 96 передаётся как номер вторичной таблицы",
+      "Точная копия исходного E8E5, который перекрыт оверлеем, токен содержит управляющие коды",
+      "форматирования и сигнала"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "c16d2a14916a9260dd195b5fb7ffaa277d580b7aec932cc7a63f6a167738cef1",
+    "blocks": {
+      "E6CD": "сохранённая копия E8E5 раскрывает форматирующий токен 96"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Совместимая подстановка форматирующего токена",
+      "исходный диапазон #E6CD..#E6D1",
+      "In:",
+      "текстовый вывод D45F",
+      "Out:",
+      "выведен токен 96 вторичной таблицы, байты 09,0B,01,08",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "Подменяет EF8C и F0BD, код 96 передаётся как номер вторичной таблицы",
+      "Точная копия исходного E8E5, который перекрыт оверлеем, токен содержит управляющие коды",
+      "форматирования и сигнала"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/RestoreFlightState.asm",
+    "start": 59090,
+    "end": 59100,
+    "status": "reviewed",
+    "semantic_name": "RestoreFlightState",
+    "summary": "Восстановление состояния старта под демонстрацией",
+    "in": "AF, A новое состояние маскировки",
+    "out": "D041=A,7105=D06A",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E6D2..#E6DB",
+      "In:",
+      "AF, A новое состояние маскировки",
+      "Out:",
+      "D041=A,7105=D06A",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Точное повторение исходного E6EE, который перезаписан оверлеем"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "1b759b864a8414e2ea0cdd45c2146c7721d2dda2000f3ab6e5e4c5a11edd82c2",
+    "blocks": {
+      "E6D2": "состояние маскировки и копия рыночного случайного байта повторяют E6EE"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Восстановление состояния старта под демонстрацией",
+      "исходный диапазон #E6D2..#E6DB",
+      "In:",
+      "AF, A новое состояние маскировки",
+      "Out:",
+      "D041=A,7105=D06A",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Точное повторение исходного E6EE, который перезаписан оверлеем"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CoroutineStackPointers.asm",
+    "start": 59100,
+    "end": 59104,
+    "status": "reviewed",
+    "semantic_name": "CoroutineStackPointers",
+    "summary": "Сохранённые указатели двух стеков",
+    "in": "записи StartDemo,Resume,Yield",
+    "out": "E6DC стек игры, E6DE стек корутины",
+    "corrupt": "нет, четыре байта данных",
+    "evidence": [
+      "Байты исходного образа, диапазон #E6DC..#E6DF",
+      "In:",
+      "записи StartCoroutine,ResumeDemo,YieldToGame",
+      "Out:",
+      "E6DC стек игры, E6DE стек корутины",
+      "Corrupt:",
+      "нет, четыре байта данных",
+      "Note:",
+      "Два little-endian слова изначально нулевые, до ResumeDemo их задают StartCoroutine и YieldToGame"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Сохранённые указатели двух стеков",
+      "исходный диапазон #E6DC..#E6DF",
+      "In:",
+      "записи StartCoroutine,ResumeDemo,YieldToGame",
+      "Out:",
+      "E6DC стек игры, E6DE стек корутины",
+      "Corrupt:",
+      "нет, четыре байта данных",
+      "Note:",
+      "Два little-endian слова изначально нулевые, до ResumeDemo их задают StartCoroutine и YieldToGame"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CoroutineDispatch.asm",
+    "start": 59104,
+    "end": 59107,
+    "status": "reviewed",
+    "semantic_name": "CoroutineDispatch",
+    "summary": "Переключаемый вход первого запуска и возобновления",
+    "in": "стек вызова из FrameHook",
+    "out": "первый вызов StartDemo, следующие Resume",
+    "corrupt": "по выбранному пути",
+    "evidence": [
+      "Байты исходного образа, диапазон #E6E0..#E6E2",
+      "In:",
+      "стек вызова из FrameHook",
+      "Out:",
+      "первый вызов StartCoroutine, следующие ResumeDemo",
+      "Corrupt:",
+      "по выбранному пути",
+      "Note:",
+      "StartCoroutine меняет адрес по E6E1 с E6E3 на E6F3"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "3808dd4a17630b17ad1e020b3e4c4f40136fc2db6839fbc78a1ed32081b8a36e",
+    "blocks": {
+      "E6E0": "SMC, после первого запуска адрес этого JP заменяется с StartDemo на Resume"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Переключаемый вход первого запуска и возобновления",
+      "исходный диапазон #E6E0..#E6E2",
+      "In:",
+      "стек вызова из FrameHook",
+      "Out:",
+      "первый вызов StartCoroutine, следующие ResumeDemo",
+      "Corrupt:",
+      "по выбранному пути",
+      "Note:",
+      "StartCoroutine меняет адрес по E6E1 с E6E3 на E6F3"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/StartDemoCoroutine.asm",
+    "start": 59107,
+    "end": 59123,
+    "status": "reviewed",
+    "semantic_name": "StartDemoCoroutine",
+    "summary": "Первый запуск корутины на отдельном стеке",
+    "in": "SP стека игры",
+    "out": "E6DC сохранён, SP=EF00, переход Initialize",
+    "corrupt": "HL, SP",
+    "evidence": [
+      "Байты исходного образа, диапазон #E6E3..#E6F2",
+      "In:",
+      "SP стека игры",
+      "Out:",
+      "E6DC сохранён, SP=EF00, переход InitScenario",
+      "Corrupt:",
+      "HL, SP",
+      "Note:",
+      "Начальное направление JP меняется на ResumeDemo до переключения стека"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "cb16849b317f72845b76f39147b7728c5d0ac1337167f5576e8ee39408aa9bad",
+    "blocks": {
+      "E6E3": "выбор следующего пути возобновления до переключения стека",
+      "E6E9": "сохранение стека игрового обработчика и создание стека демо вниз от EF00"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Первый запуск корутины на отдельном стеке",
+      "исходный диапазон #E6E3..#E6F2",
+      "In:",
+      "SP стека игры",
+      "Out:",
+      "E6DC сохранён, SP=EF00, переход InitScenario",
+      "Corrupt:",
+      "HL, SP",
+      "Note:",
+      "Начальное направление JP меняется на ResumeDemo до переключения стека"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ResumeDemoCoroutine.asm",
+    "start": 59123,
+    "end": 59145,
+    "status": "reviewed",
+    "semantic_name": "ResumeDemoCoroutine",
+    "summary": "Возобновление сохранённой корутины",
+    "in": "E6DE указывает 12 байтов сохранённых регистров и адрес продолжения",
+    "out": "HL, DE, BC, AF, IX, IY восстановлены, SP демо активен",
+    "corrupt": "восстанавливает HL, DE, BC, AF, IX, IY и SP",
+    "evidence": [
+      "Байты исходного образа, диапазон #E6F3..#E708",
+      "In:",
+      "E6DE указывает 12 байтов сохранённых регистров и адрес продолжения",
+      "Out:",
+      "HL, DE, BC, AF, IX, IY восстановлены, SP демо активен",
+      "Corrupt:",
+      "восстанавливает HL, DE, BC, AF, IX, IY и SP",
+      "Note:",
+      "До смены стека ReadKeyboard обновляет физическое состояние 4700..4708",
+      "Изменяемый JP E706 идёт ResumePoint либо ManualControl, RET ResumePoint использует сохранённый адрес",
+      "CALL YieldToGame"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "edf7b1a9f89087bb596317102ac6aeec49bbee0fe0893de6c041f02d427eff4d",
+    "blocks": {
+      "E6F3": "физические клавиши обновляются до восстановления регистров корутины",
+      "E6F6": "стек игры сохраняется поверх его текущих адресов возврата",
+      "E6FE": "восстановление шести пар в обратном порядке относительно Yield",
+      "E706": "SMC, следующий шаг идёт к RET ReturnPoint либо в ManualMode"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Возобновление сохранённой корутины",
+      "исходный диапазон #E6F3..#E708",
+      "In:",
+      "E6DE указывает 12 байтов сохранённых регистров и адрес продолжения",
+      "Out:",
+      "HL, DE, BC, AF, IX, IY восстановлены, SP демо активен",
+      "Corrupt:",
+      "восстанавливает HL, DE, BC, AF, IX, IY и SP",
+      "Note:",
+      "До смены стека ReadKeyboard обновляет физическое состояние 4700..4708",
+      "Изменяемый JP E706 идёт ResumePoint либо ManualControl, RET ResumePoint использует сохранённый адрес",
+      "CALL YieldToGame"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CoroutineResumePoint.asm",
+    "start": 59145,
+    "end": 59146,
+    "status": "reviewed",
+    "semantic_name": "CoroutineResumePoint",
+    "summary": "Возврат в место последней уступки кадра",
+    "in": "на стеке демо адрес после CALL Yield",
+    "out": "продолжение сценария демо",
+    "corrupt": "нет",
+    "evidence": [
+      "Байты исходного образа, диапазон #E709..#E709",
+      "In:",
+      "на стеке демо адрес после CALL YieldToGame",
+      "Out:",
+      "продолжение сценария демо",
+      "Corrupt:",
+      "нет",
+      "Note:",
+      "Адрес этого RET хранится в изменяемом JP E706"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e961e779171076bedbea9cc412e632e7f0ef162348f38175b2d26cd7f427bfe6",
+    "blocks": {
+      "E709": "возврат по адресу CALL Yield, оставшемуся на стеке демо"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Возврат в место последней уступки кадра",
+      "исходный диапазон #E709..#E709",
+      "In:",
+      "на стеке демо адрес после CALL YieldToGame",
+      "Out:",
+      "продолжение сценария демо",
+      "Corrupt:",
+      "нет",
+      "Note:",
+      "Адрес этого RET хранится в изменяемом JP E706"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/YieldWithSteeringBrake.asm",
+    "start": 59146,
+    "end": 59184,
+    "status": "reviewed",
+    "semantic_name": "YieldWithSteeringBrake",
+    "summary": "Согласование виртуальной скорости с поворотами и сбором груза",
+    "in": "IX=4700, флаги объектов, наличие ковша D088 и свободный трюм D07C",
+    "out": "клавиша J снята при доступном грузе, поворот по S/X включает торможение",
+    "corrupt": "HL, AF, затем полный контракт Yield",
+    "evidence": [
+      "Байты исходного образа, диапазон #E70A..#E72F",
+      "In:",
+      "IX=4700, флаги объектов, наличие ковша D088 и свободный трюм D07C",
+      "Out:",
+      "клавиша J снята при доступном грузе, поворот по S/X включает торможение",
+      "Corrupt:",
+      "HL, AF, затем полный контракт YieldToGame",
+      "Note:",
+      "Проверяется побитовое D07C AND D088, не две независимые проверки ненулевых величин",
+      "IX6.3 соответствует J, IX7.0/1 пробел/Symbol Shift, IX0.2/IX1.1 X/S"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E70D": "подходящих по флагам объектов нет, сохранить команду J",
+      "E716": "побитовое сочетание свободного трюма и ковша равно нулю, сохранить J",
+      "E720": "выставлена клавиша X, включить торможение",
+      "E726": "клавиша S не выставлена, уступить кадр без дополнительного торможения"
+    },
+    "operation_sha256": "a55b4f7f0c8bb942bb95f5b42338dd905928fa3a134504375fe3169e0955a0f8",
+    "blocks": {
+      "E70A": "подсчёт доступной комбинации объектных признаков перед разрешением J",
+      "E70F": "побитовое сочетание свободного трюма и ковша запрещает J при ненулевом результате",
+      "E71C": "проверка виртуального тангажа X/S, поворот сочетается с торможением",
+      "E728": "пробел снимается, Symbol Shift устанавливается перед уступкой кадра"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 4
+    },
+    "current_header": [
+      "Согласование виртуальной скорости с поворотами и сбором груза",
+      "исходный диапазон #E70A..#E72F",
+      "In:",
+      "IX=4700, флаги объектов, наличие ковша D088 и свободный трюм D07C",
+      "Out:",
+      "клавиша J снята при доступном грузе, поворот по S/X включает торможение",
+      "Corrupt:",
+      "HL, AF, затем полный контракт YieldToGame",
+      "Note:",
+      "Проверяется побитовое D07C AND D088, не две независимые проверки ненулевых величин",
+      "IX6.3 соответствует J, IX7.0/1 пробел/Symbol Shift, IX0.2/IX1.1 X/S"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/YieldToGame.asm",
+    "start": 59184,
+    "end": 59241,
+    "status": "reviewed",
+    "semantic_name": "YieldToGame",
+    "summary": "Уступка кадра с сохранением состояния корутины",
+    "in": "SP демо, E6DC стек игры",
+    "out": "шесть пар сохранены в демо, возврат на стек игры",
+    "corrupt": "HL, AF для обработки клавиш, SP, остальные сохраняются в стеке",
+    "evidence": [
+      "Байты исходного образа, диапазон #E730..#E768",
+      "In:",
+      "SP демо, E6DC стек игры",
+      "Out:",
+      "шесть пар сохранены в демо, возврат на стек игры",
+      "Corrupt:",
+      "HL, AF для обработки клавиш, SP, остальные сохраняются в стеке",
+      "Note:",
+      "Аппаратная Z по FEFE.1 перенаправляет следующий ResumeDemo в ManualControl",
+      "Аппаратная V по FEFE.4 сбрасывает стек EF00 и выбирает FollowStation/ApproachBody по знаку Z планеты 7118",
+      "Обычный путь сохраняет AF,BC,DE,HL,IX,IY, затем E6DE=SP и SP=(E6DC), RET возвращается в FrameHook"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E737": "физическая Z не нажата, проверить V",
+      "E745": "физическая V не нажата, сохранить текущую корутину",
+      "E753": "Z планеты неотрицательна, перезапустить сопровождение станции"
+    },
+    "operation_sha256": "ace34176fa4d1a089de56dab2f3a94ed6edba3e6160160abe2dd0d0974e09aa8",
+    "blocks": {
+      "E730": "сохранение AF и прямое чтение физического ряда CAPS SHIFT,Z,X,C,V",
+      "E739": "нажатие Z перенаправляет следующий возврат корутины в ручной цикл",
+      "E743": "проверка V для полного сброса текущего сценария",
+      "E747": "отмена текущего стека и повторный выбор сценария по знаку Z планеты",
+      "E759": "сохранение остальных пяти пар и фиксация текущего стека демо",
+      "E764": "возврат игрового SP и выход в прерванный кадровый обработчик"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 3
+    },
+    "current_header": [
+      "Уступка кадра с сохранением состояния корутины",
+      "исходный диапазон #E730..#E768",
+      "In:",
+      "SP демо, E6DC стек игры",
+      "Out:",
+      "шесть пар сохранены в демо, возврат на стек игры",
+      "Corrupt:",
+      "HL, AF для обработки клавиш, SP, остальные сохраняются в стеке",
+      "Note:",
+      "Аппаратная Z по FEFE.1 перенаправляет следующий ResumeDemo в ManualControl",
+      "Аппаратная V по FEFE.4 сбрасывает стек EF00 и выбирает FollowStation/ApproachBody по знаку Z планеты 7118",
+      "Обычный путь сохраняет AF,BC,DE,HL,IX,IY, затем E6DE=SP и SP=(E6DC), RET возвращается в FrameHook"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CompareCoordinateSum.asm",
+    "start": 59241,
+    "end": 59279,
+    "status": "reviewed",
+    "semantic_name": "CompareCoordinateSum",
+    "summary": "Порог суммы модулей трёх целых координат",
+    "in": "DE порог, IY тройка координат",
+    "out": "HL частичная либо полная сумма, DE сохранён, C=1 если полная сумма меньше DE",
+    "corrupt": "HL, BC, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E769..#E78E",
+      "In:",
+      "DE порог, IY тройка координат",
+      "Out:",
+      "HL частичная либо полная сумма, DE сохранён, C=1 если полная сумма меньше DE",
+      "Corrupt:",
+      "HL, BC, AF",
+      "Note:",
+      "Берутся слова по 1/2,4/5,7/8, знак старшего байта снимается, младшая дробная часть пропускается",
+      "После X и X+Y сумма сразу проверяется, поэтому ранний отказ не читает оставшиеся оси",
+      "Сложение 16-битное, отдельного контроля переполнения ADD нет"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E774": "модуль целой X не меньше порога, прекратить суммирование",
+      "E781": "сумма модулей X и Y не меньше порога, не читать Z"
+    },
+    "operation_sha256": "de0bec868ff909033bf5e059cb4a3d512893c0f33fb6ff5a2bbcc6fd37aef93f",
+    "blocks": {
+      "E769": "модуль целой X проверяется до чтения остальных координат",
+      "E775": "прибавление модуля Y и ранняя проверка суммы",
+      "E782": "прибавление модуля Z и окончательное сравнение"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 2
+    },
+    "current_header": [
+      "Порог суммы модулей трёх целых координат",
+      "исходный диапазон #E769..#E78E",
+      "In:",
+      "DE порог, IY тройка координат",
+      "Out:",
+      "HL частичная либо полная сумма, DE сохранён, C=1 если полная сумма меньше DE",
+      "Corrupt:",
+      "HL, BC, AF",
+      "Note:",
+      "Берутся слова по 1/2,4/5,7/8, знак старшего байта снимается, младшая дробная часть пропускается",
+      "После X и X+Y сумма сразу проверяется, поэтому ранний отказ не читает оставшиеся оси",
+      "Сложение 16-битное, отдельного контроля переполнения ADD нет"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CompareWords.asm",
+    "start": 59279,
+    "end": 59285,
+    "status": "reviewed",
+    "semantic_name": "CompareWords",
+    "summary": "Беззнаковое сравнение суммы с порогом без изменения HL",
+    "in": "HL сумма, DE порог",
+    "out": "C=1 при HL<DE, Z=1 при равенстве, HL/DE сохранены",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E78F..#E794",
+      "In:",
+      "HL сумма, DE порог",
+      "Out:",
+      "C=1 при HL<DE, Z=1 при равенстве, HL/DE сохранены",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "AND A сбрасывает входной перенос, PUSH/POP HL сохраняет сумму вокруг SBC"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "18f60488e5ae9eed989751ada5134cee386c7a84862d8ee79542f4bff9babace",
+    "blocks": {
+      "E78F": "сравнение 16-битных беззнаковых величин с сохранением исходной суммы"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Беззнаковое сравнение суммы с порогом без изменения HL",
+      "исходный диапазон #E78F..#E794",
+      "In:",
+      "HL сумма, DE порог",
+      "Out:",
+      "C=1 при HL<DE, Z=1 при равенстве, HL/DE сохранены",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "AND A сбрасывает входной перенос, PUSH/POP HL сохраняет сумму вокруг SBC"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/InitializeDemoScenario.asm",
+    "start": 59285,
+    "end": 59342,
+    "status": "reviewed",
+    "semantic_name": "InitializeDemoScenario",
+    "summary": "Начальные паузы, разгон и команда старта",
+    "in": "начальный стек EF00",
+    "out": "IX=4700, E07A=1, сделан снимок командира, затем Approach",
+    "corrupt": "HL, DE, BC, AF, IX",
+    "evidence": [
+      "Байты исходного образа, диапазон #E795..#E7CD",
+      "In:",
+      "начальный стек EF00",
+      "Out:",
+      "IX=4700, E07A=1, сделан снимок командира, затем ApproachBody",
+      "Corrupt:",
+      "HL, DE, BC, AF, IX",
+      "Note:",
+      "После первой PauseWithMark следуют 20 кадров пробела и ещё PauseWithMark",
+      "Копирование 102 байтов заканчивается B=0, поэтому цикл E7C5 выполняется 256 раз с клавишей 1",
+      "E79C является точкой перезапуска без повторной установки IX, E7BA обновляет снимок командира"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "b3acb103417900647e534bf71b2aaef2600c1277c0b5557b39b255a1fe47ff8c",
+    "blocks": {
+      "E795": "подготовка виртуальной клавиатуры и первая пауза сценария",
+      "E79C": "точка перезапуска выставляетмаркер 1 и очищает семь строк клавиш",
+      "E7AB": "двадцать уступок кадра с виртуальным пробелом",
+      "E7BA": "снимок командира после паузы перед последовательностью стартовых команд",
+      "E7C5": "после LDIR регистр B=0, команда 1 повторяется 256 кадров"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Начальные паузы, разгон и команда старта",
+      "исходный диапазон #E795..#E7CD",
+      "In:",
+      "начальный стек EF00",
+      "Out:",
+      "IX=4700, E07A=1, сделан снимок командира, затем ApproachBody",
+      "Corrupt:",
+      "HL, DE, BC, AF, IX",
+      "Note:",
+      "После первой PauseWithMark следуют 20 кадров пробела и ещё PauseWithMark",
+      "Копирование 102 байтов заканчивается B=0, поэтому цикл E7C5 выполняется 256 раз с клавишей 1",
+      "E79C является точкой перезапуска без повторной установки IX, E7BA обновляет снимок командира"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ApproachCelestialBody.asm",
+    "start": 59342,
+    "end": 59386,
+    "status": "reviewed",
+    "semantic_name": "ApproachCelestialBody",
+    "summary": "Полёт к солнцу с проверкой близкой станции",
+    "in": "IX=4700",
+    "out": "цикл наведения и выбора действия либо переход Follow",
+    "corrupt": "HL, DE, BC, AF, IY",
+    "evidence": [
+      "Байты исходного образа, диапазон #E7CE..#E7F9",
+      "In:",
+      "IX=4700",
+      "Out:",
+      "цикл наведения и выбора действия либо переход FollowStation",
+      "Corrupt:",
+      "HL, DE, BC, AF, IY",
+      "Note:",
+      "При сумме координат солнца<0888 и существующей станции ближе 24 выбирается FollowStation",
+      "Остальные итерации ChooseBody,YieldWithBrake,ChooseAction сохраняют управление сценарием"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E7DB": "солнце дальше порога 0888, продолжить обычное наведение",
+      "E7E8": "слот станции пуст, продолжить обычное наведение",
+      "E7ED": "станция ближе 24, перейти к её сопровождению"
+    },
+    "operation_sha256": "4a08cfaf4d9f74539d5c8582df9432a60c3844aae1ff433508c2345ed23b2649",
+    "blocks": {
+      "E7CE": "проверка перезапуска и порога расстояния до солнца",
+      "E7DD": "близкое солнце позволяет проверить существование и расстояние станции",
+      "E7EF": "наведение, уступка кадра и выбор действия повторяются циклом"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 3
+    },
+    "current_header": [
+      "Полёт к солнцу с проверкой близкой станции",
+      "исходный диапазон #E7CE..#E7F9",
+      "In:",
+      "IX=4700",
+      "Out:",
+      "цикл наведения и выбора действия либо переход FollowStation",
+      "Corrupt:",
+      "HL, DE, BC, AF, IY",
+      "Note:",
+      "При сумме координат солнца<0888 и существующей станции ближе 24 выбирается FollowStation",
+      "Остальные итерации ChooseBody,YieldWithBrake,ChooseAction сохраняют управление сценарием"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/FollowStation.asm",
+    "start": 59386,
+    "end": 59418,
+    "status": "reviewed",
+    "semantic_name": "FollowStation",
+    "summary": "Сопровождение станции с переходом к новому старту",
+    "in": "IX=4700",
+    "out": "при расстоянии станции<24 переход E7BA, иначе продолжение наведения",
+    "corrupt": "HL, DE, BC, AF, IY",
+    "evidence": [
+      "Байты исходного образа, диапазон #E7FA..#E819",
+      "In:",
+      "IX=4700",
+      "Out:",
+      "при расстоянии станции<24 переход E7BA, иначе продолжение наведения",
+      "Corrupt:",
+      "HL, DE, BC, AF, IY",
+      "Note:",
+      "Каждый проход проверяет E07A, наводится AimNearBody, уступает кадр и выбирает действия"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E80E": "станция отсутствует, продолжить цикл сопровождения",
+      "E816": "станция ближе 24, обновить снимок и начать новый старт"
+    },
+    "operation_sha256": "c02b5c8cb613a00f699d8ab0f4bb19cc6f25abbc9a661385e3d32c97365cd7cc",
+    "blocks": {
+      "E7FA": "сопровождение станции, включая защиту и выбор обзорного экрана",
+      "E806": "после возобновления проверяются существование станции и порог 24"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 2
+    },
+    "current_header": [
+      "Сопровождение станции с переходом к новому старту",
+      "исходный диапазон #E7FA..#E819",
+      "In:",
+      "IX=4700",
+      "Out:",
+      "при расстоянии станции<24 переход E7BA, иначе продолжение наведения",
+      "Corrupt:",
+      "HL, DE, BC, AF, IY",
+      "Note:",
+      "Каждый проход проверяет E07A, наводится AimNearBody, уступает кадр и выбирает действия"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CheckDemoRestart.asm",
+    "start": 59418,
+    "end": 59429,
+    "status": "reviewed",
+    "semantic_name": "CheckDemoRestart",
+    "summary": "Перезапуск сценария при сброшенном маркере",
+    "in": "E07A состояние текущего полёта",
+    "out": "ненулевой маркер возвращает, нулевой сбрасывает SP и идёт E79C",
+    "corrupt": "AF, SP только при перезапуске",
+    "evidence": [
+      "Байты исходного образа, диапазон #E81A..#E824",
+      "In:",
+      "E07A состояние текущего полёта",
+      "Out:",
+      "ненулевой маркер возвращает, нулевой сбрасывает SP и идёт E79C",
+      "Corrupt:",
+      "AF, SP только при перезапуске",
+      "Note:",
+      "Использует тот же маркер, который сбрасывается посадкой и патчем гибели"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E81E": "маркер полёта не сброшен, перезапуск не требуется"
+    },
+    "operation_sha256": "5159f3ec860d599cd58d23f478bb63c84959d7a302cd7c7631b3d226d45b456e",
+    "blocks": {
+      "E81A": "нулевой маркер после посадки или гибели отменяет весь стек сценария"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Перезапуск сценария при сброшенном маркере",
+      "исходный диапазон #E81A..#E824",
+      "In:",
+      "E07A состояние текущего полёта",
+      "Out:",
+      "ненулевой маркер возвращает, нулевой сбрасывает SP и идёт E79C",
+      "Corrupt:",
+      "AF, SP только при перезапуске",
+      "Note:",
+      "Использует тот же маркер, который сбрасывается посадкой и патчем гибели"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ReservedDemoBytes.asm",
+    "start": 59429,
+    "end": 59442,
+    "status": "reviewed",
+    "semantic_name": "ReservedDemoBytes",
+    "summary": "Сохранённое нулевое дополнение сценария",
+    "in": "нет",
+    "out": "13 нулевых байтов сохранены",
+    "corrupt": "нет",
+    "evidence": [
+      "Байты исходного образа, диапазон #E825..#E831",
+      "In:",
+      "нет",
+      "Out:",
+      "13 нулевых байтов сохранены",
+      "Corrupt:",
+      "нет",
+      "Note:",
+      "Прямых входов и обращений из демонстрационного кода не найдено"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Сохранённое нулевое дополнение сценария",
+      "исходный диапазон #E825..#E831",
+      "In:",
+      "нет",
+      "Out:",
+      "13 нулевых байтов сохранены",
+      "Corrupt:",
+      "нет",
+      "Note:",
+      "Прямых входов и обращений из демонстрационного кода не найдено"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/BeepAndWait.asm",
+    "start": 59442,
+    "end": 59452,
+    "status": "reviewed",
+    "semantic_name": "BeepAndWait",
+    "summary": "Звуковое действие с задержкой",
+    "in": "вызов игрового E1E8 и E35E",
+    "out": "A=1,C=1 после сигнала и 36 HALT",
+    "corrupt": "HL, BC, AF по вызовам",
+    "evidence": [
+      "Байты исходного образа, диапазон #E832..#E83B",
+      "In:",
+      "вызов игрового E1E8 и E35E",
+      "Out:",
+      "A=1,C=1 после сигнала и 36 HALT",
+      "Corrupt:",
+      "HL, BC, AF по вызовам",
+      "Note:",
+      "Сохранённая процедура, прямых вызовов из демо не найдено, внутри активного IM2 применять HALT без",
+      "разрешения прерываний нельзя"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "d3beaa3a5e2d485319c9d52bd8bd37529d91cdb7e34d2281fe34d65cc21831cc",
+    "blocks": {
+      "E832": "сохранённый сигнал и задержка завершаются A=1 ипереносом"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Звуковое действие с задержкой",
+      "исходный диапазон #E832..#E83B",
+      "In:",
+      "вызов игрового E1E8 и E35E",
+      "Out:",
+      "A=1,C=1 после сигнала и 36 HALT",
+      "Corrupt:",
+      "HL, BC, AF по вызовам",
+      "Note:",
+      "Сохранённая процедура, прямых вызовов из демо не найдено, внутри активного IM2 применять HALT без",
+      "разрешения прерываний нельзя"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ChooseCelestialTarget.asm",
+    "start": 59452,
+    "end": 59473,
+    "status": "reviewed",
+    "semantic_name": "ChooseCelestialTarget",
+    "summary": "Выбор солнца либо станции в качестве ориентира",
+    "in": "IX=4700",
+    "out": "IY цель, DE маски точности, переход Steer или NearTarget",
+    "corrupt": "HL, DE, BC, AF, IY",
+    "evidence": [
+      "Байты исходного образа, диапазон #E83C..#E850",
+      "In:",
+      "IX=4700",
+      "Out:",
+      "IY цель, DE маски точности, переход SteerToTarget или AimNearBody",
+      "Corrupt:",
+      "HL, DE, BC, AF, IY",
+      "Note:",
+      "Солнце с порогом 0888 выбирается при удалении либо отсутствии станции 606A, иначе падение AimNearBody",
+      "DE=0000 означает проверку только старших модулей координат"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E849": "солнце не ближе 0888, направить корабль на него",
+      "E84F": "станция отсутствует, направить корабль на солнце"
+    },
+    "operation_sha256": "06f93ddc9963cf7bb5ef85992a34613108a6115ac7c4fbc7f3d27b9de2ae1f53",
+    "blocks": {
+      "E83C": "солнце выбирается ориентиром с маской только старшего слова",
+      "E84B": "при близком солнце непустая станция меняет ориентир"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 2
+    },
+    "current_header": [
+      "Выбор солнца либо станции в качестве ориентира",
+      "исходный диапазон #E83C..#E850",
+      "In:",
+      "IX=4700",
+      "Out:",
+      "IY цель, DE маски точности, переход SteerToTarget или AimNearBody",
+      "Corrupt:",
+      "HL, DE, BC, AF, IY",
+      "Note:",
+      "Солнце с порогом 0888 выбирается при удалении либо отсутствии станции 606A, иначе падение AimNearBody",
+      "DE=0000 означает проверку только старших модулей координат"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/AimAtNearBody.asm",
+    "start": 59473,
+    "end": 59493,
+    "status": "reviewed",
+    "semantic_name": "AimAtNearBody",
+    "summary": "Выбор станции или планеты для ближнего наведения",
+    "in": "IX=4700",
+    "out": "IY6048 либо 7110, маска DE=FF00 либо 0000, затем Steer",
+    "corrupt": "DE, AF, IY",
+    "evidence": [
+      "Байты исходного образа, диапазон #E851..#E864",
+      "In:",
+      "IX=4700",
+      "Out:",
+      "IY6048 либо 7110, маска DE=FF00 либо 0000, затем SteerToTarget",
+      "Corrupt:",
+      "DE, AF, IY",
+      "Note:",
+      "При существующей станции E881 случайно пропускает Accelerate, используя R.0"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E85C": "станция существует, выбрать её и случайный вариант начала наведения"
+    },
+    "operation_sha256": "949493d71b7745015a98a5c4c000308c84ac11c73622b2e22bb379473acef0c3",
+    "blocks": {
+      "E851": "проверка станции, при её отсутствии выбирается планета"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Выбор станции или планеты для ближнего наведения",
+      "исходный диапазон #E851..#E864",
+      "In:",
+      "IX=4700",
+      "Out:",
+      "IY6048 либо 7110, маска DE=FF00 либо 0000, затем SteerToTarget",
+      "Corrupt:",
+      "DE, AF, IY",
+      "Note:",
+      "При существующей станции E881 случайно пропускает Accelerate, используя R.0"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ChooseObjectAimPrecision.asm",
+    "start": 59493,
+    "end": 59526,
+    "status": "reviewed",
+    "semantic_name": "ChooseObjectAimPrecision",
+    "summary": "Выбор точности наведения на объект",
+    "in": "IY объект, IX4700",
+    "out": "DE=FFF0 при сумме<45, иначе FC00, Flags2=#0A сдвигает E влево дважды",
+    "corrupt": "HL, DE, BC, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E865..#E885",
+      "In:",
+      "IY объект, IX4700",
+      "Out:",
+      "DE=FFF0 при сумме<45, иначе FC00, Flags2=#0A сдвигает E влево дважды",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "E881 является отдельным входом AimNearBody, R после RRCA выбирает SteerToTarget либо его хвост E889"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E86E": "сумма целых координат цели меньше 45, оставить точную маску FFF0",
+      "E879": "полный байт Flags2 цели не равен #0A, использовать выбранную маску без изменения",
+      "E884": "младший бит регистра R установлен, пропустить начальное ускорение"
+    },
+    "operation_sha256": "228e33d619ef383262e625fd883ac63a02dfc72d2927a4b6da071b96e4743060",
+    "blocks": {
+      "E865": "выбор точности наведения по сумме координат меньше 45",
+      "E874": "для полного набора Flags2=#0A младшая маска меняется F0 на C0",
+      "E881": "отдельный вход случайно пропускает вызов ускорения"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 3
+    },
+    "current_header": [
+      "Выбор точности наведения на объект",
+      "исходный диапазон #E865..#E885",
+      "In:",
+      "IY объект, IX4700",
+      "Out:",
+      "DE=FFF0 при сумме<45, иначе FC00, Flags2=#0A сдвигает E влево дважды",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "E881 является отдельным входом AimNearBody, R после RRCA выбирает SteerToTarget либо его хвост E889"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+    "start": 59526,
+    "end": 59657,
+    "status": "reviewed",
+    "semantic_name": "SteerTowardTarget",
+    "summary": "Наведение с чередованием крена и тангажа",
+    "in": "DE маски двух младших байтов, IX4700, IY координаты цели",
+    "out": "виртуальные клавиши поворота, скорости и вида обновлены",
+    "corrupt": "HL, BC, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E886..#E908",
+      "In:",
+      "DE маски двух младших байтов, IX4700, IY координаты цели",
+      "Out:",
+      "виртуальные клавиши поворота, скорости и вида обновлены",
+      "Corrupt:",
+      "HL, BC, AF",
+      "Note:",
+      "После Accelerate цель строго сзади при нулевых старших X/Y вызывает ReverseCourse",
+      "E992 задаёт 5 проходов тангажа, E939 окно 15 проходов крена, исходно E939=50",
+      "Порог координаты вычисляется как (((low&E)|middle)&D)|(high&7F)",
+      "При значимом X крен>=8 оставляется без изменения, малый Y передаёт LegacySteer, который фактически JP",
+      "ApplyRoll",
+      "При значимом Y вызывается ApplyPitch, затем ненулевой 70E5&7E вызывает LegacySteer, это также крен,",
+      "названия старых входов не меняют фактический поток"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E88D": "цель впереди, перейти к обычному выбору поворотов",
+      "E897": "старшие модули X/Y ненулевые, продолжить обычное наведение",
+      "E8A1": "окно тангажа закончилось, проверить окно крена",
+      "E8AD": "окно крена ещё активно, уменьшить его и оценить X",
+      "E8C8": "маскированное отклонение X нулевое, переключиться на тангаж",
+      "E8D1": "модуль текущего крена не меньше 8, не добавлять поворот",
+      "E8E2": "отклонение Y после маски FE нулевое, использовать совместимый вход Roll",
+      "E8FC": "маскированное отклонение Y ненулевое, задать тангаж",
+      "E904": "модуль тангажа равен 0 или 1, дополнительный крен не нужен"
+    },
+    "operation_sha256": "d1dd0ef043d36e871eb4b12473efddda1fee7d3cdcedc956064ba30afdcf3a41",
+    "blocks": {
+      "E886": "начальное ускорение перед расчётом поворотов",
+      "E889": "проверка цели строго сзади с нулевыми старшими модулями X/Y",
+      "E89D": "окно тангажа уменьшается до нуля и передаёт управление его обработчику",
+      "E8A9": "проверка окна крена, нуль перезагружается 15 перед переключением",
+      "E8B6": "уменьшение окна крена и вычисление маскированного отклонения X",
+      "E8CA": "проверка предельного модуля крена 8 перед новым поворотом",
+      "E8D2": "проверка Y с точностью FE/FF перед выбором крена",
+      "E8E9": "пять следующих проходов отводятся тангажу",
+      "E8EE": "расчёт маскированного отклонения Y и вызов выбора тангажа",
+      "E8FF": "проверка текущего тангажа, модуль от 2 передаёт управление совместимому Roll"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 9
+    },
+    "current_header": [
+      "Наведение с чередованием крена и тангажа",
+      "исходный диапазон #E886..#E908",
+      "In:",
+      "DE маски двух младших байтов, IX4700, IY координаты цели",
+      "Out:",
+      "виртуальные клавиши поворота, скорости и вида обновлены",
+      "Corrupt:",
+      "HL, BC, AF",
+      "Note:",
+      "После Accelerate цель строго сзади при нулевых старших X/Y вызывает ReverseCourse",
+      "E992 задаёт 5 проходов тангажа, E939 окно 15 проходов крена, исходно E939=50",
+      "Порог координаты вычисляется как (((low&E)|middle)&D)|(high&7F)",
+      "При значимом X крен>=8 оставляется без изменения, малый Y передаёт LegacySteer, который фактически JP",
+      "ApplyRoll",
+      "При значимом Y вызывается ApplyPitch, затем ненулевой 70E5&7E вызывает LegacySteer, это также крен,",
+      "названия старых входов не меняют фактический поток"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ChooseRollFromSign.asm",
+    "start": 59657,
+    "end": 59666,
+    "status": "reviewed",
+    "semantic_name": "ChooseRollFromSign",
+    "summary": "Выбор крена по знаку текущего вращения",
+    "in": "70E4 текущий крен, IX4700",
+    "out": "отрицательный крен включает M, положительный N",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E909..#E911",
+      "In:",
+      "70E4 текущий крен, IX4700",
+      "Out:",
+      "отрицательный крен включает M, положительный N",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "M это IX7.2, N это IX7.3, противоположная клавиша снимается"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E90E": "текущий крен неотрицателен, выбрать N"
+    },
+    "operation_sha256": "399e1e3bb50b3cf5b5c34b9ad6d636267c385115fe5645790920a28741964c29",
+    "blocks": {
+      "E909": "знак существующего крена выбирает клавишу M или N"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Выбор крена по знаку текущего вращения",
+      "исходный диапазон #E909..#E911",
+      "In:",
+      "70E4 текущий крен, IX4700",
+      "Out:",
+      "отрицательный крен включает M, положительный N",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "M это IX7.2, N это IX7.3, противоположная клавиша снимается"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ApplyRollKeys.asm",
+    "start": 59666,
+    "end": 59705,
+    "status": "reviewed",
+    "semantic_name": "ApplyRollKeys",
+    "summary": "Выбор крена по знакам X и Y цели",
+    "in": "IY цель, IX4700",
+    "out": "клавиша 1, таймер EA80 младший FF, один из M/N",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E912..#E938",
+      "In:",
+      "IY цель, IX4700",
+      "Out:",
+      "клавиша 1, таймер EA80 младший FF, один из M/N",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Разные знаки X/Y выбирают N, одинаковые M, перед выбором BrakeWhenFar может включить торможение"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E925": "знаки X и Y цели различны, выбрать N"
+    },
+    "operation_sha256": "5dacab6a3e60ff87e766cfecd3eec1af067440343da65ee057fb1dab02c91402",
+    "blocks": {
+      "E912": "передний вид и продление таймера поведения при повороте",
+      "E927": "клавиша M включается одновременно со снятием N",
+      "E930": "клавиша N включается одновременно со снятием M",
+      "E91E": "разность знаков X/Y задаёт направление крена"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Выбор крена по знакам X и Y цели",
+      "исходный диапазон #E912..#E938",
+      "In:",
+      "IY цель, IX4700",
+      "Out:",
+      "клавиша 1, таймер EA80 младший FF, один из M/N",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Разные знаки X/Y выбирают N, одинаковые M, перед выбором BrakeWhenFar может включить торможение"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/RollWindowCounter.asm",
+    "start": 59705,
+    "end": 59706,
+    "status": "reviewed",
+    "semantic_name": "RollWindowCounter",
+    "summary": "Оставшееся окно управления креном",
+    "in": "Steer читает и уменьшает",
+    "out": "исходно 50, при обновлении 15",
+    "corrupt": "нет, байт данных",
+    "evidence": [
+      "Байты исходного образа, диапазон #E939..#E939",
+      "In:",
+      "SteerToTarget читает и уменьшает",
+      "Out:",
+      "исходно 50, при обновлении 15",
+      "Corrupt:",
+      "нет, байт данных",
+      "Note:",
+      "Нулевое значение переключает SteerToTarget на окно тангажа"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Оставшееся окно управления креном",
+      "исходный диапазон #E939..#E939",
+      "In:",
+      "SteerToTarget читает и уменьшает",
+      "Out:",
+      "исходно 50, при обновлении 15",
+      "Corrupt:",
+      "нет, байт данных",
+      "Note:",
+      "Нулевое значение переключает SteerToTarget на окно тангажа"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CollectNearbyTarget.asm",
+    "start": 59706,
+    "end": 59747,
+    "status": "reviewed",
+    "semantic_name": "CollectNearbyTarget",
+    "summary": "Точное доведение близкой цели",
+    "in": "IY цель, IX4700",
+    "out": "при цели впереди и без S/X выбираются торможение либо M/N/X",
+    "corrupt": "HL, DE, BC, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E93A..#E962",
+      "In:",
+      "IY цель, IX4700",
+      "Out:",
+      "при цели впереди и без S/X выбираются торможение либо M/N/X",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "Если сумма координат<1, случайный бит 1 допускает Brake, затем всегда включается X через E980",
+      "При большей сумме знак X выбирает M/N, существующие повороты S/X не изменяются"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E93E": "цель сзади, точное доведение не выполняется",
+      "E943": "уже выставлена клавиша X",
+      "E948": "уже выставлена клавиша S",
+      "E94F": "сумма координат не меньше 1, выбрать крен по знаку X",
+      "E956": "случайный бит 1 сброшен, затормозить перед близкой целью",
+      "E95F": "X цели неотрицательна, выбрать N"
+    },
+    "operation_sha256": "1f08629e6104d15384450abf28e8641d00db3393db216b23f27d9c6b44fc8edd",
+    "blocks": {
+      "E93A": "точное доведение разрешено только впереди и без уже нажатых S/X",
+      "E951": "случайное торможение очень близкой цели, после него всегда включается X",
+      "E95B": "при ненулевом удалении направление крена определяется знаком X",
+      "E949": "проверка суммы целых координат меньше 1"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 6
+    },
+    "current_header": [
+      "Точное доведение близкой цели",
+      "исходный диапазон #E93A..#E962",
+      "In:",
+      "IY цель, IX4700",
+      "Out:",
+      "при цели впереди и без S/X выбираются торможение либо M/N/X",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "Если сумма координат<1, случайный бит 1 допускает Brake, затем всегда включается X через E980",
+      "При большей сумме знак X выбирает M/N, существующие повороты S/X не изменяются"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/PreservedSteeringEntry.asm",
+    "start": 59747,
+    "end": 59758,
+    "status": "reviewed",
+    "semantic_name": "PreservedSteeringEntry",
+    "summary": "Совместимый вход крена и сохранённый старый выбор тангажа",
+    "in": "IY цель, IX4700",
+    "out": "основной вход безусловно идёт Roll",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E963..#E96D",
+      "In:",
+      "IY цель, IX4700",
+      "Out:",
+      "основной вход безусловно идёт ApplyRoll",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "JP ApplyRoll делает следующие BIT7,IY5/JR недостижимыми при обычном входе, байты старого фрагмента",
+      "сохранены"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E96A": "Y цели неотрицательна в сохранённом хвосте, выбрать S"
+    },
+    "operation_sha256": "78d952bcb10cd12f878c3d5a8b880a2ceaedc6523514e076da37815c599164e3",
+    "blocks": {
+      "E963": "действующий вход безусловно передаёт управление Roll",
+      "E966": "сохранённый прежний выбор тангажа после JP, прямых входов в него не найдено"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Совместимый вход крена и сохранённый старый выбор тангажа",
+      "исходный диапазон #E963..#E96D",
+      "In:",
+      "IY цель, IX4700",
+      "Out:",
+      "основной вход безусловно идёт ApplyRoll",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "JP ApplyRoll делает следующие BIT7,IY5/JR недостижимыми при обычном входе, байты старого фрагмента",
+      "сохранены"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ApplyPitchKeys.asm",
+    "start": 59758,
+    "end": 59794,
+    "status": "reviewed",
+    "semantic_name": "ApplyPitchKeys",
+    "summary": "Выбор тангажа по знаку Y цели",
+    "in": "IY цель, IX4700",
+    "out": "клавиша 1, таймер EA80 младший FF, отрицательный Y→S, положительный Y→X",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E96E..#E991",
+      "In:",
+      "IY цель, IX4700",
+      "Out:",
+      "клавиша 1, таймер EA80 младший FF, отрицательный Y→S, положительный Y→X",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "BrakeWhenFar может затормозить перед выбором, противоположная клавиша S/X снимается"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E97E": "Y цели отрицательна, выбрать S"
+    },
+    "operation_sha256": "7b31b2265b27a337562a3e9809b6c8ad158069668b7b576900f4ad1eedb2f747",
+    "blocks": {
+      "E96E": "передний вид и продление таймера перед тангажом",
+      "E97A": "знак Y определяет выбор виртуальной S или X",
+      "E980": "S снимается, X устанавливается",
+      "E989": "X снимается, S устанавливается"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Выбор тангажа по знаку Y цели",
+      "исходный диапазон #E96E..#E991",
+      "In:",
+      "IY цель, IX4700",
+      "Out:",
+      "клавиша 1, таймер EA80 младший FF, отрицательный Y→S, положительный Y→X",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "BrakeWhenFar может затормозить перед выбором, противоположная клавиша S/X снимается"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/PitchWindowCounter.asm",
+    "start": 59794,
+    "end": 59795,
+    "status": "reviewed",
+    "semantic_name": "PitchWindowCounter",
+    "summary": "Оставшееся окно управления тангажом",
+    "in": "Steer читает и уменьшает",
+    "out": "исходное и перезагружаемое значение 5",
+    "corrupt": "нет, байт данных",
+    "evidence": [
+      "Байты исходного образа, диапазон #E992..#E992",
+      "In:",
+      "SteerToTarget читает и уменьшает",
+      "Out:",
+      "исходное и перезагружаемое значение 5",
+      "Corrupt:",
+      "нет, байт данных",
+      "Note:"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Оставшееся окно управления тангажом",
+      "исходный диапазон #E992..#E992",
+      "In:",
+      "SteerToTarget читает и уменьшает",
+      "Out:",
+      "исходное и перезагружаемое значение 5",
+      "Corrupt:",
+      "нет, байт данных",
+      "Note:"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ApplyDefenceKeys.asm",
+    "start": 59795,
+    "end": 59857,
+    "status": "reviewed",
+    "semantic_name": "ApplyDefenceKeys",
+    "summary": "Решение об энергетической бомбе и маскировке",
+    "in": "IX4700, счётчики угроз и энергия",
+    "out": "при условиях выставлены W и Y",
+    "corrupt": "HL, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E993..#E9D0",
+      "In:",
+      "IX4700, счётчики угроз и энергия",
+      "Out:",
+      "при условиях выставлены W и Y",
+      "Corrupt:",
+      "HL, AF",
+      "Note:",
+      "Каждое уменьшение 8-битного EA34 до 0 допускает W, если четвёртый банк не 160, начальный 0 даёт 256",
+      "вызовов",
+      "При>=3 угрозах и полном третьем банке требуется маскировка, при прочих условиях она снимается",
+      "Первый банк<50 также приводит к Y, цвет PAPER=1 по 5921 отражает видимую активность маскировки,",
+      "проверяется фактический атрибут"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E997": "период команды W ещё не истёк, перейти к проверке маскировки",
+      "E99E": "четвёртый банк энергии полон, не применять W",
+      "E9A9": "враждебных целей меньше 3, проверять отключение маскировки",
+      "E9B1": "третий банк энергии не полон, проверять отключение маскировки",
+      "E9B8": "первый банк энергии меньше 50, выставить Y",
+      "E9C1": "бумага обзорного окна уже имеет цвет 1, маскировка включена",
+      "E9CB": "бумага обзорного окна не имеет цвета 1, отключать маскировку не требуется"
+    },
+    "operation_sha256": "9e15662d72fdbfd3aab7265e5631ed1218182e3a4f57a611539d78b87530d654",
+    "blocks": {
+      "E993": "делитель команды W срабатывает при переходе счётчика к нулю",
+      "E999": "неполный четвёртый банк энергии разрешает энергетическую бомбу",
+      "E9A4": "проверка количества враждебных целей и полного третьего банка",
+      "E9B3": "проверка первого банка энергии и видимого состояния маскировки",
+      "E9C4": "без условий включения проверяется необходимость выключить маскировку",
+      "E9CC": "виртуальная Y переключает маскировку в игровом обработчике"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 7
+    },
+    "current_header": [
+      "Решение об энергетической бомбе и маскировке",
+      "исходный диапазон #E993..#E9D0",
+      "In:",
+      "IX4700, счётчики угроз и энергия",
+      "Out:",
+      "при условиях выставлены W и Y",
+      "Corrupt:",
+      "HL, AF",
+      "Note:",
+      "Каждое уменьшение 8-битного EA34 до 0 допускает W, если четвёртый банк не 160, начальный 0 даёт 256",
+      "вызовов",
+      "При>=3 угрозах и полном третьем банке требуется маскировка, при прочих условиях она снимается",
+      "Первый банк<50 также приводит к Y, цвет PAPER=1 по 5921 отражает видимую активность маскировки,",
+      "проверяется фактический атрибут"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/BrakeForDistantTarget.asm",
+    "start": 59857,
+    "end": 59869,
+    "status": "reviewed",
+    "semantic_name": "BrakeForDistantTarget",
+    "summary": "Торможение по старшим разрядам удаления Z",
+    "in": "IY цель, IX4700",
+    "out": "Slow только если (IY8&7F)!=0 и(IY7&FC)!=0",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E9D1..#E9DC",
+      "In:",
+      "IY цель, IX4700",
+      "Out:",
+      "Brake только если (IY8&7F)!=0 и(IY7&FC)!=0",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "При провале любой проверки возврат, иначе линейное падение Brake"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E9D6": "старший модуль Z нулевой, дальнее торможение не требуется",
+      "E9DC": "средний байт Z меньше 4, дальнее торможение не требуется"
+    },
+    "operation_sha256": "ab685db3cff1e0111f548029e1a3b3d39044c0b1b855974ec697a2a1305389b4",
+    "blocks": {
+      "E9D1": "торможение требует одновременно двух ненулевых частей Z"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 2
+    },
+    "current_header": [
+      "Торможение по старшим разрядам удаления Z",
+      "исходный диапазон #E9D1..#E9DC",
+      "In:",
+      "IY цель, IX4700",
+      "Out:",
+      "Brake только если (IY8&7F)!=0 и(IY7&FC)!=0",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "При провале любой проверки возврат, иначе линейное падение Brake"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ApplyBrakeKey.asm",
+    "start": 59869,
+    "end": 59878,
+    "status": "reviewed",
+    "semantic_name": "ApplyBrakeKey",
+    "summary": "Виртуальная команда уменьшения скорости",
+    "in": "IX4700",
+    "out": "пробел снят, Symbol Shift установлен",
+    "corrupt": "флаги не изменяются",
+    "evidence": [
+      "Байты исходного образа, диапазон #E9DD..#E9E5",
+      "In:",
+      "IX4700",
+      "Out:",
+      "пробел снят, Symbol Shift установлен",
+      "Corrupt:",
+      "флаги не изменяются",
+      "Note:",
+      "Меняются только биты 0/1 строки IX7"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "1aca1c896417db32c9e89d31be0177654e68f1f7241cddb23c8868bfce8f26a2",
+    "blocks": {
+      "E9DD": "согласованная пара клавиш уменьшения скорости"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Виртуальная команда уменьшения скорости",
+      "исходный диапазон #E9DD..#E9E5",
+      "In:",
+      "IX4700",
+      "Out:",
+      "пробел снят, Symbol Shift установлен",
+      "Corrupt:",
+      "флаги не изменяются",
+      "Note:",
+      "Меняются только биты 0/1 строки IX7"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ApplyAccelerationKey.asm",
+    "start": 59878,
+    "end": 59897,
+    "status": "reviewed",
+    "semantic_name": "ApplyAccelerationKey",
+    "summary": "Виртуальное ускорение и команда прыжка",
+    "in": "IX4700,70E6 скорость",
+    "out": "пробел установлен, Symbol Shift снят, J при скорости>=15",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E9E6..#E9F8",
+      "In:",
+      "IX4700,70E6 скорость",
+      "Out:",
+      "пробел установлен, Symbol Shift снят, J при скорости>=15",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "J это IX6.3, YieldWithBrake может снять его при доступном для сбора грузе"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E9F3": "скорость меньше 15, команду J не выставлять"
+    },
+    "operation_sha256": "af66c4029a6afaac948539241f94420f3b236f43f495eed0dbd596a1ec3d44e7",
+    "blocks": {
+      "E9E6": "согласованная пара ускорения и проверка порога J"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Виртуальное ускорение и команда прыжка",
+      "исходный диапазон #E9E6..#E9F8",
+      "In:",
+      "IX4700,70E6 скорость",
+      "Out:",
+      "пробел установлен, Symbol Shift снят, J при скорости>=15",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "J это IX6.3, YieldWithBrake может снять его при доступном для сбора грузе"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ReverseCourse.asm",
+    "start": 59897,
+    "end": 59919,
+    "status": "reviewed",
+    "semantic_name": "ReverseCourse",
+    "summary": "Разворот к цели за кораблём",
+    "in": "IX4700,606A тип станции",
+    "out": "включён X, при существующей станции Slow и J",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #E9F9..#EA0E",
+      "In:",
+      "IX4700,606A тип станции",
+      "Out:",
+      "включён X, при существующей станции Brake и J",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Снятие S и установка X выполняются при любом состоянии станции"
+    ],
+    "unresolved": [],
+    "branches": {
+      "E9FD": "станция отсутствует, выполнять только разворот X"
+    },
+    "operation_sha256": "c2ff2d185058ff06c27ec511e4b8ae5cb140a1e990adb2a25e24119349f6ae77",
+    "blocks": {
+      "E9F9": "наличие станции добавляет торможение и J перед разворотом",
+      "EA06": "разворот всегда выбирает X и снимает S"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Разворот к цели за кораблём",
+      "исходный диапазон #E9F9..#EA0E",
+      "In:",
+      "IX4700,606A тип станции",
+      "Out:",
+      "включён X, при существующей станции Brake и J",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Снятие S и установка X выполняются при любом состоянии станции"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ManualKeyboardMode.asm",
+    "start": 59919,
+    "end": 59933,
+    "status": "reviewed",
+    "semantic_name": "ManualKeyboardMode",
+    "summary": "Ручной режим внутри корутины",
+    "in": "стек демо и физическая клавиатура",
+    "out": "каждый кадр передаёт реальные клавиши игре",
+    "corrupt": "HL, DE, BC, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #EA0F..#EA1C",
+      "In:",
+      "стек демо и физическая клавиатура",
+      "Out:",
+      "каждый кадр передаёт реальные клавиши игре",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "Восстанавливает JP E706→ResumePoint, затем бесконечно ReadKeyboard/YieldToGame",
+      "V обрабатывается общим YieldToGame и позволяет вернуться к сценарию"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "ae25fdc5457eabcb0feec08fc82e6ca56e84e9fb7e678e0466c08efd62408a6e",
+    "blocks": {
+      "EA0F": "восстановление обычного возврата корутины перед ручным циклом",
+      "EA15": "реальные клавиши передаются игре при каждой уступке кадра"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Ручной режим внутри корутины",
+      "исходный диапазон #EA0F..#EA1C",
+      "In:",
+      "стек демо и физическая клавиатура",
+      "Out:",
+      "каждый кадр передаёт реальные клавиши игре",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "Восстанавливает JP E706→ResumePoint, затем бесконечно ReadKeyboard/YieldToGame",
+      "V обрабатывается общим YieldToGame и позволяет вернуться к сценарию"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ReadPhysicalKeyboard.asm",
+    "start": 59933,
+    "end": 59956,
+    "status": "reviewed",
+    "semantic_name": "ReadPhysicalKeyboard",
+    "summary": "Чтение восьми физических строк клавиатуры",
+    "in": "аппаратный порт FE",
+    "out": "4700..4707=инвертированные строки,4708=1",
+    "corrupt": "HL, DE, BC, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #EA1D..#EA33",
+      "In:",
+      "аппаратный порт FE",
+      "Out:",
+      "4700..4707=инвертированные строки,4708=1",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "B вращается 7F→FE→FD→FB→F7→EF→DF→BF→7F, младшие 5 бит единицей обозначают нажатие",
+      "После AND1F/CPL верхние 3 бита равны 1, изменённый FD69 учитывает только младшие 5"
+    ],
+    "unresolved": [],
+    "branches": {
+      "EA2F": "не все восемь строк клавиатуры прочитаны, продолжить опрос"
+    },
+    "operation_sha256": "90f53f790f032be1a4787f1570e12b18ce0f2a4a0486d4d712f4a985ff187857",
+    "blocks": {
+      "EA1D": "начальные порт и указатель для восьми физических строк клавиатуры",
+      "EA25": "опрос строки с инверсией активного уровня клавиш и переход к следующему порту"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Чтение восьми физических строк клавиатуры",
+      "исходный диапазон #EA1D..#EA33",
+      "In:",
+      "аппаратный порт FE",
+      "Out:",
+      "4700..4707=инвертированные строки,4708=1",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "B вращается 7F→FE→FD→FB→F7→EF→DF→BF→7F, младшие 5 бит единицей обозначают нажатие",
+      "После AND1F/CPL верхние 3 бита равны 1, изменённый FD69 учитывает только младшие 5"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/BombDelayCounter.asm",
+    "start": 59956,
+    "end": 59957,
+    "status": "reviewed",
+    "semantic_name": "BombDelayCounter",
+    "summary": "Делитель частоты команды энергетической бомбы",
+    "in": "CombatKeys уменьшает каждый вызов",
+    "out": "первое срабатывание после 256 вызовов",
+    "corrupt": "нет, байт данных",
+    "evidence": [
+      "Байты исходного образа, диапазон #EA34..#EA34",
+      "In:",
+      "DefenceKeys уменьшает каждый вызов",
+      "Out:",
+      "первое срабатывание после 256 вызовов",
+      "Corrupt:",
+      "нет, байт данных",
+      "Note:",
+      "Перезагрузки нет, восьмибитный DEC сам повторяет период 256"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Делитель частоты команды энергетической бомбы",
+      "исходный диапазон #EA34..#EA34",
+      "In:",
+      "DefenceKeys уменьшает каждый вызов",
+      "Out:",
+      "первое срабатывание после 256 вызовов",
+      "Corrupt:",
+      "нет, байт данных",
+      "Note:",
+      "Перезагрузки нет, восьмибитный DEC сам повторяет период 256"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ChooseDemoAction.asm",
+    "start": 59957,
+    "end": 60032,
+    "status": "reviewed",
+    "semantic_name": "ChooseDemoAction",
+    "summary": "Выбор боевого режима или смены обзорного экрана",
+    "in": "IX4700, общий таймер EA80",
+    "out": "найденная цель передаётся TargetLoop, иначе Escort и периодическая команда",
+    "corrupt": "HL, DE, BC, AF, IY",
+    "evidence": [
+      "Байты исходного образа, диапазон #EA35..#EA7F",
+      "In:",
+      "IX4700, общий таймер EA80",
+      "Out:",
+      "найденная цель передаётся AttackTarget, иначе CollectCargo и периодическая команда",
+      "Corrupt:",
+      "HL, DE, BC, AF, IY",
+      "Note:",
+      "Нулевой 16-битный таймер загружается 100, исходный 100",
+      "Для вида 0..3 R&3 выбирает L при 1 с таймером 300, ENTER при 2, либо виды 1/2 при 0/3",
+      "Для информационного вида выбирается передний или задний по чётности номера, сохранённый RET EA6F",
+      "не используется"
+    ],
+    "unresolved": [],
+    "branches": {
+      "EA3B": "найдена допустимая цель, начать боевой сценарий",
+      "EA49": "таймер выбора экрана ещё не истёк",
+      "EA55": "текущий вид информационный, выбрать 1/2 по его чётности",
+      "EA5C": "случайный вариант равен 1, выбрать L с таймером 300",
+      "EA5F": "случайный вариант равен 2, выбрать ENTER",
+      "EA63": "остаток выбора нечётен, установить клавишу 1"
+    },
+    "operation_sha256": "ec4aa27c04583323d3b3aad122c385e3575faaa1f9d7ec1e0218ed54f1aa3e38",
+    "blocks": {
+      "EA35": "сначала проверка перезапуска и поиск боевой цели",
+      "EA3D": "без цели пробуется подбор груза и уменьшается таймер смены вида",
+      "EA4A": "новый интервал 100 и выбор действия по текущему виду либо R",
+      "EA61": "чётность выбирает клавишу 1 или 2",
+      "EA70": "экран по L получает увеличенный интервал 300",
+      "EA7B": "альтернативное действие нажимает ENTER"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 6
+    },
+    "current_header": [
+      "Выбор боевого режима или смены обзорного экрана",
+      "исходный диапазон #EA35..#EA7F",
+      "In:",
+      "IX4700, общий таймер EA80",
+      "Out:",
+      "найденная цель передаётся AttackTarget, иначе CollectCargo и периодическая команда",
+      "Corrupt:",
+      "HL, DE, BC, AF, IY",
+      "Note:",
+      "Нулевой 16-битный таймер загружается 100, исходный 100",
+      "Для вида 0..3 R&3 выбирает L при 1 с таймером 300, ENTER при 2, либо виды 1/2 при 0/3",
+      "Для информационного вида выбирается передний или задний по чётности номера, сохранённый RET EA6F",
+      "не используется"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ActionTimer.asm",
+    "start": 60032,
+    "end": 60034,
+    "status": "reviewed",
+    "semantic_name": "ActionTimer",
+    "summary": "Таймер изменения поведения и экрана",
+    "in": "ChooseAction уменьшает, наводчики меняют младший байт",
+    "out": "начальное 100, полное 300 либо 500, младший FF при повороте",
+    "corrupt": "нет, слово данных",
+    "evidence": [
+      "Байты исходного образа, диапазон #EA80..#EA81",
+      "In:",
+      "ChooseAction уменьшает, наводчики меняют младший байт",
+      "Out:",
+      "начальное 100, полное 300 либо 500, младший FF при повороте",
+      "Corrupt:",
+      "нет, слово данных",
+      "Note:",
+      "Слово little-endian, запись FF наводчика не обнуляет старший байт"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Таймер изменения поведения и экрана",
+      "исходный диапазон #EA80..#EA81",
+      "In:",
+      "ChooseAction уменьшает, наводчики меняют младший байт",
+      "Out:",
+      "начальное 100, полное 300 либо 500, младший FF при повороте",
+      "Corrupt:",
+      "нет, слово данных",
+      "Note:",
+      "Слово little-endian, запись FF наводчика не обнуляет старший байт"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+    "start": 60034,
+    "end": 60242,
+    "status": "reviewed",
+    "semantic_name": "AttackSelectedTarget",
+    "summary": "Сценарий переключения сканера и атаки цели",
+    "in": "IX4700,IY выбранная цель",
+    "out": "наведение, стрельба и защита до исчезновения допустимой цели",
+    "corrupt": "HL, DE, BC, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #EA82..#EB51",
+      "In:",
+      "IX4700,IY выбранная цель",
+      "Out:",
+      "наведение, стрельба и защита до исчезновения допустимой цели",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "50 кадров Caps Shift входят в паузу,5 кадров L переключают сканер, далее PauseWithMark и 20 кадров пробела",
+      "выходят и разгоняют",
+      "В цикле EA80=500, вид 1, при близкой цели или текущем тангаже выполняется Brake",
+      "После YieldWithBrake вычисляется AimAtObject, проверяются полные X/Y, затем младшие биты до допуска",
+      "стрельбы",
+      "A выставляется только при ненулевой энергии объекта, сумме координат<50 и неотрицательной Z",
+      "CountMissiles обнаруживает направленные на игрока ракеты и включает E, AllowAttack с C=0 завершает весь",
+      "сценарий"
+    ],
+    "unresolved": [],
+    "branches": {
+      "EACA": "старший модуль Z ненулевой, выбирать скорость с учётом поворота",
+      "EAD2": "сумма координат не меньше 9, выбирать скорость с учётом поворота",
+      "EAE5": "выставлена клавиша X, оставить торможение",
+      "EAEB": "выставлена клавиша S, оставить торможение",
+      "EAF8": "объект перестал удовлетворять условиям боевой цели",
+      "EB06": "ракет с целью игрока нет, не выставлять E",
+      "EB20": "целые компоненты X/Y ненулевые, продолжить основное наведение",
+      "EB2B": "старшие два бита дробных X/Y нулевые, проверить возможность выстрела",
+      "EB32": "значение строки Space/Symbol меньше 3, продолжить бой без смены скорости",
+      "EB3B": "энергия объекта обнулилась, вернуться к проверке цели",
+      "EB43": "цель не ближе 50, выстрел не разрешён",
+      "EB49": "цель сзади, выстрел не разрешён"
+    },
+    "operation_sha256": "123fb64eb7963611c1924410908e360c77b477ee8cf53e1399af9f0a52dd53e5",
+    "blocks": {
+      "EA82": "подготовка сценария через паузу и переключение проекции сканера",
+      "EA8A": "пятьдесят кадров Caps Shift, каждый раз очищаются прочие строки",
+      "EA9C": "пять кадров L переключают проекцию внутри паузы",
+      "EAAD": "двадцать кадровпробела после Pause выходят из меню и разгоняют",
+      "EABB": "передний вид и интервал 500 перед оценкой скорости сближения",
+      "EAD9": "базовое торможение сохраняется при текущем тангаже",
+      "EAF5": "повторная проверка допустимости цели перед защитой и наведением",
+      "EAFC": "проверка перезапуска, боевых защит и летящих на игрока ракет",
+      "EB0C": "уступка кадра и расчёт наведения по актуальному объекту",
+      "EB12": "проверка целых компонент X/Y перед точной зоной стрельбы",
+      "EB23": "проверка старших двух битов дробного отклонения",
+      "EB37": "выстрел требует ненулевой энергии цели впереди и суммы удаления меньше 50"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 12
+    },
+    "current_header": [
+      "Сценарий переключения сканера и атаки цели",
+      "исходный диапазон #EA82..#EB51",
+      "In:",
+      "IX4700,IY выбранная цель",
+      "Out:",
+      "наведение, стрельба и защита до исчезновения допустимой цели",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "50 кадров Caps Shift входят в паузу,5 кадров L переключают сканер, далее PauseWithMark и 20 кадров пробела",
+      "выходят и разгоняют",
+      "В цикле EA80=500, вид 1, при близкой цели или текущем тангаже выполняется Brake",
+      "После YieldWithBrake вычисляется AimAtObject, проверяются полные X/Y, затем младшие биты до допуска",
+      "стрельбы",
+      "A выставляется только при ненулевой энергии объекта, сумме координат<50 и неотрицательной Z",
+      "CountMissiles обнаруживает направленные на игрока ракеты и включает E, AllowAttack с C=0 завершает весь",
+      "сценарий"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CollectFloatingCargo.asm",
+    "start": 60242,
+    "end": 60285,
+    "status": "reviewed",
+    "semantic_name": "CollectFloatingCargo",
+    "summary": "Наведение для подбора допустимого груза",
+    "in": "IX4700, D088 AND D07C ненулевой",
+    "out": "к выбранному объекту применяются AimTarget/CloseAim до отказа",
+    "corrupt": "HL, DE, BC, AF, IY",
+    "evidence": [
+      "Байты исходного образа, диапазон #EB52..#EB7C",
+      "In:",
+      "IX4700, D088 AND D07C ненулевой",
+      "Out:",
+      "к выбранному объекту применяются AimAtObject/CollectNear до отказа",
+      "Corrupt:",
+      "HL, DE, BC, AF, IY",
+      "Note:",
+      "Выбирается следующий слот, RejectCargo возвращает C=0 для доступного груза",
+      "При угрозах допускается не больше 2 и прежний нагрев кабины 70ED>=64, при нуле угроз температурная",
+      "проверка обходится",
+      "Читается именно 70ED, то есть сохранённое отображённое значение прибора, а не текущее 70EE"
+    ],
+    "unresolved": [],
+    "branches": {
+      "EB59": "побитовое сочетание свободного трюма и ковша нулевое",
+      "EB63": "враждебных целей нет, пропустить проверку температуры",
+      "EB67": "враждебных целей не меньше 3, прекратить сбор",
+      "EB6D": "отображённый нагрев кабины меньше 64 при наличии угроз, прекратить сбор",
+      "EB71": "объект не подходит для подбора"
+    },
+    "operation_sha256": "fad707d2a4633fc0ff8cd8e7acc85f6c0eaa6a0f7aefb06381b844285ab04b41",
+    "blocks": {
+      "EB52": "проверка ковша и свободного трюма перед выбором следующего объекта",
+      "EB5D": "во время сбора проверяются угрозы и отображённый нагрев кабины",
+      "EB6E": "проверка признаков подбираемого объекта и точное доведение"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 5
+    },
+    "current_header": [
+      "Наведение для подбора допустимого груза",
+      "исходный диапазон #EB52..#EB7C",
+      "In:",
+      "IX4700, D088 AND D07C ненулевой",
+      "Out:",
+      "к выбранному объекту применяются AimAtObject/CollectNear до отказа",
+      "Corrupt:",
+      "HL, DE, BC, AF, IY",
+      "Note:",
+      "Выбирается следующий слот, RejectCargo возвращает C=0 для доступного груза",
+      "При угрозах допускается не больше 2 и прежний нагрев кабины 70ED>=64, при нуле угроз температурная",
+      "проверка обходится",
+      "Читается именно 70ED, то есть сохранённое отображённое значение прибора, а не текущее 70EE"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/AdvanceObjectCursor.asm",
+    "start": 60285,
+    "end": 60314,
+    "status": "reviewed",
+    "semantic_name": "AdvanceObjectCursor",
+    "summary": "Циклический переход по семи слотам после станции",
+    "in": "EB9A прежний адрес",
+    "out": "IY следующий 606F..6159, EB9A обновлён",
+    "corrupt": "HL, DE, AF, IY",
+    "evidence": [
+      "Байты исходного образа, диапазон #EB7D..#EB99",
+      "In:",
+      "EB9A прежний адрес",
+      "Out:",
+      "IY следующий 606F..6159, EB9A обновлён",
+      "Corrupt:",
+      "HL, DE, AF, IY",
+      "Note:",
+      "При сложении 39 получается 6180, тогда устанавливается 606F, начальный 6048 даёт первый 606F"
+    ],
+    "unresolved": [],
+    "branches": {
+      "EB8F": "следующий адрес не равен 6180, сохранить его"
+    },
+    "operation_sha256": "6baadd50d0fea23ea71e7efa881f97cf7d8d1120169b3c025706752c4623576a",
+    "blocks": {
+      "EB7D": "переход по структурам 39 байтов с кольцом 606F..6159",
+      "EB95": "фиксация курсора для следующего вызова"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Циклический переход по семи слотам после станции",
+      "исходный диапазон #EB7D..#EB99",
+      "In:",
+      "EB9A прежний адрес",
+      "Out:",
+      "IY следующий 606F..6159, EB9A обновлён",
+      "Corrupt:",
+      "HL, DE, AF, IY",
+      "Note:",
+      "При сложении 39 получается 6180, тогда устанавливается 606F, начальный 6048 даёт первый 606F"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ObjectCursor.asm",
+    "start": 60314,
+    "end": 60316,
+    "status": "reviewed",
+    "semantic_name": "ObjectCursor",
+    "summary": "Указатель последнего просмотренного объекта",
+    "in": "NextObject читает и пишет",
+    "out": "исходно 6048, при обходе 606F..6159",
+    "corrupt": "нет, слово данных",
+    "evidence": [
+      "Байты исходного образа, диапазон #EB9A..#EB9B",
+      "In:",
+      "NextObject читает и пишет",
+      "Out:",
+      "исходно 6048, при обходе 606F..6159",
+      "Corrupt:",
+      "нет, слово данных",
+      "Note:"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Указатель последнего просмотренного объекта",
+      "исходный диапазон #EB9A..#EB9B",
+      "In:",
+      "NextObject читает и пишет",
+      "Out:",
+      "исходно 6048, при обходе 606F..6159",
+      "Corrupt:",
+      "нет, слово данных",
+      "Note:"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/FindAttackTarget.asm",
+    "start": 60316,
+    "end": 60329,
+    "status": "reviewed",
+    "semantic_name": "FindAttackTarget",
+    "summary": "Поиск подходящей цели за девять проверок",
+    "in": "пул объектов и текущий EB9A",
+    "out": "C=1 и IY цель при успехе, C=0 после 9 отказов",
+    "corrupt": "HL, DE, BC, AF, IY",
+    "evidence": [
+      "Байты исходного образа, диапазон #EB9C..#EBA8",
+      "In:",
+      "пул объектов и текущий EB9A",
+      "Out:",
+      "C=1 и IY цель при успехе, C=0 после 9 отказов",
+      "Corrupt:",
+      "HL, DE, BC, AF, IY",
+      "Note:",
+      "Кольцо имеет 7 слотов, поэтому при неудаче первые 2 просматриваются повторно"
+    ],
+    "unresolved": [],
+    "branches": {
+      "EBA4": "объект допускается к боевому преследованию"
+    },
+    "operation_sha256": "2961e95e55ae57bd2db9ec30b7dc7511ef23fd98a8b74604301f5b69d8974085",
+    "blocks": {
+      "EB9C": "девять проверок через кольцо из семи слотов"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Поиск подходящей цели за девять проверок",
+      "исходный диапазон #EB9C..#EBA8",
+      "In:",
+      "пул объектов и текущий EB9A",
+      "Out:",
+      "C=1 и IY цель при успехе, C=0 после 9 отказов",
+      "Corrupt:",
+      "HL, DE, BC, AF, IY",
+      "Note:",
+      "Кольцо имеет 7 слотов, поэтому при неудаче первые 2 просматриваются повторно"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CheckAttackTarget.asm",
+    "start": 60329,
+    "end": 60362,
+    "status": "reviewed",
+    "semantic_name": "CheckAttackTarget",
+    "summary": "Допуск объекта к боевому преследованию",
+    "in": "IY слот объекта",
+    "out": "C=1 цель допустима, C=0 отказ",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #EBA9..#EBC9",
+      "In:",
+      "IY слот объекта",
+      "Out:",
+      "C=1 цель допустима, C=0 отказ",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Значения Flags2=#0C и Flags2=1..3 исключены, затем требуется бит 7 кешированного флага",
+      "При бите 6=1 допускаетбит 1 либо враждебность IY21.2",
+      "При бите 6=0 общий EBDB допускает цель только при сброшенном бите 4, это инверсия критерия груза"
+    ],
+    "unresolved": [],
+    "branches": {
+      "EBAE": "Flags2=#0C, объект исключён из преследования",
+      "EBB3": "полный байт Flags2 равен 1..3, объект исключён из преследования",
+      "EBBA": "бит 7 кешированного классификатора сброшен",
+      "EBBD": "бит 6 классификатора сброшен, применить общий критерий бита 4",
+      "EBC1": "бит 1 группы взаимодействий установлен, допустить цель",
+      "EBC7": "бит 2 враждебности объекта сброшен"
+    },
+    "operation_sha256": "77823fb619c8c5692924fd3f1321de06eaafe074f7ad602f29122a361c9f5fc6",
+    "blocks": {
+      "EBA9": "исключение полных сочетаний Flags2=#0C и 1..3 до проверки метаданных",
+      "EBB4": "проверка старшего бита и ветви класса 6",
+      "EBBF": "для класса 6 достаточно группы bit1 либо враждебности объекта",
+      "EBC8": "общий успешный допуск цели либо отказ подбора возвращает перенос 1"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 6
+    },
+    "current_header": [
+      "Допуск объекта к боевому преследованию",
+      "исходный диапазон #EBA9..#EBC9",
+      "In:",
+      "IY слот объекта",
+      "Out:",
+      "C=1 цель допустима, C=0 отказ",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Значения Flags2=#0C и Flags2=1..3 исключены, затем требуется бит 7 кешированного флага",
+      "При бите 6=1 допускаетбит 1 либо враждебность IY21.2",
+      "При бите 6=0 общий EBDB допускает цель только при сброшенном бите 4, это инверсия критерия груза"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/RejectCargoTarget.asm",
+    "start": 60362,
+    "end": 60385,
+    "status": "reviewed",
+    "semantic_name": "RejectCargoTarget",
+    "summary": "Отказ от объекта как собираемого груза",
+    "in": "IY слот объекта",
+    "out": "C=0 допустим для сбора, C=1 отвергнут",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #EBCA..#EBE0",
+      "In:",
+      "IY слот объекта",
+      "Out:",
+      "C=0 допустим для сбора, C=1 отвергнут",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Flags2=#0C всегда отвергается, затем требуются биты метаданных 7=1, 6=0, 4=1",
+      "EBD4 принимает готовый A и используется CountCargo, EBDB также общий хвост AllowAttack"
+    ],
+    "unresolved": [],
+    "branches": {
+      "EBCF": "Flags2 объекта равен #0C, вернуть отказ с переносом",
+      "EBD7": "бит 7 классификатора сброшен, вернуть отказ с переносом",
+      "EBDA": "бит 6 классификатора установлен, вернуть отказ с переносом",
+      "EBDE": "бит 4 классификатора сброшен, сохранить перенос результата"
+    },
+    "operation_sha256": "5e6cda0ba053cc1d26ecaf0e6f7dcafaae9d4079ff68b68dac1e0d69d9541570",
+    "blocks": {
+      "EBCA": "полное сочетание Flags2=#0C исключает подбор объекта",
+      "EBD4": "общая проверка готового классификатора для CountFlags",
+      "EBDB": "бит 4 завершает оба противоположных критерия цели и подбора"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 4
+    },
+    "current_header": [
+      "Отказ от объекта как собираемого груза",
+      "исходный диапазон #EBCA..#EBE0",
+      "In:",
+      "IY слот объекта",
+      "Out:",
+      "C=0 допустим для сбора, C=1 отвергнут",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Flags2=#0C всегда отвергается, затем требуются биты метаданных 7=1, 6=0, 4=1",
+      "EBD4 принимает готовый A и используется CountCargo, EBDB также общий хвост AllowAttack"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ObjectMetadataCache.asm",
+    "start": 60385,
+    "end": 60393,
+    "status": "reviewed",
+    "semantic_name": "ObjectMetadataCache",
+    "summary": "Кеш восьми флагов объектных метаданных",
+    "in": "ObjectFlags обновляет из B457+10*n",
+    "out": "по одному байту на слот 6048+39*n",
+    "corrupt": "нет, восемь байтов данных",
+    "evidence": [
+      "Байты исходного образа, диапазон #EBE1..#EBE8",
+      "In:",
+      "ReadSlotFlags обновляет из B457+10*n",
+      "Out:",
+      "по одному байту на слот 6048+39*n",
+      "Corrupt:",
+      "нет, восемь байтов данных",
+      "Note:",
+      "Кеш изначально нулевой, обновляется только если прерывание застало HALT",
+      "Скопировано поле FEffectRecord10.TypeFlags, полный формат описан в Includes/Structs/EffectRecord.inc",
+      "Ниже отмечены только биты, которые проверяет демонстрационный алгоритм",
+      "7    6    5    4    3    2    1    0",
+      "+----+----+----+----+----+----+----+----+",
+      "| AC | GM | .. | SR | .. | .. | GP | .. |",
+      "+----+----+----+----+----+----+----+----+",
+      "метаданные, используемые демонстрацией:",
+      "AC      [7]     - флаг, запись допускается к расширенному взаимодействию",
+      "GM      [6]     - флаг, взаимодействие проверяется по группам",
+      "SR      [4]     - флаг, разрешён поиск резервной цели",
+      "GP      [1]     - старший бит двухбитной группы взаимодействий",
+      "..      [5,3,2,0] - демонстрационные проверки эти биты не читают",
+      "AllowAttack требует AC, при GM достаточно GP либо враждебности объекта",
+      "при GM=0 AllowAttack требует SR=0, а RejectCargo требует SR=1",
+      "это критерии выбора демо, исходное назначение SR в игре не меняется"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Кеш восьми флагов объектных метаданных",
+      "исходный диапазон #EBE1..#EBE8",
+      "In:",
+      "ReadSlotFlags обновляет из B457+10*n",
+      "Out:",
+      "по одному байту на слот 6048+39*n",
+      "Corrupt:",
+      "нет, восемь байтов данных",
+      "Note:",
+      "Кеш изначально нулевой, обновляется только если прерывание застало HALT",
+      "Скопировано поле FEffectRecord10.TypeFlags, полный формат описан в Includes/Structs/EffectRecord.inc",
+      "Ниже отмечены только биты, которые проверяет демонстрационный алгоритм",
+      "7    6    5    4    3    2    1    0",
+      "+----+----+----+----+----+----+----+----+",
+      "| AC | GM | .. | SR | .. | .. | GP | .. |",
+      "+----+----+----+----+----+----+----+----+",
+      "метаданные, используемые демонстрацией:",
+      "AC      [7]     - флаг, запись допускается к расширенному взаимодействию",
+      "GM      [6]     - флаг, взаимодействие проверяется по группам",
+      "SR      [4]     - флаг, разрешён поиск резервной цели",
+      "GP      [1]     - старший бит двухбитной группы взаимодействий",
+      "..      [5,3,2,0] - демонстрационные проверки эти биты не читают",
+      "AllowAttack требует AC, при GM достаточно GP либо враждебности объекта",
+      "при GM=0 AllowAttack требует SR=0, а RejectCargo требует SR=1",
+      "это критерии выбора демо, исходное назначение SR в игре не меняется"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ReadObjectMetadata.asm",
+    "start": 60393,
+    "end": 60450,
+    "status": "reviewed",
+    "semantic_name": "ReadObjectMetadata",
+    "summary": "Снимок метаданных и выбор флага конкретного объекта",
+    "in": "IY точный адрес одного из 8 слотов 6048..6159",
+    "out": "HL, DE, BC и IY сохраняются, A классификатор слота из EBE1..EBE8",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #EBE9..#EC21",
+      "In:",
+      "IY точный адрес одного из 8 слотов 6048..6159",
+      "Out:",
+      "HL, DE, BC и IY сохраняются, A классификатор слота из EBE1..EBE8",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Если IsGameHalted даёт Z, восемь флагов копируются из B457 с шагом 10",
+      "Индекс получается вычитаниями 39 из IY-6021, неправильный невыровненный адрес может зациклить",
+      "поиск",
+      "Без HALT используется предыдущий снимок, это защищает от промежуточного состояния игрового",
+      "обновления"
+    ],
+    "unresolved": [],
+    "branches": {
+      "EBF1": "прерывание застало другую команду, использовать предыдущий снимок метаданных",
+      "EC19": "вычитания 39 ещё не довели адрес до нуля, перейти к следующему байту кеша"
+    },
+    "operation_sha256": "9c1eb89d4d466c781a627429485e94f6118403698cd97283ed6badc45a82a5e0",
+    "blocks": {
+      "EBE9": "сохранение рабочих регистров перед обновлением снимка метаданных",
+      "EBEE": "обновление снимка допускается только при остановке игрового потока на HALT",
+      "EBF3": "копирование восьми классификаторов с шагом 10 в плотный кеш",
+      "EC06": "индекс слота рассчитывается повторным вычитанием 39 из IY-6021",
+      "EC1B": "чтение выбранного байта и восстановление указателя объекта"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 2
+    },
+    "current_header": [
+      "Снимок метаданных и выбор флага конкретного объекта",
+      "исходный диапазон #EBE9..#EC21",
+      "In:",
+      "IY точный адрес одного из 8 слотов 6048..6159",
+      "Out:",
+      "HL, DE, BC и IY сохраняются, A классификатор слота из EBE1..EBE8",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Если IsGameHalted даёт Z, восемь флагов копируются из B457 с шагом 10",
+      "Индекс получается вычитаниями 39 из IY-6021, неправильный невыровненный адрес может зациклить",
+      "поиск",
+      "Без HALT используется предыдущий снимок, это защищает от промежуточного состояния игрового",
+      "обновления"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CountHostileTargets.asm",
+    "start": 60450,
+    "end": 60494,
+    "status": "reviewed",
+    "semantic_name": "CountHostileTargets",
+    "summary": "Подсчёт враждебных боевых целей",
+    "in": "7 слотов 606F..6159",
+    "out": "DE, BC, IY сохраняются, A число 0..7, Z при отсутствии",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #EC22..#EC4D",
+      "In:",
+      "7 слотов 606F..6159",
+      "Out:",
+      "DE, BC, IY сохраняются, A число 0..7, Z при отсутствии",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Для зачёта нужны AllowAttack,C=1, кешированный бит 6 и враждебность IY21.2"
+    ],
+    "unresolved": [],
+    "branches": {
+      "EC35": "объект не является допустимой боевой целью, не учитывать его",
+      "EC3C": "бит 6 классификатора сброшен, не учитывать объект",
+      "EC42": "бит 2 враждебности сброшен, не учитывать объект"
+    },
+    "operation_sha256": "4a7e1c520d17ebf7a4e5802dd560d6f0ae4c2bb77ab8ff62d24bb4704b122652",
+    "blocks": {
+      "EC22": "обход семи слотов после станции с сохранением регистров вызывающего",
+      "EC30": "совмещение допуска цели, класса 6 и признака враждебности"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 3
+    },
+    "current_header": [
+      "Подсчёт враждебных боевых целей",
+      "исходный диапазон #EC22..#EC4D",
+      "In:",
+      "7 слотов 606F..6159",
+      "Out:",
+      "DE, BC, IY сохраняются, A число 0..7, Z при отсутствии",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Для зачёта нужны AllowAttack,C=1, кешированный бит 6 и враждебность IY21.2"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CountCollectableMetadata.asm",
+    "start": 60494,
+    "end": 60522,
+    "status": "reviewed",
+    "semantic_name": "CountCollectableMetadata",
+    "summary": "Подсчёт объектов по признакам собираемого груза",
+    "in": "восемь флагов B457+10*n",
+    "out": "HL, DE, BC сохраняются, A число 0..8, Z при отсутствии",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #EC4E..#EC69",
+      "In:",
+      "восемь флагов B457+10*n",
+      "Out:",
+      "HL, DE, BC сохраняются, A число 0..8, Z при отсутствии",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Используется живой массив метаданных без кеширования, критерий битов 7=1, 6=0, 4=1"
+    ],
+    "unresolved": [],
+    "branches": {
+      "EC5E": "комбинация битов не соответствует 7=1,6=0,4=1, не учитывать запись"
+    },
+    "operation_sha256": "87b3dc397be2440c3b366d2302a04025169dfca4e4a06f0474f7a2414f639462",
+    "blocks": {
+      "EC4E": "прямой обход восьми живых классификаторов, без обновления кеша",
+      "EC5A": "подсчёт комбинации 7=1,6=0,4=1 через общий EBD4"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Подсчёт объектов по признакам собираемого груза",
+      "исходный диапазон #EC4E..#EC69",
+      "In:",
+      "восемь флагов B457+10*n",
+      "Out:",
+      "HL, DE, BC сохраняются, A число 0..8, Z при отсутствии",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Используется живой массив метаданных без кеширования, критерий битов 7=1, 6=0, 4=1"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CountPlayerSeekingMissiles.asm",
+    "start": 60522,
+    "end": 60562,
+    "status": "reviewed",
+    "semantic_name": "CountPlayerSeekingMissiles",
+    "summary": "Подсчёт ракет с целью игрока",
+    "in": "7 слотов 606F..6159",
+    "out": "A число 0..7, Z при отсутствии",
+    "corrupt": "DE, BC, AF, IY сохраняется",
+    "evidence": [
+      "Байты исходного образа, диапазон #EC6A..#EC91",
+      "In:",
+      "7 слотов 606F..6159",
+      "Out:",
+      "A число 0..7, Z при отсутствии",
+      "Corrupt:",
+      "DE, BC, AF, IY сохраняется",
+      "Note:",
+      "Требуются полный байт Flags2=1, цель Target=0 и кешированный бит 7=1"
+    ],
+    "unresolved": [],
+    "branches": {
+      "EC7C": "полный байт Flags2 не равен 1, пропустить слот",
+      "EC82": "цель ракеты не игрок 0, пропустить слот",
+      "EC88": "бит 7 классификатора сброшен, не учитывать ракету"
+    },
+    "operation_sha256": "12d67d52043752ccee04ef2871fea2a355c08e12cb2760956193281a155026be",
+    "blocks": {
+      "EC6A": "обход семи объектов в поиске ракет, направленных на игрока",
+      "EC76": "сочетание Flags2=1 и код цели 0 проверяются до метаданных"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 3
+    },
+    "current_header": [
+      "Подсчёт ракет с целью игрока",
+      "исходный диапазон #EC6A..#EC91",
+      "In:",
+      "7 слотов 606F..6159",
+      "Out:",
+      "A число 0..7, Z при отсутствии",
+      "Corrupt:",
+      "DE, BC, AF, IY сохраняется",
+      "Note:",
+      "Требуются полный байт Flags2=1, цель Target=0 и кешированный бит 7=1"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/ClearMainKeyboardRows.asm",
+    "start": 60562,
+    "end": 60575,
+    "status": "reviewed",
+    "semantic_name": "ClearMainKeyboardRows",
+    "summary": "Очистка семи строк виртуальной клавиатуры",
+    "in": "4700..4706",
+    "out": "семь байтов 0, строка скорости 4707 и маркер 4708 сохранены",
+    "corrupt": "HL",
+    "evidence": [
+      "Байты исходного образа, диапазон #EC92..#EC9E",
+      "In:",
+      "4700..4706",
+      "Out:",
+      "семь байтов 0, строка скорости 4707 и маркер 4708 сохранены",
+      "Corrupt:",
+      "HL",
+      "Note:",
+      "LD/DJNZ/INC HL не изменяют флаги, AF сохраняется"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "396a81577e3553cf8c15b2e1f6a826f9dbc2e5cf13528f557f538fc1287adb69",
+    "blocks": {
+      "EC92": "семь строк очищаются, строка скорости 4707 остаётся для общего управления"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Очистка семи строк виртуальной клавиатуры",
+      "исходный диапазон #EC92..#EC9E",
+      "In:",
+      "4700..4706",
+      "Out:",
+      "семь байтов 0, строка скорости 4707 и маркер 4708 сохранены",
+      "Corrupt:",
+      "HL",
+      "Note:",
+      "LD/DJNZ/INC HL не изменяют флаги, AF сохраняется"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/CheckInterruptedHalt.asm",
+    "start": 60575,
+    "end": 60591,
+    "status": "reviewed",
+    "semantic_name": "CheckInterruptedHalt",
+    "summary": "Проверка остановки игрового потока на HALT",
+    "in": "FF56 прерванный SP с сохранённым PC",
+    "out": "HL, DE сохраняются, Z=1 если байт по PC-1 равен 76, A этот байт",
+    "corrupt": "AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #EC9F..#ECAE",
+      "In:",
+      "FF56 прерванный SP с сохранённым PC",
+      "Out:",
+      "HL, DE сохраняются, Z=1 если байт по PC-1 равен 76, A этот байт",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Адрес PC читается little-endian с прерванного стека, после HALT он указывает следующий байт",
+      "Второй RET по ECAE сохранён отдельно, штатный путь завершён предыдущим RET"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "8d578a3215367baaac0e45fd0e546d3c84f051586f5e0bb69e7eb89dc991fed8",
+    "blocks": {
+      "EC9F": "чтение сохранённого PC с прерванного стека",
+      "ECA8": "проверка байта по PC-1 на код HALT76"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Проверка остановки игрового потока на HALT",
+      "исходный диапазон #EC9F..#ECAE",
+      "In:",
+      "FF56 прерванный SP с сохранённым PC",
+      "Out:",
+      "HL, DE сохраняются, Z=1 если байт по PC-1 равен 76, A этот байт",
+      "Corrupt:",
+      "AF",
+      "Note:",
+      "Адрес PC читается little-endian с прерванного стека, после HALT он указывает следующий байт",
+      "Второй RET по ECAE сохранён отдельно, штатный путь завершён предыдущим RET"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/PauseWithDemoMark.asm",
+    "start": 60591,
+    "end": 60615,
+    "status": "reviewed",
+    "semantic_name": "PauseWithDemoMark",
+    "summary": "Пауза сценария с временным графическим знаком",
+    "in": "рабочий стек корутины",
+    "out": "100 уступок кадра, знак нарисован и стёрт XOR",
+    "corrupt": "HL, DE, BC, AF",
+    "evidence": [
+      "Байты исходного образа, диапазон #ECAF..#ECC6",
+      "In:",
+      "рабочий стек корутины",
+      "Out:",
+      "100 уступок кадра, знак нарисован и стёрт XOR",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "После 100Yield XorDemoMark наносит знак, программная задержка выполняет 3072 вычитания единицы",
+      "При штатном терминаторе XorDemoMark возвращает B=8, затем DJNZ выполняется 8 раз в первом обороте и 256 в",
+      "остальных",
+      "После окончания падение ECC7 повторно наносит XOR и возвращает первоначальному вызывающему"
+    ],
+    "unresolved": [],
+    "branches": {
+      "ECC5": "не закончились 3072 шага программной задержки, продолжить ожидание"
+    },
+    "operation_sha256": "5b02604c5dbfad686a9a3df777ebffaad85cf435d1b0d53520934ef237ea2628",
+    "blocks": {
+      "ECAF": "сто уступок кадра со сохранением счётчика цикла",
+      "ECB8": "первый XOR-проход рисует знак, затем начинается программная задержка",
+      "ECC0": "3072 итерации вычитания единицы, внутренний DJNZ замедляет каждый шаг"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 1
+    },
+    "current_header": [
+      "Пауза сценария с временным графическим знаком",
+      "исходный диапазон #ECAF..#ECC6",
+      "In:",
+      "рабочий стек корутины",
+      "Out:",
+      "100 уступок кадра, знак нарисован и стёрт XOR",
+      "Corrupt:",
+      "HL, DE, BC, AF",
+      "Note:",
+      "После 100Yield XorDemoMark наносит знак, программная задержка выполняет 3072 вычитания единицы",
+      "При штатном терминаторе XorDemoMark возвращает B=8, затем DJNZ выполняется 8 раз в первом обороте и 256 в",
+      "остальных",
+      "После окончания падение ECC7 повторно наносит XOR и возвращает первоначальному вызывающему"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/DrawDemoMarkXor.asm",
+    "start": 60615,
+    "end": 60714,
+    "status": "reviewed",
+    "semantic_name": "DrawDemoMarkXor",
+    "summary": "Рисование знака демо из сетки клеток и пяти фигур",
+    "in": "Bitmap ED2F, Shapes ED5C, Masks ED2A",
+    "out": "знак наложен XOR на экран от 405F, повторный вызов стирает",
+    "corrupt": "HL, DE, BC, AF, IX сохраняется",
+    "evidence": [
+      "Байты исходного образа, диапазон #ECC7..#ED29",
+      "In:",
+      "MarkCellMap ED2F, MarkShapes ED5C, ShapeMasks ED2A",
+      "Out:",
+      "знак наложен XOR на экран от 405F, повторный вызов стирает",
+      "Corrupt:",
+      "HL, DE, BC, AF, IX сохраняется",
+      "Note:",
+      "Каждый бит карты выбирает заполненную клетку 8×8, для неё берётся один индекс фигуры 0..4",
+      "Фигуры 0/2 сужают FF сдвигом влево/вправо,1/3 наращивают 00 переносом 1,4 оставляет сплошной FF",
+      "Переход L через FF выбирает H=48, этим сохраняется разметка следующей трети экрана",
+      "FF в MarkCellMap является завершителем, поэтому полная строка из 8 занятых клеток этим форматом не",
+      "представляется"
+    ],
+    "unresolved": [],
+    "branches": {
+      "ECDA": "прочитан терминатор FF, закончить рисование знака",
+      "ECDE": "бит клетки нулевой, пропустить пустую позицию",
+      "ECFB": "индекс фигуры 0, сужать маску влево с нулевым переносом",
+      "ECFE": "индекс фигуры 1, наращивать маску вправо с единичным переносом",
+      "ED01": "индекс фигуры 2, сужать маску логическим сдвигом вправо",
+      "ED04": "индекс фигуры не 3, оставить сплошную маску без изменения",
+      "ED1F": "младший байт экранного адреса не обнулился, треть экрана не менять"
+    },
+    "operation_sha256": "e5e616397a4a17449c7a0208167689c28862c0ca9b4aeb8b235a470d0e784b3a",
+    "blocks": {
+      "ECC7": "после паузы этот же вход повторно стирает знак операцией XOR",
+      "ECD3": "чтение очередных восьми клеток и проверка терминатора FF",
+      "ECDC": "проверка старшего бита клетки после вращения, нуль пропускает фигуру",
+      "ECE2": "выбор начальной маски по индексу фигуры 0..4",
+      "ECF3": "восемь строк клетки накладываются XOR на экран",
+      "ECF7": "индекс фигуры выбирает изменение маски следующей строки",
+      "ED0B": "фигура 2 сужает маску сдвигом вправо",
+      "ED0F": "фигура 1 заполняет маску справа при входящем переносе 1",
+      "ED14": "фигура 0 сужает маску сдвигом влево с входящим нулём",
+      "ED17": "завершение клетки расходует один индекс Shapes",
+      "ED1E": "следующая клетка с переходом в экранную треть 48 при обнулении L",
+      "ED27": "завершение по FF восстанавливает исходный IX"
+    },
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 7
+    },
+    "current_header": [
+      "Рисование знака демо из сетки клеток и пяти фигур",
+      "исходный диапазон #ECC7..#ED29",
+      "In:",
+      "MarkCellMap ED2F, MarkShapes ED5C, ShapeMasks ED2A",
+      "Out:",
+      "знак наложен XOR на экран от 405F, повторный вызов стирает",
+      "Corrupt:",
+      "HL, DE, BC, AF, IX сохраняется",
+      "Note:",
+      "Каждый бит карты выбирает заполненную клетку 8×8, для неё берётся один индекс фигуры 0..4",
+      "Фигуры 0/2 сужают FF сдвигом влево/вправо,1/3 наращивают 00 переносом 1,4 оставляет сплошной FF",
+      "Переход L через FF выбирает H=48, этим сохраняется разметка следующей трети экрана",
+      "FF в MarkCellMap является завершителем, поэтому полная строка из 8 занятых клеток этим форматом не",
+      "представляется"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/DemoMarkShapeMasks.asm",
+    "start": 60714,
+    "end": 60719,
+    "status": "reviewed",
+    "semantic_name": "DemoMarkShapeMasks",
+    "summary": "Начальные маски пяти клеточных фигур",
+    "in": "индекс 0..4 из Shapes",
+    "out": "FF,00,FF,00,FF для рисователя",
+    "corrupt": "нет, пять байтов данных",
+    "evidence": [
+      "Байты исходного образа, диапазон #ED2A..#ED2E",
+      "In:",
+      "индекс 0..4 из MarkShapes",
+      "Out:",
+      "FF,00,FF,00,FF для рисователя",
+      "Corrupt:",
+      "нет, пять байтов данных",
+      "Note:",
+      "Геометрия сужения или наращивания определяется ECC7, одних начальных масок недостаточно"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Начальные маски пяти клеточных фигур",
+      "исходный диапазон #ED2A..#ED2E",
+      "In:",
+      "индекс 0..4 из MarkShapes",
+      "Out:",
+      "FF,00,FF,00,FF для рисователя",
+      "Corrupt:",
+      "нет, пять байтов данных",
+      "Note:",
+      "Геометрия сужения или наращивания определяется ECC7, одних начальных масок недостаточно"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/DemoMarkCellMap.asm",
+    "start": 60719,
+    "end": 60764,
+    "status": "reviewed",
+    "semantic_name": "DemoMarkCellMap",
+    "summary": "Битовая сетка графического знака",
+    "in": "чтение DrawMark слева направо по старшему биту",
+    "out": "44 байта клеток и завершающий FF",
+    "corrupt": "нет,45 байтов данных",
+    "evidence": [
+      "Байты исходного образа, диапазон #ED2F..#ED5B",
+      "In:",
+      "чтение XorDemoMark слева направо по старшему биту",
+      "Out:",
+      "44 байта клеток и завершающий FF",
+      "Corrupt:",
+      "нет,45 байтов данных",
+      "Note:",
+      "352 позиции клеток, только единичные биты расходуют индекс MarkShapes"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Битовая сетка графического знака",
+      "исходный диапазон #ED2F..#ED5B",
+      "In:",
+      "чтение XorDemoMark слева направо по старшему биту",
+      "Out:",
+      "44 байта клеток и завершающий FF",
+      "Corrupt:",
+      "нет,45 байтов данных",
+      "Note:",
+      "352 позиции клеток, только единичные биты расходуют индекс MarkShapes"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/DemoMarkCellShapes.asm",
+    "start": 60764,
+    "end": 60878,
+    "status": "reviewed",
+    "semantic_name": "DemoMarkCellShapes",
+    "summary": "Индексы фигур занятых клеток",
+    "in": "DrawMark читает по одному индексу на установленныйбит",
+    "out": "114 индексов в этом файле и 115-й по EDCE из следующего файла",
+    "corrupt": "нет,114 байтов данных",
+    "evidence": [
+      "Байты исходного образа, диапазон #ED5C..#EDCD",
+      "In:",
+      "XorDemoMark читает по одному индексу на установленныйбит",
+      "Out:",
+      "114 индексов в этом файле и 115-й по EDCE из следующего файла",
+      "Corrupt:",
+      "нет,114 байтов данных",
+      "Note:",
+      "MarkCellMap содержит 115 установленных битов, последний индекс 0 берётся по EDCE, физическая граница",
+      "файлов проходит внутри логического массива"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Индексы фигур занятых клеток",
+      "исходный диапазон #ED5C..#EDCD",
+      "In:",
+      "XorDemoMark читает по одному индексу на установленныйбит",
+      "Out:",
+      "114 индексов в этом файле и 115-й по EDCE из следующего файла",
+      "Corrupt:",
+      "нет,114 байтов данных",
+      "Note:",
+      "MarkCellMap содержит 115 установленных битов, последний индекс 0 берётся по EDCE, физическая граница",
+      "файлов проходит внутри логического массива"
+    ]
+  },
+  {
+    "file": "Source/DiskUtility/Demo/DemoMarkTail.asm",
+    "start": 60878,
+    "end": 60888,
+    "status": "reviewed",
+    "semantic_name": "DemoMarkTail",
+    "summary": "Последний индекс фигуры и сохранённый хвост оверлея",
+    "in": "нет",
+    "out": "восемь нулей и A5,52 сохранены",
+    "corrupt": "нет,10 байтов данных",
+    "evidence": [
+      "Байты исходного образа, диапазон #EDCE..#EDD7",
+      "In:",
+      "нет",
+      "Out:",
+      "восемь нулей и A5,52 сохранены",
+      "Corrupt:",
+      "нет,10 байтов данных",
+      "Note:",
+      "Дальнейшие 0128 байтов переноса берутся из основной игры, не входят в cl.C и здесь не дублируются",
+      "EDCE является 115-м индексом фигуры и реально читается XorDemoMark, остальные 9 байтов графический",
+      "проход не использует"
+    ],
+    "unresolved": [],
+    "branches": {},
+    "operation_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "blocks": {},
+    "validation": {
+      "original_file": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "instructions_match_original": true,
+      "bounds_match": true,
+      "right_comment_column": 80,
+      "conditional_comments": 0
+    },
+    "current_header": [
+      "Последний индекс фигуры и сохранённый хвост оверлея",
+      "исходный диапазон #EDCE..#EDD7",
+      "In:",
+      "нет",
+      "Out:",
+      "восемь нулей и A5,52 сохранены",
+      "Corrupt:",
+      "нет,10 байтов данных",
+      "Note:",
+      "Дальнейшие 0128 байтов переноса берутся из основной игры, не входят в cl.C и здесь не дублируются",
+      "EDCE является 115-м индексом фигуры и реально читается XorDemoMark, остальные 9 байтов графический",
+      "проход не использует"
+    ]
+  }
+]

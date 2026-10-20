@@ -1,0 +1,705 @@
+{
+  "source": "исходные байты 03_cl.C и Tools/Disasm/Research/GameCode.bin",
+  "scope": "арифметические контракты и раскрытие текста, без сборки и моделирования FDC",
+  "cases": [
+    {
+      "entry": "CBDB",
+      "position": 0
+    },
+    {
+      "entry": "CBDB",
+      "position": 1
+    },
+    {
+      "entry": "CBDB",
+      "position": 2
+    },
+    {
+      "entry": "CBDB",
+      "position": 3
+    },
+    {
+      "entry": "CBDB",
+      "position": 4
+    },
+    {
+      "entry": "CBDB",
+      "position": 5
+    },
+    {
+      "entry": "CBDB",
+      "position": 6
+    },
+    {
+      "entry": "CBDB",
+      "position": 7
+    },
+    {
+      "entry": "CBDB",
+      "position": 8
+    },
+    {
+      "entry": "CBDB",
+      "position": 9
+    },
+    {
+      "entry": "CBDB",
+      "position": 10
+    },
+    {
+      "entry": "CBDB",
+      "position": 11
+    },
+    {
+      "entry": "CBDB",
+      "position": 12
+    },
+    {
+      "entry": "CBDB",
+      "position": 13
+    },
+    {
+      "entry": "CBDB",
+      "position": 14
+    },
+    {
+      "entry": "CBDB",
+      "position": 15
+    },
+    {
+      "entry": "CBDB",
+      "position": 16
+    },
+    {
+      "entry": "CBDB",
+      "position": 17
+    },
+    {
+      "entry": "CBDB",
+      "position": 18
+    },
+    {
+      "entry": "CBDB",
+      "position": 19
+    },
+    {
+      "entry": "CBDB",
+      "position": 20
+    },
+    {
+      "entry": "CBDB",
+      "position": 21
+    },
+    {
+      "entry": "CBDB",
+      "position": 22
+    },
+    {
+      "entry": "CBDB",
+      "position": 23
+    },
+    {
+      "entry": "CBF4",
+      "record": 0
+    },
+    {
+      "entry": "CBF4",
+      "record": 1
+    },
+    {
+      "entry": "CBF4",
+      "record": 2
+    },
+    {
+      "entry": "CBF4",
+      "record": 3
+    },
+    {
+      "entry": "CBF4",
+      "record": 4
+    },
+    {
+      "entry": "CBF4",
+      "record": 5
+    },
+    {
+      "entry": "CBF4",
+      "record": 6
+    },
+    {
+      "entry": "CBF4",
+      "record": 7
+    },
+    {
+      "entry": "CBF4",
+      "record": 8
+    },
+    {
+      "entry": "CBF4",
+      "record": 9
+    },
+    {
+      "entry": "CBF4",
+      "record": 10
+    },
+    {
+      "entry": "CBF4",
+      "record": 11
+    },
+    {
+      "entry": "CBF4",
+      "record": 12
+    },
+    {
+      "entry": "CBF4",
+      "record": 13
+    },
+    {
+      "entry": "CBF4",
+      "record": 14
+    },
+    {
+      "entry": "CBF4",
+      "record": 15
+    },
+    {
+      "entry": "CBF4",
+      "record": 16
+    },
+    {
+      "entry": "CBF4",
+      "record": 17
+    },
+    {
+      "entry": "CBF4",
+      "record": 18
+    },
+    {
+      "entry": "CBF4",
+      "record": 19
+    },
+    {
+      "entry": "CBF4",
+      "record": 20
+    },
+    {
+      "entry": "CBF4",
+      "record": 21
+    },
+    {
+      "entry": "CBF4",
+      "record": 22
+    },
+    {
+      "entry": "CBF4",
+      "record": 23
+    },
+    {
+      "entry": "CBF4",
+      "record": 24
+    },
+    {
+      "entry": "CBF4",
+      "record": 25
+    },
+    {
+      "entry": "CBF4",
+      "record": 26
+    },
+    {
+      "entry": "CBF4",
+      "record": 27
+    },
+    {
+      "entry": "CBF4",
+      "record": 28
+    },
+    {
+      "entry": "CBF4",
+      "record": 29
+    },
+    {
+      "entry": "CBF4",
+      "record": 30
+    },
+    {
+      "entry": "CBF4",
+      "record": 31
+    },
+    {
+      "entry": "CBF4",
+      "record": 32
+    },
+    {
+      "entry": "CBF4",
+      "record": 33
+    },
+    {
+      "entry": "CBF4",
+      "record": 34
+    },
+    {
+      "entry": "CBF4",
+      "record": 35
+    },
+    {
+      "entry": "CBF4",
+      "record": 36
+    },
+    {
+      "entry": "CBF4",
+      "record": 37
+    },
+    {
+      "entry": "CBF4",
+      "record": 38
+    },
+    {
+      "entry": "CBF4",
+      "record": 39
+    },
+    {
+      "entry": "CBF4",
+      "record": 40
+    },
+    {
+      "entry": "CBF4",
+      "record": 41
+    },
+    {
+      "entry": "CBF4",
+      "record": 42
+    },
+    {
+      "entry": "CBF4",
+      "record": 43
+    },
+    {
+      "entry": "CBF4",
+      "record": 44
+    },
+    {
+      "entry": "CBF4",
+      "record": 45
+    },
+    {
+      "entry": "CBF4",
+      "record": 46
+    },
+    {
+      "entry": "CBF4",
+      "record": 47
+    },
+    {
+      "entry": "CBF4",
+      "record": 48
+    },
+    {
+      "entry": "CBF4",
+      "record": 49
+    },
+    {
+      "entry": "CBF4",
+      "record": 50
+    },
+    {
+      "entry": "CBF4",
+      "record": 51
+    },
+    {
+      "entry": "CBF4",
+      "record": 52
+    },
+    {
+      "entry": "CBF4",
+      "record": 53
+    },
+    {
+      "entry": "CBF4",
+      "record": 54
+    },
+    {
+      "entry": "CBF4",
+      "record": 55
+    },
+    {
+      "entry": "CBF4",
+      "record": 56
+    },
+    {
+      "entry": "CBF4",
+      "record": 57
+    },
+    {
+      "entry": "CBF4",
+      "record": 58
+    },
+    {
+      "entry": "CBF4",
+      "record": 59
+    },
+    {
+      "entry": "CBF4",
+      "record": 60
+    },
+    {
+      "entry": "CBF4",
+      "record": 61
+    },
+    {
+      "entry": "CBF4",
+      "record": 62
+    },
+    {
+      "entry": "CBF4",
+      "record": 63
+    },
+    {
+      "entry": "CBF4",
+      "record": 64
+    },
+    {
+      "entry": "CBF4",
+      "record": 65
+    },
+    {
+      "entry": "CBF4",
+      "record": 66
+    },
+    {
+      "entry": "CBF4",
+      "record": 67
+    },
+    {
+      "entry": "CBF4",
+      "record": 68
+    },
+    {
+      "entry": "CBF4",
+      "record": 69
+    },
+    {
+      "entry": "CBF4",
+      "record": 70
+    },
+    {
+      "entry": "CBF4",
+      "record": 71
+    },
+    {
+      "entry": "CBF4",
+      "record": 72
+    },
+    {
+      "entry": "CBF4",
+      "record": 73
+    },
+    {
+      "entry": "CBF4",
+      "record": 74
+    },
+    {
+      "entry": "CBF4",
+      "record": 75
+    },
+    {
+      "entry": "CBF4",
+      "record": 76
+    },
+    {
+      "entry": "CBF4",
+      "record": 77
+    },
+    {
+      "entry": "CBF4",
+      "record": 78
+    },
+    {
+      "entry": "CBF4",
+      "record": 79
+    },
+    {
+      "entry": "CBF4",
+      "record": 80
+    },
+    {
+      "entry": "CBF4",
+      "record": 81
+    },
+    {
+      "entry": "CBF4",
+      "record": 82
+    },
+    {
+      "entry": "CBF4",
+      "record": 83
+    },
+    {
+      "entry": "CBF4",
+      "record": 84
+    },
+    {
+      "entry": "CBF4",
+      "record": 85
+    },
+    {
+      "entry": "CBF4",
+      "record": 86
+    },
+    {
+      "entry": "CBF4",
+      "record": 87
+    },
+    {
+      "entry": "CBF4",
+      "record": 88
+    },
+    {
+      "entry": "CBF4",
+      "record": 89
+    },
+    {
+      "entry": "CBF4",
+      "record": 90
+    },
+    {
+      "entry": "CBF4",
+      "record": 91
+    },
+    {
+      "entry": "CBF4",
+      "record": 92
+    },
+    {
+      "entry": "CBF4",
+      "record": 93
+    },
+    {
+      "entry": "CBF4",
+      "record": 94
+    },
+    {
+      "entry": "CBF4",
+      "record": 95
+    },
+    {
+      "entry": "CBF4",
+      "record": 96
+    },
+    {
+      "entry": "CBF4",
+      "record": 97
+    },
+    {
+      "entry": "CBF4",
+      "record": 98
+    },
+    {
+      "entry": "CBF4",
+      "record": 99
+    },
+    {
+      "entry": "CBF4",
+      "record": 100
+    },
+    {
+      "entry": "CBF4",
+      "record": 101
+    },
+    {
+      "entry": "CBF4",
+      "record": 102
+    },
+    {
+      "entry": "CBF4",
+      "record": 103
+    },
+    {
+      "entry": "CBF4",
+      "record": 104
+    },
+    {
+      "entry": "CBF4",
+      "record": 105
+    },
+    {
+      "entry": "CBF4",
+      "record": 106
+    },
+    {
+      "entry": "CBF4",
+      "record": 107
+    },
+    {
+      "entry": "CBF4",
+      "record": 108
+    },
+    {
+      "entry": "CBF4",
+      "record": 109
+    },
+    {
+      "entry": "CBF4",
+      "record": 110
+    },
+    {
+      "entry": "CBF4",
+      "record": 111
+    },
+    {
+      "entry": "CBF4",
+      "record": 112
+    },
+    {
+      "entry": "CBF4",
+      "record": 113
+    },
+    {
+      "entry": "CBF4",
+      "record": 114
+    },
+    {
+      "entry": "CBF4",
+      "record": 115
+    },
+    {
+      "entry": "CBF4",
+      "record": 116
+    },
+    {
+      "entry": "CBF4",
+      "record": 117
+    },
+    {
+      "entry": "CBF4",
+      "record": 118
+    },
+    {
+      "entry": "CBF4",
+      "record": 119
+    },
+    {
+      "entry": "CBF4",
+      "record": 120
+    },
+    {
+      "entry": "CBF4",
+      "record": 121
+    },
+    {
+      "entry": "CBF4",
+      "record": 122
+    },
+    {
+      "entry": "CBF4",
+      "record": 123
+    },
+    {
+      "entry": "CBF4",
+      "record": 124
+    },
+    {
+      "entry": "CBF4",
+      "record": 125
+    },
+    {
+      "entry": "CBF4",
+      "record": 126
+    },
+    {
+      "entry": "CBF4",
+      "record": 127
+    },
+    {
+      "entry": "CE87",
+      "number": 0
+    },
+    {
+      "entry": "CE87",
+      "number": 1
+    },
+    {
+      "entry": "CE87",
+      "number": 9
+    },
+    {
+      "entry": "CE87",
+      "number": 10
+    },
+    {
+      "entry": "CE87",
+      "number": 99
+    },
+    {
+      "entry": "CE87",
+      "number": 100
+    },
+    {
+      "entry": "CE87",
+      "number": 999
+    },
+    {
+      "entry": "CE87",
+      "number": 1000
+    },
+    {
+      "entry": "CE87",
+      "number": 9999
+    },
+    {
+      "entry": "CE87",
+      "number": 10000
+    },
+    {
+      "entry": "CE87",
+      "number": 65535
+    },
+    {
+      "entry": "C959",
+      "key": "0000",
+      "round_trip": true
+    },
+    {
+      "entry": "C959",
+      "key": "0001",
+      "round_trip": true
+    },
+    {
+      "entry": "C959",
+      "key": "127E",
+      "round_trip": true
+    },
+    {
+      "entry": "C959",
+      "key": "55FE",
+      "round_trip": true
+    },
+    {
+      "entry": "C959",
+      "key": "AAFF",
+      "round_trip": true
+    },
+    {
+      "entry": "C959",
+      "key": "FFFF",
+      "round_trip": true
+    },
+    {
+      "entry": "CA48",
+      "forward_bytes": 3808,
+      "stack_bytes": 2049
+    },
+    {
+      "entry": "CA48",
+      "forward_bytes": 5856,
+      "stack_bytes": 2049
+    },
+    {
+      "entry": "D48E",
+      "string": "C859",
+      "mode": 1,
+      "result": "NO SPACE!"
+    }
+  ],
+  "count": 172
+}

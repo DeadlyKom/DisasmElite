@@ -1,0 +1,1487 @@
+{
+  "scope": "прямые переходы, косвенные JP и абсолютные LD в код, не полная трасса",
+  "instruction_count": 15165,
+  "review_required": [
+    {
+      "address": 24348,
+      "operation": "CALL $83FE",
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "line": 30,
+      "length": 3,
+      "target": 33790,
+      "destination": {
+        "kind": "literal",
+        "start": 33790,
+        "file": "Source/Game/Screen/PlanetDistanceHint.asm",
+        "line": 21
+      }
+    },
+    {
+      "address": 24383,
+      "operation": "CALL $8400",
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "line": 50,
+      "length": 3,
+      "target": 33792,
+      "destination": {
+        "kind": "literal",
+        "start": 33792,
+        "file": "Source/Game/Screen/SunDistanceHint.asm",
+        "line": 21
+      }
+    },
+    {
+      "address": 29415,
+      "operation": "JR Z,$733E",
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "line": 36,
+      "length": 2,
+      "target": 29502,
+      "destination": {
+        "kind": "code",
+        "start": 29500,
+        "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+        "line": 85
+      }
+    },
+    {
+      "address": 29558,
+      "operation": "CALL $83FE",
+      "file": "Source/Game/Flight/TryColonizeMinerals.asm",
+      "line": 26,
+      "length": 3,
+      "target": 33790,
+      "destination": {
+        "kind": "literal",
+        "start": 33790,
+        "file": "Source/Game/Screen/PlanetDistanceHint.asm",
+        "line": 21
+      }
+    },
+    {
+      "address": 34512,
+      "operation": "CALL $FB31",
+      "file": "Source/Game/Screen/DrawFilledCircle.asm",
+      "line": 20,
+      "length": 3,
+      "target": 64305,
+      "destination": {
+        "kind": "literal",
+        "start": 64305,
+        "file": "Source/Game/Extensions/DrawSmallSilhouetteAlternate.asm",
+        "line": 17
+      }
+    },
+    {
+      "address": 34526,
+      "operation": "CALL $FB32",
+      "file": "Source/Game/Screen/DrawCircleOutline.asm",
+      "line": 19,
+      "length": 3,
+      "target": 64306,
+      "destination": {
+        "kind": "literal",
+        "start": 64306,
+        "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+        "line": 25
+      }
+    },
+    {
+      "address": 36452,
+      "operation": "CALL $8400",
+      "file": "Source/Game/Circles/CheckBodiesAndRestoreViewport.asm",
+      "line": 18,
+      "length": 3,
+      "target": 33792,
+      "destination": {
+        "kind": "literal",
+        "start": 33792,
+        "file": "Source/Game/Screen/SunDistanceHint.asm",
+        "line": 21
+      }
+    },
+    {
+      "address": 36460,
+      "operation": "CALL $83FE",
+      "file": "Source/Game/Circles/CheckBodiesAndRestoreViewport.asm",
+      "line": 23,
+      "length": 3,
+      "target": 33790,
+      "destination": {
+        "kind": "literal",
+        "start": 33790,
+        "file": "Source/Game/Screen/PlanetDistanceHint.asm",
+        "line": 21
+      }
+    },
+    {
+      "address": 45709,
+      "operation": "JR Z,$B29C",
+      "file": "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+      "line": 26,
+      "length": 2,
+      "target": 45724,
+      "destination": {
+        "kind": "code",
+        "start": 45723,
+        "file": "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+        "line": 37
+      }
+    },
+    {
+      "address": 45745,
+      "operation": "JR C,$B2BA",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "line": 35,
+      "length": 2,
+      "target": 45754,
+      "destination": {
+        "kind": "code",
+        "start": 45753,
+        "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+        "line": 40
+      }
+    },
+    {
+      "address": 45763,
+      "operation": "JR C,$B2BA",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "line": 47,
+      "length": 2,
+      "target": 45754,
+      "destination": {
+        "kind": "code",
+        "start": 45753,
+        "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+        "line": 40
+      }
+    },
+    {
+      "address": 54311,
+      "operation": "JP C,$D7E2",
+      "file": "Source/Game/Text/PrintMainToken.asm",
+      "line": 21,
+      "length": 3,
+      "target": 55266,
+      "destination": {
+        "kind": "literal",
+        "start": 55266,
+        "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+        "line": 44
+      }
+    },
+    {
+      "address": 54395,
+      "operation": "JP C,$D7E4",
+      "file": "Source/Game/Text/PrintDescriptionByte.asm",
+      "line": 25,
+      "length": 3,
+      "target": 55268,
+      "destination": {
+        "kind": "literal",
+        "start": 55266,
+        "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+        "line": 44
+      }
+    },
+    {
+      "address": 59059,
+      "operation": "JR NZ,$E6F2",
+      "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+      "line": 32,
+      "length": 2,
+      "target": 59122,
+      "destination": {
+        "kind": "code",
+        "start": 59121,
+        "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+        "line": 24
+      }
+    }
+  ],
+  "indirect_jumps": [
+    {
+      "address": 38302,
+      "operation": "JP (HL)",
+      "file": "Source/Game/Sound/UpdateSound.asm",
+      "line": 46,
+      "length": 1
+    },
+    {
+      "address": 55280,
+      "operation": "JP (HL)",
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 53,
+      "length": 1
+    },
+    {
+      "address": 59354,
+      "operation": "JP (HL)",
+      "file": "Source/Game/Trade/IndirectTradeCallbackAndBuy.asm",
+      "line": 20,
+      "length": 1
+    }
+  ],
+  "absolute_code_writes": [
+    {
+      "address": 24100,
+      "operation": "LD ($7013),A",
+      "file": "Source/Game/Extensions/HandleSpecialMessageToken.asm",
+      "line": 25,
+      "length": 3,
+      "target": 28691,
+      "destination": {
+        "kind": "code",
+        "start": 28691,
+        "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+        "line": 36
+      }
+    },
+    {
+      "address": 24103,
+      "operation": "LD ($DE6A),A",
+      "file": "Source/Game/Extensions/HandleSpecialMessageToken.asm",
+      "line": 26,
+      "length": 3,
+      "target": 56938,
+      "destination": {
+        "kind": "code",
+        "start": 56938,
+        "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+        "line": 23
+      }
+    },
+    {
+      "address": 28470,
+      "operation": "LD ($FD0A),A",
+      "file": "Source/Game/Extensions/PrintEquipmentAndSelectIcon.asm",
+      "line": 51,
+      "length": 3,
+      "target": 64778,
+      "destination": {
+        "kind": "code",
+        "start": 64777,
+        "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+        "line": 26
+      }
+    },
+    {
+      "address": 28484,
+      "operation": "LD ($6F42),A",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 31,
+      "length": 3,
+      "target": 28482,
+      "destination": {
+        "kind": "code",
+        "start": 28481,
+        "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+        "line": 29
+      }
+    },
+    {
+      "address": 28504,
+      "operation": "LD ($AA1E),A",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 40,
+      "length": 3,
+      "target": 43550,
+      "destination": {
+        "kind": "code",
+        "start": 43550,
+        "file": "Source/Game/Wireframe/AnyPackedFaceVisible.asm",
+        "line": 30
+      }
+    },
+    {
+      "address": 28647,
+      "operation": "LD ($AA1E),A",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 129,
+      "length": 3,
+      "target": 43550,
+      "destination": {
+        "kind": "code",
+        "start": 43550,
+        "file": "Source/Game/Wireframe/AnyPackedFaceVisible.asm",
+        "line": 30
+      }
+    },
+    {
+      "address": 30902,
+      "operation": "LD ($78B5),A",
+      "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+      "line": 31,
+      "length": 3,
+      "target": 30901,
+      "destination": {
+        "kind": "code",
+        "start": 30900,
+        "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+        "line": 30
+      }
+    },
+    {
+      "address": 32526,
+      "operation": "LD ($7F0B),A",
+      "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+      "line": 51,
+      "length": 3,
+      "target": 32523,
+      "destination": {
+        "kind": "code",
+        "start": 32522,
+        "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+        "line": 48
+      }
+    },
+    {
+      "address": 33104,
+      "operation": "LD ($8154),HL",
+      "file": "Source/Game/Screen/DispatchMenu.asm",
+      "line": 34,
+      "length": 3,
+      "target": 33108,
+      "destination": {
+        "kind": "code",
+        "start": 33107,
+        "file": "Source/Game/Screen/DispatchMenu.asm",
+        "line": 36
+      }
+    },
+    {
+      "address": 34114,
+      "operation": "LD ($8597),A",
+      "file": "Source/Game/Screen/DrawIndicatorMarker.asm",
+      "line": 22,
+      "length": 3,
+      "target": 34199,
+      "destination": {
+        "kind": "code",
+        "start": 34198,
+        "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+        "line": 75
+      }
+    },
+    {
+      "address": 34117,
+      "operation": "LD ($85B9),A",
+      "file": "Source/Game/Screen/DrawIndicatorMarker.asm",
+      "line": 23,
+      "length": 3,
+      "target": 34233,
+      "destination": {
+        "kind": "code",
+        "start": 34232,
+        "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+        "line": 103
+      }
+    },
+    {
+      "address": 34122,
+      "operation": "LD ($856D),A",
+      "file": "Source/Game/Screen/DrawIndicatorMarker.asm",
+      "line": 25,
+      "length": 3,
+      "target": 34157,
+      "destination": {
+        "kind": "code",
+        "start": 34156,
+        "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+        "line": 44
+      }
+    },
+    {
+      "address": 34130,
+      "operation": "LD ($856D),A",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "line": 24,
+      "length": 3,
+      "target": 34157,
+      "destination": {
+        "kind": "code",
+        "start": 34156,
+        "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+        "line": 44
+      }
+    },
+    {
+      "address": 34133,
+      "operation": "LD ($8597),A",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "line": 25,
+      "length": 3,
+      "target": 34199,
+      "destination": {
+        "kind": "code",
+        "start": 34198,
+        "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+        "line": 75
+      }
+    },
+    {
+      "address": 34136,
+      "operation": "LD ($85B9),A",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "line": 26,
+      "length": 3,
+      "target": 34233,
+      "destination": {
+        "kind": "code",
+        "start": 34232,
+        "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+        "line": 103
+      }
+    },
+    {
+      "address": 35386,
+      "operation": "LD ($8A85),HL",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "line": 32,
+      "length": 3,
+      "target": 35461,
+      "destination": {
+        "kind": "code",
+        "start": 35461,
+        "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+        "line": 79
+      }
+    },
+    {
+      "address": 35392,
+      "operation": "LD ($8A92),HL",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "line": 34,
+      "length": 3,
+      "target": 35474,
+      "destination": {
+        "kind": "code",
+        "start": 35474,
+        "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+        "line": 91
+      }
+    },
+    {
+      "address": 35398,
+      "operation": "LD ($8A98),HL",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "line": 36,
+      "length": 3,
+      "target": 35480,
+      "destination": {
+        "kind": "code",
+        "start": 35480,
+        "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+        "line": 97
+      }
+    },
+    {
+      "address": 35409,
+      "operation": "LD ($8A85),HL",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "line": 42,
+      "length": 3,
+      "target": 35461,
+      "destination": {
+        "kind": "code",
+        "start": 35461,
+        "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+        "line": 79
+      }
+    },
+    {
+      "address": 35415,
+      "operation": "LD ($8A92),HL",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "line": 44,
+      "length": 3,
+      "target": 35474,
+      "destination": {
+        "kind": "code",
+        "start": 35474,
+        "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+        "line": 91
+      }
+    },
+    {
+      "address": 35421,
+      "operation": "LD ($8A98),HL",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "line": 46,
+      "length": 3,
+      "target": 35480,
+      "destination": {
+        "kind": "code",
+        "start": 35480,
+        "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+        "line": 97
+      }
+    },
+    {
+      "address": 35427,
+      "operation": "LD ($8A9E),HL",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "line": 50,
+      "length": 3,
+      "target": 35486,
+      "destination": {
+        "kind": "code",
+        "start": 35485,
+        "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+        "line": 102
+      }
+    },
+    {
+      "address": 35786,
+      "operation": "LD ($8BD3),A",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "line": 123,
+      "length": 3,
+      "target": 35795,
+      "destination": {
+        "kind": "code",
+        "start": 35794,
+        "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+        "line": 130
+      }
+    },
+    {
+      "address": 36042,
+      "operation": "LD ($8CD3),A",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "line": 126,
+      "length": 3,
+      "target": 36051,
+      "destination": {
+        "kind": "code",
+        "start": 36050,
+        "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+        "line": 132
+      }
+    },
+    {
+      "address": 36288,
+      "operation": "LD ($8DC9),A",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "line": 115,
+      "length": 3,
+      "target": 36297,
+      "destination": {
+        "kind": "code",
+        "start": 36296,
+        "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+        "line": 121
+      }
+    },
+    {
+      "address": 36628,
+      "operation": "LD ($8A4A),A",
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "line": 30,
+      "length": 3,
+      "target": 35402,
+      "destination": {
+        "kind": "code",
+        "start": 35401,
+        "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+        "line": 38
+      }
+    },
+    {
+      "address": 36633,
+      "operation": "LD ($8F9B),A",
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "line": 32,
+      "length": 3,
+      "target": 36763,
+      "destination": {
+        "kind": "code",
+        "start": 36762,
+        "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+        "line": 26
+      }
+    },
+    {
+      "address": 36638,
+      "operation": "LD ($8FA6),A",
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "line": 34,
+      "length": 3,
+      "target": 36774,
+      "destination": {
+        "kind": "code",
+        "start": 36773,
+        "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+        "line": 31
+      }
+    },
+    {
+      "address": 36726,
+      "operation": "LD ($8A4A),A",
+      "file": "Source/Game/Circles/SelectCircleBackBuffer.asm",
+      "line": 17,
+      "length": 3,
+      "target": 35402,
+      "destination": {
+        "kind": "code",
+        "start": 35401,
+        "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+        "line": 38
+      }
+    },
+    {
+      "address": 36731,
+      "operation": "LD ($8F9B),A",
+      "file": "Source/Game/Circles/SelectCircleBackBuffer.asm",
+      "line": 19,
+      "length": 3,
+      "target": 36763,
+      "destination": {
+        "kind": "code",
+        "start": 36762,
+        "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+        "line": 26
+      }
+    },
+    {
+      "address": 36736,
+      "operation": "LD ($8FA6),A",
+      "file": "Source/Game/Circles/SelectCircleBackBuffer.asm",
+      "line": 21,
+      "length": 3,
+      "target": 36774,
+      "destination": {
+        "kind": "code",
+        "start": 36773,
+        "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+        "line": 31
+      }
+    },
+    {
+      "address": 36744,
+      "operation": "LD ($89DA),HL",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 17,
+      "length": 3,
+      "target": 35290,
+      "destination": {
+        "kind": "code",
+        "start": 35290,
+        "file": "Source/Game/Circles/ComputeLeftEdgeMask.asm",
+        "line": 23
+      }
+    },
+    {
+      "address": 36747,
+      "operation": "LD ($89FB),HL",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 18,
+      "length": 3,
+      "target": 35323,
+      "destination": {
+        "kind": "code",
+        "start": 35323,
+        "file": "Source/Game/Circles/ComputeRightEdgeMask.asm",
+        "line": 26
+      }
+    },
+    {
+      "address": 36750,
+      "operation": "LD ($8A6E),HL",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 19,
+      "length": 3,
+      "target": 35438,
+      "destination": {
+        "kind": "code",
+        "start": 35438,
+        "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+        "line": 58
+      }
+    },
+    {
+      "address": 36756,
+      "operation": "LD ($8A61),A",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 23,
+      "length": 3,
+      "target": 35425,
+      "destination": {
+        "kind": "code",
+        "start": 35424,
+        "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+        "line": 48
+      }
+    },
+    {
+      "address": 36759,
+      "operation": "LD ($8E18),A",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 24,
+      "length": 3,
+      "target": 36376,
+      "destination": {
+        "kind": "code",
+        "start": 36375,
+        "file": "Source/Game/Circles/CrossCircleCharacterRowDown.asm",
+        "line": 26
+      }
+    },
+    {
+      "address": 36764,
+      "operation": "LD ($8D0D),A",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 27,
+      "length": 3,
+      "target": 36109,
+      "destination": {
+        "kind": "code",
+        "start": 36108,
+        "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+        "line": 173
+      }
+    },
+    {
+      "address": 36767,
+      "operation": "LD ($8B09),A",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 28,
+      "length": 3,
+      "target": 35593,
+      "destination": {
+        "kind": "code",
+        "start": 35592,
+        "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+        "line": 31
+      }
+    },
+    {
+      "address": 36770,
+      "operation": "LD ($8C0D),A",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 29,
+      "length": 3,
+      "target": 35853,
+      "destination": {
+        "kind": "code",
+        "start": 35852,
+        "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+        "line": 171
+      }
+    },
+    {
+      "address": 36775,
+      "operation": "LD ($8D06),A",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 32,
+      "length": 3,
+      "target": 36102,
+      "destination": {
+        "kind": "code",
+        "start": 36101,
+        "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+        "line": 168
+      }
+    },
+    {
+      "address": 36778,
+      "operation": "LD ($8B02),A",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 33,
+      "length": 3,
+      "target": 35586,
+      "destination": {
+        "kind": "code",
+        "start": 35585,
+        "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+        "line": 26
+      }
+    },
+    {
+      "address": 36781,
+      "operation": "LD ($8C06),A",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 34,
+      "length": 3,
+      "target": 35846,
+      "destination": {
+        "kind": "code",
+        "start": 35845,
+        "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+        "line": 166
+      }
+    },
+    {
+      "address": 36784,
+      "operation": "LD ($8DFE),A",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 35,
+      "length": 3,
+      "target": 36350,
+      "destination": {
+        "kind": "code",
+        "start": 36349,
+        "file": "Source/Game/Circles/CrossCircleCharacterRowUp.asm",
+        "line": 25
+      }
+    },
+    {
+      "address": 37572,
+      "operation": "LD ($92FA),HL",
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "line": 46,
+      "length": 3,
+      "target": 37626,
+      "destination": {
+        "kind": "code",
+        "start": 37625,
+        "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+        "line": 72
+      }
+    },
+    {
+      "address": 37582,
+      "operation": "LD ($9326),A",
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "line": 50,
+      "length": 3,
+      "target": 37670,
+      "destination": {
+        "kind": "code",
+        "start": 37669,
+        "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+        "line": 102
+      }
+    },
+    {
+      "address": 37587,
+      "operation": "LD ($932B),A",
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "line": 52,
+      "length": 3,
+      "target": 37675,
+      "destination": {
+        "kind": "code",
+        "start": 37674,
+        "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+        "line": 106
+      }
+    },
+    {
+      "address": 37598,
+      "operation": "LD ($9318),A",
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "line": 58,
+      "length": 3,
+      "target": 37656,
+      "destination": {
+        "kind": "code",
+        "start": 37655,
+        "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+        "line": 93
+      }
+    },
+    {
+      "address": 37605,
+      "operation": "LD ($9318),A",
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "line": 61,
+      "length": 3,
+      "target": 37656,
+      "destination": {
+        "kind": "code",
+        "start": 37655,
+        "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+        "line": 93
+      }
+    },
+    {
+      "address": 37877,
+      "operation": "LD ($92FA),HL",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 27,
+      "length": 3,
+      "target": 37626,
+      "destination": {
+        "kind": "code",
+        "start": 37625,
+        "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+        "line": 72
+      }
+    },
+    {
+      "address": 37887,
+      "operation": "LD ($9326),A",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 31,
+      "length": 3,
+      "target": 37670,
+      "destination": {
+        "kind": "code",
+        "start": 37669,
+        "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+        "line": 102
+      }
+    },
+    {
+      "address": 37909,
+      "operation": "LD ($932B),A",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 42,
+      "length": 3,
+      "target": 37675,
+      "destination": {
+        "kind": "code",
+        "start": 37674,
+        "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+        "line": 106
+      }
+    },
+    {
+      "address": 38004,
+      "operation": "LD ($932B),A",
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "line": 86,
+      "length": 3,
+      "target": 37675,
+      "destination": {
+        "kind": "code",
+        "start": 37674,
+        "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+        "line": 106
+      }
+    },
+    {
+      "address": 38358,
+      "operation": "LD ($95AE),A",
+      "file": "Source/Game/Sound/StartExplosionNoise.asm",
+      "line": 23,
+      "length": 3,
+      "target": 38318,
+      "destination": {
+        "kind": "code",
+        "start": 38317,
+        "file": "Source/Game/Sound/StepNoise.asm",
+        "line": 26
+      }
+    },
+    {
+      "address": 38477,
+      "operation": "LD ($962B),A",
+      "file": "Source/Game/Sound/StepPitchSweep.asm",
+      "line": 77,
+      "length": 3,
+      "target": 38443,
+      "destination": {
+        "kind": "code",
+        "start": 38442,
+        "file": "Source/Game/Sound/StepPitchSweep.asm",
+        "line": 28
+      }
+    },
+    {
+      "address": 38502,
+      "operation": "LD ($95F2),HL",
+      "file": "Source/Game/Sound/StepPitchSweep.asm",
+      "line": 117,
+      "length": 3,
+      "target": 38386,
+      "destination": {
+        "kind": "code",
+        "start": 38386,
+        "file": "Source/Game/Sound/StepDataTone.asm",
+        "line": 30
+      }
+    },
+    {
+      "address": 38536,
+      "operation": "LD ($95BD),A",
+      "file": "Source/Game/Sound/StepPitchSweep.asm",
+      "line": 162,
+      "length": 3,
+      "target": 38333,
+      "destination": {
+        "kind": "code",
+        "start": 38332,
+        "file": "Source/Game/Sound/StepNoise.asm",
+        "line": 39
+      }
+    },
+    {
+      "address": 38540,
+      "operation": "LD ($95AE),A",
+      "file": "Source/Game/Sound/StepPitchSweep.asm",
+      "line": 164,
+      "length": 3,
+      "target": 38318,
+      "destination": {
+        "kind": "code",
+        "start": 38317,
+        "file": "Source/Game/Sound/StepNoise.asm",
+        "line": 26
+      }
+    },
+    {
+      "address": 40145,
+      "operation": "LD ($B1B7),A",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 37,
+      "length": 3,
+      "target": 45495,
+      "destination": {
+        "kind": "code",
+        "start": 45495,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 353
+      }
+    },
+    {
+      "address": 40148,
+      "operation": "LD ($B232),A",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 38,
+      "length": 3,
+      "target": 45618,
+      "destination": {
+        "kind": "code",
+        "start": 45618,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 451
+      }
+    },
+    {
+      "address": 40151,
+      "operation": "LD ($B244),A",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 39,
+      "length": 3,
+      "target": 45636,
+      "destination": {
+        "kind": "code",
+        "start": 45636,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 466
+      }
+    },
+    {
+      "address": 40154,
+      "operation": "LD ($B252),A",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 40,
+      "length": 3,
+      "target": 45650,
+      "destination": {
+        "kind": "code",
+        "start": 45650,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 476
+      }
+    },
+    {
+      "address": 40243,
+      "operation": "LD ($6F42),A",
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 83,
+      "length": 3,
+      "target": 28482,
+      "destination": {
+        "kind": "code",
+        "start": 28481,
+        "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+        "line": 29
+      }
+    },
+    {
+      "address": 43556,
+      "operation": "LD ($AA28),A",
+      "file": "Source/Game/Wireframe/ReadFaceVisibilityNibble.asm",
+      "line": 22,
+      "length": 3,
+      "target": 43560,
+      "destination": {
+        "kind": "code",
+        "start": 43559,
+        "file": "Source/Game/Wireframe/ReadFaceVisibilityNibble.asm",
+        "line": 24
+      }
+    },
+    {
+      "address": 45469,
+      "operation": "LD ($B1BD),A",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 328,
+      "length": 3,
+      "target": 45501,
+      "destination": {
+        "kind": "code",
+        "start": 45500,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 360
+      }
+    },
+    {
+      "address": 45476,
+      "operation": "LD ($B1B5),A",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 333,
+      "length": 3,
+      "target": 45493,
+      "destination": {
+        "kind": "code",
+        "start": 45493,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 349
+      }
+    },
+    {
+      "address": 45480,
+      "operation": "LD ($B1C7),A",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 335,
+      "length": 3,
+      "target": 45511,
+      "destination": {
+        "kind": "code",
+        "start": 45510,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 368
+      }
+    },
+    {
+      "address": 45551,
+      "operation": "LD ($B20F),A",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 399,
+      "length": 3,
+      "target": 45583,
+      "destination": {
+        "kind": "code",
+        "start": 45582,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 423
+      }
+    },
+    {
+      "address": 45555,
+      "operation": "LD ($B212),A",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 401,
+      "length": 3,
+      "target": 45586,
+      "destination": {
+        "kind": "code",
+        "start": 45585,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 426
+      }
+    },
+    {
+      "address": 45560,
+      "operation": "LD ($B20D),A",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 405,
+      "length": 3,
+      "target": 45581,
+      "destination": {
+        "kind": "code",
+        "start": 45581,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 420
+      }
+    },
+    {
+      "address": 45564,
+      "operation": "LD ($B25F),A",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 407,
+      "length": 3,
+      "target": 45663,
+      "destination": {
+        "kind": "code",
+        "start": 45662,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 489
+      }
+    },
+    {
+      "address": 45595,
+      "operation": "LD ($B25D),A",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 434,
+      "length": 3,
+      "target": 45661,
+      "destination": {
+        "kind": "code",
+        "start": 45660,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 487
+      }
+    },
+    {
+      "address": 45602,
+      "operation": "LD ($B231),A",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 440,
+      "length": 3,
+      "target": 45617,
+      "destination": {
+        "kind": "code",
+        "start": 45615,
+        "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+        "line": 449
+      }
+    },
+    {
+      "address": 45917,
+      "operation": "LD ($A849),HL",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "line": 155,
+      "length": 3,
+      "target": 43081,
+      "destination": {
+        "kind": "code",
+        "start": 43080,
+        "file": "Source/Game/Motion/XorFarObjectPixel.asm",
+        "line": 28
+      }
+    },
+    {
+      "address": 45967,
+      "operation": "LD ($A849),HL",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "line": 179,
+      "length": 3,
+      "target": 43081,
+      "destination": {
+        "kind": "code",
+        "start": 43080,
+        "file": "Source/Game/Motion/XorFarObjectPixel.asm",
+        "line": 28
+      }
+    },
+    {
+      "address": 46147,
+      "operation": "LD ($B446),HL",
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "line": 25,
+      "length": 3,
+      "target": 46150,
+      "destination": {
+        "kind": "code",
+        "start": 46150,
+        "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+        "line": 28
+      }
+    },
+    {
+      "address": 55755,
+      "operation": "LD ($D9E5),IX",
+      "file": "Source/Game/Disk/TransferDiskSectors.asm",
+      "line": 25,
+      "length": 4,
+      "target": 55781,
+      "destination": {
+        "kind": "code",
+        "start": 55779,
+        "file": "Source/Game/Disk/TransferDiskSectors.asm",
+        "line": 36
+      }
+    },
+    {
+      "address": 55841,
+      "operation": "LD ($DA2C),SP",
+      "file": "Source/Game/Disk/ReactionOnPrivateStack.asm",
+      "line": 19,
+      "length": 4,
+      "target": 55852,
+      "destination": {
+        "kind": "code",
+        "start": 55851,
+        "file": "Source/Game/Disk/ReactionOnPrivateStack.asm",
+        "line": 23
+      }
+    },
+    {
+      "address": 55892,
+      "operation": "LD ($DA60),SP",
+      "file": "Source/Game/Disk/DrawScreenStripsAndPrivateStack.asm",
+      "line": 35,
+      "length": 4,
+      "target": 55904,
+      "destination": {
+        "kind": "code",
+        "start": 55903,
+        "file": "Source/Game/Disk/DrawScreenStripsAndPrivateStack.asm",
+        "line": 40
+      }
+    },
+    {
+      "address": 58320,
+      "operation": "LD ($E413),A",
+      "file": "Source/Game/Charts/BeginTextInput.asm",
+      "line": 21,
+      "length": 3,
+      "target": 58387,
+      "destination": {
+        "kind": "code",
+        "start": 58386,
+        "file": "Source/Game/Charts/TextInputLoop.asm",
+        "line": 41
+      }
+    },
+    {
+      "address": 60533,
+      "operation": "LD ($ECDF),A",
+      "file": "Source/Game/Menus/OpenLocalChart.asm",
+      "line": 33,
+      "length": 3,
+      "target": 60639,
+      "destination": {
+        "kind": "code",
+        "start": 60638,
+        "file": "Source/Game/Menus/VisitLocalChartSystems.asm",
+        "line": 25
+      }
+    },
+    {
+      "address": 60544,
+      "operation": "LD ($ECE3),A",
+      "file": "Source/Game/Menus/OpenLocalChart.asm",
+      "line": 37,
+      "length": 3,
+      "target": 60643,
+      "destination": {
+        "kind": "code",
+        "start": 60642,
+        "file": "Source/Game/Menus/VisitLocalChartSystems.asm",
+        "line": 28
+      }
+    },
+    {
+      "address": 60555,
+      "operation": "LD ($ECEA),A",
+      "file": "Source/Game/Menus/OpenLocalChart.asm",
+      "line": 41,
+      "length": 3,
+      "target": 60650,
+      "destination": {
+        "kind": "code",
+        "start": 60649,
+        "file": "Source/Game/Menus/VisitLocalChartSystems.asm",
+        "line": 32
+      }
+    },
+    {
+      "address": 60566,
+      "operation": "LD ($ECEE),A",
+      "file": "Source/Game/Menus/OpenLocalChart.asm",
+      "line": 45,
+      "length": 3,
+      "target": 60654,
+      "destination": {
+        "kind": "code",
+        "start": 60653,
+        "file": "Source/Game/Menus/VisitLocalChartSystems.asm",
+        "line": 35
+      }
+    },
+    {
+      "address": 60626,
+      "operation": "LD ($ECF2),HL",
+      "file": "Source/Game/Menus/VisitLocalChartSystems.asm",
+      "line": 19,
+      "length": 3,
+      "target": 60658,
+      "destination": {
+        "kind": "code",
+        "start": 60657,
+        "file": "Source/Game/Menus/VisitLocalChartSystems.asm",
+        "line": 38
+      }
+    },
+    {
+      "address": 63672,
+      "operation": "LD ($A79D),A",
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "line": 864,
+      "length": 3,
+      "target": 42909,
+      "destination": {
+        "kind": "code",
+        "start": 42908,
+        "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+        "line": 141
+      }
+    },
+    {
+      "address": 63677,
+      "operation": "LD ($FEFE),A",
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "line": 866,
+      "length": 3,
+      "target": 65278,
+      "destination": {
+        "kind": "code",
+        "start": 65278,
+        "file": "Source/Game/Input/InterruptGateAndAcceleration.asm",
+        "line": 16
+      }
+    },
+    {
+      "address": 63681,
+      "operation": "LD ($F8CC),SP",
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "line": 868,
+      "length": 4,
+      "target": 63692,
+      "destination": {
+        "kind": "code",
+        "start": 63691,
+        "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+        "line": 873
+      }
+    },
+    {
+      "address": 63696,
+      "operation": "LD ($FEFE),A",
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "line": 875,
+      "length": 3,
+      "target": 65278,
+      "destination": {
+        "kind": "code",
+        "start": 65278,
+        "file": "Source/Game/Input/InterruptGateAndAcceleration.asm",
+        "line": 16
+      }
+    },
+    {
+      "address": 63719,
+      "operation": "LD ($F90A),SP",
+      "file": "Source/Game/Extensions/DrawCircleAndProtectScratchStack.asm",
+      "line": 26,
+      "length": 4,
+      "target": 63754,
+      "destination": {
+        "kind": "code",
+        "start": 63753,
+        "file": "Source/Game/Extensions/DrawCircleAndProtectScratchStack.asm",
+        "line": 43
+      }
+    },
+    {
+      "address": 64774,
+      "operation": "LD ($FD03),A",
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "line": 24,
+      "length": 3,
+      "target": 64771,
+      "destination": {
+        "kind": "code",
+        "start": 64770,
+        "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+        "line": 22
+      }
+    }
+  ]
+}

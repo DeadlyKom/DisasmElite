@@ -1,0 +1,9 @@
+{
+  "disk_utility_fragments": 115,
+  "disk_utility_reviewed": 115,
+  "manual_loader_asm_reviewed": 31,
+  "commander_files": 2,
+  "basic_and_robot_files": 2,
+  "unresolved": [],
+  "scope": "статическое описание дополнительных файлов, без запуска дискового ROM и полного игрового сеанса"
+}

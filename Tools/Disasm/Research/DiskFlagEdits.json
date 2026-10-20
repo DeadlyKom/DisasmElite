@@ -1,0 +1,172 @@
+[
+  {
+    "file": "Source/Loader/Load.asm",
+    "old": "                BIT 7, A\n",
+    "new": "                BIT DOS_FAIL_BIT, A\n"
+  },
+  {
+    "file": "Source/Loader/Load.asm",
+    "old": "                AND #F0\n",
+    "new": "                AND DOS_WRAP_MASK\n"
+  },
+  {
+    "file": "Source/Loader/Load.asm",
+    "old": "                AND #0F\n",
+    "new": "                AND DOS_SEC_MASK\n"
+  },
+  {
+    "file": "Source/DiskUtility/Menu/AllocateSaveRecord.asm",
+    "old": "                BIT 7,H\n",
+    "new": "                BIT DOS_SIGN_BIT,H\n"
+  },
+  {
+    "file": "Source/DiskUtility/Menu/AllocateSaveRecord.asm",
+    "old": "                BIT 7,(HL)\n",
+    "new": "                BIT DOS_FULL_BIT,(HL)\n"
+  },
+  {
+    "file": "Source/DiskUtility/Menu/AllocateSaveRecord.asm",
+    "old": "                XOR #10\n",
+    "new": "                XOR DOS_TRACK_SIZE\n"
+  },
+  {
+    "file": "Source/DiskUtility/Menu/AllocateSaveRecord.asm",
+    "old": "                AND #07\n",
+    "new": "                AND DOS_CAT_MASK\n"
+  },
+  {
+    "file": "Source/DiskUtility/Menu/AllocateSaveRecord.asm",
+    "old": "                AND #F0\n",
+    "new": "                AND DOS_SLOT_MASK\n"
+  },
+  {
+    "file": "Source/DiskUtility/Menu/UpdateProtectionMark.asm",
+    "old": "                RES 7,H\n",
+    "new": "                RES MARK_TOP_BIT,H\n"
+  },
+  {
+    "file": "Source/DiskUtility/Menu/CheckMenuAbort.asm",
+    "old": "                AND #01\n",
+    "new": "                AND 1 << KEYBOARD_SP_BIT\n"
+  },
+  {
+    "file": "Source/DiskUtility/Menu/EditSaveName.asm",
+    "old": "                AND #01\n",
+    "new": "                AND 1 << KEYBOARD_SP_BIT\n"
+  },
+  {
+    "file": "Source/Manual/ReadControls.asm",
+    "old": "                AND #01\n",
+    "new": "                AND 1 << KEYBOARD_SP_BIT\n"
+  },
+  {
+    "file": "Source/DiskUtility/Menu/MenuBeep.asm",
+    "old": "                XOR #10\n",
+    "new": "                XOR BEEP_SPK_MASK\n"
+  },
+  {
+    "file": "Source/Manual/ReadControls.asm",
+    "old": "                BIT 1,A\n",
+    "new": "                BIT KEYBOARD_S_BIT,A\n"
+  },
+  {
+    "file": "Source/Manual/ReadControls.asm",
+    "old": "                BIT 4,A\n",
+    "new": "                BIT KEYBOARD_6_BIT,A\n"
+  },
+  {
+    "file": "Source/Manual/ReadControls.asm",
+    "old": "                ; проверка одновременного нажатия обеих клавиш скорости\n                BIT 3,A\n",
+    "new": "                ; проверка одновременного нажатия обеих клавиш скорости\n                BIT KEYBOARD_7_BIT,A\n"
+  },
+  {
+    "file": "Source/Manual/ReadControls.asm",
+    "old": "                ; проверка второй клавиши скорости\n                BIT 3,A\n",
+    "new": "                ; проверка второй клавиши скорости\n                BIT KEYBOARD_7_BIT,A\n"
+  },
+  {
+    "file": "Source/Manual/ReadControls.asm",
+    "old": "                LD A,#EF\n                IN A,(#FE)\n                BIT 3,A\n",
+    "new": "                LD A,#EF\n                IN A,(#FE)\n                BIT KEYBOARD_7_BIT,A\n"
+  },
+  {
+    "file": "Source/Manual/ReadControls.asm",
+    "old": "                XOR #01\n",
+    "new": "                XOR MAN_REV_MASK\n"
+  },
+  {
+    "file": "Source/Manual/UndoDirection.asm",
+    "old": "                XOR #01\n",
+    "new": "                XOR MAN_REV_MASK\n"
+  },
+  {
+    "file": "Source/Manual/ReadControls.asm",
+    "old": "                LD A,#01\n                LD (DoubleStep),A\n",
+    "new": "                LD A,MAN_STEP_MASK\n                LD (DoubleStep),A\n"
+  },
+  {
+    "file": "Source/Manual/ReadControls.asm",
+    "old": "                AND #07\n",
+    "new": "                AND MAN_ROW_MASK\n"
+  },
+  {
+    "file": "Source/Manual/UpdateKeys.asm",
+    "old": "                AND #07\n",
+    "new": "                AND MAN_ROW_MASK\n"
+  },
+  {
+    "file": "Source/Manual/RenderEdge.asm",
+    "old": "                RES 3,A\n",
+    "new": "                RES MAN_WRAP_BIT,A\n"
+  },
+  {
+    "file": "Source/Manual/Interrupt.asm",
+    "old": "                OR #FC\n",
+    "new": "                OR MAN_KEYS_IGNORE\n"
+  },
+  {
+    "file": "Source/Manual/UnpackText.asm",
+    "old": "                BIT 7,A\n",
+    "new": "                BIT PACK_CODE_BIT,A\n"
+  },
+  {
+    "file": "Source/Manual/UnpackText.asm",
+    "old": "                CP #C0\n",
+    "new": "                CP PACK_PAIR_MIN\n"
+  },
+  {
+    "file": "Source/Manual/UnpackText.asm",
+    "old": "                PUSH AF\n                AND #07\n",
+    "new": "                PUSH AF\n                AND PACK_DIST_MASK\n"
+  },
+  {
+    "file": "Source/Manual/UnpackText.asm",
+    "old": "                RRCA\n                RRCA\n                RRCA\n                AND #07\n",
+    "new": "                RRCA\n                RRCA\n                RRCA\n                AND PACK_LEN_MASK\n"
+  },
+  {
+    "file": "Source/Manual/UnpackText.asm",
+    "old": "                ADD A,#03\n",
+    "new": "                ADD A,PACK_LEN_BIAS\n"
+  },
+  {
+    "file": "Source/Manual/Data.asm",
+    "old": "; DoubleStep, режим шага прокрутки\n",
+    "new": "; DoubleStep, режим шага прокрутки, MAN_STEP_BIT\n"
+  },
+  {
+    "file": "Source/Manual/Data.asm",
+    "old": "; Reverse, направление прокрутки\n",
+    "new": "; Reverse, направление прокрутки, MAN_REV_BIT\n"
+  },
+  {
+    "file": "Source/Manual/UnpackText.asm",
+    "old": ";   копирование обратной ссылки допускает перекрытие\n",
+    "new": ";   копирование обратной ссылки допускает перекрытие\n;   схема токена и маски полей описаны в Includes/Const/DiskFlags.inc\n"
+  },
+  {
+    "file": "Source/Manual/ReadControls.asm",
+    "old": ";   обработка имеет приоритет S, затем 6/7, затем SPACE\n",
+    "new": ";   обработка имеет приоритет S, затем 6/7, затем SPACE\n;   KEYBOARD_*_BIT задают номера битов, прямой IN возвращает ноль для нажатой клавиши\n"
+  }
+]

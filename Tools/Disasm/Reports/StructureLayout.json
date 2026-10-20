@@ -1,0 +1,474 @@
+{
+  "scope": "перенос смещений Goods и пар приборов в структуры с префиксом F без изменения размещения памяти",
+  "structures": [
+    {
+      "name": "FCommander",
+      "file": "Includes/Structs/Commander.inc",
+      "line": 13,
+      "size": 102
+    },
+    {
+      "name": "FTrDosEntry",
+      "file": "Includes/Structs/Disk.inc",
+      "line": 6,
+      "size": 16
+    },
+    {
+      "name": "FTrDosService",
+      "file": "Includes/Structs/Disk.inc",
+      "line": 33,
+      "size": 256
+    },
+    {
+      "name": "FDiskMark",
+      "file": "Includes/Structs/Disk.inc",
+      "line": 60,
+      "size": 256
+    },
+    {
+      "name": "FEffectRecord10",
+      "file": "Includes/Structs/EffectRecord.inc",
+      "line": 10,
+      "size": 10
+    },
+    {
+      "name": "FSystemSeed",
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "line": 9,
+      "size": 6
+    },
+    {
+      "name": "FFlightEvent",
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "line": 41,
+      "size": 2
+    },
+    {
+      "name": "FGalaxyState",
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "line": 47,
+      "size": 73
+    },
+    {
+      "name": "FSoundState",
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "line": 81,
+      "size": 5
+    },
+    {
+      "name": "FFaceState",
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "line": 88,
+      "size": 12
+    },
+    {
+      "name": "FInputMotion",
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "line": 100,
+      "size": 6
+    },
+    {
+      "name": "FMarketWork",
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "line": 107,
+      "size": 9
+    },
+    {
+      "name": "FTradeSnapshot",
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "line": 116,
+      "size": 10
+    },
+    {
+      "name": "FEquipmentWork",
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "line": 127,
+      "size": 5
+    },
+    {
+      "name": "FTextInput",
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "line": 135,
+      "size": 4
+    },
+    {
+      "name": "FMapViewport",
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "line": 142,
+      "size": 3
+    },
+    {
+      "name": "FFlightMessage",
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "line": 149,
+      "size": 8
+    },
+    {
+      "name": "FGauge",
+      "file": "Includes/Structs/Gauge.inc",
+      "line": 4,
+      "size": 2
+    },
+    {
+      "name": "FGaugeState",
+      "file": "Includes/Structs/Gauge.inc",
+      "line": 11,
+      "size": 26
+    },
+    {
+      "name": "FGoods",
+      "file": "Includes/Structs/Goods.inc",
+      "line": 4,
+      "size": 17
+    },
+    {
+      "name": "FCircleState",
+      "file": "Includes/Structs/GraphicsWorkspace.inc",
+      "line": 4,
+      "size": 17
+    },
+    {
+      "name": "FProjectionState",
+      "file": "Includes/Structs/GraphicsWorkspace.inc",
+      "line": 37,
+      "size": 17
+    },
+    {
+      "name": "FProjectedVertex",
+      "file": "Includes/Structs/GraphicsWorkspace.inc",
+      "line": 64,
+      "size": 3
+    },
+    {
+      "name": "FCompassState",
+      "file": "Includes/Structs/GraphicsWorkspace.inc",
+      "line": 86,
+      "size": 5
+    },
+    {
+      "name": "FRotationState",
+      "file": "Includes/Structs/GraphicsWorkspace.inc",
+      "line": 94,
+      "size": 2
+    },
+    {
+      "name": "FSteeringVector",
+      "file": "Includes/Structs/GraphicsWorkspace.inc",
+      "line": 99,
+      "size": 8
+    },
+    {
+      "name": "FSpacePosition",
+      "file": "Includes/Structs/GraphicsWorkspace.inc",
+      "line": 106,
+      "size": 9
+    },
+    {
+      "name": "FScannerState",
+      "file": "Includes/Structs/GraphicsWorkspace.inc",
+      "line": 112,
+      "size": 5
+    },
+    {
+      "name": "FObjectEffects",
+      "file": "Includes/Structs/GraphicsWorkspace.inc",
+      "line": 120,
+      "size": 5
+    },
+    {
+      "name": "FInputState",
+      "file": "Includes/Structs/InputState.inc",
+      "line": 8,
+      "size": 8
+    },
+    {
+      "name": "FKeyboardRows",
+      "file": "Includes/Structs/Keyboard.inc",
+      "line": 8,
+      "size": 8
+    },
+    {
+      "name": "FMarketEntry",
+      "file": "Includes/Structs/Market.inc",
+      "line": 4,
+      "size": 4
+    },
+    {
+      "name": "FEquipmentPrice",
+      "file": "Includes/Structs/Market.inc",
+      "line": 22,
+      "size": 3
+    },
+    {
+      "name": "FModel",
+      "file": "Includes/Structs/Model.inc",
+      "line": 11,
+      "size": 23
+    },
+    {
+      "name": "FModelIndex",
+      "file": "Includes/Structs/Model.inc",
+      "line": 104,
+      "size": 4
+    },
+    {
+      "name": "FSignWord",
+      "file": "Includes/Structs/SpaceObject.inc",
+      "line": 4,
+      "size": 2
+    },
+    {
+      "name": "FVector3",
+      "file": "Includes/Structs/SpaceObject.inc",
+      "line": 9,
+      "size": 3
+    },
+    {
+      "name": "FCoordinate",
+      "file": "Includes/Structs/SpaceObject.inc",
+      "line": 15,
+      "size": 3
+    },
+    {
+      "name": "FAxis",
+      "file": "Includes/Structs/SpaceObject.inc",
+      "line": 21,
+      "size": 6
+    },
+    {
+      "name": "FMatrix3",
+      "file": "Includes/Structs/SpaceObject.inc",
+      "line": 27,
+      "size": 18
+    },
+    {
+      "name": "FSpaceObject",
+      "file": "Includes/Structs/SpaceObject.inc",
+      "line": 33,
+      "size": 39
+    }
+  ],
+  "replaced_fields": [
+    {
+      "old": "Goods.Food",
+      "current": "FGoods.Food",
+      "value": 0
+    },
+    {
+      "old": "Goods.Textiles",
+      "current": "FGoods.Textiles",
+      "value": 1
+    },
+    {
+      "old": "Goods.Radioactives",
+      "current": "FGoods.Radioactives",
+      "value": 2
+    },
+    {
+      "old": "Goods.Slaves",
+      "current": "FGoods.Slaves",
+      "value": 3
+    },
+    {
+      "old": "Goods.Liquor",
+      "current": "FGoods.Liquor",
+      "value": 4
+    },
+    {
+      "old": "Goods.Luxuries",
+      "current": "FGoods.Luxuries",
+      "value": 5
+    },
+    {
+      "old": "Goods.Narcotics",
+      "current": "FGoods.Narcotics",
+      "value": 6
+    },
+    {
+      "old": "Goods.Computers",
+      "current": "FGoods.Computers",
+      "value": 7
+    },
+    {
+      "old": "Goods.Machinery",
+      "current": "FGoods.Machinery",
+      "value": 8
+    },
+    {
+      "old": "Goods.Alloys",
+      "current": "FGoods.Alloys",
+      "value": 9
+    },
+    {
+      "old": "Goods.Firearms",
+      "current": "FGoods.Firearms",
+      "value": 10
+    },
+    {
+      "old": "Goods.Furs",
+      "current": "FGoods.Furs",
+      "value": 11
+    },
+    {
+      "old": "Goods.Minerals",
+      "current": "FGoods.Minerals",
+      "value": 12
+    },
+    {
+      "old": "Goods.Gold",
+      "current": "FGoods.Gold",
+      "value": 13
+    },
+    {
+      "old": "Goods.Platinum",
+      "current": "FGoods.Platinum",
+      "value": 14
+    },
+    {
+      "old": "Goods.Gemstones",
+      "current": "FGoods.Gemstones",
+      "value": 15
+    },
+    {
+      "old": "Goods.AlienItems",
+      "current": "FGoods.AlienItems",
+      "value": 16
+    },
+    {
+      "old": "GaugeState.FrontShield.Previous",
+      "current": "GaugeState + FGaugeState.FrontShield.Previous",
+      "value": 28903
+    },
+    {
+      "old": "GaugeState.FrontShield.Current",
+      "current": "GaugeState + FGaugeState.FrontShield.Current",
+      "value": 28904
+    },
+    {
+      "old": "GaugeState.RearShield.Previous",
+      "current": "GaugeState + FGaugeState.RearShield.Previous",
+      "value": 28905
+    },
+    {
+      "old": "GaugeState.RearShield.Current",
+      "current": "GaugeState + FGaugeState.RearShield.Current",
+      "value": 28906
+    },
+    {
+      "old": "GaugeState.Fuel.Previous",
+      "current": "GaugeState + FGaugeState.Fuel.Previous",
+      "value": 28907
+    },
+    {
+      "old": "GaugeState.Fuel.Current",
+      "current": "GaugeState + FGaugeState.Fuel.Current",
+      "value": 28908
+    },
+    {
+      "old": "GaugeState.CabinHeat.Previous",
+      "current": "GaugeState + FGaugeState.CabinHeat.Previous",
+      "value": 28909
+    },
+    {
+      "old": "GaugeState.CabinHeat.Current",
+      "current": "GaugeState + FGaugeState.CabinHeat.Current",
+      "value": 28910
+    },
+    {
+      "old": "GaugeState.LaserHeat.Previous",
+      "current": "GaugeState + FGaugeState.LaserHeat.Previous",
+      "value": 28911
+    },
+    {
+      "old": "GaugeState.LaserHeat.Current",
+      "current": "GaugeState + FGaugeState.LaserHeat.Current",
+      "value": 28912
+    },
+    {
+      "old": "GaugeState.Altitude.Previous",
+      "current": "GaugeState + FGaugeState.Altitude.Previous",
+      "value": 28913
+    },
+    {
+      "old": "GaugeState.Altitude.Current",
+      "current": "GaugeState + FGaugeState.Altitude.Current",
+      "value": 28914
+    },
+    {
+      "old": "GaugeState.Speed.Previous",
+      "current": "GaugeState + FGaugeState.Speed.Previous",
+      "value": 28915
+    },
+    {
+      "old": "GaugeState.Speed.Current",
+      "current": "GaugeState + FGaugeState.Speed.Current",
+      "value": 28916
+    },
+    {
+      "old": "GaugeState.Energy1.Previous",
+      "current": "GaugeState + FGaugeState.Energy1.Previous",
+      "value": 28917
+    },
+    {
+      "old": "GaugeState.Energy1.Current",
+      "current": "GaugeState + FGaugeState.Energy1.Current",
+      "value": 28918
+    },
+    {
+      "old": "GaugeState.Energy2.Previous",
+      "current": "GaugeState + FGaugeState.Energy2.Previous",
+      "value": 28919
+    },
+    {
+      "old": "GaugeState.Energy2.Current",
+      "current": "GaugeState + FGaugeState.Energy2.Current",
+      "value": 28920
+    },
+    {
+      "old": "GaugeState.Energy3.Previous",
+      "current": "GaugeState + FGaugeState.Energy3.Previous",
+      "value": 28921
+    },
+    {
+      "old": "GaugeState.Energy3.Current",
+      "current": "GaugeState + FGaugeState.Energy3.Current",
+      "value": 28922
+    },
+    {
+      "old": "GaugeState.Energy4.Previous",
+      "current": "GaugeState + FGaugeState.Energy4.Previous",
+      "value": 28923
+    },
+    {
+      "old": "GaugeState.Energy4.Current",
+      "current": "GaugeState + FGaugeState.Energy4.Current",
+      "value": 28924
+    },
+    {
+      "old": "GaugeState.Roll.Previous",
+      "current": "GaugeState + FGaugeState.Roll.Previous",
+      "value": 28925
+    },
+    {
+      "old": "GaugeState.Roll.Current",
+      "current": "GaugeState + FGaugeState.Roll.Current",
+      "value": 28926
+    },
+    {
+      "old": "GaugeState.Pitch.Previous",
+      "current": "GaugeState + FGaugeState.Pitch.Previous",
+      "value": 28927
+    },
+    {
+      "old": "GaugeState.Pitch.Current",
+      "current": "GaugeState + FGaugeState.Pitch.Current",
+      "value": 28928
+    }
+  ],
+  "matching_unchanged_symbols": 5088,
+  "changed_existing_symbol_values": {},
+  "commander_bytes": 102,
+  "trd_bytes": 655360,
+  "trd_sha256": "35784a3be331360d214e182d75c5664aaca1b8d79b62e0d2035a4f9cb5515074",
+  "trd_equals_original": true
+}

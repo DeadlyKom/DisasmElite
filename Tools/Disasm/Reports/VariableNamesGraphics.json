@@ -1,0 +1,1859 @@
+{
+  "bindings": [
+    {
+      "address": 33108,
+      "symbol": "MenuDispatch.Target",
+      "file": "Source/Game/Screen/DispatchMenu.asm",
+      "kind": "instruction operand",
+      "meaning": "адрес вызываемого обработчика меню в операнде CALL",
+      "evidence": {
+        "instruction": "CALL $D015",
+        "instruction_address": 33107,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 34157,
+      "symbol": "IndicatorDraw.BoundaryMask",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "kind": "instruction operand",
+      "meaning": "маска границы, #FF для полосы и #03 для маркера",
+      "evidence": {
+        "instruction": "LD C,$FF",
+        "instruction_address": 34156,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 34199,
+      "symbol": "IndicatorDraw.BodyFill",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "kind": "instruction operand",
+      "meaning": "заполнитель полных байтов полосы, #FF либо #00",
+      "evidence": {
+        "instruction": "LD A,$FF",
+        "instruction_address": 34198,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 34233,
+      "symbol": "IndicatorDraw.FullFill",
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "kind": "instruction operand",
+      "meaning": "заполнитель полной шкалы, #FF либо #00",
+      "evidence": {
+        "instruction": "LD A,$FF",
+        "instruction_address": 34232,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 35290,
+      "symbol": "CircleRaster.LeftBuffer",
+      "file": "Source/Game/Circles/ComputeLeftEdgeMask.asm",
+      "kind": "instruction operand",
+      "meaning": "двухбайтовый SET 7,H либо NOP/NOP, выбор буфера левого края",
+      "evidence": {
+        "instruction": "SET 7,H",
+        "instruction_address": 35290,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 35323,
+      "symbol": "CircleRaster.RightBuffer",
+      "file": "Source/Game/Circles/ComputeRightEdgeMask.asm",
+      "kind": "instruction operand",
+      "meaning": "двухбайтовый SET 7,H либо NOP/NOP, выбор буфера правого края",
+      "evidence": {
+        "instruction": "SET 7,H",
+        "instruction_address": 35323,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 35402,
+      "symbol": "CircleRaster.FillTop",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "kind": "instruction operand",
+      "meaning": "верхний предел в младшем байте пары предела и кода JR",
+      "evidence": {
+        "instruction": "LD HL,$30C0",
+        "instruction_address": 35401,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 35425,
+      "symbol": "CircleRaster.FillBottom",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "kind": "instruction operand",
+      "meaning": "нижний предел в младшем байте пары предела и кода JR",
+      "evidence": {
+        "instruction": "LD HL,$38D0",
+        "instruction_address": 35424,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 35438,
+      "symbol": "CircleRaster.FillBuffer",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "kind": "instruction operand",
+      "meaning": "двухбайтовый SET 7,H либо NOP/NOP для заполнения строк",
+      "evidence": {
+        "instruction": "SET 7,H",
+        "instruction_address": 35438,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 35461,
+      "symbol": "CircleRaster.RowStep",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "kind": "instruction operand",
+      "meaning": "пара LD A,H/DEC H либо INC H/LD A,H, направление обхода",
+      "evidence": {
+        "instruction": "NOP",
+        "instruction_address": 35461,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 35474,
+      "symbol": "CircleRaster.CellStep",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "kind": "instruction operand",
+      "meaning": "пара SUB #20 либо ADD A,#20, переход между знакоместами",
+      "evidence": {
+        "instruction": "NOP",
+        "instruction_address": 35474,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 35480,
+      "symbol": "CircleRaster.ThirdStep",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "kind": "instruction operand",
+      "meaning": "пара ADD A,#08 либо SUB #08, коррекция трети экрана",
+      "evidence": {
+        "instruction": "ADD A,$08",
+        "instruction_address": 35480,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 35486,
+      "symbol": "CircleRaster.LimitBranch",
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "kind": "instruction operand",
+      "meaning": "операнд CP и код следующего JR, предел и условие продолжения",
+      "evidence": {
+        "instruction": "CP $00",
+        "instruction_address": 35485,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 35586,
+      "symbol": "CircleRaster.BothTop",
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "kind": "instruction operand",
+      "meaning": "верхний предел заполнения круга без бокового отсечения",
+      "evidence": {
+        "instruction": "LD A,$BF",
+        "instruction_address": 35585,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 35593,
+      "symbol": "CircleRaster.BothBottom",
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "kind": "instruction operand",
+      "meaning": "нижний предел заполнения круга без бокового отсечения",
+      "evidence": {
+        "instruction": "LD A,$CF",
+        "instruction_address": 35592,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 35795,
+      "symbol": "CircleRaster.BothPairJump",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "kind": "instruction operand",
+      "meaning": "смещение JR, выбор числа пар байтов для заполнения через PUSH AF",
+      "evidence": {
+        "instruction": "JR $8BD2",
+        "instruction_address": 35794,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 35846,
+      "symbol": "CircleRaster.LeftTop",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "kind": "instruction operand",
+      "meaning": "верхний предел заполнения круга с левым отсечением",
+      "evidence": {
+        "instruction": "LD A,$BF",
+        "instruction_address": 35845,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 35853,
+      "symbol": "CircleRaster.LeftBottom",
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "kind": "instruction operand",
+      "meaning": "нижний предел заполнения круга с левым отсечением",
+      "evidence": {
+        "instruction": "LD A,$CF",
+        "instruction_address": 35852,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 36051,
+      "symbol": "CircleRaster.LeftPairJump",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "kind": "instruction operand",
+      "meaning": "смещение JR, число пар внутренних байтов при левом отсечении",
+      "evidence": {
+        "instruction": "JR $8CD2",
+        "instruction_address": 36050,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 36102,
+      "symbol": "CircleRaster.RightTop",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "kind": "instruction operand",
+      "meaning": "верхний предел заполнения круга с правым отсечением",
+      "evidence": {
+        "instruction": "LD A,$BF",
+        "instruction_address": 36101,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 36109,
+      "symbol": "CircleRaster.RightBottom",
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "kind": "instruction operand",
+      "meaning": "нижний предел заполнения круга с правым отсечением",
+      "evidence": {
+        "instruction": "LD A,$CF",
+        "instruction_address": 36108,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 36297,
+      "symbol": "CircleRaster.RightPairJump",
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "kind": "instruction operand",
+      "meaning": "смещение JR, число пар внутренних байтов при правом отсечении",
+      "evidence": {
+        "instruction": "JR $8DC8",
+        "instruction_address": 36296,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 36350,
+      "symbol": "CircleRaster.PreviousRow",
+      "file": "Source/Game/Circles/CrossCircleCharacterRowUp.asm",
+      "kind": "instruction operand",
+      "meaning": "верхний предел при переходе на предыдущее знакоместо",
+      "evidence": {
+        "instruction": "LD A,$BF",
+        "instruction_address": 36349,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 36376,
+      "symbol": "CircleRaster.NextRow",
+      "file": "Source/Game/Circles/CrossCircleCharacterRowDown.asm",
+      "kind": "instruction operand",
+      "meaning": "нижний предел при переходе на следующее знакоместо",
+      "evidence": {
+        "instruction": "LD A,$D0",
+        "instruction_address": 36375,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 36763,
+      "symbol": "CircleRaster.TargetBottom",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "kind": "instruction operand",
+      "meaning": "нижний предел, который патчер распространяет на три обработчика",
+      "evidence": {
+        "instruction": "LD A,$4F",
+        "instruction_address": 36762,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 36774,
+      "symbol": "CircleRaster.TargetTop",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "kind": "instruction operand",
+      "meaning": "верхний предел, который патчер распространяет на четыре обработчика",
+      "evidence": {
+        "instruction": "LD A,$3F",
+        "instruction_address": 36773,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 42909,
+      "symbol": "ObjectRaster.TargetValue",
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "kind": "instruction operand",
+      "meaning": "операнд LD A,0, значение записи в номер цели прицела",
+      "evidence": {
+        "instruction": "LD A,$00",
+        "instruction_address": 42908,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 43081,
+      "symbol": "ObjectRaster.PixelMode",
+      "file": "Source/Game/Motion/XorFarObjectPixel.asm",
+      "kind": "instruction operand",
+      "meaning": "два байта конца SET 7,H и XOR (HL), патч прямого экрана",
+      "evidence": {
+        "instruction": "SET 7,H",
+        "instruction_address": 43080,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 43550,
+      "symbol": "VertexRaster.FaceCombine",
+      "file": "Source/Game/Wireframe/AnyPackedFaceVisible.asm",
+      "kind": "instruction operand",
+      "meaning": "код OR B, объединение видимости двух граней",
+      "evidence": {
+        "instruction": "OR B",
+        "instruction_address": 43550,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 43560,
+      "symbol": "VertexRaster.FaceAddress",
+      "file": "Source/Game/Wireframe/ReadFaceVisibilityNibble.asm",
+      "kind": "instruction operand",
+      "meaning": "младший байт адреса чтения флага выбранной грани",
+      "evidence": {
+        "instruction": "LD A,($A984)",
+        "instruction_address": 43559,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 45493,
+      "symbol": "LineRaster.SteepStep",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "код INC H либо DEC H для крутого отрезка",
+      "evidence": {
+        "instruction": "INC H",
+        "instruction_address": 45493,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 45495,
+      "symbol": "LineRaster.SteepPixel",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "код OR (HL) либо XOR (HL), наложение одиночного пикселя",
+      "evidence": {
+        "instruction": "OR (HL)",
+        "instruction_address": 45495,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 45501,
+      "symbol": "LineRaster.SteepFraction",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "дробный шаг X в операнде ADD A для крутого отрезка",
+      "evidence": {
+        "instruction": "ADD A,$00",
+        "instruction_address": 45500,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 45511,
+      "symbol": "LineRaster.SteepRowOffset",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "смещение JR к направлению смены знакоместа крутого отрезка",
+      "evidence": {
+        "instruction": "JR $B1C8",
+        "instruction_address": 45510,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 45581,
+      "symbol": "LineRaster.RunStep",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "код INC H либо DEC H для пологого отрезка",
+      "evidence": {
+        "instruction": "INC H",
+        "instruction_address": 45581,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 45583,
+      "symbol": "LineRaster.RunLength",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "целая часть числа пикселей на строку в операнде LD D",
+      "evidence": {
+        "instruction": "LD D,$00",
+        "instruction_address": 45582,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 45586,
+      "symbol": "LineRaster.RunFraction",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "дробная часть числа пикселей на строку в операнде ADD A",
+      "evidence": {
+        "instruction": "ADD A,$00",
+        "instruction_address": 45585,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 45617,
+      "symbol": "LineRaster.MaskOffset",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "смещение IX при выборе маски первого байта группы",
+      "evidence": {
+        "instruction": "LD A,(IX+$00)",
+        "instruction_address": 45615,
+        "byte_offset": 2
+      }
+    },
+    {
+      "address": 45618,
+      "symbol": "LineRaster.FirstPixel",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "код OR (HL) либо XOR (HL), наложение первого байта группы",
+      "evidence": {
+        "instruction": "OR (HL)",
+        "instruction_address": 45618,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 45636,
+      "symbol": "LineRaster.FullPixel",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "код OR (HL) либо XOR (HL), наложение полного байта группы",
+      "evidence": {
+        "instruction": "OR (HL)",
+        "instruction_address": 45636,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 45650,
+      "symbol": "LineRaster.LastPixel",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "код OR (HL) либо XOR (HL), наложение последнего байта группы",
+      "evidence": {
+        "instruction": "OR (HL)",
+        "instruction_address": 45650,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 45661,
+      "symbol": "LineRaster.NextBit",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "номер первого пикселя следующей строки в операнде LD C",
+      "evidence": {
+        "instruction": "LD C,$00",
+        "instruction_address": 45660,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 45663,
+      "symbol": "LineRaster.RunRowOffset",
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "kind": "instruction operand",
+      "meaning": "смещение JR к направлению смены знакоместа пологого отрезка",
+      "evidence": {
+        "instruction": "JR $B260",
+        "instruction_address": 45662,
+        "byte_offset": 1
+      }
+    },
+    {
+      "address": 46150,
+      "symbol": "ScannerRaster.StepOpcodes",
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "kind": "instruction operand",
+      "meaning": "два кода INC/DEC B/C либо NOP, шаг отрезка маркера",
+      "evidence": {
+        "instruction": "NOP",
+        "instruction_address": 46150,
+        "byte_offset": 0
+      }
+    },
+    {
+      "address": 32977,
+      "symbol": "MenuDispatch.SavedSP",
+      "file": "Source/Game/Screen/ResetCargoCapacity.asm",
+      "kind": "data",
+      "meaning": "реальный стек, сохранённый перед вызовом меню",
+      "evidence": "DispatchMenu сохраняет SP при входе и восстанавливает перед возвратом"
+    },
+    {
+      "address": 33188,
+      "symbol": "CompassState.SunNear",
+      "file": "Source/Game/Screen/RestrictDockingView.asm",
+      "kind": "data",
+      "meaning": "флаг, солнце прошло проверку ближнего диапазона координат",
+      "evidence": "UpdateCelestialProximity, WriteStridedTriple, CompassNearAxis записывают, VectorLength.DrawCompass читает координаты и полусферу"
+    },
+    {
+      "address": 33189,
+      "symbol": "CompassState.PlanetNear",
+      "file": "Source/Game/Screen/RestrictDockingView.asm",
+      "kind": "data",
+      "meaning": "флаг, планета обрабатывается в ближнем диапазоне",
+      "evidence": "UpdateCelestialProximity, WriteStridedTriple, CompassNearAxis записывают, VectorLength.DrawCompass читает координаты и полусферу"
+    },
+    {
+      "address": 33190,
+      "symbol": "CompassState.X",
+      "file": "Source/Game/Screen/RestrictDockingView.asm",
+      "kind": "data",
+      "meaning": "нормированная горизонтальная координата указателя",
+      "evidence": "UpdateCelestialProximity, WriteStridedTriple, CompassNearAxis записывают, VectorLength.DrawCompass читает координаты и полусферу"
+    },
+    {
+      "address": 33191,
+      "symbol": "CompassState.Y",
+      "file": "Source/Game/Screen/RestrictDockingView.asm",
+      "kind": "data",
+      "meaning": "нормированная вертикальная координата указателя",
+      "evidence": "UpdateCelestialProximity, WriteStridedTriple, CompassNearAxis записывают, VectorLength.DrawCompass читает координаты и полусферу"
+    },
+    {
+      "address": 33192,
+      "symbol": "CompassState.Behind",
+      "file": "Source/Game/Screen/RestrictDockingView.asm",
+      "kind": "data",
+      "meaning": "флаг, объект компаса находится позади корабля",
+      "evidence": "UpdateCelestialProximity, WriteStridedTriple, CompassNearAxis записывают, VectorLength.DrawCompass читает координаты и полусферу"
+    },
+    {
+      "address": 34083,
+      "symbol": "IndicatorDraw.MarkerMode",
+      "file": "Source/Game/Screen/UpdateIndicators.asm",
+      "kind": "data",
+      "meaning": "режим прибора, 0 полоса, 1 подвижный маркер",
+      "evidence": "UpdateIndicators проходит таблицу DE с шагом два, DrawIndicatorBar считывает адрес через (DE)"
+    },
+    {
+      "address": 34084,
+      "symbol": "GaugeAddresses",
+      "file": "Source/Game/Screen/UpdateIndicators.asm",
+      "kind": "data",
+      "meaning": "экранные адреса шкал, UpdateIndicators использует первые 13 слов",
+      "evidence": "UpdateIndicators проходит таблицу DE с шагом два, DrawIndicatorBar считывает адрес через (DE)"
+    },
+    {
+      "address": 34330,
+      "symbol": "CircleState.OffsetY",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "модуль вертикального смещения центра",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34331,
+      "symbol": "CircleState.OffsetX",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "модуль горизонтального смещения центра",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34332,
+      "symbol": "CircleState.Flags",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "знаки и признаки диапазона центра, схема в FCircleState",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34333,
+      "symbol": "CircleState.Radius",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "радиус окружности в пикселях",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34334,
+      "symbol": "CircleState.ClipY",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "рабочий модуль Y или расстояние до вертикальной границы",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34335,
+      "symbol": "CircleState.ClipX",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "рабочий модуль X или расстояние до боковой границы",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34336,
+      "symbol": "CircleState.ScreenY",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "экранная строка центра или начало отсечённой дуги",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34337,
+      "symbol": "CircleState.ScreenX",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "экранный столбец центра",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34338,
+      "symbol": "CircleState.Cathetus",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "катет точки пересечения круга с границей",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34339,
+      "symbol": "CircleState.SavedSP",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "реальный стек до временного заполнения или чтения таблицы",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34341,
+      "symbol": "CircleState.Radicand",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "подкоренное значение r*r - d*d - входной перенос",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34343,
+      "symbol": "CircleState.LeftMask",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "маска левого края перед заполнением строки",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34344,
+      "symbol": "CircleState.DirectionDown",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "направление дуги, 0 вверх, 1 вниз",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34345,
+      "symbol": "CircleState.OutlineOnly",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "режим окружности, 0 заливка, 1 только контур",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 34346,
+      "symbol": "CircleState.PatchCount",
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "kind": "data",
+      "meaning": "число байтов патча области обзора",
+      "evidence": "DispatchClippedCircle, IntegerCircleCathetus и обработчики дуг используют этот непрерывный блок"
+    },
+    {
+      "address": 35514,
+      "symbol": "DistantBodies.First.X",
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "kind": "data",
+      "meaning": "три байта координаты X далёкого тела First",
+      "evidence": "UpdateCelestialCoordinates поворачивает два вектора с базами #8ABA и #8AC3, SelectDistantBody выбирает один из них"
+    },
+    {
+      "address": 35517,
+      "symbol": "DistantBodies.First.Y",
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "kind": "data",
+      "meaning": "три байта координаты Y далёкого тела First",
+      "evidence": "UpdateCelestialCoordinates поворачивает два вектора с базами #8ABA и #8AC3, SelectDistantBody выбирает один из них"
+    },
+    {
+      "address": 35520,
+      "symbol": "DistantBodies.First.Z",
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "kind": "data",
+      "meaning": "три байта координаты Z далёкого тела First",
+      "evidence": "UpdateCelestialCoordinates поворачивает два вектора с базами #8ABA и #8AC3, SelectDistantBody выбирает один из них"
+    },
+    {
+      "address": 35523,
+      "symbol": "DistantBodies.Second.X",
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "kind": "data",
+      "meaning": "три байта координаты X далёкого тела Second",
+      "evidence": "UpdateCelestialCoordinates поворачивает два вектора с базами #8ABA и #8AC3, SelectDistantBody выбирает один из них"
+    },
+    {
+      "address": 35526,
+      "symbol": "DistantBodies.Second.Y",
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "kind": "data",
+      "meaning": "три байта координаты Y далёкого тела Second",
+      "evidence": "UpdateCelestialCoordinates поворачивает два вектора с базами #8ABA и #8AC3, SelectDistantBody выбирает один из них"
+    },
+    {
+      "address": 35529,
+      "symbol": "DistantBodies.Second.Z",
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "kind": "data",
+      "meaning": "три байта координаты Z далёкого тела Second",
+      "evidence": "UpdateCelestialCoordinates поворачивает два вектора с базами #8ABA и #8AC3, SelectDistantBody выбирает один из них"
+    },
+    {
+      "address": 36790,
+      "symbol": "CircleFillWord",
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "kind": "data",
+      "meaning": "образец #FFFF для заполнения двух экранных байтов через PUSH AF",
+      "evidence": "SetCabinHeatAndContinueFilledCircle, SelectJumpAndContinueLeftFill, PrintShipAndContinueRightFill загружают AF через POP с этого адреса"
+    },
+    {
+      "address": 40832,
+      "symbol": "RotationState.Roll",
+      "file": "Source/Game/Motion/ScaleAxisHighByte.asm",
+      "kind": "data",
+      "meaning": "угол крена, знак в бите 7, модуль в битах 6..0",
+      "evidence": "RotateAxisByPlayer связывает X/Y по первому углу и Y/Z по второму, AnimateIntroObject задаёт демонстрационные значения"
+    },
+    {
+      "address": 40833,
+      "symbol": "RotationState.Pitch",
+      "file": "Source/Game/Motion/ScaleAxisHighByte.asm",
+      "kind": "data",
+      "meaning": "угол тангажа, знак в бите 7, модуль в битах 6..0",
+      "evidence": "RotateAxisByPlayer связывает X/Y по первому углу и Y/Z по второму, AnimateIntroObject задаёт демонстрационные значения"
+    },
+    {
+      "address": 41656,
+      "symbol": "SteeringVector.X",
+      "file": "Source/Game/Motion/AnimateIntroObject.asm",
+      "kind": "data",
+      "meaning": "знаковая X-компонента вектора к цели",
+      "evidence": "CheckObjectBoxAndChooseCourse/GuideMissileAndCheckImpact записывают три слова, SteerObjectAndTryLaser использует базу #A2B8"
+    },
+    {
+      "address": 41658,
+      "symbol": "SteeringVector.Y",
+      "file": "Source/Game/Motion/AnimateIntroObject.asm",
+      "kind": "data",
+      "meaning": "знаковая Y-компонента вектора к цели",
+      "evidence": "CheckObjectBoxAndChooseCourse/GuideMissileAndCheckImpact записывают три слова, SteerObjectAndTryLaser использует базу #A2B8"
+    },
+    {
+      "address": 41660,
+      "symbol": "SteeringVector.Z",
+      "file": "Source/Game/Motion/AnimateIntroObject.asm",
+      "kind": "data",
+      "meaning": "знаковая Z-компонента вектора к цели",
+      "evidence": "CheckObjectBoxAndChooseCourse/GuideMissileAndCheckImpact записывают три слова, SteerObjectAndTryLaser использует базу #A2B8"
+    },
+    {
+      "address": 41662,
+      "symbol": "SteeringVector.Length",
+      "file": "Source/Game/Motion/AnimateIntroObject.asm",
+      "kind": "data",
+      "meaning": "длина вектора к цели перед нормированием",
+      "evidence": "CheckObjectBoxAndChooseCourse/GuideMissileAndCheckImpact записывают три слова, SteerObjectAndTryLaser использует базу #A2B8"
+    },
+    {
+      "address": 42718,
+      "symbol": "ProjectedRadius",
+      "file": "Source/Game/Motion/DotProductAxisHighBytes.asm",
+      "kind": "data",
+      "meaning": "экранный радиус объекта после деления на глубину",
+      "evidence": "ProjectObjectAndSelectDetail записывает частное, StartObjectExplosion читает для эффекта взрыва"
+    },
+    {
+      "address": 43258,
+      "symbol": "ProjectedVerts",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "46 экранных вершин по три байта, X, Y, признаки",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43396,
+      "symbol": "FaceVisibility",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "16 байтов видимости граней",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43412,
+      "symbol": "ObjectMatrix",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "матрица поворота, три строки по три знаковых слова",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43430,
+      "symbol": "VertexProducts",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "девять кэшированных произведений модулей вершины и матрицы",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43448,
+      "symbol": "ProjectionState.Depth",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "глубина объекта, младший байт затем переиспользуется как уровень детализации",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43450,
+      "symbol": "ProjectionState.VertexOffset",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "смещение трёхбайтовой записи в таблице экранных вершин",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43451,
+      "symbol": "ProjectionState.X",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "повёрнутая X-компонента, затем X с добавленным положением объекта",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43453,
+      "symbol": "ProjectionState.Y",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "повёрнутая Y-компонента, затем Y с добавленным положением объекта",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43455,
+      "symbol": "ProjectionState.Z",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "повёрнутая Z-компонента, затем Z с добавленным положением объекта",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43457,
+      "symbol": "ProjectionState.ScreenX",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "модуль горизонтальной проекции центра или вершины",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43458,
+      "symbol": "ProjectionState.ScreenY",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "модуль вертикальной проекции центра или вершины",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43459,
+      "symbol": "ProjectionState.Flags",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "бит 1 знак X, бит 0 знак Y, схема в FProjectionState",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43460,
+      "symbol": "ProjectionState.SignX",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "знаковый старший байт пространственной координаты X",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43461,
+      "symbol": "ProjectionState.SignY",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "знаковый старший байт пространственной координаты Y",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43462,
+      "symbol": "ProjectionState.SignZ",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "знаковый старший байт пространственной координаты Z",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43463,
+      "symbol": "ProjectionState.Scale",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "число левых сдвигов для повышенной точности ближней вершины",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43464,
+      "symbol": "ProjectionState.NoCache",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "data",
+      "meaning": "флаг, произведения предыдущей вершины нельзя использовать",
+      "evidence": "BuildObjectRotationMatrix, BuildProjectedVertexTable и DivideFractionAndProjectVertex устанавливают базу и используют поля"
+    },
+    {
+      "address": 43534,
+      "symbol": "VertexFlags.Previous",
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "kind": "data",
+      "meaning": "предыдущие признаки знаков для повторного использования произведений",
+      "evidence": "SavePreviousVertexFlags копирует текущий байт в предыдущий, SumCachedVertexProducts сравнивает XOR для смены знаков"
+    },
+    {
+      "address": 43535,
+      "symbol": "VertexFlags.Current",
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "kind": "data",
+      "meaning": "текущие признаки координат из потока вершин",
+      "evidence": "SavePreviousVertexFlags копирует текущий байт в предыдущий, SumCachedVertexProducts сравнивает XOR для смены знаков"
+    },
+    {
+      "address": 44191,
+      "symbol": "VertexFraction.X",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "kind": "data",
+      "meaning": "дополнительные дробные разряды повёрнутой X-компоненты",
+      "evidence": "DivideFractionAndProjectVertex сохраняет A после RotateNearVertexComponent и использует при проекции"
+    },
+    {
+      "address": 44192,
+      "symbol": "VertexFraction.Y",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "kind": "data",
+      "meaning": "дополнительные дробные разряды повёрнутой Y-компоненты",
+      "evidence": "DivideFractionAndProjectVertex сохраняет A после RotateNearVertexComponent и использует при проекции"
+    },
+    {
+      "address": 44193,
+      "symbol": "VertexFraction.Z",
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "kind": "data",
+      "meaning": "дополнительные дробные разряды повёрнутой Z-компоненты",
+      "evidence": "DivideFractionAndProjectVertex сохраняет A после RotateNearVertexComponent и использует при проекции"
+    },
+    {
+      "address": 46162,
+      "symbol": "ObjectEffects.Current",
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "kind": "data",
+      "meaning": "указатель текущей десятибайтовой записи расширенного эффекта",
+      "evidence": "UpdateExtendedObjectEffects обходит 8 записей с шагом 10, AdvanceObjectMetadata сдвигает Current на 10"
+    },
+    {
+      "address": 46164,
+      "symbol": "ObjectEffects.Phase",
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "kind": "data",
+      "meaning": "фаза распределения объектов, младшие два бита проходят 1, 2, 3",
+      "evidence": "UpdateExtendedObjectEffects обходит 8 записей с шагом 10, AdvanceObjectMetadata сдвигает Current на 10"
+    },
+    {
+      "address": 46165,
+      "symbol": "ObjectEffects.Remaining",
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "kind": "data",
+      "meaning": "обратный номер текущего слота, счётчик обхода от 8 до 1",
+      "evidence": "UpdateExtendedObjectEffects обходит 8 записей с шагом 10, AdvanceObjectMetadata сдвигает Current на 10"
+    },
+    {
+      "address": 46166,
+      "symbol": "ObjectEffects.Flags",
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "kind": "data",
+      "meaning": "общие флаги режима расширенных эффектов",
+      "evidence": "UpdateExtendedObjectEffects обходит 8 записей с шагом 10, AdvanceObjectMetadata сдвигает Current на 10"
+    },
+    {
+      "address": 46167,
+      "symbol": "ObjectEffects.Records",
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "kind": "data",
+      "meaning": "восемь десятибайтовых записей FEffectRecord10",
+      "evidence": "UpdateExtendedObjectEffects обходит 8 записей с шагом 10, AdvanceObjectMetadata сдвигает Current на 10"
+    },
+    {
+      "address": 46247,
+      "symbol": "ObjectEffects.Scratch",
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "kind": "data",
+      "meaning": "дополнительная запись, исходная цель указателя Current",
+      "evidence": "UpdateExtendedObjectEffects обходит 8 записей с шагом 10, AdvanceObjectMetadata сдвигает Current на 10"
+    },
+    {
+      "address": 46294,
+      "symbol": "LaserRaster.Signs",
+      "file": "Source/Game/Wireframe/ReadObjectTacticsGates.asm",
+      "kind": "data",
+      "meaning": "биты 3/2 знаков центральной точки свободного лазерного луча",
+      "evidence": "SetObjectEnergyAndDrawMissedLaser хранит AND #0C, FirePlayerLaser проверяет прошлое нажатие и сохраняет новое"
+    },
+    {
+      "address": 46295,
+      "symbol": "LaserRaster.TriggerHeld",
+      "file": "Source/Game/Wireframe/ReadObjectTacticsGates.asm",
+      "kind": "data",
+      "meaning": "флаг, спуск лазера был активен на предыдущем обновлении",
+      "evidence": "SetObjectEnergyAndDrawMissedLaser хранит AND #0C, FirePlayerLaser проверяет прошлое нажатие и сохраняет новое"
+    },
+    {
+      "address": 36493,
+      "symbol": "CircleViewport.Chart",
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "kind": "table",
+      "meaning": "32 значения патчей полного экрана карты",
+      "evidence": "передаётся в HL или DE соответствующему обработчику"
+    },
+    {
+      "address": 36525,
+      "symbol": "CircleViewport.Flight",
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "kind": "table",
+      "meaning": "32 значения патчей области обзора",
+      "evidence": "передаётся в HL или DE соответствующему обработчику"
+    },
+    {
+      "address": 36557,
+      "symbol": "CircleViewport.Addresses",
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "kind": "table",
+      "meaning": "32 адреса однобайтовых патчей",
+      "evidence": "передаётся в HL или DE соответствующему обработчику"
+    },
+    {
+      "address": 43164,
+      "symbol": "ScannerAttrs",
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "kind": "table",
+      "meaning": "смещения изменяемых атрибутов сканера, #FF завершает таблицу",
+      "evidence": "передаётся в HL или DE соответствующему обработчику"
+    },
+    {
+      "address": 38592,
+      "symbol": "ScannerState.ScaledX",
+      "file": "Source/Game/Sound/StartHyperjumpNoise.asm",
+      "kind": "data",
+      "meaning": "масштабированная X, знак в бите 7",
+      "evidence": "DrawScannerObjects сохраняет знаковые масштабы X/Y/Z и номер слота, RestoreScannerBackground проверяет Redraw"
+    },
+    {
+      "address": 38593,
+      "symbol": "ScannerState.ScaledY",
+      "file": "Source/Game/Sound/StartHyperjumpNoise.asm",
+      "kind": "data",
+      "meaning": "масштабированная высота Y, знак в бите 7",
+      "evidence": "DrawScannerObjects сохраняет знаковые масштабы X/Y/Z и номер слота, RestoreScannerBackground проверяет Redraw"
+    },
+    {
+      "address": 38594,
+      "symbol": "ScannerState.ScaledZ",
+      "file": "Source/Game/Sound/StartHyperjumpNoise.asm",
+      "kind": "data",
+      "meaning": "масштабированная глубина Z, знак в бите 7",
+      "evidence": "DrawScannerObjects сохраняет знаковые масштабы X/Y/Z и номер слота, RestoreScannerBackground проверяет Redraw"
+    },
+    {
+      "address": 38595,
+      "symbol": "ScannerState.ObjectIndex",
+      "file": "Source/Game/Sound/StartHyperjumpNoise.asm",
+      "kind": "data",
+      "meaning": "обратный номер обрабатываемого слота, 8..1",
+      "evidence": "DrawScannerObjects сохраняет знаковые масштабы X/Y/Z и номер слота, RestoreScannerBackground проверяет Redraw"
+    },
+    {
+      "address": 38596,
+      "symbol": "ScannerState.Redraw",
+      "file": "Source/Game/Sound/StartHyperjumpNoise.asm",
+      "kind": "data",
+      "meaning": "флаг, фон сканера изменён и требует восстановления",
+      "evidence": "DrawScannerObjects сохраняет знаковые масштабы X/Y/Z и номер слота, RestoreScannerBackground проверяет Redraw"
+    },
+    {
+      "address": 35522,
+      "symbol": "DistantBodies.First.Z + FCoordinate.SignHigh",
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "kind": "data field",
+      "meaning": "старший знаковый байт Z далёкого тела",
+      "evidence": "три последовательных FCoordinate, Consumer CompareObjectCoordinateDepth читает старший байт Z"
+    },
+    {
+      "address": 35531,
+      "symbol": "DistantBodies.Second.Z + FCoordinate.SignHigh",
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "kind": "data field",
+      "meaning": "старший знаковый байт Z далёкого тела",
+      "evidence": "три последовательных FCoordinate, Consumer CompareObjectCoordinateDepth читает старший байт Z"
+    },
+    {
+      "address": 38703,
+      "symbol": "ScannerRaster.Mode",
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "kind": "instruction operand",
+      "meaning": "код AND A либо SCF, выбор обычной или альтернативной проекции",
+      "evidence": "AND A",
+      "storage_symbol": "Game.Scanner.DrawScannerObjects.ModeOpcode"
+    },
+    {
+      "address": 39186,
+      "symbol": "ScannerCopy.SelectSource",
+      "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+      "kind": "instruction operand",
+      "meaning": "код EX DE,HL либо NOP, выбор источника",
+      "evidence": "EX DE,HL",
+      "storage_symbol": "Game.Scanner.RestoreScannerBackground.SelectSource"
+    },
+    {
+      "address": 39189,
+      "symbol": "ScannerCopy.SaveCharRow",
+      "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+      "kind": "instruction operand",
+      "meaning": "код PUSH HL либо PUSH DE, сохранение экранной базы знакоместа",
+      "evidence": "PUSH HL",
+      "storage_symbol": "Game.Scanner.RestoreScannerBackground.SaveCharRow"
+    },
+    {
+      "address": 39194,
+      "symbol": "ScannerCopy.SavePixelRow",
+      "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+      "kind": "instruction operand",
+      "meaning": "код PUSH HL либо PUSH DE, сохранение экранной строки",
+      "evidence": "PUSH HL",
+      "storage_symbol": "Game.Scanner.RestoreScannerBackground.SavePixelRow"
+    },
+    {
+      "address": 39221,
+      "symbol": "ScannerCopy.RestoreRow",
+      "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+      "kind": "instruction operand",
+      "meaning": "код POP HL либо POP DE, восстановление экранной строки",
+      "evidence": "POP HL",
+      "storage_symbol": "Game.Scanner.ScaleValueAndFinishBackground.RestoreRow"
+    },
+    {
+      "address": 39222,
+      "symbol": "ScannerCopy.AdvanceRow",
+      "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+      "kind": "instruction operand",
+      "meaning": "код INC H либо INC D, следующая пиксельная строка",
+      "evidence": "INC H",
+      "storage_symbol": "Game.Scanner.ScaleValueAndFinishBackground.AdvanceRow"
+    },
+    {
+      "address": 39225,
+      "symbol": "ScannerCopy.SelectScreen",
+      "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+      "kind": "instruction operand",
+      "meaning": "код EX DE,HL либо NOP перед переходом к знакоместу",
+      "evidence": "EX DE,HL",
+      "storage_symbol": "Game.Scanner.ScaleValueAndFinishBackground.SelectScreen"
+    },
+    {
+      "address": 39232,
+      "symbol": "ScannerCopy.SelectTarget",
+      "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+      "kind": "instruction operand",
+      "meaning": "код NOP либо EX DE,HL, возврат направления копирования",
+      "evidence": "NOP",
+      "storage_symbol": "Game.Scanner.ScaleValueAndFinishBackground.SelectTarget"
+    },
+    {
+      "address": 41389,
+      "symbol": "MotionRaster.TranslateGate",
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "kind": "instruction operand",
+      "meaning": "код LD A либо RET, временное отключение поступательного сдвига",
+      "evidence": "LD A,($70E6)",
+      "storage_symbol": "Game.Motion.ApplyPlayerMotionToObject.TranslateGate"
+    },
+    {
+      "address": 46003,
+      "symbol": "ScannerRaster.BackdropMode",
+      "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+      "kind": "instruction operand",
+      "meaning": "операнд LD A, 7 обычный фон и атрибут, 0 альтернативный фон",
+      "evidence": "LD A,$07",
+      "storage_symbol": "Game.Wireframe.RefreshScannerBackground.BackdropMode"
+    },
+    {
+      "address": 33937,
+      "symbol": "CompassBitmap",
+      "file": "Source/Game/Screen/ConsumeEscapePod.asm",
+      "kind": "table",
+      "meaning": "фон компаса, 12 строк по три байта",
+      "evidence": "указатель загружается в соответствующем обработчике графики",
+      "storage_symbol": "Game.Screen.ConsumeEscapePod.CompassBitmap"
+    },
+    {
+      "address": 39211,
+      "symbol": "ScannerMap",
+      "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+      "kind": "table",
+      "meaning": "байты прежнего кода, используемые как поток альтернативного фона",
+      "evidence": "указатель загружается в соответствующем обработчике графики",
+      "storage_symbol": "Game.Scanner.ScaleValueAndFinishBackground.BackdropMap"
+    },
+    {
+      "address": 39331,
+      "symbol": "CockpitBlink",
+      "file": "Source/Game/Scanner/FillCockpitAttributePanel.asm",
+      "kind": "data",
+      "meaning": "счётчик мигания аварийного индикатора, бит 1 выбирает красную фазу",
+      "evidence": "указатель загружается в соответствующем обработчике графики",
+      "storage_symbol": "Game.Scanner.FillCockpitAttributePanel.BlinkCounter"
+    },
+    {
+      "address": 44604,
+      "symbol": "DemoModels",
+      "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+      "kind": "table",
+      "meaning": "двенадцать номеров моделей демонстрационного экрана",
+      "evidence": "указатель загружается в соответствующем обработчике графики",
+      "storage_symbol": "Game.Wireframe.InitializeObjectFromModelNumber.DemoModels"
+    },
+    {
+      "address": 45973,
+      "symbol": "ScannerBlocks",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "kind": "table",
+      "meaning": "блоки альтернативного фона сканера с шагом выбора 9 байтов",
+      "evidence": "указатель загружается в соответствующем обработчике графики",
+      "storage_symbol": "Game.Wireframe.DivideSlopeAndDrawScanner.BackdropBlocks"
+    },
+    {
+      "address": 43274,
+      "symbol": "ProjectedVerts + 16",
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "kind": "buffer offset",
+      "meaning": "переиспользуемая область поиска планет в буфере экранных вершин",
+      "evidence": "формирование адреса по фиксированному шагу таблицы"
+    },
+    {
+      "address": 45964,
+      "symbol": "ScannerBlocks - 9",
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "kind": "buffer offset",
+      "meaning": "база на один шаг до первого блока альтернативного фона",
+      "evidence": "формирование адреса по фиксированному шагу таблицы"
+    },
+    {
+      "address": 46157,
+      "symbol": "ObjectEffects.Records - FEffectRecord10",
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "kind": "buffer offset",
+      "meaning": "база на одну запись до первого слота для индексации от 1",
+      "evidence": "формирование адреса по фиксированному шагу таблицы"
+    },
+    {
+      "address": 46168,
+      "symbol": "ObjectEffects.Records + 1",
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "kind": "buffer offset",
+      "meaning": "второй байт массива, назначение LDIR при обнулении",
+      "evidence": "формирование адреса по фиксированному шагу таблицы"
+    },
+    {
+      "address": 46177,
+      "symbol": "ObjectEffects.Records + FEffectRecord10",
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "kind": "buffer offset",
+      "meaning": "расширенная запись первого обычного объекта после станции",
+      "evidence": "формирование адреса по фиксированному шагу таблицы"
+    },
+    {
+      "address": 32781,
+      "symbol": "Game.Screen.SelectTrafficType.InvasionCall",
+      "file": "Source/Game/Screen/SelectTrafficType.asm",
+      "kind": "instruction operand",
+      "meaning": "адрес обработчика проверки особой области в CALL",
+      "evidence": "установщик DiskUtility изменяет два байта операнда CALL"
+    },
+    {
+      "address": 1639,
+      "symbol": "LegacyPrice",
+      "file": "Source/Game/Screen/CargoTripleOffset.asm",
+      "kind": "ROM read address",
+      "meaning": "исходный адрес чтения трёхбайтовой цены для индекса от 14, содержимое ROM не объявляется переменной игры",
+      "evidence": "CargoTripleOffset.SpecialCargo возвращает HL=#0667 и A=0, GetEquipmentPriceAddress передаёт адрес HandleEquipmentPurchase, где читаются старшая группа и младшее слово"
+    }
+  ],
+  "reviewed_files": [
+    "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+    "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+    "Source/Game/Circles/BuildLeftContourPixelMask.asm",
+    "Source/Game/Circles/BuildRightContourPixelMask.asm",
+    "Source/Game/Circles/CheckBodiesAndRestoreViewport.asm",
+    "Source/Game/Circles/CheckSystemCoordinateBand.asm",
+    "Source/Game/Circles/ComputeLeftEdgeMask.asm",
+    "Source/Game/Circles/ComputeRightEdgeMask.asm",
+    "Source/Game/Circles/CrossCircleCharacterRowDown.asm",
+    "Source/Game/Circles/CrossCircleCharacterRowUp.asm",
+    "Source/Game/Circles/DetachMissileTarget.asm",
+    "Source/Game/Circles/DispatchClippedCircle.asm",
+    "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+    "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "Source/Game/Circles/DrawCornerLeftContour.asm",
+    "Source/Game/Circles/DrawCornerRightContour.asm",
+    "Source/Game/Circles/DrawCornerWideCircle.asm",
+    "Source/Game/Circles/DrawOneSideClippedCircle.asm",
+    "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+    "Source/Game/Circles/DrawUnclippedCircle.asm",
+    "Source/Game/Circles/DrawVerticalClippedCircle.asm",
+    "Source/Game/Circles/DrawWideCircleAcrossBothSides.asm",
+    "Source/Game/Circles/IntegerCircleCathetus.asm",
+    "Source/Game/Circles/LoadCircleIterationCoordinates.asm",
+    "Source/Game/Circles/PatchCircleScreenTarget.asm",
+    "Source/Game/Circles/PrepareBothClippedCoordinates.asm",
+    "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+    "Source/Game/Circles/PrepareLeftClippedCircle.asm",
+    "Source/Game/Circles/PrepareRightClippedCircle.asm",
+    "Source/Game/Circles/PrepareUnclippedCircle.asm",
+    "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+    "Source/Game/Circles/ScanUpgradeKeyRow.asm",
+    "Source/Game/Circles/SelectCircleBackBuffer.asm",
+    "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+    "Source/Game/Circles/SetBothContourBoundaries.asm",
+    "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+    "Source/Game/Circles/SetRightContourBoundary.asm",
+    "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+    "Source/Game/Circles/SkipViewportRowsUp.asm",
+    "Source/Game/Circles/StepCircleRowDown.asm",
+    "Source/Game/Circles/StepCircleRowUp.asm",
+    "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+    "Source/Game/Motion/AddCoordinateDelta.asm",
+    "Source/Game/Motion/AddScaledCoordinate.asm",
+    "Source/Game/Motion/AddSignedAngularProduct.asm",
+    "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+    "Source/Game/Motion/AdvanceOneCoordinate.asm",
+    "Source/Game/Motion/AnimateIntroObject.asm",
+    "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+    "Source/Game/Motion/CallObjectActionPreservingPointers.asm",
+    "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+    "Source/Game/Motion/DivideVectorComponent.asm",
+    "Source/Game/Motion/DotProductAxisHighBytes.asm",
+    "Source/Game/Motion/DoubleSignedAngle.asm",
+    "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+    "Source/Game/Motion/IsSmallSignedDistance.asm",
+    "Source/Game/Motion/MultiplySignedWordByByte.asm",
+    "Source/Game/Motion/NegatedQuarterCoordinate.asm",
+    "Source/Game/Motion/NormalizeVector16.asm",
+    "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+    "Source/Game/Motion/QuarterCoordinate.asm",
+    "Source/Game/Motion/QuarterCoordinateDifference.asm",
+    "Source/Game/Motion/RenormalizeAxisHighBytes.asm",
+    "Source/Game/Motion/RotateAxisByPlayer.asm",
+    "Source/Game/Motion/RotateBasisByObject.asm",
+    "Source/Game/Motion/ScaleAxisHighByte.asm",
+    "Source/Game/Motion/SignedByteProductPair.asm",
+    "Source/Game/Motion/SquareVectorComponent.asm",
+    "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+    "Source/Game/Motion/TransformNormalWithObjectCoordinate.asm",
+    "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+    "Source/Game/Motion/VelocityComponentDelta.asm",
+    "Source/Game/Motion/XorFarObjectPixel.asm",
+    "Source/Game/Scanner/AdvanceScannerObject.asm",
+    "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+    "Source/Game/Scanner/DrawScannerObjects.asm",
+    "Source/Game/Scanner/FillCockpitAttributePanel.asm",
+    "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+    "Source/Game/Scanner/ResetDangerIndicator.asm",
+    "Source/Game/Scanner/RestoreScannerBackground.asm",
+    "Source/Game/Scanner/SaveScannerBackground.asm",
+    "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+    "Source/Game/Scanner/SetCockpitDeviceAttributes.asm",
+    "Source/Game/Scanner/SetYellowFlightStatus.asm",
+    "Source/Game/Scanner/StepScannerStemDown.asm",
+    "Source/Game/Scanner/StepScannerStemUp.asm",
+    "Source/Game/Screen/CargoTripleOffset.asm",
+    "Source/Game/Screen/CheckDockingAlignment.asm",
+    "Source/Game/Screen/ChooseEncounterCode.asm",
+    "Source/Game/Screen/ClearFlightBuffer.asm",
+    "Source/Game/Screen/CompassFarAxis.asm",
+    "Source/Game/Screen/CompassNearAxis.asm",
+    "Source/Game/Screen/CompassShape.asm",
+    "Source/Game/Screen/ConsumeEscapePod.asm",
+    "Source/Game/Screen/CopyAlternateRows.asm",
+    "Source/Game/Screen/CopyFlightView.asm",
+    "Source/Game/Screen/CopySixtyRows.asm",
+    "Source/Game/Screen/DispatchMenu.asm",
+    "Source/Game/Screen/DrawCircleOutline.asm",
+    "Source/Game/Screen/DrawEmptyIndicator.asm",
+    "Source/Game/Screen/DrawFilledCircle.asm",
+    "Source/Game/Screen/DrawIndicatorBar.asm",
+    "Source/Game/Screen/DrawIndicatorMarker.asm",
+    "Source/Game/Screen/DrawLargeOutline.asm",
+    "Source/Game/Screen/DrawShortIndicator.asm",
+    "Source/Game/Screen/FillRowsDown.asm",
+    "Source/Game/Screen/FillRowsUp.asm",
+    "Source/Game/Screen/HandleScreenKeys.asm",
+    "Source/Game/Screen/IndicatorMarkerMask.asm",
+    "Source/Game/Screen/LeftArcDown.asm",
+    "Source/Game/Screen/LeftArcUp.asm",
+    "Source/Game/Screen/LengthHighWords.asm",
+    "Source/Game/Screen/LoadVectorWords.asm",
+    "Source/Game/Screen/MatchTargetPlanet.asm",
+    "Source/Game/Screen/NextCharacterRow.asm",
+    "Source/Game/Screen/NextScanline.asm",
+    "Source/Game/Screen/PlanetDistanceHint.asm",
+    "Source/Game/Screen/PreviousCharacterRow.asm",
+    "Source/Game/Screen/RepeatEnergyRecovery.asm",
+    "Source/Game/Screen/ResetCargoCapacity.asm",
+    "Source/Game/Screen/RestoreCockpit.asm",
+    "Source/Game/Screen/RestoreCockpitIfNeeded.asm",
+    "Source/Game/Screen/RestoreCompassBackground.asm",
+    "Source/Game/Screen/RestrictDockingView.asm",
+    "Source/Game/Screen/RightArcDown.asm",
+    "Source/Game/Screen/RightArcUp.asm",
+    "Source/Game/Screen/SaveCockpit.asm",
+    "Source/Game/Screen/ScaleProximity.asm",
+    "Source/Game/Screen/SelectScreen.asm",
+    "Source/Game/Screen/SelectTrafficType.asm",
+    "Source/Game/Screen/SetGameOver.asm",
+    "Source/Game/Screen/SunDistanceHint.asm",
+    "Source/Game/Screen/SwapAndSkipRow.asm",
+    "Source/Game/Screen/UnclippedArcDown.asm",
+    "Source/Game/Screen/UnclippedArcUp.asm",
+    "Source/Game/Screen/UpdateCelestialProximity.asm",
+    "Source/Game/Screen/UpdateIndicators.asm",
+    "Source/Game/Screen/VectorLength.asm",
+    "Source/Game/Screen/WriteIndicatorMask.asm",
+    "Source/Game/Screen/WriteStridedTriple.asm",
+    "Source/Game/Wireframe/AddRotatedVertexCoordinate.asm",
+    "Source/Game/Wireframe/AddSignedByteMagnitudes.asm",
+    "Source/Game/Wireframe/AdvanceNormalFlags.asm",
+    "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+    "Source/Game/Wireframe/AdvanceVertexFlags.asm",
+    "Source/Game/Wireframe/AnyPackedFaceVisible.asm",
+    "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+    "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+    "Source/Game/Wireframe/CorrectYAxisComponent.asm",
+    "Source/Game/Wireframe/CrossProductComponent.asm",
+    "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+    "Source/Game/Wireframe/DivideProjectionRatio.asm",
+    "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+    "Source/Game/Wireframe/DrawClippedLine.asm",
+    "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+    "Source/Game/Wireframe/DrawWireframeObject.asm",
+    "Source/Game/Wireframe/FinishObjectAndDrawLaser.asm",
+    "Source/Game/Wireframe/GetSystemVariationByte.asm",
+    "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+    "Source/Game/Wireframe/LocateFaceNormalData.asm",
+    "Source/Game/Wireframe/LocateVertexCoordinateData.asm",
+    "Source/Game/Wireframe/MergeInverseHostilityFlag.asm",
+    "Source/Game/Wireframe/MultiplyBytesApprox.asm",
+    "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+    "Source/Game/Wireframe/MultiplyHighByteApprox.asm",
+    "Source/Game/Wireframe/MultiplyScaledVertexComponent.asm",
+    "Source/Game/Wireframe/OrthogonalizeObjectYAxis.asm",
+    "Source/Game/Wireframe/ReadFaceVisibilityNibble.asm",
+    "Source/Game/Wireframe/ReadObjectTacticsGates.asm",
+    "Source/Game/Wireframe/ReadProjectedVertex.asm",
+    "Source/Game/Wireframe/ReadVertexFlags.asm",
+    "Source/Game/Wireframe/RefreshScannerBackground.asm",
+    "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+    "Source/Game/Wireframe/RotateDistantVertex.asm",
+    "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+    "Source/Game/Wireframe/SavePreviousVertexFlags.asm",
+    "Source/Game/Wireframe/SetTargetDisplayState.asm",
+    "Source/Game/Wireframe/StartObjectExplosion.asm",
+    "Source/Game/Wireframe/SumCachedVertexProducts.asm",
+    "Source/Game/Wireframe/UnscaleClippingRatio.asm"
+  ],
+  "unresolved": [],
+  "validation": "Именованные литеральные блоки и все остальные DB/DW области проверены против исходного GameCode.bin, 720 байтов без различий. Границы всех фрагментов сходятся. Полная сборка выполняется root после freeze.",
+  "pointer_review": {
+    "replacements": [
+      {
+        "file": "Source/Game/Screen/ClearFlightBuffer.asm",
+        "address": 53215,
+        "expression": "Memory.Frame + #0FDF",
+        "meaning": "последний байт строки 119 буфера, начало обратного заполнения"
+      },
+      {
+        "file": "Source/Game/Screen/CopyFlightView.asm",
+        "address": 49152,
+        "expression": "Memory.Frame",
+        "meaning": "строка 0 буфера, начало чётных строк"
+      },
+      {
+        "file": "Source/Game/Screen/CopyFlightView.asm",
+        "address": 16416,
+        "expression": "Memory.Screen + #0020",
+        "meaning": "строка 8 экрана, левый край полётного вида"
+      },
+      {
+        "file": "Source/Game/Screen/CopyFlightView.asm",
+        "address": 49408,
+        "expression": "Memory.Frame + #0100",
+        "meaning": "строка 1 буфера, начало нечётных строк"
+      },
+      {
+        "file": "Source/Game/Screen/CopyFlightView.asm",
+        "address": 16672,
+        "expression": "Memory.Screen + #0120",
+        "meaning": "строка 9 экрана, левый край полётного вида"
+      },
+      {
+        "file": "Source/Game/Screen/RestoreCockpit.asm",
+        "address": 22528,
+        "expression": "Memory.Attributes",
+        "meaning": "левый верхний атрибут, начало очистки боковых границ"
+      },
+      {
+        "file": "Source/Game/Screen/RestoreCockpit.asm",
+        "address": 20480,
+        "expression": "Memory.Screen + #1000",
+        "meaning": "строка 128, начало пиксельного изображения кабины"
+      },
+      {
+        "file": "Source/Game/Screen/RestoreCockpit.asm",
+        "address": 49152,
+        "expression": "Memory.Frame",
+        "meaning": "сохранённые 2048 байтов пикселей кабины"
+      },
+      {
+        "file": "Source/Game/Screen/RestoreCockpit.asm",
+        "address": 23040,
+        "expression": "Memory.Attributes + 16 * 32",
+        "meaning": "атрибуты кабины, восемь строк начиная с 16"
+      },
+      {
+        "file": "Source/Game/Screen/RestoreCockpit.asm",
+        "address": 23296,
+        "expression": "Memory.CockpitAttrs",
+        "meaning": "сохранённые 256 атрибутов кабины"
+      },
+      {
+        "file": "Source/Game/Screen/SaveCockpit.asm",
+        "address": 49152,
+        "expression": "Memory.Frame",
+        "meaning": "копия 2048 байтов пикселей кабины"
+      },
+      {
+        "file": "Source/Game/Screen/SaveCockpit.asm",
+        "address": 20480,
+        "expression": "Memory.Screen + #1000",
+        "meaning": "строка 128, начало пиксельного изображения кабины"
+      },
+      {
+        "file": "Source/Game/Screen/SaveCockpit.asm",
+        "address": 23296,
+        "expression": "Memory.CockpitAttrs",
+        "meaning": "копия 256 атрибутов кабины"
+      },
+      {
+        "file": "Source/Game/Screen/SaveCockpit.asm",
+        "address": 23040,
+        "expression": "Memory.Attributes + 16 * 32",
+        "meaning": "восемь строк атрибутов кабины начиная с 16"
+      },
+      {
+        "file": "Source/Game/Screen/RestoreCockpitIfNeeded.asm",
+        "address": 16416,
+        "expression": "Memory.Screen + #0020",
+        "meaning": "первый байт строки 8, маркер текстового экрана"
+      },
+      {
+        "file": "Source/Game/Scanner/SetCockpitDeviceAttributes.asm",
+        "address": 23075,
+        "expression": "Memory.Attributes + 17 * 32 + 3",
+        "meaning": "левая панель приборов, строка 17, столбец 3"
+      },
+      {
+        "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+        "address": 21903,
+        "expression": "Memory.Screen + #158F",
+        "meaning": "основание отметки сканера, строка 165, байт 15"
+      },
+      {
+        "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+        "address": 20489,
+        "expression": "Memory.Screen + #1009",
+        "meaning": "начало очистки сканера, строка 128, байт 9"
+      },
+      {
+        "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+        "address": 20522,
+        "expression": "Memory.Screen + #102A",
+        "meaning": "дополнительная область сканера, строка 136, байт 10"
+      },
+      {
+        "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+        "address": 20553,
+        "expression": "Memory.Screen + #1049",
+        "meaning": "копируемый фон сканера, строка 144, байт 9"
+      },
+      {
+        "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+        "address": 23296,
+        "expression": "Memory.CockpitAttrs",
+        "meaning": "линейная копия фона сканера, 624 байта"
+      },
+      {
+        "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+        "address": 23080,
+        "expression": "Memory.Attributes + 17 * 32 + 8",
+        "meaning": "верхняя пара атрибутов индикатора опасности"
+      },
+      {
+        "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+        "address": 23112,
+        "expression": "Memory.Attributes + 18 * 32 + 8",
+        "meaning": "нижняя пара атрибутов индикатора опасности"
+      },
+      {
+        "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+        "address": 22588,
+        "expression": "Memory.Attributes + 32 + 28",
+        "meaning": "компактный индикатор, строка 1, столбцы 28 и 29"
+      },
+      {
+        "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+        "address": 20522,
+        "expression": "Memory.Screen + #102A",
+        "meaning": "альтернативный фон сканера, строка 136, байт 10"
+      },
+      {
+        "file": "Source/Game/Screen/RestoreCompassBackground.asm",
+        "address": 20533,
+        "expression": "Memory.Screen + #1035",
+        "meaning": "фон компаса, строка 136, байт 21"
+      },
+      {
+        "file": "Source/Game/Screen/VectorLength.asm",
+        "address": 20789,
+        "expression": "Memory.Screen + #1135",
+        "meaning": "база вертикального сдвига указателя, строка 137, байт 21"
+      },
+      {
+        "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+        "address": 24609,
+        "expression": "Memory.Station - FSpaceObject",
+        "meaning": "база на один слот перед станцией, цикл сначала прибавляет шаг"
+      },
+      {
+        "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+        "address": 53439,
+        "expression": "FlightEvents + FFlightEvent",
+        "meaning": "вторая пара очереди, запрос сообщения о выпущенной ракете"
+      },
+      {
+        "file": "Source/Game/Screen/DispatchMenu.asm",
+        "address": 53248,
+        "expression": "Game.Interface.MenuDispatchTable.Entry",
+        "meaning": "первый трёхбайтовый JP диспетчера информационных экранов"
+      },
+      {
+        "file": "Source/Game/Screen/CargoTripleOffset.asm",
+        "address": 1639,
+        "expression": "LegacyPrice",
+        "meaning": "исходное обращение к ROM для индекса цены от 14"
+      }
+    ],
+    "validation": "Все новые выражения вычислены по символам последней успешной сборки и равны прежним непосредственным операндам. Байты данных и размещение не изменены. Сборка не запускалась.",
+    "retained_numbers": {
+      "opcode_words": [
+        "#257C",
+        "#20D6",
+        "#08C6",
+        "#30C0",
+        "#7C24",
+        "#20C6",
+        "#08D6",
+        "#38D0",
+        "#FCCB",
+        "#B6E4",
+        "#AEFC",
+        "#0004"
+      ],
+      "packed_text_positions": [
+        "#0306",
+        "#011B"
+      ],
+      "numeric_thresholds": [
+        "#1600",
+        "#4000",
+        "#2000",
+        "#0200"
+      ],
+      "other": "нули, знаковые константы, размеры записей, смещения компонент и арифметические коэффициенты остались числовыми"
+    }
+  },
+  "unresolved_at_handoff": [
+    {
+      "address": 53329,
+      "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+      "line": 20
+    },
+    {
+      "address": 53330,
+      "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+      "line": 30
+    },
+    {
+      "address": 53331,
+      "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+      "line": 41
+    },
+    {
+      "address": 53317,
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "line": 19
+    },
+    {
+      "address": 53313,
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 40
+    },
+    {
+      "address": 40115,
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 170
+    },
+    {
+      "address": 40114,
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 169
+    },
+    {
+      "address": 48330,
+      "file": "Source/Game/Motion/TransformNormalWithObjectCoordinate.asm",
+      "line": 36
+    },
+    {
+      "address": 53319,
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "line": 65
+    },
+    {
+      "address": 53323,
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "line": 76
+    },
+    {
+      "address": 53317,
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "line": 79
+    },
+    {
+      "address": 53323,
+      "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+      "line": 113
+    },
+    {
+      "address": 53319,
+      "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+      "line": 25
+    },
+    {
+      "address": 39963,
+      "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+      "line": 30
+    },
+    {
+      "address": 40110,
+      "file": "Source/Game/Scanner/SetYellowFlightStatus.asm",
+      "line": 17
+    },
+    {
+      "address": 53311,
+      "file": "Source/Game/Screen/CheckDockingAlignment.asm",
+      "line": 21
+    },
+    {
+      "address": 57466,
+      "file": "Source/Game/Screen/ConsumeEscapePod.asm",
+      "line": 24
+    },
+    {
+      "address": 53312,
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "line": 22
+    },
+    {
+      "address": 57182,
+      "file": "Source/Game/Screen/MatchTargetPlanet.asm",
+      "line": 37
+    },
+    {
+      "address": 53311,
+      "file": "Source/Game/Screen/SelectScreen.asm",
+      "line": 31
+    },
+    {
+      "address": 40116,
+      "file": "Source/Game/Wireframe/SetTargetDisplayState.asm",
+      "line": 21
+    }
+  ],
+  "current_validation": "Tools/Disasm/Reports/VariableAudit.json",
+  "addresses_verified_with_current_assembly": true
+}

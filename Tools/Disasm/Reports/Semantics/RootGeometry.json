@@ -1,0 +1,29 @@
+[
+  {
+    "start": 45124,
+    "end": 45702,
+    "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+    "semantic_name": "DrawClippedLine",
+    "status": "reviewed",
+    "summary": "арифметическое отсечение и два самомодифицируемых цикла линий OR/XOR",
+    "evidence": [
+      "все инструкции #B044..#B285, вызывающий код, ROM #22B1"
+    ],
+    "unresolved": [],
+    "self_modifying_bytes": [
+      45493,
+      45501,
+      45511,
+      45581,
+      45583,
+      45586,
+      45617,
+      45661,
+      45663,
+      45495,
+      45618,
+      45636,
+      45650
+    ]
+  }
+]

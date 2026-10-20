@@ -1,0 +1,526 @@
+{
+  "bindings": [
+    {
+      "address": 64520,
+      "symbol": "InputState.SystemKeys",
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "kind": "data",
+      "meaning": "маска клавиш Y, 0, I, O, P, K, L, ENTER",
+      "evidence": "EnableInterruptMode1AndKeyboardMap, SetPressedKeyAssignment, ResetDemoAndNormalizeControls"
+    },
+    {
+      "address": 64521,
+      "symbol": "InputState.FlightKeys",
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "kind": "data",
+      "meaning": "нормализованные направления и изменение скорости",
+      "evidence": "EnableInterruptMode1AndKeyboardMap, SetPressedKeyAssignment, ResetDemoAndNormalizeControls"
+    },
+    {
+      "address": 64522,
+      "symbol": "InputState.ViewJumpKeys",
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "kind": "data",
+      "meaning": "виды кабины, переходы и CAPS SHIFT",
+      "evidence": "EnableInterruptMode1AndKeyboardMap, SetPressedKeyAssignment, ResetDemoAndNormalizeControls"
+    },
+    {
+      "address": 64523,
+      "symbol": "InputState.DeviceKeys",
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "kind": "data",
+      "meaning": "маска команд C, Q, W, E, U, F, T, A",
+      "evidence": "EnableInterruptMode1AndKeyboardMap, SetPressedKeyAssignment, ResetDemoAndNormalizeControls"
+    },
+    {
+      "address": 64524,
+      "symbol": "InputState.ChartKeys",
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "kind": "data",
+      "meaning": "маска клавиш R, D, B",
+      "evidence": "EnableInterruptMode1AndKeyboardMap, SetPressedKeyAssignment, ResetDemoAndNormalizeControls"
+    },
+    {
+      "address": 64525,
+      "symbol": "InputState.LastKey",
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "kind": "data",
+      "meaning": "последний символ, #FF нет клавиши, #FE сочетание 0 и CAPS SHIFT",
+      "evidence": "EnableInterruptMode1AndKeyboardMap, SetPressedKeyAssignment, ResetDemoAndNormalizeControls"
+    },
+    {
+      "address": 64526,
+      "symbol": "InputState.Config",
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "kind": "data",
+      "meaning": "режим источника, настройки направлений и звук",
+      "evidence": "EnableInterruptMode1AndKeyboardMap, SetPressedKeyAssignment, ResetDemoAndNormalizeControls"
+    },
+    {
+      "address": 64527,
+      "symbol": "InputState.NumberKeys",
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "kind": "data",
+      "meaning": "цифровые направления до нормализации",
+      "evidence": "EnableInterruptMode1AndKeyboardMap, SetPressedKeyAssignment, ResetDemoAndNormalizeControls"
+    },
+    {
+      "address": 28699,
+      "symbol": "MarketTable.Base",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "kind": "data",
+      "meaning": "17 записей параметров товаров",
+      "evidence": "GenerateMarket"
+    },
+    {
+      "address": 28739,
+      "symbol": "MarketTable.FirearmPrice",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "kind": "data",
+      "meaning": "базовая цена оружия",
+      "evidence": "GenerateMarket и обработчики событий"
+    },
+    {
+      "address": 28740,
+      "symbol": "MarketTable.FirearmEconomy",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "kind": "data",
+      "meaning": "коэффициент экономики оружия",
+      "evidence": "GenerateMarket и обработчики событий"
+    },
+    {
+      "address": 28767,
+      "symbol": "EquipmentTable.Base",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "kind": "data",
+      "meaning": "14 цен оборудования",
+      "evidence": "GetEquipmentPriceAddress"
+    },
+    {
+      "address": 28768,
+      "symbol": "EquipmentTable.FuelPrice",
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "kind": "data",
+      "meaning": "цена недостающего топлива",
+      "evidence": "CalculateFuelPurchasePrice"
+    },
+    {
+      "address": 61722,
+      "symbol": "MessageTable.Main",
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "kind": "pointer",
+      "meaning": "указатель основного банка",
+      "evidence": "PrintMainToken"
+    },
+    {
+      "address": 61724,
+      "symbol": "MessageTable.Description",
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "kind": "pointer",
+      "meaning": "указатель банка описаний",
+      "evidence": "PrintDescriptionToken"
+    },
+    {
+      "address": 28482,
+      "symbol": "Game.Extensions.DrawCompressedEdges.FrameCounter",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "kind": "operand",
+      "meaning": "счётчик вызовов в операнде LD A",
+      "evidence": "DrawCompressedEdges"
+    },
+    {
+      "address": 63692,
+      "symbol": "Game.Extensions.PrintCargoAndMessageBanks.SavedSP",
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "kind": "operand",
+      "meaning": "сохранённый SP в операнде LD SP",
+      "evidence": "ProjectSafely/RestoreStack"
+    },
+    {
+      "address": 63754,
+      "symbol": "Game.Extensions.DrawCircleAndProtectScratchStack.SavedSP",
+      "file": "Source/Game/Extensions/DrawCircleAndProtectScratchStack.asm",
+      "kind": "operand",
+      "meaning": "сохранённый SP в операнде LD SP",
+      "evidence": "NextOrFinish"
+    },
+    {
+      "address": 54600,
+      "symbol": "Game.Text.XorCharacterScanlines.XorOpcode",
+      "file": "Source/Game/Text/XorCharacterScanlines.asm",
+      "kind": "opcode",
+      "meaning": "XOR C либо NOP при выводе глифа",
+      "evidence": "DiskUtility/Menu, Text/XorCharacterScanlines"
+    },
+    {
+      "address": 24051,
+      "symbol": "Game.Extensions.UpdateStationAndFinishGlyph.AuxPortFirst",
+      "file": "Source/Game/Extensions/UpdateStationAndFinishGlyph.asm",
+      "kind": "opcode",
+      "meaning": "отключаемая команда OUT",
+      "evidence": "Loader.Load записывает два нулевых байта"
+    },
+    {
+      "address": 24056,
+      "symbol": "Game.Extensions.UpdateStationAndFinishGlyph.AuxPortNext",
+      "file": "Source/Game/Extensions/UpdateStationAndFinishGlyph.asm",
+      "kind": "opcode",
+      "meaning": "отключаемая команда OUT",
+      "evidence": "Loader.Load записывает два нулевых байта"
+    },
+    {
+      "address": 54783,
+      "symbol": "Game.Text.NextDescriptionRandom.InvasionCall",
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "kind": "operand",
+      "meaning": "операнд вызова проверки региона",
+      "evidence": "прямые обращения в коде исходного образа"
+    },
+    {
+      "address": 24312,
+      "symbol": "Game.Extensions.CreateMissileOrMissionCraft.DirectKeyRead",
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "kind": "opcode",
+      "meaning": "начало опроса D, подменяется демо",
+      "evidence": "прямые обращения в коде исходного образа"
+    },
+    {
+      "address": 28651,
+      "symbol": "Game.Extensions.DrawCompressedEdges.FlagsStream",
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "kind": "pointer",
+      "meaning": "текущий указатель потока признаков граней и вершин",
+      "evidence": "прямые обращения в коде исходного образа"
+    },
+    {
+      "address": 62424,
+      "symbol": "Game.Extensions.PrintCargoAndMessageBanks.PulseLaserTail",
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "kind": "data",
+      "meaning": "S и нулевой конец сообщения #6D, также цель записи LegacyLatch",
+      "evidence": "прямые обращения в коде исходного образа"
+    },
+    {
+      "address": 53371,
+      "symbol": "State.Cargo + FGoods.AlienItems",
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "kind": "data",
+      "meaning": "количество инопланетного груза",
+      "evidence": "прямые чтения и записи Extensions, данные и команды по исходным адресам"
+    },
+    {
+      "address": 53351,
+      "symbol": "State.CashHigh + 1",
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "kind": "data",
+      "meaning": "старший байт числа тысяч кредитов",
+      "evidence": "прямые чтения и записи Extensions, данные и команды по исходным адресам"
+    },
+    {
+      "address": 24725,
+      "symbol": "Memory.Objects + FSpaceObject.Flags2",
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "kind": "data",
+      "meaning": "дополнительные флаги первого обычного слота",
+      "evidence": "прямые чтения и записи Extensions, данные и команды по исходным адресам"
+    },
+    {
+      "address": 24721,
+      "symbol": "Memory.Objects + FSpaceObject.Energy",
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "kind": "data",
+      "meaning": "энергия первого обычного слота",
+      "evidence": "прямые чтения и записи Extensions, данные и команды по исходным адресам"
+    },
+    {
+      "address": 53447,
+      "symbol": "CargoEvent",
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "kind": "data",
+      "meaning": "шестая пара очереди сообщений",
+      "evidence": "прямые чтения и записи Extensions, данные и команды по исходным адресам"
+    },
+    {
+      "address": 65278,
+      "symbol": "InterruptGate",
+      "file": "Source/Game/Input/InterruptGateAndAcceleration.asm",
+      "kind": "opcode",
+      "meaning": "JR либо RET в точке входа IM2",
+      "evidence": "прямые чтения и записи Extensions, данные и команды по исходным адресам"
+    },
+    {
+      "address": 64778,
+      "symbol": "InputViewSkip",
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "kind": "operand",
+      "meaning": "смещение условного пропуска LD A,9",
+      "evidence": "прямые чтения и записи Extensions, данные и команды по исходным адресам"
+    },
+    {
+      "address": 25542,
+      "symbol": "Blueprint.Coriolis",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, станция Coriolis",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25059,
+      "symbol": "Blueprint.Missile",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, ракета",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25082,
+      "symbol": "Blueprint.EscapePod",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, спасательная капсула",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25105,
+      "symbol": "Blueprint.Alloys",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, обломки сплавов",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25128,
+      "symbol": "Blueprint.Cargo",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, грузовой контейнер",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25151,
+      "symbol": "Blueprint.Minerals",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, минеральный обломок",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25174,
+      "symbol": "Blueprint.Asteroid",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, обычный астероид",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25197,
+      "symbol": "Blueprint.AsteroidArmed",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, особый астероид с запускаемыми объектами",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25220,
+      "symbol": "Blueprint.Viper",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, полицейский Viper",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25243,
+      "symbol": "Blueprint.CobraTrader",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, торговая Cobra Mk III",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25266,
+      "symbol": "Blueprint.PythonTrader",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, торговый Python",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25289,
+      "symbol": "Blueprint.PythonPirate",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, пиратский Python",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25312,
+      "symbol": "Blueprint.CobraPirate",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, пиратская Cobra Mk III",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25335,
+      "symbol": "Blueprint.Asp",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, Asp Mk II",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25358,
+      "symbol": "Blueprint.FerDeLance",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, Fer-de-Lance",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25381,
+      "symbol": "Blueprint.Thargoid",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, Thargoid",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25404,
+      "symbol": "Blueprint.Sidewinder",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, Sidewinder",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25427,
+      "symbol": "Blueprint.Adder",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, Adder",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25450,
+      "symbol": "Blueprint.Tharglet",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, малый Tharglet",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25473,
+      "symbol": "Blueprint.Thargoid6",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, шестигранный Thargoid",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25496,
+      "symbol": "Blueprint.Fighter1",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, дополнительный истребитель 1",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25519,
+      "symbol": "Blueprint.Fighter2",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, дополнительный истребитель 2",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 25565,
+      "symbol": "Blueprint.Krait",
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "kind": "model",
+      "meaning": "заголовок FModel, Krait",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 28433,
+      "symbol": "Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons",
+      "file": "Source/Game/Extensions/PrintEquipmentAndSelectIcon.asm",
+      "kind": "data",
+      "meaning": "три восьмибайтовых значка режима",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 64186,
+      "symbol": "LaserThreshold",
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "kind": "operand",
+      "meaning": "порог CP и сдвигаемая история случайных проверок",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 54538,
+      "symbol": "TextScreenHigh",
+      "file": "Source/Game/Text/DrawCharacter8x8.asm",
+      "kind": "operand",
+      "meaning": "старший байт базового адреса текста, #40 либо #C0",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 64247,
+      "symbol": "SmallProfile",
+      "file": "Source/Game/Extensions/AllocateVariantObjectSlot.asm",
+      "kind": "code/data",
+      "meaning": "таблица профиля начинается двумя байтами XOR A, RET, затем следуют маски",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 24016,
+      "symbol": "Game.Extensions.UpdateStationAndFinishGlyph.ExtraGlyphs",
+      "file": "Source/Game/Extensions/UpdateStationAndFinishGlyph.asm",
+      "kind": "data",
+      "meaning": "четыре восьмибайтовых глифа дополнительного шрифта",
+      "evidence": "адрес подтверждён исходным кодом и местом хранения"
+    },
+    {
+      "address": 32740,
+      "symbol": "Game.Screen.SwapAndSkipRow.NextRowCall",
+      "file": "Source/Game/Screen/SwapAndSkipRow.asm",
+      "kind": "opcode",
+      "meaning": "CALL либо JP, один или два перехода к следующей строке",
+      "evidence": "DrawScreenStripsAndPrivateStack записывает #C3 в первый байт команды"
+    },
+    {
+      "address": 15616,
+      "symbol": "RomFont",
+      "file": "Source/Game/Extensions/SelectCharacterFont.asm",
+      "kind": "ROM",
+      "meaning": "знакогенератор ROM, глиф пробела",
+      "evidence": "операнды SelectCharacterFont и DrawCircleAndProtectScratchStack"
+    },
+    {
+      "address": 23920,
+      "symbol": "ExtraFontBase",
+      "file": "Source/Game/Extensions/SelectCharacterFont.asm",
+      "kind": "biased pointer",
+      "meaning": "база индексирования дополнительных глифов, на 12 глифов до ExtraGlyphs",
+      "evidence": "операнды SelectCharacterFont и DrawCircleAndProtectScratchStack"
+    },
+    {
+      "address": 16624,
+      "symbol": "ScratchStack",
+      "file": "Source/Game/Resources/LoadingScreen.asm",
+      "kind": "overlay",
+      "meaning": "48 байтов экранной области под временный стек",
+      "evidence": "операнды SelectCharacterFont и DrawCircleAndProtectScratchStack"
+    },
+    {
+      "address": 65488,
+      "symbol": "ScratchBackup",
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "kind": "overlay",
+      "meaning": "48 байтов в конце RAM под сохранение экранной области",
+      "evidence": "операнды SelectCharacterFont и DrawCircleAndProtectScratchStack"
+    }
+  ],
+  "current_validation": "Tools/Disasm/Reports/VariableAudit.json",
+  "addresses_verified_with_current_assembly": true
+}

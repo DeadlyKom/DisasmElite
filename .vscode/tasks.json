@@ -1,0 +1,51 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build",
+            "type": "process",
+            "command": "./Tools/Sjasmplus/sjasmplus.exe",
+            "args": [
+                "--nologo",
+                "--fullpath=rel",
+                "--lst=Tmp/ELITE3HL.lst",
+                "--sym=Tmp/ELITE3HL.sym",
+                "--sld=Tmp/ELITE3HL.sld",
+                "Builder/Main.asm"
+            ],
+            "windows": {
+                "command": "cmd.exe",
+                "args": [
+                    "/d",
+                    "/s",
+                    "/c",
+                    "chcp 65001 >nul && .\\Tools\\Sjasmplus\\sjasmplus.exe --nologo --fullpath=rel --lst=Tmp/ELITE3HL.lst --sym=Tmp/ELITE3HL.sym --sld=Tmp/ELITE3HL.sld Builder/Main.asm"
+                ]
+            },
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": {
+                "owner": "z80",
+                "source": "sjasmplus",
+                "fileLocation": ["relative", "${workspaceFolder}"],
+                "pattern": {
+                    "regexp": "^(.+)\\((\\d+)\\):\\s+(warning|error)(?:\\[[^\\]]+\\])?:\\s+(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "severity": 3,
+                    "message": 4
+                }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "dedicated",
+                "clear": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,2542 @@
+[
+  {
+    "file": "Source/Game/Flight/SetViewAttributesWithCloaking.asm",
+    "start": 28848,
+    "end": 28858,
+    "semantic_name": "SetViewAttributesWithCloaking",
+    "status": "reviewed",
+    "summary": "Выбор атрибутов обзорного окна с учётом маскировки",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "При выключенной маскировке AND7 убирает PAPER/BRIGHT/FLASH, при включённой исходный L сохраняется"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "HL, L содержит атрибут",
+      "Out": "L ограничен цветом чернил, если D041=0, далее общий вход 70BA",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {
+      "70B4": "маскировка включена, сохранить полный атрибут L"
+    },
+    "operation_sha256": "51b74aec64fc34318cfebe36140f87da23bce0ce61a9047495ec66f95de5d305",
+    "blocks": {
+      "70B0": "проверка маскировки перед удалением цвета бумаги и яркости из атрибута"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 1,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+    "start": 28858,
+    "end": 28953,
+    "semantic_name": "FillViewAttributesAndFlightState",
+    "status": "reviewed",
+    "summary": "Заливка внутренних атрибутов окна и состояние полёта",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "При D081!=0 используется L&3A, затем HALT синхронизирует запись",
+      "Каждая строка получает одну запись и LDDR29 байтов, итого 450 ячеек от 5821 до 59FE",
+      "70DC..7118 содержат поля полёта и двух светил,70E0 отдельный JP7366"
+    ],
+    "unresolved": [],
+    "embedded_code": [
+      {
+        "start": 28896,
+        "end": 28899
+      }
+    ],
+    "registers": {
+      "In": "HL, L содержит атрибут",
+      "Out": "15 строк по 30 атрибутов заполнены, рамочные столбцы сохранены",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {
+      "70BE": "первая миссия не активна, сохранить исходный цвет"
+    },
+    "operation_sha256": "a5c6671fcbf75d2b89d784ba96dbd3b4d1e756d13b70505c8f850286bc5d2b0f",
+    "blocks": {
+      "70BA": "проверка специального цвета первой миссии",
+      "70C4": "синхронизация с кадром перед заливкой внутреннего окна",
+      "70CB": "размножение атрибута в 30 ячеек строки, затем пропуск боковых столбцов рамки",
+      "70E0": "отдельный стартовый вектор сохраняет стек и настраивает кабину"
+    },
+    "embedded_data": [
+      {
+        "start": 28892,
+        "end": 28894,
+        "kind": "data",
+        "summary": "16-битный накопитель времени вторжения, обновляется 9B41 добавкой NOT D08F"
+      },
+      {
+        "start": 28894,
+        "end": 28896,
+        "kind": "data",
+        "summary": "сохранённое слово FFFC, прямых чтений и записей в разобранном коде не найдено"
+      },
+      {
+        "start": 28899,
+        "end": 28900,
+        "kind": "data",
+        "summary": "номер текущего вида,0..3 кабина,7/8 карты"
+      },
+      {
+        "start": 28900,
+        "end": 28901,
+        "kind": "data",
+        "summary": "знако-модульный крен из FF09"
+      },
+      {
+        "start": 28901,
+        "end": 28902,
+        "kind": "data",
+        "summary": "знако-модульный тангаж из FF0B"
+      },
+      {
+        "start": 28902,
+        "end": 28903,
+        "kind": "data",
+        "summary": "текущая скорость из FF0D"
+      },
+      {
+        "start": 28903,
+        "end": 28905,
+        "kind": "data",
+        "summary": "передний щит, сначала прежнее значение прибора, затем текущее"
+      },
+      {
+        "start": 28905,
+        "end": 28907,
+        "kind": "data",
+        "summary": "задний щит, прежнее и текущее значения"
+      },
+      {
+        "start": 28907,
+        "end": 28909,
+        "kind": "data",
+        "summary": "полоса топлива, прежняя и текущая, DEA2 вычисляет 2*fuel+floor(fuel/4)"
+      },
+      {
+        "start": 28909,
+        "end": 28911,
+        "kind": "data",
+        "summary": "нагрев кабины, прежнее и текущее значения, обновляется 8B3F"
+      },
+      {
+        "start": 28911,
+        "end": 28913,
+        "kind": "data",
+        "summary": "нагрев лазера, прежнее и текущее значения, изменяется при выстреле"
+      },
+      {
+        "start": 28913,
+        "end": 28915,
+        "kind": "data",
+        "summary": "высота над планетой, прежнее и текущее значения"
+      },
+      {
+        "start": 28915,
+        "end": 28917,
+        "kind": "data",
+        "summary": "полоса скорости, прежнее и текущее значения 5*скорость+5"
+      },
+      {
+        "start": 28917,
+        "end": 28919,
+        "kind": "data",
+        "summary": "первый банк энергии, прежнее и текущее значения"
+      },
+      {
+        "start": 28919,
+        "end": 28921,
+        "kind": "data",
+        "summary": "второй банк энергии, прежнее и текущее значения"
+      },
+      {
+        "start": 28921,
+        "end": 28923,
+        "kind": "data",
+        "summary": "третий банк энергии, прежнее и текущее значения"
+      },
+      {
+        "start": 28923,
+        "end": 28925,
+        "kind": "data",
+        "summary": "четвёртый банк энергии, прежнее и текущее значения"
+      },
+      {
+        "start": 28925,
+        "end": 28927,
+        "kind": "data",
+        "summary": "индикатор крена, прежняя и текущая позиция относительно 21"
+      },
+      {
+        "start": 28927,
+        "end": 28929,
+        "kind": "data",
+        "summary": "индикатор тангажа, прежняя и текущая позиция относительно 21"
+      },
+      {
+        "start": 28929,
+        "end": 28931,
+        "kind": "data",
+        "summary": "два сохранённых нулевых байта после тринадцати пар приборов"
+      },
+      {
+        "start": 28931,
+        "end": 28932,
+        "kind": "data",
+        "summary": "особое пространство, ненулевое значение запрещает обычные светила и стыковку"
+      },
+      {
+        "start": 28932,
+        "end": 28933,
+        "kind": "data",
+        "summary": "состояние полёта и цвет опасности,0 станция,4 норма,6 зона станции,2 опасность,63 мигание"
+      },
+      {
+        "start": 28933,
+        "end": 28934,
+        "kind": "data",
+        "summary": "копия случайного параметра рынка D06A для текущего выхода, E6EE переносит её в 7105"
+      },
+      {
+        "start": 28934,
+        "end": 28935,
+        "kind": "data",
+        "summary": "сохранённый байт 4A перед координатами, DD48 начинает запись только с 7109"
+      },
+      {
+        "start": 28935,
+        "end": 28944,
+        "kind": "data",
+        "summary": "три знако-модульные трёхбайтовые координаты солнца, X/Y/Z"
+      },
+      {
+        "start": 28944,
+        "end": 28953,
+        "kind": "data",
+        "summary": "три знако-модульные трёхбайтовые координаты планеты, X/Y/Z"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 58,
+      "conditional_comments_checked": 1,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/DispatchChartCircle.asm",
+    "start": 28953,
+    "end": 28961,
+    "semantic_name": "DispatchChartCircle",
+    "status": "reviewed",
+    "summary": "Вектор рисования окружности карты",
+    "evidence": [
+      "проверен целевой JP8E29 и тело PrintCircleMap",
+      "8E29 временно заменяет геометрию области обзора и рисует окружность, направление JP не вращает координаты объектов",
+      "711C..7120 после JP являются отдельными полями полёта"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "D051=X, D052=Y, D053=радиус окружности карты",
+      "Out": "окружность нарисована, временные параметры экрана восстановлены",
+      "Corrupt": "HL, DE, BC, AF, HL', DE', BC', AF'"
+    },
+    "branches": {},
+    "operation_sha256": "7cff4b097a4afd28eef9d63bea64537f3c7ac2f6682bab8f31fed1f9255969be",
+    "blocks": {
+      "7119": "передача окружности карты в рисователь с временной геометрией экрана"
+    },
+    "embedded_data": [
+      {
+        "start": 28956,
+        "end": 28957,
+        "kind": "data",
+        "summary": "зона ближнего станционного компаса, разрешает компьютер стыковки"
+      },
+      {
+        "start": 28957,
+        "end": 28958,
+        "kind": "data",
+        "summary": "режим координат станции, FF требует нормирования старших слов"
+      },
+      {
+        "start": 28958,
+        "end": 28959,
+        "kind": "data",
+        "summary": "сохранённый признак зоны черпаков, сбрасывается при входе в систему и на заставке"
+      },
+      {
+        "start": 28959,
+        "end": 28960,
+        "kind": "data",
+        "summary": "признак гибели игрока, читается главным циклом"
+      },
+      {
+        "start": 28960,
+        "end": 28961,
+        "kind": "data",
+        "summary": "режим наложения объектов OR/XOR при большом солнечном диске"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 5,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/DispatchDangerIndicator.asm",
+    "start": 28961,
+    "end": 28965,
+    "semantic_name": "DispatchDangerIndicator",
+    "status": "reviewed",
+    "summary": "Вектор обновления индикатора опасности",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "7124 после JP является блокировкой ручного обновления скорости и вращения"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "состояние полёта",
+      "Out": "передача управления 99A4",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "d6cc3bda5a99c92d40485bd59c5e4b43454b72ad764bccaabe6f356ab245343c",
+    "blocks": {
+      "7121": "передача управления общему индикатору опасности"
+    },
+    "embedded_data": [
+      {
+        "start": 28964,
+        "end": 28965,
+        "kind": "data",
+        "summary": "блокировка ручного обновления углов и скорости"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 1,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/DispatchSoundEffect.asm",
+    "start": 28965,
+    "end": 28970,
+    "semantic_name": "DispatchSoundEffect",
+    "status": "reviewed",
+    "summary": "Вектор звукового эффекта",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "7128/7129 являются отдельными рабочими байтами,7129 помечает автоматическую стыковку",
+      "7128 заполняется битами запросов выстрела, взрыва, ракеты и попадания, диспетчер 9579 вызывается из прерывания"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "FC0E bit7 разрешение звука, 7128 маска запросов, 9522 режим эффекта",
+      "Out": "продолжен активный эффект либо выбран младший установленный запрос",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "b8ede98b128a33c3cfce523ad677114f1912f77be05ed4fa31700d0222663b89",
+    "blocks": {
+      "7125": "передача запросов диспетчеру звуковых эффектов"
+    },
+    "embedded_data": [
+      {
+        "start": 28968,
+        "end": 28969,
+        "kind": "data",
+        "summary": "маска восьми запросов звуковых эффектов"
+      },
+      {
+        "start": 28969,
+        "end": 28970,
+        "kind": "data",
+        "summary": "признак включённой автоматической стыковки"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 2,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/DispatchAppendDecimalDigit.asm",
+    "start": 28970,
+    "end": 28973,
+    "semantic_name": "DispatchAppendDecimalDigit",
+    "status": "reviewed",
+    "summary": "Вектор присоединения десятичной цифры",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Обработчик используется вводом количества E776 для второй цифры"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "HL адрес десятичной величины, DE, D печатаемый символ, BC, B добавляемая цифра",
+      "Out": "продолжение 7130",
+      "Corrupt": "HL, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "aaa1c307471b25787ade38e0e125e059feb4d760accbad4e4bfe8788a9b195ef",
+    "blocks": {
+      "712A": "переход к общему накоплению десятичного количества"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/DispatchDeviceAndAppendDigit.asm",
+    "start": 28973,
+    "end": 28988,
+    "semantic_name": "DispatchDeviceAttributesAndAppendDigit",
+    "status": "reviewed",
+    "summary": "Вектор атрибутов приборов и ввод второй цифры",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "7130 строит 10*n как 8*n+2*n, затем прибавляет очередную цифру"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "для 712D состояние приборов, для 7130 HL=количество, B=цифра, D=символ",
+      "Out": "7130 записывает 10*(HL)+B по модулю 256 и печатает D",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "3dc4272123abaee7c00a8ce7d614c3eea0eb67a2c6452c0e12529ece4f483992",
+    "blocks": {
+      "712D": "основной вход настраивает цвета приборов",
+      "7130": "отдельный вход рассчитывает 10*старое+B по модулю 256",
+      "7138": "вывод принятой цифры, её экранный код передан в D"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+    "start": 28988,
+    "end": 29051,
+    "semantic_name": "UpdateFlightControlGauges",
+    "status": "reviewed",
+    "summary": "Перенос управления в скорость и шкалы вращения",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Положительный угол даёт 21+модуль, отрицательный 21-модуль, значения считаются в байте"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "FF09/FF0B знако-модульные углы, FF0D скорость",
+      "Out": "70E4/70E5 углы,70FE/7100 позиции шкал,70E6 скорость,70F4=5*скорость+5",
+      "Corrupt": "HL, BC, AF"
+    },
+    "branches": {
+      "7145": "крен отрицателен, вычесть модуль из центра шкалы 21",
+      "715C": "тангаж отрицателен, вычесть модуль из центра шкалы 21"
+    },
+    "operation_sha256": "8dbb19c2fd5cc826be2d0b596e2bf88c1b3e24f23d8f605f9ccedfe6460f906e",
+    "blocks": {
+      "713C": "расчёт крена относительно середины шкалы 21",
+      "7154": "расчёт тангажа по следующей паре байтов управления",
+      "716B": "расчёт длины полосы скорости как 5*скорость+5"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 2,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+    "start": 29051,
+    "end": 29120,
+    "semantic_name": "TryAutomaticDocking",
+    "status": "reviewed",
+    "summary": "Проверка запроса автоматической стыковки",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Сначала 9C9A позволяет специальный путь без клавиатурных проверок",
+      "Обычный путь требует 711C!=0, установленный D08C, полёт 7104!=0, отсутствие отсчёта D03F и bit2 станции 6069"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "маска FC0B bit7 и состояние корабля/станции",
+      "Out": "при допуске 7129=1, вид 0, координаты относительны станции и переход 93ED",
+      "Corrupt": "HL, DE, BC, AF, IX, IY"
+    },
+    "branches": {
+      "717F": "нет принудительной команды стыковки, проверить клавишу",
+      "7193": "клавиша автоматической стыковки не нажата",
+      "7198": "стыковка запрещена текущим состоянием 711C",
+      "719D": "стыковочный компьютер отсутствует",
+      "71A2": "корабль уже находится на станции",
+      "71A7": "анимация перехода ещё не завершена",
+      "71AD": "станция отмечена как враждебная"
+    },
+    "operation_sha256": "aac6be1e84472ba674c799a0a1dffaa722a801b522961ab3b9942e4476b56dc2",
+    "blocks": {
+      "717B": "принудительный запрос обходит клавишу и допуски компьютера",
+      "7187": "чтение и поглощение клавиши стыковки",
+      "7194": "проверка доступности станции и стыковочного компьютера",
+      "719E": "проверка полёта, отсутствия туннеля и невраждебности станции",
+      "71AE": "включение автоматического режима и переднего вида"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 7,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/RebaseSunAgainstStation.asm",
+    "start": 29120,
+    "end": 29134,
+    "semantic_name": "RebaseSunAgainstStation",
+    "status": "reviewed",
+    "summary": "Перевод трёх координат светила относительно станции",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Два CALL71CE и проваливание в третий обеспечивают обработку всех трёх осей"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "7107 трёхбайтовые координаты,6048 объект станции",
+      "Out": "старшие слова трёх координат 7107 изменены, IX=6051,IY=7110",
+      "Corrupt": "HL, DE, BC, AF, IX, IY"
+    },
+    "branches": {},
+    "operation_sha256": "cf8134ac9fdd21aa1da015795a5e521730b302538cdbacdbef3c7b88c9f49a24",
+    "blocks": {
+      "71C0": "перевод трёх координат солнца в систему отсчёта станции"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/RebaseCoordinateAxis.asm",
+    "start": 29134,
+    "end": 29156,
+    "semantic_name": "RebaseCoordinateAxis",
+    "status": "reviewed",
+    "summary": "Перевод одной оси относительно станции",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Сначала 71E4 вычисляет floor(abs(delta)/2), удвоение возвращает чётный модуль, исходный знак восстанавливается через перенос"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "IX/IY указывают трёхбайтовые координаты",
+      "Out": "IY+1/IY+2 получают удвоенную знако-модульную полуразность, IX/IY увеличены на 3",
+      "Corrupt": "HL, DE, BC, AF, IX, IY"
+    },
+    "branches": {
+      "71D2": "знак половины разности положительный, оставить старший бит нулевым"
+    },
+    "operation_sha256": "f4f9ad5217af8d9838adce1d6e4d50ce79ddbc77a56b24319e22ddf83a3d9e7f",
+    "blocks": {
+      "71CE": "расчёт чётного модуля разности через удвоение знако-модульной полуразности",
+      "71D6": "сохранение старших двух байтов и переход к следующей оси"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 1,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/HalfCoordinateDifference.asm",
+    "start": 29156,
+    "end": 29171,
+    "semantic_name": "HalfCoordinateDifference",
+    "status": "reviewed",
+    "summary": "Половина разности старших слов координат",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Младшие дробные байты координат не участвуют, хвост 9CA5 ведёт в Math.HalfDelta"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "IX/IY адреса координат, используются смещения 1/2",
+      "Out": "HL знако-модульная половина IY-IX",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "7f7b069cf6b5bdaa7714687664ea03b7911dd48937f7aa839923146a1cd732ba",
+    "blocks": {
+      "71E4": "чтение старших слов координат для общей операции полуразности"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/HandleMapCursorKeys.asm",
+    "start": 29171,
+    "end": 29218,
+    "semantic_name": "HandleMapCursorKeys",
+    "status": "reviewed",
+    "summary": "Диспетчер клавиш карты при выключенном гиперпереходе",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Младшая тетрада FC09 объединяется с битами 4..6 FC0C, приоритет у младшего установленного бита",
+      "После действия обе маски очищаются,7221 отдельный счётчик опроса маскировки"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "70E3 вид 7/8, D03F=0, FC09/FC0C маски клавиш",
+      "Out": "выбран первый установленный бит, вызван индекс 9..15 диспетчера 813E",
+      "Corrupt": "HL, DE, BC, AF, IX, IY по выбранному обработчику"
+    },
+    "branches": {
+      "71F8": "номер вида меньше 7, курсор карты не обслуживается",
+      "71FB": "номер вида не равен 7 или 8, курсор карты не обслуживается",
+      "7200": "выполняется анимация перехода",
+      "720D": "ни одна клавиша карты не нажата",
+      "7213": "очередной бит маски равен нулю, искать следующую команду"
+    },
+    "operation_sha256": "7fd11167da16a2e5aa073c7fed342b5980d678352f300ac8f6fbc533eac8d486",
+    "blocks": {
+      "71F3": "проверка экранов карты 7/8 и отсутствия туннеля",
+      "7201": "объединение масок и поиск младшего установленного бита клавиш",
+      "7215": "вызов команды 9..16 и поглощение обеих масок курсора"
+    },
+    "embedded_data": [
+      {
+        "start": 29217,
+        "end": 29218,
+        "kind": "data",
+        "summary": "делитель проверки маскировки, после срабатывания загружается 2"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 1,
+      "conditional_comments_checked": 5,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+    "start": 29218,
+    "end": 29276,
+    "semantic_name": "ToggleCloakingDevice",
+    "status": "reviewed",
+    "summary": "Переключение маскировки клавишей Y",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Счётчик 7221 опрашивает нажатие через раз, RES7 очищает старый бит и HALT позволяет прерыванию его обновить",
+      "Уменьшение D041 с 1 до 0 выключает устройство, при исходном 0 промежуточное FF остаётся при недостатке энергии, это фактический порядок оригинала"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "FC08 bit7, D0B0 bit6 наличие устройства,70FA энергия",
+      "Out": "D041 изменён, при включении требуется энергия>=40 и снимается конфликт со стыковкой",
+      "Corrupt": "HL, AF, прочие по 6FF8"
+    },
+    "branches": {
+      "722B": "очередь проверки маскировки ещё не наступила",
+      "7234": "за время HALT клавиша маскировки не появилась",
+      "723A": "устройство маскировки отсутствует",
+      "723F": "маскировка была включена, выбрать обычный атрибут 7",
+      "7246": "третий банк энергии меньше 40, включение прекращается"
+    },
+    "operation_sha256": "9aba7e0b2e667d7c7dd71ba194d8cd5e3c8f8004be4840cfbadabc16de984b61",
+    "blocks": {
+      "7222": "делитель частоты проверки, старая клавиша снимается до HALT",
+      "7232": "проверка нового нажатия после HALT и наличия маскировки",
+      "723B": "переключение состояния, переход 1→0 выключает устройство",
+      "7241": "проверка энергии, при отказе после 0→FF остаётся D041=FF",
+      "7247": "включение маскировки снимает враждебность станции и признак атаки",
+      "7253": "атрибут маскировки имеет значение 0F",
+      "7257": "обычный атрибут после выключения имеет значение 07"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 5,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/ApplyMissionViewColour.asm",
+    "start": 29276,
+    "end": 29285,
+    "semantic_name": "ApplyMissionViewColour",
+    "status": "reviewed",
+    "summary": "Выбор цвета обзорного окна для первой миссии",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Нулевое состояние возвращается без изменения атрибутов"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "D081 состояние первой миссии",
+      "Out": "при ненулевом состоянии продолжение 7259 с L=2",
+      "Corrupt": "HL, AF, прочие по 6FF8"
+    },
+    "branches": {
+      "7262": "первая миссия активна, применить атрибут 2"
+    },
+    "operation_sha256": "5fce7540587989a867285011c3d7166cdf0c0efb12c933b981055fadf7007183",
+    "blocks": {
+      "725C": "проверка первой миссии перед применением её цвета"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 1,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/ApplyCloakingViewColour.asm",
+    "start": 29285,
+    "end": 29292,
+    "semantic_name": "ApplyCloakingViewColour",
+    "status": "reviewed",
+    "summary": "Повторное применение цвета маскировки",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Использует общий хвост изменения атрибутов, собственных данных нет"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "D041 состояние маскировки",
+      "Out": "ненулевое состояние выбирает L=15 через 7253",
+      "Corrupt": "HL, AF, прочие по 6FF8"
+    },
+    "branches": {
+      "7269": "маскировка включена, применить атрибут 0F"
+    },
+    "operation_sha256": "2abdc361dfd077e0e88f86a135301e4433b5e392ab0f5b553844169886a75285",
+    "blocks": {
+      "7265": "проверка маскировки перед применением её цвета"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 1,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/MarkMissionViewInitialized.asm",
+    "start": 29292,
+    "end": 29304,
+    "semantic_name": "MarkMissionViewInitialized",
+    "status": "reviewed",
+    "summary": "Инициализация признака специального вида первой миссии",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Нулевое состояние не изменяет ни флаг, ни цвет"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "D081 состояние первой миссии",
+      "Out": "при активности D0BA=1 и цвет L=2",
+      "Corrupt": "HL, AF, прочие по 6FF8"
+    },
+    "branches": {
+      "7270": "первая миссия не активна"
+    },
+    "operation_sha256": "d7088443e86fb17004b2265a3b4d986d145fd7ba105d53015c2a126f6395d9a6",
+    "blocks": {
+      "726C": "пометка входа в окно первой миссии"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 1,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/DispatchThirdMissionStage.asm",
+    "start": 29304,
+    "end": 29325,
+    "semantic_name": "DispatchThirdMissionStage",
+    "status": "reviewed",
+    "summary": "Диспетчер экранов этапов третьей миссии",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Последовательные DEC/SUB сохраняют различие этапов, прочие значения возвращаются без экрана"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "D0AF номер этапа",
+      "Out": "этапы 1/2 вызывают предложение D0DD,5 завершение D0ED,6 сообщение D4",
+      "Corrupt": "HL, DE, BC, AF, IX по экранным обработчикам"
+    },
+    "branches": {
+      "727C": "состояние третьей миссии равно 1, сохранить Z для обработчика предложения",
+      "727F": "состояние третьей миссии равно 1 или 2, обработать предложение",
+      "7284": "состояние третьей миссии равно 5, обработать завершение",
+      "728A": "состояние третьей миссии равно 6, вывести сообщение D4"
+    },
+    "operation_sha256": "232a1d6188c2dc55872aad47c1a1d15f0faf9342c512e2964d35081b47e62c17",
+    "blocks": {
+      "7278": "выбор экрана по состоянию третьей миссии,1 и 2 имеют общий вход",
+      "7282": "проверка завершения 5 и сообщения состояния 6"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 4,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/ReportBoardingAndReturnToTitle.asm",
+    "start": 29325,
+    "end": 29347,
+    "semantic_name": "ReportBoardingAndReturnToTitle",
+    "status": "reviewed",
+    "summary": "Сообщение о посадке и возврат к выбору корабля",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "841A готовит состояние станции, FC33 обнуляет E07A и идёт в сообщение D0D7",
+      "72A2 хранит последний выбранный джойстик для паузы и начального экрана"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "6065 поле станции,7578 сохранённый SP",
+      "Out": "выведено сообщение, восстановлен SP, JP739E",
+      "Corrupt": "HL, DE, BC, AF, SP"
+    },
+    "branches": {},
+    "operation_sha256": "95e803490681be0fea0b73ab403e76146e61a4727750e68e784b6533080d1b4b",
+    "blocks": {
+      "728D": "подготовка посадки перед общим сообщением",
+      "7295": "общий вход сообщения сбрасывает одноразовый счётчик и восстанавливает основной стек"
+    },
+    "embedded_data": [
+      {
+        "start": 29346,
+        "end": 29347,
+        "kind": "data",
+        "summary": "последний выбранный джойстик 2/3, нуль до выбора"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 1,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/HandlePauseMenu.asm",
+    "start": 29347,
+    "end": 29396,
+    "semantic_name": "HandlePauseMenu",
+    "status": "reviewed",
+    "summary": "Меню паузы с изменением настроек и возвратом в игру",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Сначала ждёт отпускания клавиши, затем ROM INDEXER ищет символ в таблице битовых настроек 72FB и таблице действий 7308",
+      "Первая таблица переключает маску XOR, вторая заменяет адрес возврата на обработчик страницы 73 через EX(SP),HL"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "FC0A bit7 запрос паузы,FC0D код символа,FC0E настройки",
+      "Out": "без запроса C=0, SPACE возобновляет с C=0, Q возвращает C=1 для перезапуска",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "references": [
+      "https://skoolkid.github.io/rom/asm/16DB.html",
+      "https://skoolkid.github.io/rom/asm/0018.html"
+    ],
+    "branches": {
+      "72A8": "запрос паузы отсутствует",
+      "72B1": "предыдущая клавиша ещё удерживается, ждать её отпускания",
+      "72C0": "найдена клавиша настройки, инвертировать её маску",
+      "72C5": "найдена команда паузы, передать управление её обработчику"
+    },
+    "operation_sha256": "99a2ccf28a8828b8053c2fdbe5c8aeeac9e8e2c7c36fb98e3aa9aff6e38d640c",
+    "blocks": {
+      "72A3": "проверка запроса паузы перед остановкой основного цикла",
+      "72AC": "ожидание отпускания клавиши, FF означает отсутствие символа",
+      "72B3": "поиск новой команды сначала среди переключателей настроек",
+      "72CA": "инверсия маски выбранной настройки в FC0E",
+      "72D0": "подмена адреса возврата обработчиком в странице 73"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 4,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/IndexNextPauseTable.asm",
+    "start": 29396,
+    "end": 29397,
+    "semantic_name": "IndexNextPauseTable",
+    "status": "reviewed",
+    "summary": "Переход к следующей таблице команд паузы",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Этот вход связывает две последовательные таблицы ключ-значение"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "HL указывает нулевой разделитель предыдущей таблицы, A=символ",
+      "Out": "HL увеличен на 1, далее общий поиск 72D5",
+      "Corrupt": "HL, BC, AF"
+    },
+    "references": [
+      "https://skoolkid.github.io/rom/asm/16DB.html",
+      "https://skoolkid.github.io/rom/asm/0018.html"
+    ],
+    "branches": {},
+    "operation_sha256": "39379b04a4ef9c9cf3da6fdf7173e80051d4d9b4ae3a8f06818cf1ee40a0d1c6",
+    "blocks": {
+      "72D4": "пропуск разделителя перед второй таблицей клавиш"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+    "start": 29397,
+    "end": 29508,
+    "semantic_name": "IndexPauseCommandAndHandlers",
+    "status": "reviewed",
+    "summary": "Поиск команды паузы и обработчики её действий",
+    "evidence": [
+      "Байты исходного образа, диапазон #72D5..#7343",
+      "In:",
+      "HL таблица пар ключ-значение, AF, A=код клавиши",
+      "Out:",
+      "C=1 при найденном ключе, HL указывает связанное значение",
+      "Corrupt:",
+      "HL, AF, BC сохраняется оболочкой, прочие по ROM16DC",
+      "Note:",
+      "72DD переключает сканер через 7A84,72E3 меняет местами пары передних/задних и боковых лазеров Mk4",
+      "SPACE проходит XOR A по 7319 и возвращает C=0, Q входит 731A и сохраняет C=1, оба очищают пять",
+      "клавиатурных байтов",
+      "K по 7328 переключает младшие два бита джойстика, C по 7339 инвертирует bit1 операнда FD0A",
+      "При отсутствии Mk4 JR733E входит на байт DF внутри CALL DFEE, альтернативная инструкция RST18",
+      "сохранена буквально"
+    ],
+    "unresolved": [],
+    "embedded_code": [
+      {
+        "start": 29405,
+        "end": 29435
+      },
+      {
+        "start": 29461,
+        "end": 29470
+      },
+      {
+        "start": 29480,
+        "end": 29503
+      }
+    ],
+    "registers": {
+      "In": "HL таблица пар ключ-значение, AF, A=код клавиши",
+      "Out": "C=1 при найденном ключе, HL указывает связанное значение",
+      "Corrupt": "HL, AF, BC сохраняется оболочкой, прочие по ROM16DC"
+    },
+    "references": [
+      "https://skoolkid.github.io/rom/asm/16DB.html",
+      "https://skoolkid.github.io/rom/asm/0018.html"
+    ],
+    "branches": {
+      "72E7": "модернизация Mk4 отсутствует, выполнить перекрывающий вход RST18",
+      "732E": "включён джойстик, переключить управление через сохранённый режим",
+      "7331": "сохранённый режим джойстика отсутствует, оставить управление"
+    },
+    "operation_sha256": "aa93cbc976629f95f6be2ed0c7a0c589d701575ef1e719a933bb5eeed1cf60d7",
+    "blocks": {
+      "72D5": "поиск пары через ROM16DC с сохранением BC вызывающего",
+      "72DD": "команда L переключает проекцию сканера через 7A84",
+      "72E3": "команда A переставляет пары лазеров только после покупки Mk4",
+      "72E7": "без Mk4 вход 733E исполняет DF как RST18, затем 733F пишет байт обратно",
+      "72E9": "перестановка переднего с левым и заднего с правым лазером",
+      "7315": "векторы команд L и A из второй таблицы паузы",
+      "7319": "пробел сбрасывает перенос, Q входит 731A с сохранённым переносом",
+      "731E": "очистка пяти клавиатурных масок без изменения переноса результата",
+      "7328": "команда K переключает клавиатуру и последний выбранный джойстик",
+      "7339": "команда C переключает бит 1 параметра FD0A через DFEE",
+      "733C": "альтернативный вход 733E исполняет старший байт DF этой команды как RST18",
+      "733F": "запись настройки и подстановка возврата в ожидание паузы"
+    },
+    "embedded_data": [
+      {
+        "start": 29435,
+        "end": 29448,
+        "kind": "data",
+        "summary": "пары клавиша-маска настройки, B10,D08,F40,R04,Y20,S80, нулевой конец"
+      },
+      {
+        "start": 29448,
+        "end": 29461,
+        "kind": "data",
+        "summary": "пары клавиша-младший адрес обработчика, пробел 19,L15,A17,K28,C39,Q1A, конец 0"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 26,
+      "conditional_comments_checked": 3,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    },
+    "current_header": [
+      "Поиск команды паузы и обработчики её действий",
+      "исходный диапазон #72D5..#7343",
+      "In:",
+      "HL таблица пар ключ-значение, AF, A=код клавиши",
+      "Out:",
+      "C=1 при найденном ключе, HL указывает связанное значение",
+      "Corrupt:",
+      "HL, AF, BC сохраняется оболочкой, прочие по ROM16DC",
+      "Note:",
+      "72DD переключает сканер через 7A84,72E3 меняет местами пары передних/задних и боковых лазеров Mk4",
+      "SPACE проходит XOR A по 7319 и возвращает C=0, Q входит 731A и сохраняет C=1, оба очищают пять",
+      "клавиатурных байтов",
+      "K по 7328 переключает младшие два бита джойстика, C по 7339 инвертирует bit1 операнда FD0A",
+      "При отсутствии Mk4 JR733E входит на байт DF внутри CALL DFEE, альтернативная инструкция RST18",
+      "сохранена буквально"
+    ]
+  },
+  {
+    "file": "Source/Game/Flight/PlaySweepingBeeperAndBootstrap.asm",
+    "start": 29508,
+    "end": 29552,
+    "semantic_name": "PlaySweepingBeeperAndBootstrap",
+    "status": "reviewed",
+    "summary": "Тональный сигнал с меняющейся задержкой и вход начальной подготовки",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Шесть групп по четыре периода, перед каждым периодом E=(2*E+5) mod256, два DJNZ задают высокий и низкий полупериоды",
+      "7366 вызывает 94F4 и 8042, затем линейно продолжается в 7370, это отдельный вход из 70E0",
+      "Первые периоды имеют E=5,15,35,75,155,59,123,251, далее последовательность сходится к 251, прерывания разрешены для HALT"
+    ],
+    "unresolved": [],
+    "embedded_code": [
+      {
+        "start": 29542,
+        "end": 29552
+      }
+    ],
+    "registers": {
+      "In": "основной вход без параметров,7366 получает текущий SP",
+      "Out": "24 полных импульса на порту FE, шесть HALT, отдельно 7366 сохраняет SP в 7578",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {
+      "7360": "не все четыре периода группы проиграны, продолжить развёртку периода"
+    },
+    "operation_sha256": "9fbe29fa12a2381ef99a7ca20dad8b262dad9d1614bccea2e9197ccf0ca2fcfb",
+    "blocks": {
+      "7344": "шесть групп по четыре периода, HALT выполняется перед каждой группой",
+      "734C": "расчёт периода по формуле E=(2*E+5) mod256",
+      "7352": "высокая фаза бипера с задержкой B",
+      "7358": "низкая фаза бипера с той же задержкой",
+      "7366": "отдельный стартовый вход сохраняет SP и подготавливает кабину"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 1,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/TryColonizeMinerals.asm",
+    "start": 29552,
+    "end": 29588,
+    "semantic_name": "TryColonizeMinerals",
+    "status": "reviewed",
+    "summary": "Попытка появления живых минералов при подборе груза",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Game.Screen.PlanetDistanceHint.Entry оценивает удаление от планеты, для заселения требуется A >= 56 при C = 0",
+      "Game.Circles.CheckSystemCoordinateBand.Entry допускает полосу -8 <= Y-X <= 7",
+      "Game.Missions.SpecialMessageAndScoopReward.AddCargo вызывает проверку до увеличения количества в State.Cargo + FGoods.Minerals, порог 2 требует двух тонн до добавления подобранной тонны",
+      "ненулевой State.MineralLife запрещает повторную колонизацию, в том числе после гибели колонии",
+      "DistantSigns задаёт старшие байты шести дальних координат, их потребитель Game.Text.InitializeSixTriples.Entry"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "State.MineralLife = состояние колонии, для заселения требуется 0, State.Cargo + FGoods.Minerals = количество минералов до подбора, State.SystemSeed = координаты текущей системы для проверки диагональной полосы",
+      "Out": "при допуске State.MineralLife получает количество минералов до подбора, не меньше 2",
+      "Corrupt": "AF, HL сохранён"
+    },
+    "branches": {
+      "7374": "состояние живых минералов уже задано",
+      "737A": "оценка расстояния до планеты переполнилась",
+      "737D": "оценка расстояния до планеты меньше 56",
+      "7383": "система находится вне разрешённой диагональной полосы",
+      "7389": "до добавления новой тонны имеется меньше двух тонн минералов"
+    },
+    "operation_sha256": "3d7aed31a7dee4e6e6db09e77899712178a6f25cb257a22427f97f7b6d454b13",
+    "blocks": {
+      "7370": "проверка отсутствия существующей либо погибшей колонии минералов",
+      "7375": "оценка удаления от планеты с сохранением указателя текущего груза",
+      "737B": "проверка минимальной оценки удаления 56",
+      "737E": "проверка диагональной полосы системы, -8<=Y-X<=7",
+      "7384": "проверка количества до подбора тонны и фиксация размера колонии"
+    },
+    "embedded_data": [
+      {
+        "start": 29582,
+        "end": 29588,
+        "kind": "data",
+        "summary": "Game.Text.InitializeSixTriples.Entry разворачивает DistantSigns в шесть координат начиная с DistantBodies.First.X, каждая получает байты 00, 00, старший байт из таблицы"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 6,
+      "conditional_comments_checked": 5,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+    "start": 29588,
+    "end": 29744,
+    "semantic_name": "ShowTitleAndSelectControls",
+    "status": "reviewed",
+    "summary": "Начальный экран с вращающимися кораблями и выбором управления",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Циклический индекс 7470 выбирает 12 моделей через таблицу AE3C, значения 12..15 пропускаются",
+      "Коды джойстика 2/3 берутся из битов 1/3 FC0F, SPACE выбирает клавиатуру 0, младшие 2 бита FC0E заменяются",
+      "Сбрасывает полётные флаги, строит интерфейс 817E, открывает состояние пилота D015 и инициализирует скорость 94F4",
+      "7426 отдельный вход вывода второй демонстрационной подписи,73D8..73E1 сохранённые нулевые байты"
+    ],
+    "unresolved": [],
+    "embedded_code": [
+      {
+        "start": 29734,
+        "end": 29744
+      }
+    ],
+    "registers": {
+      "In": "состояние начального экрана и клавиатуры",
+      "Out": "SPACE или джойстик запускает восстановление командира и основной цикл 7471",
+      "Corrupt": "HL, DE, BC, AF, IX, IY"
+    },
+    "branches": {
+      "73AA": "клавиша ещё удерживается, повторить ожидание отпускания",
+      "73B5": "индекс модели равен 12..15, пропустить отсутствующую запись",
+      "73E6": "нажат первый вариант джойстика, выбрать режим 2",
+      "73EB": "нажат второй вариант джойстика, выбрать режим 3",
+      "73F2": "пробел не нажат, продолжить показ модели"
+    },
+    "operation_sha256": "9f45850d13b59c826f8d7aa9a8df44595df9bd7baad3d804d40c795e2db61ccd",
+    "blocks": {
+      "7394": "начальный передний вид и сброс текущего режима",
+      "739E": "пометка демонстрационного объекта и ожидание отпускания клавиши",
+      "73AC": "выбор следующей из двенадцати моделей по таблице AE3C",
+      "73C3": "очистка буфера и рисование заголовка с вращающейся моделью",
+      "73E2": "выбор управления, джойстики 2/3 либо клавиатура 0 по пробелу",
+      "73FD": "замена младших двух битов управления с сохранением остальных настроек",
+      "7405": "восстановление командира и очистка временных режимов",
+      "741B": "сохранение фона кабины, стартовый экран и начальные параметры управления",
+      "7426": "отдельная подпись демонстрации, вторичный токен 6 по X=1,Y=14"
+    },
+    "embedded_data": [
+      {
+        "start": 29656,
+        "end": 29666,
+        "kind": "data",
+        "summary": "десять сохранённых нулевых байтов, цикл демонстрации перепрыгивает их"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 10,
+      "conditional_comments_checked": 5,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/DrawTitleCaption.asm",
+    "start": 29744,
+    "end": 29767,
+    "semantic_name": "DrawTitleCaption",
+    "status": "reviewed",
+    "summary": "Печать подписи начального экрана в буфере вида",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Сначала 7447 печатает общий заголовок, bit7 в старшем байте адреса направляет символы в C000, общий 7459 возвращает базу 4000"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "D0D5 адрес инструкции загрузки экранной базы",
+      "Out": "подпись второй таблицы 7 выведена по X=4,Y=13",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "b6561520c3fa85fe296a4e905d25ab7e6b7c555fd18671f306dc137d90ecd3fa",
+    "blocks": {
+      "7430": "общий заголовок перед подписью вторичным токеном 7",
+      "7438": "позиция подписи и временный выбор экранного буфера C000"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/DrawDemoHeading.asm",
+    "start": 29767,
+    "end": 29793,
+    "semantic_name": "DrawDemoHeading",
+    "status": "reviewed",
+    "summary": "Печать общего заголовка демонстрации",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "7459 общий хвост выключения bit7 по указателю D0D5+2, применяется также входами 7430 и 7426"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "D0D5 адрес инструкции загрузки экранной базы",
+      "Out": "основной токен 1D выведен по X=5,Y=1, экранная база восстановлена",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "a163220f39368671eac6515cd76b9c06c46e60f3cbd4779ce2a60b6e7b477e56",
+    "blocks": {
+      "7447": "основной токен 1D по X=5,Y=1 печатается в буфер вида",
+      "7459": "общий хвост возвращает печать в экран 4000"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/InitializeViewAttributes.asm",
+    "start": 29793,
+    "end": 29799,
+    "semantic_name": "InitializeViewAttributes",
+    "status": "reviewed",
+    "summary": "Инициализация 480 атрибутов верхней области",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "CALL7467 заполняет 240 байтов, затем проваливание 7467 выполняет второй такой же проход"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "без параметров",
+      "Out": "5820..59FF заполнены 07, HL=5A00,B=0",
+      "Corrupt": "HL, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "877f70a595dbee5bfd5665da1f56101d91eb4e98a36773106ecc82d36b67941d",
+    "blocks": {
+      "7461": "два прохода 7467 заполняют 480 атрибутов от 5820"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/Fill240Attributes.asm",
+    "start": 29799,
+    "end": 29809,
+    "semantic_name": "Fill240Attributes",
+    "status": "reviewed",
+    "summary": "Заливка 240 атрибутов белыми чернилами",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "7470 отдельный индекс модели демонстрационного экрана"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "HL адрес начала",
+      "Out": "240 байтов 07, HL увеличен на 240,B=0",
+      "Corrupt": "HL, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "a83e6b3599e3af3b079caaa3c65deaaf7dd343381cbbb0fa46210b577a869c97",
+    "blocks": {
+      "7467": "заливка 240 байтов значением 07, HL указывает продолжение"
+    },
+    "embedded_data": [
+      {
+        "start": 29808,
+        "end": 29809,
+        "kind": "data",
+        "summary": "счётчик демонстрационных моделей, используется младшая тетрада с пропуском 12..15"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 1,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/MainGameLoop.asm",
+    "start": 29809,
+    "end": 30084,
+    "semantic_name": "MainGameLoop",
+    "status": "reviewed",
+    "summary": "Основной цикл полёта, меню и последовательности гибели",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "7124 блокирует обновление управления, затем 80D3 разбирает клавиши,72A3 обслуживает паузу",
+      "При 7104=0 выполняются карта и дисковое меню, в полёте обновляются объекты и звёзды, вид 0..3 рисует сцену, меню 4+ задерживается 8HALT",
+      "После обновления приборов 711F запускает сцену гибели, останавливает скорость, создаёт обломки, печатает сообщение 9 и ждёт 50HALT",
+      "7578 сохранённый начальный SP,757A..7582 общие координаты проекции,7583 отдельный флаг окружения"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "глобальное состояние корабля, ввода и мира",
+      "Out": "постоянный цикл, при гибели 30 кадров обломков и возврат 739E",
+      "Corrupt": "HL, DE, BC, AF, IX, IY"
+    },
+    "branches": {
+      "7475": "управление заблокировано, сохранить текущие углы и скорость",
+      "7480": "выход из паузы не требует возврата к заставке, продолжить игру",
+      "7493": "корабль в полёте, перейти к обновлению мира",
+      "749D": "на станции не нажата команда выхода, начать следующий кадр",
+      "74A2": "обработчик выхода вернул NZ, перезапустить заставку",
+      "74AE": "активен особый режим пространства, пропустить обычную стыковку",
+      "74C1": "выбран один из четырёх видов кабины, рисовать полётную сцену",
+      "74CA": "состояние полёта нулевое, пропустить индикатор станции",
+      "74EE": "особый режим пространства выключен, вывести светила",
+      "7516": "корабль не уничтожен, начать следующий кадр"
+    },
+    "operation_sha256": "8c5cd1e23dd88f2389e267d26c36ef68a4241284781f77f278cd3be901f1dd9c",
+    "blocks": {
+      "7471": "проверка блокировки ручного управления при анимации",
+      "747A": "чтение клавиш и меню паузы, перенос после Q возвращает заставку",
+      "748C": "общий интерфейс и разделение станции и полёта",
+      "7495": "на станции обслуживаются курсор карты и команда выхода",
+      "74AA": "в полёте сначала проверяется стыковка, затем события и движение мира",
+      "74BC": "выбор обзора кабины либо информационного экрана",
+      "74D2": "обновление события и восемь кадров обслуживания карты",
+      "74E4": "рисование сцены, вне обычного пространства светила пропускаются",
+      "7502": "завершение кадра, приборы и проверка маскировки",
+      "750F": "обработка вооружения, опасного сближения и признака гибели",
+      "7519": "после гибели скорость обнуляется и управление блокируется",
+      "7529": "удаление маркеров, подготовка разрушения и звуковых эффектов",
+      "7538": "тридцать кадров звёзд и надписи о гибели",
+      "7560": "очистка экрана и объектов после анимации гибели",
+      "7569": "пятьдесят кадров ожидания перед возвратом к заставке"
+    },
+    "embedded_data": [
+      {
+        "start": 29951,
+        "end": 29954,
+        "kind": "data",
+        "summary": "сохранённый неиспользуемый хвост NOP и JR74DF, действующий путь перепрыгивает на 7502"
+      },
+      {
+        "start": 30072,
+        "end": 30074,
+        "kind": "data",
+        "summary": "исходный SP, сохраняется 7366 и восстанавливается 729B"
+      },
+      {
+        "start": 30074,
+        "end": 30083,
+        "kind": "data",
+        "summary": "рабочая тройка координат светила для проекции, девять байтов копируются 7584"
+      },
+      {
+        "start": 30083,
+        "end": 30084,
+        "kind": "data",
+        "summary": "предыдущий расширенный радиус сверхновой, обновляется 75C0"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 15,
+      "conditional_comments_checked": 10,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/DrawTransitionTunnelIfActive.asm",
+    "start": 37516,
+    "end": 37526,
+    "semantic_name": "DrawTransitionTunnelIfActive",
+    "status": "reviewed",
+    "summary": "Обновление сообщения и активного тоннеля перехода",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Сначала D03C обслуживает полётные сообщения, тот же тоннель используется запуском, стыковкой и гиперпереходом"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "D03F признак тоннеля",
+      "Out": "при активности продолжение 92D6, иначе возврат",
+      "Corrupt": "HL, DE, BC, AF, IX, IY по рисованию"
+    },
+    "branches": {
+      "9293": "туннель перехода не активен"
+    },
+    "operation_sha256": "20ab6593003fa2dcfe058d28da7ea2e55c2edb37375cff7c8e3ff6fc6bb35f9d",
+    "blocks": {
+      "928C": "обработка пространства и проверка активности туннеля"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 1,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+    "start": 37526,
+    "end": 37761,
+    "semantic_name": "AnimateTransitionTunnel",
+    "status": "reviewed",
+    "summary": "Анимация тоннеля гиперперехода и стыковки",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Для каждого кольца счётчик уменьшается, радиус вычисляется как 256/счётчик, значения меньше 4 не рисуются",
+      "Операнд 92FA выбирает таблицу 16 гиперколец или 8 стыковочных колец,93D1 хранит остаток цикла",
+      "9318 меняет цель JR Z с 931E на 9337,9326 порог затухания,932B выбирает 9341,935E или 9364",
+      "9341 очищает оба флага перехода и вычитает 190 из 16 глубин,9364 снимает D040,9369 снимает D03F и вычитает 192 из 8 глубин",
+      "Самомодификация является частью автомата фаз, DB-хвосты 9337..935D и 9364..937A раскрыты как исполняемые обработчики"
+    ],
+    "unresolved": [],
+    "embedded_code": [
+      {
+        "start": 37687,
+        "end": 37726
+      },
+      {
+        "start": 37732,
+        "end": 37755
+      }
+    ],
+    "registers": {
+      "In": "D040 активное завершение перехода,93D0 число колец,93D3/93E3 счётчики глубины",
+      "Out": "кадр тоннеля и счётчики изменены, общий 937B устанавливает скорость 7",
+      "Corrupt": "HL, DE, BC, AF, IX, IY"
+    },
+    "branches": {
+      "929A": "новый этап перехода не запрошен",
+      "92A5": "особый режим пространства выключен, сохранить станцию",
+      "92DA": "активен основной этап туннеля, выбрать вывод кадра",
+      "9309": "радиус кольца меньше 4, пропустить рисование",
+      "9317": "все кольца кадра обработаны, выполнить выбранный этап анимации",
+      "932A": "счётчик кадров ниже подставленного порога, завершить текущий этап",
+      "933E": "последний этап туннеля завершён, сбросить флаг и глубины колец"
+    },
+    "operation_sha256": "157e05868ca841e4aeea881eec1e039eceb0a5b2e1b5177bfc539a0c5c2f4651",
+    "blocks": {
+      "9296": "начало перехода, обслуживание минералов и очистка кораблей",
+      "92A1": "проверка особого пространства, в нём удаляется также станция",
+      "92B3": "очистка экрана и подготовка шестнадцати глубин гипертуннеля",
+      "92C4": "подмена таблицы, числа колец, порога и завершающей ветви",
+      "92D6": "выбор завершения кадра через изменяемое смещение JR9317",
+      "92E8": "нулевой центр окружностей и признаки всех четвертей 0F",
+      "92F3": "счётчик оставшихся колец берётся из конфигурации",
+      "92F9": "SMC, HL выбирает таблицу из 16 либо 8 глубин",
+      "92FC": "приближение кольца на единицу, радиус равен целой части 256/глубина",
+      "9307": "проверка минимального видимого радиуса перед рисованием",
+      "9313": "проверка конца набора колец, JR9317 ведёт на 931E либо 9337",
+      "931E": "вывод кадра и уменьшение времени основного этапа",
+      "9325": "SMC, порог равен 1 для гипертуннеля либо 48 для стыковки",
+      "932A": "SMC, выбор завершения гиперперехода, стыковки или старта",
+      "9337": "остаточная фаза уменьшает время до сброса флага и глубин",
+      "9341": "завершение гиперперехода снимает оба флага и восстанавливает 16 глубин вычитанием BE",
+      "935E": "завершение старта снимает D040 и задаёт скорость 7",
+      "9364": "завершение посадки снимает только D040",
+      "9369": "окончание остаточной фазы снимает D03F и восстанавливает 8 глубин вычитанием C0",
+      "937B": "скорость после выхода из туннеля равна 7"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 7,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/PrintMessageAfterMetadataReset.asm",
+    "start": 37761,
+    "end": 37769,
+    "semantic_name": "PrintMessageAfterMetadataReset",
+    "status": "reviewed",
+    "summary": "Печать токена после сброса объектных метаданных",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "PUSH/POP AF сохраняет номер сообщения вокруг F9AB, используется надписью гибели"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "AF, A токен второй таблицы",
+      "Out": "F9AB сбрасывает метаданные, затем D039 печатает сохранённый токен",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "8fc7ffbb9e25f2c651fbc24f1f2b226dced39cb316853f86b091b08d3540fc74",
+    "blocks": {
+      "9381": "сохранение токена вокруг сброса метаданных объектов"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/RaiseLaserThreshold.asm",
+    "start": 37769,
+    "end": 37777,
+    "semantic_name": "RaiseLaserThreshold",
+    "status": "reviewed",
+    "summary": "Повышение вероятностного порога лазера при маскировке",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "PUSH/POP сохраняют HL, команда SET не изменяет флаги, остальные регистры не затрагиваются"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "без параметров",
+      "Out": "LaserThreshold bit7 установлен, HL сохранён",
+      "Corrupt": "регистры и флаги сохранены"
+    },
+    "branches": {},
+    "operation_sha256": "7ee72c3e01c425bd4410dfaf11b43a8113295265b0b0dc6f8b62a6a5aa6383d6",
+    "blocks": {
+      "9389": "установка старшего разряда порога CP с сохранением регистров и флагов"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/SetSelectedLineMetadata.asm",
+    "start": 37777,
+    "end": 37804,
+    "semantic_name": "SetSelectedLineMetadata",
+    "status": "reviewed",
+    "summary": "Изменение выбранной десятибайтовой записи линий",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "При C=0 DJNZ выполнит 256 шагов, вызывающий обязан передать ненулевой индекс для обычного результата",
+      "FABA bit7 предварительно помечает общий пересчёт линии"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "BC, C номер записи, B456 текущий общий режим",
+      "Out": "адрес B4A7-10*C передан B4BA, B456 обновлён, хвост B950 с A=1",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "e305b0d70e0a0fa2efd8d60040d72a48bab2a26ad101986e946375b58ccd8dc6",
+    "blocks": {
+      "9391": "поиск записи с шагом минус 10 от B4A7",
+      "939E": "изменение записи через B4BA и выбор первого рабочего объекта"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/DivideByteFractionForTunnel.asm",
+    "start": 37804,
+    "end": 37869,
+    "semantic_name": "DivideByteFractionForTunnel",
+    "status": "reviewed",
+    "summary": "Восемь разрядов частного для радиуса тоннеля",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Маркер FE заканчивает восемь итераций, переполнение удвоения обрабатывается до сравнения",
+      "Проверки B=0 нет, при нулевом делителе получается C=FF",
+      "93C0 отдельный завершающий обработчик тоннеля,93D0..93EC таблицы и счётчики колец"
+    ],
+    "unresolved": [],
+    "embedded_code": [
+      {
+        "start": 37824,
+        "end": 37840
+      }
+    ],
+    "registers": {
+      "In": "BC, B делитель, AF, A начальный остаток, штатно 0<=A<B",
+      "Out": "BC, C=floor(A_in*256/B), AF, A остаток, C-флаг 0",
+      "Corrupt": "BC только C, AF"
+    },
+    "branches": {
+      "93AF": "удвоение остатка дало девятый бит, вычесть делитель",
+      "93B2": "удвоенный остаток не меньше делителя, записать единичный бит частного",
+      "93B6": "маркер восьми разрядов вышел из C, частное готово",
+      "93BD": "маркер восьми разрядов вышел из C, частное готово",
+      "93C6": "первая миссия не активна, восстановить обычные атрибуты окна"
+    },
+    "operation_sha256": "795ed54d7b02d4f5009887231b6ebb604cca8392c7b6bd439c6488873bec6956",
+    "blocks": {
+      "93AC": "дробное деление, C=FE содержит частное и маркер восьми разрядов",
+      "93AE": "удвоение остатка перед очередным битом частного",
+      "93B4": "нулевой бит частного, выход определяется маркером",
+      "93B9": "вычитание делителя и единичный бит частного",
+      "93C0": "завершение гипертуннеля, обычный цвет возвращается вне первой миссии"
+    },
+    "embedded_data": [
+      {
+        "start": 37840,
+        "end": 37841,
+        "kind": "data",
+        "summary": "число колец активного туннеля,8 для стыковки,16 для гиперперехода"
+      },
+      {
+        "start": 37841,
+        "end": 37842,
+        "kind": "data",
+        "summary": "число ещё не обработанных колец текущего кадра"
+      },
+      {
+        "start": 37842,
+        "end": 37843,
+        "kind": "data",
+        "summary": "оставшееся время текущего этапа анимации туннеля"
+      },
+      {
+        "start": 37843,
+        "end": 37859,
+        "kind": "data",
+        "summary": "шестнадцать глубин гипертуннеля, каждое кольцо приближается на единицу за кадр"
+      },
+      {
+        "start": 37859,
+        "end": 37867,
+        "kind": "data",
+        "summary": "восемь глубин стыковочного и стартового туннеля"
+      },
+      {
+        "start": 37867,
+        "end": 37869,
+        "kind": "data",
+        "summary": "два сохранённых нулевых байта после таблицы колец"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 29,
+      "conditional_comments_checked": 5,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+    "start": 37869,
+    "end": 38132,
+    "semantic_name": "LaunchOrDockShip",
+    "status": "reviewed",
+    "summary": "Постановочная последовательность старта либо стыковки",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Общая настройка выбирает 8 колец 93E3, порог 48 (#30) и фазы D03F/D040=1",
+      "Стыковка фиксирует скорость 12, блокирует ручное управление, выполняет 47 кадров и проверяет предложение Mk4",
+      "Запуск очищает объекты, задаёт положение станции и светил, рисует 36 кадров первой фазы и 11 второй",
+      "Пороговые JR и CP тоннеля задаются патчами 932B/9326, после 47 кадров запуска блокировка 7124 снимается, исполнение продолжается 94F4"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "7103 межзвёздный режим,7104 текущее состояние полёта",
+      "Out": "при стыковке 7104=0 и возврат к меню, при запуске 7104=4 и возврат в полёт",
+      "Corrupt": "HL, DE, BC, AF, IX, IY"
+    },
+    "branches": {
+      "93F1": "особый режим пространства запрещает запуск или стыковку",
+      "9411": "корабль находится на станции, выполнить старт"
+    },
+    "operation_sha256": "aeac4c982a008bc9900603ec77c15af00e959ab4de48a1be256f12c904ca7126",
+    "blocks": {
+      "93ED": "проверка обычного пространства перед запуском или посадкой",
+      "93F2": "восемь колец, порог 48 и начальное время 64 для стыковочного туннеля",
+      "940D": "выбор направления перехода по полётному сигналу 7104",
+      "9413": "стыковка выбирает хвост 9364 и блокирует управление",
+      "942B": "снятие активности ECM перед сорока семью кадрами посадки",
+      "9445": "завершение посадки, сохранение кабины, предложение Mk4 и сообщение",
+      "9458": "сохранённый хвост после невозвращающегося 728D, отдельный путь счётчика",
+      "945D": "старт со станции задаёт зелёный полётный сигнал 4",
+      "9465": "сброс временных полей, инициализация генератора и хвост 935E",
+      "9477": "подготовка щитов, энергии, кабины и цвета первой миссии",
+      "9480": "начальное положение планеты и изменение знака Z солнца",
+      "9495": "очистка 27 байтов геометрии станции перед установкой базиса",
+      "94A1": "станция по отрицательной Z, диагональные элементы базиса равны 7F",
+      "94BA": "очистка прочих объектов и первые 36 кадров старта",
+      "94D8": "последние 11 кадров дополнительно обновляют координаты и рисуют планету",
+      "94F0": "снятие блокировки и общий сброс управления"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 2,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/ResetFlightControls.asm",
+    "start": 38132,
+    "end": 38142,
+    "semantic_name": "ResetFlightControls",
+    "status": "reviewed",
+    "summary": "Сброс управления, метаданных и начальной скорости",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "F9AB возвращает HL=FF08,B=5 и обнуляет 80 байтов объектных метаданных,9503 очищает пять байтов управления"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "без параметров",
+      "Out": "FF08..FF0C=0,FF0D=12, далее очистка клавиш 94FE",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "b903498f8d4dfbacdc9f095a1deb471d34b5d670dddd90dcefaf89027cf96f82",
+    "blocks": {
+      "94F4": "сброс метаданных и пяти байтов углов, скорость 12"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/ClearFlightKeyEvents.asm",
+    "start": 38142,
+    "end": 38147,
+    "semantic_name": "ClearFlightKeyEvents",
+    "status": "reviewed",
+    "summary": "Очистка пяти накопленных клавиатурных масок",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Код символа FC0D и настройки FC0E сохраняются"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "без параметров",
+      "Out": "FC08..FC0C=0, далее общий 9503",
+      "Corrupt": "HL, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "bc062deeb246a453b843bdf5440780539eeb8ed00334849629bef3e07baa3237",
+    "blocks": {
+      "94FE": "очистка пяти масок с сохранением символа и настроек"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/ClearBytes.asm",
+    "start": 38147,
+    "end": 38153,
+    "semantic_name": "ClearBytes",
+    "status": "reviewed",
+    "summary": "Обнуление заданного диапазона",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "XOR A задаёт нуль и флаги, LD/INC HL/DJNZ не меняют флаги внутри цикла"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "HL начало, BC, B длина 1..255,0 означает 256",
+      "Out": "HL увеличен на число записей, B=0,A=0,Z=1,C=0",
+      "Corrupt": "HL, BC только B, AF"
+    },
+    "branches": {},
+    "operation_sha256": "80d02810e21da907dc25a33a37a9d543e75fb67e1ae21a9c2cb53ba2a35bfe85",
+    "blocks": {
+      "9503": "заполнение B байтов нулями, B=0 означает 256 итераций"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+    "start": 38153,
+    "end": 38183,
+    "semantic_name": "ClearNearbyShipSlots",
+    "status": "reviewed",
+    "summary": "Удаление семи соседних объектов",
+    "evidence": [
+      "ручной разбор инструкций декодированного образа и фактических вызывающих входов",
+      "Станция в первом слоте 6048 остаётся, IX после семи шагов равен 6159",
+      "9522..9526 являются активным состоянием звука, режим, DE и указатель HL, используются 9579/95A6/95E7/9624"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "объекты по 6048 с шагом 39",
+      "Out": "станции снимается bit2 поля 21, семь последующих полей 22 обнуляются,9C99=0",
+      "Corrupt": "DE, BC, AF, IX"
+    },
+    "branches": {},
+    "operation_sha256": "b33bd972593148dfff7b49697ec7eb5686905087df0caad9ec52c297dd248cc5",
+    "blocks": {
+      "9509": "снятие враждебности станции и признака атаки"
+    },
+    "embedded_data": [
+      {
+        "start": 38178,
+        "end": 38179,
+        "kind": "data",
+        "summary": "активный режим звука,0 нет,1 меняющийся тон,2 данные периода,3 шум"
+      },
+      {
+        "start": 38179,
+        "end": 38181,
+        "kind": "data",
+        "summary": "состояние DE проигрывателя, счётчик пакетов и задержка зависят от режима"
+      },
+      {
+        "start": 38181,
+        "end": 38183,
+        "kind": "data",
+        "summary": "адрес следующего звукового отсчёта или периода"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 5,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/AdvanceScannerObject.asm",
+    "start": 38614,
+    "end": 38617,
+    "semantic_name": "AdvanceScannerObject",
+    "status": "reviewed",
+    "summary": "Общий переход к следующему объекту сканера",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "Вход используется всеми ранними отбраковками 96D9, собственный адрес возврата не создаётся"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "IX текущий объект, 96C3 число оставшихся слотов",
+      "Out": "продолжение общего цикла 982E",
+      "Corrupt": "HL, DE, BC, AF, IX"
+    },
+    "branches": {},
+    "operation_sha256": "1ef7b3b3212b55ef8b2c9af1ae75fc5772a3041ef9fc7cbfbcb5115a08415b00",
+    "blocks": {
+      "96D6": "ранний отказ использует общий переход к следующему объекту"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+    "start": 38617,
+    "end": 39018,
+    "semantic_name": "DrawScannerObjects",
+    "status": "reviewed",
+    "summary": "Вывод восьми объектов на плоскость сканера",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "Пропускаются пустые слоты, модули старших координат >=64 и x²+z²>=0x1600",
+      "Обычная проекция даёт X через сумму половины и четверти координаты, Y/Z через четверть и шестнадцатую, берётся старший байт результата",
+      "972F переключается 7A84 между AND A и SCF, второй режим передаёт объект B2EF",
+      "Маркер состоит из вертикальной ножки и трёхбитной головки, 986A/987C обрезают ножку с удалением своего адреса возврата",
+      "После восьми слотов очищаются 7 строк по 13 байт начиная с 5009"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "таблица объектов 6048, переключатель проекции 972F, флаг вывода 9C96",
+      "Out": "нанесены вертикальные маркеры, 96C4=1 при наличии подходящего объекта",
+      "Corrupt": "HL, DE, BC, AF, IX"
+    },
+    "branches": {
+      "96E0": "вывод объектов сканера отключён",
+      "96F1": "слот объекта пуст, перейти к следующему",
+      "96F8": "модуль старшего байта X не меньше 64, пропустить далёкий объект",
+      "96FF": "модуль старшего байта Y не меньше 64, пропустить далёкий объект",
+      "9706": "модуль старшего байта Z не меньше 64, пропустить далёкий объект",
+      "9716": "сумма квадратов координат переполнилась, пропустить объект",
+      "971E": "квадрат расстояния в плоскости XZ не меньше 5632, пропустить объект",
+      "9730": "переключатель 972F заменён на SCF, использовать альтернативную проекцию",
+      "9761": "координата Y положительна, сохранить положительную высоту",
+      "9781": "координата Z положительна, сохранить положительную глубину",
+      "9793": "модуль X меньше 4, обработать центральный байт сетки",
+      "97A0": "остаток пиксельного смещения нулевой, не округлять число байтов вверх",
+      "97A8": "координата X отрицательна, смещаться влево от центра",
+      "97B2": "остаток смещения равен нулю, использовать правый край байта",
+      "97C3": "координата X отрицательна, сформировать левую маску без смещения байта",
+      "97CF": "остаток смещения равен нулю, использовать левый край байта",
+      "97DE": "глубина Z нулевая, оставить исходную строку сетки",
+      "97E3": "глубина Z отрицательна, двигать основание вниз",
+      "97E9": "пересечена верхняя граница знакоместа, скорректировать экранный адрес",
+      "97F4": "пересечена нижняя граница знакоместа, скорректировать экранный адрес",
+      "9800": "высота Y нулевая, рисовать только головку маркера",
+      "9805": "высота Y отрицательна, провести ножку вниз",
+      "980E": "пересечена верхняя граница знакоместа, проверить отсечение ножки",
+      "981C": "пересечена нижняя граница знакоместа, проверить отсечение ножки",
+      "9823": "первый сдвиг головки вышел за байт, нанести маски 03 и 80",
+      "9827": "второй сдвиг головки вышел за байт, нанести маски 01 и C0",
+      "9832": "все восемь объектов обработаны, очистить верхний край сканера",
+      "984F": "не все семь строк края очищены, продолжить очистку"
+    },
+    "operation_sha256": "85ce8437aa9ac7b80a67a59a22c304be43f7fca5f0eb610e6e17b3ba3d788e23",
+    "blocks": {
+      "96D9": "подготовка слоя сканера и проверка разрешения вывода",
+      "96E1": "индикатор станции перед обходом восьми объектов",
+      "96ED": "проверка пустого слота и предельных координат",
+      "9708": "квадрат удаления в плоскости XZ через два целочисленных квадрата",
+      "9718": "проверка границы видимости по квадрату расстояния 5632",
+      "9720": "пометка изменённого фона и делитель 4000 для проекции",
+      "972F": "SMC,7A84 заменяет AND A на SCF для проекции B2EF",
+      "9733": "масштаб X через сумму половины и четверти модуля",
+      "9768": "масштаб Z через сумму четверти и шестнадцатой модуля",
+      "9788": "расчёт байта и бита основания относительно центра 558F",
+      "9796": "деление модуля смещения на 8 и округление числа байтов вверх",
+      "97A3": "проверка знака X для выбора стороны сканера",
+      "97AD": "расчёт однобитной маски правой стороны",
+      "97BB": "поправка центрального байта для модулей X меньше 4",
+      "97CA": "расчёт однобитной маски левой стороны",
+      "97D6": "смещение основания по глубине Z в нелинейной памяти экрана",
+      "97E5": "проход вверх по пиксельным строкам до нужной глубины",
+      "97F0": "проход вниз по пиксельным строкам до нужной глубины",
+      "97F9": "проверка высоты Y для ножки маркера",
+      "9807": "восходящая ножка рисуется OR, край обрезает 987C",
+      "9815": "нисходящая ножка рисуется OR, край обрезает 986A",
+      "9821": "расширение головки до трёх пикселей с учётом границы байта",
+      "982E": "переход к следующей структуре 39 байтов после уменьшения счётчика",
+      "983F": "очистка семи строк по 13 байт над маркерами",
+      "9852": "головка первого переноса занимает маски 03/80 в соседних байтах",
+      "985E": "головка второго переноса занимает маски 01/C0 в соседних байтах"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 28,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/StepScannerStemDown.asm",
+    "start": 39018,
+    "end": 39036,
+    "semantic_name": "StepScannerStemDown",
+    "status": "reviewed",
+    "summary": "Переход ножки сканера через нижнюю границу знакоместа",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "При переносе L+32 и H=58 достигнута область атрибутов, POP AF удаляет адрес CALL и сразу выбирается следующий объект"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "HL адрес после INC H при пересечении восьми пиксельных строк",
+      "Out": "HL следующая строка либо переход 982E после снятия адреса возврата",
+      "Corrupt": "HL, AF"
+    },
+    "branches": {
+      "986E": "младший байт строки не переполнился, вернуть H на восемь строк",
+      "9873": "при переносе младшего байта H не равен 58, адрес ещё внутри экрана"
+    },
+    "operation_sha256": "770d29b0e4fb1400049a38c832d05bfdf4224f6380bf7e1efae22acc516f60ec",
+    "blocks": {
+      "986A": "расчёт следующего ряда знакомест при движении ножки вниз",
+      "9870": "проверка попадания в атрибуты и удаление адреса возврата при отсечении",
+      "9877": "коррекция старшего байта нового знакоместа"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 2,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/StepScannerStemUp.asm",
+    "start": 39036,
+    "end": 39054,
+    "semantic_name": "StepScannerStemUp",
+    "status": "reviewed",
+    "summary": "Переход ножки сканера через верхнюю границу знакоместа",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "L=0F является верхним пределом маркера, POP AF снимает адрес CALL, JP982E завершает объект"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "HL адрес после DEC H при пересечении восьми пиксельных строк",
+      "Out": "HL предыдущая строка либо переход 982E после снятия адреса возврата",
+      "Corrupt": "HL, AF"
+    },
+    "branches": {
+      "987F": "верхняя граница L=0F не достигнута, рассчитать предыдущую строку",
+      "9888": "вычитание 32 заняло старший байт, H уже указывает нужную треть экрана"
+    },
+    "operation_sha256": "27d910bea34ccf24c307daabfa3582407046292a64bb4f6e682304c692fdcd14",
+    "blocks": {
+      "987C": "проверка верхнего края, переход 982E снимает адрес вызова",
+      "9885": "расчёт предыдущего знакоместа и перехода между третями экрана"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 2,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/SetYellowFlightStatus.asm",
+    "start": 39054,
+    "end": 39074,
+    "semantic_name": "SetYellowFlightStatus",
+    "status": "reviewed",
+    "summary": "Выбор жёлтого индикатора при наличии обычного живого объекта",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "Состояния 0x63 специального мигания и 2 опасности не заменяются, нулевой 9CAE оставляет индикатор"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "OrdinarySeen содержит энергию последнего живого объекта без Flags2.bit2, FlightState.FlightStatus состояние полёта",
+      "Out": "7104=6, если допускается замена текущего сигнала",
+      "Corrupt": "AF"
+    },
+    "branches": {
+      "9892": "обычных живых объектов нет",
+      "9898": "включён специальный мигающий сигнал 63",
+      "989B": "уже выставлен красный сигнал опасности 2"
+    },
+    "operation_sha256": "7da1b249608708930645b94c97fb9e78c2096c46a879fff8f546aa535994e069",
+    "blocks": {
+      "988E": "проверка обычных живых объектов и приоритетных сигналов 2/63",
+      "989C": "установка жёлтого сигнала 6"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 3,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/SaveScannerBackground.asm",
+    "start": 39074,
+    "end": 39117,
+    "semantic_name": "SaveScannerBackground",
+    "status": "reviewed",
+    "summary": "Сохранение чистого фона сканера в линейный буфер",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "Сначала 98CD восстанавливает прошлый фон, затем меняются семь байтов команд общего цикла",
+      "Для сохранения 9912/9939=EX DE,HL, 9915/991A=PUSH HL, 9935=POP HL, 9936=INC H, 9940=NOP",
+      "Переход 990C использует тот же LDIR, что восстановление 98CD"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "экран 5049, буфер 5B00, 96C4 наличие старых маркеров",
+      "Out": "624 байта фона скопированы в 5B00..5D6F",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "2ad7904e8da29d3c7dc2d8d1930bc611acc61f38d4b466e26c00f8420bfdaf08",
+    "blocks": {
+      "98A2": "удаление старых маркеров перед новым снимком фона",
+      "98A5": "подмена команд общего копировщика для направления экран→буфер",
+      "98C0": "NOP сохраняет расположение линейного указателя назначения"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+    "start": 39117,
+    "end": 39204,
+    "semantic_name": "RestoreScannerBackground",
+    "status": "reviewed",
+    "summary": "Восстановление фона и удаление предыдущих отметок",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "Только значение 1 в 96C4 разрешает операцию, другое значение возвращается без изменений",
+      "Для восстановления 9912/9939=NOP, 9915/991A=PUSH DE, 9935=POP DE, 9936=INC D, 9940=EX DE,HL",
+      "Копируются 6 знакомест по 8 строк, по 13 байт каждой, экранная строка нелинейна, буфер линеен",
+      "Общий цикл 990C..9944 имеет продолжение в файле 9924, после LDIR переход 9935 обходит независимый вход 9924"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "96C4=1 для восстановления, фон 5B00..5D6F",
+      "Out": "96C4=0, 624 байта возвращены на экран, очищены ещё 8×11 байт",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {
+      "98D1": "фон не помечен как содержащий новые маркеры",
+      "98E5": "не все восемь строк дополнительной области очищены, продолжить очистку"
+    },
+    "operation_sha256": "a2c3ecedcbebb7234567d1cbefe4f9e6bd84109a74bdefe0df8d1e43c37a5c76",
+    "blocks": {
+      "98CD": "проверка грязного фона, восстановление разрешает только значение 1",
+      "98D2": "снятие признака и очистка восьми строк по 11 байт",
+      "98E7": "подмена команд общего копировщика для направления буфер→экран",
+      "98FC": "экранный указатель ведётся через POP DE и INC D",
+      "990C": "общая подготовка линейного буфера 5B00 и прямоугольника экрана 5049",
+      "9912": "SMC, EX DE,HL при сохранении выбирает экран источником",
+      "9915": "внешний цикл шести знакомест сохраняет экранную базу подменяемым PUSH",
+      "991A": "восемь строк знакоместа, LDIR копирует 13 байт в выбранном направлении"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 2,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+    "start": 39204,
+    "end": 39238,
+    "semantic_name": "ScaleScannerValueAndFinishBackgroundCopy",
+    "status": "reviewed",
+    "summary": "Масштабирование байта и общий хвост копирования фона",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "9924 обнуляет H, удваивает A и сбрасывает перенос перед умножением B286",
+      "992B..9934 сохранённый неиспользуемый фрагмент прежнего копирования, прямых входов нет",
+      "9935..9944 является активным общим хвостом 98A2/98CD с подменяемыми POP/INC/EX",
+      "9945 сохранённый нулевой байт после RET"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "HL, L множитель, AF, A второй множитель для входа 9924",
+      "Out": "A=floor(L*((2*A) mod256)/256), либо завершён общий цикл 9915",
+      "Corrupt": "HL, AF для 9924, HL, DE, BC, AF для 9935"
+    },
+    "branches": {
+      "9942": "не все шесть рядов знакомест скопированы, продолжить общий цикл"
+    },
+    "operation_sha256": "1f9630ed3f8316c9e95506f3b2ac3bb494da05851b87fedd463c8f2e3ca12c0c",
+    "blocks": {
+      "9924": "отдельный вход масштабирует L на удвоенный байт A, перенос сбрасывается",
+      "9935": "общий хвост копирования, POP и INC выбираются направлением переноса",
+      "9939": "расчёт следующего знакоместа увеличивает экранную базу на 32",
+      "9941": "проверка окончания шести рядов знакомест"
+    },
+    "embedded_data": [
+      {
+        "start": 39211,
+        "end": 39221,
+        "kind": "data",
+        "summary": "сохранённый прежний фрагмент LD HL,AC06 / LD B,21 / NOP / LDI / LDI, прямых входов нет"
+      },
+      {
+        "start": 39237,
+        "end": 39238,
+        "kind": "data",
+        "summary": "сохранённый нулевой байт после общего RET копировщика"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 11,
+      "conditional_comments_checked": 1,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+    "start": 39238,
+    "end": 39284,
+    "semantic_name": "ResetCockpitForLaunch",
+    "status": "reviewed",
+    "summary": "Начальные щиты, энергия и состояния приборов после старта",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "9C18 обновляет запас ракет, D0DA очищает очередь сообщения",
+      "Обнуляются прицел ракеты D047, нагрев лазера 70F0, нагрев кабины 70EE, автопилот 7129,9C9B и таймер капсулы 9C1B",
+      "Последняя DJNZ падает в 9974 для обновления атрибутов приборов",
+      "Высота 70F2 устанавливается 160, энергия хранится в четырёх банках 70F6/70F8/70FA/70FC"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "поля полёта, очередь сообщения и ракетное вооружение",
+      "Out": "щиты, высота и четыре банка энергии равны 160, временные состояния сброшены",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "f6e3188237408535b7e79bfd62e9af1d2aea49c8b880b0625dcca2e707b7c270",
+    "blocks": {
+      "9946": "запас ракет и очередь сообщений обновляются перед стартом",
+      "994C": "сброс прицела, температур, автопилота и таймеров",
+      "995F": "полные щиты, максимальная высота и четыре банка энергии"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/SetCockpitDeviceAttributes.asm",
+    "start": 39284,
+    "end": 39317,
+    "semantic_name": "SetCockpitDeviceAttributes",
+    "status": "reviewed",
+    "summary": "Цвета двух панелей приборов по наличию спасательной капсулы",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "Виды 0..3 используют 5A23, прочие 5B23, второе поле смещено на 21 столбец",
+      "Без капсулы атрибут 17, с капсулой 1F, каждый прямоугольник 5×7",
+      "После первой панели хвостом вызывается 9995 для второй"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "номер вида 70E3, наличие капсулы D089",
+      "Out": "по 35 атрибутов левой и правой панелей обновлены",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {
+      "997C": "открыт один из четырёх видов кабины, писать атрибуты на экран",
+      "9985": "спасательная капсула отсутствует, оставить атрибут 17"
+    },
+    "operation_sha256": "eae1e17207580a3676adf9e9c888d376e4c085e41659bd13819c8421f71c456d",
+    "blocks": {
+      "9974": "выбор атрибутов на экране либо в его копии",
+      "997F": "проверка капсулы для выбора цвета панелей",
+      "9989": "заливка левой панели и смещение на 21 столбец к правой"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 2,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/FillCockpitAttributePanel.asm",
+    "start": 39317,
+    "end": 39332,
+    "semantic_name": "FillCockpitAttributePanel",
+    "status": "reviewed",
+    "summary": "Заливка панели атрибутов размером пять на семь",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "Штатный DE=27, поэтому экранный шаг составляет 32 байта, C сохраняется",
+      "99A3 отдельный счётчик мигания аварийного индикатора"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "HL левый верх, DE добавка после пяти байтов, BC, C атрибут",
+      "Out": "35 байт записаны, HL сдвинут на 7*(5+DE)",
+      "Corrupt": "HL, BC, AF"
+    },
+    "branches": {},
+    "operation_sha256": "d118f6e481e2b64cd1d2131363b0b18cb6968e3a95a7e958f449420848c48601",
+    "blocks": {
+      "9995": "семь строк по пять атрибутов с шагом 5+DE"
+    },
+    "embedded_data": [
+      {
+        "start": 39331,
+        "end": 39332,
+        "kind": "data",
+        "summary": "счётчик мигания, бит 1 выбирает красную фазу специального сигнала 63"
+      }
+    ],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 1,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+    "start": 39332,
+    "end": 39482,
+    "semantic_name": "DrawDangerAndMissileIndicators",
+    "status": "reviewed",
+    "summary": "Индикаторы опасности и готовности ракеты для разных экранов",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "Нулевое 7104 означает отсутствие полёта, пустой щит задаёт сигнал 2, кроме специального 63",
+      "При 63 бит 1 счётчика 99A3 чередует чёрный 0 и красный 2",
+      "Для видов 0..3 опасность занимает 2×2 атрибута, ракета получает PAPER=4 вместо состояния 1",
+      "Для прочих видов выводятся пары символов 21/22 либо 23/24, на время печати XOR C по адресу(D04B) заменяется NOP и восстанавливается в A9",
+      "Общий выход 9A3A устанавливает базовый зелёный сигнал 4"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "7104 текущий сигнал, 70E8/70EA щиты, D047 ракета, 70E3 вид",
+      "Out": "индикаторы выведены, 7104 возвращён к 4 для следующего кадра",
+      "Corrupt": "HL, DE, BC, AF"
+    },
+    "branches": {
+      "99A9": "корабль находится на станции",
+      "99AE": "передний щит пуст, проверить возможность красного сигнала",
+      "99B4": "задний щит непуст, сохранить текущий сигнал",
+      "99B9": "задан специальный сигнал 63, не заменять его красным",
+      "99C0": "специальное мигание не задано, использовать текущий цвет",
+      "99C8": "бит 1 счётчика мигания установлен, выбрать красную фазу",
+      "99D5": "открыт информационный экран, вывести компактную пару символов",
+      "99EB": "состояние ракеты не равно 1, сохранить его цветовой код",
+      "9A05": "номер экрана не меньше 9, вывести пару символов 23/24",
+      "9A09": "сигнал чёрной фазы равен 0, заменить его цветом 2 для пары 23/24",
+      "9A0D": "сигнал не красный, использовать цветной фон пары 23/24"
+    },
+    "operation_sha256": "b60f357e3fe986fa766fde8afc517093c4267b64f093f7e31d098b182323e313",
+    "blocks": {
+      "99A4": "проверка полёта перед выводом индикаторов",
+      "99AA": "проверка щитов, пустой щит задаёт красный сигнал",
+      "99B6": "специальное состояние 63 имеет приоритет над пустыми щитами",
+      "99BD": "проверка мигания, бит 1 счётчика задаёт фазу по два вызова",
+      "99CF": "выбор полного либо компактного индикатора по номеру вида",
+      "99D7": "запись четырёх атрибутов полного индикатора",
+      "99E6": "расчёт PAPER ракеты, состояние 1 заменяется зелёным 4",
+      "99F8": "временное отключение XOR печати и позиция компактного индикатора",
+      "9A03": "проверка группы экранов, начиная с 9 выбирается пара 23/24",
+      "9A07": "проверка красной опасности для пары 21/22",
+      "9A1D": "чёрная фаза заменяется цветом 2 для второй пары",
+      "9A1F": "расчёт атрибута компактного индикатора как 10+сигнал",
+      "9A23": "печать пары 23/24 с сохранением атрибута",
+      "9A2F": "два атрибута и восстановление XOR печати перед общим выходом"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 11,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  },
+  {
+    "file": "Source/Game/Scanner/ResetDangerIndicator.asm",
+    "start": 39482,
+    "end": 39488,
+    "semantic_name": "ResetDangerIndicator",
+    "status": "reviewed",
+    "summary": "Базовый зелёный сигнал для следующего кадра",
+    "evidence": [
+      "проверены инструкции декодированного образа, адреса потребителей и изменяемые операнды",
+      "Потребители 99A4 и вызывающий цикл заново повышают опасность при необходимости"
+    ],
+    "unresolved": [],
+    "embedded_code": [],
+    "registers": {
+      "In": "без параметров",
+      "Out": "A=4, 7104=4",
+      "Corrupt": "AF, флаги не изменяются"
+    },
+    "branches": {},
+    "operation_sha256": "93fea28d98566ca1bfbf85e41277d01945d9923118d1433c58a9b8edd121e057",
+    "blocks": {
+      "9A3A": "исходный зелёный сигнал для следующего кадра"
+    },
+    "embedded_data": [],
+    "validation": {
+      "bounds": true,
+      "data_bytes_checked": 0,
+      "conditional_comments_checked": 0,
+      "instruction_layout_unchanged": true,
+      "right_comment_column": 80
+    }
+  }
+]

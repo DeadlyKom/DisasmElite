@@ -1,0 +1,10 @@
+{
+  "method": "исполнение исходного кода загрузчика и PRNG в симуляторе Z80",
+  "scope": "XOR и обмен памяти, без вызовов дискового ROM",
+  "xor_bytes_compared": 40192,
+  "unchanged_excluded_bytes": 2048,
+  "runtime_seed_hex": "d1ad4da7cc45",
+  "exchange_bytes": 1024,
+  "exchange_calls": 2,
+  "matches_independent_python_model": true
+}

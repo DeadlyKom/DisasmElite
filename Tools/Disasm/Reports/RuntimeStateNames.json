@@ -1,0 +1,2204 @@
+{
+  "scope": "Имена подтверждённых адресов рабочих данных, исходное размещение не изменено, новые байты не выделяются",
+  "replacement_rule": "Подменять только явно адресные операнды LD. Не подменять команды перехода, ASSERT/ORG, DB/DW и прочие числовые константы без отдельного разбора.",
+  "definitions": "Includes/Variables/GameState.inc",
+  "aliases": [
+    {
+      "address": 28892,
+      "address_hex": "#70DC",
+      "symbol": "FlightState.InvasionClock",
+      "size": 2,
+      "meaning": "накопитель вторжения, UpdateClockAndRotateDistantBodies прибавляет NOT State.Invasion",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+          "line": 23,
+          "instruction": "Entry:          LD HL,#70DC"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28899,
+      "address_hex": "#70E3",
+      "symbol": "FlightState.View",
+      "size": 1,
+      "meaning": "номер экрана, четыре вида кабины имеют коды 0..3",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/CreatePlayerWreckScene.asm",
+          "line": 22,
+          "instruction": "LD (#70E3),A"
+        },
+        {
+          "file": "Source/Game/Combat/FirePlayerLaser.asm",
+          "line": 46,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Combat/ProcessCombatControls.asm",
+          "line": 20,
+          "instruction": "Entry:          LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+          "line": 28,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateEcmAndDriveIndicators.asm",
+          "line": 19,
+          "instruction": "Entry:          LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+          "line": 25,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Extensions/GetViewAdjustedProjectedPoint.asm",
+          "line": 19,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Flight/HandleMapCursorKeys.asm",
+          "line": 18,
+          "instruction": "Entry:          LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 81,
+          "instruction": "LD (#70E3),A"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 31,
+          "instruction": "LD (#70E3),A"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 57,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+          "line": 23,
+          "instruction": "LD (#70E3),A"
+        },
+        {
+          "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+          "line": 54,
+          "instruction": "LD (#70E3),A"
+        },
+        {
+          "file": "Source/Game/Galaxy/SelectNearestSystemWithCursor.asm",
+          "line": 19,
+          "instruction": "Entry:          LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Input/IntegrateFlightControls.asm",
+          "line": 21,
+          "instruction": "Entry:          LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Menus/OpenCommanderStatus.asm",
+          "line": 20,
+          "instruction": "LD (#70E3),A"
+        },
+        {
+          "file": "Source/Game/Menus/PrintStatusFieldAndCargoScreen.asm",
+          "line": 32,
+          "instruction": "LD (#70E3),A"
+        },
+        {
+          "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+          "line": 149,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+          "line": 187,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+          "line": 51,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Scanner/SetCockpitDeviceAttributes.asm",
+          "line": 20,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Screen/RestrictDockingView.asm",
+          "line": 22,
+          "instruction": "LD (#70E3),A"
+        },
+        {
+          "file": "Source/Game/Screen/SelectScreen.asm",
+          "line": 21,
+          "instruction": "Entry:          LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Screen/SelectScreen.asm",
+          "line": 35,
+          "instruction": "LD (#70E3),A"
+        },
+        {
+          "file": "Source/Game/Screen/VectorLength.asm",
+          "line": 88,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+          "line": 25,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Text/InvalidateObjectLineCache.asm",
+          "line": 25,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+          "line": 78,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+          "line": 82,
+          "instruction": "LD (#70E3),A"
+        },
+        {
+          "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+          "line": 74,
+          "instruction": "LD (#70E3),A"
+        },
+        {
+          "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
+          "line": 28,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
+          "line": 63,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Travel/UpdateFlightMessages.asm",
+          "line": 21,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Travel/UpdateFlightMessages.asm",
+          "line": 36,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Universe/AddSignedStarCoordinate.asm",
+          "line": 84,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+          "line": 30,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+          "line": 112,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+          "line": 28,
+          "instruction": "Entry:          LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+          "line": 113,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+          "line": 165,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+          "line": 185,
+          "instruction": "LD A,(#70E3)"
+        },
+        {
+          "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+          "line": 30,
+          "instruction": "LD A,(#70E3)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28900,
+      "address_hex": "#70E4",
+      "symbol": "FlightState.Roll",
+      "size": 1,
+      "meaning": "крен игрока в формате знак и модуль, переносится из управления FF09",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 47,
+          "instruction": "LD (#70E4),A"
+        },
+        {
+          "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+          "line": 19,
+          "instruction": "LD (#70E4),A"
+        },
+        {
+          "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+          "line": 31,
+          "instruction": "LD A,(#70E4)"
+        },
+        {
+          "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+          "line": 38,
+          "instruction": "LD A,(#70E4)"
+        },
+        {
+          "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+          "line": 47,
+          "instruction": "LD HL,(#70E4)"
+        },
+        {
+          "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+          "line": 29,
+          "instruction": "LD HL,#70E4"
+        },
+        {
+          "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+          "line": 50,
+          "instruction": "LD HL,#70E4"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28901,
+      "address_hex": "#70E5",
+      "symbol": "FlightState.Pitch",
+      "size": 1,
+      "meaning": "тангаж игрока в формате знак и модуль, переносится из управления FF0B",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 46,
+          "instruction": "LD (#70E5),A"
+        },
+        {
+          "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+          "line": 33,
+          "instruction": "LD (#70E5),A"
+        },
+        {
+          "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+          "line": 45,
+          "instruction": "LD A,(#70E5)"
+        },
+        {
+          "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+          "line": 40,
+          "instruction": "LD A,(#70E5)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28902,
+      "address_hex": "#70E6",
+      "symbol": "FlightState.Speed",
+      "size": 1,
+      "meaning": "скорость игрока, задаёт перенос объектов и длину полосы скорости",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/HandleObjectCollision.asm",
+          "line": 120,
+          "instruction": "LD HL,#70E6"
+        },
+        {
+          "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+          "line": 150,
+          "instruction": "LD (#70E6),A"
+        },
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 44,
+          "instruction": "LD (#70E6),A"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 102,
+          "instruction": "LD (#70E6),A"
+        },
+        {
+          "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+          "line": 47,
+          "instruction": "LD (#70E6),A"
+        },
+        {
+          "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+          "line": 51,
+          "instruction": "LD A,(#70E6)"
+        },
+        {
+          "file": "Source/Game/Objects/SpawnEscapePod.asm",
+          "line": 36,
+          "instruction": "LD A,(#70E6)"
+        },
+        {
+          "file": "Source/Game/Objects/SpawnMissile.asm",
+          "line": 48,
+          "instruction": "LD A,(#70E6)"
+        },
+        {
+          "file": "Source/Game/Universe/DrawStarsWithJumpEffect.asm",
+          "line": 25,
+          "instruction": "LD (#70E6),A"
+        },
+        {
+          "file": "Source/Game/Universe/DrawStarsWithJumpEffect.asm",
+          "line": 28,
+          "instruction": "LD (#70E6),A"
+        },
+        {
+          "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+          "line": 44,
+          "instruction": "LD A,(#70E6)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28903,
+      "address_hex": "#70E7",
+      "symbol": "GaugeState + FGaugeState.FrontShield.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, передний щит",
+      "scope": "operand_data_address",
+      "pair_base": "#70E7",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28904,
+      "address_hex": "#70E8",
+      "symbol": "GaugeState + FGaugeState.FrontShield.Current",
+      "size": 1,
+      "meaning": "текущее значение, передний щит",
+      "scope": "operand_data_address",
+      "pair_base": "#70E7",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+          "line": 31,
+          "instruction": "LD HL,#70E8"
+        },
+        {
+          "file": "Source/Game/Combat/RecoverOneEnergyUnit.asm",
+          "line": 30,
+          "instruction": "LD HL,#70E8"
+        },
+        {
+          "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+          "line": 27,
+          "instruction": "LD A,(#70E8)"
+        },
+        {
+          "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+          "line": 33,
+          "instruction": "LD (#70E8),A"
+        },
+        {
+          "file": "Source/Game/Screen/UpdateIndicators.asm",
+          "line": 25,
+          "instruction": "LD HL,#70E8"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28905,
+      "address_hex": "#70E9",
+      "symbol": "GaugeState + FGaugeState.RearShield.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, задний щит",
+      "scope": "operand_data_address",
+      "pair_base": "#70E9",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28906,
+      "address_hex": "#70EA",
+      "symbol": "GaugeState + FGaugeState.RearShield.Current",
+      "size": 1,
+      "meaning": "текущее значение, задний щит",
+      "scope": "operand_data_address",
+      "pair_base": "#70E9",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+          "line": 34,
+          "instruction": "LD HL,#70EA"
+        },
+        {
+          "file": "Source/Game/Combat/RecoverOneEnergyUnit.asm",
+          "line": 32,
+          "instruction": "LD HL,#70EA"
+        },
+        {
+          "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+          "line": 30,
+          "instruction": "LD A,(#70EA)"
+        },
+        {
+          "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+          "line": 34,
+          "instruction": "LD (#70EA),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28907,
+      "address_hex": "#70EB",
+      "symbol": "GaugeState + FGaugeState.Fuel.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, полоса топлива, 2*fuel+floor(fuel/4)",
+      "scope": "operand_data_address",
+      "pair_base": "#70EB",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28908,
+      "address_hex": "#70EC",
+      "symbol": "GaugeState + FGaugeState.Fuel.Current",
+      "size": 1,
+      "meaning": "текущее значение, полоса топлива, 2*fuel+floor(fuel/4)",
+      "scope": "operand_data_address",
+      "pair_base": "#70EB",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [
+        {
+          "file": "Source/Game/Travel/SetFuelAndGauge.asm",
+          "line": 29,
+          "instruction": "LD (#70EC),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28909,
+      "address_hex": "#70ED",
+      "symbol": "GaugeState + FGaugeState.CabinHeat.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, нагрев кабины",
+      "scope": "operand_data_address",
+      "pair_base": "#70ED",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28910,
+      "address_hex": "#70EE",
+      "symbol": "GaugeState + FGaugeState.CabinHeat.Current",
+      "size": 1,
+      "meaning": "текущее значение, нагрев кабины",
+      "scope": "operand_data_address",
+      "pair_base": "#70ED",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [
+        {
+          "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+          "line": 24,
+          "instruction": "LD (#70EE),A"
+        },
+        {
+          "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+          "line": 27,
+          "instruction": "LD (#70EE),A"
+        },
+        {
+          "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+          "line": 75,
+          "instruction": "LD (#70EE),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28911,
+      "address_hex": "#70EF",
+      "symbol": "GaugeState + FGaugeState.LaserHeat.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, нагрев лазера",
+      "scope": "operand_data_address",
+      "pair_base": "#70EF",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28912,
+      "address_hex": "#70F0",
+      "symbol": "GaugeState + FGaugeState.LaserHeat.Current",
+      "size": 1,
+      "meaning": "текущее значение, нагрев лазера",
+      "scope": "operand_data_address",
+      "pair_base": "#70EF",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/FirePlayerLaser.asm",
+          "line": 33,
+          "instruction": "LD A,(#70F0)"
+        },
+        {
+          "file": "Source/Game/Combat/FirePlayerLaser.asm",
+          "line": 38,
+          "instruction": "LD (#70F0),A"
+        },
+        {
+          "file": "Source/Game/Combat/FirePlayerLaser.asm",
+          "line": 94,
+          "instruction": "LD (#70F0),A"
+        },
+        {
+          "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+          "line": 26,
+          "instruction": "LD (#70F0),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28913,
+      "address_hex": "#70F1",
+      "symbol": "GaugeState + FGaugeState.Altitude.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, высота над планетой",
+      "scope": "operand_data_address",
+      "pair_base": "#70F1",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28914,
+      "address_hex": "#70F2",
+      "symbol": "GaugeState + FGaugeState.Altitude.Current",
+      "size": 1,
+      "meaning": "текущее значение, высота над планетой",
+      "scope": "operand_data_address",
+      "pair_base": "#70F1",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [
+        {
+          "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+          "line": 35,
+          "instruction": "LD (#70F2),A"
+        },
+        {
+          "file": "Source/Game/Screen/WriteStridedTriple.asm",
+          "line": 52,
+          "instruction": "LD (#70F2),A"
+        },
+        {
+          "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+          "line": 80,
+          "instruction": "LD (#70F2),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28915,
+      "address_hex": "#70F3",
+      "symbol": "GaugeState + FGaugeState.Speed.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, полоса скорости, 5*speed+5",
+      "scope": "operand_data_address",
+      "pair_base": "#70F3",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28916,
+      "address_hex": "#70F4",
+      "symbol": "GaugeState + FGaugeState.Speed.Current",
+      "size": 1,
+      "meaning": "текущее значение, полоса скорости, 5*speed+5",
+      "scope": "operand_data_address",
+      "pair_base": "#70F3",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [
+        {
+          "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+          "line": 53,
+          "instruction": "LD (#70F4),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28917,
+      "address_hex": "#70F5",
+      "symbol": "GaugeState + FGaugeState.Energy1.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, нижний банк энергии",
+      "scope": "operand_data_address",
+      "pair_base": "#70F5",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28918,
+      "address_hex": "#70F6",
+      "symbol": "GaugeState + FGaugeState.Energy1.Current",
+      "size": 1,
+      "meaning": "текущее значение, нижний банк энергии",
+      "scope": "operand_data_address",
+      "pair_base": "#70F5",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/DrainEnergyBanks.asm",
+          "line": 20,
+          "instruction": "Entry:          LD HL,#70F6"
+        },
+        {
+          "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+          "line": 36,
+          "instruction": "LD HL,#70F6"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28919,
+      "address_hex": "#70F7",
+      "symbol": "GaugeState + FGaugeState.Energy2.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, второй банк энергии",
+      "scope": "operand_data_address",
+      "pair_base": "#70F7",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28920,
+      "address_hex": "#70F8",
+      "symbol": "GaugeState + FGaugeState.Energy2.Current",
+      "size": 1,
+      "meaning": "текущее значение, второй банк энергии",
+      "scope": "operand_data_address",
+      "pair_base": "#70F7",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28921,
+      "address_hex": "#70F9",
+      "symbol": "GaugeState + FGaugeState.Energy3.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, третий банк энергии",
+      "scope": "operand_data_address",
+      "pair_base": "#70F9",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28922,
+      "address_hex": "#70FA",
+      "symbol": "GaugeState + FGaugeState.Energy3.Current",
+      "size": 1,
+      "meaning": "текущее значение, третий банк энергии",
+      "scope": "operand_data_address",
+      "pair_base": "#70F9",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [
+        {
+          "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+          "line": 39,
+          "instruction": "LD A,(#70FA)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28923,
+      "address_hex": "#70FB",
+      "symbol": "GaugeState + FGaugeState.Energy4.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, верхний банк энергии",
+      "scope": "operand_data_address",
+      "pair_base": "#70FB",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28924,
+      "address_hex": "#70FC",
+      "symbol": "GaugeState + FGaugeState.Energy4.Current",
+      "size": 1,
+      "meaning": "текущее значение, верхний банк энергии",
+      "scope": "operand_data_address",
+      "pair_base": "#70FB",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+          "line": 24,
+          "instruction": "LD A,(#70FC)"
+        },
+        {
+          "file": "Source/Game/Combat/RecoverOneEnergyUnit.asm",
+          "line": 19,
+          "instruction": "Entry:          LD HL,#70FC"
+        },
+        {
+          "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
+          "line": 20,
+          "instruction": "Entry:          LD A,(#70FC)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28925,
+      "address_hex": "#70FD",
+      "symbol": "GaugeState + FGaugeState.Roll.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, позиция крена относительно центра 21",
+      "scope": "operand_data_address",
+      "pair_base": "#70FD",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28926,
+      "address_hex": "#70FE",
+      "symbol": "GaugeState + FGaugeState.Roll.Current",
+      "size": 1,
+      "meaning": "текущее значение, позиция крена относительно центра 21",
+      "scope": "operand_data_address",
+      "pair_base": "#70FD",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [
+        {
+          "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+          "line": 28,
+          "instruction": "LD (#70FE),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28927,
+      "address_hex": "#70FF",
+      "symbol": "GaugeState + FGaugeState.Pitch.Previous",
+      "size": 1,
+      "meaning": "предыдущее значение, позиция тангажа относительно центра 21",
+      "scope": "operand_data_address",
+      "pair_base": "#70FF",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28928,
+      "address_hex": "#7100",
+      "symbol": "GaugeState + FGaugeState.Pitch.Current",
+      "size": 1,
+      "meaning": "текущее значение, позиция тангажа относительно центра 21",
+      "scope": "operand_data_address",
+      "pair_base": "#70FF",
+      "derivation": "UpdateIndicators начинает с #70E8, сравнивает с предыдущим байтом, затем продвигает указатель на два байта",
+      "direct_references": [
+        {
+          "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+          "line": 42,
+          "instruction": "LD (#7100),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Screen/UpdateIndicators.asm",
+        "Source/Game/Scanner/ResetCockpitForLaunch.asm"
+      ]
+    },
+    {
+      "address": 28931,
+      "address_hex": "#7103",
+      "symbol": "FlightState.SpaceMode",
+      "size": 1,
+      "meaning": "нуль в обычной системе, ненулевое значение в особом пространстве",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+          "line": 19,
+          "instruction": "Entry:          LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
+          "line": 41,
+          "instruction": "LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 49,
+          "instruction": "LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+          "line": 33,
+          "instruction": "LD (#7103),A"
+        },
+        {
+          "file": "Source/Game/Extensions/PrintEquipmentAndSelectIcon.asm",
+          "line": 46,
+          "instruction": "LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Extensions/UpdateStationAndFinishGlyph.asm",
+          "line": 21,
+          "instruction": "Entry:          LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+          "line": 30,
+          "instruction": "LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 22,
+          "instruction": "Entry:          LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 49,
+          "instruction": "LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 79,
+          "instruction": "LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+          "line": 83,
+          "instruction": "LD (#7103),A"
+        },
+        {
+          "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+          "line": 26,
+          "instruction": "LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm",
+          "line": 42,
+          "instruction": "LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+          "line": 25,
+          "instruction": "LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+          "line": 66,
+          "instruction": "LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+          "line": 47,
+          "instruction": "LD (#7103),A"
+        },
+        {
+          "file": "Source/Game/Travel/EnterTargetSystem.asm",
+          "line": 21,
+          "instruction": "LD (#7103),A"
+        },
+        {
+          "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+          "line": 31,
+          "instruction": "LD A,(#7103)"
+        },
+        {
+          "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+          "line": 92,
+          "instruction": "LD A,(#7103)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28932,
+      "address_hex": "#7104",
+      "symbol": "FlightState.FlightStatus",
+      "size": 1,
+      "meaning": "0 на станции, 4 норма, 6 станционная зона, 2 опасность, #63 мигание",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+          "line": 20,
+          "instruction": "Entry:          LD HL,#7104"
+        },
+        {
+          "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+          "line": 28,
+          "instruction": "LD (#7104),A"
+        },
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 37,
+          "instruction": "LD A,(#7104)"
+        },
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 66,
+          "instruction": "LD (#7104),A"
+        },
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 76,
+          "instruction": "LD (#7104),A"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 36,
+          "instruction": "LD A,(#7104)"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 61,
+          "instruction": "LD A,(#7104)"
+        },
+        {
+          "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+          "line": 84,
+          "instruction": "LD (#7104),A"
+        },
+        {
+          "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+          "line": 41,
+          "instruction": "LD A,(#7104)"
+        },
+        {
+          "file": "Source/Game/Scanner/DrawDangerAndMissileIndicators.asm",
+          "line": 22,
+          "instruction": "Entry:          LD HL,#7104"
+        },
+        {
+          "file": "Source/Game/Scanner/ResetDangerIndicator.asm",
+          "line": 18,
+          "instruction": "LD (#7104),A"
+        },
+        {
+          "file": "Source/Game/Scanner/SetYellowFlightStatus.asm",
+          "line": 20,
+          "instruction": "LD A,(#7104)"
+        },
+        {
+          "file": "Source/Game/Scanner/SetYellowFlightStatus.asm",
+          "line": 27,
+          "instruction": "LD (#7104),A"
+        },
+        {
+          "file": "Source/Game/Screen/HandleScreenKeys.asm",
+          "line": 40,
+          "instruction": "LD A,(#7104)"
+        },
+        {
+          "file": "Source/Game/Screen/HandleScreenKeys.asm",
+          "line": 52,
+          "instruction": "LD A,(#7104)"
+        },
+        {
+          "file": "Source/Game/Screen/ScaleProximity.asm",
+          "line": 27,
+          "instruction": "LD A,(#7104)"
+        },
+        {
+          "file": "Source/Game/Screen/ScaleProximity.asm",
+          "line": 46,
+          "instruction": "LD (#7104),A"
+        },
+        {
+          "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+          "line": 43,
+          "instruction": "LD A,(#7104)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28933,
+      "address_hex": "#7105",
+      "symbol": "FlightState.RandomByte",
+      "size": 1,
+      "meaning": "полётный параметр, при инициализации копируется из State.MarketRandom",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+          "line": 22,
+          "instruction": "LD A,(#7105)"
+        },
+        {
+          "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+          "line": 47,
+          "instruction": "LD A,(#7105)"
+        },
+        {
+          "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+          "line": 24,
+          "instruction": "LD (#7105),A"
+        },
+        {
+          "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+          "line": 62,
+          "instruction": "LD HL,#7105"
+        },
+        {
+          "file": "Source/Game/Wireframe/GetSystemVariationByte.asm",
+          "line": 20,
+          "instruction": "Entry:          LD HL,#7105"
+        },
+        {
+          "file": "Source/Game/Wireframe/GetSystemVariationByte.asm",
+          "line": 55,
+          "instruction": "LD HL,#7105"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28935,
+      "address_hex": "#7107",
+      "symbol": "FlightState.Sun",
+      "size": 9,
+      "meaning": "три координаты солнца, каждая занимает FCoordinate байтов",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+          "line": 64,
+          "instruction": "LD DE,#7107"
+        },
+        {
+          "file": "Source/Game/Flight/RebaseSunAgainstStation.asm",
+          "line": 17,
+          "instruction": "Entry:          LD IY,#7107"
+        },
+        {
+          "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+          "line": 191,
+          "instruction": "LD DE,#7107"
+        },
+        {
+          "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+          "line": 24,
+          "instruction": "LD IX,#7107"
+        },
+        {
+          "file": "Source/Game/Travel/EnterTargetSystem.asm",
+          "line": 39,
+          "instruction": "LD HL,#7107"
+        },
+        {
+          "file": "Source/Game/Universe/DrawSunAndPlanet.asm",
+          "line": 24,
+          "instruction": "LD HL,#7107"
+        },
+        {
+          "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+          "line": 56,
+          "instruction": "LD IX,#7107"
+        },
+        {
+          "file": "Source/Game/Universe/UpdateCelestialCoordinates.asm",
+          "line": 19,
+          "instruction": "Entry:          LD IX,#7107"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28944,
+      "address_hex": "#7110",
+      "symbol": "FlightState.Planet",
+      "size": 9,
+      "meaning": "три координаты планеты, каждая занимает FCoordinate байтов",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 91,
+          "instruction": "LD HL,#7110"
+        },
+        {
+          "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+          "line": 65,
+          "instruction": "LD IX,#7110"
+        },
+        {
+          "file": "Source/Game/Travel/BuildStationGeometry.asm",
+          "line": 22,
+          "instruction": "LD HL,#7110"
+        },
+        {
+          "file": "Source/Game/Universe/DrawSunAndPlanet.asm",
+          "line": 41,
+          "instruction": "LD HL,#7110"
+        },
+        {
+          "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+          "line": 58,
+          "instruction": "LD IX,#7110"
+        },
+        {
+          "file": "Source/Game/Universe/UpdateCelestialCoordinates.asm",
+          "line": 21,
+          "instruction": "LD IX,#7110"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28956,
+      "address_hex": "#711C",
+      "symbol": "FlightState.StationZone",
+      "size": 1,
+      "meaning": "ближняя станционная зона, разрешает стыковку и запрещает появление кораблей",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 46,
+          "instruction": "LD A,(#711C)"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateEcmAndDriveIndicators.asm",
+          "line": 26,
+          "instruction": "LD A,(#711C)"
+        },
+        {
+          "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+          "line": 34,
+          "instruction": "LD A,(#711C)"
+        },
+        {
+          "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+          "line": 34,
+          "instruction": "LD (#711C),A"
+        },
+        {
+          "file": "Source/Game/Screen/SelectTrafficType.asm",
+          "line": 42,
+          "instruction": "LD A,(#711C)"
+        },
+        {
+          "file": "Source/Game/Screen/WriteStridedTriple.asm",
+          "line": 55,
+          "instruction": "LD (#711C),A"
+        },
+        {
+          "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+          "line": 65,
+          "instruction": "LD (#711C),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28957,
+      "address_hex": "#711D",
+      "symbol": "FlightState.StationFar",
+      "size": 1,
+      "meaning": "#FF для дальних координат станции, 0 для ближних",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 82,
+          "instruction": "LD (#711D),A"
+        },
+        {
+          "file": "Source/Game/Screen/WriteStridedTriple.asm",
+          "line": 56,
+          "instruction": "LD A,(#711D)"
+        },
+        {
+          "file": "Source/Game/Travel/EnterTargetSystem.asm",
+          "line": 44,
+          "instruction": "LD (#711D),A"
+        },
+        {
+          "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+          "line": 35,
+          "instruction": "LD A,(#711D)"
+        },
+        {
+          "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+          "line": 24,
+          "instruction": "Entry:          LD A,(#711D)"
+        },
+        {
+          "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+          "line": 32,
+          "instruction": "LD (#711D),A"
+        },
+        {
+          "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+          "line": 48,
+          "instruction": "LD (#711D),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28958,
+      "address_hex": "#711E",
+      "symbol": "FlightState.SunScooping",
+      "size": 1,
+      "meaning": "признак зоны черпаков, сбрасывается при входе в систему и на заставке",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+          "line": 86,
+          "instruction": "LD (#711E),A"
+        },
+        {
+          "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+          "line": 57,
+          "instruction": "LD (#711E),A"
+        },
+        {
+          "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+          "line": 76,
+          "instruction": "LD (#711E),A"
+        },
+        {
+          "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
+          "line": 23,
+          "instruction": "LD A,(#711E)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28959,
+      "address_hex": "#711F",
+      "symbol": "FlightState.PlayerDead",
+      "size": 1,
+      "meaning": "флаг, главный цикл должен показать гибель игрока",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/DrainEnergyBanks.asm",
+          "line": 33,
+          "instruction": "LD (#711F),A"
+        },
+        {
+          "file": "Source/Game/Combat/HandleObjectCollision.asm",
+          "line": 27,
+          "instruction": "Entry:          LD A,(#711F)"
+        },
+        {
+          "file": "Source/Game/Combat/HandleObjectCollision.asm",
+          "line": 149,
+          "instruction": "LD (#711F),A"
+        },
+        {
+          "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+          "line": 25,
+          "instruction": "Entry:          LD A,(#711F)"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 97,
+          "instruction": "LD A,(#711F)"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 144,
+          "instruction": "LD (#711F),A"
+        },
+        {
+          "file": "Source/Game/Screen/SetGameOver.asm",
+          "line": 18,
+          "instruction": "LD (#711F),A"
+        },
+        {
+          "file": "Source/Game/Universe/ExpandNovaRadius.asm",
+          "line": 35,
+          "instruction": "LD (#711F),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28960,
+      "address_hex": "#7120",
+      "symbol": "FlightState.XorObjects",
+      "size": 1,
+      "meaning": "нуль выбирает OR, ненулевое значение выбирает XOR при выводе объектов",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 32,
+          "instruction": "LD A,(#7120)"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 103,
+          "instruction": "LD (#7120),A"
+        },
+        {
+          "file": "Source/Game/Universe/DrawSunAndPlanet.asm",
+          "line": 23,
+          "instruction": "LD (#7120),A"
+        },
+        {
+          "file": "Source/Game/Universe/DrawSunAndPlanet.asm",
+          "line": 39,
+          "instruction": "LD (#7120),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28964,
+      "address_hex": "#7124",
+      "symbol": "FlightState.ControlsLocked",
+      "size": 1,
+      "meaning": "флаг, главный цикл пропускает ручное обновление крена, тангажа и скорости",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 50,
+          "instruction": "LD (#7124),A"
+        },
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 142,
+          "instruction": "LD (#7124),A"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 22,
+          "instruction": "Entry:          LD A,(#7124)"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 105,
+          "instruction": "LD (#7124),A"
+        },
+        {
+          "file": "Source/Game/Flight/MainGameLoop.asm",
+          "line": 143,
+          "instruction": "LD (#7124),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28968,
+      "address_hex": "#7128",
+      "symbol": "FlightState.SoundRequests",
+      "size": 1,
+      "meaning": "восемь запросов звука, диспетчер выбирает младший установленный бит",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/CreatePlayerWreckScene.asm",
+          "line": 19,
+          "instruction": "Entry:          LD HL,#7128"
+        },
+        {
+          "file": "Source/Game/Combat/FirePlayerLaser.asm",
+          "line": 75,
+          "instruction": "LD HL,#7128"
+        },
+        {
+          "file": "Source/Game/Combat/FirePlayerLaser.asm",
+          "line": 111,
+          "instruction": "LD HL,#7128"
+        },
+        {
+          "file": "Source/Game/Combat/HandleMissileControls.asm",
+          "line": 84,
+          "instruction": "LD HL,#7128"
+        },
+        {
+          "file": "Source/Game/Combat/HandleObjectCollision.asm",
+          "line": 118,
+          "instruction": "LD HL,#7128"
+        },
+        {
+          "file": "Source/Game/Combat/HandleObjectCollision.asm",
+          "line": 139,
+          "instruction": "LD HL,#7128"
+        },
+        {
+          "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+          "line": 82,
+          "instruction": "LD HL,#7128"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 143,
+          "instruction": "LD HL,#7128"
+        },
+        {
+          "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+          "line": 119,
+          "instruction": "LD HL,#7128"
+        },
+        {
+          "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+          "line": 150,
+          "instruction": "LD HL,#7128"
+        },
+        {
+          "file": "Source/Game/Sound/PlayDestructionSound.asm",
+          "line": 30,
+          "instruction": "LD (#7128),A"
+        },
+        {
+          "file": "Source/Game/Sound/StepDataTone.asm",
+          "line": 60,
+          "instruction": "LD HL,#7128"
+        },
+        {
+          "file": "Source/Game/Sound/UpdateSound.asm",
+          "line": 28,
+          "instruction": "LD A,(#7128)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 28969,
+      "address_hex": "#7129",
+      "symbol": "FlightState.AutoDock",
+      "size": 1,
+      "meaning": "флаг, выполняется автоматическая стыковка",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+          "line": 52,
+          "instruction": "LD (#7129),A"
+        },
+        {
+          "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+          "line": 28,
+          "instruction": "LD (#7129),A"
+        },
+        {
+          "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
+          "line": 26,
+          "instruction": "LD A,(#7129)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+        "Source/Game/Flight/DispatchChartCircle.asm",
+        "Source/Game/Flight/DispatchDangerIndicator.asm",
+        "Source/Game/Flight/DispatchSoundEffect.asm"
+      ]
+    },
+    {
+      "address": 40083,
+      "address_hex": "#9C93",
+      "symbol": "CombatState.SpawnCounter",
+      "size": 1,
+      "meaning": "счётчик появления, уменьшение до нуля запускает диспетчер объектов",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/FirePlayerLaser.asm",
+          "line": 68,
+          "instruction": "LD A,(#9C93)"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 42,
+          "instruction": "LD A,(#9C93)"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 44,
+          "instruction": "LD (#9C93),A"
+        },
+        {
+          "file": "Source/Game/Universe/AdvanceCircularObjectEffect.asm",
+          "line": 23,
+          "instruction": "Entry:          LD A,(#9C93)"
+        },
+        {
+          "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+          "line": 53,
+          "instruction": "LD (#9C93),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Combat/DivideAndCombatState.asm",
+        "Source/Game/Combat/CreateWreckAndDamageState.asm",
+        "Source/Game/Combat/UpdateAllSpaceObjects.asm"
+      ]
+    },
+    {
+      "address": 40084,
+      "address_hex": "#9C94",
+      "symbol": "CombatState.ShipsPresent",
+      "size": 1,
+      "meaning": "флаг, в текущем обходе найден объект без ObjectFlag2.NotShip",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/FinishObjectFrame.asm",
+          "line": 21,
+          "instruction": "LD A,(#9C94)"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 66,
+          "instruction": "LD (#9C94),A"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 101,
+          "instruction": "LD (#9C94),A"
+        },
+        {
+          "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+          "line": 40,
+          "instruction": "LD A,(#9C94)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Combat/DivideAndCombatState.asm",
+        "Source/Game/Combat/CreateWreckAndDamageState.asm",
+        "Source/Game/Combat/UpdateAllSpaceObjects.asm"
+      ]
+    },
+    {
+      "address": 40085,
+      "address_hex": "#9C95",
+      "symbol": "CombatState.DestroyAll",
+      "size": 1,
+      "meaning": "массовый запрос уничтожения от энергетической бомбы, снимается в конце кадра",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 102,
+          "instruction": "LD A,(#9C95)"
+        },
+        {
+          "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+          "line": 118,
+          "instruction": "LD (#9C95),A"
+        },
+        {
+          "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+          "line": 26,
+          "instruction": "Entry:          LD (#9C95),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Combat/DivideAndCombatState.asm",
+        "Source/Game/Combat/CreateWreckAndDamageState.asm",
+        "Source/Game/Combat/UpdateAllSpaceObjects.asm"
+      ]
+    },
+    {
+      "address": 40086,
+      "address_hex": "#9C96",
+      "symbol": "CombatState.ObjectsPresent",
+      "size": 1,
+      "meaning": "ненулевой байт последнего занятого слота, допускает сканер и обход взрывов",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+          "line": 18,
+          "instruction": "Entry:          LD A,(#9C96)"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 65,
+          "instruction": "LD (#9C96),A"
+        },
+        {
+          "file": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm",
+          "line": 17,
+          "instruction": "Entry:          LD (#9C96),A"
+        },
+        {
+          "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+          "line": 24,
+          "instruction": "LD A,(#9C96)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Combat/DivideAndCombatState.asm",
+        "Source/Game/Combat/CreateWreckAndDamageState.asm",
+        "Source/Game/Combat/UpdateAllSpaceObjects.asm"
+      ]
+    },
+    {
+      "address": 40087,
+      "address_hex": "#9C97",
+      "symbol": "CombatState.CrosshairTarget",
+      "size": 1,
+      "meaning": "номер цели прицела, 0 без цели, патч проекции данной версии пишет только 0",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/FirePlayerLaser.asm",
+          "line": 96,
+          "instruction": "LD A,(#9C97)"
+        },
+        {
+          "file": "Source/Game/Combat/HandleMissileControls.asm",
+          "line": 34,
+          "instruction": "LD A,(#9C97)"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 63,
+          "instruction": "LD (#9C97),A"
+        },
+        {
+          "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+          "line": 143,
+          "instruction": "LD (#9C97),A"
+        },
+        {
+          "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+          "line": 39,
+          "instruction": "LD A,(#9C97)"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Combat/DivideAndCombatState.asm",
+        "Source/Game/Combat/CreateWreckAndDamageState.asm",
+        "Source/Game/Combat/UpdateAllSpaceObjects.asm"
+      ]
+    },
+    {
+      "address": 40089,
+      "address_hex": "#9C99",
+      "symbol": "CombatState.Danger",
+      "size": 1,
+      "meaning": "флаг, обнаружен опасный враждебный объект, сбрасывается при пустой сцене",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/FinishObjectFrame.asm",
+          "line": 24,
+          "instruction": "LD (#9C99),A"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 118,
+          "instruction": "LD (#9C99),A"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 122,
+          "instruction": "LD A,(#9C99)"
+        },
+        {
+          "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+          "line": 21,
+          "instruction": "LD (#9C99),A"
+        },
+        {
+          "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+          "line": 48,
+          "instruction": "LD (#9C99),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Combat/DivideAndCombatState.asm",
+        "Source/Game/Combat/CreateWreckAndDamageState.asm",
+        "Source/Game/Combat/UpdateAllSpaceObjects.asm"
+      ]
+    },
+    {
+      "address": 40090,
+      "address_hex": "#9C9A",
+      "symbol": "CombatState.DockRequest",
+      "size": 1,
+      "meaning": "запрос стыковки после совмещения со станцией, обходящий клавиатурные допуски",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/HandleObjectCollision.asm",
+          "line": 115,
+          "instruction": "LD (#9C9A),A"
+        },
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 80,
+          "instruction": "LD (#9C9A),A"
+        },
+        {
+          "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+          "line": 19,
+          "instruction": "Entry:          LD A,(#9C9A)"
+        },
+        {
+          "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+          "line": 23,
+          "instruction": "LD (#9C9A),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Combat/DivideAndCombatState.asm",
+        "Source/Game/Combat/CreateWreckAndDamageState.asm",
+        "Source/Game/Combat/UpdateAllSpaceObjects.asm"
+      ]
+    },
+    {
+      "address": 40091,
+      "address_hex": "#9C9B",
+      "symbol": "CombatState.EcmTimer",
+      "size": 1,
+      "meaning": "оставшиеся такты ECM, влияет на ракеты, индикатор и расход энергии",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+          "line": 73,
+          "instruction": "LD A,(#9C9B)"
+        },
+        {
+          "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+          "line": 78,
+          "instruction": "LD (#9C9B),A"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateEcmAndDriveIndicators.asm",
+          "line": 23,
+          "instruction": "LD A,(#9C9B)"
+        },
+        {
+          "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+          "line": 48,
+          "instruction": "LD (#9C9B),A"
+        },
+        {
+          "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+          "line": 27,
+          "instruction": "Entry:          LD A,(#9C9B)"
+        },
+        {
+          "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+          "line": 82,
+          "instruction": "LD A,(#9C9B)"
+        },
+        {
+          "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+          "line": 152,
+          "instruction": "LD A,(#9C9B)"
+        },
+        {
+          "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+          "line": 163,
+          "instruction": "LD (#9C9B),A"
+        },
+        {
+          "file": "Source/Game/Objects/ActivateEnemyECM.asm",
+          "line": 26,
+          "instruction": "LD (#9C9B),A"
+        },
+        {
+          "file": "Source/Game/Scanner/ResetCockpitForLaunch.asm",
+          "line": 29,
+          "instruction": "LD (#9C9B),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Combat/DivideAndCombatState.asm",
+        "Source/Game/Combat/CreateWreckAndDamageState.asm",
+        "Source/Game/Combat/UpdateAllSpaceObjects.asm"
+      ]
+    },
+    {
+      "address": 40098,
+      "address_hex": "#9CA2",
+      "symbol": "CombatState.EnergyDrain",
+      "size": 1,
+      "meaning": "накопленный расход энергии за объектный кадр, включая лазер и ECM",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+          "line": 39,
+          "instruction": "LD A,(#9CA2)"
+        },
+        {
+          "file": "Source/Game/Combat/FirePlayerLaser.asm",
+          "line": 72,
+          "instruction": "LD HL,#9CA2"
+        },
+        {
+          "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+          "line": 88,
+          "instruction": "LD A,(#9CA2)"
+        },
+        {
+          "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+          "line": 90,
+          "instruction": "LD (#9CA2),A"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 60,
+          "instruction": "LD (#9CA2),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Combat/DivideAndCombatState.asm",
+        "Source/Game/Combat/CreateWreckAndDamageState.asm",
+        "Source/Game/Combat/UpdateAllSpaceObjects.asm"
+      ]
+    },
+    {
+      "address": 40099,
+      "address_hex": "#9CA3",
+      "symbol": "CombatState.FrontDamage",
+      "size": 1,
+      "meaning": "накопленный урон передней защите от лазеров и столкновений",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+          "line": 32,
+          "instruction": "LD A,(#9CA3)"
+        },
+        {
+          "file": "Source/Game/Combat/HandleObjectCollision.asm",
+          "line": 121,
+          "instruction": "LD A,(#9CA3)"
+        },
+        {
+          "file": "Source/Game/Combat/HandleObjectCollision.asm",
+          "line": 125,
+          "instruction": "LD (#9CA3),A"
+        },
+        {
+          "file": "Source/Game/Combat/HandleObjectCollision.asm",
+          "line": 153,
+          "instruction": "LD (#9CA3),A"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 62,
+          "instruction": "LD (#9CA3),A"
+        },
+        {
+          "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+          "line": 158,
+          "instruction": "LD A,(#9CA3)"
+        },
+        {
+          "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+          "line": 160,
+          "instruction": "LD (#9CA3),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Combat/DivideAndCombatState.asm",
+        "Source/Game/Combat/CreateWreckAndDamageState.asm",
+        "Source/Game/Combat/UpdateAllSpaceObjects.asm"
+      ]
+    },
+    {
+      "address": 40100,
+      "address_hex": "#9CA4",
+      "symbol": "CombatState.RearDamage",
+      "size": 1,
+      "meaning": "накопленный урон задней защите от лазеров и столкновений",
+      "scope": "operand_data_address",
+      "direct_references": [
+        {
+          "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+          "line": 35,
+          "instruction": "LD A,(#9CA4)"
+        },
+        {
+          "file": "Source/Game/Combat/HandleObjectCollision.asm",
+          "line": 145,
+          "instruction": "LD (#9CA4),A"
+        },
+        {
+          "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+          "line": 61,
+          "instruction": "LD (#9CA4),A"
+        },
+        {
+          "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+          "line": 154,
+          "instruction": "LD A,(#9CA4)"
+        },
+        {
+          "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+          "line": 156,
+          "instruction": "LD (#9CA4),A"
+        }
+      ],
+      "evidence": [
+        "Source/Game/Combat/DivideAndCombatState.asm",
+        "Source/Game/Combat/CreateWreckAndDamageState.asm",
+        "Source/Game/Combat/UpdateAllSpaceObjects.asm"
+      ]
+    }
+  ],
+  "owned_source_equivalence": [
+    {
+      "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
+      "comparison": "полный поток директив и инструкций без комментариев, после подстановки исходных адресов вместо новых EQU",
+      "before_sha256": "41b63b838e10762248e32c7a765a95ccdb49e9f8c7bcfc39384cfc55d7ace297",
+      "after_sha256": "41b63b838e10762248e32c7a765a95ccdb49e9f8c7bcfc39384cfc55d7ace297",
+      "equal": true
+    },
+    {
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "comparison": "полный поток директив и инструкций без комментариев, после подстановки исходных адресов вместо новых EQU",
+      "before_sha256": "9810c6952dd2e063f6e485a9b56b992dc200f974ddab3a393b0daa53e2228946",
+      "after_sha256": "9810c6952dd2e063f6e485a9b56b992dc200f974ddab3a393b0daa53e2228946",
+      "equal": true
+    }
+  ],
+  "limitations": [
+    "Имена не означают доказанное назначение неопределённого байта #9C98",
+    "SunScooping является сохранённым признаком, а не обнуляемым каждый кадр результатом",
+    "ObjectsPresent хранит ненулевую энергию последнего занятого слота, а не отдельное событие взрыва"
+  ]
+}

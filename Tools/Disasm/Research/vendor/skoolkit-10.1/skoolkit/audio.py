@@ -1,0 +1,197 @@
+# © 2013, 2014, 2022-2024, 2026 Richard Dymond (rjdymond@gmail.com)
+#
+# This file is part of SkoolKit.
+#
+# SkoolKit is free software: you can redistribute it and/or modify it under the
+# terms of the GNU General Public License as published by the Free Software
+# Foundation, either version 3 of the License, or (at your option) any later
+# version.
+#
+# SkoolKit is distributed in the hope that it will be useful, but WITHOUT ANY
+# WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+# A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License along with
+# SkoolKit. If not, see <http://www.gnu.org/licenses/>.
+
+from math import ceil
+from struct import pack
+
+from skoolkit.simutils import CLOCK_SPEEDS, CONTENTION_INTERVALS, FRAME_DURATIONS
+
+CLOCK_SPEED = 'ClockSpeed'
+CONTENTION_BEGIN = 'ContentionBegin'
+CONTENTION_END = 'ContentionEnd'
+CONTENTION_FACTOR = 'ContentionFactor'
+FRAME_DURATION = 'FrameDuration'
+INTERRUPT_DELAY = 'InterruptDelay'
+SAMPLE_RATE = 'SampleRate'
+
+def moving_average_filter(delays, options, volume):
+    sample_delay = options[CLOCK_SPEED] / options[SAMPLE_RATE]
+    s0, s1 = 0, sample_delay
+    t, t1 = 0, ceil(s1)
+    bit = bits = 0
+    samples = []
+    for d in delays:
+        while True:
+            if t + d < t1:
+                if bit:
+                    bits += d
+                t += d
+                break
+            i = t1 - t
+            if bit:
+                bits += i
+            d -= i
+            samples.append(volume * bits / (t1 - s0))
+            s0 = t = t1
+            s1 += sample_delay
+            t1 = ceil(s1)
+            bits = 0
+        bit = 1 - bit
+    return samples
+
+def write_wav(audio_file, samples, sample_rate, channels=1):
+    bits_per_sample = 16
+    bytes_per_sample = (bits_per_sample // 8) * channels
+    byte_rate = bytes_per_sample * sample_rate
+    data_length = bytes_per_sample * len(samples) // channels
+    header = bytearray()
+    header.extend(b'RIFF')
+    header.extend(pack('<I', 36 + data_length))
+    header.extend(b'WAVEfmt ')
+    header.extend(pack('<IH', 16, 1)) # length of fmt chunk, format (PCM)
+    header.extend(pack('<HIIHH', channels, sample_rate, byte_rate, bytes_per_sample, bits_per_sample))
+    header.extend(b'data')
+    header.extend(pack('<I', data_length))
+    audio_file.write(header)
+    for sample in samples:
+        audio_file.write(pack('<h', round(sample * 0xFFFF) - 0x8000))
+
+class BeeperOptions:
+    def __init__(self, volume, contention, interrupts, offset, is128k):
+        self.volume = max(min(volume, 100), 0)
+        self.contention = contention
+        self.interrupts = interrupts
+        self.offset = offset
+        self.is128k = is128k
+
+class AudioWriter:
+    """
+    Initialise the audio writer.
+
+    :param config: A dictionary constructed from the contents of the
+                   :ref:`ref-AudioWriter` section of the ref file.
+    """
+    # Component API
+    def __init__(self, config=None):
+        self.options = ({
+            CLOCK_SPEED: CLOCK_SPEEDS[0],
+            CONTENTION_BEGIN: CONTENTION_INTERVALS[0][0],
+            CONTENTION_END: CONTENTION_INTERVALS[0][1],
+            CONTENTION_FACTOR: 51,
+            FRAME_DURATION: FRAME_DURATIONS[0],
+            INTERRUPT_DELAY: (895,),
+            SAMPLE_RATE: 44100
+        }, {
+            CLOCK_SPEED: CLOCK_SPEEDS[1],
+            CONTENTION_BEGIN: CONTENTION_INTERVALS[1][0],
+            CONTENTION_END: CONTENTION_INTERVALS[1][1],
+            CONTENTION_FACTOR: 51,
+            FRAME_DURATION: FRAME_DURATIONS[1],
+            INTERRUPT_DELAY: (1385, 1565),
+            SAMPLE_RATE: 44100
+        })
+        if config:
+            for k, v in config.items():
+                try:
+                    if k == INTERRUPT_DELAY:
+                        self.options[0][k] = self.options[1][k] = tuple(int(n) for n in v.split(','))
+                    else:
+                        self.options[0][k] = self.options[1][k] = int(v)
+                except ValueError:
+                    pass
+
+    # Component API
+    def write_audio(self, audio_file, delays, options):
+        """
+        Write an audio file.
+
+        :param audio_file: The file object to write the audio to.
+        :param delays: A sequence of integers representing the intervals (in
+                       T-states) between speaker flips.
+        :param options: Configuration object with the following attributes:
+
+                        * `contention` - whether to simulate additional delays
+                          due to memory and I/O contention
+                        * `interrupts` - whether to simulate additional delays
+                          due to interrupts
+                        * `is128k` - whether to use 128K timings
+                        * `offset` - the offset (in T-states) of the first
+                          speaker flip from the start of the frame (used when
+                          `contention` or `interrupts` is True)
+                        * `volume` - audio volume percentage
+        """
+        aw_config = self.options[options.is128k]
+        if options.contention or options.interrupts:
+            self._add_contention(delays, options.contention, options.interrupts, options.offset, aw_config)
+        samples = moving_average_filter(delays, aw_config, options.volume / 100)
+        write_wav(audio_file, samples, aw_config[SAMPLE_RATE])
+
+    # Component API
+    def formats(self):
+        """
+        Return a sequence of filename extensions (including the '.')
+        corresponding to the audio formats supported by this writer.
+        """
+        return ('.wav',)
+
+    def _add_contention(self, delays, contention, interrupts, cycle, options):
+        c_begin, c_end = options[CONTENTION_BEGIN], options[CONTENTION_END]
+        c_factor = 1 + options[CONTENTION_FACTOR] / 100
+        i_delays = options[INTERRUPT_DELAY]
+        i_delays_idx = 0
+        f_duration = options[FRAME_DURATION]
+
+        for i in range(len(delays)):
+            d_offset = 0
+            while 1:
+                if interrupts and cycle == 0:
+                    cycle = i_delays[i_delays_idx]
+                    if i:
+                        delays[i] += i_delays[i_delays_idx]
+                        d_offset += i_delays[i_delays_idx]
+                    i_delays_idx = (i_delays_idx + 1) % len(i_delays)
+                d_remaining = delays[i] - d_offset
+                if contention and cycle < c_end:
+                    if cycle < c_begin:
+                        gap = c_begin - cycle
+                        if d_offset + gap >= delays[i]:
+                            # Delay ends before next contended interval starts
+                            cycle += d_remaining
+                            break
+                        # Delay crosses into contended interval
+                        d_offset += gap
+                        cycle = c_begin
+                    else:
+                        c_period = c_end - cycle
+                        d_rem_contended = int(d_remaining * c_factor)
+                        if d_rem_contended < c_period:
+                            # Delay ends within contended interval
+                            delays[i] = d_offset + d_rem_contended
+                            cycle += d_rem_contended
+                            break
+                        # Delay crosses into uncontended interval
+                        cd_cycles = int(c_period / c_factor)
+                        delays[i] += c_period - cd_cycles
+                        d_offset += cd_cycles
+                        cycle = c_end
+                else:
+                    if d_remaining < f_duration - cycle:
+                        # Delay ends before frame boundary
+                        cycle += d_remaining
+                        break
+                    # Delay crosses frame boundary
+                    d_offset += f_duration - cycle
+                    cycle = 0

@@ -1,0 +1,488 @@
+[
+  {
+    "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+    "line": 27,
+    "old": "                BIT 1,E",
+    "new": "                BIT CIRC_UP_BIT,E"
+  },
+  {
+    "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+    "line": 28,
+    "old": "                JR NZ,FinishCenterY                                             ; переход, если бит 1 признаков установлен, использовать 64-Y",
+    "new": "                JR NZ,FinishCenterY                                             ; переход, если признак верхнего положения центра установлен, использовать 64-Y"
+  },
+  {
+    "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+    "line": 35,
+    "old": "                BIT 0,E",
+    "new": "                BIT CIRC_RIGHT_BIT,E"
+  },
+  {
+    "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+    "line": 36,
+    "old": "                JR Z,FinishCenterX                                              ; переход, если бит 0 признаков сброшен, использовать 128-X",
+    "new": "                JR Z,FinishCenterX                                              ; переход, если признак правого положения центра сброшен, использовать 128-X"
+  },
+  {
+    "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+    "line": 44,
+    "old": "                BIT 3,E",
+    "new": "                BIT CIRC_YRANGE_BIT,E"
+  },
+  {
+    "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+    "line": 49,
+    "old": "                BIT 2,E",
+    "new": "                BIT CIRC_XRANGE_BIT,E"
+  },
+  {
+    "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+    "line": 19,
+    "old": "Entry:          LD B,#0C",
+    "new": "Entry:          LD B,CIRC_RANGE_MASK"
+  },
+  {
+    "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+    "line": 25,
+    "old": "                SET 0,B",
+    "new": "                SET CIRC_RIGHT_BIT,B"
+  },
+  {
+    "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+    "line": 37,
+    "old": "                SET 1,B",
+    "new": "                SET CIRC_UP_BIT,B"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "line": 41,
+    "old": "                BIT 0,E",
+    "new": "                BIT CIRC_RIGHT_BIT,E"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "line": 42,
+    "old": "                JR Z,MoveRightEdge                                              ; переход, если бит 0 признаков сброшен, вычислить правую подвижную границу",
+    "new": "                JR Z,MoveRightEdge                                              ; переход, если признак правого положения центра сброшен, вычислить правую подвижную границу"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "line": 50,
+    "old": "                BIT 1,E",
+    "new": "                BIT CIRC_UP_BIT,E"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "line": 51,
+    "old": "                JR NZ,PrepareLeft                                               ; переход, если бит 1 признаков установлен, начать на строке 0",
+    "new": "                JR NZ,PrepareLeft                                               ; переход, если признак верхнего положения центра установлен, начать на строке 0"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "line": 70,
+    "old": "                BIT 1,A",
+    "new": "                BIT CIRC_UP_BIT,A"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "line": 71,
+    "old": "                CALL NZ,Game.Screen.RightArcDown.Entry                          ; вызов, если бит 1 признаков установлен, двигаться от границы вниз",
+    "new": "                CALL NZ,Game.Screen.RightArcDown.Entry                          ; вызов, если признак верхнего положения центра установлен, двигаться от границы вниз"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "line": 72,
+    "old": "                CALL Z,Game.Screen.RightArcUp.Entry                             ; вызов, если бит 1 признаков сброшен, двигаться от границы вверх",
+    "new": "                CALL Z,Game.Screen.RightArcUp.Entry                             ; вызов, если признак верхнего положения центра сброшен, двигаться от границы вверх"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "line": 83,
+    "old": "                BIT 1,E",
+    "new": "                BIT CIRC_UP_BIT,E"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "line": 84,
+    "old": "                JR NZ,PrepareRight                                              ; переход, если бит 1 признаков установлен, начать на строке 0",
+    "new": "                JR NZ,PrepareRight                                              ; переход, если признак верхнего положения центра установлен, начать на строке 0"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "line": 99,
+    "old": "                BIT 1,A",
+    "new": "                BIT CIRC_UP_BIT,A"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "line": 100,
+    "old": "                CALL NZ,Game.Screen.LeftArcDown.Entry                           ; вызов, если бит 1 признаков установлен, двигаться вниз с левым отсечением",
+    "new": "                CALL NZ,Game.Screen.LeftArcDown.Entry                           ; вызов, если признак верхнего положения центра установлен, двигаться вниз с левым отсечением"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+    "line": 101,
+    "old": "                CALL Z,Game.Screen.LeftArcUp.Entry                              ; вызов, если бит 1 признаков сброшен, двигаться вверх с левым отсечением",
+    "new": "                CALL Z,Game.Screen.LeftArcUp.Entry                              ; вызов, если признак верхнего положения центра сброшен, двигаться вверх с левым отсечением"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerLeftContour.asm",
+    "line": 17,
+    "old": "                BIT 1,A",
+    "new": "                BIT CIRC_UP_BIT,A"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerLeftContour.asm",
+    "line": 18,
+    "old": "                CALL NZ,Game.Screen.LeftArcDown.Entry                           ; вызов, если бит 1 признаков установлен, рисовать левую дугу вниз",
+    "new": "                CALL NZ,Game.Screen.LeftArcDown.Entry                           ; вызов, если признак верхнего положения центра установлен, рисовать левую дугу вниз"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerLeftContour.asm",
+    "line": 19,
+    "old": "                CALL Z,Game.Screen.LeftArcUp.Entry                              ; вызов, если бит 1 признаков сброшен, рисовать левую дугу вверх",
+    "new": "                CALL Z,Game.Screen.LeftArcUp.Entry                              ; вызов, если признак верхнего положения центра сброшен, рисовать левую дугу вверх"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerRightContour.asm",
+    "line": 21,
+    "old": "                BIT 1,A",
+    "new": "                BIT CIRC_UP_BIT,A"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerRightContour.asm",
+    "line": 22,
+    "old": "                CALL NZ,Game.Screen.RightArcDown.Entry                          ; вызов, если бит 1 признаков установлен, рисовать дугу вниз",
+    "new": "                CALL NZ,Game.Screen.RightArcDown.Entry                          ; вызов, если признак верхнего положения центра установлен, рисовать дугу вниз"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerRightContour.asm",
+    "line": 23,
+    "old": "                CALL Z,Game.Screen.RightArcUp.Entry                             ; вызов, если бит 1 признаков сброшен, рисовать дугу вверх",
+    "new": "                CALL Z,Game.Screen.RightArcUp.Entry                             ; вызов, если признак верхнего положения центра сброшен, рисовать дугу вверх"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+    "line": 35,
+    "old": "                BIT 1,E",
+    "new": "                BIT CIRC_UP_BIT,E"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+    "line": 36,
+    "old": "                JR Z,FillUpward                                                 ; переход, если бит 1 признаков сброшен, начать от нижней строки 127 и идти вверх",
+    "new": "                JR Z,FillUpward                                                 ; переход, если признак верхнего положения центра сброшен, начать от нижней строки 127 и идти вверх"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+    "line": 44,
+    "old": "                BIT 0,A",
+    "new": "                BIT CIRC_RIGHT_BIT,A"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+    "line": 45,
+    "old": "                CALL Z,Game.Screen.LeftArcDown.Entry                            ; вызов, если бит 0 признаков сброшен, построить нижнюю дугу с левым отсечением",
+    "new": "                CALL Z,Game.Screen.LeftArcDown.Entry                            ; вызов, если признак правого положения центра сброшен, построить нижнюю дугу с левым отсечением"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+    "line": 46,
+    "old": "                CALL NZ,Game.Screen.RightArcDown.Entry                          ; вызов, если бит 0 признаков установлен, построить нижнюю дугу с правым отсечением",
+    "new": "                CALL NZ,Game.Screen.RightArcDown.Entry                          ; вызов, если признак правого положения центра установлен, построить нижнюю дугу с правым отсечением"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+    "line": 55,
+    "old": "                BIT 0,A",
+    "new": "                BIT CIRC_RIGHT_BIT,A"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+    "line": 56,
+    "old": "                CALL Z,Game.Screen.LeftArcUp.Entry                              ; вызов, если бит 0 признаков сброшен, построить верхнюю дугу с левым отсечением",
+    "new": "                CALL Z,Game.Screen.LeftArcUp.Entry                              ; вызов, если признак правого положения центра сброшен, построить верхнюю дугу с левым отсечением"
+  },
+  {
+    "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+    "line": 57,
+    "old": "                CALL NZ,Game.Screen.RightArcUp.Entry                            ; вызов, если бит 0 признаков установлен, построить верхнюю дугу с правым отсечением",
+    "new": "                CALL NZ,Game.Screen.RightArcUp.Entry                            ; вызов, если признак правого положения центра установлен, построить верхнюю дугу с правым отсечением"
+  },
+  {
+    "file": "Source/Game/Circles/DrawOneSideClippedCircle.asm",
+    "line": 28,
+    "old": "                BIT 0,E",
+    "new": "                BIT CIRC_RIGHT_BIT,E"
+  },
+  {
+    "file": "Source/Game/Circles/DrawOneSideClippedCircle.asm",
+    "line": 29,
+    "old": "                JR Z,ClipLeft                                                   ; переход, если бит 0 признаков сброшен, отсечь левый край",
+    "new": "                JR Z,ClipLeft                                                   ; переход, если признак правого положения центра сброшен, отсечь левый край"
+  },
+  {
+    "file": "Source/Game/Circles/DrawVerticalClippedCircle.asm",
+    "line": 29,
+    "old": "                BIT 1,E",
+    "new": "                BIT CIRC_UP_BIT,E"
+  },
+  {
+    "file": "Source/Game/Circles/DrawVerticalClippedCircle.asm",
+    "line": 30,
+    "old": "                JR NZ,CrossingEnds                                              ; переход, если бит 1 признаков установлен, начать на строке 0",
+    "new": "                JR NZ,CrossingEnds                                              ; переход, если признак верхнего положения центра установлен, начать на строке 0"
+  },
+  {
+    "file": "Source/Game/Circles/DrawVerticalClippedCircle.asm",
+    "line": 50,
+    "old": "                BIT 1,A",
+    "new": "                BIT CIRC_UP_BIT,A"
+  },
+  {
+    "file": "Source/Game/Circles/DrawVerticalClippedCircle.asm",
+    "line": 51,
+    "old": "                CALL NZ,Game.Screen.UnclippedArcDown.Entry                      ; вызов, если бит 1 признаков установлен, построить нижнюю половину без бокового отсечения",
+    "new": "                CALL NZ,Game.Screen.UnclippedArcDown.Entry                      ; вызов, если признак верхнего положения центра установлен, построить нижнюю половину без бокового отсечения"
+  },
+  {
+    "file": "Source/Game/Circles/DrawVerticalClippedCircle.asm",
+    "line": 52,
+    "old": "                CALL Z,Game.Screen.UnclippedArcUp.Entry                         ; вызов, если бит 1 признаков сброшен, построить верхнюю половину без бокового отсечения",
+    "new": "                CALL Z,Game.Screen.UnclippedArcUp.Entry                         ; вызов, если признак верхнего положения центра сброшен, построить верхнюю половину без бокового отсечения"
+  },
+  {
+    "file": "Source/Game/Circles/DrawWideCircleAcrossBothSides.asm",
+    "line": 41,
+    "old": "                BIT 0,A",
+    "new": "                BIT CIRC_RIGHT_BIT,A"
+  },
+  {
+    "file": "Source/Game/Circles/DrawWideCircleAcrossBothSides.asm",
+    "line": 42,
+    "old": "                CALL Z,Game.Screen.LeftArcUp.Entry                              ; вызов, если бит 0 признаков сброшен, построить верхнюю дугу с левым отсечением",
+    "new": "                CALL Z,Game.Screen.LeftArcUp.Entry                              ; вызов, если признак правого положения центра сброшен, построить верхнюю дугу с левым отсечением"
+  },
+  {
+    "file": "Source/Game/Circles/DrawWideCircleAcrossBothSides.asm",
+    "line": 43,
+    "old": "                CALL NZ,Game.Screen.RightArcUp.Entry                            ; вызов, если бит 0 признаков установлен, построить верхнюю дугу с правым отсечением",
+    "new": "                CALL NZ,Game.Screen.RightArcUp.Entry                            ; вызов, если признак правого положения центра установлен, построить верхнюю дугу с правым отсечением"
+  },
+  {
+    "file": "Source/Game/Circles/DrawWideCircleAcrossBothSides.asm",
+    "line": 52,
+    "old": "                BIT 0,A",
+    "new": "                BIT CIRC_RIGHT_BIT,A"
+  },
+  {
+    "file": "Source/Game/Circles/DrawWideCircleAcrossBothSides.asm",
+    "line": 53,
+    "old": "                CALL Z,Game.Screen.LeftArcDown.Entry                            ; вызов, если бит 0 признаков сброшен, построить нижнюю дугу с левым отсечением",
+    "new": "                CALL Z,Game.Screen.LeftArcDown.Entry                            ; вызов, если признак правого положения центра сброшен, построить нижнюю дугу с левым отсечением"
+  },
+  {
+    "file": "Source/Game/Circles/DrawWideCircleAcrossBothSides.asm",
+    "line": 54,
+    "old": "                CALL NZ,Game.Screen.RightArcDown.Entry                          ; вызов, если бит 0 признаков установлен, построить нижнюю дугу с правым отсечением",
+    "new": "                CALL NZ,Game.Screen.RightArcDown.Entry                          ; вызов, если признак правого положения центра установлен, построить нижнюю дугу с правым отсечением"
+  },
+  {
+    "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+    "line": 54,
+    "old": "                SET 0,B",
+    "new": "                SET CIRC_RIGHT_BIT,B"
+  },
+  {
+    "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+    "line": 74,
+    "old": "                SET 1,B",
+    "new": "                SET CIRC_UP_BIT,B"
+  },
+  {
+    "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+    "line": 160,
+    "old": "                SET 0,B",
+    "new": "                SET CIRC_RIGHT_BIT,B"
+  },
+  {
+    "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+    "line": 187,
+    "old": "                SET 0,B",
+    "new": "                SET CIRC_RIGHT_BIT,B"
+  },
+  {
+    "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+    "line": 207,
+    "old": "                SET 1,B",
+    "new": "                SET CIRC_UP_BIT,B"
+  },
+  {
+    "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+    "line": 284,
+    "old": "                SET 0,B",
+    "new": "                SET CIRC_RIGHT_BIT,B"
+  },
+  {
+    "file": "Source/Game/Universe/DivideCelestialAxis.asm",
+    "line": 88,
+    "old": "FirstOutside:   SET 2,B",
+    "new": "FirstOutside:   SET CIRC_XRANGE_BIT,B"
+  },
+  {
+    "file": "Source/Game/Universe/DivideCelestialAxis.asm",
+    "line": 95,
+    "old": "                SET 3,B",
+    "new": "                SET CIRC_YRANGE_BIT,B"
+  },
+  {
+    "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+    "line": 67,
+    "old": "InitCircle:     LD A,#0F",
+    "new": "InitCircle:     LD A,CIRC_FLAGS_MASK"
+  },
+  {
+    "file": "Source/Game/Extensions/GetViewAdjustedProjectedPoint.asm",
+    "line": 24,
+    "old": "                XOR #02",
+    "new": "                XOR PROJ_NEGX_MASK"
+  },
+  {
+    "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+    "line": 35,
+    "old": "                XOR #02",
+    "new": "                XOR PROJ_NEGX_MASK"
+  },
+  {
+    "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+    "line": 42,
+    "old": "                XOR #03",
+    "new": "                XOR CIRC_SIGN_MASK"
+  },
+  {
+    "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+    "line": 44,
+    "old": "                ADD A,#0C",
+    "new": "                ADD A,CIRC_RANGE_MASK"
+  },
+  {
+    "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+    "line": 217,
+    "old": "                XOR #02",
+    "new": "                XOR PROJ_NEGX_MASK"
+  },
+  {
+    "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+    "line": 219,
+    "old": "                BIT 1,D",
+    "new": "                BIT PROJ_NEGX_BIT,D"
+  },
+  {
+    "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+    "line": 230,
+    "old": "ProjectY:       BIT 0,D",
+    "new": "ProjectY:       BIT PROJ_POSY_BIT,D"
+  },
+  {
+    "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+    "line": 139,
+    "old": "                XOR #02",
+    "new": "                XOR PROJ_NEGX_MASK"
+  },
+  {
+    "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+    "line": 146,
+    "old": "                XOR #0E",
+    "new": "                XOR CIRC_PROJ_XOR"
+  },
+  {
+    "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+    "line": 183,
+    "old": "                XOR #02",
+    "new": "                XOR PROJ_NEGX_MASK"
+  },
+  {
+    "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+    "line": 184,
+    "old": "StoreSigns:     AND #03",
+    "new": "StoreSigns:     AND PROJ_SIGN_MASK"
+  },
+  {
+    "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+    "line": 209,
+    "old": "                LD A,#FF",
+    "new": "                LD A,VERT_HIDDEN"
+  },
+  {
+    "file": "Source/Game/Wireframe/ReadProjectedVertex.asm",
+    "line": 42,
+    "old": "                BIT 7,A",
+    "new": "                BIT VERT_HIDDEN_BIT,A"
+  },
+  {
+    "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+    "line": 66,
+    "old": "                AND #03",
+    "new": "                AND PROJ_SIGN_MASK"
+  },
+  {
+    "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+    "line": 12,
+    "old": ";   bit 0 каждой пары задаёт Y=63+модуль вместо 63-модуль",
+    "new": ";   PROJ_POSY_BIT каждой пары задаёт Y=63+модуль вместо 63-модуль"
+  },
+  {
+    "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+    "line": 13,
+    "old": ";   bit 1 каждой пары задаёт X=127-модуль вместо 127+модуль",
+    "new": ";   PROJ_NEGX_BIT каждой пары задаёт X=127-модуль вместо 127+модуль"
+  },
+  {
+    "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+    "line": 197,
+    "old": "                XOR #01",
+    "new": "                XOR PROJ_POSY_MASK"
+  },
+  {
+    "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+    "line": 230,
+    "old": "                AND #02",
+    "new": "                AND PROJ_NEGX_MASK"
+  },
+  {
+    "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+    "line": 256,
+    "old": "                XOR #02",
+    "new": "                XOR PROJ_NEGX_MASK"
+  },
+  {
+    "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+    "line": 265,
+    "old": "                AND #02",
+    "new": "                AND PROJ_NEGX_MASK"
+  },
+  {
+    "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+    "line": 277,
+    "old": "CheckSwap:      AND #02",
+    "new": "CheckSwap:      AND PROJ_NEGX_MASK"
+  },
+  {
+    "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+    "line": 13,
+    "old": "; Крайние столбцы отсекаются флагами D, пиксельный сдвиг распределяет строку по трём байтам",
+    "new": "; Крайние столбцы отсекаются флагами D, пиксельный сдвиг распределяет строку по трём байтам\n; -----------------------------------------\n; D, признаки бокового отсечения и направления профиля\n;      7    6    5    4    3    2    1    0\n;   +----+----+----+----+----+----+----+----+\n;   | BK | .. | .. | .. | .. | .. | RC | LC |\n;   +----+----+----+----+----+----+----+----+\n;\n;   BK      [7]     - флаг, обратный обход профиля, SIL_BACK_BIT\n;   RC      [1]     - флаг, третий байт за правым краем, SIL_RIGHT_BIT\n;   LC      [0]     - флаг, первый байт за левым краем, SIL_LEFT_BIT\n;   признаки краёв создаются INC D и двумя INC D, затем читаются через RRC B\n; -----------------------------------------"
+  },
+  {
+    "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+    "line": 145,
+    "old": "                BIT 7,D",
+    "new": "                BIT SIL_BACK_BIT,D"
+  },
+  {
+    "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+    "line": 154,
+    "old": "                SET 7,D",
+    "new": "                SET SIL_BACK_BIT,D"
+  }
+]

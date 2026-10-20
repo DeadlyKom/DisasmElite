@@ -1,0 +1,46 @@
+{
+  "corrected_bounty_symbol": "Game.Universe.AwardUnlinkedDestructionBounty.Entry",
+  "entries": {
+    "Game.Missions.DispatchMissionEvents.PayBounty": 53479,
+    "Game.Missions.DispatchMissionEvents.ScoopItem": 53476,
+    "Game.Missions.DispatchMissionEvents.MissileTarget": 53475,
+    "Game.Missions.DispatchMissionEvents.EmptyFuel": 53472,
+    "Game.Missions.DispatchMissionEvents.OfferMission": 53469,
+    "Game.Missions.DispatchRatingAndMissionEnd.EndMission": 53485,
+    "Game.Missions.OfferThirdMission.ShowAndWait": 53576,
+    "Game.Missions.OfferThirdMission.AcceptMission": 53560,
+    "Game.Missions.RatingBountyDamageAndNewCommander.DecimalRest": 53980,
+    "Game.Missions.RatingBountyDamageAndNewCommander.ResetCommander": 53912,
+    "Game.Missions.RatingBountyDamageAndNewCommander.NewCommander": 53810,
+    "Game.Missions.RatingBountyDamageAndNewCommander.DamageCargo": 53791,
+    "Game.Missions.RatingBountyDamageAndNewCommander.QueueDamage": 53779,
+    "Game.Missions.RatingBountyDamageAndNewCommander.SelectDevice": 53766,
+    "Game.Missions.RatingBountyDamageAndNewCommander.DamageItem": 53737,
+    "Game.Missions.RatingBountyDamageAndNewCommander.SetEvent": 53734,
+    "Game.Missions.RatingBountyDamageAndNewCommander.PayBounty": 53721,
+    "Game.Missions.ShowBoardingMessage.FinishMessage": 53524,
+    "Game.Missions.SpecialMessageAndScoopReward.StoreLegal": 53701,
+    "Game.Missions.SpecialMessageAndScoopReward.RaiseLegal": 53692,
+    "Game.Missions.SpecialMessageAndScoopReward.CheckIllegal": 53685,
+    "Game.Missions.SpecialMessageAndScoopReward.QueuePickup": 53677,
+    "Game.Missions.SpecialMessageAndScoopReward.AddCargo": 53663,
+    "Game.Missions.SpecialMessageAndScoopReward.ScoopItem": 53648,
+    "Game.Missions.SpecialMessageAndScoopReward.ClassifyScoop": 53635,
+    "Game.Missions.SpecialMessageAndScoopReward.FillAttrs": 53623
+  },
+  "validated_report": "Tools/Disasm/Reports/MissionRewardsValidation.json",
+  "corrections": [
+    "#7DA4 начисляет деньги, а не рейтинг",
+    "#D1AD ставит уведомление и не увеличивает Cargo",
+    "#D1E9 выбирает индекс из #7105 и не вызывает генератор",
+    "#D162 заполняет 480 атрибутов, а не 736"
+  ],
+  "static_verification": {
+    "files": 10,
+    "instructions": 209,
+    "literal_bytes": 108,
+    "total_bytes": 549,
+    "method": "сопоставление каждого операнда и DB с GameCode.bin, символы разрешены по известным адресам, без сборки"
+  },
+  "validation_cases": 617
+}

@@ -1,0 +1,602 @@
+[
+  {
+    "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+    "line": 32,
+    "old": "                BIT 5,A",
+    "new": "                BIT MS_CARGO_BIT,A"
+  },
+  {
+    "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
+    "line": 66,
+    "old": "                RES 5,(HL)",
+    "new": "                RES MS_CARGO_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+    "line": 65,
+    "old": "                BIT 7,A",
+    "new": "                BIT MS_ACCEPT_BIT,A"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+    "line": 37,
+    "old": "                CP #02",
+    "new": "                CP INV_ACTIVE_MIN"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+    "line": 55,
+    "old": "WrapClock:      LD (HL),#7F",
+    "new": "WrapClock:      LD (HL),INV_RETREAT_MAX"
+  },
+  {
+    "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+    "line": 23,
+    "old": "                AND #FE",
+    "new": "                AND INV_ACTIVE_MASK"
+  },
+  {
+    "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+    "line": 27,
+    "old": "                AND #20",
+    "new": "                AND MS_CARGO_MASK"
+  },
+  {
+    "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+    "line": 30,
+    "old": "                LD A, (State.Rating + 2)",
+    "new": "                LD A, (State.RankState)"
+  },
+  {
+    "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+    "line": 31,
+    "old": "                CP #84",
+    "new": "                CP RANK_CAPT_CODE"
+  },
+  {
+    "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+    "line": 37,
+    "old": "                RES 5,(HL)",
+    "new": "                RES MS_CARGO_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+    "line": 44,
+    "old": "                AND #01",
+    "new": "                AND ALIEN_OWN_MASK"
+  },
+  {
+    "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+    "line": 20,
+    "old": "                BIT 5,A",
+    "new": "                BIT MS_CARGO_BIT,A"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 23,
+    "old": "                AND #FE",
+    "new": "                AND INV_ACTIVE_MASK"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 26,
+    "old": "                RES 6,(HL)",
+    "new": "                RES RANK_RSV_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 28,
+    "old": "                LD L,#AF",
+    "new": "                LD L, LOW State.Mission3"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 33,
+    "old": "                LD L,#86",
+    "new": "                LD L, LOW State.AlienComputer"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 43,
+    "old": "                LD L,#64",
+    "new": "                LD L, LOW State.JumpFlags"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 44,
+    "old": "                SET 7,(HL)",
+    "new": "                SET JUMP_MSN_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 48,
+    "old": "CheckRating:    LD A, (State.Rating + 2)",
+    "new": "CheckRating:    LD A, (State.RankState)"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 49,
+    "old": "                CP #20",
+    "new": "                CP RANK_ELITE_MIN"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 52,
+    "old": "                LD L,#64",
+    "new": "                LD L, LOW State.JumpFlags"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 57,
+    "old": "                LD L,#B0",
+    "new": "                LD L, LOW State.MissionFlags"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 59,
+    "old": "                AND H",
+    "new": "                AND H                                                           ; H=#D0, маска MS_START_MASK сохраняет оборудование и пятую отметку"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 61,
+    "old": "                LD A,#81",
+    "new": "                LD A, RANK_START_CODE"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 62,
+    "old": "                LD (State.Rating + 2), A",
+    "new": "                LD (State.RankState), A"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 66,
+    "old": "MarkJumpCount:  LD L,#64",
+    "new": "MarkJumpCount:  LD L, LOW State.JumpFlags"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 67,
+    "old": "                SET 7,(HL)",
+    "new": "                SET JUMP_MSN_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "line": 71,
+    "old": "                ; проверка младшего бита состояния перед его уменьшением",
+    "new": "                ; проверка чётности всего RankState либо JumpFlags, по фактическому входу HL"
+  },
+  {
+    "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+    "line": 34,
+    "old": "                BIT 6,(HL)",
+    "new": "                BIT MS_CLOAK_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Input/CheckMissionSystem.asm",
+    "line": 18,
+    "old": "                ; проверка запрета особой системы по биту 6 состояния пилота",
+    "new": "                ; проверка отставки, она запрещает поиск секретной базы миссии INVASION"
+  },
+  {
+    "file": "Source/Game/Input/CheckMissionSystem.asm",
+    "line": 19,
+    "old": "Entry:          LD A, (State.Rating + 2)",
+    "new": "Entry:          LD A, (State.RankState)"
+  },
+  {
+    "file": "Source/Game/Input/CheckMissionSystem.asm",
+    "line": 20,
+    "old": "                AND #40",
+    "new": "                AND RANK_RSV_MASK"
+  },
+  {
+    "file": "Source/Game/Input/CheckMissionSystem.asm",
+    "line": 21,
+    "old": "                RET NZ                                                          ; выход, если бит 6 #D062 установлен, особая система запрещена",
+    "new": "                RET NZ                                                          ; выход, если пилот в отставке, поиск секретной базы запрещён"
+  },
+  {
+    "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+    "line": 61,
+    "old": "                LD A, (State.Rating + 2)",
+    "new": "                LD A, (State.RankState)"
+  },
+  {
+    "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+    "line": 62,
+    "old": "                CP #84",
+    "new": "                CP RANK_CAPT_CODE"
+  },
+  {
+    "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+    "line": 66,
+    "old": "                AND #8E",
+    "new": "                AND RANK_TYPE_MASK"
+  },
+  {
+    "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+    "line": 67,
+    "old": "                XOR #86",
+    "new": "                XOR RANK_MAJ_CODE"
+  },
+  {
+    "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+    "line": 31,
+    "old": "                ; состояние пилота, Rating, +0C..0E, младшие 16 бит рейтинга и байт D062 с военным кодом",
+    "new": "                ; младшие 16 бит рейтинга, старший байт имеет отдельное описание в FCommander.RankState"
+  },
+  {
+    "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+    "line": 32,
+    "old": "Rating          DB #B8, #7B, #04                                                ; поле FCommander.Rating",
+    "new": "Rating          DW #7BB8                                                        ; поле FCommander.Rating\nRankState       DB #04                                                          ; поле FCommander.RankState, см. схему флагов структуры"
+  },
+  {
+    "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+    "line": 34,
+    "old": "JumpCount       DW #001D                                                        ; поле FCommander.JumpCount",
+    "new": "JumpCount       DB #1D                                                          ; младший байт счётчика FCommander.JumpCount\nJumpFlags       DB #00                                                          ; поле FCommander.JumpFlags, старшая часть счётчика с флагом миссии"
+  },
+  {
+    "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+    "line": 20,
+    "old": "Entry:          LD HL, State.Rating + 2",
+    "new": "Entry:          LD HL, State.RankState"
+  },
+  {
+    "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+    "line": 101,
+    "old": "                RRCA",
+    "new": "                RRCA                                                            ; перенос получает ALIEN_OWN_BIT"
+  },
+  {
+    "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+    "line": 105,
+    "old": "                AND #40",
+    "new": "                AND MS_CLOAK_MASK"
+  },
+  {
+    "file": "Source/Game/Missions/CompleteThirdMission.asm",
+    "line": 22,
+    "old": "Entry:          LD HL,State.Rating + 2",
+    "new": "Entry:          LD HL,State.RankState"
+  },
+  {
+    "file": "Source/Game/Missions/CompleteThirdMission.asm",
+    "line": 27,
+    "old": "                SET 3,(HL)",
+    "new": "                SET MS_MARK4_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Missions/OfferThirdMission.asm",
+    "line": 34,
+    "old": "                SET 7,(HL)",
+    "new": "                SET MS_ACCEPT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+    "line": 89,
+    "old": "                SET 6,(HL)",
+    "new": "                SET MS_CLOAK_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "line": 183,
+    "old": "                BIT 7,A",
+    "new": "                BIT MS_ACCEPT_BIT,A"
+  },
+  {
+    "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+    "line": 139,
+    "old": "                LD A, (State.Rating + 2)",
+    "new": "                LD A, (State.RankState)"
+  },
+  {
+    "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+    "line": 40,
+    "old": "                AND #42",
+    "new": "                AND MS_CLOAK_MASK | MS_MARK2_MASK"
+  },
+  {
+    "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+    "line": 41,
+    "old": "                CP #02",
+    "new": "                CP MS_MARK2_MASK"
+  },
+  {
+    "file": "Source/Game/Text/CheckMineralLifeColony.asm",
+    "line": 22,
+    "old": "                RLC A",
+    "new": "                RLC A                                               ; перенос получает MIN_BLOCK_BIT, оставшаяся часть проверяется на нуль"
+  },
+  {
+    "file": "Source/Game/Text/CheckMissionRegion.asm",
+    "line": 26,
+    "old": "                CP #02",
+    "new": "                CP INV_ACTIVE_MIN"
+  },
+  {
+    "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+    "line": 7,
+    "old": ";   HL = флаги объекта, IX = запись с типом по+23",
+    "new": ";   HL, State.Mission3, этап задания с отметкой попадания\n;   IX, летящий объект, младший байт адреса модели по FSpaceObject.Blueprint"
+  },
+  {
+    "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+    "line": 25,
+    "old": "                SET 3,(HL)",
+    "new": "                SET M3_HIT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+    "line": 26,
+    "old": "                BIT 2,(HL)",
+    "new": "                BIT M3_STAGE_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+    "line": 27,
+    "old": "                JR NZ,CheckPermit                                               ; переход, если установлен бит 2 флагов миссии, повторное снятие статуса не требуется",
+    "new": "                JR NZ,CheckPermit                                               ; переход, если бит 2 этапа Mission3 установлен, сохранить отметку попадания"
+  },
+  {
+    "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+    "line": 33,
+    "old": "                BIT 7,(HL)",
+    "new": "                BIT MS_ACCEPT_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+    "line": 34,
+    "old": "                JR NZ,ReturnCarry                                               ; переход, если старший бит следующего поля установлен, сохранить состояние допуска",
+    "new": "                JR NZ,ReturnCarry                                               ; переход, если предложение третьей миссии принято, сохранить перенос"
+  },
+  {
+    "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+    "line": 48,
+    "old": "                SET 2,(HL)",
+    "new": "                SET MS_MARK3_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+    "line": 51,
+    "old": "                RES 7,(HL)",
+    "new": "                RES INV_ATTACK_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+    "line": 64,
+    "old": "                RES 7,(HL)",
+    "new": "                RES INV_ATTACK_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Text/NextDescriptionRandom.asm",
+    "line": 46,
+    "old": "                SET 1,(HL)",
+    "new": "                SET MS_MARK2_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+    "line": 28,
+    "old": "                LD L,#62",
+    "new": "                LD L, LOW State.RankState"
+  },
+  {
+    "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+    "line": 29,
+    "old": "                BIT 6,(HL)",
+    "new": "                BIT RANK_RSV_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+    "line": 33,
+    "old": "                CP #82",
+    "new": "                CP RANK_LT_CODE"
+  },
+  {
+    "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+    "line": 36,
+    "old": "                SET 6,(HL)",
+    "new": "                SET RANK_RSV_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+    "line": 45,
+    "old": "                LD HL, State.Rating + 2",
+    "new": "                LD HL, State.RankState"
+  },
+  {
+    "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+    "line": 50,
+    "old": "                AND #07",
+    "new": "                AND RANK_NUM_MASK >> 1"
+  },
+  {
+    "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+    "line": 66,
+    "old": "                BIT 5,A",
+    "new": "                BIT MS_CARGO_BIT,A"
+  },
+  {
+    "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+    "line": 24,
+    "old": "                LD A, (State.Rating + 2)",
+    "new": "                LD A, (State.RankState)"
+  },
+  {
+    "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+    "line": 25,
+    "old": "                BIT 7,A",
+    "new": "                BIT RANK_WAR_BIT,A"
+  },
+  {
+    "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+    "line": 28,
+    "old": "                AND #0E",
+    "new": "                AND RANK_NUM_MASK"
+  },
+  {
+    "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+    "line": 39,
+    "old": "                LD A, (State.Rating + 2)",
+    "new": "                LD A, (State.RankState)"
+  },
+  {
+    "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+    "line": 40,
+    "old": "                AND #FE",
+    "new": "                AND RANK_CODE_MASK"
+  },
+  {
+    "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+    "line": 41,
+    "old": "                CP #C8",
+    "new": "                CP RANK_COL_RSV"
+  },
+  {
+    "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+    "line": 44,
+    "old": "                BIT 6,A",
+    "new": "                BIT RANK_RSV_BIT,A"
+  },
+  {
+    "file": "Source/Game/Trade/MissionRegionMetric.asm",
+    "line": 42,
+    "old": "                SET 5,(HL)",
+    "new": "                SET MS_CARGO_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+    "line": 59,
+    "old": "                RES 5,(HL)",
+    "new": "                RES MS_CARGO_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+    "line": 32,
+    "old": "                SET 0,(HL)",
+    "new": "                SET MS_MARK1_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+    "line": 43,
+    "old": "                SET 1,(HL)",
+    "new": "                SET MS_MARK2_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+    "line": 49,
+    "old": "                SET 2,(HL)",
+    "new": "                SET MS_MARK3_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+    "line": 60,
+    "old": "CountArrival:   LD HL, State.Rating + 2",
+    "new": "CountArrival:   LD HL, State.RankState"
+  },
+  {
+    "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+    "line": 68,
+    "old": "CheckGrant:     BIT 7,(HL)",
+    "new": "CheckGrant:     BIT JUMP_MSN_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+    "line": 69,
+    "old": "                RES 7,(HL)",
+    "new": "                RES JUMP_MSN_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+    "line": 72,
+    "old": "                LD L,#B0",
+    "new": "                LD L, LOW State.MissionFlags"
+  },
+  {
+    "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+    "line": 67,
+    "old": "                BIT 5,(HL)",
+    "new": "                BIT MS_CARGO_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+    "line": 72,
+    "old": "                SUB #02",
+    "new": "                SUB INV_ACTIVE_MIN"
+  },
+  {
+    "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+    "line": 76,
+    "old": "                LD A, (State.Rating + 2)",
+    "new": "                LD A, (State.RankState)"
+  },
+  {
+    "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+    "line": 77,
+    "old": "                CP #84",
+    "new": "                CP RANK_CAPT_CODE"
+  },
+  {
+    "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+    "line": 89,
+    "old": "MarkResult:     SET 0,(HL)",
+    "new": "MarkResult:     SET MS_MARK1_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+    "line": 84,
+    "old": "                BIT 6,A",
+    "new": "                BIT MS_CLOAK_BIT,A"
+  },
+  {
+    "file": "Source/Game/Universe/SelectSpecialCargoText.asm",
+    "line": 20,
+    "old": "                CP #02",
+    "new": "                CP INV_ACTIVE_MIN"
+  },
+  {
+    "file": "Source/Game/Universe/SelectSpecialCargoText.asm",
+    "line": 23,
+    "old": "                LD A, (State.Rating + 2)",
+    "new": "                LD A, (State.RankState)"
+  },
+  {
+    "file": "Source/Game/Universe/SelectSpecialCargoText.asm",
+    "line": 24,
+    "old": "                CP #84",
+    "new": "                CP RANK_CAPT_CODE"
+  },
+  {
+    "file": "Includes/Variables/GameState.inc",
+    "line": 13,
+    "old": "Rating:         EQU Commander + FCommander.Rating",
+    "new": "Rating:         EQU Commander + FCommander.Rating\nRankState:      EQU Commander + FCommander.RankState                            ; старший рейтинг и военное состояние, схема FCommander.RankState"
+  },
+  {
+    "file": "Includes/Variables/GameState.inc",
+    "line": 14,
+    "old": "JumpCount:      EQU Commander + FCommander.JumpCount",
+    "new": "JumpCount:      EQU Commander + FCommander.JumpCount\nJumpFlags:      EQU Commander + FCommander.JumpFlags                            ; старшая часть счётчика и разрешение миссий"
+  },
+  {
+    "file": "Source/Game/Objects/ActivateEnemyECM.asm",
+    "line": 25,
+    "old": "                OR #80",
+    "new": "                OR ECM_ON_MASK"
+  },
+  {
+    "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+    "line": 55,
+    "old": "                RES 7,(HL)",
+    "new": "                RES ECM_ON_BIT,(HL)"
+  },
+  {
+    "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+    "line": 87,
+    "old": "                RES 7,C",
+    "new": "                RES ECM_ON_BIT,C"
+  }
+]

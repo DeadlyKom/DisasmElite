@@ -1,0 +1,58 @@
+{
+  "method": "исходные инструкции Z80 и ROM 48K в SkoolKit 10.1 Simulator",
+  "scope": "изолированная процедура, без прерываний и контенции",
+  "source_sha256": "fdce23d7ab81512b49cb26e7e9edd7583123425d1c9c087ca5915eabe6f0cbf0",
+  "passed": {
+    "vertical_exact": 80,
+    "horizontal_exact": 80,
+    "slope_quadrants": 4,
+    "xor_variants": 4,
+    "outside_rejected": 4
+  },
+  "slope_samples": [
+    {
+      "ends": [
+        20,
+        20,
+        220,
+        90
+      ],
+      "pixels": 201,
+      "steep_step": 36,
+      "shallow_step": 36
+    },
+    {
+      "ends": [
+        220,
+        20,
+        20,
+        90
+      ],
+      "pixels": 201,
+      "steep_step": 36,
+      "shallow_step": 37
+    },
+    {
+      "ends": [
+        100,
+        10,
+        130,
+        110
+      ],
+      "pixels": 101,
+      "steep_step": 36,
+      "shallow_step": 36
+    },
+    {
+      "ends": [
+        130,
+        10,
+        100,
+        110
+      ],
+      "pixels": 101,
+      "steep_step": 37,
+      "shallow_step": 36
+    }
+  ]
+}

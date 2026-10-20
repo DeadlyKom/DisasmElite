@@ -1,0 +1,147 @@
+[
+  {
+    "file": "Source/Game/Missions/OfferThirdMission.asm",
+    "old": "                ASSERT $ == #D123\n",
+    "new": "                ASSERT $ == #D123\n                ; миссия 3, предложение задания и подтверждение участия\n                ; описание в Docs/Manual.md, раздел mission-3\n"
+  },
+  {
+    "file": "Source/Game/Flight/DispatchThirdMissionStage.asm",
+    "old": "                ASSERT $ == #7278\n",
+    "new": "                ASSERT $ == #7278\n                ; миссия 3, выбор обработчика предложения или завершения по этапу\n                ; описание в Docs/Manual.md, раздел mission-3\n"
+  },
+  {
+    "file": "Source/Game/Missions/CompleteThirdMission.asm",
+    "old": "                ASSERT $ == #D14D\n",
+    "new": "                ASSERT $ == #D14D\n                ; миссия 3, завершение задания и фиксация награды\n                ; описание в Docs/Manual.md, раздел mission-3\n"
+  },
+  {
+    "file": "Source/Game/Flight/TryColonizeMinerals.asm",
+    "old": "                ASSERT $ == #7370\n",
+    "new": "                ASSERT $ == #7370\n                ; миссия 4 MINERAL LIFE, проверка условий появления живой колонии\n                ; описание в Docs/Manual.md, раздел mission-4\n"
+  },
+  {
+    "file": "Source/Game/Text/CheckMineralLifeColony.asm",
+    "old": "                ASSERT $ == #D5B4\n",
+    "new": "                ASSERT $ == #D5B4\n                ; миссия 4 MINERAL LIFE, проверка жизнеспособности колонии\n                ; описание в Docs/Manual.md, раздел mission-4\n"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateSpecialCargoStatus.asm",
+    "old": "                ASSERT $ == #6EBC\n",
+    "new": "                ASSERT $ == #6EBC\n                ; миссия 4 MINERAL LIFE, расчёт кормления колонии драгоценными камнями\n                ; описание в Docs/Manual.md, раздел mission-4\n"
+  },
+  {
+    "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+    "old": "                ASSERT $ == #5FA1\n",
+    "new": "                ASSERT $ == #5FA1\n                ; миссия 6 Cobra Mk4, проверка предложения покупки за 256000 кредитов\n                ; описание в Docs/Manual.md, раздел mission-6\n"
+  },
+  {
+    "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "old": "                ASSERT $ == #5E78\n",
+    "new": "                ASSERT $ == #5E78\n                ; миссия 7 INVASION, проверка условий начала вторжения\n                ; описание в Docs/Manual.md, раздел mission-7-invasion\n"
+  },
+  {
+    "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+    "old": "                ASSERT $ == #9B41\n",
+    "new": "                ASSERT $ == #9B41\n                ; миссия 7 INVASION, накопление времени и изменение состояния фронта\n                ; описание в Docs/Manual.md, раздел mission-7-invasion\n"
+  },
+  {
+    "file": "Source/Game/Text/CheckMissionRegion.asm",
+    "old": "                ASSERT $ == #D67A\n",
+    "new": "                ASSERT $ == #D67A\n                ; миссия 7 INVASION, проверка принадлежности системы области вторжения\n                ; описание в Docs/Manual.md, раздел mission-7-invasion\n"
+  },
+  {
+    "file": "Source/Game/Menus/CheckMissionRegionBand.asm",
+    "old": "                ASSERT $ == #EC40\n",
+    "new": "                ASSERT $ == #EC40\n                ; миссия 7 INVASION, проверка полосы сопротивления между границами фронта\n                ; описание в Docs/Manual.md, раздел mission-7-invasion\n"
+  },
+  {
+    "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+    "old": "                ASSERT $ == #D6F9\n",
+    "new": "                ASSERT $ == #D6F9\n                ; миссия 7 INVASION, проверка места выдачи задания и готовности повышения\n                ; описание в Docs/Manual.md, раздел mission-7-invasion\n"
+  },
+  {
+    "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+    "old": "                ASSERT $ == #D755\n",
+    "new": "                ASSERT $ == #D755\n                ; миссия 7 INVASION, вывод воинского звания и отметки отставки\n                ; описание в Docs/Manual.md, раздел mission-7-invasion\n"
+  },
+  {
+    "file": "Source/Game/Input/CheckMissionSystem.asm",
+    "old": "                ASSERT $ == #FCEA\n",
+    "new": "                ASSERT $ == #FCEA\n                ; миссия 7+4, проверка запрета после отставки и координат секретной базы\n                ; описание в Docs/Manual.md, раздел mission-7-4\n"
+  },
+  {
+    "file": "Source/Game/Universe/CheckSpecialSystemOrRandom.asm",
+    "old": "                ASSERT $ == #7F64\n",
+    "new": "                ASSERT $ == #7F64\n                ; миссия 7+4, размещение особой станции по результату проверки системы\n                ; описание в Docs/Manual.md, раздел mission-7-4\n"
+  },
+  {
+    "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+    "old": "                ; дополнительный вход выдачи первой, второй и третьей миссий по битовой маске\n",
+    "new": "                ; миссии 1..3, выбор очередного события по маске состояния пилота\n                ; описание в Docs/Manual.md, раздел mission-dispatch\n                ; дополнительный вход выдачи первой, второй и третьей миссий по битовой маске\n"
+  },
+  {
+    "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+    "old": "                ; проверка предложения перевозки беженцев через специальный допуск #FD23\n",
+    "new": "                ; миссии 1 и 7+1, предложение перевозки при свободном миссионном трюме\n                ; описание в Docs/Manual.md, раздел mission-1 и mission-7-1\n                ; проверка предложения перевозки беженцев через специальный допуск #FD23\n"
+  },
+  {
+    "file": "Source/Game/Trade/MissionRegionMetric.asm",
+    "old": "                ; ответ Y на перевозку беженцев, очистка 17 слотов и свободного тоннажа\n",
+    "new": "                ; миссии 1 и 7+1, приём беженцев, для 7+3 тот же трюм принимает десант\n                ; описание в Docs/Manual.md, раздел mission-1, mission-7-1 и mission-7-3\n                ; ответ Y на перевозку беженцев, очистка 17 слотов и свободного тоннажа\n"
+  },
+  {
+    "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+    "old": "                ; завершение перевозки беженцев либо переход к обычной продаже\n",
+    "new": "                ; миссии 1 и 7+1, проверка разрешения высадки и выдача награды\n                ; описание в Docs/Manual.md, раздел mission-1 и mission-7-1\n                ; завершение перевозки беженцев либо переход к обычной продаже\n"
+  },
+  {
+    "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+    "old": "                ; проверка пилота и военного допуска по прямому вызову #E6BB\n",
+    "new": "                ; миссии 1, 7+1 и 7+3, допуск к перевозке и выбор текста особого груза\n                ; описание в Docs/Manual.md, раздел mission-1, mission-7-1 и mission-7-3\n                ; проверка пилота и военного допуска по прямому вызову #E6BB\n"
+  },
+  {
+    "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+    "old": "                ; проверка наличия особого груза по биту 5\n",
+    "new": "                ; миссии 1 и 7+1, проверка груза, военного состояния и места высадки\n                ; описание в Docs/Manual.md, раздел mission-1 и mission-7-1\n                ; проверка наличия особого груза по биту 5\n"
+  },
+  {
+    "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+    "old": "                ; дополнительный вход подбора, код FF означает специальный миссионный предмет\n",
+    "new": "                ; миссия 2 CLOAKING DEVICE, получение устройства при подборе предмета FF\n                ; описание в Docs/Manual.md, раздел mission-2\n                ; дополнительный вход подбора, код FF означает специальный миссионный предмет\n"
+  },
+  {
+    "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+    "old": "                ; разделение специального контейнера ALIEN COMPUTER и обычного груза\n",
+    "new": "                ; миссия 5 ALIEN COMPUTER, проверка признака специального контейнера\n                ; описание в Docs/Manual.md, раздел mission-5\n                ; разделение специального контейнера ALIEN COMPUTER и обычного груза\n"
+  },
+  {
+    "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+    "old": "                ; расход ракеты и проверка возможности заменить её специальным грузом\n",
+    "new": "                ; миссия 5 ALIEN COMPUTER, проверка допуска запуска ALIEN ITEMS\n                ; описание в Docs/Manual.md, раздел mission-5\n                ; расход ракеты и проверка возможности заменить её специальным грузом\n"
+  },
+  {
+    "file": "Source/Game/Text/NextDescriptionRandom.asm",
+    "old": "                ; проверка продажи товара 0 или 10 в особой области, установка бита награды\n",
+    "new": "                ; миссия 7+2, проверка военной поставки продовольствия либо оружия\n                ; описание в Docs/Manual.md, раздел mission-7-2\n                ; проверка продажи товара 0 или 10 в особой области, установка бита награды\n"
+  },
+  {
+    "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+    "old": "                ; проверка трёх условий военного варианта без расхода ракеты\n",
+    "new": "                ; миссия 7+3, проверка допуска выпуска десантного Sidewinder\n                ; описание в Docs/Manual.md, раздел mission-7-3\n                ; проверка трёх условий военного варианта без расхода ракеты\n"
+  },
+  {
+    "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+    "old": "                ASSERT $ == #BBBA\n",
+    "new": "                ASSERT $ == #BBBA\n                ; миссия 2 CLOAKING DEVICE, в начале генератора проверяется допуск особой встречи\n                ; описание в Docs/Manual.md, раздел mission-2\n"
+  },
+  {
+    "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+    "old": "                ASSERT $ == #D6AA\n",
+    "new": "                ASSERT $ == #D6AA\n                ; миссия 7+3, ветвь Sidewinder обрабатывает попадание десанта и освобождение системы\n                ; описание в Docs/Manual.md, раздел mission-7-3\n"
+  },
+  {
+    "file": "README.md",
+    "old": "| [Устройство игры](Docs/Architecture.md) | загрузка, основной цикл, прерывания, карта памяти, объекты, экономика, графика и оверлеи |\n",
+    "new": "| [Устройство игры](Docs/Architecture.md) | загрузка, основной цикл, прерывания, карта памяти, объекты, экономика, графика и оверлеи |\n| [Руководство и миссии](Docs/Manual.md) | полный текст с диска, миссии 1–7 и военные задания со ссылками на обработчики |\n"
+  }
+]

@@ -1,0 +1,4751 @@
+[
+  {
+    "kind": "instruction",
+    "address": 38472,
+    "end": 38475,
+    "bytes": "110803",
+    "file": "Initialize.asm",
+    "instruction": "LD DE,$0308"
+  },
+  {
+    "kind": "instruction",
+    "address": 38475,
+    "end": 38476,
+    "bytes": "19",
+    "file": "Initialize.asm",
+    "instruction": "ADD HL,DE"
+  },
+  {
+    "kind": "instruction",
+    "address": 38476,
+    "end": 38478,
+    "bytes": "06d0",
+    "file": "Initialize.asm",
+    "instruction": "LD B,$D0"
+  },
+  {
+    "kind": "instruction",
+    "address": 38478,
+    "end": 38479,
+    "bytes": "7e",
+    "file": "Initialize.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38479,
+    "end": 38480,
+    "bytes": "87",
+    "file": "Initialize.asm",
+    "instruction": "ADD A,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38480,
+    "end": 38481,
+    "bytes": "b6",
+    "file": "Initialize.asm",
+    "instruction": "OR (HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38481,
+    "end": 38483,
+    "bytes": "cb3f",
+    "file": "Initialize.asm",
+    "instruction": "SRL A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38483,
+    "end": 38484,
+    "bytes": "77",
+    "file": "Initialize.asm",
+    "instruction": "LD (HL),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38484,
+    "end": 38485,
+    "bytes": "23",
+    "file": "Initialize.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38485,
+    "end": 38487,
+    "bytes": "10f7",
+    "file": "Initialize.asm",
+    "instruction": "DJNZ $964E"
+  },
+  {
+    "kind": "instruction",
+    "address": 38487,
+    "end": 38488,
+    "bytes": "e1",
+    "file": "Initialize.asm",
+    "instruction": "POP HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38488,
+    "end": 38491,
+    "bytes": "cd0c9b",
+    "file": "Initialize.asm",
+    "instruction": "CALL $9B0C"
+  },
+  {
+    "kind": "instruction",
+    "address": 38491,
+    "end": 38494,
+    "bytes": "310000",
+    "file": "Initialize.asm",
+    "instruction": "LD SP,$0000"
+  },
+  {
+    "kind": "instruction",
+    "address": 38494,
+    "end": 38497,
+    "bytes": "cd6c97",
+    "file": "Menu.asm",
+    "instruction": "CALL $976C"
+  },
+  {
+    "kind": "instruction",
+    "address": 38497,
+    "end": 38499,
+    "bytes": "3e03",
+    "file": "Menu.asm",
+    "instruction": "LD A,$03"
+  },
+  {
+    "kind": "instruction",
+    "address": 38499,
+    "end": 38502,
+    "bytes": "326b5c",
+    "file": "Menu.asm",
+    "instruction": "LD ($5C6B),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38502,
+    "end": 38505,
+    "bytes": "2100a0",
+    "file": "Menu.asm",
+    "instruction": "LD HL,$A000"
+  },
+  {
+    "kind": "instruction",
+    "address": 38505,
+    "end": 38508,
+    "bytes": "11feff",
+    "file": "Menu.asm",
+    "instruction": "LD DE,$FFFE"
+  },
+  {
+    "kind": "instruction",
+    "address": 38508,
+    "end": 38509,
+    "bytes": "af",
+    "file": "Menu.asm",
+    "instruction": "XOR A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38509,
+    "end": 38512,
+    "bytes": "010000",
+    "file": "Menu.asm",
+    "instruction": "LD BC,$0000"
+  },
+  {
+    "kind": "instruction",
+    "address": 38512,
+    "end": 38514,
+    "bytes": "edb1",
+    "file": "Menu.asm",
+    "instruction": "CPIR"
+  },
+  {
+    "kind": "instruction",
+    "address": 38514,
+    "end": 38515,
+    "bytes": "13",
+    "file": "Menu.asm",
+    "instruction": "INC DE"
+  },
+  {
+    "kind": "instruction",
+    "address": 38515,
+    "end": 38516,
+    "bytes": "7e",
+    "file": "Menu.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38516,
+    "end": 38518,
+    "bytes": "fe23",
+    "file": "Menu.asm",
+    "instruction": "CP $23"
+  },
+  {
+    "kind": "instruction",
+    "address": 38518,
+    "end": 38520,
+    "bytes": "20f4",
+    "file": "Menu.asm",
+    "instruction": "JR NZ,$966C"
+  },
+  {
+    "kind": "instruction",
+    "address": 38520,
+    "end": 38522,
+    "bytes": "3e16",
+    "file": "Menu.asm",
+    "instruction": "LD A,$16"
+  },
+  {
+    "kind": "instruction",
+    "address": 38522,
+    "end": 38523,
+    "bytes": "d7",
+    "file": "Menu.asm",
+    "instruction": "RST $10"
+  },
+  {
+    "kind": "instruction",
+    "address": 38523,
+    "end": 38525,
+    "bytes": "3e16",
+    "file": "Menu.asm",
+    "instruction": "LD A,$16"
+  },
+  {
+    "kind": "instruction",
+    "address": 38525,
+    "end": 38526,
+    "bytes": "93",
+    "file": "Menu.asm",
+    "instruction": "SUB E"
+  },
+  {
+    "kind": "instruction",
+    "address": 38526,
+    "end": 38528,
+    "bytes": "cb3f",
+    "file": "Menu.asm",
+    "instruction": "SRL A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38528,
+    "end": 38529,
+    "bytes": "d7",
+    "file": "Menu.asm",
+    "instruction": "RST $10"
+  },
+  {
+    "kind": "instruction",
+    "address": 38529,
+    "end": 38530,
+    "bytes": "af",
+    "file": "Menu.asm",
+    "instruction": "XOR A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38530,
+    "end": 38531,
+    "bytes": "d7",
+    "file": "Menu.asm",
+    "instruction": "RST $10"
+  },
+  {
+    "kind": "instruction",
+    "address": 38531,
+    "end": 38534,
+    "bytes": "2100a0",
+    "file": "Menu.asm",
+    "instruction": "LD HL,$A000"
+  },
+  {
+    "kind": "instruction",
+    "address": 38534,
+    "end": 38535,
+    "bytes": "7e",
+    "file": "Menu.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38535,
+    "end": 38536,
+    "bytes": "23",
+    "file": "Menu.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38536,
+    "end": 38537,
+    "bytes": "a7",
+    "file": "Menu.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38537,
+    "end": 38539,
+    "bytes": "2011",
+    "file": "Menu.asm",
+    "instruction": "JR NZ,$969C"
+  },
+  {
+    "kind": "instruction",
+    "address": 38539,
+    "end": 38540,
+    "bytes": "7e",
+    "file": "Menu.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38540,
+    "end": 38542,
+    "bytes": "fe23",
+    "file": "Menu.asm",
+    "instruction": "CP $23"
+  },
+  {
+    "kind": "instruction",
+    "address": 38542,
+    "end": 38544,
+    "bytes": "2818",
+    "file": "Menu.asm",
+    "instruction": "JR Z,$96A8"
+  },
+  {
+    "kind": "instruction",
+    "address": 38544,
+    "end": 38546,
+    "bytes": "3e0d",
+    "file": "Menu.asm",
+    "instruction": "LD A,$0D"
+  },
+  {
+    "kind": "instruction",
+    "address": 38546,
+    "end": 38547,
+    "bytes": "d7",
+    "file": "Menu.asm",
+    "instruction": "RST $10"
+  },
+  {
+    "kind": "instruction",
+    "address": 38547,
+    "end": 38550,
+    "bytes": "012002",
+    "file": "Menu.asm",
+    "instruction": "LD BC,$0220"
+  },
+  {
+    "kind": "instruction",
+    "address": 38550,
+    "end": 38551,
+    "bytes": "79",
+    "file": "Menu.asm",
+    "instruction": "LD A,C"
+  },
+  {
+    "kind": "instruction",
+    "address": 38551,
+    "end": 38552,
+    "bytes": "d7",
+    "file": "Menu.asm",
+    "instruction": "RST $10"
+  },
+  {
+    "kind": "instruction",
+    "address": 38552,
+    "end": 38554,
+    "bytes": "10fc",
+    "file": "Menu.asm",
+    "instruction": "DJNZ $9696"
+  },
+  {
+    "kind": "instruction",
+    "address": 38554,
+    "end": 38556,
+    "bytes": "18ea",
+    "file": "Menu.asm",
+    "instruction": "JR $9686"
+  },
+  {
+    "kind": "instruction",
+    "address": 38556,
+    "end": 38558,
+    "bytes": "fe20",
+    "file": "Menu.asm",
+    "instruction": "CP $20"
+  },
+  {
+    "kind": "instruction",
+    "address": 38558,
+    "end": 38560,
+    "bytes": "3005",
+    "file": "Menu.asm",
+    "instruction": "JR NC,$96A5"
+  },
+  {
+    "kind": "instruction",
+    "address": 38560,
+    "end": 38561,
+    "bytes": "47",
+    "file": "Menu.asm",
+    "instruction": "LD B,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38561,
+    "end": 38563,
+    "bytes": "0e20",
+    "file": "Menu.asm",
+    "instruction": "LD C,$20"
+  },
+  {
+    "kind": "instruction",
+    "address": 38563,
+    "end": 38565,
+    "bytes": "18f1",
+    "file": "Menu.asm",
+    "instruction": "JR $9696"
+  },
+  {
+    "kind": "instruction",
+    "address": 38565,
+    "end": 38566,
+    "bytes": "d7",
+    "file": "Menu.asm",
+    "instruction": "RST $10"
+  },
+  {
+    "kind": "instruction",
+    "address": 38566,
+    "end": 38568,
+    "bytes": "18de",
+    "file": "Menu.asm",
+    "instruction": "JR $9686"
+  },
+  {
+    "kind": "instruction",
+    "address": 38568,
+    "end": 38570,
+    "bytes": "3e01",
+    "file": "Menu.asm",
+    "instruction": "LD A,$01"
+  },
+  {
+    "kind": "instruction",
+    "address": 38570,
+    "end": 38573,
+    "bytes": "cd0116",
+    "file": "Menu.asm",
+    "instruction": "CALL $1601"
+  },
+  {
+    "kind": "instruction",
+    "address": 38573,
+    "end": 38576,
+    "bytes": "21c297",
+    "file": "Menu.asm",
+    "instruction": "LD HL,$97C2"
+  },
+  {
+    "kind": "instruction",
+    "address": 38576,
+    "end": 38579,
+    "bytes": "cd7797",
+    "file": "Menu.asm",
+    "instruction": "CALL $9777"
+  },
+  {
+    "kind": "instruction",
+    "address": 38579,
+    "end": 38581,
+    "bytes": "3e96",
+    "file": "Menu.asm",
+    "instruction": "LD A,$96"
+  },
+  {
+    "kind": "instruction",
+    "address": 38581,
+    "end": 38582,
+    "bytes": "a7",
+    "file": "Menu.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38582,
+    "end": 38584,
+    "bytes": "2808",
+    "file": "Menu.asm",
+    "instruction": "JR Z,$96C0"
+  },
+  {
+    "kind": "instruction",
+    "address": 38584,
+    "end": 38585,
+    "bytes": "b7",
+    "file": "Menu.asm",
+    "instruction": "OR A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38585,
+    "end": 38588,
+    "bytes": "32b496",
+    "file": "Menu.asm",
+    "instruction": "LD ($96B4),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38588,
+    "end": 38590,
+    "bytes": "3e30",
+    "file": "Menu.asm",
+    "instruction": "LD A,$30"
+  },
+  {
+    "kind": "instruction",
+    "address": 38590,
+    "end": 38592,
+    "bytes": "2817",
+    "file": "Menu.asm",
+    "instruction": "JR Z,$96D7"
+  },
+  {
+    "kind": "instruction",
+    "address": 38592,
+    "end": 38593,
+    "bytes": "fb",
+    "file": "Menu.asm",
+    "instruction": "EI"
+  },
+  {
+    "kind": "instruction",
+    "address": 38593,
+    "end": 38594,
+    "bytes": "76",
+    "file": "Menu.asm",
+    "instruction": "HALT"
+  },
+  {
+    "kind": "instruction",
+    "address": 38594,
+    "end": 38597,
+    "bytes": "3a045c",
+    "file": "Menu.asm",
+    "instruction": "LD A,($5C04)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38597,
+    "end": 38599,
+    "bytes": "feff",
+    "file": "Menu.asm",
+    "instruction": "CP $FF"
+  },
+  {
+    "kind": "instruction",
+    "address": 38599,
+    "end": 38601,
+    "bytes": "28ea",
+    "file": "Menu.asm",
+    "instruction": "JR Z,$96B3"
+  },
+  {
+    "kind": "instruction",
+    "address": 38601,
+    "end": 38603,
+    "bytes": "fe72",
+    "file": "Menu.asm",
+    "instruction": "CP $72"
+  },
+  {
+    "kind": "instruction",
+    "address": 38603,
+    "end": 38606,
+    "bytes": "ca4e97",
+    "file": "Menu.asm",
+    "instruction": "JP Z,$974E"
+  },
+  {
+    "kind": "instruction",
+    "address": 38606,
+    "end": 38608,
+    "bytes": "fe52",
+    "file": "Menu.asm",
+    "instruction": "CP $52"
+  },
+  {
+    "kind": "instruction",
+    "address": 38608,
+    "end": 38611,
+    "bytes": "ca4e97",
+    "file": "Menu.asm",
+    "instruction": "JP Z,$974E"
+  },
+  {
+    "kind": "instruction",
+    "address": 38611,
+    "end": 38613,
+    "bytes": "fe30",
+    "file": "Menu.asm",
+    "instruction": "CP $30"
+  },
+  {
+    "kind": "instruction",
+    "address": 38613,
+    "end": 38615,
+    "bytes": "38dc",
+    "file": "Menu.asm",
+    "instruction": "JR C,$96B3"
+  },
+  {
+    "kind": "instruction",
+    "address": 38615,
+    "end": 38617,
+    "bytes": "fe37",
+    "file": "Menu.asm",
+    "instruction": "CP $37"
+  },
+  {
+    "kind": "instruction",
+    "address": 38617,
+    "end": 38619,
+    "bytes": "30d8",
+    "file": "Menu.asm",
+    "instruction": "JR NC,$96B3"
+  },
+  {
+    "kind": "instruction",
+    "address": 38619,
+    "end": 38622,
+    "bytes": "326897",
+    "file": "Menu.asm",
+    "instruction": "LD ($9768),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38622,
+    "end": 38623,
+    "bytes": "af",
+    "file": "Menu.asm",
+    "instruction": "XOR A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38623,
+    "end": 38626,
+    "bytes": "323e98",
+    "file": "Menu.asm",
+    "instruction": "LD ($983E),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38626,
+    "end": 38627,
+    "bytes": "3c",
+    "file": "Menu.asm",
+    "instruction": "INC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38627,
+    "end": 38630,
+    "bytes": "323b98",
+    "file": "Menu.asm",
+    "instruction": "LD ($983B),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38630,
+    "end": 38633,
+    "bytes": "cd6c97",
+    "file": "Menu.asm",
+    "instruction": "CALL $976C"
+  },
+  {
+    "kind": "instruction",
+    "address": 38633,
+    "end": 38635,
+    "bytes": "3e01",
+    "file": "Menu.asm",
+    "instruction": "LD A,$01"
+  },
+  {
+    "kind": "instruction",
+    "address": 38635,
+    "end": 38638,
+    "bytes": "cd0116",
+    "file": "Menu.asm",
+    "instruction": "CALL $1601"
+  },
+  {
+    "kind": "instruction",
+    "address": 38638,
+    "end": 38641,
+    "bytes": "21e497",
+    "file": "Menu.asm",
+    "instruction": "LD HL,$97E4"
+  },
+  {
+    "kind": "instruction",
+    "address": 38641,
+    "end": 38644,
+    "bytes": "cd7797",
+    "file": "Menu.asm",
+    "instruction": "CALL $9777"
+  },
+  {
+    "kind": "instruction",
+    "address": 38644,
+    "end": 38647,
+    "bytes": "cdfa96",
+    "file": "Menu.asm",
+    "instruction": "CALL $96FA"
+  },
+  {
+    "kind": "instruction",
+    "address": 38647,
+    "end": 38650,
+    "bytes": "c35e96",
+    "file": "Menu.asm",
+    "instruction": "JP $965E"
+  },
+  {
+    "kind": "instruction",
+    "address": 38650,
+    "end": 38651,
+    "bytes": "af",
+    "file": "ShowSection.asm",
+    "instruction": "XOR A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38651,
+    "end": 38654,
+    "bytes": "323f98",
+    "file": "ShowSection.asm",
+    "instruction": "LD ($983F),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38654,
+    "end": 38657,
+    "bytes": "323e98",
+    "file": "ShowSection.asm",
+    "instruction": "LD ($983E),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38657,
+    "end": 38660,
+    "bytes": "32fe9f",
+    "file": "ShowSection.asm",
+    "instruction": "LD ($9FFE),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38660,
+    "end": 38661,
+    "bytes": "3d",
+    "file": "ShowSection.asm",
+    "instruction": "DEC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38661,
+    "end": 38664,
+    "bytes": "32ff9f",
+    "file": "ShowSection.asm",
+    "instruction": "LD ($9FFF),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38664,
+    "end": 38668,
+    "bytes": "ed73e69a",
+    "file": "ShowSection.asm",
+    "instruction": "LD ($9AE6),SP"
+  },
+  {
+    "kind": "instruction",
+    "address": 38668,
+    "end": 38671,
+    "bytes": "3a6897",
+    "file": "ShowSection.asm",
+    "instruction": "LD A,($9768)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38671,
+    "end": 38674,
+    "bytes": "2100a0",
+    "file": "ShowSection.asm",
+    "instruction": "LD HL,$A000"
+  },
+  {
+    "kind": "instruction",
+    "address": 38674,
+    "end": 38676,
+    "bytes": "fe30",
+    "file": "ShowSection.asm",
+    "instruction": "CP $30"
+  },
+  {
+    "kind": "instruction",
+    "address": 38676,
+    "end": 38678,
+    "bytes": "2001",
+    "file": "ShowSection.asm",
+    "instruction": "JR NZ,$9717"
+  },
+  {
+    "kind": "instruction",
+    "address": 38678,
+    "end": 38679,
+    "bytes": "3c",
+    "file": "ShowSection.asm",
+    "instruction": "INC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38679,
+    "end": 38680,
+    "bytes": "5f",
+    "file": "ShowSection.asm",
+    "instruction": "LD E,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38680,
+    "end": 38681,
+    "bytes": "af",
+    "file": "ShowSection.asm",
+    "instruction": "XOR A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38681,
+    "end": 38684,
+    "bytes": "010000",
+    "file": "ShowSection.asm",
+    "instruction": "LD BC,$0000"
+  },
+  {
+    "kind": "instruction",
+    "address": 38684,
+    "end": 38686,
+    "bytes": "edb1",
+    "file": "ShowSection.asm",
+    "instruction": "CPIR"
+  },
+  {
+    "kind": "instruction",
+    "address": 38686,
+    "end": 38687,
+    "bytes": "7e",
+    "file": "ShowSection.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38687,
+    "end": 38689,
+    "bytes": "fe23",
+    "file": "ShowSection.asm",
+    "instruction": "CP $23"
+  },
+  {
+    "kind": "instruction",
+    "address": 38689,
+    "end": 38691,
+    "bytes": "20f9",
+    "file": "ShowSection.asm",
+    "instruction": "JR NZ,$971C"
+  },
+  {
+    "kind": "instruction",
+    "address": 38691,
+    "end": 38692,
+    "bytes": "23",
+    "file": "ShowSection.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38692,
+    "end": 38693,
+    "bytes": "7e",
+    "file": "ShowSection.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38693,
+    "end": 38694,
+    "bytes": "bb",
+    "file": "ShowSection.asm",
+    "instruction": "CP E"
+  },
+  {
+    "kind": "instruction",
+    "address": 38694,
+    "end": 38696,
+    "bytes": "20f4",
+    "file": "ShowSection.asm",
+    "instruction": "JR NZ,$971C"
+  },
+  {
+    "kind": "instruction",
+    "address": 38696,
+    "end": 38698,
+    "bytes": "edb1",
+    "file": "ShowSection.asm",
+    "instruction": "CPIR"
+  },
+  {
+    "kind": "instruction",
+    "address": 38698,
+    "end": 38701,
+    "bytes": "226a97",
+    "file": "ShowSection.asm",
+    "instruction": "LD ($976A),HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38701,
+    "end": 38703,
+    "bytes": "3e5c",
+    "file": "ShowSection.asm",
+    "instruction": "LD A,$5C"
+  },
+  {
+    "kind": "instruction",
+    "address": 38703,
+    "end": 38705,
+    "bytes": "ed47",
+    "file": "ShowSection.asm",
+    "instruction": "LD I,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38705,
+    "end": 38708,
+    "bytes": "214098",
+    "file": "ShowSection.asm",
+    "instruction": "LD HL,$9840"
+  },
+  {
+    "kind": "instruction",
+    "address": 38708,
+    "end": 38711,
+    "bytes": "22ff5c",
+    "file": "ShowSection.asm",
+    "instruction": "LD ($5CFF),HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38711,
+    "end": 38713,
+    "bytes": "ed5e",
+    "file": "ShowSection.asm",
+    "instruction": "IM 2"
+  },
+  {
+    "kind": "instruction",
+    "address": 38713,
+    "end": 38715,
+    "bytes": "3eff",
+    "file": "ShowSection.asm",
+    "instruction": "LD A,$FF"
+  },
+  {
+    "kind": "instruction",
+    "address": 38715,
+    "end": 38718,
+    "bytes": "326997",
+    "file": "ShowSection.asm",
+    "instruction": "LD ($9769),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38718,
+    "end": 38719,
+    "bytes": "fb",
+    "file": "ShowSection.asm",
+    "instruction": "EI"
+  },
+  {
+    "kind": "instruction",
+    "address": 38719,
+    "end": 38720,
+    "bytes": "76",
+    "file": "ShowSection.asm",
+    "instruction": "HALT"
+  },
+  {
+    "kind": "instruction",
+    "address": 38720,
+    "end": 38721,
+    "bytes": "f3",
+    "file": "ShowSection.asm",
+    "instruction": "DI"
+  },
+  {
+    "kind": "instruction",
+    "address": 38721,
+    "end": 38724,
+    "bytes": "3a6997",
+    "file": "ShowSection.asm",
+    "instruction": "LD A,($9769)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38724,
+    "end": 38725,
+    "bytes": "a7",
+    "file": "ShowSection.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38725,
+    "end": 38728,
+    "bytes": "cafa96",
+    "file": "ShowSection.asm",
+    "instruction": "JP Z,$96FA"
+  },
+  {
+    "kind": "instruction",
+    "address": 38728,
+    "end": 38729,
+    "bytes": "3c",
+    "file": "ShowSection.asm",
+    "instruction": "INC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38729,
+    "end": 38731,
+    "bytes": "28f3",
+    "file": "ShowSection.asm",
+    "instruction": "JR Z,$973E"
+  },
+  {
+    "kind": "instruction",
+    "address": 38731,
+    "end": 38733,
+    "bytes": "ed56",
+    "file": "ShowSection.asm",
+    "instruction": "IM 1"
+  },
+  {
+    "kind": "instruction",
+    "address": 38733,
+    "end": 38734,
+    "bytes": "c9",
+    "file": "ShowSection.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 38734,
+    "end": 38737,
+    "bytes": "2a365c",
+    "file": "LoadGame.asm",
+    "instruction": "LD HL,($5C36)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38737,
+    "end": 38738,
+    "bytes": "e5",
+    "file": "LoadGame.asm",
+    "instruction": "PUSH HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38738,
+    "end": 38741,
+    "bytes": "21003c",
+    "file": "LoadGame.asm",
+    "instruction": "LD HL,$3C00"
+  },
+  {
+    "kind": "instruction",
+    "address": 38741,
+    "end": 38744,
+    "bytes": "22365c",
+    "file": "LoadGame.asm",
+    "instruction": "LD ($5C36),HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38744,
+    "end": 38747,
+    "bytes": "212d98",
+    "file": "LoadGame.asm",
+    "instruction": "LD HL,$982D"
+  },
+  {
+    "kind": "instruction",
+    "address": 38747,
+    "end": 38750,
+    "bytes": "225d5c",
+    "file": "LoadGame.asm",
+    "instruction": "LD ($5C5D),HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38750,
+    "end": 38753,
+    "bytes": "cd033d",
+    "file": "LoadGame.asm",
+    "instruction": "CALL $3D03"
+  },
+  {
+    "kind": "instruction",
+    "address": 38753,
+    "end": 38754,
+    "bytes": "e1",
+    "file": "LoadGame.asm",
+    "instruction": "POP HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38754,
+    "end": 38757,
+    "bytes": "22365c",
+    "file": "LoadGame.asm",
+    "instruction": "LD ($5C36),HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38757,
+    "end": 38760,
+    "bytes": "c35e96",
+    "file": "LoadGame.asm",
+    "instruction": "JP $965E"
+  },
+  {
+    "kind": "data",
+    "address": 38760,
+    "end": 38764,
+    "bytes": "00ff0000",
+    "file": "State.asm"
+  },
+  {
+    "kind": "instruction",
+    "address": 38764,
+    "end": 38767,
+    "bytes": "cdaf0d",
+    "file": "ClearAndTitle.asm",
+    "instruction": "CALL $0DAF"
+  },
+  {
+    "kind": "instruction",
+    "address": 38767,
+    "end": 38769,
+    "bytes": "3e02",
+    "file": "ClearAndTitle.asm",
+    "instruction": "LD A,$02"
+  },
+  {
+    "kind": "instruction",
+    "address": 38769,
+    "end": 38772,
+    "bytes": "cd0116",
+    "file": "ClearAndTitle.asm",
+    "instruction": "CALL $1601"
+  },
+  {
+    "kind": "instruction",
+    "address": 38772,
+    "end": 38775,
+    "bytes": "217f97",
+    "file": "ClearAndTitle.asm",
+    "instruction": "LD HL,$977F"
+  },
+  {
+    "kind": "instruction",
+    "address": 38775,
+    "end": 38776,
+    "bytes": "7e",
+    "file": "PrintString.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38776,
+    "end": 38777,
+    "bytes": "3c",
+    "file": "PrintString.asm",
+    "instruction": "INC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38777,
+    "end": 38778,
+    "bytes": "c8",
+    "file": "PrintString.asm",
+    "instruction": "RET Z"
+  },
+  {
+    "kind": "instruction",
+    "address": 38778,
+    "end": 38779,
+    "bytes": "3d",
+    "file": "PrintString.asm",
+    "instruction": "DEC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38779,
+    "end": 38780,
+    "bytes": "d7",
+    "file": "PrintString.asm",
+    "instruction": "RST $10"
+  },
+  {
+    "kind": "instruction",
+    "address": 38780,
+    "end": 38781,
+    "bytes": "23",
+    "file": "PrintString.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38781,
+    "end": 38783,
+    "bytes": "18f8",
+    "file": "PrintString.asm",
+    "instruction": "JR $9777"
+  },
+  {
+    "kind": "data",
+    "address": 38783,
+    "end": 38976,
+    "bytes": "20202020656c69746533207f203139393320736861646f7720736f66740d100020202020202020202020202020202020202020202020202020202020202020201007ff1601002020205759424952414a54452028302d534d4f5452455458205753452920ff1600001000202020202020202020202020202020202020202020202020202020202020202010072025262d73706565642020732d73746f70202020627265616b2d65786974201000ffea3af722454c49544533220d00020101080000",
+    "file": "Data.asm"
+  },
+  {
+    "kind": "instruction",
+    "address": 38976,
+    "end": 38977,
+    "bytes": "f3",
+    "file": "Interrupt.asm",
+    "instruction": "DI"
+  },
+  {
+    "kind": "instruction",
+    "address": 38977,
+    "end": 38978,
+    "bytes": "f5",
+    "file": "Interrupt.asm",
+    "instruction": "PUSH AF"
+  },
+  {
+    "kind": "instruction",
+    "address": 38978,
+    "end": 38979,
+    "bytes": "e5",
+    "file": "Interrupt.asm",
+    "instruction": "PUSH HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 38979,
+    "end": 38981,
+    "bytes": "3e7d",
+    "file": "Interrupt.asm",
+    "instruction": "LD A,$7D"
+  },
+  {
+    "kind": "instruction",
+    "address": 38981,
+    "end": 38983,
+    "bytes": "dbfe",
+    "file": "Interrupt.asm",
+    "instruction": "IN A,($FE)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38983,
+    "end": 38985,
+    "bytes": "f6fc",
+    "file": "Interrupt.asm",
+    "instruction": "OR $FC"
+  },
+  {
+    "kind": "instruction",
+    "address": 38985,
+    "end": 38986,
+    "bytes": "3c",
+    "file": "Interrupt.asm",
+    "instruction": "INC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 38986,
+    "end": 38989,
+    "bytes": "c4d999",
+    "file": "Interrupt.asm",
+    "instruction": "CALL NZ,$99D9"
+  },
+  {
+    "kind": "instruction",
+    "address": 38989,
+    "end": 38992,
+    "bytes": "213c98",
+    "file": "Interrupt.asm",
+    "instruction": "LD HL,$983C"
+  },
+  {
+    "kind": "instruction",
+    "address": 38992,
+    "end": 38993,
+    "bytes": "35",
+    "file": "Interrupt.asm",
+    "instruction": "DEC (HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 38993,
+    "end": 38996,
+    "bytes": "ccd999",
+    "file": "Interrupt.asm",
+    "instruction": "CALL Z,$99D9"
+  },
+  {
+    "kind": "instruction",
+    "address": 38996,
+    "end": 38999,
+    "bytes": "213b98",
+    "file": "Interrupt.asm",
+    "instruction": "LD HL,$983B"
+  },
+  {
+    "kind": "instruction",
+    "address": 38999,
+    "end": 39000,
+    "bytes": "7e",
+    "file": "Interrupt.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39000,
+    "end": 39001,
+    "bytes": "a7",
+    "file": "Interrupt.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39001,
+    "end": 39003,
+    "bytes": "2804",
+    "file": "Interrupt.asm",
+    "instruction": "JR Z,$985F"
+  },
+  {
+    "kind": "instruction",
+    "address": 39003,
+    "end": 39004,
+    "bytes": "35",
+    "file": "Interrupt.asm",
+    "instruction": "DEC (HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39004,
+    "end": 39007,
+    "bytes": "cc6398",
+    "file": "Interrupt.asm",
+    "instruction": "CALL Z,$9863"
+  },
+  {
+    "kind": "instruction",
+    "address": 39007,
+    "end": 39008,
+    "bytes": "e1",
+    "file": "Interrupt.asm",
+    "instruction": "POP HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39008,
+    "end": 39009,
+    "bytes": "f1",
+    "file": "Interrupt.asm",
+    "instruction": "POP AF"
+  },
+  {
+    "kind": "instruction",
+    "address": 39009,
+    "end": 39010,
+    "bytes": "fb",
+    "file": "Interrupt.asm",
+    "instruction": "EI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39010,
+    "end": 39011,
+    "bytes": "c9",
+    "file": "Interrupt.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39011,
+    "end": 39014,
+    "bytes": "cddd98",
+    "file": "ScrollFrame.asm",
+    "instruction": "CALL $98DD"
+  },
+  {
+    "kind": "instruction",
+    "address": 39014,
+    "end": 39017,
+    "bytes": "3a3a98",
+    "file": "ScrollFrame.asm",
+    "instruction": "LD A,($983A)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39017,
+    "end": 39020,
+    "bytes": "323b98",
+    "file": "ScrollFrame.asm",
+    "instruction": "LD ($983B),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39020,
+    "end": 39023,
+    "bytes": "3a3f98",
+    "file": "ScrollFrame.asm",
+    "instruction": "LD A,($983F)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39023,
+    "end": 39024,
+    "bytes": "a7",
+    "file": "ScrollFrame.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39024,
+    "end": 39027,
+    "bytes": "21ec9a",
+    "file": "ScrollFrame.asm",
+    "instruction": "LD HL,$9AEC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39027,
+    "end": 39029,
+    "bytes": "2803",
+    "file": "ScrollFrame.asm",
+    "instruction": "JR Z,$9878"
+  },
+  {
+    "kind": "instruction",
+    "address": 39029,
+    "end": 39032,
+    "bytes": "21fc9a",
+    "file": "ScrollFrame.asm",
+    "instruction": "LD HL,$9AFC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39032,
+    "end": 39035,
+    "bytes": "22d598",
+    "file": "ScrollFrame.asm",
+    "instruction": "LD ($98D5),HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39035,
+    "end": 39038,
+    "bytes": "22d898",
+    "file": "ScrollFrame.asm",
+    "instruction": "LD ($98D8),HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39038,
+    "end": 39041,
+    "bytes": "214041",
+    "file": "ScrollFrame.asm",
+    "instruction": "LD HL,$4140"
+  },
+  {
+    "kind": "instruction",
+    "address": 39041,
+    "end": 39044,
+    "bytes": "114040",
+    "file": "ScrollFrame.asm",
+    "instruction": "LD DE,$4040"
+  },
+  {
+    "kind": "instruction",
+    "address": 39044,
+    "end": 39046,
+    "bytes": "2806",
+    "file": "ScrollFrame.asm",
+    "instruction": "JR Z,$988C"
+  },
+  {
+    "kind": "instruction",
+    "address": 39046,
+    "end": 39049,
+    "bytes": "218056",
+    "file": "ScrollFrame.asm",
+    "instruction": "LD HL,$5680"
+  },
+  {
+    "kind": "instruction",
+    "address": 39049,
+    "end": 39052,
+    "bytes": "118057",
+    "file": "ScrollFrame.asm",
+    "instruction": "LD DE,$5780"
+  },
+  {
+    "kind": "instruction",
+    "address": 39052,
+    "end": 39054,
+    "bytes": "0698",
+    "file": "ScrollFrame.asm",
+    "instruction": "LD B,$98"
+  },
+  {
+    "kind": "instruction",
+    "address": 39054,
+    "end": 39055,
+    "bytes": "c5",
+    "file": "ScrollFrame.asm",
+    "instruction": "PUSH BC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39055,
+    "end": 39056,
+    "bytes": "e5",
+    "file": "ScrollFrame.asm",
+    "instruction": "PUSH HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39056,
+    "end": 39057,
+    "bytes": "d5",
+    "file": "ScrollFrame.asm",
+    "instruction": "PUSH DE"
+  },
+  {
+    "kind": "instruction",
+    "address": 39057,
+    "end": 39059,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39059,
+    "end": 39061,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39061,
+    "end": 39063,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39063,
+    "end": 39065,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39065,
+    "end": 39067,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39067,
+    "end": 39069,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39069,
+    "end": 39071,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39071,
+    "end": 39073,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39073,
+    "end": 39075,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39075,
+    "end": 39077,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39077,
+    "end": 39079,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39079,
+    "end": 39081,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39081,
+    "end": 39083,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39083,
+    "end": 39085,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39085,
+    "end": 39087,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39087,
+    "end": 39089,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39089,
+    "end": 39091,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39091,
+    "end": 39093,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39093,
+    "end": 39095,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39095,
+    "end": 39097,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39097,
+    "end": 39099,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39099,
+    "end": 39101,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39101,
+    "end": 39103,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39103,
+    "end": 39105,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39105,
+    "end": 39107,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39107,
+    "end": 39109,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39109,
+    "end": 39111,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39111,
+    "end": 39113,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39113,
+    "end": 39115,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39115,
+    "end": 39117,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39117,
+    "end": 39119,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39119,
+    "end": 39121,
+    "bytes": "eda0",
+    "file": "ScrollFrame.asm",
+    "instruction": "LDI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39121,
+    "end": 39122,
+    "bytes": "d1",
+    "file": "ScrollFrame.asm",
+    "instruction": "POP DE"
+  },
+  {
+    "kind": "instruction",
+    "address": 39122,
+    "end": 39123,
+    "bytes": "e1",
+    "file": "ScrollFrame.asm",
+    "instruction": "POP HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39123,
+    "end": 39124,
+    "bytes": "c1",
+    "file": "ScrollFrame.asm",
+    "instruction": "POP BC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39124,
+    "end": 39127,
+    "bytes": "cdec9a",
+    "file": "ScrollFrame.asm",
+    "instruction": "CALL $9AEC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39127,
+    "end": 39130,
+    "bytes": "cdec9a",
+    "file": "ScrollFrame.asm",
+    "instruction": "CALL $9AEC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39130,
+    "end": 39132,
+    "bytes": "10b2",
+    "file": "ScrollFrame.asm",
+    "instruction": "DJNZ $988E"
+  },
+  {
+    "kind": "instruction",
+    "address": 39132,
+    "end": 39133,
+    "bytes": "c9",
+    "file": "ScrollFrame.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39133,
+    "end": 39134,
+    "bytes": "e5",
+    "file": "RenderEdge.asm",
+    "instruction": "PUSH HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39134,
+    "end": 39137,
+    "bytes": "2a3a98",
+    "file": "RenderEdge.asm",
+    "instruction": "LD HL,($983A)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39137,
+    "end": 39140,
+    "bytes": "3a3998",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,($9839)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39140,
+    "end": 39141,
+    "bytes": "a7",
+    "file": "RenderEdge.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39141,
+    "end": 39143,
+    "bytes": "3e10",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,$10"
+  },
+  {
+    "kind": "instruction",
+    "address": 39143,
+    "end": 39145,
+    "bytes": "2002",
+    "file": "RenderEdge.asm",
+    "instruction": "JR NZ,$98EB"
+  },
+  {
+    "kind": "instruction",
+    "address": 39145,
+    "end": 39147,
+    "bytes": "3e0c",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,$0C"
+  },
+  {
+    "kind": "instruction",
+    "address": 39147,
+    "end": 39148,
+    "bytes": "95",
+    "file": "RenderEdge.asm",
+    "instruction": "SUB L"
+  },
+  {
+    "kind": "instruction",
+    "address": 39148,
+    "end": 39151,
+    "bytes": "21e05a",
+    "file": "RenderEdge.asm",
+    "instruction": "LD HL,$5AE0"
+  },
+  {
+    "kind": "instruction",
+    "address": 39151,
+    "end": 39153,
+    "bytes": "3628",
+    "file": "RenderEdge.asm",
+    "instruction": "LD (HL),$28"
+  },
+  {
+    "kind": "instruction",
+    "address": 39153,
+    "end": 39154,
+    "bytes": "23",
+    "file": "RenderEdge.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39154,
+    "end": 39155,
+    "bytes": "3d",
+    "file": "RenderEdge.asm",
+    "instruction": "DEC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39155,
+    "end": 39157,
+    "bytes": "20fa",
+    "file": "RenderEdge.asm",
+    "instruction": "JR NZ,$98EF"
+  },
+  {
+    "kind": "instruction",
+    "address": 39157,
+    "end": 39159,
+    "bytes": "3600",
+    "file": "RenderEdge.asm",
+    "instruction": "LD (HL),$00"
+  },
+  {
+    "kind": "instruction",
+    "address": 39159,
+    "end": 39160,
+    "bytes": "2c",
+    "file": "RenderEdge.asm",
+    "instruction": "INC L"
+  },
+  {
+    "kind": "instruction",
+    "address": 39160,
+    "end": 39162,
+    "bytes": "20fb",
+    "file": "RenderEdge.asm",
+    "instruction": "JR NZ,$98F5"
+  },
+  {
+    "kind": "instruction",
+    "address": 39162,
+    "end": 39163,
+    "bytes": "e1",
+    "file": "RenderEdge.asm",
+    "instruction": "POP HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39163,
+    "end": 39166,
+    "bytes": "3a3998",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,($9839)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39166,
+    "end": 39167,
+    "bytes": "3c",
+    "file": "RenderEdge.asm",
+    "instruction": "INC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39167,
+    "end": 39170,
+    "bytes": "322999",
+    "file": "RenderEdge.asm",
+    "instruction": "LD ($9929),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39170,
+    "end": 39171,
+    "bytes": "3d",
+    "file": "RenderEdge.asm",
+    "instruction": "DEC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39171,
+    "end": 39172,
+    "bytes": "0f",
+    "file": "RenderEdge.asm",
+    "instruction": "RRCA"
+  },
+  {
+    "kind": "instruction",
+    "address": 39172,
+    "end": 39174,
+    "bytes": "380c",
+    "file": "RenderEdge.asm",
+    "instruction": "JR C,$9912"
+  },
+  {
+    "kind": "instruction",
+    "address": 39174,
+    "end": 39176,
+    "bytes": "3e41",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,$41"
+  },
+  {
+    "kind": "instruction",
+    "address": 39176,
+    "end": 39179,
+    "bytes": "328098",
+    "file": "RenderEdge.asm",
+    "instruction": "LD ($9880),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39179,
+    "end": 39181,
+    "bytes": "3e56",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,$56"
+  },
+  {
+    "kind": "instruction",
+    "address": 39181,
+    "end": 39184,
+    "bytes": "328898",
+    "file": "RenderEdge.asm",
+    "instruction": "LD ($9888),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39184,
+    "end": 39186,
+    "bytes": "180a",
+    "file": "RenderEdge.asm",
+    "instruction": "JR $991C"
+  },
+  {
+    "kind": "instruction",
+    "address": 39186,
+    "end": 39188,
+    "bytes": "3e42",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,$42"
+  },
+  {
+    "kind": "instruction",
+    "address": 39188,
+    "end": 39191,
+    "bytes": "328098",
+    "file": "RenderEdge.asm",
+    "instruction": "LD ($9880),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39191,
+    "end": 39193,
+    "bytes": "3e55",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,$55"
+  },
+  {
+    "kind": "instruction",
+    "address": 39193,
+    "end": 39196,
+    "bytes": "328898",
+    "file": "RenderEdge.asm",
+    "instruction": "LD ($9888),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39196,
+    "end": 39199,
+    "bytes": "11a050",
+    "file": "RenderEdge.asm",
+    "instruction": "LD DE,$50A0"
+  },
+  {
+    "kind": "instruction",
+    "address": 39199,
+    "end": 39202,
+    "bytes": "3a3f98",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,($983F)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39202,
+    "end": 39203,
+    "bytes": "a7",
+    "file": "RenderEdge.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39203,
+    "end": 39205,
+    "bytes": "2803",
+    "file": "RenderEdge.asm",
+    "instruction": "JR Z,$9928"
+  },
+  {
+    "kind": "instruction",
+    "address": 39205,
+    "end": 39208,
+    "bytes": "112047",
+    "file": "RenderEdge.asm",
+    "instruction": "LD DE,$4720"
+  },
+  {
+    "kind": "instruction",
+    "address": 39208,
+    "end": 39210,
+    "bytes": "0601",
+    "file": "RenderEdge.asm",
+    "instruction": "LD B,$01"
+  },
+  {
+    "kind": "instruction",
+    "address": 39210,
+    "end": 39211,
+    "bytes": "c5",
+    "file": "RenderEdge.asm",
+    "instruction": "PUSH BC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39211,
+    "end": 39214,
+    "bytes": "2a6a97",
+    "file": "RenderEdge.asm",
+    "instruction": "LD HL,($976A)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39214,
+    "end": 39216,
+    "bytes": "0e00",
+    "file": "RenderEdge.asm",
+    "instruction": "LD C,$00"
+  },
+  {
+    "kind": "instruction",
+    "address": 39216,
+    "end": 39217,
+    "bytes": "7e",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39217,
+    "end": 39218,
+    "bytes": "a7",
+    "file": "RenderEdge.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39218,
+    "end": 39219,
+    "bytes": "23",
+    "file": "RenderEdge.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39219,
+    "end": 39221,
+    "bytes": "2815",
+    "file": "RenderEdge.asm",
+    "instruction": "JR Z,$994A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39221,
+    "end": 39223,
+    "bytes": "fe20",
+    "file": "RenderEdge.asm",
+    "instruction": "CP $20"
+  },
+  {
+    "kind": "instruction",
+    "address": 39223,
+    "end": 39225,
+    "bytes": "300b",
+    "file": "RenderEdge.asm",
+    "instruction": "JR NC,$9944"
+  },
+  {
+    "kind": "instruction",
+    "address": 39225,
+    "end": 39226,
+    "bytes": "47",
+    "file": "RenderEdge.asm",
+    "instruction": "LD B,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39226,
+    "end": 39228,
+    "bytes": "3e20",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,$20"
+  },
+  {
+    "kind": "instruction",
+    "address": 39228,
+    "end": 39231,
+    "bytes": "cdb799",
+    "file": "RenderEdge.asm",
+    "instruction": "CALL $99B7"
+  },
+  {
+    "kind": "instruction",
+    "address": 39231,
+    "end": 39232,
+    "bytes": "0c",
+    "file": "RenderEdge.asm",
+    "instruction": "INC C"
+  },
+  {
+    "kind": "instruction",
+    "address": 39232,
+    "end": 39234,
+    "bytes": "10f8",
+    "file": "RenderEdge.asm",
+    "instruction": "DJNZ $993A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39234,
+    "end": 39236,
+    "bytes": "18ec",
+    "file": "RenderEdge.asm",
+    "instruction": "JR $9930"
+  },
+  {
+    "kind": "instruction",
+    "address": 39236,
+    "end": 39239,
+    "bytes": "cdb799",
+    "file": "RenderEdge.asm",
+    "instruction": "CALL $99B7"
+  },
+  {
+    "kind": "instruction",
+    "address": 39239,
+    "end": 39240,
+    "bytes": "0c",
+    "file": "RenderEdge.asm",
+    "instruction": "INC C"
+  },
+  {
+    "kind": "instruction",
+    "address": 39240,
+    "end": 39242,
+    "bytes": "18e6",
+    "file": "RenderEdge.asm",
+    "instruction": "JR $9930"
+  },
+  {
+    "kind": "instruction",
+    "address": 39242,
+    "end": 39243,
+    "bytes": "2b",
+    "file": "RenderEdge.asm",
+    "instruction": "DEC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39243,
+    "end": 39245,
+    "bytes": "3e20",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,$20"
+  },
+  {
+    "kind": "instruction",
+    "address": 39245,
+    "end": 39246,
+    "bytes": "91",
+    "file": "RenderEdge.asm",
+    "instruction": "SUB C"
+  },
+  {
+    "kind": "instruction",
+    "address": 39246,
+    "end": 39248,
+    "bytes": "20e9",
+    "file": "RenderEdge.asm",
+    "instruction": "JR NZ,$9939"
+  },
+  {
+    "kind": "instruction",
+    "address": 39248,
+    "end": 39249,
+    "bytes": "23",
+    "file": "RenderEdge.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39249,
+    "end": 39252,
+    "bytes": "3a3e98",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,($983E)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39252,
+    "end": 39253,
+    "bytes": "3c",
+    "file": "RenderEdge.asm",
+    "instruction": "INC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39253,
+    "end": 39255,
+    "bytes": "fe08",
+    "file": "RenderEdge.asm",
+    "instruction": "CP $08"
+  },
+  {
+    "kind": "instruction",
+    "address": 39255,
+    "end": 39257,
+    "bytes": "cb9f",
+    "file": "RenderEdge.asm",
+    "instruction": "RES 3,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39257,
+    "end": 39260,
+    "bytes": "323e98",
+    "file": "RenderEdge.asm",
+    "instruction": "LD ($983E),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39260,
+    "end": 39263,
+    "bytes": "d46f99",
+    "file": "RenderEdge.asm",
+    "instruction": "CALL NC,$996F"
+  },
+  {
+    "kind": "instruction",
+    "address": 39263,
+    "end": 39266,
+    "bytes": "11a051",
+    "file": "RenderEdge.asm",
+    "instruction": "LD DE,$51A0"
+  },
+  {
+    "kind": "instruction",
+    "address": 39266,
+    "end": 39269,
+    "bytes": "3a3f98",
+    "file": "RenderEdge.asm",
+    "instruction": "LD A,($983F)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39269,
+    "end": 39270,
+    "bytes": "a7",
+    "file": "RenderEdge.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39270,
+    "end": 39272,
+    "bytes": "2803",
+    "file": "RenderEdge.asm",
+    "instruction": "JR Z,$996B"
+  },
+  {
+    "kind": "instruction",
+    "address": 39272,
+    "end": 39275,
+    "bytes": "112046",
+    "file": "RenderEdge.asm",
+    "instruction": "LD DE,$4620"
+  },
+  {
+    "kind": "instruction",
+    "address": 39275,
+    "end": 39276,
+    "bytes": "c1",
+    "file": "RenderEdge.asm",
+    "instruction": "POP BC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39276,
+    "end": 39278,
+    "bytes": "10bc",
+    "file": "RenderEdge.asm",
+    "instruction": "DJNZ $992A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39278,
+    "end": 39279,
+    "bytes": "c9",
+    "file": "RenderEdge.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39279,
+    "end": 39282,
+    "bytes": "3a3f98",
+    "file": "AdvanceText.asm",
+    "instruction": "LD A,($983F)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39282,
+    "end": 39283,
+    "bytes": "a7",
+    "file": "AdvanceText.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39283,
+    "end": 39285,
+    "bytes": "201a",
+    "file": "AdvanceText.asm",
+    "instruction": "JR NZ,$998F"
+  },
+  {
+    "kind": "instruction",
+    "address": 39285,
+    "end": 39288,
+    "bytes": "226a97",
+    "file": "AdvanceText.asm",
+    "instruction": "LD ($976A),HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39288,
+    "end": 39289,
+    "bytes": "7e",
+    "file": "AdvanceText.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39289,
+    "end": 39291,
+    "bytes": "fe23",
+    "file": "AdvanceText.asm",
+    "instruction": "CP $23"
+  },
+  {
+    "kind": "instruction",
+    "address": 39291,
+    "end": 39292,
+    "bytes": "c0",
+    "file": "AdvanceText.asm",
+    "instruction": "RET NZ"
+  },
+  {
+    "kind": "instruction",
+    "address": 39292,
+    "end": 39293,
+    "bytes": "23",
+    "file": "AdvanceText.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39293,
+    "end": 39294,
+    "bytes": "7e",
+    "file": "AdvanceText.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39294,
+    "end": 39296,
+    "bytes": "fe37",
+    "file": "AdvanceText.asm",
+    "instruction": "CP $37"
+  },
+  {
+    "kind": "instruction",
+    "address": 39296,
+    "end": 39298,
+    "bytes": "2005",
+    "file": "AdvanceText.asm",
+    "instruction": "JR NZ,$9987"
+  },
+  {
+    "kind": "instruction",
+    "address": 39298,
+    "end": 39299,
+    "bytes": "af",
+    "file": "AdvanceText.asm",
+    "instruction": "XOR A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39299,
+    "end": 39302,
+    "bytes": "326997",
+    "file": "AdvanceText.asm",
+    "instruction": "LD ($9769),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39302,
+    "end": 39303,
+    "bytes": "c9",
+    "file": "AdvanceText.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39303,
+    "end": 39306,
+    "bytes": "3a6897",
+    "file": "AdvanceText.asm",
+    "instruction": "LD A,($9768)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39306,
+    "end": 39308,
+    "bytes": "fe30",
+    "file": "AdvanceText.asm",
+    "instruction": "CP $30"
+  },
+  {
+    "kind": "instruction",
+    "address": 39308,
+    "end": 39309,
+    "bytes": "c8",
+    "file": "AdvanceText.asm",
+    "instruction": "RET Z"
+  },
+  {
+    "kind": "instruction",
+    "address": 39309,
+    "end": 39311,
+    "bytes": "18f3",
+    "file": "AdvanceText.asm",
+    "instruction": "JR $9982"
+  },
+  {
+    "kind": "instruction",
+    "address": 39311,
+    "end": 39314,
+    "bytes": "cd289a",
+    "file": "AdvanceText.asm",
+    "instruction": "CALL $9A28"
+  },
+  {
+    "kind": "instruction",
+    "address": 39314,
+    "end": 39317,
+    "bytes": "ca209a",
+    "file": "AdvanceText.asm",
+    "instruction": "JP Z,$9A20"
+  },
+  {
+    "kind": "instruction",
+    "address": 39317,
+    "end": 39320,
+    "bytes": "2a6a97",
+    "file": "AdvanceText.asm",
+    "instruction": "LD HL,($976A)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39320,
+    "end": 39321,
+    "bytes": "2b",
+    "file": "AdvanceText.asm",
+    "instruction": "DEC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39321,
+    "end": 39322,
+    "bytes": "2b",
+    "file": "AdvanceText.asm",
+    "instruction": "DEC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39322,
+    "end": 39323,
+    "bytes": "af",
+    "file": "AdvanceText.asm",
+    "instruction": "XOR A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39323,
+    "end": 39324,
+    "bytes": "47",
+    "file": "AdvanceText.asm",
+    "instruction": "LD B,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39324,
+    "end": 39325,
+    "bytes": "4f",
+    "file": "AdvanceText.asm",
+    "instruction": "LD C,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39325,
+    "end": 39327,
+    "bytes": "edb9",
+    "file": "AdvanceText.asm",
+    "instruction": "CPDR"
+  },
+  {
+    "kind": "instruction",
+    "address": 39327,
+    "end": 39328,
+    "bytes": "23",
+    "file": "AdvanceText.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39328,
+    "end": 39329,
+    "bytes": "23",
+    "file": "AdvanceText.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39329,
+    "end": 39332,
+    "bytes": "cd289a",
+    "file": "AdvanceText.asm",
+    "instruction": "CALL $9A28"
+  },
+  {
+    "kind": "instruction",
+    "address": 39332,
+    "end": 39335,
+    "bytes": "ca209a",
+    "file": "AdvanceText.asm",
+    "instruction": "JP Z,$9A20"
+  },
+  {
+    "kind": "instruction",
+    "address": 39335,
+    "end": 39338,
+    "bytes": "226a97",
+    "file": "AdvanceText.asm",
+    "instruction": "LD ($976A),HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39338,
+    "end": 39339,
+    "bytes": "c9",
+    "file": "AdvanceText.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39339,
+    "end": 39340,
+    "bytes": "7e",
+    "file": "LegacyLimit.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39340,
+    "end": 39342,
+    "bytes": "fe23",
+    "file": "LegacyLimit.asm",
+    "instruction": "CP $23"
+  },
+  {
+    "kind": "instruction",
+    "address": 39342,
+    "end": 39343,
+    "bytes": "c0",
+    "file": "LegacyLimit.asm",
+    "instruction": "RET NZ"
+  },
+  {
+    "kind": "instruction",
+    "address": 39343,
+    "end": 39344,
+    "bytes": "23",
+    "file": "LegacyLimit.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39344,
+    "end": 39345,
+    "bytes": "7e",
+    "file": "LegacyLimit.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39345,
+    "end": 39347,
+    "bytes": "fe31",
+    "file": "LegacyLimit.asm",
+    "instruction": "CP $31"
+  },
+  {
+    "kind": "instruction",
+    "address": 39347,
+    "end": 39349,
+    "bytes": "20d2",
+    "file": "LegacyLimit.asm",
+    "instruction": "JR NZ,$9987"
+  },
+  {
+    "kind": "instruction",
+    "address": 39349,
+    "end": 39351,
+    "bytes": "18cb",
+    "file": "LegacyLimit.asm",
+    "instruction": "JR $9982"
+  },
+  {
+    "kind": "instruction",
+    "address": 39351,
+    "end": 39352,
+    "bytes": "d9",
+    "file": "RenderGlyph.asm",
+    "instruction": "EXX"
+  },
+  {
+    "kind": "instruction",
+    "address": 39352,
+    "end": 39353,
+    "bytes": "6f",
+    "file": "RenderGlyph.asm",
+    "instruction": "LD L,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39353,
+    "end": 39355,
+    "bytes": "2600",
+    "file": "RenderGlyph.asm",
+    "instruction": "LD H,$00"
+  },
+  {
+    "kind": "instruction",
+    "address": 39355,
+    "end": 39356,
+    "bytes": "29",
+    "file": "RenderGlyph.asm",
+    "instruction": "ADD HL,HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39356,
+    "end": 39357,
+    "bytes": "29",
+    "file": "RenderGlyph.asm",
+    "instruction": "ADD HL,HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39357,
+    "end": 39358,
+    "bytes": "29",
+    "file": "RenderGlyph.asm",
+    "instruction": "ADD HL,HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39358,
+    "end": 39362,
+    "bytes": "ed4b365c",
+    "file": "RenderGlyph.asm",
+    "instruction": "LD BC,($5C36)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39362,
+    "end": 39363,
+    "bytes": "09",
+    "file": "RenderGlyph.asm",
+    "instruction": "ADD HL,BC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39363,
+    "end": 39365,
+    "bytes": "0600",
+    "file": "RenderGlyph.asm",
+    "instruction": "LD B,$00"
+  },
+  {
+    "kind": "instruction",
+    "address": 39365,
+    "end": 39368,
+    "bytes": "3a3e98",
+    "file": "RenderGlyph.asm",
+    "instruction": "LD A,($983E)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39368,
+    "end": 39369,
+    "bytes": "4f",
+    "file": "RenderGlyph.asm",
+    "instruction": "LD C,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39369,
+    "end": 39372,
+    "bytes": "3a3f98",
+    "file": "RenderGlyph.asm",
+    "instruction": "LD A,($983F)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39372,
+    "end": 39373,
+    "bytes": "a7",
+    "file": "RenderGlyph.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39373,
+    "end": 39375,
+    "bytes": "2804",
+    "file": "RenderGlyph.asm",
+    "instruction": "JR Z,$99D3"
+  },
+  {
+    "kind": "instruction",
+    "address": 39375,
+    "end": 39377,
+    "bytes": "3e07",
+    "file": "RenderGlyph.asm",
+    "instruction": "LD A,$07"
+  },
+  {
+    "kind": "instruction",
+    "address": 39377,
+    "end": 39378,
+    "bytes": "91",
+    "file": "RenderGlyph.asm",
+    "instruction": "SUB C"
+  },
+  {
+    "kind": "instruction",
+    "address": 39378,
+    "end": 39379,
+    "bytes": "4f",
+    "file": "RenderGlyph.asm",
+    "instruction": "LD C,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39379,
+    "end": 39380,
+    "bytes": "09",
+    "file": "RenderGlyph.asm",
+    "instruction": "ADD HL,BC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39380,
+    "end": 39381,
+    "bytes": "7e",
+    "file": "RenderGlyph.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39381,
+    "end": 39382,
+    "bytes": "d9",
+    "file": "RenderGlyph.asm",
+    "instruction": "EXX"
+  },
+  {
+    "kind": "instruction",
+    "address": 39382,
+    "end": 39383,
+    "bytes": "12",
+    "file": "RenderGlyph.asm",
+    "instruction": "LD (DE),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39383,
+    "end": 39384,
+    "bytes": "13",
+    "file": "RenderGlyph.asm",
+    "instruction": "INC DE"
+  },
+  {
+    "kind": "instruction",
+    "address": 39384,
+    "end": 39385,
+    "bytes": "c9",
+    "file": "RenderGlyph.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39385,
+    "end": 39387,
+    "bytes": "3e0a",
+    "file": "UpdateKeys.asm",
+    "instruction": "LD A,$0A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39387,
+    "end": 39390,
+    "bytes": "323c98",
+    "file": "UpdateKeys.asm",
+    "instruction": "LD ($983C),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39390,
+    "end": 39393,
+    "bytes": "3a3f98",
+    "file": "UpdateKeys.asm",
+    "instruction": "LD A,($983F)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39393,
+    "end": 39394,
+    "bytes": "f5",
+    "file": "UpdateKeys.asm",
+    "instruction": "PUSH AF"
+  },
+  {
+    "kind": "instruction",
+    "address": 39394,
+    "end": 39397,
+    "bytes": "cd4f9a",
+    "file": "UpdateKeys.asm",
+    "instruction": "CALL $9A4F"
+  },
+  {
+    "kind": "instruction",
+    "address": 39397,
+    "end": 39398,
+    "bytes": "f1",
+    "file": "UpdateKeys.asm",
+    "instruction": "POP AF"
+  },
+  {
+    "kind": "instruction",
+    "address": 39398,
+    "end": 39401,
+    "bytes": "213f98",
+    "file": "UpdateKeys.asm",
+    "instruction": "LD HL,$983F"
+  },
+  {
+    "kind": "instruction",
+    "address": 39401,
+    "end": 39402,
+    "bytes": "ae",
+    "file": "UpdateKeys.asm",
+    "instruction": "XOR (HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39402,
+    "end": 39403,
+    "bytes": "c8",
+    "file": "UpdateKeys.asm",
+    "instruction": "RET Z"
+  },
+  {
+    "kind": "instruction",
+    "address": 39403,
+    "end": 39406,
+    "bytes": "3a3e98",
+    "file": "UpdateKeys.asm",
+    "instruction": "LD A,($983E)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39406,
+    "end": 39408,
+    "bytes": "e607",
+    "file": "UpdateKeys.asm",
+    "instruction": "AND $07"
+  },
+  {
+    "kind": "instruction",
+    "address": 39408,
+    "end": 39410,
+    "bytes": "202e",
+    "file": "UpdateKeys.asm",
+    "instruction": "JR NZ,$9A20"
+  },
+  {
+    "kind": "instruction",
+    "address": 39410,
+    "end": 39413,
+    "bytes": "2a6a97",
+    "file": "UpdateKeys.asm",
+    "instruction": "LD HL,($976A)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39413,
+    "end": 39415,
+    "bytes": "0614",
+    "file": "UpdateKeys.asm",
+    "instruction": "LD B,$14"
+  },
+  {
+    "kind": "instruction",
+    "address": 39415,
+    "end": 39418,
+    "bytes": "cd289a",
+    "file": "UpdateKeys.asm",
+    "instruction": "CALL $9A28"
+  },
+  {
+    "kind": "instruction",
+    "address": 39418,
+    "end": 39420,
+    "bytes": "2824",
+    "file": "UpdateKeys.asm",
+    "instruction": "JR Z,$9A20"
+  },
+  {
+    "kind": "instruction",
+    "address": 39420,
+    "end": 39421,
+    "bytes": "c5",
+    "file": "UpdateKeys.asm",
+    "instruction": "PUSH BC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39421,
+    "end": 39424,
+    "bytes": "010000",
+    "file": "UpdateKeys.asm",
+    "instruction": "LD BC,$0000"
+  },
+  {
+    "kind": "instruction",
+    "address": 39424,
+    "end": 39427,
+    "bytes": "3a3f98",
+    "file": "UpdateKeys.asm",
+    "instruction": "LD A,($983F)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39427,
+    "end": 39428,
+    "bytes": "a7",
+    "file": "UpdateKeys.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39428,
+    "end": 39429,
+    "bytes": "78",
+    "file": "UpdateKeys.asm",
+    "instruction": "LD A,B"
+  },
+  {
+    "kind": "instruction",
+    "address": 39429,
+    "end": 39431,
+    "bytes": "2808",
+    "file": "UpdateKeys.asm",
+    "instruction": "JR Z,$9A0F"
+  },
+  {
+    "kind": "instruction",
+    "address": 39431,
+    "end": 39432,
+    "bytes": "2b",
+    "file": "UpdateKeys.asm",
+    "instruction": "DEC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39432,
+    "end": 39433,
+    "bytes": "2b",
+    "file": "UpdateKeys.asm",
+    "instruction": "DEC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39433,
+    "end": 39435,
+    "bytes": "edb9",
+    "file": "UpdateKeys.asm",
+    "instruction": "CPDR"
+  },
+  {
+    "kind": "instruction",
+    "address": 39435,
+    "end": 39436,
+    "bytes": "7e",
+    "file": "UpdateKeys.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39436,
+    "end": 39437,
+    "bytes": "23",
+    "file": "UpdateKeys.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39437,
+    "end": 39438,
+    "bytes": "23",
+    "file": "UpdateKeys.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "overlap",
+    "address": 39438,
+    "end": 39439,
+    "bytes": "01",
+    "file": "UpdateKeys.asm"
+  },
+  {
+    "kind": "instruction",
+    "address": 39439,
+    "end": 39441,
+    "bytes": "edb1",
+    "file": "UpdateKeys.asm",
+    "instruction": "CPIR"
+  },
+  {
+    "kind": "instruction",
+    "address": 39441,
+    "end": 39442,
+    "bytes": "c1",
+    "file": "UpdateKeys.asm",
+    "instruction": "POP BC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39442,
+    "end": 39443,
+    "bytes": "3c",
+    "file": "UpdateKeys.asm",
+    "instruction": "INC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39443,
+    "end": 39445,
+    "bytes": "280b",
+    "file": "UpdateKeys.asm",
+    "instruction": "JR Z,$9A20"
+  },
+  {
+    "kind": "instruction",
+    "address": 39445,
+    "end": 39447,
+    "bytes": "10e0",
+    "file": "UpdateKeys.asm",
+    "instruction": "DJNZ $99F7"
+  },
+  {
+    "kind": "instruction",
+    "address": 39447,
+    "end": 39450,
+    "bytes": "cd289a",
+    "file": "UpdateKeys.asm",
+    "instruction": "CALL $9A28"
+  },
+  {
+    "kind": "instruction",
+    "address": 39450,
+    "end": 39452,
+    "bytes": "2804",
+    "file": "UpdateKeys.asm",
+    "instruction": "JR Z,$9A20"
+  },
+  {
+    "kind": "instruction",
+    "address": 39452,
+    "end": 39455,
+    "bytes": "226a97",
+    "file": "UpdateKeys.asm",
+    "instruction": "LD ($976A),HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39455,
+    "end": 39456,
+    "bytes": "c9",
+    "file": "UpdateKeys.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39456,
+    "end": 39459,
+    "bytes": "213f98",
+    "file": "UndoDirection.asm",
+    "instruction": "LD HL,$983F"
+  },
+  {
+    "kind": "instruction",
+    "address": 39459,
+    "end": 39460,
+    "bytes": "7e",
+    "file": "UndoDirection.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39460,
+    "end": 39462,
+    "bytes": "ee01",
+    "file": "UndoDirection.asm",
+    "instruction": "XOR $01"
+  },
+  {
+    "kind": "instruction",
+    "address": 39462,
+    "end": 39463,
+    "bytes": "77",
+    "file": "UndoDirection.asm",
+    "instruction": "LD (HL),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39463,
+    "end": 39464,
+    "bytes": "c9",
+    "file": "UndoDirection.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39464,
+    "end": 39465,
+    "bytes": "7e",
+    "file": "CheckBoundary.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39465,
+    "end": 39466,
+    "bytes": "3c",
+    "file": "CheckBoundary.asm",
+    "instruction": "INC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39466,
+    "end": 39467,
+    "bytes": "c8",
+    "file": "CheckBoundary.asm",
+    "instruction": "RET Z"
+  },
+  {
+    "kind": "instruction",
+    "address": 39467,
+    "end": 39468,
+    "bytes": "7e",
+    "file": "CheckBoundary.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39468,
+    "end": 39470,
+    "bytes": "fe23",
+    "file": "CheckBoundary.asm",
+    "instruction": "CP $23"
+  },
+  {
+    "kind": "instruction",
+    "address": 39470,
+    "end": 39471,
+    "bytes": "c0",
+    "file": "CheckBoundary.asm",
+    "instruction": "RET NZ"
+  },
+  {
+    "kind": "instruction",
+    "address": 39471,
+    "end": 39474,
+    "bytes": "3a6897",
+    "file": "CheckBoundary.asm",
+    "instruction": "LD A,($9768)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39474,
+    "end": 39476,
+    "bytes": "fe30",
+    "file": "CheckBoundary.asm",
+    "instruction": "CP $30"
+  },
+  {
+    "kind": "instruction",
+    "address": 39476,
+    "end": 39478,
+    "bytes": "200e",
+    "file": "CheckBoundary.asm",
+    "instruction": "JR NZ,$9A44"
+  },
+  {
+    "kind": "instruction",
+    "address": 39478,
+    "end": 39481,
+    "bytes": "3a3f98",
+    "file": "CheckBoundary.asm",
+    "instruction": "LD A,($983F)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39481,
+    "end": 39482,
+    "bytes": "a7",
+    "file": "CheckBoundary.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39482,
+    "end": 39484,
+    "bytes": "3e37",
+    "file": "CheckBoundary.asm",
+    "instruction": "LD A,$37"
+  },
+  {
+    "kind": "instruction",
+    "address": 39484,
+    "end": 39486,
+    "bytes": "2002",
+    "file": "CheckBoundary.asm",
+    "instruction": "JR NZ,$9A40"
+  },
+  {
+    "kind": "instruction",
+    "address": 39486,
+    "end": 39488,
+    "bytes": "3e31",
+    "file": "CheckBoundary.asm",
+    "instruction": "LD A,$31"
+  },
+  {
+    "kind": "instruction",
+    "address": 39488,
+    "end": 39489,
+    "bytes": "23",
+    "file": "CheckBoundary.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39489,
+    "end": 39490,
+    "bytes": "be",
+    "file": "CheckBoundary.asm",
+    "instruction": "CP (HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39490,
+    "end": 39491,
+    "bytes": "2b",
+    "file": "CheckBoundary.asm",
+    "instruction": "DEC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39491,
+    "end": 39492,
+    "bytes": "c9",
+    "file": "CheckBoundary.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39492,
+    "end": 39493,
+    "bytes": "af",
+    "file": "CheckBoundary.asm",
+    "instruction": "XOR A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39493,
+    "end": 39494,
+    "bytes": "c9",
+    "file": "CheckBoundary.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39494,
+    "end": 39496,
+    "bytes": "3e01",
+    "file": "ResumePixel.asm",
+    "instruction": "LD A,$01"
+  },
+  {
+    "kind": "instruction",
+    "address": 39496,
+    "end": 39499,
+    "bytes": "323c98",
+    "file": "ResumePixel.asm",
+    "instruction": "LD ($983C),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39499,
+    "end": 39502,
+    "bytes": "323b98",
+    "file": "ResumePixel.asm",
+    "instruction": "LD ($983B),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39502,
+    "end": 39503,
+    "bytes": "c9",
+    "file": "ResumePixel.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39503,
+    "end": 39505,
+    "bytes": "3efd",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,$FD"
+  },
+  {
+    "kind": "instruction",
+    "address": 39505,
+    "end": 39507,
+    "bytes": "dbfe",
+    "file": "ReadControls.asm",
+    "instruction": "IN A,($FE)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39507,
+    "end": 39509,
+    "bytes": "cb4f",
+    "file": "ReadControls.asm",
+    "instruction": "BIT 1,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39509,
+    "end": 39511,
+    "bytes": "200c",
+    "file": "ReadControls.asm",
+    "instruction": "JR NZ,$9A63"
+  },
+  {
+    "kind": "instruction",
+    "address": 39511,
+    "end": 39514,
+    "bytes": "3a3e98",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,($983E)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39514,
+    "end": 39516,
+    "bytes": "e607",
+    "file": "ReadControls.asm",
+    "instruction": "AND $07"
+  },
+  {
+    "kind": "instruction",
+    "address": 39516,
+    "end": 39518,
+    "bytes": "20e8",
+    "file": "ReadControls.asm",
+    "instruction": "JR NZ,$9A46"
+  },
+  {
+    "kind": "instruction",
+    "address": 39518,
+    "end": 39519,
+    "bytes": "af",
+    "file": "ReadControls.asm",
+    "instruction": "XOR A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39519,
+    "end": 39522,
+    "bytes": "323b98",
+    "file": "ReadControls.asm",
+    "instruction": "LD ($983B),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39522,
+    "end": 39523,
+    "bytes": "c9",
+    "file": "ReadControls.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39523,
+    "end": 39525,
+    "bytes": "3eef",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,$EF"
+  },
+  {
+    "kind": "instruction",
+    "address": 39525,
+    "end": 39527,
+    "bytes": "dbfe",
+    "file": "ReadControls.asm",
+    "instruction": "IN A,($FE)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39527,
+    "end": 39529,
+    "bytes": "cb67",
+    "file": "ReadControls.asm",
+    "instruction": "BIT 4,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39529,
+    "end": 39531,
+    "bytes": "2028",
+    "file": "ReadControls.asm",
+    "instruction": "JR NZ,$9A93"
+  },
+  {
+    "kind": "instruction",
+    "address": 39531,
+    "end": 39533,
+    "bytes": "cb5f",
+    "file": "ReadControls.asm",
+    "instruction": "BIT 3,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39533,
+    "end": 39535,
+    "bytes": "28e8",
+    "file": "ReadControls.asm",
+    "instruction": "JR Z,$9A57"
+  },
+  {
+    "kind": "instruction",
+    "address": 39535,
+    "end": 39538,
+    "bytes": "3a3f98",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,($983F)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39538,
+    "end": 39539,
+    "bytes": "a7",
+    "file": "ReadControls.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39539,
+    "end": 39541,
+    "bytes": "2028",
+    "file": "ReadControls.asm",
+    "instruction": "JR NZ,$9A9D"
+  },
+  {
+    "kind": "instruction",
+    "address": 39541,
+    "end": 39544,
+    "bytes": "3a3998",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,($9839)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39544,
+    "end": 39545,
+    "bytes": "0f",
+    "file": "ReadControls.asm",
+    "instruction": "RRCA"
+  },
+  {
+    "kind": "instruction",
+    "address": 39545,
+    "end": 39548,
+    "bytes": "3a3a98",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,($983A)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39548,
+    "end": 39549,
+    "bytes": "3d",
+    "file": "ReadControls.asm",
+    "instruction": "DEC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39549,
+    "end": 39551,
+    "bytes": "200f",
+    "file": "ReadControls.asm",
+    "instruction": "JR NZ,$9A8E"
+  },
+  {
+    "kind": "instruction",
+    "address": 39551,
+    "end": 39553,
+    "bytes": "383b",
+    "file": "ReadControls.asm",
+    "instruction": "JR C,$9ABC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39553,
+    "end": 39556,
+    "bytes": "3a3e98",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,($983E)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39556,
+    "end": 39557,
+    "bytes": "a7",
+    "file": "ReadControls.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39557,
+    "end": 39559,
+    "bytes": "20bf",
+    "file": "ReadControls.asm",
+    "instruction": "JR NZ,$9A46"
+  },
+  {
+    "kind": "instruction",
+    "address": 39559,
+    "end": 39561,
+    "bytes": "3e01",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,$01"
+  },
+  {
+    "kind": "instruction",
+    "address": 39561,
+    "end": 39564,
+    "bytes": "323998",
+    "file": "ReadControls.asm",
+    "instruction": "LD ($9839),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39564,
+    "end": 39566,
+    "bytes": "3e04",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,$04"
+  },
+  {
+    "kind": "instruction",
+    "address": 39566,
+    "end": 39569,
+    "bytes": "323a98",
+    "file": "ReadControls.asm",
+    "instruction": "LD ($983A),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39569,
+    "end": 39571,
+    "bytes": "1829",
+    "file": "ReadControls.asm",
+    "instruction": "JR $9ABC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39571,
+    "end": 39573,
+    "bytes": "cb5f",
+    "file": "ReadControls.asm",
+    "instruction": "BIT 3,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39573,
+    "end": 39575,
+    "bytes": "203e",
+    "file": "ReadControls.asm",
+    "instruction": "JR NZ,$9AD5"
+  },
+  {
+    "kind": "instruction",
+    "address": 39575,
+    "end": 39578,
+    "bytes": "3a3f98",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,($983F)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39578,
+    "end": 39579,
+    "bytes": "a7",
+    "file": "ReadControls.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39579,
+    "end": 39581,
+    "bytes": "20d8",
+    "file": "ReadControls.asm",
+    "instruction": "JR NZ,$9A75"
+  },
+  {
+    "kind": "instruction",
+    "address": 39581,
+    "end": 39584,
+    "bytes": "3a3998",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,($9839)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39584,
+    "end": 39585,
+    "bytes": "0f",
+    "file": "ReadControls.asm",
+    "instruction": "RRCA"
+  },
+  {
+    "kind": "instruction",
+    "address": 39585,
+    "end": 39588,
+    "bytes": "3a3a98",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,($983A)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39588,
+    "end": 39589,
+    "bytes": "3c",
+    "file": "ReadControls.asm",
+    "instruction": "INC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39589,
+    "end": 39591,
+    "bytes": "3009",
+    "file": "ReadControls.asm",
+    "instruction": "JR NC,$9AB0"
+  },
+  {
+    "kind": "instruction",
+    "address": 39591,
+    "end": 39593,
+    "bytes": "fe05",
+    "file": "ReadControls.asm",
+    "instruction": "CP $05"
+  },
+  {
+    "kind": "instruction",
+    "address": 39593,
+    "end": 39595,
+    "bytes": "38e3",
+    "file": "ReadControls.asm",
+    "instruction": "JR C,$9A8E"
+  },
+  {
+    "kind": "instruction",
+    "address": 39595,
+    "end": 39596,
+    "bytes": "af",
+    "file": "ReadControls.asm",
+    "instruction": "XOR A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39596,
+    "end": 39599,
+    "bytes": "323998",
+    "file": "ReadControls.asm",
+    "instruction": "LD ($9839),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39599,
+    "end": 39600,
+    "bytes": "3c",
+    "file": "ReadControls.asm",
+    "instruction": "INC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39600,
+    "end": 39602,
+    "bytes": "fe0c",
+    "file": "ReadControls.asm",
+    "instruction": "CP $0C"
+  },
+  {
+    "kind": "instruction",
+    "address": 39602,
+    "end": 39604,
+    "bytes": "38da",
+    "file": "ReadControls.asm",
+    "instruction": "JR C,$9A8E"
+  },
+  {
+    "kind": "instruction",
+    "address": 39604,
+    "end": 39607,
+    "bytes": "3a3f98",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,($983F)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39607,
+    "end": 39609,
+    "bytes": "ee01",
+    "file": "ReadControls.asm",
+    "instruction": "XOR $01"
+  },
+  {
+    "kind": "instruction",
+    "address": 39609,
+    "end": 39612,
+    "bytes": "323f98",
+    "file": "ReadControls.asm",
+    "instruction": "LD ($983F),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39612,
+    "end": 39615,
+    "bytes": "3a3b98",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,($983B)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39615,
+    "end": 39616,
+    "bytes": "a7",
+    "file": "ReadControls.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39616,
+    "end": 39617,
+    "bytes": "c0",
+    "file": "ReadControls.asm",
+    "instruction": "RET NZ"
+  },
+  {
+    "kind": "instruction",
+    "address": 39617,
+    "end": 39619,
+    "bytes": "3eef",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,$EF"
+  },
+  {
+    "kind": "instruction",
+    "address": 39619,
+    "end": 39621,
+    "bytes": "dbfe",
+    "file": "ReadControls.asm",
+    "instruction": "IN A,($FE)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39621,
+    "end": 39623,
+    "bytes": "cb5f",
+    "file": "ReadControls.asm",
+    "instruction": "BIT 3,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39623,
+    "end": 39625,
+    "bytes": "3e00",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,$00"
+  },
+  {
+    "kind": "instruction",
+    "address": 39625,
+    "end": 39627,
+    "bytes": "2001",
+    "file": "ReadControls.asm",
+    "instruction": "JR NZ,$9ACC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39627,
+    "end": 39628,
+    "bytes": "3c",
+    "file": "ReadControls.asm",
+    "instruction": "INC A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39628,
+    "end": 39631,
+    "bytes": "323f98",
+    "file": "ReadControls.asm",
+    "instruction": "LD ($983F),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39631,
+    "end": 39633,
+    "bytes": "3e01",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,$01"
+  },
+  {
+    "kind": "instruction",
+    "address": 39633,
+    "end": 39636,
+    "bytes": "323b98",
+    "file": "ReadControls.asm",
+    "instruction": "LD ($983B),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39636,
+    "end": 39637,
+    "bytes": "c9",
+    "file": "ReadControls.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39637,
+    "end": 39639,
+    "bytes": "3e7f",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,$7F"
+  },
+  {
+    "kind": "instruction",
+    "address": 39639,
+    "end": 39641,
+    "bytes": "dbfe",
+    "file": "ReadControls.asm",
+    "instruction": "IN A,($FE)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39641,
+    "end": 39643,
+    "bytes": "e601",
+    "file": "ReadControls.asm",
+    "instruction": "AND $01"
+  },
+  {
+    "kind": "instruction",
+    "address": 39643,
+    "end": 39644,
+    "bytes": "c0",
+    "file": "ReadControls.asm",
+    "instruction": "RET NZ"
+  },
+  {
+    "kind": "instruction",
+    "address": 39644,
+    "end": 39645,
+    "bytes": "af",
+    "file": "ReadControls.asm",
+    "instruction": "XOR A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39645,
+    "end": 39648,
+    "bytes": "326897",
+    "file": "ReadControls.asm",
+    "instruction": "LD ($9768),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39648,
+    "end": 39650,
+    "bytes": "3e45",
+    "file": "ReadControls.asm",
+    "instruction": "LD A,$45"
+  },
+  {
+    "kind": "instruction",
+    "address": 39650,
+    "end": 39653,
+    "bytes": "326997",
+    "file": "ReadControls.asm",
+    "instruction": "LD ($9769),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39653,
+    "end": 39656,
+    "bytes": "310000",
+    "file": "ReadControls.asm",
+    "instruction": "LD SP,$0000"
+  },
+  {
+    "kind": "instruction",
+    "address": 39656,
+    "end": 39658,
+    "bytes": "ed56",
+    "file": "ReadControls.asm",
+    "instruction": "IM 1"
+  },
+  {
+    "kind": "instruction",
+    "address": 39658,
+    "end": 39659,
+    "bytes": "fb",
+    "file": "ReadControls.asm",
+    "instruction": "EI"
+  },
+  {
+    "kind": "instruction",
+    "address": 39659,
+    "end": 39660,
+    "bytes": "c9",
+    "file": "ReadControls.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39660,
+    "end": 39661,
+    "bytes": "eb",
+    "file": "NextScanline.asm",
+    "instruction": "EX DE,HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39661,
+    "end": 39662,
+    "bytes": "24",
+    "file": "NextScanline.asm",
+    "instruction": "INC H"
+  },
+  {
+    "kind": "instruction",
+    "address": 39662,
+    "end": 39663,
+    "bytes": "7c",
+    "file": "NextScanline.asm",
+    "instruction": "LD A,H"
+  },
+  {
+    "kind": "instruction",
+    "address": 39663,
+    "end": 39665,
+    "bytes": "e607",
+    "file": "NextScanline.asm",
+    "instruction": "AND $07"
+  },
+  {
+    "kind": "instruction",
+    "address": 39665,
+    "end": 39666,
+    "bytes": "c0",
+    "file": "NextScanline.asm",
+    "instruction": "RET NZ"
+  },
+  {
+    "kind": "instruction",
+    "address": 39666,
+    "end": 39667,
+    "bytes": "7d",
+    "file": "NextScanline.asm",
+    "instruction": "LD A,L"
+  },
+  {
+    "kind": "instruction",
+    "address": 39667,
+    "end": 39669,
+    "bytes": "c620",
+    "file": "NextScanline.asm",
+    "instruction": "ADD A,$20"
+  },
+  {
+    "kind": "instruction",
+    "address": 39669,
+    "end": 39670,
+    "bytes": "6f",
+    "file": "NextScanline.asm",
+    "instruction": "LD L,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39670,
+    "end": 39671,
+    "bytes": "d8",
+    "file": "NextScanline.asm",
+    "instruction": "RET C"
+  },
+  {
+    "kind": "instruction",
+    "address": 39671,
+    "end": 39672,
+    "bytes": "7c",
+    "file": "NextScanline.asm",
+    "instruction": "LD A,H"
+  },
+  {
+    "kind": "instruction",
+    "address": 39672,
+    "end": 39674,
+    "bytes": "d608",
+    "file": "NextScanline.asm",
+    "instruction": "SUB $08"
+  },
+  {
+    "kind": "instruction",
+    "address": 39674,
+    "end": 39675,
+    "bytes": "67",
+    "file": "NextScanline.asm",
+    "instruction": "LD H,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39675,
+    "end": 39676,
+    "bytes": "c9",
+    "file": "NextScanline.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39676,
+    "end": 39677,
+    "bytes": "eb",
+    "file": "PrevScanline.asm",
+    "instruction": "EX DE,HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39677,
+    "end": 39678,
+    "bytes": "7c",
+    "file": "PrevScanline.asm",
+    "instruction": "LD A,H"
+  },
+  {
+    "kind": "instruction",
+    "address": 39678,
+    "end": 39679,
+    "bytes": "25",
+    "file": "PrevScanline.asm",
+    "instruction": "DEC H"
+  },
+  {
+    "kind": "instruction",
+    "address": 39679,
+    "end": 39681,
+    "bytes": "e607",
+    "file": "PrevScanline.asm",
+    "instruction": "AND $07"
+  },
+  {
+    "kind": "instruction",
+    "address": 39681,
+    "end": 39682,
+    "bytes": "c0",
+    "file": "PrevScanline.asm",
+    "instruction": "RET NZ"
+  },
+  {
+    "kind": "instruction",
+    "address": 39682,
+    "end": 39683,
+    "bytes": "7d",
+    "file": "PrevScanline.asm",
+    "instruction": "LD A,L"
+  },
+  {
+    "kind": "instruction",
+    "address": 39683,
+    "end": 39685,
+    "bytes": "d620",
+    "file": "PrevScanline.asm",
+    "instruction": "SUB $20"
+  },
+  {
+    "kind": "instruction",
+    "address": 39685,
+    "end": 39686,
+    "bytes": "6f",
+    "file": "PrevScanline.asm",
+    "instruction": "LD L,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39686,
+    "end": 39687,
+    "bytes": "d8",
+    "file": "PrevScanline.asm",
+    "instruction": "RET C"
+  },
+  {
+    "kind": "instruction",
+    "address": 39687,
+    "end": 39688,
+    "bytes": "7c",
+    "file": "PrevScanline.asm",
+    "instruction": "LD A,H"
+  },
+  {
+    "kind": "instruction",
+    "address": 39688,
+    "end": 39690,
+    "bytes": "c608",
+    "file": "PrevScanline.asm",
+    "instruction": "ADD A,$08"
+  },
+  {
+    "kind": "instruction",
+    "address": 39690,
+    "end": 39691,
+    "bytes": "67",
+    "file": "PrevScanline.asm",
+    "instruction": "LD H,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39691,
+    "end": 39692,
+    "bytes": "c9",
+    "file": "PrevScanline.asm",
+    "instruction": "RET"
+  },
+  {
+    "kind": "instruction",
+    "address": 39692,
+    "end": 39696,
+    "bytes": "dd2100a0",
+    "file": "UnpackText.asm",
+    "instruction": "LD IX,$A000"
+  },
+  {
+    "kind": "instruction",
+    "address": 39696,
+    "end": 39699,
+    "bytes": "1180ff",
+    "file": "UnpackText.asm",
+    "instruction": "LD DE,$FF80"
+  },
+  {
+    "kind": "instruction",
+    "address": 39699,
+    "end": 39700,
+    "bytes": "a7",
+    "file": "UnpackText.asm",
+    "instruction": "AND A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39700,
+    "end": 39702,
+    "bytes": "ed52",
+    "file": "UnpackText.asm",
+    "instruction": "SBC HL,DE"
+  },
+  {
+    "kind": "instruction",
+    "address": 39702,
+    "end": 39703,
+    "bytes": "d0",
+    "file": "UnpackText.asm",
+    "instruction": "RET NC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39703,
+    "end": 39704,
+    "bytes": "19",
+    "file": "UnpackText.asm",
+    "instruction": "ADD HL,DE"
+  },
+  {
+    "kind": "instruction",
+    "address": 39704,
+    "end": 39705,
+    "bytes": "7e",
+    "file": "UnpackText.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39705,
+    "end": 39707,
+    "bytes": "cb7f",
+    "file": "UnpackText.asm",
+    "instruction": "BIT 7,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39707,
+    "end": 39709,
+    "bytes": "2008",
+    "file": "UnpackText.asm",
+    "instruction": "JR NZ,$9B25"
+  },
+  {
+    "kind": "instruction",
+    "address": 39709,
+    "end": 39710,
+    "bytes": "23",
+    "file": "UnpackText.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39710,
+    "end": 39713,
+    "bytes": "dd7700",
+    "file": "UnpackText.asm",
+    "instruction": "LD (IX+$00),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39713,
+    "end": 39715,
+    "bytes": "dd23",
+    "file": "UnpackText.asm",
+    "instruction": "INC IX"
+  },
+  {
+    "kind": "instruction",
+    "address": 39715,
+    "end": 39717,
+    "bytes": "18ee",
+    "file": "UnpackText.asm",
+    "instruction": "JR $9B13"
+  },
+  {
+    "kind": "instruction",
+    "address": 39717,
+    "end": 39719,
+    "bytes": "fec0",
+    "file": "UnpackText.asm",
+    "instruction": "CP $C0"
+  },
+  {
+    "kind": "instruction",
+    "address": 39719,
+    "end": 39721,
+    "bytes": "3810",
+    "file": "UnpackText.asm",
+    "instruction": "JR C,$9B39"
+  },
+  {
+    "kind": "instruction",
+    "address": 39721,
+    "end": 39722,
+    "bytes": "87",
+    "file": "UnpackText.asm",
+    "instruction": "ADD A,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39722,
+    "end": 39723,
+    "bytes": "e5",
+    "file": "UnpackText.asm",
+    "instruction": "PUSH HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39723,
+    "end": 39724,
+    "bytes": "6f",
+    "file": "UnpackText.asm",
+    "instruction": "LD L,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39724,
+    "end": 39726,
+    "bytes": "26ff",
+    "file": "UnpackText.asm",
+    "instruction": "LD H,$FF"
+  },
+  {
+    "kind": "instruction",
+    "address": 39726,
+    "end": 39727,
+    "bytes": "7e",
+    "file": "UnpackText.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39727,
+    "end": 39728,
+    "bytes": "23",
+    "file": "UnpackText.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39728,
+    "end": 39731,
+    "bytes": "dd7700",
+    "file": "UnpackText.asm",
+    "instruction": "LD (IX+$00),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39731,
+    "end": 39733,
+    "bytes": "dd23",
+    "file": "UnpackText.asm",
+    "instruction": "INC IX"
+  },
+  {
+    "kind": "instruction",
+    "address": 39733,
+    "end": 39734,
+    "bytes": "7e",
+    "file": "UnpackText.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39734,
+    "end": 39735,
+    "bytes": "e1",
+    "file": "UnpackText.asm",
+    "instruction": "POP HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39735,
+    "end": 39737,
+    "bytes": "18e4",
+    "file": "UnpackText.asm",
+    "instruction": "JR $9B1D"
+  },
+  {
+    "kind": "instruction",
+    "address": 39737,
+    "end": 39738,
+    "bytes": "23",
+    "file": "UnpackText.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39738,
+    "end": 39739,
+    "bytes": "4e",
+    "file": "UnpackText.asm",
+    "instruction": "LD C,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39739,
+    "end": 39741,
+    "bytes": "dde5",
+    "file": "UnpackText.asm",
+    "instruction": "PUSH IX"
+  },
+  {
+    "kind": "instruction",
+    "address": 39741,
+    "end": 39742,
+    "bytes": "e3",
+    "file": "UnpackText.asm",
+    "instruction": "EX (SP),HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39742,
+    "end": 39743,
+    "bytes": "f5",
+    "file": "UnpackText.asm",
+    "instruction": "PUSH AF"
+  },
+  {
+    "kind": "instruction",
+    "address": 39743,
+    "end": 39745,
+    "bytes": "e607",
+    "file": "UnpackText.asm",
+    "instruction": "AND $07"
+  },
+  {
+    "kind": "instruction",
+    "address": 39745,
+    "end": 39746,
+    "bytes": "47",
+    "file": "UnpackText.asm",
+    "instruction": "LD B,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39746,
+    "end": 39748,
+    "bytes": "ed42",
+    "file": "UnpackText.asm",
+    "instruction": "SBC HL,BC"
+  },
+  {
+    "kind": "instruction",
+    "address": 39748,
+    "end": 39749,
+    "bytes": "f1",
+    "file": "UnpackText.asm",
+    "instruction": "POP AF"
+  },
+  {
+    "kind": "instruction",
+    "address": 39749,
+    "end": 39750,
+    "bytes": "0f",
+    "file": "UnpackText.asm",
+    "instruction": "RRCA"
+  },
+  {
+    "kind": "instruction",
+    "address": 39750,
+    "end": 39751,
+    "bytes": "0f",
+    "file": "UnpackText.asm",
+    "instruction": "RRCA"
+  },
+  {
+    "kind": "instruction",
+    "address": 39751,
+    "end": 39752,
+    "bytes": "0f",
+    "file": "UnpackText.asm",
+    "instruction": "RRCA"
+  },
+  {
+    "kind": "instruction",
+    "address": 39752,
+    "end": 39754,
+    "bytes": "e607",
+    "file": "UnpackText.asm",
+    "instruction": "AND $07"
+  },
+  {
+    "kind": "instruction",
+    "address": 39754,
+    "end": 39756,
+    "bytes": "c603",
+    "file": "UnpackText.asm",
+    "instruction": "ADD A,$03"
+  },
+  {
+    "kind": "instruction",
+    "address": 39756,
+    "end": 39757,
+    "bytes": "47",
+    "file": "UnpackText.asm",
+    "instruction": "LD B,A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39757,
+    "end": 39758,
+    "bytes": "7e",
+    "file": "UnpackText.asm",
+    "instruction": "LD A,(HL)"
+  },
+  {
+    "kind": "instruction",
+    "address": 39758,
+    "end": 39759,
+    "bytes": "23",
+    "file": "UnpackText.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39759,
+    "end": 39762,
+    "bytes": "dd7700",
+    "file": "UnpackText.asm",
+    "instruction": "LD (IX+$00),A"
+  },
+  {
+    "kind": "instruction",
+    "address": 39762,
+    "end": 39764,
+    "bytes": "dd23",
+    "file": "UnpackText.asm",
+    "instruction": "INC IX"
+  },
+  {
+    "kind": "instruction",
+    "address": 39764,
+    "end": 39766,
+    "bytes": "10f7",
+    "file": "UnpackText.asm",
+    "instruction": "DJNZ $9B4D"
+  },
+  {
+    "kind": "instruction",
+    "address": 39766,
+    "end": 39767,
+    "bytes": "e1",
+    "file": "UnpackText.asm",
+    "instruction": "POP HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39767,
+    "end": 39768,
+    "bytes": "23",
+    "file": "UnpackText.asm",
+    "instruction": "INC HL"
+  },
+  {
+    "kind": "instruction",
+    "address": 39768,
+    "end": 39770,
+    "bytes": "18b9",
+    "file": "UnpackText.asm",
+    "instruction": "JR $9B13"
+  }
+]
