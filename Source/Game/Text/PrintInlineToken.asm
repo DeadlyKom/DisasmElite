@@ -6,7 +6,7 @@
 ; In:
 ;   Стек содержит адрес байта токена
 ; Out:
-;   Адрес возврата увеличен на 1, токен обработан D425
+;   Адрес возврата увеличен на 1, токен обработан Game.Text.PrintMainToken.Entry
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
@@ -20,7 +20,7 @@
 Entry:          POP HL
                 LD A, (HL)
                 INC HL
-                PUSH HL
+                PUSH HL                                                         ; далее Game.Text.PrintMainToken.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D425
                 endmodule

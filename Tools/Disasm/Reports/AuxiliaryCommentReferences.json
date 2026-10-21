@@ -1,0 +1,918 @@
+{
+  "scope": "только предложения замены адресных ссылок auxiliary с учётом оверлеев",
+  "status": "completed_auxiliary_source_review_and_build_verification",
+  "applied_files": [
+    {
+      "file": "Source/DiskUtility/Include.inc",
+      "statements_sha256": "100a90268631862839a4939181b864d4adb95d5065aa921b3de4c3aacfc166b2",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Robot.asm",
+      "statements_sha256": "9f3d60dc686e28fb28d2b69681612bd6ba88a9cfde6cf0d1a91ac274abde3fdc",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AddByteOffset.asm",
+      "statements_sha256": "e60dd3e920a932caa59418db263ef43cc2a3ef197e6495723177405242b00317",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AdvanceObjectCursor.asm",
+      "statements_sha256": "442e0acd6f5832e49ec51163c8cdd80ca04ff13013cf9bddb4490e4b9b565ad9",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AimAtNearBody.asm",
+      "statements_sha256": "609c8927c28f8ca39737b54bd8a2fa08e8f770702c368d066dad8b3cfa61439e",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyAccelerationKey.asm",
+      "statements_sha256": "44e6c334b0743925630881db988aa9f46cab1210f8f27680e2b75117d658ba0f",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyDefenceKeys.asm",
+      "statements_sha256": "c85c0f1fb46d81b5eb0864dd2c2266821410416add129bcf7feb3431d2e4ff0e",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyPitchKeys.asm",
+      "statements_sha256": "da1e26059a4d11821ae1f817d38aed48531625afb08b1b4d2418805a6f48bfbc",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyRollKeys.asm",
+      "statements_sha256": "ac47c942a7c8390d815a1c321061defac50e652aca752c74d58a2b929ba605c8",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApproachCelestialBody.asm",
+      "statements_sha256": "6a84462c0855ac1924c925d4640813feeaf65ea1a9e04f96e12c4cb3ed42d0ae",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AttackSelectedTarget.asm",
+      "statements_sha256": "f2bc43540442fca175a3573dc53074271f8dfdd45470ac9fb13f69c9d5c30863",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/BeepAndWait.asm",
+      "statements_sha256": "6cfdb4d9ced46af6fe16db41b97028dd2baa3263e92ac707dc88cc42f7cbe5c3",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/BrakeForDistantTarget.asm",
+      "statements_sha256": "ab1e2c5c0cd0e19f1fac30e6d58fb847d1f73c549dc77aa55ffcc345fdf22543",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CheckAttackTarget.asm",
+      "statements_sha256": "56d61e1815af2c107e04fea5d2b45cc06a9823635740d9167cd4a8e81f7f9cf2",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CheckDemoRestart.asm",
+      "statements_sha256": "662dd176c3dd69741209c67d7b932352f716a61a593acfab9956f3bf58e980cb",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CheckInterruptedHalt.asm",
+      "statements_sha256": "45d389c8142f0a8908248ed1b59b40928d222476beb430de5678c69eedb147d9",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CheckInvasionBand.asm",
+      "statements_sha256": "52c038ed6f97b20d271582a45d4dfec27e4daf4b97368615dec15fc084e1c190",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseCelestialTarget.asm",
+      "statements_sha256": "c146b9c292213773bb842f229d97c5d278d3fef397ecdd17fbdb966d46ed24aa",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseDemoAction.asm",
+      "statements_sha256": "a9c32f06d84118bdc90ffe8785b72d6f7b1c27f8b3ee3aea3a93a38fb3e9a2d5",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseObjectAimPrecision.asm",
+      "statements_sha256": "cff97038d058e8c7e743cb4d68820add949bd857aa17001e3e741dc91e000374",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseRollFromSign.asm",
+      "statements_sha256": "af71ffea2daac4768c1680a813ed3811a9ea29f76d17b580608df8361a7e2157",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ClearMainKeyboardRows.asm",
+      "statements_sha256": "624440f81160ac33aa336b5d2e217578e41eb9243ca84e8708d061fbf043460e",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CollectFloatingCargo.asm",
+      "statements_sha256": "09a05574fab3522cb521b2a26680ea904b28315f7883b407d83c4b920932a93d",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CollectNearbyTarget.asm",
+      "statements_sha256": "c08872ed761e8dfbd0a93a0604eab12d56ffa2b9b3dbefa3d6e0f3364b55cb7c",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CoroutineDispatch.asm",
+      "statements_sha256": "73b3d7536b52f844ee754314c518481965934c362aa25f0310244971727cb967",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CoroutineResumePoint.asm",
+      "statements_sha256": "445197a8b6c438081f8668991313abadd2d52bb6fb0810bac05430214ba44530",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CoroutineStackPointers.asm",
+      "statements_sha256": "9a57095239467a5cd1bbcc6e29142c6e6c49b302bfb036f7976d39dc0211a761",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CountCollectableMetadata.asm",
+      "statements_sha256": "f84d7f94a4388d1252af7b5bdbe45bad5abc9e3909aa8e005d19885c6053eef5",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/DemoMarkCellShapes.asm",
+      "statements_sha256": "6b259b2a10c5cda6678a5f3d734813c71dca0a1f6505514cbcef2c5436442496",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/DemoMarkShapeMasks.asm",
+      "statements_sha256": "4cba306c13b30411e50561f0add4b7f920449780acd8e528c2d4b150c5401968",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/DemoMarkTail.asm",
+      "statements_sha256": "6d1fa7253996f3cfefeba5beb8724b7163c80d3d6630a03e15be39ff79521bb7",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/DrawDemoFlightView.asm",
+      "statements_sha256": "3d4a3262369746e4e171bf6d1bc032411cd12218327cd448c61cb7682912e158",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/DrawDemoMarkXor.asm",
+      "statements_sha256": "5ea2aafd1c2f62ac7b6d020433ad4b5a4ca21fee9b75eabc2efa6facb8c22a02",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/FindAttackTarget.asm",
+      "statements_sha256": "82580682a17ec46e60a023a5fb0d4e95c1a0884a03011c1c224f216db1170fdd",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/FollowStation.asm",
+      "statements_sha256": "3d155a6f67268802d92bde4d65e90fc01dbdb2401ed8d4fc82503a174ea7999e",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/Include.inc",
+      "statements_sha256": "dd7e258e09471fbff6f82231cc005ff83726f61e4a43ff8d688b6e249d7dd150",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/InitializeDemoScenario.asm",
+      "statements_sha256": "ed89a7b90f88ef440ff427c492bc85dc4bb8993ab827f39a62f13638ff3d905d",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ManualKeyboardMode.asm",
+      "statements_sha256": "a8a1accfc7715bc014ef53de012a9e2c489f5d1362c8ca447619fd3e2d17f9c9",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ObjectCursor.asm",
+      "statements_sha256": "55baba599c278bafe0a8779158a8696d86e8193ce3949ab43a3a7cbdc1d06d5b",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ObjectMetadataCache.asm",
+      "statements_sha256": "2969c6e6665068bd1a38085a7eb4c3109839d30be820837ac418a73e50a95d67",
+      "duplicate_comments_removed": 1
+    },
+    {
+      "file": "Source/DiskUtility/Demo/PauseWithDemoMark.asm",
+      "statements_sha256": "7d064e7143ea4cce4b74a111056e24846570674d247b4a2c44406f7b3a81fd33",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/PrintFormattingToken.asm",
+      "statements_sha256": "9708e875940c88cfaf8a9d81f13d80158eb824d3890f4a1d390d6785cfa9f0d5",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ReadObjectMetadata.asm",
+      "statements_sha256": "51f0fabbb660dd6f2ba6d55f9da477635dadce4e861191a970c352992c88b7e7",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ReadPhysicalKeyboard.asm",
+      "statements_sha256": "3db81c4712208f7a8500ea6c82314826b8cb7d5ddc81f130fda8428f81af9b81",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/RejectCargoTarget.asm",
+      "statements_sha256": "627a784bf0ebd7322eedcff692835e347145ca74c7b71a7d8617c65fb5060848",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/RestoreFlightState.asm",
+      "statements_sha256": "58af06b5dba65066fc1ae576d92490d30a6b254d23a980b8c8936fbe0dbe049c",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ResumeDemoBeforeKeyboard.asm",
+      "statements_sha256": "83194cb4d3174717fc9ff9e82d8d4c5098c6ede4fdc98b2d1e8f073cf2a58d0c",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ResumeDemoCoroutine.asm",
+      "statements_sha256": "5f1e64bdc1fecfc3743d41608a910103320e00fbd8b564a819bc43ce9016c8c2",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ReverseCourse.asm",
+      "statements_sha256": "51128f472ba3aad08de729a92cf7f809864a0e662164633dee775f0213f233d5",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/StartDemoCoroutine.asm",
+      "statements_sha256": "721c9077904303c21b358f71c59b542738a52b9fd2945593d3fd3d01c7ade4a0",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "statements_sha256": "df0cfd2ef79c31da04814b4a3bb627808add303af90ab088728ea08201a3179c",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/YieldToGame.asm",
+      "statements_sha256": "ef3fdf84d8afb197b283d669a79601d38929d9398f25a77babe906c9dc294609",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Demo/YieldWithSteeringBrake.asm",
+      "statements_sha256": "30b4da63f8afbff8d661df7647d22fda64b7d0a897560354191840a9da633ebb",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/DemoSetup/EnterDemoInstaller.asm",
+      "statements_sha256": "b2585f0b73b5ff5f54f09e62560c9b0560812255ae6af7085b9b54b13adb4419",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/DemoSetup/Include.inc",
+      "statements_sha256": "e18aef4df6fcafda7ddce4b3481281e0ab01c7844659122677a84d4ac41b80d5",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+      "statements_sha256": "c1a4e3b1d40147163d029a1266e42f22ad99aa2bc6568407cf539b1d81601ba2",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/DemoSetup/PreservedMenuExit.asm",
+      "statements_sha256": "44692f0068c632f7253b041de5817ba71bb965367cce7521c2f3b17898fb32c3",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/DemoSetup/RestartPatch.asm",
+      "statements_sha256": "7809253122652beee0a065eea276e2f5c964095aba439e4bcf2260c261bc226e",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/DemoSetup/VirtualInputPatches.asm",
+      "statements_sha256": "d83c6740d37c5d2794423688d8211839e97080f32d6366cbcda8d3f67ba1f7a3",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/AllocateSaveRecord.asm",
+      "statements_sha256": "93eb4107c23752904b006b584ab072ea929d78a7ee138e4fbe38715c1d211635",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/BuildCommanderCatalog.asm",
+      "statements_sha256": "9b3fd6bd701503cd5c1718aa25c06c47db5d502c6a73f705809107f1c10d4165",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/BuildTrackStream.asm",
+      "statements_sha256": "69515f566a9c44a0d9721ed658ba34c73a7c664ffe2c2899108a71b5e435f41e",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/CheckMenuAbort.asm",
+      "statements_sha256": "d23ba4c51beaceb07cb4f853a3a4f8787f3f4c8a895bd870a8b91accc70acc5d",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ConfirmAndPrepareCopy.asm",
+      "statements_sha256": "b5cb686e490b5ab9a9f4cb090fc1a1c209e9c3f8a7dec7b9d5d36b1431d83464",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/CopyCommanderName.asm",
+      "statements_sha256": "b278ed53fa5f714ff56c64316e95d92e6b2256785e12b69f57ba403b16643920",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/CopyServiceMessages.asm",
+      "statements_sha256": "1f47277909d2ec55082c99353c59eaefa892d12977e3963c3a3cf63c2cbf0276",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/CopyServicePointers.asm",
+      "statements_sha256": "fbde3676f989211df18540d994ce9877aef85971b91e7f9182770f5ed80437d4",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/DispatchMenuCommand.asm",
+      "statements_sha256": "00bbc041e52103c01461284309e9f2508ed7fc5d5ebc3cd51f2dcb9bb5c93ba9",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/DrawCommanderNames.asm",
+      "statements_sha256": "7b52c70e002d3af5e2df7a66d73d713498ea5fb4c77d8c75172b4e3fb5981b18",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/EditSaveName.asm",
+      "statements_sha256": "78eb10612e434d9a9763b4bf22b7de97a380bfb08d90943447e6e4b2ac6223fb",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/EmitRepeatedByte.asm",
+      "statements_sha256": "ad2dc89e8e67ecefe9573b5d8cf772ce5e1053a31e813a8d44dcd508380494ae",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/EmitSectorPattern.asm",
+      "statements_sha256": "a5c5d2caa91c096d2d6bd8e5ce359c77701327f684c8e242503c9329921d02f6",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/EnterDiskMenu.asm",
+      "statements_sha256": "91a7e72aad5b7c5a182f24bdb467a7a8e475d43a821be40e51524644b7dda286",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/FormatDecimalNumber.asm",
+      "statements_sha256": "5ade24853922aa89efbae341e902b3f890fa27810928b8706cd8322cb67654c4",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/FormatTrack.asm",
+      "statements_sha256": "31e92954c2da29687e16055aea6c2c2c38c2863efef5b708f90144b11d02f5b1",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/GetSaveRecord.asm",
+      "statements_sha256": "ca8c802afcd6b004b1d278f64282b759ab877620c572f48bae86fe515a9a80fe",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/GetSelectedSave.asm",
+      "statements_sha256": "1c1055e20a9839aed2964b9fd3f90457abc89b34fffac1a8b80cb838a1a07699",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/HighlightSelectedSave.asm",
+      "statements_sha256": "403933012deb73f77a54e0d0c7b5dc12867de484ddbd1d07bccec0336470d974",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/Include.inc",
+      "statements_sha256": "40fc0f139abb893396f80e38dcf0855a99fe61907491c3ba02c59e46a069a73f",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/LoadCommander.asm",
+      "statements_sha256": "82d032d16af2f044d3ddd610fa982f08d3149ff197041fec3f5374ddee384ab4",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/MeasureTrackMarker.asm",
+      "statements_sha256": "32a89cc4d47fd25bac7f21bb30adc2ea7c025ef7a392628d84ec01d741bf7bd9",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/MenuMessages.asm",
+      "statements_sha256": "b1b99a96aaa7dadc55cae5846c84613fd2b8790fdc5cc657ee196fcd014e35ea",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/PreservedMenuTail.asm",
+      "statements_sha256": "58fdb3d55f45002d8c2f575ddbd826cc896f29151dd5aed9843a1e8ab7b3a083",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/PreservedSectorReader.asm",
+      "statements_sha256": "2312a6249e0114df4882f6059b32b0948f0fd1f90810f4a83fbac979adbd3fa9",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/PrintMenuCharacter.asm",
+      "statements_sha256": "f04a6c47a3b09be3afd2a0dbe6f159f388c5bcb3098e85213ec8bb4dba3d7c46",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ReadSector.asm",
+      "statements_sha256": "7789b00b97f69e0c465a6b25447c61b38ad8b39d35f991e1bc9fa194ba00d4bd",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ReadWorkBuffer.asm",
+      "statements_sha256": "66c7f0a4adbcd27a7256535537c69a688a17998b85578ff5b311ed0e10b9fb60",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/SaveNamedCommander.asm",
+      "statements_sha256": "74f09323d3d4455e004e11f2d3f8d5f94868bb1666b9d00c354bbd958b95d3c5",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/SectorFormatPattern.asm",
+      "statements_sha256": "bced8a374dc95d50b129f76c6754ff1cca478d24811e89585ffe4155c82cdecc",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/SelectNextSave.asm",
+      "statements_sha256": "2d7e86ab303d9be1b97adbce7bce5e30277c506c0aa2f382eb8ac791a4a0f108",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/SelectPreviousSave.asm",
+      "statements_sha256": "30de33d38f64681249dd739ecca47ab4f9ba1176aaae9c90c11d0d7fecbd5dce",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/SelectTrackAndSide.asm",
+      "statements_sha256": "0b29b74cde8ba8f8a00ce639eaa79b11714ac30fb5f42205eeee8c7a84c09348",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ShowCopyServiceMenu.asm",
+      "statements_sha256": "920fb8163cfe770acf410c3d5220dd93b37cf702aef309ae37d76a32491a0bae",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ShowDiskFullError.asm",
+      "statements_sha256": "318edc460f4ab0f276c22a36eb5479657f72f5443bed1f2ec564b6f1153f45ab",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/TransferSector.asm",
+      "statements_sha256": "4064d9aca4a74b6b2b059ec6eb52485506e5c3ade120290c5ddbf6d0b30460da",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/TransformProtectionMark.asm",
+      "statements_sha256": "806f074bdb089727c42fea85e2a4927e4db7868d1af51f6d3d42c5e2b6077718",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/UpdateProtectionMark.asm",
+      "statements_sha256": "ff464524c69d2f9d7397a996de7d6049bf8d202777d42c242df08ff5958fac43",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/VerifyProtectionMark.asm",
+      "statements_sha256": "d30957ea7cc8d1cba73712e203aea6a991285cf6c379913912c7cf96aa496f70",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/VerifyProtectionTiming.asm",
+      "statements_sha256": "fbced5a77333c228fb1f5dca1893ded4626e26f2949b4aa31a416209ab9d7d0b",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/WaitMenuKey.asm",
+      "statements_sha256": "663097c3dd81045655b38d3b8c9d6c9c31946c1c4b54cfc03457ee49a9060829",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/WriteSector.asm",
+      "statements_sha256": "d2e3b0f702f1b389c185edd7a9a4c51ece87c7985746ec1cbe4ff3eadc19c8a6",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/DiskUtility/Menu/WriteWorkBuffer.asm",
+      "statements_sha256": "bf2d786394dbe4e1500cb7038c0130b2a68aabab2ef368a3df9c497d68657fc9",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Manual/AdvanceText.asm",
+      "statements_sha256": "30da78e6e5fd8260d55352324bb496fb34a9220c26290e50487c0fc5743f7674",
+      "duplicate_comments_removed": 3
+    },
+    {
+      "file": "Source/Manual/BasicTail.asm",
+      "statements_sha256": "4bd56f61267412e8b6665caddf901d20872412c683fde03c89d17553d5695181",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Manual/Bootstrap.asm",
+      "statements_sha256": "9048ae8c9f7a3a747beb6cdc10d58bc28fc771322acb81e435d6e6e3dd67688c",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Manual/CheckBoundary.asm",
+      "statements_sha256": "5f02338cf491c76193880ed977155fc882f4e2cc2bf26aedc0c9dd42c46a5f62",
+      "duplicate_comments_removed": 2
+    },
+    {
+      "file": "Source/Manual/ClearAndTitle.asm",
+      "statements_sha256": "3191537f1e27955c69554e5f72ace735c65393b7b8107016db54bde9b1ca8c8f",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Manual/Include.inc",
+      "statements_sha256": "9fd6a2a5bbf513616fce0ace907cf1b6c8c242671fcfa8097d5d67d1a6d9793f",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Manual/Initialize.asm",
+      "statements_sha256": "42ef9d0bea2b3fd79a6177aafcf5687bc9b5fb8672c5445539f4bc15ca056fbc",
+      "duplicate_comments_removed": 1
+    },
+    {
+      "file": "Source/Manual/Menu.asm",
+      "statements_sha256": "36ef3121fea813fabc9d0b577b6d6a9922b6c91bd6a455d654bb67806b86cf94",
+      "duplicate_comments_removed": 5
+    },
+    {
+      "file": "Source/Manual/ReadControls.asm",
+      "statements_sha256": "6c45786018b7def0d0adeddb54266a4a9942a9c3828f95c3e78ace44f2344bb4",
+      "duplicate_comments_removed": 10
+    },
+    {
+      "file": "Source/Manual/RenderEdge.asm",
+      "statements_sha256": "3fe2ecbbfd0bdc0c3c8859df6c051846bed9e77364612f3bfef59671d906706c",
+      "duplicate_comments_removed": 8
+    },
+    {
+      "file": "Source/Manual/RenderGlyph.asm",
+      "statements_sha256": "8840a2593eb98af42eec145b94a25399675514c6176a98fdf6918ae0f2482b6c",
+      "duplicate_comments_removed": 1
+    },
+    {
+      "file": "Source/Manual/ScrollFrame.asm",
+      "statements_sha256": "fdd95a87575c3caef1096c60028e81a9165e9b579a82c5d386e63bcc0d02c5fd",
+      "duplicate_comments_removed": 5
+    },
+    {
+      "file": "Source/Manual/UnpackText.asm",
+      "statements_sha256": "18ad973b6cc7f780e1950fc133b78f6af7bfd8da4c750298e3bb3b9a90c860e6",
+      "duplicate_comments_removed": 5
+    },
+    {
+      "file": "Source/Manual/UpdateKeys.asm",
+      "statements_sha256": "472a64c0a8b2f9f8116d702aee880682102eb9802fe75e0bac804c71e30c7719",
+      "duplicate_comments_removed": 2
+    },
+    {
+      "file": "Source/Loader/Bootstrap.asm",
+      "statements_sha256": "e1980d0934991bd64bbb7b23996e3fbd9909ca2a98260dda0595ea38a35a4737",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Loader/Constants.inc",
+      "statements_sha256": "0fc869a6ff2ddfd224b8ff4135af38f353d5404ca5c413a7a453b7f6ba9bf974",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Loader/ExchangeState.asm",
+      "statements_sha256": "1f8cc2c900f994c237859de770951061a14fd303e21517ee02c6f6a6195ad4f6",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Loader/Load.asm",
+      "statements_sha256": "64b875989fc8a463e19c01cba982babe02bfe291af5f13973e7ff03a6ebb15fe",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Loader/MutateMemory.asm",
+      "statements_sha256": "697bd2043c25e550c500d30deba5066cad38d7f8e98b7111f0f3d86626659a89",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Loader/Restart.asm",
+      "statements_sha256": "654c30177898035a9df9c5e62d692c72c40eb572b171113b1b7622cc22d19dba",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Loader/SaveState.asm",
+      "statements_sha256": "f7947fd73d4cb646ec4462cd20526b6ec2b07493fed7b7896a6cacfd64c2ae19",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Commanders/Deadly.asm",
+      "statements_sha256": "68351657ec11c33a7091a90bc1c63639aeb0cad2fc8ab2cb5478700ef5d32d0c",
+      "duplicate_comments_removed": 0
+    },
+    {
+      "file": "Source/Commanders/QS1.asm",
+      "statements_sha256": "348a31a966d51f78b0ca32130996b7ffc34e31639dabc89499764568a7e00d32",
+      "duplicate_comments_removed": 0
+    }
+  ],
+  "fallthrough_boundaries": [
+    {
+      "file": "Source/DiskUtility/Menu/WriteWorkBuffer.asm",
+      "next_file": "Source/DiskUtility/Menu/WriteSector.asm",
+      "target": "WriteSector"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ReadWorkBuffer.asm",
+      "next_file": "Source/DiskUtility/Menu/ReadSector.asm",
+      "target": "ReadSector"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ReadSector.asm",
+      "next_file": "Source/DiskUtility/Menu/TransferSector.asm",
+      "target": "SectorTransfer"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/BuildCommanderCatalog.asm",
+      "next_file": "Source/DiskUtility/Menu/DispatchMenuCommand.asm",
+      "target": "MenuInput"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/SelectNextSave.asm",
+      "next_file": "Source/DiskUtility/Menu/DrawCommanderNames.asm",
+      "target": "DrawSaveNames"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/DrawCommanderNames.asm",
+      "next_file": "Source/DiskUtility/Menu/PrintMenuCharacter.asm",
+      "target": "PrintMenuChar"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/GetSelectedSave.asm",
+      "next_file": "Source/DiskUtility/Menu/GetSaveRecord.asm",
+      "target": "GetSaveRecord"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/CopyCommanderName.asm",
+      "next_file": "Source/DiskUtility/Menu/SaveNamedCommander.asm",
+      "target": "SaveCommander"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/BuildTrackStream.asm",
+      "next_file": "Source/DiskUtility/Menu/EmitRepeatedByte.asm",
+      "target": "EmitFillByte"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/FormatDecimalNumber.asm",
+      "next_file": "Source/DiskUtility/Menu/FormatDecimalDigit.asm",
+      "target": "DecimalDigit"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/YieldWithSteeringBrake.asm",
+      "next_file": "Source/DiskUtility/Demo/YieldToGame.asm",
+      "target": "YieldToGame"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/InitializeDemoScenario.asm",
+      "next_file": "Source/DiskUtility/Demo/ApproachCelestialBody.asm",
+      "target": "ApproachBody"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseCelestialTarget.asm",
+      "next_file": "Source/DiskUtility/Demo/AimAtNearBody.asm",
+      "target": "AimNearBody"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseObjectAimPrecision.asm",
+      "next_file": "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+      "target": "SteerToTarget"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/BrakeForDistantTarget.asm",
+      "next_file": "Source/DiskUtility/Demo/ApplyBrakeKey.asm",
+      "target": "Brake"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/PauseWithDemoMark.asm",
+      "next_file": "Source/DiskUtility/Demo/DrawDemoMarkXor.asm",
+      "target": "XorDemoMark"
+    },
+    {
+      "file": "Source/Manual/Initialize.asm",
+      "next_file": "Source/Manual/Menu.asm",
+      "target": "ShowMenu"
+    },
+    {
+      "file": "Source/Manual/ClearAndTitle.asm",
+      "next_file": "Source/Manual/PrintString.asm",
+      "target": "PrintString"
+    }
+  ],
+  "bit_operand_equivalence": [
+    {
+      "file": "Source/DiskUtility/Demo/CheckAttackTarget.asm",
+      "old": "BIT 7, A",
+      "new": "BIT FX_ACTIVE_BIT, A",
+      "value": 7,
+      "count": 1,
+      "evidence": "ReadSlotFlags copies FEffectRecord10.TypeFlags at stride FEffectRecord10; Includes/Const/Objects.inc"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CheckAttackTarget.asm",
+      "old": "BIT 6, A",
+      "new": "BIT FX_GROUP_BIT, A",
+      "value": 6,
+      "count": 1,
+      "evidence": "ReadSlotFlags copies FEffectRecord10.TypeFlags at stride FEffectRecord10; Includes/Const/Objects.inc"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/RejectCargoTarget.asm",
+      "old": "BIT 7, A",
+      "new": "BIT FX_ACTIVE_BIT, A",
+      "value": 7,
+      "count": 1,
+      "evidence": "ReadSlotFlags copies FEffectRecord10.TypeFlags at stride FEffectRecord10; Includes/Const/Objects.inc"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/RejectCargoTarget.asm",
+      "old": "BIT 6, A",
+      "new": "BIT FX_GROUP_BIT, A",
+      "value": 6,
+      "count": 1,
+      "evidence": "ReadSlotFlags copies FEffectRecord10.TypeFlags at stride FEffectRecord10; Includes/Const/Objects.inc"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CountHostileTargets.asm",
+      "old": "BIT 6, A",
+      "new": "BIT FX_GROUP_BIT, A",
+      "value": 6,
+      "count": 1,
+      "evidence": "ReadSlotFlags copies FEffectRecord10.TypeFlags at stride FEffectRecord10; Includes/Const/Objects.inc"
+    }
+  ],
+  "followup_comment_files": [
+    "Source/DiskUtility/Demo/AdvanceObjectCursor.asm",
+    "Source/DiskUtility/Demo/AimAtNearBody.asm",
+    "Source/DiskUtility/Demo/ApplyAccelerationKey.asm",
+    "Source/DiskUtility/Demo/ApplyBrakeKey.asm",
+    "Source/DiskUtility/Demo/BrakeForDistantTarget.asm",
+    "Source/DiskUtility/Demo/CheckAttackTarget.asm",
+    "Source/DiskUtility/Demo/ChooseObjectAimPrecision.asm",
+    "Source/DiskUtility/Demo/ChooseRollFromSign.asm",
+    "Source/DiskUtility/Demo/ClearMainKeyboardRows.asm",
+    "Source/DiskUtility/Demo/CountHostileTargets.asm",
+    "Source/DiskUtility/Demo/CountPlayerSeekingMissiles.asm",
+    "Source/DiskUtility/Demo/DemoMarkCellShapes.asm",
+    "Source/DiskUtility/Demo/Include.inc",
+    "Source/DiskUtility/Demo/ObjectCursor.asm",
+    "Source/DiskUtility/Demo/ObjectMetadataCache.asm",
+    "Source/DiskUtility/Demo/PreservedSteeringEntry.asm",
+    "Source/DiskUtility/Demo/ReadObjectMetadata.asm",
+    "Source/DiskUtility/Demo/ReadPhysicalKeyboard.asm",
+    "Source/DiskUtility/Demo/RejectCargoTarget.asm",
+    "Source/DiskUtility/Demo/ResumeDemoCoroutine.asm",
+    "Source/DiskUtility/Demo/SteerTowardTarget.asm",
+    "Source/DiskUtility/Demo/YieldWithSteeringBrake.asm",
+    "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
+    "Source/DiskUtility/DemoSetup/PreservedMenuExit.asm",
+    "Source/DiskUtility/DemoSetup/RestartPatch.asm",
+    "Source/DiskUtility/DemoSetup/VirtualInputPatches.asm",
+    "Source/DiskUtility/Menu/AllocateSaveRecord.asm",
+    "Source/DiskUtility/Menu/BuildCommanderCatalog.asm",
+    "Source/DiskUtility/Menu/ClearWorkBuffer.asm",
+    "Source/DiskUtility/Menu/ConfirmAndPrepareCopy.asm",
+    "Source/DiskUtility/Menu/Constants.inc",
+    "Source/DiskUtility/Menu/CopyCommanderName.asm",
+    "Source/DiskUtility/Menu/CopyServicePointers.asm",
+    "Source/DiskUtility/Menu/DispatchMenuCommand.asm",
+    "Source/DiskUtility/Menu/EditSaveName.asm",
+    "Source/DiskUtility/Menu/EnterDiskMenu.asm",
+    "Source/DiskUtility/Menu/FormatTrack.asm",
+    "Source/DiskUtility/Menu/HighlightSelectedSave.asm",
+    "Source/DiskUtility/Menu/Include.inc",
+    "Source/DiskUtility/Menu/LoadCommander.asm",
+    "Source/DiskUtility/Menu/PreservedSectorReader.asm",
+    "Source/DiskUtility/Menu/SaveNamedCommander.asm",
+    "Source/DiskUtility/Menu/SelectNextSave.asm",
+    "Source/DiskUtility/Menu/SelectPreviousSave.asm",
+    "Source/DiskUtility/Menu/SelectTrackAndSide.asm",
+    "Source/DiskUtility/Menu/ShowCopyServiceMenu.asm",
+    "Source/DiskUtility/Menu/TransferSector.asm",
+    "Source/DiskUtility/Menu/TransformProtectionMark.asm",
+    "Source/DiskUtility/Menu/UpdateProtectionMark.asm",
+    "Source/DiskUtility/Menu/VerifyProtectionMark.asm",
+    "Source/DiskUtility/Menu/VerifyProtectionTiming.asm",
+    "Source/DiskUtility/Menu/WriteFdcStream.asm",
+    "Source/Loader/Bootstrap.asm",
+    "Source/Loader/ExchangeState.asm",
+    "Source/Loader/Include.inc",
+    "Source/Loader/Load.asm",
+    "Source/Loader/MutateMemory.asm",
+    "Source/Loader/SaveState.asm",
+    "Source/Manual/AdvanceText.asm",
+    "Source/Manual/Bootstrap.asm",
+    "Source/Manual/CheckBoundary.asm",
+    "Source/Manual/ClearAndTitle.asm",
+    "Source/Manual/Include.inc",
+    "Source/Manual/Initialize.asm",
+    "Source/Manual/Interrupt.asm",
+    "Source/Manual/LegacyLimit.asm",
+    "Source/Manual/LoadGame.asm",
+    "Source/Manual/Menu.asm",
+    "Source/Manual/NextScanline.asm",
+    "Source/Manual/PrevScanline.asm",
+    "Source/Manual/PrintString.asm",
+    "Source/Manual/ReadControls.asm",
+    "Source/Manual/RenderEdge.asm",
+    "Source/Manual/RenderGlyph.asm",
+    "Source/Manual/ResumePixel.asm",
+    "Source/Manual/ScrollFrame.asm",
+    "Source/Manual/ShowSection.asm",
+    "Source/Manual/UndoDirection.asm",
+    "Source/Manual/UnpackText.asm",
+    "Source/Manual/UpdateKeys.asm"
+  ],
+  "corrected_semantics": [
+    {
+      "file": "Source/DiskUtility/Demo/ChooseObjectAimPrecision.asm",
+      "detail": "RandomThrottle is a separate entry reached from AimNearBody; R bit 0 selects initial acceleration or CheckRearAim"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ReverseCourse.asm",
+      "detail": "station existence is checked by FSpaceObject.Energy, not object type"
+    },
+    {
+      "file": "Source/DiskUtility/DemoSetup/RestartPatch.asm",
+      "detail": "six bytes are copied into OverlayTrack, not into the old C87D..C885 annotation"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/EnterDiskMenu.asm",
+      "detail": "caller is LoadDiskMenuOverlay; D94A identifies a CALL, not its return address"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/VerifyProtectionTiming.asm",
+      "detail": "table starts at DiskBuffer.Blank + #0061; no invented TimingWords alias"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ObjectMetadataCache.asm",
+      "detail": "TypeFlags bit 1 remains a numeric group bit, not an independent flag"
+    }
+  ],
+  "remaining_scope_limits": [
+    {
+      "file": "Source/DiskUtility/Menu/VerifyProtectionTiming.asm",
+      "detail": "Direct invoking path was not found in the checked code; the routine itself is described"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/UpdateProtectionMark.asm",
+      "detail": "Direct invoking path was not found in the checked code; the routine itself is described"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ConfirmAndPrepareCopy.asm",
+      "detail": "Transformed 768-byte destination CopyEntry is not confirmed as a coherent executable in this TRD; existing source documents actual transform, source bytes and return target"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/ShowCopyServiceMenu.asm",
+      "detail": "External caller of CopyMenu is not identified in this TRD"
+    }
+  ],
+  "retained_numeric_annotations": "Original address ranges, machine bytes, ROM and I/O values, transfer lengths, masks, arithmetic examples and physical image-layout ranges are retained where they describe the original representation rather than an unnamed code or state reference.",
+  "build_validation": "Parent verified the final assembly, all seven logical files and the entire TRD byte for byte; see final_verification.",
+  "validation": {
+    "source_files_audited": 160,
+    "changed_source_files": 142,
+    "initial_operator_hashes_verified": 125,
+    "bit_equivalent_substitutions": 5,
+    "fallthrough_edges_checked": 18,
+    "other_comment_edits": "Each write independently compared the complete non-comment operator sequence before and after, excluding only the five documented BIT substitutions.",
+    "unresolved_qualified_references": [],
+    "comment_alignment_errors": [],
+    "missing_blank_after_ret_jp_jr": [],
+    "operand_comma_spacing_errors": [],
+    "broken_document_links": [],
+    "git_diff_check": "passed",
+    "assembly_run_by_auxiliary_agent": false
+  },
+  "commander_instance_notes": "Mission3 in QS1, DEADLY and ROBOT describes mission 3 stage and the service state of the war, as confirmed by the game mission audit.",
+  "final_verification": {
+    "status": "passed",
+    "image_byte_identical": true,
+    "all_seven_files_identical": true,
+    "build_report": "Tools/Disasm/Reports/BuildVerification.json",
+    "typed_fields_report": "Tools/Disasm/Reports/TypedDataVerification.json",
+    "unchanged_existing_symbols": 5518,
+    "checked_at_utc": "2026-10-21T05:54:53.0569744Z"
+  }
+}

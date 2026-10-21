@@ -10,10 +10,10 @@
 ;   HL, DE, BC, AF
 ; Note:
 ;   номера 9 и 15, номера меньше 7 и номера от 18 возвращаются без изменения
-;   для остальных #8E64 проверяет оценки координат солнца и планеты, сброшенный перенос выбирает тип 6
-;   проверки #D67A и #EC40 ограничивают появление особых кораблей текущей системой
+;   для остальных Game.Circles.CheckBodiesAndRestoreViewport.Entry проверяет оценки координат солнца и планеты, сброшенный перенос выбирает тип 6
+;   проверки Game.Text.CheckMissionRegion.Entry и Game.Menus.CheckMissionRegionBand.Entry ограничивают появление особых кораблей текущей системой
 ;   INC A после первого вызова одновременно служит встроенным порогом #3C
-;   ветвь #801A заменяет тип на 15, остальные ветви сохраняют исходный B
+;   ветвь Game.Screen.SelectTrafficType.ChooseSpecial заменяет тип на 15, остальные ветви сохраняют исходный B
 ; -----------------------------------------
                 ; проверка исходного размещения
                 ASSERT $ == #7FF0
@@ -38,11 +38,14 @@ Entry:          LD B, A
                 LD B, #06
                 RET
 
+                ; миссия 7 INVASION, область вторжения и полоса сопротивления подменяют тип встречного корабля
+                ; описание в Docs/Manual.md, раздел mission-7-invasion
 CheckSpecial:   PUSH BC
                 ; проверка положения системы и вероятности появления особого корабля
                 CALL Game.Text.CheckMissionRegion.Entry
                 INC A
                 JR NC, KeepType                                                 ; переход, если система не прошла проверку области с порогом #3C
+
 InvasionCall    EQU $ + 1                                                       ; адрес проверки особой области, изменяемый установщиком
                 CALL Game.Menus.CheckMissionRegionBand.Entry
                 JR NC, ChooseSpecial                                            ; переход, если система находится вне специальной полосы
@@ -58,6 +61,7 @@ ChooseSpecial:  POP BC
 
 KeepType:       POP BC
                 RET
+
                 ASSERT $ == #8020
                 endmodule
                 endmodule

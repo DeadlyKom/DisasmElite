@@ -14,12 +14,12 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-; При активном ECM тип ракеты проверяется расширением #7D3E, у поражаемой ракеты ставится IX+20.4.
-; Код цели преобразуется в слот как #6021+(9-код)*39, для допустимых кодов 1..8.
+; при активном ECM тип ракеты проверяет Game.Universe.ApplyEcmToStandardMissile.Entry, поражаемой ракете устанавливается OBJ_DESTROY_BIT в FSpaceObject.Flags
+; код цели 1..8 выбирает слот Memory.Station + (8 - код) * FSpaceObject
 ; Разности трёх координат уменьшаются вчетверо, близость проверяется отдельно по каждой оси.
-; Проверка X проходит через F97E, где обрабатываются особые виды целей.
-; При попадании устанавливается IY+20.4, специальная миссионная цель дополнительно получает IY+26.7.
-; При промахе общий хвост A4B2 передаёт вектор автопилоту.
+; Проверка X проходит через Game.Extensions.ResolveSpecialObjectCollision.Entry, где обрабатываются особые виды целей.
+; попадание устанавливает OBJ_DESTROY_BIT в FSpaceObject.Flags цели по IY, специальной миссионной цели также устанавливается OBJ_HIT_BIT в FSpaceObject.Flags2
+; При промахе общий хвост Game.Motion.CheckObjectBoxAndChooseCourse.SteerCourse передаёт вектор автопилоту.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #A4B5
@@ -35,6 +35,8 @@ Entry:          LD A, (CombatState.EcmTimer)
                 RET
 
                 ; поиск слота цели по её обратному номеру
+                ; миссии 3, 7+3, 7+4, попадание в особую цель передаётся общему обработчику ракеты либо десанта
+                ; описание в Docs/Manual.md, раздел mission-3, mission-7-3, mission-7-4
 FindTarget:     LD A, C
                 AND #0F
                 AND A
@@ -96,6 +98,7 @@ ClearMetadata:  LD (HL), A
                 ; переход к автопилоту по рассчитанному вектору
 SteerMissile:   POP IY
                 JP Game.Motion.CheckObjectBoxAndChooseCourse.SteerCourse
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A537
                 endmodule

@@ -141,6 +141,7 @@ SqrtMean:       PUSH DE
                 POP HL
                 ADD HL, BC
                 RET
+
                 ; проверка исходной границы всего блока корня
                 ASSERT $ == #9F41
 

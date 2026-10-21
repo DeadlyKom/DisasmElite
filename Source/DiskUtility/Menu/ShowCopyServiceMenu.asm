@@ -3,8 +3,8 @@ TextByte        EQU 0                                                           
 ; служебное меню счётчиков защитной отметки и допуска копирования
 ; исходный диапазон #CF1E..#CF95
 ; In:
-;   #6075/#6077/#6079, до трёх числовых полей
-;   #607B, дополнительное поле
+;   DiskMark.Counters, три слова со смещениями 0, 2 и 4
+;   DiskMark.Suffix, дополнительное поле
 ;   VerifyMark возвращает проверенный счётчик DE
 ; Out:
 ;   ожидание клавиши либо переход ConfirmCopy при допуске
@@ -12,8 +12,8 @@ TextByte        EQU 0                                                           
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
 ;   VerifyMark читается до ClearWorkArea, его DE сохраняется на стеке.
-;   Три слова от #6075 печатаются до первого нулевого, дополнительное слово получает разделитель '-'.
-;   Младший байт слова #6070 при ненулевом значении дописывается после ':' тремя цифрами.
+;   Три слова от DiskMark.Counters печатаются до первого нулевого, дополнительное слово получает разделитель '-'.
+;   Младший байт слова DiskMark.ByteSuffix при ненулевом значении дописывается после ':' тремя цифрами.
 ;   Остаток B сохраняется PUSH BC и извлекается POP AF в A, все три заполненных поля дают A=0.
 ;   При A=0 меню только ждёт клавишу, при D!=0 допускает ConfirmCopy.
 ;   При D=0 печатает число 256-DE и сообщение перед общим ожиданием.
@@ -22,7 +22,7 @@ TextByte        EQU 0                                                           
 ;   На текущем TRD VerifyMark возвращает DE=0 для всех значений измерителя, поэтому этот путь не допускает ConfirmCopy.
 ; -----------------------------------------
                 ; проверка отметки и подготовка экрана служебного меню
-CopyMenu:       CALL @Game.Disk.BlackAttributesAndOverlayState.Entry            ; очистка 768 атрибутных байтов, на выходе HL=#5B00 и BC=0
+CopyMenu:       CALL @Game.Disk.BlackAttributesAndOverlayState.Entry            ; очистка 768 атрибутных байтов, на выходе HL=(Memory.Attributes + #0300) и BC=0
                 CALL VerifyMark
                 PUSH DE
                 LD BC, #16DF
@@ -52,7 +52,7 @@ FormatCounter:  LD E, (HL)
 ExtraCounter:   LD HL, (DiskMark.Suffix)
                 LD A, H
                 OR L
-                JR Z, ByteCounter                                               ; переход, если дополнительное слово #607B равно нулю и суффикс '-' не нужен
+                JR Z, ByteCounter                                               ; переход, если дополнительное слово DiskMark.Suffix равно нулю и суффикс '-' не нужен
 
                 LD (IX + TextByte), #2D
                 INC IX
@@ -61,7 +61,7 @@ ByteCounter:    LD HL, (DiskMark.ByteSuffix)
                 XOR A
                 LD H, A
                 OR L
-                JR Z, FinishCounters                                            ; переход, если младший байт #6070 нулевой и суффикс ':' не нужен
+                JR Z, FinishCounters                                            ; переход, если младший байт DiskMark.ByteSuffix нулевой и суффикс ':' не нужен
 
                 LD (IX + TextByte), #3A
                 INC IX

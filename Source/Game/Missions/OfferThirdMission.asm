@@ -1,11 +1,11 @@
                 module Missions
                 module OfferThirdMission
 ; -----------------------------------------
-; предложение третьей миссии и обработка ответа, #D123
+; предложение третьей миссии и обработка ответа, Game.Missions.OfferThirdMission.Entry
 ; исходный диапазон #D123..#D14C
 ; In:
 ;   регистровых параметров нет
-;   прерывания включены, обработчик клавиатуры обновляет #FC0D
+;   прерывания включены, обработчик клавиатуры обновляет InputState.LastKey
 ; Out:
 ;   при ответе #59 состояние State.Mission3=3 и State.MissionFlags.7=1
 ;   при любом другом коде State.Mission3=0, остальные флаги сохраняются
@@ -39,14 +39,14 @@ AcceptMission:  LD HL, State.MissionFlags
                 LD DE, #5917                                                    ; D=#59 токен принятой миссии, E=#17 атрибут
 MessageLayout:  LD HL, #0200
 ; -----------------------------------------
-; показ заданного сообщения с последующим ожиданием, #D148
+; показ заданного сообщения с последующим ожиданием, Game.Missions.OfferThirdMission.ShowAndWait
 ; In:
 ;   HL, H содержит строку, L содержит столбец печати
 ;   DE, D содержит токен второй таблицы, E содержит атрибут
 ;   прерывания включены, работает обработчик клавиатуры
 ; Out:
 ;   окно сообщения показано, после новой клавиши очищено
-;   HL, #FC0C
+;   HL, InputState.ChartKeys
 ;   BC, B=0
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
@@ -55,6 +55,7 @@ MessageLayout:  LD HL, #0200
 ; -----------------------------------------
 ShowAndWait:    CALL Game.Missions.SpecialMessageAndScoopReward.Entry
                 JR Game.Missions.ShowBoardingMessage.FinishMessage
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D14D
                 endmodule

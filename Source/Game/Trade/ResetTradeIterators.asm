@@ -6,7 +6,7 @@
 ; In:
 ;   Нет параметров
 ; Out:
-;   E1E0=D06A, E1E2=E1BB, E1DF=0
+;   MarketWork.CargoCursor=State.MarketRandom, MarketWork.PriceCursor=BeforePrices, MarketWork=0
 ; Corrupt:
 ;   HL, AF
 ; Note:
@@ -22,6 +22,7 @@ Entry:          LD HL, State.MarketRandom
                 XOR A
                 LD (MarketWork.Commodity), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E973
                 endmodule

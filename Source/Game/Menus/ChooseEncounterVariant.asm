@@ -4,9 +4,9 @@
 ; Случайная замена типа объекта для группы 13..17
 ; исходный диапазон #EF01..#EF20
 ; In:
-;   Результат 7FF0 содержит B = исходный тип
+;   Результат Game.Screen.SelectTrafficType.Entry содержит B = исходный тип
 ; Out:
-;   HL=6180, B может стать 19..22
+;   HL=Memory.ModelIndex, B может стать 19..22
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
@@ -43,6 +43,7 @@ Entry:          CALL Game.Screen.SelectTrafficType.Entry
 
                 INC B
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EF21
                 endmodule

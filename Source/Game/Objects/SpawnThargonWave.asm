@@ -10,9 +10,9 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-;   число попыток равно (результат #7F64 AND 3)+3, старое имя 3_4 неточно
-;   каждому задаётся IX+25 bit0, Zm=(random AND 15) OR 4, Ym=0
-;   Xm выбирается из бита 3 Zm, направление изменяется через #BA83
+;   число попыток равно (результат Game.Universe.CheckSpecialSystemOrRandom.Entry AND 3)+3, старое имя 3_4 неточно
+;   каждому объекту устанавливается TARGET_ECM_BIT в FSpaceObject.Target, FSpaceObject.Z.Low=(random AND 15) OR 4, FSpaceObject.Y.Low=0
+;   Xm выбирается из бита 3 Zm, направление изменяется через Game.Objects.RandomizeSpawnDirection.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #B96B
@@ -45,6 +45,7 @@ SpawnNext:      CALL Game.Objects.FindFreeObjectSlot.Entry
                 JR NZ, SpawnNext                                                ; переход, если остались неиспользованные попытки создать таргон
 
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B99F
                 endmodule

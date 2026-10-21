@@ -4,9 +4,9 @@
 ; Снимок изменяемых полей транзакции
 ; исходный диапазон #E83C..#E85C
 ; In:
-;   E1E0/E1E4 = текущие слоты груза и остатка
+;   MarketWork.CargoCursor/MarketWork.StockCursor = текущие слоты груза и остатка
 ; Out:
-;   E8A4..E8AA содержат деньги, груз, остаток и свободные тонны
+;   TradeSnapshot содержат деньги, груз, остаток и свободные тонны
 ; Corrupt:
 ;   HL, AF
 ; Note:
@@ -28,6 +28,7 @@ Entry:          LD HL, (State.CashHigh)
                 LD A, (State.FreeCargo)
                 LD (TradeSnapshot.FreeCargo), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E85D
                 endmodule

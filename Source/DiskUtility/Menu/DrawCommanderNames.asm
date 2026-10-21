@@ -2,11 +2,11 @@
 ; вывод до 24 восьмибайтовых имён в трёх столбцах
 ; исходный диапазон #CB96..#CBD2
 ; In:
-;   #DA71, первый индекс страницы
-;   каталог #5000, записи по 16 байтов
+;   SavePageStart, первый индекс страницы
+;   каталог DiskBuffer.Catalog, записи по 16 байтов
 ; Out:
-;   BC сохранён
 ;   HL, адрес следующей записи либо нулевого окончания
+;   BC сохранён
 ; Corrupt:
 ;   HL, DE, AF
 ; Note:
@@ -55,3 +55,4 @@ EmitCharacter:  CALL PrintMenuChar
 
 FinishNames:    POP BC
                 LD A, #08
+                ; JP PrintMenuChar, продолжение в PrintMenuCharacter.asm

@@ -39,6 +39,7 @@ NextSpeedBit:   DJNZ MultiplyBit
                 SLA C
                 RR D
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A098
                 endmodule

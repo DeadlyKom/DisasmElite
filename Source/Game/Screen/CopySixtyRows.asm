@@ -10,11 +10,11 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   этот вход задаёт только счётчик B и продолжается в #7FCF
+;   этот вход задаёт только счётчик B и продолжается в Game.Screen.CopyAlternateRows.Entry
 ; -----------------------------------------
                 ; проверка исходного размещения
                 ASSERT $ == #7FCD
-Entry:          LD B, #3C
+Entry:          LD B, #3C                                                       ; далее Game.Screen.CopyAlternateRows.Entry без команды перехода
                 ASSERT $ == #7FCF
                 endmodule
                 endmodule

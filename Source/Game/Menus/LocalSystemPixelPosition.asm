@@ -4,14 +4,14 @@
 ; Экранная позиция планеты на местной карте
 ; исходный диапазон #ECFD..#ED5F
 ; In:
-;   DEC1/DEC3 = координаты планеты, D097/D099 = центр
+;   GalaxyState.WorkingSeed + FSystemSeed.Y/GalaxyState.WorkingSeed + FSystemSeed.X = координаты планеты, State.SystemSeed + FSystemSeed.Y/State.SystemSeed + FSystemSeed.X = центр
 ; Out:
-;   BC = координаты для ROM22AA, HL = адрес пикселя, A = бит
+;   HL = адрес пикселя, BC = координаты для Rom.PlotAddress, A = бит
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   X=98+4*dx, B=75-2*dy в координатах ROM, ED27 отдельный обработчик звезды использует размер
-;   из DEC5 и сам продвигает семя, ED59..ED5F таблица данных
+;   X=98+4*dx, B=75-2*dy в координатах ROM, Game.Menus.LocalSystemPixelPosition.PlotStar отдельный обработчик звезды использует размер
+;   из поля GalaxyState.WorkingSeed + FSystemSeed.Syllable и сам продвигает семя, после RET сохранена семибайтовая таблица
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #ECFD
@@ -41,7 +41,7 @@ Entry:          LD C, #61
                 POP BC
                 RET
 
-                ; рисование звезды местной карты с временной заменой операции в #FB00
+                ; рисование звезды местной карты с временной заменой операции в Game.Extensions.OrSpriteByte.Entry
 PlotStar:       CALL Entry
                 LD A, H
                 EX AF, AF'
@@ -72,6 +72,7 @@ StarRadius:     ADD A, #02
                 POP HL
                 LD (HL), #B6
                 JP Game.Galaxy.AdvanceSystemSeed.Entry
+
                 ; параметры малых кругов, BuildSmallCircleProfile читает их по радиусу 2..8
 StarProfile     DB #81, #41, #42, #22, #23, #13, #14                            ; семь параметров малого круга, индексы радиуса 2..8
                 ; проверка исходного конца фрагмента

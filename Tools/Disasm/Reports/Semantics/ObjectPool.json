@@ -5,7 +5,7 @@
     "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
     "semantic_name": "SystemBoundaryAndObjects",
     "status": "reviewed",
-    "summary": "продолжение смены системы, восемь объектов и индекс 23 моделей",
+    "summary": "продолжение выхода за дальнюю границу координаты Z, начало по Game.Extensions.OfferUpgradeAndCorrectPosition.CorrectCentre",
     "evidence": [
       "потребители #5FD5, #B936, #B99F, #7ABA и #B89C"
     ],

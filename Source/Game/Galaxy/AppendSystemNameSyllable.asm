@@ -4,14 +4,14 @@
 ; Добавление слога в создаваемое имя
 ; исходный диапазон #E03D..#E062
 ; In:
-;   DEC5 = источник индекса, DF01 = выходной указатель
+;   GalaxyState.WorkingSeed + FSystemSeed.Syllable = источник индекса, GalaxyState.NameCursor = выходной указатель
 ; Out:
 ;   В имя добавлено 0..2 символа, затем один шаг NextRandom
 ; Corrupt:
 ;   HL, DE, AF
 ; Note:
-;   Индекс DEC5 AND31, нулевой индекс пропускает слог, таблица FDB3 по 2 байта, второй символ 3F
-;   означает отсутствие второй буквы, DF01 обновляется
+;   Индекс GalaxyState.WorkingSeed + FSystemSeed.Syllable AND31, нулевой индекс пропускает слог, таблица NameSyllables по 2 байта, второй символ 3F
+;   означает отсутствие второй буквы, GalaxyState.NameCursor обновляется
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E03D
@@ -42,7 +42,7 @@ Entry:          LD HL, (GalaxyState.WorkingSeed + FSystemSeed.MixLow)
 
                 LD (HL), A
                 INC HL
-StoreCursor:    LD (GalaxyState.NameCursor), HL
+StoreCursor:    LD (GalaxyState.NameCursor), HL                                 ; далее Game.Math.NextRandom без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E063
                 endmodule

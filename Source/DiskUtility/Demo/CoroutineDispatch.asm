@@ -8,7 +8,7 @@
 ; Corrupt:
 ;   по выбранному пути
 ; Note:
-;   StartCoroutine меняет адрес по E6E1 с E6E3 на E6F3
+;   StartCoroutine меняет операнд перехода DemoDispatch + 1 с DiskUtility.Demo.StartCoroutine на DiskUtility.Demo.ResumeDemo
 ; -----------------------------------------
                 ; SMC, после первого запуска адрес этого JP заменяется с StartCoroutine на ResumeDemo
 DemoDispatch:   JP StartCoroutine

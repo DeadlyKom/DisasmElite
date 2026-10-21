@@ -38,6 +38,7 @@ SubtractDelta:  SBC HL, DE
                 SBC HL, DE
                 LD B, C
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A0AB
                 endmodule

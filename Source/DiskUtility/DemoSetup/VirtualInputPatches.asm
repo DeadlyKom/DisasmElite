@@ -2,13 +2,15 @@
 ; Три шаблона подмены прямого ввода и проверки объекта
 ; исходный диапазон #C8CA..#C8D5
 ; In:
-;   установщик C853..C86A
+;   InstallDemo, три последовательных LDIR начиная с InputPatches
 ; Out:
-;   5EF8 читает 4701, 7F87 читает 4706 с CPL, 9D3D читает энергию IX+22
+;   Game.Extensions.CreateMissileOrMissionCraft.DirectKeyRead читает Keyboard.RowASDFG, Game.Universe.ApplyEnhancedFlightControl.DirectKeyRead читает Keyboard.RowEnterLKJH с CPL, Game.Combat.UpdateAllSpaceObjects.EnergyRead читает энергию (IX + FSpaceObject.Energy)
 ; Corrupt:
 ;   AF у перенесённых фрагментов
 ; Note:
-;   Первые 5 байтов LD A,(4701),NOP,NOP, следующие 4 LD A,(4706),CPL, последние 3 LD A,(IX+22)
+;   Первые 5 байтов читают Keyboard.RowASDFG и дополняются двумя NOP
+;   следующие 4 читают Keyboard.RowEnterLKJH и инвертируют строку командой CPL
+;   последние 3 читают (IX + FSpaceObject.Energy) вместо вызова чтения объекта
 ;   Шаблоны являются данными установщика, исходный поток их не исполняет
 ; -----------------------------------------
 InputPatches    DB #3A, #01, #47, #00, #00, #3A, #06, #47                       ; данные #C8CA..#C8D1

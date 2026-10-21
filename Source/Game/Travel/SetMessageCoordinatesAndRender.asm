@@ -4,14 +4,16 @@
 ; Установка сообщения и обслуживание его времени жизни
 ; исходный диапазон #DAE6..#DB2D
 ; In:
-;   BC, C = X, B = токен для DAE6, HL = DA73 и A = прежнее время для DAEF
+;   HL = FlightMessage.Frames для Game.Travel.SetMessageCoordinatesAndRender.TickMessage
+;   BC, C = X, B = токен для Game.Travel.SetMessageCoordinatesAndRender.Entry
+;   A = прежнее время для Game.Travel.SetMessageCoordinatesAndRender.TickMessage
 ; Out:
-;   DA75/DA76 записаны либо активное сообщение перерисовано
+;   FlightMessage.Column/FlightMessage.Token записаны либо активное сообщение перерисовано
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   DAEF уменьшает срок и скрывает вывод при прежнем времени<4 или экране>=4, токен FD добавляет
-;   название повреждения DA79, токен E2 печатает сумму DA77, остальные идут в общий текстовый
+;   Game.Travel.SetMessageCoordinatesAndRender.TickMessage уменьшает срок и скрывает вывод при прежнем времени<4 или экране>=4, токен FD добавляет
+;   название повреждения FlightMessage.DamagedItem, токен E2 печатает сумму FlightMessage.Reward, остальные идут в общий текстовый
 ;   вывод
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -60,6 +62,7 @@ PrintFuel:      LD HL, (FlightMessage.Reward)
                 SCF
                 CALL Game.Economy.PrintWordDecimal.Entry
                 JR PrintText
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DB2E
                 endmodule

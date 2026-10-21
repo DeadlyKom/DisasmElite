@@ -4,14 +4,14 @@
 ; Обработка букв, цифр, удаления и завершения ввода
 ; исходный диапазон #E3E7..#E46E
 ; In:
-;   Настройки и указатели подготовлены E3CC
+;   Настройки и указатели подготовлены Game.Charts.BeginTextInput.Entry
 ; Out:
-;   В буфере строка с нулём, E394 = длина
+;   В буфере строка с нулём, TextInput = длина
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
 ;   Разрешает ASCII0..9 и @..Z, FE удаляет последний символ, ENTER и код меньше 30 завершают
-;   ввод, предел CP E413 самомодифицируемый, после завершения ждёт отпускания ENTER, E45B
+;   ввод, предел CP InputLimit самомодифицируемый, после завершения ждёт отпускания ENTER, Game.Charts.TextInputLoop.SelectSystem
 ;   отдельно выбирает ближайшую планету и печатает её данные
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -94,6 +94,7 @@ ShowSelection:  CALL Game.Trade.ClearPromptRows.Entry
                 CALL Game.Trade.Newline.Entry
                 CALL Game.Galaxy.PrintTargetDistance.Entry
                 JP Game.Trade.OptionalBeep.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E46F
                 endmodule

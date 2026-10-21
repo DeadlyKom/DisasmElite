@@ -4,9 +4,9 @@
 ; Пометка двух частей кэша объекта недействительными
 ; исходный диапазон #D7AA..#D7B8
 ; In:
-;   B452 = указатель записи
+;   ObjectEffects.Current = указатель записи
 ; Out:
-;   Байты[указатель+1] и[указатель+4] равны FF, A=70E3
+;   Байты[указатель+1] и[указатель+4] равны FF, A=FlightState.View
 ; Corrupt:
 ;   HL, AF
 ; Note:
@@ -24,6 +24,7 @@ Entry:          LD HL, (ObjectEffects.Current)
                 LD (HL), #FF
                 LD A, (FlightState.View)
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D7B9
                 endmodule

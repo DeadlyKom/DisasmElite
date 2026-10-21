@@ -50,6 +50,7 @@ Entry:          LD A, (State.MineralLife)
 
                 LD (State.MineralLife), A
                 RET
+
                 ; Game.Text.InitializeSixTriples.Entry разворачивает DistantSigns в шесть координат
                 ; начиная с DistantBodies.First.X, каждая получает байты 00, 00, старший байт из таблицы
 DistantSigns    DB #03, #00, #03, #83, #00, #03                                 ; шесть старших знако-модульных байтов координат двух дальних светил

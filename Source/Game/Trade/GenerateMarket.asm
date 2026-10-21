@@ -4,16 +4,16 @@
 ; Расчёт цен и запасов 17 товаров
 ; исходный диапазон #E148..#E1E7
 ; In:
-;   701B = записи по 4 байта, DEF8 = экономика, D06A = случайный параметр
+;   MarketTable.Base = записи по 4 байта, GalaxyState.Economy = экономика, State.MarketRandom = случайный параметр
 ; Out:
-;   E1BD..E1DE = 17 цен, D09E..D0AE = 17 количеств
+;   MarketPrices содержит 17 цен, State.MarketStock содержит 17 количеств по полям FGoods
 ; Corrupt:
 ;   HL, DE, BC, AF, HL', DE', BC'
 ; Note:
-;   9B83 рассчитывает цену топлива 7060 и возвращает HL=D09E, запись содержит базовую цену, знак
+;   Game.Combat.CalculateFuelPurchasePrice.Entry рассчитывает цену топлива EquipmentTable.FuelPrice и возвращает HL=State.MarketStock, запись содержит базовую цену, знак
 ;   и коэффициент экономики, базовый запас и случайную маску, запас ограничивается 6 битами
 ;   после отсечения отрицательного, цена масштабируется на 4, последний товар получает запас 0,
-;   E1DF..E1E7 содержат индекс, указатели и позицию печати
+;   MarketWork содержит индекс товара, указатели груза, цены и остатка, а также сохранённую позицию печати
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E148
@@ -116,6 +116,7 @@ StoreStock      EQU $                                                           
                 LD HL, State.MarketStock + FGoods.AlienItems
                 LD (HL), B
                 RET
+
                 ; нулевое слово перед таблицей цен, начальное значение указателя обхода
 BeforePrices    DB #00, #00                                                     ; нулевое слово перед ценами, обход сначала увеличивает указатель на 2
                 ; 17 двухбайтовых цен в десятых кредита, заполняются генератором рынка
@@ -124,16 +125,22 @@ MarketPrices    DB #24, #00, #3C, #00, #C8, #00, #3C, #00                       
                 DB #4C, #02, #4C, #01, #F4, #02, #0C, #02                       ; #E1CD..#E1D4
                 DB #6C, #00, #70, #01, #84, #02, #A0, #00                       ; #E1D5..#E1DC
                 DB #00, #02                                                     ; #E1DD..#E1DE
-                ; индекс текущего товара 0..16
-Commodity       DB #00                                                          ; номер текущего товара, 0..16
-                ; указатель текущего слота груза пилота
-CargoCursor     DW #0000                                                        ; адрес количества выбранного товара в трюме
-                ; указатель текущей двухбайтовой цены
-PriceCursor     DW #0000                                                        ; адрес двухбайтовой цены выбранного товара
-                ; указатель текущего остатка товара станции
-StockCursor     DW #0000                                                        ; адрес остатка выбранного товара на станции
-                ; сохранённая печатная позиция X,Y
-TextPosition    DW #0000                                                        ; сохранённые столбец и строка печати
+                ; рабочие указатели выбранного товара и печатная позиция рынка
+MarketData      FMarketWork {
+                    #00,                                                        ; FMarketWork.Commodity, номер текущего товара, 0..16
+                    #0000,                                                      ; FMarketWork.CargoCursor, адрес количества выбранного товара в трюме
+                    #0000,                                                      ; FMarketWork.PriceCursor, адрес двухбайтовой цены выбранного товара
+                    #0000,                                                      ; FMarketWork.StockCursor, адрес остатка выбранного товара на станции
+                    #0000                                                       ; FMarketWork.TextPosition, сохранённые столбец и строка печати
+                }
+                ASSERT $ - MarketData == FMarketWork
+
+                ; прежние имена указывают на поля экземпляра MarketData
+Commodity       EQU MarketData.Commodity                                        ; поле FMarketWork.Commodity
+CargoCursor     EQU MarketData.CargoCursor                                      ; поле FMarketWork.CargoCursor
+PriceCursor     EQU MarketData.PriceCursor                                      ; поле FMarketWork.PriceCursor
+StockCursor     EQU MarketData.StockCursor                                      ; поле FMarketWork.StockCursor
+TextPosition    EQU MarketData.TextPosition                                     ; поле FMarketWork.TextPosition
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E1E8
                 endmodule

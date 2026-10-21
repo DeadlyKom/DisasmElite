@@ -10,7 +10,7 @@
 ; Corrupt:
 ;   AF
 ; Note:
-;   Сначала E2A9, затем установка колонки E2C0
+;   Сначала Game.Trade.Newline.Entry, затем установка колонки Game.Trade.SetTextColumn.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #F072
@@ -18,6 +18,7 @@
 Entry:          CALL Game.Trade.Newline.Entry
                 LD A, #05
                 JP Game.Trade.SetTextColumn.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #F07A
                 endmodule

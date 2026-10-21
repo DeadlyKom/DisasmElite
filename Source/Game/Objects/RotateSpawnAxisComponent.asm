@@ -10,8 +10,8 @@
 ; Corrupt:
 ;   BC, AF, IX
 ; Note:
-;   основной вход обменивает IX+0A и IX+10 и инвертирует IX+16 bit7
-;   самостоятельный общий хвост #BA58 обрабатывает все три компоненты без изменения IX
+;   основной вход обменивает старшие байты FSpaceObject.AxisX.X и FSpaceObject.AxisY.X и меняет знак FSpaceObject.AxisZ.X, во всех трёх словах используется FSignWord.SignHigh
+;   самостоятельный общий хвост Game.Objects.RotateSpawnAxisComponent.RotateAxes обрабатывает все три компоненты без изменения IX
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #BA3F
@@ -45,6 +45,7 @@ RotateAxes:     LD A, (IX+FSpaceObject.AxisY.X+FSignWord.SignHigh)
                 LD (IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh), A
                 LD (IX+FSpaceObject.AxisY.Z+FSignWord.SignHigh), B
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #BA83
                 endmodule

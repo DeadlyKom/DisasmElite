@@ -14,6 +14,7 @@
 ## Содержание
 
 - [Общая выдача старых миссий](#mission-dispatch)
+- [Общие поля и сброс состояния](#mission-shared-state)
 - [Миссия 1, беженцы](#mission-1)
 - [Миссия 2, CLOAKING DEVICE](#mission-2)
 - [Миссия 3, принятие и этапы задания](#mission-3)
@@ -30,179 +31,314 @@
 <a id="mission-dispatch"></a>
 ## Выдача старых миссий
 
-Руководство связывает повторную выдачу старых миссий с сообщением `RIGHT ON COMMANDER!`.
-См. [исходный раздел «Ответы»](#manual-chapter-5).
+Руководство связывает повторную выдачу старых миссий с сообщением `RIGHT ON COMMANDER!` в [разделе «Ответы»](#manual-chapter-5). В обработчике прибытия флаг `JUMP_MSN_BIT` сначала проверяется и сбрасывается. Затем `GrantMission` проверяет пересечение входной маски с `State.MissionFlags` и выбирает очередной этап. Эти отметки одновременно используются военными заданиями, поэтому они не образуют независимого постоянного списка завершённых миссий.
 
-- [LaserTypeAndArrivalEvents.asm](../Source/Game/Travel/LaserTypeAndArrivalEvents.asm), `CheckGrant` — проверка и сброс старшего бита счётчика переходов перед выдачей.
-- [GetSalePriceAndMissionFlags.asm](../Source/Game/Travel/GetSalePriceAndMissionFlags.asm), `GrantMission`, `SecondMission`, `ThirdMission` — выбор очередного события по входной маске и `MissionFlags`, установка `Mission1` либо `Mission3`.
-- [Commander.inc](../Includes/Structs/Commander.inc) — расположение и схемы полей командира. Общие биты `MissionFlags` используются также военными заданиями, поэтому их нельзя считать независимым постоянным списком завершённых старых миссий.
+| Проверка или действие | Исходник и вход |
+|---|---|
+| входная маска и общие отметки выбирают очередную старую миссию | [GetSalePriceAndMissionFlags.asm](../Source/Game/Travel/GetSalePriceAndMissionFlags.asm), `GrantMission` |
+| старший счётчик переходов разрешает выдачу события по маске рейтинга | [LaserTypeAndArrivalEvents.asm](../Source/Game/Travel/LaserTypeAndArrivalEvents.asm), `CheckGrant` |
+
+<a id="mission-shared-state"></a>
+## Общие поля и сброс состояния
+
+[FCommander](../Includes/Structs/Commander.inc) описывает сериализуемые поля, их смещения и схемы битов. [Константы командира](../Includes/Const/Commander.inc) задают номера битов и маски, [GameState.inc](../Includes/Variables/GameState.inc) — адреса существующих полей.
+
+`State.RankState` объединяет старший байт числового рейтинга и военный код. Чтение этого поля в обычном прицеливании не является проверкой задания. `State.Mission3` хранит этап третьей миссии, но значение 4 также устанавливается для оккупированной и особой системы. `MissionFlags` объединяет награды, наличие маскировки и занятость трюма. `MissionPhase` — отдельная рабочая фаза встречи второй миссии, а `CloakActive` — включённое состояние уже полученного устройства.
+
+`ResetCommander` восстанавливает поля заданий из изменяемого резерва `NewCommander`. Резерв может быть перезаписан дисковой процедурой сохранения, поэтому его нельзя считать неизменным исходным пилотом. Использование адреса `State.Mission1` как базы индекса оборудования также не означает чтение или изменение самой миссии.
+
+[MissionAnnotations.json](../Tools/Disasm/Reports/MissionAnnotations.json) содержит соответствия обработчиков, полей и разделов руководства. Реестр прямых обращений дополняется вручную проверенными косвенными путями. Автоматическая проверка имён и ссылок сама по себе не доказывает смысл алгоритма.
+
+| Проверка или действие | Исходник и вход |
+|---|---|
+| обычный боевой рейтинг использует тот же старший байт, что и военное состояние | [PrintCombatRankAndEquipment.asm](../Source/Game/Menus/PrintCombatRankAndEquipment.asm), `Entry` |
+| восстановление полей заданий из изменяемого резерва NewCommander | [RatingBountyDamageAndNewCommander.asm](../Source/Game/Missions/RatingBountyDamageAndNewCommander.asm), `ResetCommander` |
+| нулевой старший байт рейтинга уменьшает вероятность лазера, номер миссии здесь не проверяется | [SteerObjectAndTryLaser.asm](../Source/Game/Motion/SteerObjectAndTryLaser.asm), `CheckLaser` |
+| адрес State.Mission1 служит базой индекса оборудования, состояние миссии не читается | [GetEquipmentStateAddress.asm](../Source/Game/Trade/GetEquipmentStateAddress.asm), `Entry` |
 
 <a id="mission-1"></a>
 ## Миссия 1, беженцы
 
-Руководство называет спасение `REFUGEES` миссией 1 в описании [MINERAL LIFE](#manual-mission-4),
-а в [задании 7+1](#manual-mission-7-1) сравнивает с ним военную эвакуацию.
+Руководство называет спасение `REFUGEES` миссией 1 в описании [MINERAL LIFE](#manual-mission-4), а в [задании 7+1](#manual-mission-7-1) сравнивает с ним военную эвакуацию.
 
-| Действие | Обработчик |
+`State.Mission1` влияет на допуск перевозки, предупреждения и цвет полётного вида. Ответ Y очищает 17 товаров и свободный тоннаж, после чего `MS_CARGO_BIT` отмечает особый груз. Высадка отдельно проверяет разрешение, снимает этот бит, записывает 100 единиц Gemstones и обнуляет состояние колонии. Спасательная капсула снимает признак груза без выдачи этой награды.
+
+Пути с `Mission1 != 0` и галактический переход могут попасть в общий `ClearMissions`, где обнуляются `Mission3`, активная `Mission1` и её предупреждение. Это фактический общий сброс, его нельзя описывать как завершение задания с наградой.
+
+| Проверка или действие | Исходник и вход |
 |---|---|
-| Предложение перевозки, проверка уже занятого трюма | [NextScreenCharacterRowAndRefugees.asm](../Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm), `OfferRefugees` |
-| Допуск к предложению и выбор обычного либо военного текста | [ToggleSecondaryCoordinateObject.asm](../Source/Game/Input/ToggleSecondaryCoordinateObject.asm), `CheckPilot` |
-| Ответ Y, очистка 17 товаров и свободного тоннажа, занятие трюма | [MissionRegionMetric.asm](../Source/Game/Trade/MissionRegionMetric.asm), `BoardRefugees` |
-| Проверка разрешённой высадки | [ApplyEnhancedFlightControl.asm](../Source/Game/Universe/ApplyEnhancedFlightControl.asm), `CheckRefugees` |
-| Освобождение трюма, 100 единиц Gemstones и сброс состояния MineralLife | [PromptCargoQuantityAndRefugees.asm](../Source/Game/Trade/PromptCargoQuantityAndRefugees.asm), `UnloadRefugees` |
+| предложение перевозки только при свободном миссионном трюме | [NextScreenCharacterRowAndRefugees.asm](../Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm), `OfferRefugees` |
+| спасательная капсула снимает признак особого груза после очистки тоннажных товаров | [HandleEscapeCapsule.asm](../Source/Game/Combat/HandleEscapeCapsule.asm), `ClearCargo` |
+| признак занятого миссией трюма включает отдельную подпись беженцев либо десанта | [PrintCargoAndMessageBanks.asm](../Source/Game/Extensions/PrintCargoAndMessageBanks.asm), `Entry` |
+| активная первая миссия выбирает особую окраску вида | [ApplyMissionViewColour.asm](../Source/Game/Flight/ApplyMissionViewColour.asm), `Entry` |
+| после туннеля обычный цвет возвращается только вне первой миссии | [DivideByteFractionForTunnel.asm](../Source/Game/Flight/DivideByteFractionForTunnel.asm), `FinishTunnel` |
+| первая миссия ограничивает атрибут вида маской перед заливкой | [FillViewAttributesAndFlightState.asm](../Source/Game/Flight/FillViewAttributesAndFlightState.asm), `Entry` |
+| после вылета отмечается уже показанное предупреждение первой миссии | [MarkMissionViewInitialized.asm](../Source/Game/Flight/MarkMissionViewInitialized.asm), `Entry` |
+| общий выбор атрибута учитывает маскировку и далее состояние первой миссии | [SetViewAttributesWithCloaking.asm](../Source/Game/Flight/SetViewAttributesWithCloaking.asm), `Entry` |
+| посадка вызывает предложения заданий, вылет применяет предупреждение первой миссии | [LaunchOrDockShip.asm](../Source/Game/Flight/LaunchOrDockShip.asm), `Entry` |
+| допуск к перевозке и выбор текста беженцев либо десанта | [ToggleSecondaryCoordinateObject.asm](../Source/Game/Input/ToggleSecondaryCoordinateObject.asm), `CheckPilot` |
+| разрешённая высадка снимает особый груз, выдаёт Gemstones и сбрасывает колонию | [PromptCargoQuantityAndRefugees.asm](../Source/Game/Trade/PromptCargoQuantityAndRefugees.asm), `UnloadRefugees` |
+| ответ Y очищает товары и свободный тоннаж, затем занимает трюм | [MissionRegionMetric.asm](../Source/Game/Trade/MissionRegionMetric.asm), `BoardRefugees` |
+| активная первая миссия направляет переход в общий сброс заданий | [CommitJumpFuelAndMishap.asm](../Source/Game/Travel/CommitJumpFuelAndMishap.asm), `Entry` |
+| общий переход очищает активные старые миссии и предупреждение | [TickJumpCountdown.asm](../Source/Game/Travel/TickJumpCountdown.asm), `ClearMissions` |
+| полётные сообщения учитывают задания, низкая энергия снимает маскировку | [UpdateAmbientFlightMessage.asm](../Source/Game/Travel/UpdateAmbientFlightMessage.asm), `Entry` |
+| проверка разрешения высадки, военный путь ставит первую отметку | [ApplyEnhancedFlightControl.asm](../Source/Game/Universe/ApplyEnhancedFlightControl.asm), `CheckRefugees` |
+| военное состояние выбирает текст беженцев либо десанта | [SelectSpecialCargoText.asm](../Source/Game/Universe/SelectSpecialCargoText.asm), `Entry` |
+| перекрывающийся вход прекращает предложение покупки при занятом миссионном трюме | [ResetCloakingAndSeedFlightRandom.asm](../Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm), `BusyCargo` |
 
 <a id="mission-2"></a>
 ## Миссия 2, CLOAKING DEVICE
 
-В [разделе «Ответы»](#manual-chapter-5) устройство названо стандартной миссией.
-В самом коде условие появления особой встречи связано со второй отметкой `MissionFlags`
-и отсутствием полученного устройства маскировки.
+В [разделе «Ответы»](#manual-chapter-5) получение маскировки названо стандартной миссией. Начальная встреча требует второй отметки `MissionFlags`, отсутствия `MS_CLOAK_BIT`, нулевой `MissionPhase` и успешной случайной проверки.
 
-- [GenerateSpaceTraffic.asm](../Source/Game/Objects/GenerateSpaceTraffic.asm), `Entry` — проверка состояния встречи, случайного порога и сочетания миссионных битов перед созданием особых кораблей.
-- [SpecialMessageAndScoopReward.asm](../Source/Game/Missions/SpecialMessageAndScoopReward.asm), `ScoopItem` — предмет с кодом `#FF` выдаёт устройство маскировки и уведомление `#7D`.
-- [PrintCargoAndMessageBanks.asm](../Source/Game/Extensions/PrintCargoAndMessageBanks.asm), основной токен `#7D` — название `CLOAKING DEVICE`.
+Рабочая `MissionPhase` связывает генерацию кораблей, энергетические фазы, скрытие каркаса и появление специального контейнера. При подходящем подборе в фазе 3 обычный индекс груза заменяется кодом `#FF`. Только затем `ScoopItem` ставит `MS_CLOAK_BIT`. Повреждение или удаление объектов и быстрое перемещение могут сбросить фазу встречи.
+
+Наличие устройства и его включение различаются: `MS_CLOAK_BIT` хранится у командира, а `CloakActive` управляет цветом вида, расходом энергии и дополнительной случайной проверкой лазера противника. Энергетическая проверка выключает активную маскировку, не отнимая устройство.
+
+| Проверка или действие | Исходник и вход |
+|---|---|
+| уничтожение миссионного корабля либо контейнера сбрасывает фазу встречи | [UpdateAllSpaceObjects.asm](../Source/Game/Combat/UpdateAllSpaceObjects.asm), `ClearMission` |
+| фаза 3 превращает подходящий подобранный контейнер в предмет CLOAKING DEVICE | [HandleObjectCollision.asm](../Source/Game/Combat/HandleObjectCollision.asm), `MissionCargo` |
+| столкновение с миссионным объектом сбрасывает фазу встречи | [HandleObjectCollision.asm](../Source/Game/Combat/HandleObjectCollision.asm), `DestroyImpact` |
+| включённая маскировка добавляет единицу к расходу энергии | [ApplyPlayerDamage.asm](../Source/Game/Combat/ApplyPlayerDamage.asm), `RecoverEnergy` |
+| включённая маскировка добавляет случайную проверку допуска лазера противника | [ScheduleLinkedObjectLaser.asm](../Source/Game/Extensions/ScheduleLinkedObjectLaser.asm), `PermitLaser` |
+| наличие CLOAKING DEVICE разрешает переключение маскировки клавишей Y | [ToggleCloakingDevice.asm](../Source/Game/Flight/ToggleCloakingDevice.asm), `Entry` |
+| активная маскировка восстанавливает свой цвет полётного вида | [ApplyCloakingViewColour.asm](../Source/Game/Flight/ApplyCloakingViewColour.asm), `Entry` |
+| общий выбор атрибута учитывает маскировку и далее состояние первой миссии | [SetViewAttributesWithCloaking.asm](../Source/Game/Flight/SetViewAttributesWithCloaking.asm), `Entry` |
+| после лазеров отдельно выводятся ALIEN COMPUTER и CLOAKING DEVICE | [PrintCombatRankAndEquipment.asm](../Source/Game/Menus/PrintCombatRankAndEquipment.asm), `NextLaser` |
+| код предмета FF выдаёт CLOAKING DEVICE | [SpecialMessageAndScoopReward.asm](../Source/Game/Missions/SpecialMessageAndScoopReward.asm), `ScoopItem` |
+| общий вектор подбора разделяет маскировку, компьютер и обычные минералы | [DispatchMissionEvents.asm](../Source/Game/Missions/DispatchMissionEvents.asm), `ScoopItem` |
+| фазы особой встречи переключаются при энергетических порогах | [ProcessObjectEnergyAndTactics.asm](../Source/Game/Motion/ProcessObjectEnergyAndTactics.asm), `CheckMission` |
+| первая фаза скрывает каркас корабля с миссионным признаком | [ProjectObjectAndSelectDetail.asm](../Source/Game/Motion/ProjectObjectAndSelectDetail.asm), `CheckMission` |
+| сочетание второй отметки и отсутствия маскировки допускает особую встречу | [GenerateSpaceTraffic.asm](../Source/Game/Objects/GenerateSpaceTraffic.asm), `Entry` |
+| полётные сообщения учитывают задания, низкая энергия снимает маскировку | [UpdateAmbientFlightMessage.asm](../Source/Game/Travel/UpdateAmbientFlightMessage.asm), `Entry` |
+| наличие маскировки участвует в случайном допуске энергетического эффекта объекта | [InitializeExtendedObjectMetadata.asm](../Source/Game/Universe/InitializeExtendedObjectMetadata.asm), `StoreFlags` |
+| уничтожение миссионного корабля переводит встречу в фазу специального контейнера | [SpawnDestructionContentsAndEffects.asm](../Source/Game/Universe/SpawnDestructionContentsAndEffects.asm), `Entry` |
+| подготовка полёта записывает переданное состояние маскировки | [ResetCloakingAndSeedFlightRandom.asm](../Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm), `Entry` |
+| быстрое перемещение обнуляет фазу второй миссии при очистке окружения | [HandleFastTravelStep.asm](../Source/Game/Universe/HandleFastTravelStep.asm), `Entry` |
+| отдельный рабочий байт хранит фазу появления и подбора миссионного предмета | [AnimateIntroAndObjectPipeline.asm](../Source/Game/Combat/AnimateIntroAndObjectPipeline.asm), `MissionPhase` |
+| рабочий флаг включённой маскировки отделён от признака наличия устройства | [DispatchFlightMessage.asm](../Source/Game/Interface/DispatchFlightMessage.asm), `CloakActive` |
 
 <a id="mission-3"></a>
 ## Миссия 3, принятие и этапы задания
 
-Исходное руководство упоминает три сохранённые старые миссии, но в его тексте нет отдельного
-подробного описания третьей. Здесь указаны проверенные этапы `Mission3`, без присвоения
-сюжетного названия по другой версии Elite.
+Исходное руководство упоминает три сохранённые старые миссии, но не даёт отдельного подробного описания третьей. Ниже используются только её состояния и тексты данного образа, без сюжетного названия из другой Elite.
 
-| Действие | Обработчик |
+Ответ Y ставит `Mission3=3` и `MS_ACCEPT_BIT`; другой ответ обнуляет этап. В `ArrivalEvents` эти проверки выполняются только при `State.Galaxy != 0`. При прибытии исходный этап 1 увеличивается до 2, исходный 4 заменяется на 3, а совпадение текущего семени с базовым записывает 4. Проверка `CP #03` в `CheckStage` выполняется уже после `DEC A`, то есть проверяет исходное значение 4.
+
+Диспетчер обрабатывает этапы 1/2 как предложение, 5 как награду и 6 как отдельное сообщение. Событие в станционном слоте имеет собственный путь к этапу 5. Награда обнуляет этап, увеличивает `RankState` и ставит `MS_MARK4_BIT`, сохраняя `MS_ACCEPT_BIT`.
+
+Значение 4 используется также войной. Оно влияет на враждебность станции, генерацию кораблей и поведение объектов. Запрет ECM требует **одновременно** этапа 4 и `MS_ACCEPT_BIT`. Тот же флаг принятия выбирает особую подпись первого поля оборудования `State.ECM` в этой версии. Эти общие применения нельзя приписывать исключительно сюжетной третьей миссии.
+
+| Проверка или действие | Исходник и вход |
 |---|---|
-| Предложение и ответ Y, установка состояния 3 и флага принятия | [OfferThirdMission.asm](../Source/Game/Missions/OfferThirdMission.asm), `Entry`, `AcceptMission` |
-| Изменение состояния при прибытии и сравнение текущей системы с целью | [LaserTypeAndArrivalEvents.asm](../Source/Game/Travel/LaserTypeAndArrivalEvents.asm), `ArrivalEvents`, `CheckStage`, `CheckTarget` |
-| Выбор предложения, завершения либо отдельного сообщения по состоянию | [DispatchThirdMissionStage.asm](../Source/Game/Flight/DispatchThirdMissionStage.asm), `Entry` |
-| Завершение, отметка награды и увеличение старшего байта рейтинга | [CompleteThirdMission.asm](../Source/Game/Missions/CompleteThirdMission.asm), `Entry` |
+| совместная проверка этапа 4 и MS_ACCEPT_BIT запрещает обработку ECM игрока | [ProcessLaserAndEcm.asm](../Source/Game/Combat/ProcessLaserAndEcm.asm), `CheckEcmLock` |
+| общее состояние 4 делает станцию враждебной | [UpdateAllSpaceObjects.asm](../Source/Game/Combat/UpdateAllSpaceObjects.asm), `Entry` |
+| общее состояние 4 разрешает агрессивное поведение объекта | [SetObjectAggressionFlag.asm](../Source/Game/Extensions/SetObjectAggressionFlag.asm), `Entry` |
+| оккупированная область выбирает военный корабль, состояние 4 исключает обычный Viper | [UpdateStationAndSpecialShips.asm](../Source/Game/Extensions/UpdateStationAndSpecialShips.asm), `Entry` |
+| после посадки сначала обрабатываются задания, затем предложение Cobra Mk4 | [OfferUpgradeAndCorrectPosition.asm](../Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm), `Entry` |
+| этапы 1 и 2 выбирают предложение, 5 награду, 6 отдельное сообщение | [DispatchThirdMissionStage.asm](../Source/Game/Flight/DispatchThirdMissionStage.asm), `Entry` |
+| посадка вызывает предложения заданий, вылет применяет предупреждение первой миссии | [LaunchOrDockShip.asm](../Source/Game/Flight/LaunchOrDockShip.asm), `Entry` |
+| MS_ACCEPT_BIT выбирает специальное имя первого устройства, поля State.ECM | [PrintCombatRankAndEquipment.asm](../Source/Game/Menus/PrintCombatRankAndEquipment.asm), `NextEquipment` |
+| ненулевое общее состояние и совпадение семени разрешают особое описание системы | [PrintSystemStatistics.asm](../Source/Game/Menus/PrintSystemStatistics.asm), `Entry` |
+| ответ Y принимает третью миссию, другой ответ сбрасывает её этап | [OfferThirdMission.asm](../Source/Game/Missions/OfferThirdMission.asm), `Entry` |
+| награда увеличивает старший рейтинг и ставит четвёртую отметку без снятия MS_ACCEPT_BIT | [CompleteThirdMission.asm](../Source/Game/Missions/CompleteThirdMission.asm), `Entry` |
+| вектор предложения третьей миссии передаёт ответ основному обработчику | [DispatchMissionEvents.asm](../Source/Game/Missions/DispatchMissionEvents.asm), `OfferMission` |
+| вектор награды за третью миссию | [DispatchRatingAndMissionEnd.asm](../Source/Game/Missions/DispatchRatingAndMissionEnd.asm), `EndMission` |
+| состояние 4 выбирает курс по параметру поведения без обычной проверки станции | [CheckObjectBoxAndChooseCourse.asm](../Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm), `CheckHostility` |
+| попадание в особую цель передаётся общему обработчику ракеты либо десанта | [GuideMissileAndCheckImpact.asm](../Source/Game/Motion/GuideMissileAndCheckImpact.asm), `FindTarget` |
+| совместная проверка этапа 4 и MS_ACCEPT_BIT запрещает ответный ECM | [ProcessObjectEnergyAndTactics.asm](../Source/Game/Motion/ProcessObjectEnergyAndTactics.asm), `CheckEcm` |
+| состояние 4 меняет вероятность и код порождения объектов | [ProcessObjectEnergyAndTactics.asm](../Source/Game/Motion/ProcessObjectEnergyAndTactics.asm), `ChooseFlight` |
+| общие состояния 1 и 4 принудительно выбирают модели встречи | [GenerateSpaceTraffic.asm](../Source/Game/Objects/GenerateSpaceTraffic.asm), `EncounterClass` |
+| состояние 4 выбирает специальный код события | [ChooseEncounterCode.asm](../Source/Game/Screen/ChooseEncounterCode.asm), `Entry` |
+| обычная ракета меняет этап попадания, Sidewinder обрабатывает высадку десанта | [HandleSpecialObjectMission.asm](../Source/Game/Text/HandleSpecialObjectMission.asm), `Entry` |
+| прибытие меняет этап задания и проверяет семя целевой системы | [LaserTypeAndArrivalEvents.asm](../Source/Game/Travel/LaserTypeAndArrivalEvents.asm), `ArrivalEvents` |
+| общий переход очищает активные старые миссии и предупреждение | [TickJumpCountdown.asm](../Source/Game/Travel/TickJumpCountdown.asm), `ClearMissions` |
+| полётные сообщения учитывают задания, низкая энергия снимает маскировку | [UpdateAmbientFlightMessage.asm](../Source/Game/Travel/UpdateAmbientFlightMessage.asm), `Entry` |
+| помеченное событие станционного слота переводит общее состояние в этап 5 | [BuildStationGeometry.asm](../Source/Game/Travel/BuildStationGeometry.asm), `MissionStage` |
+| побайтовое сравнение семени определяет совпадение с целевой системой задания | [CompareSystemSeedToGalaxyBase.asm](../Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm), `Entry` |
 
 <a id="mission-4"></a>
 ## Миссия 4, MINERAL LIFE
 
 [Описание в исходном руководстве](#manual-mission-4).
 
-| Действие | Обработчик |
-|---|---|
-| Появление колонии при подборе минерала | [TryColonizeMinerals.asm](../Source/Game/Flight/TryColonizeMinerals.asm), `Entry` |
-| Жизнеспособность, минимум три тонны и запрет повторного появления погибшей колонии | [CheckMineralLifeColony.asm](../Source/Game/Text/CheckMineralLifeColony.asm), `Entry` |
-| Цена 1000 Cr за тонну при разрешённой специальной продаже | [GetSalePriceAndMissionFlags.asm](../Source/Game/Travel/GetSalePriceAndMissionFlags.asm), `Entry`, `MineralGate` |
-| Расход Gemstones относительно количества Minerals | [UpdateSpecialCargoStatus.asm](../Source/Game/Extensions/UpdateSpecialCargoStatus.asm), `Entry`, `StoreBalance` |
+При подборе минерала проверка колонизации выполняется до увеличения его количества. Жизнеспособность требует не менее трёх тонн минералов и допустимого состояния `MineralLife`. Запись `#FF` при гибели запрещает повторное образование колонии, пока другой путь не очистит всё поле.
 
-**Отличие формулировки от инструкции:** руководство советует удаляться от солнца.
-В `TryColonizeMinerals` вызывается `PlanetDistanceHint`, проверяется оценка удаления от планеты
-не меньше 56, диагональная полоса системы `-8 <= Y-X <= 7` и количество минералов до подбора не меньше двух.
-Величина 56 — результат конкретного помощника, её нельзя без отдельного расчёта называть расстоянием в световых годах.
+**Отличие от формулировки руководства:** оно советует удаляться от солнца, а `TryColonizeMinerals` вызывает `PlanetDistanceHint` и требует оценку удаления от планеты не меньше 56. Дополнительно проверяются полоса `-8 <= Y-X <= 7` и не менее двух тонн минералов до подбора. Значение 56 не обозначено здесь световыми годами.
+
+Живая колония обнуляет рыночный запас минералов, включает цену 1000 Cr за тонну и минимальную партию продажи в три тонны. В `ReadCargoByte` проверяется только нижний порог `B >= 3`; отдельной проверки верхнего предела 63 из руководства в этом пути продажи нет. Общий ввод количества принимает одну или две десятичные цифры.
+
+**Кормление отличается от обещанных трёх пропусков:** `UpdateSpecialCargoStatus` сразу вычитает Minerals из Gemstones. При нехватке восьмибитный результат записывается в `MineralLife`, отдельный счётчик трёх голодных переходов не ведётся. Например, при трёх тоннах и нуле Gemstones записывается `#FD`; следующая проверка колонии отвергает это состояние по `MIN_BLOCK_BIT`. Вызов кормления находится в [AnimateTransitionTunnel.asm](../Source/Game/Flight/AnimateTransitionTunnel.asm), вход `Entry`, после проверки `ViewKeyLock`.
+
+Сброс поля после высадки беженцев — отдельное реальное взаимодействие заданий. В `AttributeVectorAndEnergyBomb.ConfirmUpgrade` сброс происходит только при входном `A=#59`. Его вызывающий путь покупки трюма передаёт `A=(State.LargeCargo)`; это нельзя объявлять непосредственной проверкой ответа Y с клавиатуры.
+
+| Проверка или действие | Исходник и вход |
+|---|---|
+| путь установки трюма сбрасывает колонию только при входном A = #59 | [AttributeVectorAndEnergyBomb.asm](../Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm), `ConfirmUpgrade` |
+| изменяемый ColonyGate задаёт ограничение продажи живых минералов | [AttributeVectorAndEnergyBomb.asm](../Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm), `ReadCargoByte` |
+| проверка колонии выбирает название минералов и переключает ограничения продажи | [HandleSpecialMessageToken.asm](../Source/Game/Extensions/HandleSpecialMessageToken.asm), `Entry` |
+| при живой колонии Gemstones расходуются по количеству Minerals | [UpdateSpecialCargoStatus.asm](../Source/Game/Extensions/UpdateSpecialCargoStatus.asm), `Entry` |
+| проверка количества минералов, удаления и региона перед появлением колонии | [TryColonizeMinerals.asm](../Source/Game/Flight/TryColonizeMinerals.asm), `Entry` |
+| живая колония обнуляет рыночный остаток минералов | [ApplyMissionMarketRestrictions.asm](../Source/Game/Menus/ApplyMissionMarketRestrictions.asm), `CheckMinerals` |
+| колонизация проверяется до увеличения количества подобранных минералов | [SpecialMessageAndScoopReward.asm](../Source/Game/Missions/SpecialMessageAndScoopReward.asm), `AddCargo` |
+| общий вектор подбора разделяет маскировку, компьютер и обычные минералы | [DispatchMissionEvents.asm](../Source/Game/Missions/DispatchMissionEvents.asm), `ScoopItem` |
+| проверка признака гибели и минимального запаса минералов для живой колонии | [CheckMineralLifeColony.asm](../Source/Game/Text/CheckMineralLifeColony.asm), `Entry` |
+| разрешённая высадка снимает особый груз, выдаёт Gemstones и сбрасывает колонию | [PromptCargoQuantityAndRefugees.asm](../Source/Game/Trade/PromptCargoQuantityAndRefugees.asm), `UnloadRefugees` |
+| изменяемый MineralGate разрешает специальную цену живых минералов | [GetSalePriceAndMissionFlags.asm](../Source/Game/Travel/GetSalePriceAndMissionFlags.asm), `Entry` |
 
 <a id="mission-5"></a>
 ## Миссия 5, ALIEN COMPUTER
 
 [Описание в исходном руководстве](#manual-mission-5).
 
-- [SpecialMessageAndScoopReward.asm](../Source/Game/Missions/SpecialMessageAndScoopReward.asm), `ClassifyScoop` — признак специального контейнера в `Flags2` направляет подбор к выдаче `ALIEN COMPUTER` и уведомлению `#F3`.
-- [CreateMissileOrMissionCraft.asm](../Source/Game/Extensions/CreateMissileOrMissionCraft.asm), `SpendMissile` — при установленном компьютере, наличии `AlienItems` и нажатой D возвращает ракету, расходует единицу `AlienItems` и выбирает модель `Tharglet`.
+Бит `ALIEN_OWN_BIT` отмечает наличие компьютера, остальные разряды участвуют в счётчике. Обработка удаляемой модели Thargoid прибавляет 2 к целому байту и при нулевом результате пытается создать специальный контейнер. Этот помощник вызывается из обхода ссылок объектов, поэтому один удалённый Thargoid не обязательно соответствует одному приращению. Правило «компьютер за каждые 128 уничтожений» из этих инструкций не следует.
+
+Подбор объекта с `OBJ_ALIEN_BIT` увеличивает весь байт и ставит сообщение `ALIEN COMPUTER`. Для специального запуска дополнительно требуются непустые `AlienItems` и клавиша D. Тогда расход ракеты компенсируется, единица `AlienItems` переносится в свободный тоннаж, а модель заменяется на Tharglet.
+
+| Проверка или действие | Исходник и вход |
+|---|---|
+| счётчик обработок модели Thargoid и создание контейнера при нулевом результате | [UpdateThargoidAndBodyCoords.asm](../Source/Game/Circles/UpdateThargoidAndBodyCoords.asm), `Entry` |
+| компьютер, AlienItems и клавиша D заменяют ракету специальным кораблём | [CreateMissileOrMissionCraft.asm](../Source/Game/Extensions/CreateMissileOrMissionCraft.asm), `SpendMissile` |
+| после лазеров отдельно выводятся ALIEN COMPUTER и CLOAKING DEVICE | [PrintCombatRankAndEquipment.asm](../Source/Game/Menus/PrintCombatRankAndEquipment.asm), `NextLaser` |
+| специальный контейнер увеличивает код компьютера и выводит его название | [SpecialMessageAndScoopReward.asm](../Source/Game/Missions/SpecialMessageAndScoopReward.asm), `ClassifyScoop` |
+| общий вектор подбора разделяет маскировку, компьютер и обычные минералы | [DispatchMissionEvents.asm](../Source/Game/Missions/DispatchMissionEvents.asm), `ScoopItem` |
 
 <a id="mission-6"></a>
 ## Миссия 6, Cobra Mk4
 
 [Описание в исходном руководстве](#manual-mission-6).
 
-- [UpdateStationAndSpecialShips.asm](../Source/Game/Extensions/UpdateStationAndSpecialShips.asm), `NearSun`, `OfferCobra` — околосолнечная ветвь со специальными объектами и предложением.
-- [LaunchOrDockShip.asm](../Source/Game/Flight/LaunchOrDockShip.asm) — переход к обработчику предложения после посадки.
-- [OfferUpgradeAndCorrectPosition.asm](../Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm), `Entry` — проверяет деньги, состояние второго объекта и отсутствие модернизации. Ответ Y устанавливает `ShipUpgrade=#FD` и уменьшает старший байт `CashHigh`.
+Околосолнечная ветвь подготавливает особое окружение и сообщение о модернизации. После посадки обработчик проверяет деньги, состояние второго объекта и отсутствие улучшения. Ответ Y записывает `ShipUpgrade=#FD` и уменьшает старший байт `CashHigh`.
 
-**Цена по коду — 256 000 Cr.** В [кратком обзоре](#manual-chapter-3) написано 250 000 Cr,
-в [подробном разделе](#manual-mission-6) — 256 000. Уменьшение старшего байта `CashHigh`,
-который хранит тысячи кредитов, соответствует именно 256 тысячам.
+**Цена по инструкциям — 256 000 Cr.** В [кратком обзоре](#manual-chapter-3) указано 250 000 Cr, а в [подробном разделе](#manual-mission-6) — 256 000. Изменение старшего байта слова, хранящего тысячи кредитов, соответствует 256 тысячам.
+
+Таблица ниже включает применение полученного улучшения: подпись корабля, чтение клавиш и перестановку направлений лазеров. Эти процедуры не выдают задание повторно.
+
+| Проверка или действие | Исходник и вход |
+|---|---|
+| вывод названия модернизированного корабля | [PrintShipAndContinueRightFill.asm](../Source/Game/Circles/PrintShipAndContinueRightFill.asm), `Entry` |
+| код модернизации выбирает путь чтения ряда клавиатуры | [ScanUpgradeKeyRow.asm](../Source/Game/Circles/ScanUpgradeKeyRow.asm), `Entry` |
+| околосолнечная ветвь подготавливает особые объекты и предложение Cobra Mk4 | [UpdateStationAndSpecialShips.asm](../Source/Game/Extensions/UpdateStationAndSpecialShips.asm), `NearSun` |
+| после посадки сначала обрабатываются задания, затем предложение Cobra Mk4 | [OfferUpgradeAndCorrectPosition.asm](../Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm), `Entry` |
+| посадка вызывает предложения заданий, вылет применяет предупреждение первой миссии | [LaunchOrDockShip.asm](../Source/Game/Flight/LaunchOrDockShip.asm), `Entry` |
+| наличие Cobra Mk4 разрешает перестановку направлений лазеров | [IndexPauseCommandAndHandlers.asm](../Source/Game/Flight/IndexPauseCommandAndHandlers.asm), `SwapLasers` |
 
 <a id="mission-7-invasion"></a>
 ## Миссия 7, INVASION
 
 [Описание в исходном руководстве](#manual-mission-7).
 
-| Часть сценария | Обработчик |
+`State.Invasion` хранит фазу и размер области. `State.RankState` хранит старший рейтинг и военный код. Геометрия фронта действует в первой галактике при `Invasion >= 2`. Запуск проверяет старые миссии, ненулевые специальные состояния пилота, рейтинг и пересечение его битов со счётчиком переходов. Печатное звание Elite само по себе не является полным условием.
+
+Перед новым вторжением `MS_START_MASK` сохраняет принятие третьей миссии, маскировку и пятую отметку, но очищает занятый особым грузом трюм и четыре младшие отметки. Военные задания читают те же `MissionFlags`, что и старые миссии. `FindRewardBit` выбирает отметку вращениями, допуская биты 0..6.
+
+Военный рынок имеет конкретное отличие от поставок 7+2: обработчик обнуляет **Textiles и Firearms**, тогда как отметка поставки проверяет **Food или Firearms**. В разборе сохранены именно эти инструкции.
+
+**Таймер войны:** при `Invasion=#FF` добавка `CPL` к накопителю равна нулю. Поэтому один этот путь не подтверждает обещание руководства об автоматическом окончании войны. Высадка десанта явно снимает старший бит и уменьшает фронт. Таблица описывает найденные условия и записи, не подменяя их сюжетным обещанием.
+
+| Проверка или действие | Исходник и вход |
 |---|---|
-| Допуск и запуск вторжения | [UpdateInvasionOnRatingOverflow.asm](../Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm), `Entry`, `CheckRating` |
-| Счётчик времени, изменение состояния фронта и очередь MAYDAY | [UpdateClockAndRotateDistantBodies.asm](../Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm), `Entry`, `TickNegative`, `WrapClock` |
-| Геометрия оккупированной территории | [CheckMissionRegion.asm](../Source/Game/Text/CheckMissionRegion.asm), `Entry`, `CheckGalaxy` |
-| Полоса сопротивления | [CheckMissionRegionBand.asm](../Source/Game/Menus/CheckMissionRegionBand.asm), `Entry` |
-| Текст OCCUPIED либо RESISTING в сведениях о планете | [PrintPlanetInvasionStatus.asm](../Source/Game/Extensions/PrintPlanetInvasionStatus.asm), `Entry` |
-| Вступление добровольцем, проверка выполненного задания и повышение | [OfferRegionDependentMission.asm](../Source/Game/Text/OfferRegionDependentMission.asm), `WartimeTask`, `OfferVolunteer`, `AdvanceRank` |
-| Воинское звание и отметка IN RESERVE | [PrintRankWithMissionSuffix.asm](../Source/Game/Text/PrintRankWithMissionSuffix.asm), `Entry` |
-
-Биты состояния описаны рядом с полями в [Commander.inc](../Includes/Structs/Commander.inc).
-Их имена и маски объявлены в [константах командира](../Includes/Const/Commander.inc),
-адреса `State.RankState` и `State.JumpFlags` — в [GameState.inc](../Includes/Variables/GameState.inc).
-
-`Invasion` хранит фазу и размер области, а воинский код занимает старший байт рейтинга
-`RankState` по адресу `#D062`. Это разные поля. Геометрия фронта действует только в первой галактике
-и при `Invasion >= 2`. Допуск запуска проверяет также старые миссии, два специальных состояния
-командира и сочетание битов рейтинга со счётчиком переходов, а не только печатаемое звание Elite.
-
-**Граница проверки:** фраза руководства об обязательном автоматическом окончании войны не является
-результатом этой статической сверки. При `Invasion=#FF` приращение `CPL` в таймере равно нулю.
-Чтобы подтвердить весь сценарий, требуется проследить остальные изменения состояния и выполнение игры.
-Освобождение системы десантом явно снимает старший бит и уменьшает область вторжения.
+| проверка военной области участвует в выборе результата гиперперехода | [SelectJumpAndContinueLeftFill.asm](../Source/Game/Circles/SelectJumpAndContinueLeftFill.asm), `Entry` |
+| совместная проверка этапа 4 и MS_ACCEPT_BIT запрещает обработку ECM игрока | [ProcessLaserAndEcm.asm](../Source/Game/Combat/ProcessLaserAndEcm.asm), `CheckEcmLock` |
+| общее состояние 4 делает станцию враждебной | [UpdateAllSpaceObjects.asm](../Source/Game/Combat/UpdateAllSpaceObjects.asm), `Entry` |
+| накопитель времени изменяет фронт и ставит сообщение MAYDAY | [UpdateClockAndRotateDistantBodies.asm](../Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm), `Entry` |
+| общее состояние 4 разрешает агрессивное поведение объекта | [SetObjectAggressionFlag.asm](../Source/Game/Extensions/SetObjectAggressionFlag.asm), `Entry` |
+| оккупированная область выбирает военный корабль, состояние 4 исключает обычный Viper | [UpdateStationAndSpecialShips.asm](../Source/Game/Extensions/UpdateStationAndSpecialShips.asm), `Entry` |
+| после посадки сначала обрабатываются задания, затем предложение Cobra Mk4 | [OfferUpgradeAndCorrectPosition.asm](../Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm), `Entry` |
+| проверка старых миссий, оборудования и рейтинга перед запуском вторжения | [UpdateInvasionOnRatingOverflow.asm](../Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm), `Entry` |
+| геометрия выбранной системы определяет подписи OCCUPIED и RESISTING | [PrintPlanetInvasionStatus.asm](../Source/Game/Extensions/PrintPlanetInvasionStatus.asm), `Entry` |
+| посадка вызывает предложения заданий, вылет применяет предупреждение первой миссии | [LaunchOrDockShip.asm](../Source/Game/Flight/LaunchOrDockShip.asm), `Entry` |
+| военная область ограничивает рынок и устанавливает общее состояние 4 либо 0 | [ApplyMissionMarketRestrictions.asm](../Source/Game/Menus/ApplyMissionMarketRestrictions.asm), `Entry` |
+| ненулевое общее состояние и совпадение семени разрешают особое описание системы | [PrintSystemStatistics.asm](../Source/Game/Menus/PrintSystemStatistics.asm), `Entry` |
+| две границы фронта выделяют полосу сопротивления | [CheckMissionRegionBand.asm](../Source/Game/Menus/CheckMissionRegionBand.asm), `Entry` |
+| переполнение числового рейтинга передаётся проверке начала войны | [RatingBountyDamageAndNewCommander.asm](../Source/Game/Missions/RatingBountyDamageAndNewCommander.asm), `Entry` |
+| состояние 4 выбирает курс по параметру поведения без обычной проверки станции | [CheckObjectBoxAndChooseCourse.asm](../Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm), `CheckHostility` |
+| совместная проверка этапа 4 и MS_ACCEPT_BIT запрещает ответный ECM | [ProcessObjectEnergyAndTactics.asm](../Source/Game/Motion/ProcessObjectEnergyAndTactics.asm), `CheckEcm` |
+| состояние 4 меняет вероятность и код порождения объектов | [ProcessObjectEnergyAndTactics.asm](../Source/Game/Motion/ProcessObjectEnergyAndTactics.asm), `ChooseFlight` |
+| общие состояния 1 и 4 принудительно выбирают модели встречи | [GenerateSpaceTraffic.asm](../Source/Game/Objects/GenerateSpaceTraffic.asm), `EncounterClass` |
+| состояние 4 выбирает специальный код события | [ChooseEncounterCode.asm](../Source/Game/Screen/ChooseEncounterCode.asm), `Entry` |
+| область вторжения и полоса сопротивления подменяют тип встречного корабля | [SelectTrafficType.asm](../Source/Game/Screen/SelectTrafficType.asm), `CheckSpecial` |
+| геометрия фронта использует текущую систему и код вторжения | [CheckMissionRegion.asm](../Source/Game/Text/CheckMissionRegion.asm), `Entry` |
+| общая геометрия фронта применяется к сохранённому семени выбранной системы | [CheckSavedSystemRegion.asm](../Source/Game/Text/CheckSavedSystemRegion.asm), `Entry` |
+| место, военный код и отметки определяют выдачу задания либо отставку | [OfferRegionDependentMission.asm](../Source/Game/Text/OfferRegionDependentMission.asm), `Entry` |
+| общий принтер добавляет воинское звание и отметку отставки | [PrintRankWithMissionSuffix.asm](../Source/Game/Text/PrintRankWithMissionSuffix.asm), `Entry` |
+| метрика координат используется общей проверкой фронта | [MissionRegionMetric.asm](../Source/Game/Trade/MissionRegionMetric.asm), `Entry` |
 
 <a id="mission-7-1"></a>
 ## 7+1, эвакуация беженцев
 
-[Описание в исходном руководстве](#manual-mission-7-1).
-Используется тот же путь приёма и высадки, что у [миссии 1](#mission-1).
+[Описание в исходном руководстве](#manual-mission-7-1). Используется общий путь приёма и высадки [миссии 1](#mission-1).
 
-- [ToggleSecondaryCoordinateObject.asm](../Source/Game/Input/ToggleSecondaryCoordinateObject.asm), `CheckPilot` — военный допуск и выбор сообщения.
-- [ApplyEnhancedFlightControl.asm](../Source/Game/Universe/ApplyEnhancedFlightControl.asm), `CheckRefugees` — разрешение высадки и установка первой отметки `MissionFlags`.
-- [PromptCargoQuantityAndRefugees.asm](../Source/Game/Trade/PromptCargoQuantityAndRefugees.asm), `UnloadRefugees` — снятие занятого трюма и выдача результата.
+Военный допуск учитывает полосу сопротивления и код звания. Успех военной проверки высадки проходит через `MarkResult` и ставит `MS_MARK1_BIT`. При `Invasion < 2` разрешение возвращается раньше, без установки этой военной отметки.
+
+| Проверка или действие | Исходник и вход |
+|---|---|
+| предложение перевозки только при свободном миссионном трюме | [NextScreenCharacterRowAndRefugees.asm](../Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm), `OfferRefugees` |
+| спасательная капсула снимает признак особого груза после очистки тоннажных товаров | [HandleEscapeCapsule.asm](../Source/Game/Combat/HandleEscapeCapsule.asm), `ClearCargo` |
+| признак занятого миссией трюма включает отдельную подпись беженцев либо десанта | [PrintCargoAndMessageBanks.asm](../Source/Game/Extensions/PrintCargoAndMessageBanks.asm), `Entry` |
+| допуск к перевозке и выбор текста беженцев либо десанта | [ToggleSecondaryCoordinateObject.asm](../Source/Game/Input/ToggleSecondaryCoordinateObject.asm), `CheckPilot` |
+| разрешённая высадка снимает особый груз, выдаёт Gemstones и сбрасывает колонию | [PromptCargoQuantityAndRefugees.asm](../Source/Game/Trade/PromptCargoQuantityAndRefugees.asm), `UnloadRefugees` |
+| ответ Y очищает товары и свободный тоннаж, затем занимает трюм | [MissionRegionMetric.asm](../Source/Game/Trade/MissionRegionMetric.asm), `BoardRefugees` |
+| проверка разрешения высадки, военный путь ставит первую отметку | [ApplyEnhancedFlightControl.asm](../Source/Game/Universe/ApplyEnhancedFlightControl.asm), `CheckRefugees` |
+| военное состояние выбирает текст беженцев либо десанта | [SelectSpecialCargoText.asm](../Source/Game/Universe/SelectSpecialCargoText.asm), `Entry` |
+| перекрывающийся вход прекращает предложение покупки при занятом миссионном трюме | [ResetCloakingAndSeedFlightRandom.asm](../Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm), `BusyCargo` |
 
 <a id="mission-7-2"></a>
 ## 7+2, военные поставки
 
 [Описание в исходном руководстве](#manual-mission-7-2).
 
-[NextDescriptionRandom.asm](../Source/Game/Text/NextDescriptionRandom.asm), `CheckWarSupply`,
-вызывается из [TradeTitleAndSellLoop.asm](../Source/Game/Trade/TradeTitleAndSellLoop.asm).
-Он проверяет товар №0 или №10, затем принадлежность системы полосе сопротивления и устанавливает
-вторую отметку `MissionFlags`. Это независимый вход внутри файла, содержащего также генератор текста.
+После продажи вызывается `CheckWarSupply`. Он допускает только Food или Firearms, проверяет полосу сопротивления и ставит `MS_MARK2_BIT`. Этот бит одновременно участвует в выдаче старой второй миссии. Нельзя описывать его как исключительную отметку одного задания.
+
+| Проверка или действие | Исходник и вход |
+|---|---|
+| военная область ограничивает рынок и устанавливает общее состояние 4 либо 0 | [ApplyMissionMarketRestrictions.asm](../Source/Game/Menus/ApplyMissionMarketRestrictions.asm), `Entry` |
+| продажа продовольствия либо оружия в полосе сопротивления ставит вторую отметку | [NextDescriptionRandom.asm](../Source/Game/Text/NextDescriptionRandom.asm), `CheckWarSupply` |
+| продажа передаёт тип товара проверке военной поставки | [TradeTitleAndSellLoop.asm](../Source/Game/Trade/TradeTitleAndSellLoop.asm), `SellCargo` |
 
 <a id="mission-7-3"></a>
 ## 7+3, высадка десанта
 
 [Описание в исходном руководстве](#manual-mission-7-3).
 
-- [CreateMissileOrMissionCraft.asm](../Source/Game/Extensions/CreateMissileOrMissionCraft.asm), `Entry` — активная война, занятый специальным грузом трюм и достаточный военный код выбирают `Sidewinder` вместо ракеты.
-- [GuideMissileAndCheckImpact.asm](../Source/Game/Motion/GuideMissileAndCheckImpact.asm) — наведение и передача специального попадания миссионному обработчику.
-- [HandleSpecialObjectMission.asm](../Source/Game/Text/HandleSpecialObjectMission.asm), `DestroyStation`, `ShrinkFront` — для десантного `Sidewinder` обнуляет энергию самого десанта, отмечает выполнение и сокращает область вторжения до освобождения системы.
+Активная война, занятый специальным грузом трюм и достаточный военный код выбирают Sidewinder вместо ракеты. Путь снимает `MS_CARGO_BIT` и восстанавливает вместимость. При попадании Sidewinder в занятой системе ставится `MS_MARK3_BIT`, фронт уменьшается до освобождения системы, затем снимаются враждебность станции и специальное состояние.
 
-Имя `DestroyStation` само по себе не доказывает уничтожение секретной базы.
-В этом пути `IX` указывает на выпущенный десантный корабль, и сравниваемый младший байт адреса модели
-`#3C` принадлежит `Sidewinder`. Сюжет 7+4 нельзя приписывать этой ветви по названию метки.
+В `HandleSpecialObjectMission.DestroyStation` регистр IX указывает на десантный корабль. Обнуляется энергия **самого десанта**. Название метки не доказывает уничтожение станции или секретной базы.
+
+| Проверка или действие | Исходник и вход |
+|---|---|
+| спасательная капсула снимает признак особого груза после очистки тоннажных товаров | [HandleEscapeCapsule.asm](../Source/Game/Combat/HandleEscapeCapsule.asm), `ClearCargo` |
+| проверка войны, занятого трюма и военного кода допускает запуск десанта | [CreateMissileOrMissionCraft.asm](../Source/Game/Extensions/CreateMissileOrMissionCraft.asm), `Entry` |
+| признак занятого миссией трюма включает отдельную подпись беженцев либо десанта | [PrintCargoAndMessageBanks.asm](../Source/Game/Extensions/PrintCargoAndMessageBanks.asm), `Entry` |
+| допуск к перевозке и выбор текста беженцев либо десанта | [ToggleSecondaryCoordinateObject.asm](../Source/Game/Input/ToggleSecondaryCoordinateObject.asm), `CheckPilot` |
+| попадание в особую цель передаётся общему обработчику ракеты либо десанта | [GuideMissileAndCheckImpact.asm](../Source/Game/Motion/GuideMissileAndCheckImpact.asm), `FindTarget` |
+| обычная ракета меняет этап попадания, Sidewinder обрабатывает высадку десанта | [HandleSpecialObjectMission.asm](../Source/Game/Text/HandleSpecialObjectMission.asm), `Entry` |
+| Sidewinder отмечает высадку и сдвигает фронт до освобождения текущей системы | [HandleSpecialObjectMission.asm](../Source/Game/Text/HandleSpecialObjectMission.asm), `DestroyStation` |
+| ответ Y очищает товары и свободный тоннаж, затем занимает трюм | [MissionRegionMetric.asm](../Source/Game/Trade/MissionRegionMetric.asm), `BoardRefugees` |
+| военное состояние выбирает текст беженцев либо десанта | [SelectSpecialCargoText.asm](../Source/Game/Universe/SelectSpecialCargoText.asm), `Entry` |
+| перекрывающийся вход прекращает предложение покупки при занятом миссионном трюме | [ResetCloakingAndSeedFlightRandom.asm](../Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm), `BusyCargo` |
 
 <a id="mission-7-4"></a>
 ## 7+4, секретная командная база
 
 [Описание в исходном руководстве](#manual-mission-7-4).
 
-- [CheckMissionSystem.asm](../Source/Game/Input/CheckMissionSystem.asm), `Entry` — проверка запрета после отставки, области вторжения и координат. Полный путь сравнивает `Y=#5C`, `X=#03`. Маска запрета `#40` соответствует биту 6, а не биту 7.
-- [CheckSpecialSystemOrRandom.asm](../Source/Game/Universe/CheckSpecialSystemOrRandom.asm), `Entry`, `ClearStation` — по результату проверки устанавливает особое положение станционного слота и `Mission3=4`.
-- [SystemBoundaryAndObjects.asm](../Source/Game/Data/SystemBoundaryAndObjects.asm), `PlaceBodies` — один из вызывающих путей при размещении небесных тел.
+`CheckMissionSystem` проверяет отсутствие отставки, военную область и координаты. Полный путь требует `Y=#5C, X=#03`; при раннем выходе с C=0 значение Y=#FF также даёт Z без проверки X. Маска запрета `RANK_RSV_MASK=#40` соответствует биту 6.
 
-**Граница проверки:** установлены поиск точки и настройка станции. Полная цепочка уничтожения базы
-и её влияния на конец войны здесь не объявляется подтверждённой. У проверки координат также есть
-исходный ранний путь: при C=0 значение Y=#FF даёт Z, не сравнивая X. Поэтому её контракт шире простой проверки одной пары координат.
+Z от проверки разрешает особое положение станционного слота и `Mission3=4`. Ненулевой `FlightState.SpaceMode` не является условием этой процедуры. Дальше используются общие пути враждебности станции и попадания в особый объект. Они разделены с десантным Sidewinder, чей обработчик освобождения относится к 7+3.
 
-## Тексты игровых предложений
+**Путь завершения требует отдельного различения:** общий обработчик `BuildStationGeometry.MissionStage` записывает этап 5 по событию станционного слота, но вызывающая проверка в `ArrivalEvents` пропускается при `State.Galaxy=0`. Поэтому эту цепочку нельзя считать доказанным завершением секретной базы в первой галактике. Сам `CompleteThirdMission` изменяет рейтинг, этап и отметку награды, но напрямую не записывает `State.Invasion`. Обещанное сюжетное окончание войны не подставляется вместо этих инструкций.
 
-[PrintCargoAndMessageBanks.asm](../Source/Game/Extensions/PrintCargoAndMessageBanks.asm)
-содержит собственные банки токенизированных сообщений игры. Это отдельные данные,
-они не являются упакованным русским руководством.
-
-| Токен дополнительного банка | Назначение |
+| Проверка или действие | Исходник и вход |
 |---|---|
-| `#AC` | предложение вступить добровольцем |
-| `#AD` | поручение эвакуации |
-| `#B5` | поставки продовольствия и оружия |
-| `#B6` | перевозка десанта |
-| `#B7` | поиск скрытой базы |
-| `#B8` | демобилизация |
+| общее состояние 4 делает станцию враждебной | [UpdateAllSpaceObjects.asm](../Source/Game/Combat/UpdateAllSpaceObjects.asm), `Entry` |
+| отставка, военная область и координаты определяют допуск особой станции | [CheckMissionSystem.asm](../Source/Game/Input/CheckMissionSystem.asm), `Entry` |
+| попадание в особую цель передаётся общему обработчику ракеты либо десанта | [GuideMissileAndCheckImpact.asm](../Source/Game/Motion/GuideMissileAndCheckImpact.asm), `FindTarget` |
+| обычная ракета меняет этап попадания, Sidewinder обрабатывает высадку десанта | [HandleSpecialObjectMission.asm](../Source/Game/Text/HandleSpecialObjectMission.asm), `Entry` |
+| помеченное событие станционного слота переводит общее состояние в этап 5 | [BuildStationGeometry.asm](../Source/Game/Travel/BuildStationGeometry.asm), `MissionStage` |
+| Z от проверки особой системы задаёт положение станции и состояние 4 | [CheckSpecialSystemOrRandom.asm](../Source/Game/Universe/CheckSpecialSystemOrRandom.asm), `Entry` |
+| размещение небесных тел вызывает особую проверку станционного слота | [SystemBoundaryAndObjects.asm](../Source/Game/Data/SystemBoundaryAndObjects.asm), `PlaceBodies` |
 
 <a id="original-manual"></a>
 ## Исходное руководство
@@ -1408,4 +1544,3 @@ MINERAL LIFE).
 #7
 
 ```
-

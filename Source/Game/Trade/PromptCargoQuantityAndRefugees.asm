@@ -4,14 +4,14 @@
 ; Приглашение количества товара и условия миссии
 ; исходный диапазон #E87E..#E8D8
 ; In:
-;   E1DF = товар
+;   MarketWork.Commodity содержит индекс товара
 ; Out:
 ;   Выведен вопрос количества с единицей измерения
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   E8A4..E8AD является рабочей областью транзакции, E8AE отдельно проверяет миссию и бит 5
-;   D0B0, обрабатывает освобождение трюма, E8D8 является таблицей атрибутов
+;   TradeSnapshot содержит снимок транзакции и параметры ввода, UnloadRefugees отдельно проверяет миссию и бит 5
+;   State.MissionFlags, обрабатывает освобождение трюма, TradeAttrs является таблицей атрибутов
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E87E
@@ -33,23 +33,32 @@ Entry:          CALL Game.Trade.ClearPromptRows.Entry
                 DB #20                                                          ; аргумент вызываемой процедуры из потока команд
                 LD A, #3F
                 JP Game.Trade.PrintTokenNewline.Entry
-                ; снимок старшей группы денег до торговой операции
-CashHigh        DW #0000                                                        ; сохранённое старшее слово денег перед сделкой
-                ; снимок младшей группы денег до торговой операции
-CashLow         DW #0000                                                        ; сохранённое младшее слово денег перед сделкой
-                ; снимок количества текущего груза пилота
-CargoCount      DB #00                                                          ; сохранённое количество товара в трюме
-                ; снимок остатка товара станции
-StockCount      DB #00                                                          ; сохранённый остаток товара станции
-                ; снимок свободного тоннажа трюма
-FreeCargo       DB #00                                                          ; сохранённый свободный объём трюма
-                ; введённое количество товара
-Selection       DB #00                                                          ; введённое количество товара либо номер покупаемого оборудования
-                ; адрес callback пробной торговой операции
-Validator       DW #0000                                                        ; адрес проверки очередного изменения количества
+
+                ; снимок сделки для проверки и отката изменения количества
+TradeBackup     FTradeSnapshot {
+                    #0000,                                                      ; FTradeSnapshot.CashHigh, сохранённое старшее слово денег перед сделкой
+                    #0000,                                                      ; FTradeSnapshot.CashLow, сохранённое младшее слово денег перед сделкой
+                    #00,                                                        ; FTradeSnapshot.CargoCount, сохранённое количество товара в трюме
+                    #00,                                                        ; FTradeSnapshot.StockCount, сохранённый остаток товара станции
+                    #00,                                                        ; FTradeSnapshot.FreeCargo, сохранённый свободный объём трюма
+                    #00,                                                        ; FTradeSnapshot.Selection, введённое количество товара либо номер покупаемого оборудования
+                    #0000                                                       ; FTradeSnapshot.Validator, адрес проверки очередного изменения количества
+                }
+                ASSERT $ - TradeBackup == FTradeSnapshot
+
+                ; прежние имена указывают на поля экземпляра TradeBackup
+CashHigh        EQU TradeBackup.CashHigh                                        ; поле FTradeSnapshot.CashHigh
+CashLow         EQU TradeBackup.CashLow                                         ; поле FTradeSnapshot.CashLow
+CargoCount      EQU TradeBackup.CargoCount                                      ; поле FTradeSnapshot.CargoCount
+StockCount      EQU TradeBackup.StockCount                                      ; поле FTradeSnapshot.StockCount
+FreeCargo       EQU TradeBackup.FreeCargo                                       ; поле FTradeSnapshot.FreeCargo
+Selection       EQU TradeBackup.Selection                                       ; поле FTradeSnapshot.Selection
+Validator       EQU TradeBackup.Validator                                       ; поле FTradeSnapshot.Validator
                 ; миссии 1 и 7+1, проверка разрешения высадки и выдача награды
                 ; описание в Docs/Manual.md, раздел mission-1 и mission-7-1
                 ; завершение перевозки беженцев либо переход к обычной продаже
+                ; миссии 1, 4, 7+1, разрешённая высадка снимает особый груз, выдаёт Gemstones и сбрасывает колонию
+                ; описание в Docs/Manual.md, раздел mission-1, mission-4, mission-7-1
 UnloadRefugees: LD A, (State.Mission1)
                 AND A
                 JR NZ, Game.Trade.TradeTitleAndSellLoop.SellCargo               ; переход, если первая миссия ещё активна, перейти к обычной продаже
@@ -70,6 +79,7 @@ UnloadRefugees: LD A, (State.Mission1)
                 LD HL, #0700
                 CALL Game.Missions.OfferThirdMission.ShowAndWait
                 JP @Game.Menus.PrintStatusFieldAndCargoScreen.CargoScreen
+
                 ; сохранённый байт F0 после обработчика беженцев
 TradeAttrs      DB #F0                                                          ; однобайтовая последовательность настройки атрибутов торговли
                 ; проверка исходного конца фрагмента

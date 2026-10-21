@@ -1,14 +1,14 @@
                 ifndef _VARIABLES_CHARTS_
                 define _VARIABLES_CHARTS_
 
-TextInput       EQU Game.Trade.RestoreTextPosition.Length                       ; адрес структуры FTextInput
+TextInput       EQU Game.Trade.RestoreTextPosition.InputData                    ; адрес структуры FTextInput
 .Length         EQU TextInput + FTextInput.Length                               ; число введённых символов
 .Cursor         EQU TextInput + FTextInput.Cursor                               ; адрес следующего символа в буфере ввода
 .LastKey        EQU TextInput + FTextInput.LastKey                              ; последний принятый код клавиши
 InputPrompt     EQU Game.Charts.FindSystemNameDialog.PromptToken                ; токен приглашения строкового редактора
 InputBuffer     EQU Game.Charts.FindSystemNameDialog.InputBuffer                ; адрес начала редактируемой строки
 InputLimit      EQU Game.Charts.TextInputLoop.LengthLimit                       ; изменяемый предел длины строки в операнде CP
-MapViewport     EQU Game.Charts.MapCursorTransformAndKeys.CrosshairSize         ; адрес структуры FMapViewport
+MapViewport     EQU Game.Charts.MapCursorTransformAndKeys.Viewport              ; адрес структуры FMapViewport
 .CrosshairSize  EQU MapViewport + FMapViewport.CrosshairSize                    ; полуширина перекрестия карты в пикселях
 .Top            EQU MapViewport + FMapViewport.Top                              ; верхняя строка области карты
 .Bottom         EQU MapViewport + FMapViewport.Bottom                           ; нижняя строка области карты

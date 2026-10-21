@@ -1,0 +1,14 @@
+{
+  "scope": "именованные ссылки в комментариях структур и переменных",
+  "files": [
+    "Includes/Structs/EffectRecord.inc",
+    "Includes/Structs/Model.inc",
+    "Includes/Structs/SpaceObject.inc",
+    "Includes/Variables/Disk.inc",
+    "Includes/Variables/GameState.inc",
+    "Includes/Variables/Keyboard.inc",
+    "Includes/Structs/InputState.inc"
+  ],
+  "instruction_stream_unchanged": true,
+  "note": "Числовые значения полей, масок и физические границы ASSERT сохранены. Адресные ссылки заменены проверенными именами потребителей."
+}

@@ -1,17 +1,17 @@
                 module Menus
                 module PrintSystemRadius
 ; -----------------------------------------
-; Вычисление и печать радиуса планеты
+; вычисление и печать радиуса планеты
 ; исходный диапазон #EF21..#EF36
 ; In:
-;   DEBE = последнее слово семени, DEBC = среднее
+;   значения полей FSystemSeed.Syllable и FSystemSeed.X целевого семени GalaxyState.TargetSeed
 ; Out:
-;   Напечатано 256*((DEBF&15)+11)+DEBD
+;   напечатан радиус планеты в километрах, без дробной части и с шириной поля 5
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Старший байт радиуса строится из младших 4 бит DEBF, младший равен DEBD, формат целый и
-;   ширина 5
+;   радиус = 256 * ((Syllable AND #0F) + 11) + X
+;   Syllable и X в формуле обозначают значения одноимённых байтов FSystemSeed в GalaxyState.TargetSeed
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #EF21
@@ -27,6 +27,7 @@ Entry:          LD HL, (GalaxyState.TargetSeed + FSystemSeed.MixLow)
                 LD (NumberWidth), A
                 AND A
                 JP Game.Economy.PrintWordDecimal.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EF37
                 endmodule

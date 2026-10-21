@@ -10,7 +10,7 @@
 ; Corrupt:
 ;   HL, BC, AF
 ; Note:
-;   Заливает нулём по 30 байт в восьми пиксельных строках от 50A1 и 50C1, первая инструкция E36B
+;   Заливает нулём по 30 байт в восьми пиксельных строках от Memory.Screen + #10A1 и Memory.Screen + #10C1, первая инструкция ClearInputGate
 ;   временно изменяется дисковым оверлеем
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -21,7 +21,7 @@ Entry:          LD A, #15
                 CALL Game.Trade.ResetTextColumn.Entry
                 XOR A
                 LD HL, Memory.Screen + #10A1                                    ; первое внутреннее знакоместо первой строки ввода
-                CALL Game.Trade.FillCharacterRowInterior.Entry
+                CALL Game.Trade.FillCharacterRowInterior.Entry                  ; далее Game.Trade.ClearSecondPromptRow.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E37A
                 endmodule

@@ -6,15 +6,15 @@
 ; In:
 ;   IX, модули вершины
 ;   IY, матрица
-;   стек, контекст итерации из ACA2
+;   стек, контекст итерации из Game.Wireframe.DivideFractionAndProjectVertex.Project
 ; Out:
-;   память A9BB/A9BD/A9BF, повёрнутые координаты
-;   память AC9F/ACA0/ACA1, нулевые дробные части
+;   память ProjectionState.X/ProjectionState.Y/ProjectionState.Z, повёрнутые координаты
+;   память VertexFraction/VertexFraction.Y/VertexFraction.Z, нулевые дробные части
 ; Corrupt:
 ;   HL, DE, BC, AF, IY
 ; Note:
 ; Выбирает кэш либо три новых скалярных произведения.
-; IY продвигается на 18 байт, затем хвост ACDF восстанавливает контекст. Собственного RET нет.
+; IY продвигается на 18 байт, затем хвост Game.Wireframe.DivideFractionAndProjectVertex.AddObjectPos восстанавливает контекст. Собственного RET нет.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #AB73
@@ -48,6 +48,7 @@ StoreZ:         LD (ProjectionState.Z), HL
                 LD (VertexFraction.Y), A
                 LD (VertexFraction.Z), A
                 JP Game.Wireframe.DivideFractionAndProjectVertex.AddObjectPos
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #ABAF
                 endmodule

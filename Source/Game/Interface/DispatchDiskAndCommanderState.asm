@@ -6,17 +6,18 @@
 ; In:
 ;   Нет параметров для вектора
 ; Out:
-;   Переход в D907
+;   Переход в Game.Disk.LoadDiskMenuOverlay.Entry
 ; Corrupt:
 ;   По контракту дискового меню
 ; Note:
-;   D051/D052 координаты курсора, D053 радиус топливного круга, D054..D0B9 сериализуемый блок
-;   102 байта, D0BD..D0D0 десять пар сообщений, D0D1..D0D4 режимы регистра текста, D0D7
-;   отдельный JP D0F6
+;   MapCircleX/MapCircleY координаты курсора, MapRadius радиус топливного круга, State сериализуемый блок
+;   102 байта, FlightEvents содержит десять пар сообщений, LetterCase, WordStart, CapitalNext и TextMode задают режимы текста, ShowBoarding
+;   отдельный JP Game.Missions.ShowBoardingMessage.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D04E
 Entry:          JP Game.Disk.LoadDiskMenuOverlay.Entry
+
                 ; экранный X центра перекрестия
 CircleX         DB #61                                                          ; координата X окружности карты
                 ; экранный Y центра перекрестия
@@ -114,7 +115,7 @@ Commander       FCommander {
                         #00,                                                    ; FGoods.Gemstones, драгоценные камни, г
                         #00                                                     ; FGoods.AlienItems, инопланетные предметы, т
                     },
-                    #00,                                                        ; FCommander.Mission3, этап третьей миссии и отметка попадания
+                    #00,                                                        ; FCommander.Mission3, этап миссии 3 и служебное состояние войны
                     #43,                                                        ; FCommander.MissionFlags, награды, особое оборудование и занятость трюма миссией
                     {                                                           ; FCommander.SunPosition, три трёхбайтовые координаты солнца
                         {#F0, #52, #05},                                        ; FSpacePosition.X, FCoordinate {Fraction, Low, SignHigh}
@@ -129,34 +130,67 @@ MissionNotice   DB #00                                                          
 TargetX         DB #14                                                          ; галактическая координата X выбранной цели
                 ; галактическая координата Y выбранной цели
 TargetY         DB #AD                                                          ; галактическая координата Y выбранной цели
-                ; первые пять пар событий, bit7 первого байта означает ожидание, второй байт токен
-FlightEvents    DB #08, #C9                                                     ; десять пар очереди, координата с битом ожидания и токен
-IncomingEvent   DB #07, #78                                                     ; вторая пара очереди, сообщение после запуска вражеской ракеты
-                DB #09, #C8, #02, #FD                                           ; следующие пары очереди событий
-                DB #0C, #E2                                                     ; #D0C5..#D0C6
-                ; пара события подобранного предмета, координата и токен
-CargoEvent      DW #000B                                                        ; шестая пара очереди, подбор предмета и предложение улучшения
-                ; пара специального события, используется также состоянием войны
-                DB #06, #65                                                     ; #D0C9..#D0CA
-                ; пара очереди, D0CC одновременно флаг подавления нулей при печати
-                DB #00                                                          ; продолжение данных #D0CB..#D0CB
-ZeroSuppress    DB #01                                                          ; подавление ведущих нулей, одновременно токен восьмой пары очереди
-                ; пара очереди, D0CE одновременно минимальная ширина числового поля
-                DB #00                                                          ; продолжение данных #D0CD..#D0CD
-NumberWidth     DB #00                                                          ; минимальная ширина числа, одновременно токен девятой пары очереди
-                ; последняя пара очереди событий
-                DB #0A, #1F                                                     ; #D0CF..#D0D0
+                ; десять пар очереди событий, поля двух пар также используются при печати чисел
+FlightEvents    FFlightEvent {
+                    #08,                                                        ; FFlightEvent.ColumnFlags, бит ожидания и столбец сообщения
+                    #C9                                                         ; FFlightEvent.Token, номер сообщения основной таблицы
+                }
+                ; уведомление после запуска вражеской ракеты
+IncomingEvent   FFlightEvent {
+                    #07,                                                        ; FFlightEvent.ColumnFlags, бит ожидания и столбец сообщения
+                    #78                                                         ; FFlightEvent.Token, номер сообщения основной таблицы
+                }
+                FFlightEvent {
+                    #09,                                                        ; FFlightEvent.ColumnFlags, бит ожидания и столбец сообщения
+                    #C8                                                         ; FFlightEvent.Token, номер сообщения основной таблицы
+                }
+                FFlightEvent {
+                    #02,                                                        ; FFlightEvent.ColumnFlags, бит ожидания и столбец сообщения
+                    #FD                                                         ; FFlightEvent.Token, номер сообщения основной таблицы
+                }
+                FFlightEvent {
+                    #0C,                                                        ; FFlightEvent.ColumnFlags, бит ожидания и столбец сообщения
+                    #E2                                                         ; FFlightEvent.Token, номер сообщения основной таблицы
+                }
+                ; событие подбора груза, также предложение улучшения корабля
+CargoEvent      FFlightEvent {
+                    #0B,                                                        ; FFlightEvent.ColumnFlags, бит ожидания и столбец сообщения
+                    #00                                                         ; FFlightEvent.Token, номер сообщения основной таблицы
+                }
+                ; специальное событие, используется в состоянии войны
+                FFlightEvent {
+                    #06,                                                        ; FFlightEvent.ColumnFlags, бит ожидания и столбец сообщения
+                    #65                                                         ; FFlightEvent.Token, номер сообщения основной таблицы
+                }
+                ; Token используется также как признак подавления ведущих нулей
+ZeroEvent       FFlightEvent {
+                    #00,                                                        ; FFlightEvent.ColumnFlags, бит ожидания и столбец сообщения
+                    #01                                                         ; FFlightEvent.Token, номер сообщения основной таблицы
+                }
+                ; Token используется также как минимальная ширина числа
+WidthEvent      FFlightEvent {
+                    #00,                                                        ; FFlightEvent.ColumnFlags, бит ожидания и столбец сообщения
+                    #00                                                         ; FFlightEvent.Token, номер сообщения основной таблицы
+                }
+                FFlightEvent {
+                    #0A,                                                        ; FFlightEvent.ColumnFlags, бит ожидания и столбец сообщения
+                    #1F                                                         ; FFlightEvent.Token, номер сообщения основной таблицы
+                }
+                ASSERT $ - FlightEvents == 10 * FFlightEvent
+ZeroSuppress    EQU ZeroEvent.Token                                             ; подавление ведущих нулей, токен восьмой пары
+NumberWidth     EQU WidthEvent.Token                                            ; минимальная ширина числа, токен девятой пары
                 ; режим регистра букв, 1 заглавные, 2 строчные
 LetterCase      DB #00                                                          ; регистр букв, 1 заглавные, 2 строчные
                 ; состояние начала слова для преобразования регистра
 WordStart       DB #01                                                          ; флаг, следующий символ начинает слово
                 ; одноразовый признак заглавной буквы
 CapitalNext     DB #00                                                          ; флаг, следующая буква должна стать заглавной
-                ; сохранённый режим текста, проверка в D4D8 нейтрализована NOP
+                ; сохранённый режим текста, проверка в Game.Text.ApplyTextCase.EmitCharacter нейтрализована NOP
 TextMode        DB #00                                                          ; сохранённый режим текста, его проверка нейтрализована NOP
-                ; сохранённое слово D508, адрес загрузки экранной базы
-TextBasePatch   DW #D508                                                        ; сохранённый адрес команды загрузки экранной базы текста
+                ; сохранённый указатель на LD HL, Memory.Screen в Game.Text.DrawCharacter8x8.Entry
+TextBasePatch   DW Game.Text.DrawCharacter8x8.ScreenHigh - 2                    ; сохранённый адрес команды загрузки экранной базы текста
 ShowBoarding:   JP Game.Missions.ShowBoardingMessage.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D0DA
                 endmodule

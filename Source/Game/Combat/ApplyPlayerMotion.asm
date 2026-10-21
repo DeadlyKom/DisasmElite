@@ -10,12 +10,13 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-; Хвостовой переход в A173, контракт полностью совпадает с ApplyPlayerMotionToObject.
+; Хвостовой переход в Game.Motion.ApplyPlayerMotionToObject.Entry, контракт полностью совпадает с ApplyPlayerMotionToObject.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #9C83
                 ; переход к преобразованию относительных координат
 Entry:          JP Game.Motion.ApplyPlayerMotionToObject.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9C86
                 endmodule

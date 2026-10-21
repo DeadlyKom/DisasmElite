@@ -5,14 +5,14 @@
 ; исходный диапазон #F9E7..#F9E7
 ; смысловое имя ValidateTargetWithFlags
 ; In: AF — A содержит упакованный номер слота
-; Out: C=1 передаётся в общий вход #F9E8
-; Corrupt: по контракту #F9E8
+; Out: C=1 передаётся в общий вход Game.Extensions.ValidatePackedObjectTarget.Entry
+; Corrupt: по контракту Game.Extensions.ValidatePackedObjectTarget.Entry
 ; SCF здесь выбирает строгую проверку ненулевых флагов +20 объекта
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #F9E7
                 ; выбор строгой проверки ненулевого идентификатора
-Entry:          SCF
+Entry:          SCF                                                             ; далее Game.Extensions.ValidatePackedObjectTarget.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #F9E8
                 endmodule

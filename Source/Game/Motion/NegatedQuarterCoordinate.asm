@@ -12,7 +12,7 @@
 ; Corrupt:
 ;   AF
 ; Note:
-; Знак инвертируется перед общим хвостом #A572.
+; Знак инвертируется перед общим хвостом Game.Motion.QuarterCoordinate.QuarterModule.
 ; Используется для направления от объекта к игроку в начале координат.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -21,6 +21,7 @@
 Entry:          LD A, (IX + FCoordinate.SignHigh)
                 XOR #80
                 JR Game.Motion.QuarterCoordinate.QuarterModule
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A56F
                 endmodule

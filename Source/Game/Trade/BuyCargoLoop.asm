@@ -10,8 +10,8 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
-;   Печатает товар, предлагает количество и вызывает E7DB, код возврата 1 повторяет ввод, 2
-;   пропускает товар, другой код завершает в F0B8, E76E удаляет цифру и откатывает операцию
+;   Печатает товар, предлагает количество и вызывает Game.Trade.IndirectTradeCallbackAndBuy.BuyQuantity, код возврата 1 повторяет ввод, 2
+;   пропускает товар, другой код завершает в Game.Menus.PrintStatusFieldAndCargoScreen.CargoScreen, Game.Trade.BuyCargoLoop.UndoQuantity удаляет цифру и откатывает операцию
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E711
@@ -55,7 +55,7 @@ AdvanceItem:    LD HL, MarketWork.Commodity
 
 ReturnCargo:    JP @Game.Menus.PrintStatusFieldAndCargoScreen.CargoScreen
 
-                ; вход очистки двух областей атрибутов через общий хвост #E769
+                ; вход очистки двух областей атрибутов через общий хвост Game.Trade.BuyCargoLoop.ClearAttrByte
 ClearTradeAttr: LD HL, Memory.Attributes + #0020                                ; атрибуты со второй символьной строки
                 LD B, #E0
                 CALL ClearAttrByte
@@ -69,6 +69,7 @@ ClearAttrByte:  LD (HL), A
 UndoQuantity:   CALL Game.Trade.ErasePreviousCharacter.Entry
                 CALL Game.Trade.RestoreTradeSnapshot.Entry
                 JR @Game.Trade.InputTradeQuantity.ClearQuantity
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E776
                 endmodule

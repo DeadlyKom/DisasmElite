@@ -7,7 +7,7 @@
 ; In: BC — положение центра после классификации, D — радиус
 ; Out: обе видимые половины выведены через один из боковых построителей
 ; Corrupt: HL, DE, BC, AF, HL', DE', BC', AF'
-; Вход #8898 использует уже нормализованный центр
+; Вход Game.Circles.DrawOneSideClippedCircle.SideLimit использует уже нормализованный центр
 ; AF' сохраняет предел движения, бит 0 E выбирает пару левых или правых обработчиков
 ; Маски пересчитываются перед каждой половиной
 ; -----------------------------------------
@@ -39,6 +39,7 @@ ClipLeft:       CALL Game.Circles.PrepareLeftClippedCircle.Entry
                 CALL Game.Screen.LeftArcDown.Entry
                 CALL Game.Circles.PrepareLeftClippedCircle.Entry
                 JP Game.Screen.LeftArcUp.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #88B8
                 endmodule

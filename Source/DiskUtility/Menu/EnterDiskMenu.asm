@@ -2,19 +2,19 @@
 ; вход в дисковое меню, восстановление обработчиков и очистка пула объектов
 ; исходный диапазон #C800..#C82B
 ; In:
-;   стек, возврат в основной загрузчик оверлея #D94A
+;   стек, возврат после вызова дискового меню из Game.Disk.LoadDiskMenuOverlay.Entry
 ; Out:
-;   HL=#617F, DE=#6180, BC=0
+;   HL=DiskBuffer.Work + #0110, DE=DiskBuffer.Work + #0111, BC=0
 ;   AF, флаги результата меню, A=#3E при обычном возврате
-;   #606F..#617F обнулены
+;   273 байта начиная с DiskBuffer.Work обнулены
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-;   #D548 содержит XOR C в выводе символа, временный NOP заменяет смешивание на прямую запись.
-;   #E36B временно получает RET, после BuildSaveList восстанавливаются исходные #A9 и #3E.
-;   Общий вход #C816 сохраняет AF до очистки и возвращает его без изменения.
-;   Переход CheckSpaceExit в #C816 минует восстановление двух патчей, это исходное поведение.
-;   #D975 оставляет B=0, поэтому LD (HL),B и LDIR очищают ровно 273 байта.
+;   Game.Text.XorCharacterScanlines.XorOpcode содержит XOR C в выводе символа, временный NOP заменяет смешивание на прямую запись.
+;   Game.Trade.ClearPromptRows.Entry временно получает RET, после BuildSaveList восстанавливаются исходные #A9 и #3E.
+;   Общий вход DiskUtility.Menu.ReturnMenu сохраняет AF до очистки и возвращает его без изменения.
+;   Переход CheckSpaceExit в DiskUtility.Menu.ReturnMenu минует восстановление двух патчей, это исходное поведение.
+;   Game.Disk.BlackAttributesAndOverlayState.Entry оставляет B=0, поэтому LD (HL), B и LDIR очищают ровно 273 байта.
 ; -----------------------------------------
 EnterMenu:      XOR A
                 LD (Game.Text.XorCharacterScanlines.XorOpcode), A
@@ -29,7 +29,7 @@ EnterMenu:      XOR A
 ReturnMenu:     PUSH AF
                 CALL @Game.Text.PrintInlineToken.Entry                          ; обработка следующего байта как встроенного управляющего кода
                 DB #08                                                          ; управляющий код текста, адрес возврата пропускает этот байт
-                CALL @Game.Disk.BlackAttributesAndOverlayState.Entry            ; очистка 768 атрибутных байтов, на выходе HL=#5B00 и BC=0
+                CALL @Game.Disk.BlackAttributesAndOverlayState.Entry            ; очистка 768 атрибутных байтов, на выходе HL=(Memory.Attributes + #0300) и BC=0
                 LD HL, DiskBuffer.Work
                 LD DE, DiskBuffer.Work + 1
                 LD (HL), B

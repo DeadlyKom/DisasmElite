@@ -1,27 +1,27 @@
 ; -----------------------------------------
-; подтверждение, чтение и преобразование трёх секторов перед переходом в #C500
+; подтверждение, чтение и преобразование трёх секторов перед переходом в DiskUtility.Menu.CopyEntry
 ; исходный диапазон #CF9C..#CFF5
 ; In:
 ;   DE, подтверждённый параметр копирования
 ;   диск, дорожка #0E и сектора 1..3
-;   #BE00..#BEFF, таблица младших байтов квадратов
+;   Game.Math.SquareLo, таблица младших байтов квадратов
 ; Out:
 ;   N/SPACE возвращают обычным RET
-;   Y завершает подготовку с HL=#E000, DE=#C800, IY=#5900 и переходом #C500
+;   Y завершает подготовку с HL=DiskUtility.Menu.CopyEntryHL, DE=DiskUtility.Menu.EnterMenu, IY=DiskUtility.Menu.CopyAttributes и переходом DiskUtility.Menu.CopyEntry
 ; Corrupt:
 ;   HL, DE, BC, AF, IY
 ; Note:
-;   Сохраняет DE в #CF9A, ждёт N, SPACE или Y, остальные клавиши игнорирует.
-;   Сектора 3, 2, 1 читаются соответственно в #C700, #C600, #C500.
-;   После цикла HL=#C500 помещается на стек, последний RET использует именно этот адрес.
+;   Сохраняет DE в DiskUtility.Menu.CopyParameter, ждёт N, SPACE или Y, остальные клавиши игнорирует.
+;   Сектора 3, 2, 1 читаются соответственно в DiskUtility.Menu.CopyReadPage, CopyEntry + #0100, DiskUtility.Menu.CopyEntry.
+;   После цикла HL=DiskUtility.Menu.CopyEntry помещается на стек, последний RET использует именно этот адрес.
 ;   Для байта i преобразование равно ((вход+T[2i]) XOR T[2i+1])-T[2i+2] по модулю 256.
 ;   Индексы таблицы также берутся по модулю 256, преобразуются 768 байтов.
-;   Патчи RET по #CA34/#D975 отключают выход по SPACE и очистку атрибутов.
-;   Патч #CE,#00 по #CDB7 меняет LD A,1 на ADC A,0 в FormatTrack.
+;   Патчи RET по RestoreStack и Game.Disk.BlackAttributesAndOverlayState.Entry отключают выход по SPACE и очистку атрибутов.
+;   Патч #CE,#00 по DiskUtility.Menu.VerifySector меняет LD A,1 на ADC A,0 в FormatTrack.
 ;   Для данного TRD соответствующие исходные байты лежат в ELITE3.C+#8C00..#8EFF.
 ;   Их преобразованный результат не подтверждён как связная программа, переход не означает её работоспособность.
 ;   Прямой вызывающий маршрут ConfirmCopy здесь установлен из CopyMenu, внешний вход CopyMenu не найден.
-;   В изолированной проверке N/SPACE вернули управление, Y подтвердил точные 768 байтов и RET в #C500.
+;   В изолированной проверке N/SPACE вернули управление, Y подтвердил точные 768 байтов и RET в DiskUtility.Menu.CopyEntry.
 ;   Проверка использует модель внешнего ПЗУ/FDC, реальные тайминги физической дискеты не моделируются.
 ; -----------------------------------------
                 ; сохранение подтверждённого параметра и вывод запроса
@@ -38,7 +38,7 @@ AwaitConsent:   CALL WaitMenuKey
                 CP #59
                 JR NZ, AwaitConsent                                             ; переход, если нажата клавиша, отличная от Y, N и SPACE
 
-                CALL @Game.Disk.BlackAttributesAndOverlayState.Entry            ; очистка 768 атрибутных байтов, на выходе HL=#5B00 и BC=0
+                CALL @Game.Disk.BlackAttributesAndOverlayState.Entry            ; очистка 768 атрибутных байтов, на выходе HL=(Memory.Attributes + #0300) и BC=0
                 LD A, #0E
                 CALL SetTrackSide
                 LD B, #03

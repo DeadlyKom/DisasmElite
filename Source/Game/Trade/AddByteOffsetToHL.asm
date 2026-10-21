@@ -19,6 +19,7 @@ Entry:          LD D, #00
                 LD E, A
                 ADD HL, DE
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EB43
                 endmodule

@@ -4,18 +4,20 @@
 ; создание объекта с расходом ракеты либо специального груза
 ; исходный диапазон #5EC5..#5F10
 ; смысловое имя CreateMissileOrMissionCraft
-; In: AF — тип для #B898, IX — свободный 39-байтовый слот
+; In: AF — тип для Game.Objects.InitializeObject.Entry, IX — свободный 39-байтовый слот
 ; Out: объект создан, A=0, Z=1, модель при необходимости заменена
-; Corrupt: HL, DE, BC, AF, IY по контракту #B898, IX указывает на созданный слот
-; Обычный путь уменьшает число ракет #D083 до всех последующих проверок
-; При военном допуске снимается бит 5 #D0B0 и выбирается модель #633C без расхода ракеты
-; Если #D086.0, груз #D07B и клавиша D активны, расход ракеты компенсируется
-; Тогда единица #D07B переносится в #D07C и выбирается модель #636A
-; Указатель модели записывается в IX+23/24, порт #FDFE и маска #04 проверяют именно D
+; Corrupt: HL, DE, BC, AF, IY по контракту Game.Objects.InitializeObject.Entry, IX указывает на созданный слот
+; Обычный путь уменьшает число ракет State.Missiles до всех последующих проверок
+; При военном допуске снимается бит 5 State.MissionFlags и выбирается модель Blueprint.Sidewinder без расхода ракеты
+; Если State.AlienComputer.0, груз State.Cargo + FGoods.AlienItems и клавиша D активны, расход ракеты компенсируется
+; Тогда единица State.Cargo + FGoods.AlienItems переносится в State.FreeCargo и выбирается модель Blueprint.Tharglet
+; Указатель модели записывается в FSpaceObject.Blueprint объекта IX, порт #FDFE и маска #04 проверяют именно D
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #5EC5
                 ; создание объекта стандартным конструктором до выбора специальной модели
+                ; миссия 7+3, десант, проверка войны, занятого трюма и военного кода допускает запуск десанта
+                ; описание в Docs/Manual.md, раздел mission-7-3
 Entry:          CALL Game.Objects.InitializeObject.Entry
                 LD HL, State.Missiles
                 ; миссия 7+3, проверка допуска выпуска десантного Sidewinder
@@ -31,7 +33,7 @@ Entry:          CALL Game.Objects.InitializeObject.Entry
 
                 LD A, (State.RankState)
                 CP RANK_CAPT_CODE
-                JR C, SpendMissile                                              ; переход, если #D062 меньше #84, расходовать ракету
+                JR C, SpendMissile                                              ; переход, если State.RankState меньше #84, расходовать ракету
 
                 ; пересчёт грузового ограничения и снятие использованного специального флага
                 CALL Game.Screen.ResetCargoCapacity.Entry
@@ -46,11 +48,11 @@ Entry:          CALL Game.Objects.InitializeObject.Entry
 SpendMissile:   DEC (HL)
                 LD A, (State.AlienComputer)
                 AND ALIEN_OWN_MASK
-                RET Z                                                           ; выход, если бит 0 #D086 сброшен, оставить обычную модель
+                RET Z                                                           ; выход, если бит 0 State.AlienComputer сброшен, оставить обычную модель
 
                 LD A, (State.Cargo + FGoods.AlienItems)
                 AND A
-                RET Z                                                           ; выход, если груз #D07B отсутствует, оставить обычную модель
+                RET Z                                                           ; выход, если груз State.Cargo + FGoods.AlienItems отсутствует, оставить обычную модель
 
                 ; опрос клавиши D непосредственно через ряд #FDFE
 DirectKeyRead   LD A, #FD                                                       ; начало прямого опроса D, установщик демо заменяет этот участок
@@ -71,6 +73,7 @@ SetBlueprint:   LD (IX+FSpaceObject.Blueprint), L
                 LD (IX+FSpaceObject.Blueprint+1), H
                 XOR A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #5F11
                 endmodule

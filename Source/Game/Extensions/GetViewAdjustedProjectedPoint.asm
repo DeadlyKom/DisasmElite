@@ -4,8 +4,8 @@
 ; перестановка проекционных координат с поправкой на вид
 ; исходный диапазон #F945..#F959
 ; смысловое имя GetViewAdjustedProjectedPoint
-; In: (#A9C1) — пара координат, (#A9C3) — признаки, (#70E3) — вид
-; Out: D=(#A9C1), E=(#A9C2), C=(#A9C3) с условно инвертированным битом 1
+; In: (ProjectionState.ScreenX) — пара координат, (ProjectionState.Flags) — признаки, (FlightState.View) — вид
+; Out: D=(ProjectionState.ScreenX), E=(ProjectionState.ScreenY), C=(ProjectionState.Flags) с условно инвертированным битом 1
 ; Corrupt: DE, BC — только C, AF
 ; Для нечётного номера вида инвертируется бит 1, порядок байтов координат меняется
 ; -----------------------------------------
@@ -24,6 +24,7 @@ Entry:          LD DE, (ProjectionState.ScreenX)
                 XOR PROJ_NEGX_MASK
 ReturnFlags:    LD C, A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #F95A
                 endmodule

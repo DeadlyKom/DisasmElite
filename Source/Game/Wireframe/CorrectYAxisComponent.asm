@@ -62,6 +62,7 @@ PackComponent:  RR H
                 INC IY
                 INC IY
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #AECC
                 endmodule

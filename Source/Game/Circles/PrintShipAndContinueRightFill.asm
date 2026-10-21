@@ -4,23 +4,25 @@
 ; печать названия улучшенного корабля и продолжение правой заливки
 ; исходный диапазон #8D38..#8DED
 ; смысловое имя PrintUpgradedShipNameAndContinueRightFill
-; In: для #8D38 поле #D08E, для #8D4C состояние правой отсечённой дуги
-; Out: при улучшении печатается токен#F9, курсор переводится на строку 4
+; In: для Game.Circles.PrintShipAndContinueRightFill.Entry поле State.ShipUpgrade, для Game.Circles.PrintShipAndContinueRightFill.NextRightRow состояние правой отсечённой дуги
+; Out: при улучшении печатается токен #F9, курсор переводится на строку 4
 ; Corrupt: HL, DE, BC, AF, построитель также HL', DE', BC', AF'
 ; Токен #F9 через основной банк обозначает Cobra Mk4
-; Независимый #8D4C продолжает заливку с фиксированным правым краем
-; #8DC8 — изменяемый переход в шестнадцать PUSH AF, #8DC9 — смещение
-; После серии записей #8DDA восстанавливает SP и выбирает следующую экранную строку
+; Независимый Game.Circles.PrintShipAndContinueRightFill.NextRightRow продолжает заливку с фиксированным правым краем
+; Game.Circles.PrintShipAndContinueRightFill.FillPairsJump — изменяемый переход в шестнадцать PUSH AF, CircleRaster.RightPairJump — смещение
+; после серии PUSH AF общий хвост восстанавливает SP из CircleState.SavedSP и выбирает StepFillDown либо шаг вверх
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #8D38
                 ; подготовка курсора и проверка установленного улучшения
+                ; миссия 6 Cobra Mk4, вывод названия модернизированного корабля
+                ; описание в Docs/Manual.md, раздел mission-6
 Entry:          LD HL, #0306
                 LD (TextColumn), HL
                 LD A, (State.ShipUpgrade)
                 AND A
                 LD A, #F9
-                CALL NZ, Game.Text.PrintMainToken.Entry                         ; вызов, если улучшение#D08E установлено, напечатать название Cobra Mk4
+                CALL NZ, Game.Text.PrintMainToken.Entry                         ; вызов, если улучшение State.ShipUpgrade установлено, напечатать название Cobra Mk4
                 LD A, #04
                 JP Game.Trade.SetTextRow.Entry
 
@@ -168,6 +170,7 @@ FillPairsJump:  JR FillPairsJump
 
 StepFillDown:   CALL Game.Circles.StepCircleRowDown.Entry
                 JR SweepRightFill
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #8DEE
                 endmodule

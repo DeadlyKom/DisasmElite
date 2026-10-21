@@ -1,0 +1,8 @@
+{
+  "scope": "README, Docs, инструкции Source и Tools/Disasm, без исторических/vendor документов",
+  "documents": 13,
+  "local_links_checked": 1785,
+  "broken_links": [],
+  "external_links_checked": false,
+  "passed": true
+}

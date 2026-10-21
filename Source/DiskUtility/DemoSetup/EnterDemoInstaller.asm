@@ -2,9 +2,9 @@
 ; Вход установщика демонстрационного оверлея
 ; исходный диапазон #C800..#C803
 ; In:
-;   оверлей загружен в C800
+;   оверлей загружен в DiskUtility.DemoSetup.EnterInstaller
 ; Out:
-;   переход в InstallDemo по C82C
+;   переход в InstallDemo по DiskUtility.DemoSetup.InstallDemo
 ; Corrupt:
 ;   по контракту InstallDemo
 ; Note:

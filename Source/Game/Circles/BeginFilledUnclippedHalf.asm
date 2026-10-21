@@ -5,11 +5,11 @@
 ; исходный диапазон #8AF7..#8B29
 ; смысловое имя BeginFilledUnclippedHalf
 ; In: HL — правый край, E — левый адрес, B/C — маски, альтернативные регистры — итератор
-; Out: строки залиты через общее продолжение #8B4B
+; Out: строки залиты через общее продолжение Game.Circles.SetCabinHeatAndContinueFilledCircle.NextArcRow
 ; Corrupt: HL, DE, BC, AF, HL', DE', BC', AF', память экрана
 ; Под возвратом уже лежит AF, сохранённый внешней обёрткой, на выходе он снимается
-; Проверяется порядок краёв и верхний/нижний предел, затем сохраняется SP в#8623
-; Краевые маски OR накладываются на фон, полный внутренний участок заполняет #5E36
+; Проверяется порядок краёв и верхний/нижний предел, затем сохраняется SP в CircleState.SavedSP
+; Краевые маски OR накладываются на фон, полный внутренний участок заполняет Game.Extensions.FillBackwardAndCountDemo.Entry
 ; Чётность числа внутренних байтов определяет отдельную запись нечётного остатка
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -23,16 +23,18 @@ Entry:          LD A, E
                 LD A, (CircleState.DirectionDown)
                 AND A
                 JR NZ, CheckBottom                                              ; переход, если направление вниз, проверить нижний предел
+
 UpperLimit      EQU $ + 1                                                       ; верхний предел заполнения круга без бокового отсечения
                 LD A, #BF
                 CP H
-                JR C, SaveRealStack                                             ; переход, если H выше#BF, строка ещё находится в буфере
+                JR C, SaveRealStack                                             ; переход, если H выше #BF, строка ещё находится в буфере
 
                 JR EmptyHalf
+
 LowerLimit      EQU $ + 1                                                       ; нижний предел заполнения круга без бокового отсечения
 CheckBottom:    LD A, #CF
                 CP H
-                JR NC, SaveRealStack                                            ; переход, если H не больше#CF, строка ещё находится в буфере
+                JR NC, SaveRealStack                                            ; переход, если H не больше #CF, строка ещё находится в буфере
 
                 ; возврат с удалением AF, сохранённого внешней обёрткой
 EmptyHalf:      POP AF
@@ -57,9 +59,10 @@ FillEdgeRow:    LD A, (HL)
 
                 INC L
                 LD (HL), #FF
-                ; заполнение внутренних байтов через общий #5E36
+                ; заполнение внутренних байтов через общий Game.Extensions.FillBackwardAndCountDemo.Entry
 FillMiddle:     CALL Game.Extensions.FillBackwardAndCountDemo.Entry
                 JR Game.Circles.SetCabinHeatAndContinueFilledCircle.NextArcRow
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #8B2A
                 endmodule

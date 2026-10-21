@@ -10,11 +10,12 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Передаёт управление D45F, базу таблицы задаёт слово F11C
+;   Передаёт управление Game.Text.PrintDescriptionToken.Entry, базу таблицы задаёт слово MessageTable.Description
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D039
 Entry:          JP Game.Text.PrintDescriptionToken.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D03C
                 endmodule

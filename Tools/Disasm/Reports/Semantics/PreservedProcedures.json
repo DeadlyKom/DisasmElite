@@ -95,7 +95,7 @@
     "headers": 2,
     "byte_source_verified": true,
     "status": "reviewed",
-    "summary": "Чтение A по HL, запись HL в #F3D8, ожидание HALT и возврат. Запись меняет S и нулевой конец строки EXTRA PULSE LASERS",
+    "summary": "инициализация объекта по номеру в общем каталоге моделей",
     "unresolved": [],
     "historical_unknowns": [
       "Причина присутствия и намерение автора не установлены"

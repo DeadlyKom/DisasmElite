@@ -60,6 +60,7 @@ CheckFraction:  LD A, H
                 DEC HL
                 LD A, B
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #AB73
                 endmodule

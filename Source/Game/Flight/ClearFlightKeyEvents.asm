@@ -6,16 +6,16 @@
 ; In:
 ;   без параметров
 ; Out:
-;   FC08..FC0C=0, далее общий 9503
+;   InputState.SystemKeys..InputState.ChartKeys=0, далее общий Game.Flight.ClearBytes.Entry
 ; Corrupt:
 ;   HL, BC, AF
 ; Note:
-;   Код символа FC0D и настройки FC0E сохраняются
+;   Код символа InputState.LastKey и настройки InputState.Config сохраняются
 ; -----------------------------------------
                 ASSERT $ == #94FE
                 ; очистка пяти масок с сохранением символа и настроек
 Entry:          LD B, #05
-                LD HL, InputState.SystemKeys
+                LD HL, InputState.SystemKeys                                    ; далее Game.Flight.ClearBytes.Entry без команды перехода
                 ASSERT $ == #9503
                 endmodule
                 endmodule

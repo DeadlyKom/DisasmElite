@@ -4,11 +4,11 @@
 ; адреса и маски строки диаметра неотсечённого круга
 ; исходный диапазон #87D4..#87F3
 ; смысловое имя PrepareUnclippedCircle
-; In: #8620/#8621 — экранный центр, #861D — радиус
+; In: CircleState.ScreenY/CircleState.ScreenX — экранный центр, CircleState.Radius — радиус
 ; Out: H/E — адрес левого края, HL — адрес правого, B/C — краевые маски
 ; Corrupt: HL, DE, BC, AF, BC', DE'
 ; C'=-радиус, E'=0 являются начальными координатами итерационного построителя
-; Левая координата равна X-r, правая X+r, обе переводятся через ROM #22B0
+; Левая координата равна X-r, правая X+r, обе переводятся через ROM Rom.PixelFromA
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #87D4
@@ -29,6 +29,7 @@ Entry:          LD BC, (CircleState.ScreenY)
                 LD A, (CircleState.ScreenX)
                 ADD A, D
                 JP Game.Circles.ComputeRightEdgeMask.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #87F4
                 endmodule

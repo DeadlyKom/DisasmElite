@@ -4,15 +4,15 @@
 ; Проверка запроса автоматической стыковки
 ; исходный диапазон #717B..#71BF
 ; In:
-;   маска FC0B bit7 и состояние корабля/станции
+;   маска InputState.DeviceKeys bit7 и состояние корабля/станции
 ; Out:
-;   при допуске 7129=1, вид 0, координаты относительны станции и переход 93ED
+;   при допуске FlightState.AutoDock=1, вид 0, координаты относительны станции и переход Game.Flight.LaunchOrDockShip.Entry
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-;   Сначала 9C9A позволяет специальный путь без клавиатурных проверок
-;   Обычный путь требует 711C!=0, установленный D08C, полёт 7104!=0, отсутствие отсчёта D03F и bit2
-;   станции 6069
+;   Сначала CombatState.DockRequest позволяет специальный путь без клавиатурных проверок
+;   Обычный путь требует FlightState.StationZone!=0, установленный State.DockComputer, полёт FlightState.FlightStatus!=0, отсутствие отсчёта JumpMode и bit2
+;   станции Memory.Station + FSpaceObject.Hostility
 ; -----------------------------------------
                 ASSERT $ == #717B
                 ; принудительный запрос обходит клавишу и допуски компьютера
@@ -36,7 +36,7 @@ CheckDockKey:   LD A, (InputState.DeviceKeys)
                 ; проверка доступности станции и стыковочного компьютера
                 LD A, (FlightState.StationZone)
                 AND A
-                RET Z                                                           ; выход, если стыковка запрещена текущим состоянием 711C
+                RET Z                                                           ; выход, если стыковка запрещена текущим состоянием FlightState.StationZone
 
                 LD A, (State.DockComputer)
                 AND A
@@ -63,6 +63,7 @@ StartDocking:   XOR A
                 CALL Game.Screen.RestoreCockpitIfNeeded.Entry
 RebaseForDock:  CALL Game.Flight.RebaseSunAgainstStation.Entry
                 JP Game.Flight.LaunchOrDockShip.Entry
+
                 ASSERT $ == #71C0
                 endmodule
                 endmodule

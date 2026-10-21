@@ -36,6 +36,7 @@ OnlyLowGroup:   LD A, #07
 PrintLowGroup:  POP HL
                 SCF
                 JP Game.Economy.PrintWordDecimal.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D357
                 endmodule

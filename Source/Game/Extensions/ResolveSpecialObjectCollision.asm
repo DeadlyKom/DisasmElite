@@ -4,18 +4,18 @@
 ; фильтр столкновения и обнуление энергии выбранного участника
 ; исходный диапазон #F97E..#F9A7
 ; смысловое имя ResolveSpecialObjectCollision
-; In: IX и IY — участники, (#B452) — метаданные IX
-; Out: специальный участник передаётся #A537, обычный путь возвращает A=1 при поражении
-; Corrupt: AF, при переходе #A537 также его регистры
+; In: IX и IY — участники, (ObjectEffects.Current) — метаданные IX
+; Out: специальный участник передаётся Game.Motion.IsSmallSignedDistance.Entry, обычный путь возвращает A=1 при поражении
+; Corrupt: AF, при переходе Game.Motion.IsSmallSignedDistance.Entry также его регистры
 ; Обычный путь разрешён лишь при всех флагах #D0 в метаданных
-; Если IY+26=#0C, энергия IX+22 обнуляется, иначе требуется бит 1 IY+26 и обнуляется IY+22
+; При FSpaceObject.Flags2 второго участника IY = OBJ_STATION_FL обнуляется FSpaceObject.Energy первого IX, иначе нужен OBJ_SCOOP_BIT второго и обнуляется его энергия
 ; HL сохраняется при чтении метаданных, остальные поля объектов не меняются
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #F97E
                 ; проверка флага управляемой ракеты первого участника столкновения
 Entry:          BIT OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)
-                JP NZ, Game.Motion.IsSmallSignedDistance.Entry                  ; переход, если у объекта установлен флаг управляемой ракеты, применить обработчик #A537
+                JP NZ, Game.Motion.IsSmallSignedDistance.Entry                  ; переход, если у объекта установлен флаг управляемой ракеты, применить обработчик Game.Motion.IsSmallSignedDistance.Entry
 
                 ; чтение флагов метаданных без изменения HL вызывающей процедуры
                 PUSH HL
@@ -43,6 +43,7 @@ DestroyFirst:   XOR A
                 LD (IX+FSpaceObject.Energy), A
                 INC A
                 RET
+
                 DB #3C, #C9                                                     ; данные #F9A6..#F9A7
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #F9A8

@@ -4,19 +4,19 @@
 ; Анимация тоннеля гиперперехода и стыковки
 ; исходный диапазон #9296..#9380
 ; In:
-;   D040 активное завершение перехода,93D0 число колец,93D3/93E3 счётчики глубины
+;   ViewKeyLock активное завершение перехода,TunnelRings число колец,HyperDepths/DockDepths счётчики глубины
 ; Out:
-;   кадр тоннеля и счётчики изменены, общий 937B устанавливает скорость 7
+;   кадр тоннеля и счётчики изменены, общий Game.Flight.AnimateTransitionTunnel.SetSpeed устанавливает скорость 7
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
 ;   Для каждого кольца счётчик уменьшается, радиус вычисляется как 256/счётчик, значения меньше 4 не
 ;   рисуются
-;   Операнд 92FA выбирает таблицу 16 гиперколец или 8 стыковочных колец,93D1 хранит остаток цикла
-;   9318 меняет цель JR Z с 931E на 9337,9326 порог затухания,932B выбирает 9341,935E или 9364
-;   9341 очищает оба флага перехода и вычитает 190 из 16 глубин,9364 снимает D040,9369 снимает D03F и
+;   Операнд TunnelDepths выбирает таблицу 16 гиперколец или 8 стыковочных колец,TunnelLeft хранит остаток цикла
+;   TunnelPhase выбирает ShowFrame либо FadeTunnel, TunnelLimit хранит порог затухания, TunnelFinish выбирает завершение гиперперехода, EndLaunch либо EndDocking
+;   хвост FadeTunnel обнуляет ViewKeyLock и JumpMode и вычитает 190 из 16 HyperDepths, EndDocking снимает ViewKeyLock, EndDockTunnel снимает JumpMode и
 ;   вычитает 192 из 8 глубин
-;   Самомодификация является частью автомата фаз, DB-хвосты 9337..935D и 9364..937A раскрыты как
+;   самомодификация является частью автомата фаз, хвосты FadeTunnel и EndDocking разобраны как
 ;   исполняемые обработчики
 ; -----------------------------------------
                 ASSERT $ == #9296
@@ -52,7 +52,7 @@ InitHyperRings: CALL Game.Screen.ClearFlightBuffer.Entry
                 LD (TunnelLimit), A
                 LD A, #15
                 LD (TunnelFinish), A
-                ; выбор завершения кадра через изменяемое смещение JR9317
+                ; выбор завершения кадра через изменяемое смещение TunnelPhase
 SelectFrameEnd: LD A, (ViewKeyLock)
                 AND A
                 JR NZ, MainFrameEnd                                             ; переход, если активен основной этап туннеля, выбрать вывод кадра
@@ -91,7 +91,7 @@ AdvanceRing:    LD A, (HL)
                 PUSH HL
                 CALL Game.Screen.DrawLargeOutline.Entry
                 POP HL
-                ; проверка конца набора колец, JR9317 ведёт на 931E либо 9337
+                ; проверка конца набора колец, переход со смещением TunnelPhase ведёт на Game.Flight.AnimateTransitionTunnel.ShowFrame либо Game.Flight.AnimateTransitionTunnel.FadeTunnel
 CountRing:      LD A, (TunnelLeft)
                 DEC A
 PhaseJump       EQU $ + 1                                                       ; смещение JR Z, выбор этапа изменения туннеля
@@ -142,17 +142,17 @@ RestoreHyper:   LD A, (HL)
                 CALL Game.Screen.CopyFlightView.Entry
                 JP Game.Flight.DivideByteFractionForTunnel.FinishTunnel
 
-                ; завершение старта снимает D040 и задаёт скорость 7
+                ; завершение старта снимает ViewKeyLock и задаёт скорость 7
 EndLaunch:      XOR A
                 LD (ViewKeyLock), A
                 JR SetSpeed
 
-                ; завершение посадки снимает только D040
+                ; завершение посадки снимает только ViewKeyLock
 EndDocking:     XOR A
                 LD (ViewKeyLock), A
                 RET
 
-                ; окончание остаточной фазы снимает D03F и восстанавливает 8 глубин вычитанием C0
+                ; окончание остаточной фазы снимает JumpMode и восстанавливает 8 глубин вычитанием C0
 EndDockTunnel:  XOR A
                 LD (JumpMode), A
                 LD A, #08
@@ -170,6 +170,7 @@ RestoreDock:    LD A, (HL)
 SetSpeed:       LD A, #07
                 LD (FlightState.Speed), A
                 RET
+
                 ASSERT $ == #9381
                 endmodule
                 endmodule

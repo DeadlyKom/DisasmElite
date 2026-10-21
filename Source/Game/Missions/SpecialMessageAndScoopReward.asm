@@ -1,14 +1,14 @@
                 module Missions
                 module SpecialMessageAndScoopReward
 ; -----------------------------------------
-; оформление окна специального сообщения, #D162
+; оформление окна специального сообщения, Game.Missions.SpecialMessageAndScoopReward.Entry
 ; исходный диапазон #D162..#D1C6
 ; In:
 ;   HL, H содержит строку, L содержит столбец печати
 ;   DE, D содержит токен второй таблицы, E содержит атрибут окна
 ; Out:
 ;   окно очищено, токен #5C оформляет сообщение, затем печатается входной токен D
-;   #5820..#59FF заполнены атрибутом E, текстовый курсор обновлён
+;   480 байтов от Memory.Attributes + #0020 заполнены атрибутом E, текстовый курсор обновлён
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
@@ -45,7 +45,7 @@ FillAttrs:      LD (HL), E
                 ; описание в Docs/Manual.md, раздел mission-5
                 ; разделение специального контейнера ALIEN COMPUTER и обычного груза
 ; -----------------------------------------
-; разделение контейнера ALIEN COMPUTER и обычного товара, #D183
+; разделение контейнера ALIEN COMPUTER и обычного товара, Game.Missions.SpecialMessageAndScoopReward.ClassifyScoop
 ; In:
 ;   HL, State.FreeCargo
 ;   AF, A содержит обычный индекс товара 0..16
@@ -59,6 +59,8 @@ FillAttrs:      LD (HL), E
 ;   для специального контейнера FreeCargo не уменьшается, проверка этого места сделана ранее
 ;   штатный вход расположен по ScoopItem, прямой вход требует H=#D0
 ; -----------------------------------------
+                ; миссия 5 ALIEN COMPUTER, специальный контейнер увеличивает код компьютера и выводит его название
+                ; описание в Docs/Manual.md, раздел mission-5
 ClassifyScoop:  BIT OBJ_ALIEN_BIT, (IX+FSpaceObject.Flags2)
                 JR Z, AddCargo                                                  ; переход, если бит 7 типа подобранного объекта сброшен, обработать обычный груз
 
@@ -71,7 +73,7 @@ ClassifyScoop:  BIT OBJ_ALIEN_BIT, (IX+FSpaceObject.Flags2)
                 ; описание в Docs/Manual.md, раздел mission-2
                 ; дополнительный вход подбора, код FF означает специальный миссионный предмет
 ; -----------------------------------------
-; учёт подобранного предмета после проверки столкновения, #D190
+; учёт подобранного предмета после проверки столкновения, Game.Missions.SpecialMessageAndScoopReward.ScoopItem
 ; In:
 ;   AF, A содержит товар 0..16 либо #FF
 ;   IX, подобранный объект, Flags2.7 отличает контейнер ALIEN COMPUTER
@@ -85,6 +87,8 @@ ClassifyScoop:  BIT OBJ_ALIEN_BIT, (IX+FSpaceObject.Flags2)
 ;   сам вход не проверяет свободный тоннаж, тип ковша и геометрию захвата
 ;   специальный предмет #FF не меняет обычные слоты груза и FreeCargo
 ; -----------------------------------------
+                ; миссия 2 CLOAKING DEVICE, код предмета FF выдаёт CLOAKING DEVICE
+                ; описание в Docs/Manual.md, раздел mission-2
 ScoopItem:      LD HL, State.FreeCargo
                 CP #FF
                 JR NZ, ClassifyScoop                                            ; переход, если код предмета не равен FF, проверить контейнер и обычный груз
@@ -96,7 +100,7 @@ ScoopItem:      LD HL, State.FreeCargo
 
                 ; для минералов проверяется возможность колонизации до увеличения их количества
 ; -----------------------------------------
-; добавление одной единицы обычного груза, #D19F
+; добавление одной единицы обычного груза, Game.Missions.SpecialMessageAndScoopReward.AddCargo
 ; In:
 ;   HL, State.FreeCargo, положительное значение
 ;   AF, A содержит индекс товара 0..16
@@ -110,6 +114,8 @@ ScoopItem:      LD HL, State.FreeCargo
 ;   для минералов сначала вызывается TryColonizeMinerals с прежним количеством
 ;   проверки переполнения отдельного слота нет
 ; -----------------------------------------
+                ; миссия 4 MINERAL LIFE, колонизация проверяется до увеличения количества подобранных минералов
+                ; описание в Docs/Manual.md, раздел mission-4
 AddCargo:       CP #0C
                 PUSH AF
                 CALL Z, Game.Flight.TryColonizeMinerals.Entry                   ; вызов, если подобраны минералы, проверить возможность появления MINERAL LIFE
@@ -119,14 +125,14 @@ AddCargo:       CP #0C
                 LD L, A
                 INC (HL)
                 ADD A, #65
-                ; формирование события подбора с текстовым кодом в очереди D0C7/D0C8
+                ; формирование события подбора с текстовым кодом в очереди CargoEvent/CargoEvent + FFlightEvent.Token
 ; -----------------------------------------
-; уведомление о подборе и проверка запрещённого товара, #D1AD
+; уведомление о подборе и проверка запрещённого товара, Game.Missions.SpecialMessageAndScoopReward.QueuePickup
 ; In:
 ;   HL, H=#D0, младшая половина не используется
 ;   AF, A содержит готовый токен уведомления
 ; Out:
-;   #D0C7=#8B, #D0C8=входное A
+;   CargoEvent=#8B, CargoEvent + FFlightEvent.Token=входное A
 ;   после вычитания #D0 выполняется CheckIllegal, DE, BC, IX, IY сохранены
 ; Corrupt:
 ;   HL, AF
@@ -140,7 +146,7 @@ QueuePickup:    LD L, #C7
                 SUB #D0
                 ; проверка запрещённых товаров 3 и 6 с насыщением правового статуса до 255
 ; -----------------------------------------
-; повышение правового статуса за запрещённый товар, #D1B5
+; повышение правового статуса за запрещённый товар, Game.Missions.SpecialMessageAndScoopReward.CheckIllegal
 ; In:
 ;   AF, A содержит индекс товара
 ; Out:
@@ -165,6 +171,7 @@ RaiseLegal:     LD HL, State.LegalStatus
                 SBC A, A
 StoreLegal:     LD (HL), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D1C7
                 endmodule

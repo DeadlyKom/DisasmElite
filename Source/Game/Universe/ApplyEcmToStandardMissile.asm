@@ -7,7 +7,7 @@
 ;   IX, ракета
 ; Out:
 ;   AF, Z если младший адрес модели равен E3
-;   IX+20.6 сброшен и IX+20.4 установлен для этого типа
+;   для этого типа сброшен OBJ_ACTIVE_BIT и установлен OBJ_DESTROY_BIT в FSpaceObject.Flags
 ; Corrupt:
 ;   нет дополнительных регистров
 ; Note:
@@ -23,6 +23,7 @@ Entry:          LD A, (IX+FSpaceObject.Blueprint)
                 RES OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)
                 SET OBJ_DESTROY_BIT, (IX+FSpaceObject.Flags)
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #7D4D
                 endmodule

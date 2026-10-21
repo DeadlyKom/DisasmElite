@@ -18,6 +18,7 @@
 Entry:          SRL B
                 RR C
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #96D6
                 endmodule

@@ -34,4 +34,4 @@ FileEnd:        EQU $
                 assert FileEnd - FileBegin = #0181
                 endmodule
 
-                endif ; ~_LOADER_INCLUDE_
+                endif                                                           ; ~_LOADER_INCLUDE_

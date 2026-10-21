@@ -11,9 +11,10 @@
 ; Corrupt:
 ;   DE, BC, AF
 ; Note:
-;   #C8CB получает команду #84, #C8CF получает адрес входного потока #D967.
+;   DiskUtility.Menu.TransferCmd получает команду #84, DiskUtility.Menu.TransferCall получает адрес входного потока Game.Disk.LoadDiskMenuOverlay.ReadTrackBytes.
 ;   После подготовки DE код непосредственно продолжается в SectorTransfer.
 ; -----------------------------------------
 ReadSector:     LD A, #84
                 LD (TransferCmd), A
                 LD DE, Game.Disk.LoadDiskMenuOverlay.ReadTrackBytes
+                ; JP SectorTransfer, продолжение в TransferSector.asm

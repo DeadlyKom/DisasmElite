@@ -6,8 +6,8 @@
 ; In:
 ;   BC, B число шагов, C расход за шаг
 ; Out:
-;   банки 70F6/70F8/70FA/70FC уменьшены
-;   711F получает 1 при исчерпании
+;   банки GaugeState + FGaugeState.Energy1.Current/GaugeState + FGaugeState.Energy2.Current/GaugeState + FGaugeState.Energy3.Current/GaugeState + FGaugeState.Energy4.Current уменьшены
+;   FlightState.PlayerDead получает 1 при исчерпании
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
@@ -39,6 +39,7 @@ StoreBank:      LD (HL), A
                 DJNZ DrainBank
 
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9AA7
                 endmodule

@@ -5,24 +5,24 @@
 ; исходный диапазон #B2AA..#B3B1
 ; In:
 ;   HL, H содержит числитель, L ненулевой знаменатель
-;   IX, объект при отдельном входе B2EF
+;   IX, объект при отдельном входе Game.Wireframe.DivideSlopeAndDrawScanner.DrawMarker
 ; Out:
 ;   HL, отношение в формате 8.8
-;   DE, исходное значение для B2AA
-;   при входе B2EF выведен сканерный маркер
+;   DE, исходное значение для Game.Wireframe.DivideSlopeAndDrawScanner.Entry
+;   при входе Game.Wireframe.DivideSlopeAndDrawScanner.DrawMarker выведен сканерный маркер
 ; Corrupt:
 ;   BC, AF
 ; Note:
-; B2AA..B2EC строит целую и дробную части отношения.
+; Entry строит целую и дробную части отношения
 ; CarryKeep содержит LD A,#A7, вход ClearCarry исполняет второй байт как AND A.
 ; LD сохраняет перенос нормирования, AND сбрасывает его перед очередным RR.
-; B2ED..B2EE сохраняет два байта старого перехода, B2EF начинает отдельную проекцию сканера.
+; за RET сохранены два байта старого перехода, DrawMarker начинает отдельную проекцию сканера
 ; Нормализованные X/Y отображаются около центра (124,35). Размер зависит от дальности, форма от знака Z.
 ; Младшие биты адреса слота немного разводят метки по строкам.
-; A849 временно патчится на B6E4 для прямого экрана, затем восстанавливается AEFC.
-; B395..B3B1 являются данными фонового рисунка для B3B2.
-; Меню паузы, клавиша L, вызывает #7A84 и заменяет AND A по #972F на SCF.
-; Поэтому переход JP C,#B2EF действует в альтернативном режиме, а в обычном пропускается.
+; ObjectRaster.PixelMode временно патчится на B6E4 для прямого экрана, затем восстанавливается AEFC.
+; ScannerBlocks являются данными фонового рисунка для Game.Wireframe.RefreshScannerBackground.Entry.
+; Меню паузы, клавиша L, вызывает Game.Universe.AddSignedStarCoordinate.ToggleScanner и заменяет AND A по ScannerRaster.Mode на SCF.
+; Поэтому переход JP C,Game.Wireframe.DivideSlopeAndDrawScanner.DrawMarker действует в альтернативном режиме, а в обычном пропускается.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #B2AA
@@ -84,6 +84,7 @@ RatioReady:     LD H, B
                 LD L, C
                 POP DE
                 RET
+
                 ; сохранённые байты прежнего перехода
                 DB #C1, #18
                 ; отдельный вход альтернативного маркера сканера
@@ -201,6 +202,7 @@ LastSegment:    CALL Game.Wireframe.DrawScannerMarkerSegment.Entry
                 LD HL, #AEFC
                 LD (ObjectRaster.PixelMode), HL
                 JP Game.Scanner.DrawScannerObjects.NextObject
+
                 ; данные фонового рисунка
 BackdropBlocks  DB #00, #00, #80, #00, #00, #00, #00, #00                       ; блоки альтернативного фона сканера с шагом выбора 9 байтов
                 DB #02, #00, #00, #80, #00, #FF, #FF, #FE

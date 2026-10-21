@@ -24,6 +24,7 @@ Entry:          INC HL
                 OR #01
                 LD (DE), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DD53
                 endmodule

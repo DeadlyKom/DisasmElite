@@ -4,13 +4,13 @@
 ; Окончание единицы KM и проверка тоннажа
 ; исходный диапазон #E347..#E359
 ; In:
-;   Нет параметров для E347
+;   Нет параметров для Game.Trade.PrintKilometreSuffix.Entry
 ; Out:
 ;   Печатается M после K
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   E34C считывает индекс E1DF, CY=1 для индексов <13 и 16, CY=0 для 13..15 и >=17
+;   Game.Trade.PrintKilometreSuffix.UsesTonnes считывает индекс MarketWork, CY=1 для индексов <13 и 16, CY=0 для 13..15 и >=17
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E347
@@ -31,6 +31,7 @@ UsesTonnes:     LD A, (MarketWork.Commodity)
 
 NoTonnage:      AND A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E35A
                 endmodule

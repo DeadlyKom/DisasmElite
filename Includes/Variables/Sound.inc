@@ -1,7 +1,7 @@
                 ifndef _VARIABLES_SOUND_
                 define _VARIABLES_SOUND_
 
-SoundState      EQU Game.Flight.ClearNearbyShipSlots.Mode                       ; адрес структуры FSoundState
+SoundState      EQU Game.Flight.ClearNearbyShipSlots.SoundData                  ; адрес структуры FSoundState
 .Mode           EQU SoundState + FSoundState.Mode                               ; 0 тишина, 1 скользящий тон, 2 тон из данных, остальные значения шум
 .Duration       EQU SoundState + FSoundState.Duration                           ; сохранённые DE, назначение D/E зависит от звукового режима
 .DataCursor     EQU SoundState + FSoundState.DataCursor                         ; сохранённый HL, адрес следующего отсчёта либо параметр тона

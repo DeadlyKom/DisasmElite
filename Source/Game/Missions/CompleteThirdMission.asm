@@ -1,11 +1,11 @@
                 module Missions
                 module CompleteThirdMission
 ; -----------------------------------------
-; выдача награды за третью миссию, #D14D
+; выдача награды за третью миссию, Game.Missions.CompleteThirdMission.Entry
 ; исходный диапазон #D14D..#D161
 ; In:
 ;   регистровых параметров нет, состояние командира задано
-;   прерывания включены, обработчик клавиатуры обновляет #FC0D
+;   прерывания включены, обработчик клавиатуры обновляет InputState.LastKey
 ; Out:
 ;   старший байт State.Rating увеличен на 1 по модулю 256
 ;   State.Mission3=0, бит 3 State.MissionFlags установлен
@@ -13,7 +13,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
-;   это прямое INC старшего байта, обработчик переноса рейтинга #5E78 не вызывается
+;   это прямое INC старшего байта, обработчик переноса рейтинга Game.Extensions.UpdateInvasionOnRatingOverflow.Entry не вызывается
 ;   остальные биты MissionFlags, включая бит 7, этой процедурой не очищаются
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -30,6 +30,7 @@ Entry:          LD HL, State.RankState
                 LD DE, #0A0F
                 LD HL, #0300
                 JR Game.Missions.OfferThirdMission.ShowAndWait
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D162
                 endmodule

@@ -10,12 +10,12 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Продолжение в общий хвост F072
+;   Продолжение в общий хвост Game.Menus.NextEquipmentLine.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #F06F
                 ; печать установленного предмета и переход на следующую строку оборудования
-Entry:          CALL Game.Text.PrintMainToken.Entry
+Entry:          CALL Game.Text.PrintMainToken.Entry                             ; далее Game.Menus.NextEquipmentLine.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #F072
                 endmodule

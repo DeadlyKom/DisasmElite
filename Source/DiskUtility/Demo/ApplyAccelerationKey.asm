@@ -3,13 +3,13 @@
 ; исходный диапазон #E9E6..#E9F8
 ; In:
 ;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры
-;   70E6 скорость
+;   FlightState.Speed скорость
 ; Out:
 ;   пробел установлен, Symbol Shift снят, J при скорости>=15
 ; Corrupt:
 ;   AF
 ; Note:
-;   J это IX6.3, YieldWithBrake может снять его при доступном для сбора грузе
+;   J это KEYBOARD_J_BIT в (IX + FKeyboardRows.RowEnterLKJH), YieldWithBrake может снять его при доступном для сбора грузе
 ; -----------------------------------------
                 ; согласованная пара ускорения и проверка порога J
 Accelerate:     SET KEYBOARD_SP_BIT, (IX + FKeyboardRows.RowSpaceSMNB)

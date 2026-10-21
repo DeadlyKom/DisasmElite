@@ -25,6 +25,7 @@ Entry:          ADD HL, HL
                 LD A, L
                 AND #C0
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A53F
                 endmodule

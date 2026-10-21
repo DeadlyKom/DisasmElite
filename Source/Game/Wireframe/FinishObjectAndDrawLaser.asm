@@ -11,9 +11,9 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-; F945 и F92D обслуживают расширенные данные вывода.
-; BIT 3,(IX+20) задаёт условие луча, F92D сохраняет флаги.
-; При наличии луча общий хвост #A884 берёт лазерную вершину модели и рисует линию.
+; Game.Extensions.GetViewAdjustedProjectedPoint.Entry и Game.Extensions.StorePairedObjectDirections.Entry обслуживают расширенные данные вывода.
+; OBJ_LASER_BIT в FSpaceObject.Flags задаёт условие луча, Game.Extensions.StorePairedObjectDirections.Entry сохраняет флаги
+; При наличии луча общий хвост Game.Wireframe.DrawWireframeObject.DrawLaser берёт лазерную вершину модели и рисует линию.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #A8DE
@@ -24,6 +24,7 @@ Entry:          CALL Game.Extensions.GetViewAdjustedProjectedPoint.Entry
                 RET Z                                                           ; выход, если у объекта не установлен признак лазерного луча
 
                 JP Game.Wireframe.DrawWireframeObject.DrawLaser
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A8EC
                 endmodule

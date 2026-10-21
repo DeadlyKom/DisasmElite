@@ -11,8 +11,8 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-;   путь игрока после успешного CALL #BA9C проваливается в #BA9C второй раз
-;   путь объекта переходит в #BAE8, который также делает две попытки
+;   путь игрока после успешного CALL Game.Objects.SpawnPlayerDebris.Entry проваливается в Game.Objects.SpawnPlayerDebris.Entry второй раз
+;   путь объекта переходит в Game.Objects.SpawnTwoShipAlloys.Entry, который также делает две попытки
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #BA94
@@ -20,7 +20,8 @@ Entry:          BIT 0, C
                 JR Z, Game.Objects.SpawnTwoShipAlloys.Entry                     ; переход, если бит 0 C сброшен и источник является игровым объектом
 
                 CALL Game.Objects.SpawnPlayerDebris.Entry
-                RET NZ                                                          ; выход, если первый обломок игрока не удалось создать
+                RET NZ                                                          ; выход, если первый обломок игрока не удалось создать, иначе далее Game.Objects.SpawnPlayerDebris.Entry без команды перехода
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #BA9C
                 endmodule

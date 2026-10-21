@@ -3,15 +3,15 @@
 ; -----------------------------------------
 ; восстановление приборной панели и боковых границ атрибутов
 ; In:
-;   буферы #C000 и #5B00 содержат сохранённую кабину
+;   буферы Memory.Frame и Memory.CockpitAttrs содержат сохранённую кабину
 ; Out:
-;   кабина в #5000, атрибуты в #5A00
+;   кабина в Memory.Screen + #1000, атрибуты в Memory.Attributes + #0200
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   после #D036 зануляются крайние столбцы всех 24 строк атрибутов
+;   после Game.Interface.DispatchClearView.Entry зануляются крайние столбцы всех 24 строк атрибутов
 ;   переносятся 2048 пиксельных байтов и 256 атрибутов
-;   #725C и #7265 задают атрибуты двух полос, #8459 перерисовывает компас и сканер
+;   Game.Flight.ApplyMissionViewColour.Entry и Game.Flight.ApplyCloakingViewColour.Entry задают атрибуты двух полос, Game.Screen.PreviousCharacterRow.RestorePanel перерисовывает компас и сканер
 ; -----------------------------------------
                 ; проверка исходного размещения
                 ASSERT $ == #804B
@@ -43,6 +43,7 @@ DrawBorderRow:  ADD HL, DE
                 CALL Game.Flight.ApplyMissionViewColour.Entry
                 CALL Game.Flight.ApplyCloakingViewColour.Entry
                 JP Game.Screen.PreviousCharacterRow.RestorePanel
+
                 ASSERT $ == #8080
                 endmodule
                 endmodule

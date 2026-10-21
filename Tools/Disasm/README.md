@@ -32,6 +32,12 @@
 | [InspectZ80.py](InspectZ80.py) | чтение инструкций выбранного диапазона оригинала или открытого игрового блока |
 | [VerifySourceMap.py](VerifySourceMap.py) | статическая сверка команд и данных с исходным разбором |
 | [AuditDocumentation.py](AuditDocumentation.py) | проверка реестров и оформления комментариев |
+| [CheckSourceLayout.py](CheckSourceLayout.py) | пробелы после запятых и пустые строки после переходов и выходов |
+| [MarkFallThrough.py](MarkFallThrough.py) | именованные продолжения по границам файлов и порядок include |
+| [VerifyCommanderRecords.py](VerifyCommanderRecords.py) | пять экземпляров FCommander, их байты и адреса вложенных полей |
+| [VerifyTypedData.py](VerifyTypedData.py) | все физические F-инициализаторы игрового блока, байты, поля и сохранение прежних символов |
+| [CheckDocumentationLinks.py](CheckDocumentationLinks.py) | относительные ссылки и якоря документации проекта |
+| [ResolveCommentReferences.py](ResolveCommentReferences.py) | инвентаризация числовых ссылок в комментариях для ручной проверки |
 | [AuditCodeTargets.py](AuditCodeTargets.py) | перечисление прямых переходов, косвенных входов и абсолютных записей в код |
 | [VerifyBuild.ps1](VerifyBuild.ps1) | побайтовая проверка уже собранного TRD и SHA-256 его семи файлов |
 
@@ -58,16 +64,60 @@ python Tools/Disasm/VerifySourceMap.py
 запускает ассемблер. Аудиты документации и переходов также работают отдельно
 и записывают свои результаты в `Reports`.
 
+`python Tools/Disasm/CheckDocumentationLinks.py` проверяет наличие целей
+локальных ссылок и Markdown-якорей. Внешние сайты эта проверка не открывает.
+
 Инициализаторы `FCommander { ... }` проверяются по объявлениям из
 `Includes/Structs`: учитываются все поля, вложенные структуры и массив имени.
 Пропущенное значение или неверная вложенность останавливает проверку.
 [CommanderInitializers.json](Reports/CommanderInitializers.json) содержит
-сверку четырёх записей с оригинальными байтами и адресами полей.
+сверку пяти записей с оригинальными байтами и адресами полей.
+Отчёт обновляется командой `python Tools/Disasm/VerifyCommanderRecords.py`
+после сборки, включая резерв `NewCommander` и все вложенные поля.
+
+`python Tools/Disasm/VerifyTypedData.py` проверяет все 179 физических
+F-инициализаторов игрового блока: 1786 байтов и 1172 адреса полей.
+[TypedDataVerification.json](Reports/TypedDataVerification.json) содержит
+результаты для каждого экземпляра. Оба помощника сравнивают прежние символы
+с сохранённой контрольной картой
+[BeforeTypedDataSymbols.json](Reports/BeforeTypedDataSymbols.json), поэтому
+контрольные данные не теряются при очистке `Tmp`. Текущие символы берутся
+из `Tmp/ELITE3HL.sym` после сборки. Удалённый нулевой кандидат локального поиска
+имени перечислен отдельно, он не был объявлением или адресом данных.
 
 `AuditSemanticNames.py` проверяет отсутствие адресных имён файлов и меток,
 числовых целей прямых переходов и шаблонных комментариев к арифметике.
 `UpdateNameIndex.py` сверяет новые метки с текущим `.sym` и обновляет
 [указатель внутренних ветвей](../../Docs/Labels.md). Оба помощника работают без сборки.
+
+### Оформление и переходы между файлами
+
+```powershell
+python Tools/Disasm/CheckSourceLayout.py
+python Tools/Disasm/MarkFallThrough.py
+```
+
+Без дополнительных параметров обе команды только проверяют исходники и пишут
+отчёты. `CheckSourceLayout.py --apply` добавляет пробелы после разделителей
+операндов и пустые строки после `RET/JP/JR`, сохраняя строки данных.
+`MarkFallThrough.py --apply` подписывает последовательные продолжения и номера
+жёстко связанных include. Команды не вставляют инструкции перехода.
+
+`ResolveCommentReferences.py` составляет список четырёхзначных чисел в комментариях.
+Классификация и совпадение с именем из `.sym` сами по себе не доказывают назначение:
+число может быть маской, порогом, исходным адресом байтов или адресом другого оверлея.
+Проверенные замены и их основания сохраняются отдельно в
+[ReviewedCommentReferences.json](Reports/ReviewedCommentReferences.json).
+Итоговая ручная классификация чисел и проверенные замены диапазонов находятся
+в [FinalCommentNumberReview.json](Reports/FinalCommentNumberReview.json).
+[IndexedCommentNames.json](Reports/IndexedCommentNames.json) фиксирует замену
+оставшихся числовых IX/IY-ссылок на проверенные поля и константы.
+[FinalCommentReferences.json](Reports/FinalCommentReferences.json) содержит
+инвентаризацию окончательных исходников; `CommentReferences.json` сохраняет
+снимок, на котором основаны номера записей ручного разбора.
+`RemainingCommentReferences.json`, `UnresolvedCommentReferences.json`
+и `CommentStructureHandoff*.json` сохраняют ранние списки кандидатов и обмен
+результатами этапов. Они не являются текущим перечнем незавершённых правок.
 
 ### Проверка готового образа
 

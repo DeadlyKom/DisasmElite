@@ -1,0 +1,1190 @@
+{
+  "changes": [
+    {
+      "file": "Source/Game/Charts/FindSystemNameDialog.asm",
+      "old_comment": "выбирает систему через Game.Galaxy.FindSystemByExactName.Entry и показывает имя/расстояние, E3C9..E3CB являются настройками",
+      "new_comment": "выбирает систему через Game.Galaxy.FindSystemByExactName.Entry и показывает имя/расстояние, PromptToken и InputBuffer задают параметры диалога"
+    },
+    {
+      "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+      "old_comment": "E6AE..E6C5 отдельно начинают проверку приёма беженцев по биту 5 State.MissionFlags и специальному условию",
+      "new_comment": "OfferRefugees отдельно начинает проверку приёма беженцев по MS_CARGO_BIT в State.MissionFlags и специальному условию"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "Out: байты распределены по адресам таблицыCircleViewport.Addresses, SP восстановлен, EI выполнен",
+      "new_comment": "Out: байты распределены по адресам таблицы CircleViewport.Addresses, SP восстановлен, EI выполнен"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "CircleViewport содержит 32 значения для карты, #8EAD32 значения для области обзора",
+      "new_comment": "CircleViewport содержит 32 значения для карты, CircleViewport.Flight, 32 значения для области обзора"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 0, карта, значение#60 записывается поGame.Circles.DispatchClippedCircle.Entry + #0D",
+      "new_comment": "патч 0, карта, значение #60 записывается по Game.Circles.DispatchClippedCircle.Entry + #0D"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 1, карта, значение#60 записывается поGame.Circles.DispatchClippedCircle.FinishCenterX + #06",
+      "new_comment": "патч 1, карта, значение #60 записывается по Game.Circles.DispatchClippedCircle.FinishCenterX + #06"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 2, карта, значение#80 записывается поGame.Circles.DispatchClippedCircle.FinishCenterX + #0C",
+      "new_comment": "патч 2, карта, значение #80 записывается по Game.Circles.DispatchClippedCircle.FinishCenterX + #0C"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 3, карта, значение#80 записывается поGame.Circles.DispatchClippedCircle.InnerCenter + #05",
+      "new_comment": "патч 3, карта, значение #80 записывается по Game.Circles.DispatchClippedCircle.InnerCenter + #05"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 4, карта, значение#80 записывается поGame.Circles.DispatchClippedCircle.CheckHalfWidth + #05",
+      "new_comment": "патч 4, карта, значение #80 записывается по Game.Circles.DispatchClippedCircle.CheckHalfWidth + #05"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 5, карта, значение#80 записывается поGame.Circles.DrawWideCircleAcrossBothSides.FarSideLimit + #01",
+      "new_comment": "патч 5, карта, значение #80 записывается по Game.Circles.DrawWideCircleAcrossBothSides.FarSideLimit + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 6, карта, значение#80 записывается поGame.Circles.DrawWideCircleAcrossBothSides.SaveFarLimit + #02",
+      "new_comment": "патч 6, карта, значение #80 записывается по Game.Circles.DrawWideCircleAcrossBothSides.SaveFarLimit + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 7, карта, значение#7F записывается поGame.Circles.DrawOneSideClippedCircle.SideLimit + #02",
+      "new_comment": "патч 7, карта, значение #7F записывается по Game.Circles.DrawOneSideClippedCircle.SideLimit + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 8, карта, значение#1F записывается поGame.Circles.SetRightContourBoundary.Entry + #04",
+      "new_comment": "патч 8, карта, значение #1F записывается по Game.Circles.SetRightContourBoundary.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 9, карта, значение#00 записывается поGame.Circles.PrepareLeftClippedCircle.Entry + #12",
+      "new_comment": "патч 9, карта, значение #00 записывается по Game.Circles.PrepareLeftClippedCircle.Entry + #12"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 10, карта, значение#00 записывается поCircleRaster",
+      "new_comment": "патч 10, карта, значение #00 записывается поCircleRaster"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 11, карта, значение#00 записывается поCircleRaster.LeftBuffer + 1",
+      "new_comment": "патч 11, карта, значение #00 записывается по CircleRaster.LeftBuffer + 1"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 12, карта, значение#00 записывается поCircleRaster.RightBuffer",
+      "new_comment": "патч 12, карта, значение #00 записывается по CircleRaster.RightBuffer"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 13, карта, значение#00 записывается поCircleRaster.RightBuffer + 1",
+      "new_comment": "патч 13, карта, значение #00 записывается по CircleRaster.RightBuffer + 1"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 14, карта, значение#80 записывается поGame.Circles.PrepareBothClippedCoordinates.Entry + #05",
+      "new_comment": "патч 14, карта, значение #80 записывается по Game.Circles.PrepareBothClippedCoordinates.Entry + #05"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 15, карта, значение#00 записывается поGame.Circles.SetBothContourBoundaries.Entry + #04",
+      "new_comment": "патч 15, карта, значение #00 записывается по Game.Circles.SetBothContourBoundaries.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 16, карта, значение#FF записывается поGame.Circles.SkipViewportRowsUp.Entry + #04",
+      "new_comment": "патч 16, карта, значение #FF записывается по Game.Circles.SkipViewportRowsUp.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 17, карта, значение#00 записывается поGame.Circles.SkipViewportRowsUp.Entry + #08",
+      "new_comment": "патч 17, карта, значение #00 записывается по Game.Circles.SkipViewportRowsUp.Entry + #08"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 18, карта, значение#00 записывается поGame.Circles.SkipViewportRowsUp.Entry + #09",
+      "new_comment": "патч 18, карта, значение #00 записывается по Game.Circles.SkipViewportRowsUp.Entry + #09"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 19, карта, значение#28 записывается поGame.Circles.SkipViewportRowsUp.CheckTop + #02",
+      "new_comment": "патч 19, карта, значение #28 записывается по Game.Circles.SkipViewportRowsUp.CheckTop + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 20, карта, значение#FF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.Entry + #04",
+      "new_comment": "патч 20, карта, значение #FF записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 21, карта, значение#00 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.Entry + #08",
+      "new_comment": "патч 21, карта, значение #00 записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #08"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 22, карта, значение#00 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.Entry + #09",
+      "new_comment": "патч 22, карта, значение #00 записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #09"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 23, карта, значение#58 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.CheckSkipLimit + #02",
+      "new_comment": "патч 23, карта, значение #58 записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.CheckSkipLimit + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 24, карта, значение#57 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.RightCutBottom + #01",
+      "new_comment": "патч 24, карта, значение #57 записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutBottom + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 25, карта, значение#3F записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc + #0E",
+      "new_comment": "патч 25, карта, значение #3F записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc + #0E"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 26, карта, значение#3F записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.BothArc + #0B",
+      "new_comment": "патч 26, карта, значение #3F записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.BothArc + #0B"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 27, карта, значение#57 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.BothArcBottom + #01",
+      "new_comment": "патч 27, карта, значение #57 записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.BothArcBottom + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 28, карта, значение#57 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.LeftCutBottom + #01",
+      "new_comment": "патч 28, карта, значение #57 записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutBottom + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 29, карта, значение#3F записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.LeftCutArc + #0E",
+      "new_comment": "патч 29, карта, значение #3F записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutArc + #0E"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 30, карта, значение#58 записывается поCircleRaster.NextRow",
+      "new_comment": "патч 30, карта, значение #58 записывается по CircleRaster.NextRow"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 31, карта, значение#3F записывается поCircleRaster.PreviousRow",
+      "new_comment": "патч 31, карта, значение #3F записывается по CircleRaster.PreviousRow"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 0, обзор, значение#40 записывается поGame.Circles.DispatchClippedCircle.Entry + #0D",
+      "new_comment": "патч 0, обзор, значение #40 записывается по Game.Circles.DispatchClippedCircle.Entry + #0D"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 1, обзор, значение#40 записывается поGame.Circles.DispatchClippedCircle.FinishCenterX + #06",
+      "new_comment": "патч 1, обзор, значение #40 записывается по Game.Circles.DispatchClippedCircle.FinishCenterX + #06"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 2, обзор, значение#78 записывается поGame.Circles.DispatchClippedCircle.FinishCenterX + #0C",
+      "new_comment": "патч 2, обзор, значение #78 записывается по Game.Circles.DispatchClippedCircle.FinishCenterX + #0C"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 3, обзор, значение#78 записывается поGame.Circles.DispatchClippedCircle.InnerCenter + #05",
+      "new_comment": "патч 3, обзор, значение #78 записывается по Game.Circles.DispatchClippedCircle.InnerCenter + #05"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 4, обзор, значение#78 записывается поGame.Circles.DispatchClippedCircle.CheckHalfWidth + #05",
+      "new_comment": "патч 4, обзор, значение #78 записывается по Game.Circles.DispatchClippedCircle.CheckHalfWidth + #05"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 5, обзор, значение#88 записывается поGame.Circles.DrawWideCircleAcrossBothSides.FarSideLimit + #01",
+      "new_comment": "патч 5, обзор, значение #88 записывается по Game.Circles.DrawWideCircleAcrossBothSides.FarSideLimit + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 6, обзор, значение#78 записывается поGame.Circles.DrawWideCircleAcrossBothSides.SaveFarLimit + #02",
+      "new_comment": "патч 6, обзор, значение #78 записывается по Game.Circles.DrawWideCircleAcrossBothSides.SaveFarLimit + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 7, обзор, значение#77 записывается поGame.Circles.DrawOneSideClippedCircle.SideLimit + #02",
+      "new_comment": "патч 7, обзор, значение #77 записывается по Game.Circles.DrawOneSideClippedCircle.SideLimit + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 8, обзор, значение#1E записывается поGame.Circles.SetRightContourBoundary.Entry + #04",
+      "new_comment": "патч 8, обзор, значение #1E записывается по Game.Circles.SetRightContourBoundary.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 9, обзор, значение#01 записывается поGame.Circles.PrepareLeftClippedCircle.Entry + #12",
+      "new_comment": "патч 9, обзор, значение #01 записывается по Game.Circles.PrepareLeftClippedCircle.Entry + #12"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 10, обзор, значение#CB записывается поCircleRaster",
+      "new_comment": "патч 10, обзор, значение #CB записывается поCircleRaster"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 11, обзор, значение#FC записывается поCircleRaster.LeftBuffer + 1",
+      "new_comment": "патч 11, обзор, значение #FC записывается по CircleRaster.LeftBuffer + 1"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 12, обзор, значение#CB записывается поCircleRaster.RightBuffer",
+      "new_comment": "патч 12, обзор, значение #CB записывается по CircleRaster.RightBuffer"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 13, обзор, значение#FC записывается поCircleRaster.RightBuffer + 1",
+      "new_comment": "патч 13, обзор, значение #FC записывается по CircleRaster.RightBuffer + 1"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 14, обзор, значение#88 записывается поGame.Circles.PrepareBothClippedCoordinates.Entry + #05",
+      "new_comment": "патч 14, обзор, значение #88 записывается по Game.Circles.PrepareBothClippedCoordinates.Entry + #05"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 15, обзор, значение#01 записывается поGame.Circles.SetBothContourBoundaries.Entry + #04",
+      "new_comment": "патч 15, обзор, значение #01 записывается по Game.Circles.SetBothContourBoundaries.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 16, обзор, значение#F7 записывается поGame.Circles.SkipViewportRowsUp.Entry + #04",
+      "new_comment": "патч 16, обзор, значение #F7 записывается по Game.Circles.SkipViewportRowsUp.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 17, обзор, значение#CB записывается поGame.Circles.SkipViewportRowsUp.Entry + #08",
+      "new_comment": "патч 17, обзор, значение #CB записывается по Game.Circles.SkipViewportRowsUp.Entry + #08"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 18, обзор, значение#FC записывается поGame.Circles.SkipViewportRowsUp.Entry + #09",
+      "new_comment": "патч 18, обзор, значение #FC записывается по Game.Circles.SkipViewportRowsUp.Entry + #09"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 19, обзор, значение#C0 записывается поGame.Circles.SkipViewportRowsUp.CheckTop + #02",
+      "new_comment": "патч 19, обзор, значение #C0 записывается по Game.Circles.SkipViewportRowsUp.CheckTop + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 20, обзор, значение#F7 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.Entry + #04",
+      "new_comment": "патч 20, обзор, значение #F7 записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 21, обзор, значение#CB записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.Entry + #08",
+      "new_comment": "патч 21, обзор, значение #CB записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #08"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 22, обзор, значение#FC записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.Entry + #09",
+      "new_comment": "патч 22, обзор, значение #FC записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #09"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 23, обзор, значение#D0 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.CheckSkipLimit + #02",
+      "new_comment": "патч 23, обзор, значение #D0 записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.CheckSkipLimit + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 24, обзор, значение#CF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.RightCutBottom + #01",
+      "new_comment": "патч 24, обзор, значение #CF записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutBottom + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 25, обзор, значение#BF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc + #0E",
+      "new_comment": "патч 25, обзор, значение #BF записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc + #0E"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 26, обзор, значение#BF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.BothArc + #0B",
+      "new_comment": "патч 26, обзор, значение #BF записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.BothArc + #0B"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 27, обзор, значение#CF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.BothArcBottom + #01",
+      "new_comment": "патч 27, обзор, значение #CF записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.BothArcBottom + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 28, обзор, значение#CF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.LeftCutBottom + #01",
+      "new_comment": "патч 28, обзор, значение #CF записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutBottom + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 29, обзор, значение#BF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.LeftCutArc + #0E",
+      "new_comment": "патч 29, обзор, значение #BF записывается по Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutArc + #0E"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 30, обзор, значение#D0 записывается поCircleRaster.NextRow",
+      "new_comment": "патч 30, обзор, значение #D0 записывается по CircleRaster.NextRow"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 31, обзор, значение#BF записывается поCircleRaster.PreviousRow",
+      "new_comment": "патч 31, обзор, значение #BF записывается по CircleRaster.PreviousRow"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 0, Game.Circles.DispatchClippedCircle.Entry + #0D, карта#60, обзор#40",
+      "new_comment": "адрес патча 0, Game.Circles.DispatchClippedCircle.Entry + #0D, карта #60, обзор #40"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 1, Game.Circles.DispatchClippedCircle.FinishCenterX + #06, карта#60, обзор#40",
+      "new_comment": "адрес патча 1, Game.Circles.DispatchClippedCircle.FinishCenterX + #06, карта #60, обзор #40"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 2, Game.Circles.DispatchClippedCircle.FinishCenterX + #0C, карта#80, обзор#78",
+      "new_comment": "адрес патча 2, Game.Circles.DispatchClippedCircle.FinishCenterX + #0C, карта #80, обзор #78"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 3, Game.Circles.DispatchClippedCircle.InnerCenter + #05, карта#80, обзор#78",
+      "new_comment": "адрес патча 3, Game.Circles.DispatchClippedCircle.InnerCenter + #05, карта #80, обзор #78"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 4, Game.Circles.DispatchClippedCircle.CheckHalfWidth + #05, карта#80, обзор#78",
+      "new_comment": "адрес патча 4, Game.Circles.DispatchClippedCircle.CheckHalfWidth + #05, карта #80, обзор #78"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 5, Game.Circles.DrawWideCircleAcrossBothSides.FarSideLimit + #01, карта#80, обзор#88",
+      "new_comment": "адрес патча 5, Game.Circles.DrawWideCircleAcrossBothSides.FarSideLimit + #01, карта #80, обзор #88"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 6, Game.Circles.DrawWideCircleAcrossBothSides.SaveFarLimit + #02, карта#80, обзор#78",
+      "new_comment": "адрес патча 6, Game.Circles.DrawWideCircleAcrossBothSides.SaveFarLimit + #02, карта #80, обзор #78"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 7, Game.Circles.DrawOneSideClippedCircle.SideLimit + #02, карта#7F, обзор#77",
+      "new_comment": "адрес патча 7, Game.Circles.DrawOneSideClippedCircle.SideLimit + #02, карта #7F, обзор #77"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 8, Game.Circles.SetRightContourBoundary.Entry + #04, карта#1F, обзор#1E",
+      "new_comment": "адрес патча 8, Game.Circles.SetRightContourBoundary.Entry + #04, карта #1F, обзор #1E"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 9, Game.Circles.PrepareLeftClippedCircle.Entry + #12, карта#00, обзор#01",
+      "new_comment": "адрес патча 9, Game.Circles.PrepareLeftClippedCircle.Entry + #12, карта #00, обзор #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 10, CircleRaster, карта#00, обзор#CB",
+      "new_comment": "адрес патча 10, CircleRaster, карта #00, обзор #CB"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 11, CircleRaster.LeftBuffer + 1, карта#00, обзор#FC",
+      "new_comment": "адрес патча 11, CircleRaster.LeftBuffer + 1, карта #00, обзор #FC"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 12, CircleRaster.RightBuffer, карта#00, обзор#CB",
+      "new_comment": "адрес патча 12, CircleRaster.RightBuffer, карта #00, обзор #CB"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 13, CircleRaster.RightBuffer + 1, карта#00, обзор#FC",
+      "new_comment": "адрес патча 13, CircleRaster.RightBuffer + 1, карта #00, обзор #FC"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 14, Game.Circles.PrepareBothClippedCoordinates.Entry + #05, карта#80, обзор#88",
+      "new_comment": "адрес патча 14, Game.Circles.PrepareBothClippedCoordinates.Entry + #05, карта #80, обзор #88"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 15, Game.Circles.SetBothContourBoundaries.Entry + #04, карта#00, обзор#01",
+      "new_comment": "адрес патча 15, Game.Circles.SetBothContourBoundaries.Entry + #04, карта #00, обзор #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 16, Game.Circles.SkipViewportRowsUp.Entry + #04, карта#FF, обзор#F7",
+      "new_comment": "адрес патча 16, Game.Circles.SkipViewportRowsUp.Entry + #04, карта #FF, обзор #F7"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 17, Game.Circles.SkipViewportRowsUp.Entry + #08, карта#00, обзор#CB",
+      "new_comment": "адрес патча 17, Game.Circles.SkipViewportRowsUp.Entry + #08, карта #00, обзор #CB"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 18, Game.Circles.SkipViewportRowsUp.Entry + #09, карта#00, обзор#FC",
+      "new_comment": "адрес патча 18, Game.Circles.SkipViewportRowsUp.Entry + #09, карта #00, обзор #FC"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 19, Game.Circles.SkipViewportRowsUp.CheckTop + #02, карта#28, обзор#C0",
+      "new_comment": "адрес патча 19, Game.Circles.SkipViewportRowsUp.CheckTop + #02, карта #28, обзор #C0"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 20, Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #04, карта#FF, обзор#F7",
+      "new_comment": "адрес патча 20, Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #04, карта #FF, обзор #F7"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 21, Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #08, карта#00, обзор#CB",
+      "new_comment": "адрес патча 21, Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #08, карта #00, обзор #CB"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 22, Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #09, карта#00, обзор#FC",
+      "new_comment": "адрес патча 22, Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #09, карта #00, обзор #FC"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 23, Game.Circles.SkipRowsDownAndDrawCircleContours.CheckSkipLimit + #02, карта#58, обзор#D0",
+      "new_comment": "адрес патча 23, Game.Circles.SkipRowsDownAndDrawCircleContours.CheckSkipLimit + #02, карта #58, обзор #D0"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 24, Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutBottom + #01, карта#57, обзор#CF",
+      "new_comment": "адрес патча 24, Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutBottom + #01, карта #57, обзор #CF"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 25, Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc + #0E, карта#3F, обзор#BF",
+      "new_comment": "адрес патча 25, Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc + #0E, карта #3F, обзор #BF"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 26, Game.Circles.SkipRowsDownAndDrawCircleContours.BothArc + #0B, карта#3F, обзор#BF",
+      "new_comment": "адрес патча 26, Game.Circles.SkipRowsDownAndDrawCircleContours.BothArc + #0B, карта #3F, обзор #BF"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 27, Game.Circles.SkipRowsDownAndDrawCircleContours.BothArcBottom + #01, карта#57, обзор#CF",
+      "new_comment": "адрес патча 27, Game.Circles.SkipRowsDownAndDrawCircleContours.BothArcBottom + #01, карта #57, обзор #CF"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 28, Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutBottom + #01, карта#57, обзор#CF",
+      "new_comment": "адрес патча 28, Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutBottom + #01, карта #57, обзор #CF"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 29, Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutArc + #0E, карта#3F, обзор#BF",
+      "new_comment": "адрес патча 29, Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutArc + #0E, карта #3F, обзор #BF"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 30, CircleRaster.NextRow, карта#58, обзор#D0",
+      "new_comment": "адрес патча 30, CircleRaster.NextRow, карта #58, обзор #D0"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 31, CircleRaster.PreviousRow, карта#3F, обзор#BF",
+      "new_comment": "адрес патча 31, CircleRaster.PreviousRow, карта #3F, обзор #BF"
+    },
+    {
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "old_comment": "Проверяется порядок краёв и верхний/нижний предел, затем сохраняется SP вCircleState.SavedSP",
+      "new_comment": "Проверяется порядок краёв и верхний/нижний предел, затем сохраняется SP в CircleState.SavedSP"
+    },
+    {
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "old_comment": "переход, если H выше#BF, строка ещё находится в буфере",
+      "new_comment": "переход, если H выше #BF, строка ещё находится в буфере"
+    },
+    {
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "old_comment": "переход, если H не больше#CF, строка ещё находится в буфере",
+      "new_comment": "переход, если H не больше #CF, строка ещё находится в буфере"
+    },
+    {
+      "file": "Source/Game/Circles/BuildRightContourPixelMask.asm",
+      "old_comment": "Out: C=ROL(#80,A), B восстановлен изCircleState.LeftMask",
+      "new_comment": "Out: C=ROL(#80,A), B восстановлен из CircleState.LeftMask"
+    },
+    {
+      "file": "Source/Game/Circles/CheckBodiesAndRestoreViewport.asm",
+      "old_comment": "Out: A и C-флаг выражают последовательные сравнения с#10 и#35",
+      "new_comment": "Out: A и C-флаг выражают последовательные сравнения с #10 и #35"
+    },
+    {
+      "file": "Source/Game/Circles/CheckBodiesAndRestoreViewport.asm",
+      "old_comment": "Независимый вход Game.Circles.CheckBodiesAndRestoreViewport.NormalViewport загружает таблицу штатных патчей и проваливается вGame.Circles.ApplyCircleViewportPatches.Entry",
+      "new_comment": "Независимый вход Game.Circles.CheckBodiesAndRestoreViewport.NormalViewport загружает таблицу штатных патчей и проваливается в Game.Circles.ApplyCircleViewportPatches.Entry"
+    },
+    {
+      "file": "Source/Game/Circles/CheckSystemCoordinateBand.asm",
+      "old_comment": "После AND перенос сброшен, HL указывает наState.SystemSeed + FSystemSeed.X",
+      "new_comment": "После AND перенос сброшен, HL указывает на State.SystemSeed + FSystemSeed.X"
+    },
+    {
+      "file": "Source/Game/Circles/CheckSystemCoordinateBand.asm",
+      "old_comment": "проверка восьмиединичной диагональной полосы маской#F8",
+      "new_comment": "проверка восьмиединичной диагональной полосы маской #F8"
+    },
+    {
+      "file": "Source/Game/Circles/ComputeLeftEdgeMask.asm",
+      "old_comment": "создание сплошной маски левого края сдвигами#FF",
+      "new_comment": "создание сплошной маски левого края сдвигами #FF"
+    },
+    {
+      "file": "Source/Game/Circles/CrossCircleCharacterRowDown.asm",
+      "old_comment": "Game.Circles.CrossCircleCharacterRowDown.FinishHalf удаляет внутренний адрес возврата, восстанавливает SP изCircleState.SavedSP и снимает сохранённый AF",
+      "new_comment": "Game.Circles.CrossCircleCharacterRowDown.FinishHalf удаляет внутренний адрес возврата, восстанавливает SP из CircleState.SavedSP и снимает сохранённый AF"
+    },
+    {
+      "file": "Source/Game/Circles/CrossCircleCharacterRowDown.asm",
+      "old_comment": "переход, если H достиг нижнего предела#D0, завершить всю половину",
+      "new_comment": "переход, если H достиг нижнего предела #D0, завершить всю половину"
+    },
+    {
+      "file": "Source/Game/Circles/CrossCircleCharacterRowUp.asm",
+      "old_comment": "переход, если H достиг верхнего предела#BF, завершить всю половину",
+      "new_comment": "переход, если H достиг верхнего предела #BF, завершить всю половину"
+    },
+    {
+      "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+      "old_comment": "X переводится в модуль относительно 128, Y относительно 96, знаки записываются вCircleState.Flags",
+      "new_comment": "X переводится в модуль относительно 128, Y относительно 96, знаки записываются в CircleState.Flags"
+    },
+    {
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "old_comment": "После всех восьми слотов выполнение проваливается вGame.Circles.SelectCircleBackBuffer.Entry и восстанавливает буферный режим",
+      "new_comment": "После всех восьми слотов выполнение проваливается в Game.Circles.SelectCircleBackBuffer.Entry и восстанавливает буферный режим"
+    },
+    {
+      "file": "Source/Game/Circles/DrawUnclippedCircle.asm",
+      "old_comment": "In: рабочие параметры круга #861A..#8621",
+      "new_comment": "In: параметры CircleState от OffsetY до ScreenX"
+    },
+    {
+      "file": "Source/Game/Circles/IntegerCircleCathetus.asm",
+      "old_comment": "Пробный бит начинается с#80 и сдвигается до 1, слишком большой квадрат отменяет добавленный бит",
+      "new_comment": "Пробный бит начинается с #80 и сдвигается до 1, слишком большой квадрат отменяет добавленный бит"
+    },
+    {
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "old_comment": "Операнды LD A,#4F/#3F в этом коде меняет Game.Circles.SelectCircleBackBuffer.Entry на#CF/#BF",
+      "new_comment": "Операнды LD A,#4F/#3F в этом коде меняет Game.Circles.SelectCircleBackBuffer.Entry на #CF/#BF"
+    },
+    {
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "old_comment": "#8FB4..#8FB5 — сохранённый резерв, CircleFillWord/CircleFillWord + 1=#FFFF — образец быстрого заполнения",
+      "new_comment": "CircleFillData.Reserved содержит два сохранённых байта, слово CircleFillWord=#FFFF служит образцом быстрого заполнения"
+    },
+    {
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "old_comment": "переход, если патч верхнего режима даёт H не ниже#C0, продолжить строки",
+      "new_comment": "переход, если патч верхнего режима даёт H не ниже #C0, продолжить строки"
+    },
+    {
+      "file": "Source/Game/Circles/PrepareLeftClippedCircle.asm",
+      "old_comment": "переход, если выбран контур, заменить сплошную левую маску на#80",
+      "new_comment": "переход, если выбран контур, заменить сплошную левую маску на #80"
+    },
+    {
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "old_comment": "Out: при улучшении печатается токен#F9, курсор переводится на строку 4",
+      "new_comment": "Out: при улучшении печатается токен #F9, курсор переводится на строку 4"
+    },
+    {
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "old_comment": "вызов, если улучшениеState.ShipUpgrade установлено, напечатать название Cobra Mk4",
+      "new_comment": "вызов, если улучшение State.ShipUpgrade установлено, напечатать название Cobra Mk4"
+    },
+    {
+      "file": "Source/Game/Circles/SelectCircleBackBuffer.asm",
+      "old_comment": "Out: подготовлены границы #C0..#CF, HL=#FCCB, A=#D0, далее выполняетсяGame.Circles.PatchCircleScreenTarget.Entry",
+      "new_comment": "Out: подготовлены границы #C0..#CF, HL=#FCCB, A=#D0, далее выполняется Game.Circles.PatchCircleScreenTarget.Entry"
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "old_comment": "Out: первый вход возвращает FlightState.RandomByte либо#F9 по переносу, остальные входы рисуют круг",
+      "new_comment": "Out: первый вход возвращает FlightState.RandomByte либо #F9 по переносу, остальные входы рисуют круг"
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "old_comment": "При активном вторжении Game.Text.CheckMissionRegion.Entry поглощает байт#78 как порог, при раннем отказе тот же байт выполняется как LD A,B без изменения C",
+      "new_comment": "При активном вторжении Game.Text.CheckMissionRegion.Entry поглощает байт #78 как порог, при раннем отказе тот же байт выполняется как LD A,B без изменения C"
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "old_comment": "проверка задания с встроенным параметром#78 после CALL",
+      "new_comment": "проверка задания с встроенным параметром #78 после CALL"
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "old_comment": "выход, если проверки не оставили C=1, вернуть штатный байтFlightState.RandomByte",
+      "new_comment": "выход, если проверки не оставили C=1, вернуть штатный байт FlightState.RandomByte"
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "old_comment": "расчёт числа пар#FF для быстрого заполнения",
+      "new_comment": "расчёт числа пар #FF для быстрого заполнения"
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "old_comment": "переход, если индекс столбца не меньше 32, при штатной маске#1F условие недостижимо",
+      "new_comment": "переход, если индекс столбца не меньше 32, при штатной маске #1F условие недостижимо"
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "old_comment": "переход, если H выше#BF, строка допустима",
+      "new_comment": "переход, если H выше #BF, строка допустима"
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "old_comment": "переход, если H не больше#CF, строка допустима",
+      "new_comment": "переход, если H не больше #CF, строка допустима"
+    },
+    {
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "old_comment": "переход, если специальный режимFlightState.SpaceMode выключен, сохранить рассчитанный нагрев",
+      "new_comment": "переход, если специальный режим FlightState.SpaceMode выключен, сохранить рассчитанный нагрев"
+    },
+    {
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "old_comment": "шестнадцать команд PUSH AF, каждая записывает два байта#FF в строку",
+      "new_comment": "шестнадцать команд PUSH AF, каждая записывает два байта #FF в строку"
+    },
+    {
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "old_comment": "переход, если индекс столбца не меньше 32, ранний отказ, при штатной маске#1F условие недостижимо",
+      "new_comment": "переход, если индекс столбца не меньше 32, ранний отказ, при штатной маске #1F условие недостижимо"
+    },
+    {
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "old_comment": "переход, если H выше#BF, строка допустима",
+      "new_comment": "переход, если H выше #BF, строка допустима"
+    },
+    {
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "old_comment": "переход, если H не больше#CF, строка допустима",
+      "new_comment": "переход, если H не больше #CF, строка допустима"
+    },
+    {
+      "file": "Source/Game/Circles/SetRightContourBoundary.asm",
+      "old_comment": "Для карты операнд #1E заменяется на#1F, H остаётся прежним",
+      "new_comment": "Для карты операнд #1E заменяется на #1F, H остаётся прежним"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "Каждый построитель хранит реальный SP вCircleState.SavedSP и снимает AF внешней обёртки при завершении",
+      "new_comment": "Каждый построитель хранит реальный SP в CircleState.SavedSP и снимает AF внешней обёртки при завершении"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "переход, если H меньше#D0, продолжить пропуск строк",
+      "new_comment": "переход, если H меньше #D0, продолжить пропуск строк"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "переход, если индекс столбца не меньше 32, при штатной маске#1F условие недостижимо",
+      "new_comment": "переход, если индекс столбца не меньше 32, при штатной маске #1F условие недостижимо"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "переход, если H выше#BF, строка допустима",
+      "new_comment": "переход, если H выше #BF, строка допустима"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "переход, если H не больше#CF, строка допустима",
+      "new_comment": "переход, если H не больше #CF, строка допустима"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "переход, если H выше#BF, строка допустима",
+      "new_comment": "переход, если H выше #BF, строка допустима"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "переход, если H не больше#CF, строка допустима",
+      "new_comment": "переход, если H не больше #CF, строка допустима"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "переход, если байт правого края пуст, начать с#FF",
+      "new_comment": "переход, если байт правого края пуст, начать с #FF"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "переход, если байт второго конечного участка пуст, записать#FF",
+      "new_comment": "переход, если байт второго конечного участка пуст, записать #FF"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "переход, если индекс столбца не меньше 32, при штатной маске#1F условие недостижимо",
+      "new_comment": "переход, если индекс столбца не меньше 32, при штатной маске #1F условие недостижимо"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "переход, если H выше#BF, строка допустима",
+      "new_comment": "переход, если H выше #BF, строка допустима"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "переход, если H не больше#CF, строка допустима",
+      "new_comment": "переход, если H не больше #CF, строка допустима"
+    },
+    {
+      "file": "Source/Game/Circles/SkipViewportRowsUp.asm",
+      "old_comment": "Переходы через 8 строк учитывают раскладку Spectrum и верхний предел#C0",
+      "new_comment": "Переходы через 8 строк учитывают раскладку Spectrum и верхний предел #C0"
+    },
+    {
+      "file": "Source/Game/Circles/SkipViewportRowsUp.asm",
+      "old_comment": "переход, если H не ниже#C0, продолжить пропуск строк",
+      "new_comment": "переход, если H не ниже #C0, продолжить пропуск строк"
+    },
+    {
+      "file": "Source/Game/Combat/CreateWreckAndDamageState.asm",
+      "old_comment": "Game.Combat.CreateWreckAndDamageState.SignedDelta отдельный JP HalfDelta, далее сохранены JP9F82, JPA28D и рабочий байт OrdinarySeen.",
+      "new_comment": "Game.Combat.CreateWreckAndDamageState.SignedDelta отдельный JP HalfDelta, далее сохранены JP Game.Motion.UpdateObjectCoordinatesAndRotation.Entry, JP Game.Motion.AnimateIntroObject.Entry и рабочий байт OrdinarySeen."
+    },
+    {
+      "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
+      "old_comment": "Очищаются 13 байтов D06B..D077, State.MissionFlags.5 и State.Cargo + FGoods.AlienItems, затем вызывается Game.Screen.ResetCargoCapacity.Entry и действие #17.",
+      "new_comment": "очищаются первые 13 полей State.Cargo от Food до Minerals, MS_CARGO_BIT и AlienItems, затем выполняются ResetCargoCapacity и действие #17"
+    },
+    {
+      "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
+      "old_comment": "9C65..9C70 сохраняет неисполняемые этим путём старые байты, 9C7B..9C7F рабочий нулевой хвост.",
+      "new_comment": "LegacyCell сохраняет старые байты, недостижимые через предшествующий JP, в конце файла лежит нулевой рабочий хвост"
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "old_comment": "объектный пул 6048..617F и соответствующие метаданные",
+      "new_comment": "восемь записей FSpaceObject от Memory.Station до Memory.Missile и соответствующие записи ObjectEffects.Records"
+    },
+    {
+      "file": "Source/Game/Disk/CallDosInternal.asm",
+      "old_comment": "PUSH IX перед JP3D2F передаёт адрес ROM через стек, DA1F..DA20 являются данными",
+      "new_comment": "PUSH IX перед переходом Rom.CallDosStack передаёт адрес ПЗУ через стек, после JP сохранены два байта данных"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCircleAndProtectScratchStack.asm",
+      "old_comment": "In: параметры круга в #861A..#861D, для Game.Extensions.DrawCircleAndProtectScratchStack.NextOrFinish Z — результат внешней проверки",
+      "new_comment": "In: CircleState.OffsetY, OffsetX, Flags и Radius, для NextOrFinish Z является результатом внешней проверки"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCircleAndProtectScratchStack.asm",
+      "old_comment": "При Z=1 48 байтов #40F0..#411F сохраняются в #FFD0..#FFFF, стек меняется на ScratchStack + 48",
+      "new_comment": "при Z=1 копирует 48 байтов ScratchStack в ScratchBackup и устанавливает SP сразу за ScratchStack"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Указатели на заголовки читаются из четырёхбайтового индекса #6180..#61DB",
+      "new_comment": "указатели на заголовки читаются из четырёхбайтовых записей Memory.ModelIndex"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "old_comment": "In: #861A..#861C — проекционные координаты и знаки, CircleState.Radius — радиус",
+      "new_comment": "In: CircleState.OffsetY и OffsetX задают проекцию, Flags содержит знаки, Radius содержит радиус"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawSmallSilhouetteAlternate.asm",
+      "old_comment": "In: параметры силуэта в #861A..#861D",
+      "new_comment": "In: CircleState.OffsetY, OffsetX, Flags и Radius задают силуэт"
+    },
+    {
+      "file": "Source/Game/Extensions/FillBackwardAndCountDemo.asm",
+      "old_comment": "Затем выполняется хвостовой переход к Game.Screen.DispatchMenu.Entry, #5E68..#5E77 содержит два знака",
+      "new_comment": "затем выполняется хвостовой переход к Game.Screen.DispatchMenu.Entry, после него сохранены два восьмибайтовых знака"
+    },
+    {
+      "file": "Source/Game/Extensions/ResetObjectMetadata.asm",
+      "old_comment": "Out: ObjectEffects.Flags=0 либо 4, #B457..#B4A6 обнулены, HL=InputMotion.Roll, B=5, C=0",
+      "new_comment": "Out: ObjectEffects.Flags=0 либо 4, восемь записей ObjectEffects.Records обнулены, HL=InputMotion.Roll, B=5, C=0"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndFinishGlyph.asm",
+      "old_comment": "#5DD0..#5DEF — четыре восьмибайтовых знака дополнительного шрифта",
+      "new_comment": "перед FinishGlyph сохранены четыре восьмибайтовых знака дополнительного шрифта"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "old_comment": "Game.Circles.CheckSystemCoordinateBand.Entry выбирает солнечную ветку при разности D097-D099 в диапазоне -8..7",
+      "new_comment": "Game.Circles.CheckSystemCoordinateBand.Entry выбирает солнечную ветку при разности значений Y - X текущего State.SystemSeed от -8 до 7"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "old_comment": "Вне этой полосы оценка расстояния до планеты Game.Screen.PlanetDistanceHint.Entry должна быть меньше 7, затем Game.Text.CheckMissionRegion.Entry с порогом 0 разрешает Thargoid типа#0F при C=1",
+      "new_comment": "Вне этой полосы оценка расстояния до планеты Game.Screen.PlanetDistanceHint.Entry должна быть меньше 7, затем Game.Text.CheckMissionRegion.Entry с порогом 0 разрешает Thargoid типа #0F при C=1"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "old_comment": "При A=7..11 создаётся Asp типа#0D, очередь CargoEvent/CargoEvent + FFlightEvent.Token получает #80/#F4, то есть запрос и токен предложения Cobra Mk4",
+      "new_comment": "При A=7..11 создаётся Asp типа #0D, очередь CargoEvent/CargoEvent + FFlightEvent.Token получает #80/#F4, то есть запрос и токен предложения Cobra Mk4"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "old_comment": "На пути создания энергия второго слота Memory.Objects + FSpaceObject.Energy временно равна#7E, поэтому поиск Game.Objects.FindFreeObjectSlot.Entry не может занять его, затем прежняя энергия восстанавливается",
+      "new_comment": "На пути создания энергия второго слота Memory.Objects + FSpaceObject.Energy временно равна #7E, поэтому поиск Game.Objects.FindFreeObjectSlot.Entry не может занять его, затем прежняя энергия восстанавливается"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "old_comment": "переход, если текущая система внутри занятой зоны вторжения, создать Thargoid типа#0F",
+      "new_comment": "переход, если текущая система внутри занятой зоны вторжения, создать Thargoid типа #0F"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "old_comment": "переход, если правовой статус не меньше#7F, создать полицейский Viper типа 8",
+      "new_comment": "переход, если правовой статус не меньше #7F, создать полицейский Viper типа 8"
+    },
+    {
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "old_comment": "Самомодификация является частью автомата фаз, DB-хвосты 9337..935D и 9364..937A раскрыты как",
+      "new_comment": "самомодификация является частью автомата фаз, хвосты FadeTunnel и EndDocking разобраны как"
+    },
+    {
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "old_comment": "выбор завершения кадра через изменяемое смещение JR9317",
+      "new_comment": "выбор завершения кадра через изменяемое смещение TunnelPhase"
+    },
+    {
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "old_comment": "проверка конца набора колец, JR9317 ведёт на Game.Flight.AnimateTransitionTunnel.ShowFrame либо Game.Flight.AnimateTransitionTunnel.FadeTunnel",
+      "new_comment": "проверка конца набора колец, переход со смещением TunnelPhase ведёт на Game.Flight.AnimateTransitionTunnel.ShowFrame либо Game.Flight.AnimateTransitionTunnel.FadeTunnel"
+    },
+    {
+      "file": "Source/Game/Flight/ClearFlightKeyEvents.asm",
+      "old_comment": "InputState.ScreenKeys..InputState.ChartKeys=0, далее общий Game.Flight.ClearBytes.Entry",
+      "new_comment": "InputState.SystemKeys..InputState.ChartKeys=0, далее общий Game.Flight.ClearBytes.Entry"
+    },
+    {
+      "file": "Source/Game/Flight/DispatchChartCircle.asm",
+      "old_comment": "711C..7120 после JP являются отдельными полями полёта",
+      "new_comment": "StationZone, StationFar, SunScooping, PlayerDead и XorObjects после JP являются отдельными полями FlightState"
+    },
+    {
+      "file": "Source/Game/Flight/DivideByteFractionForTunnel.asm",
+      "old_comment": "Game.Flight.DivideByteFractionForTunnel.FinishTunnel отдельный завершающий обработчик тоннеля,93D0..93EC таблицы и счётчики колец",
+      "new_comment": "FinishTunnel завершает обработку тоннеля, за ним расположены HyperDepths, DockDepths и счётчики колец"
+    },
+    {
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "old_comment": "HL, AF, BC сохраняется оболочкой, прочие по ROM16DC",
+      "new_comment": "HL, AF, BC сохраняется оболочкой, прочие по Rom.FindKeyPair"
+    },
+    {
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "old_comment": "поиск пары через ROM16DC с сохранением BC вызывающего",
+      "new_comment": "поиск пары через Rom.FindKeyPair с сохранением BC вызывающего"
+    },
+    {
+      "file": "Source/Game/Flight/InitializeViewAttributes.asm",
+      "old_comment": "5820..59FF заполнены 07, HL=Memory.Attributes + #0200,B=0",
+      "new_comment": "первые 15 строк атрибутов обзорного окна от Memory.Attributes + #0020 заполнены 07, HL указывает на следующую строку, B=0"
+    },
+    {
+      "file": "Source/Game/Flight/InitializeViewAttributes.asm",
+      "old_comment": "CALL7467 заполняет 240 байтов, затем проваливание Game.Flight.Fill240Attributes.Entry выполняет второй такой же проход",
+      "new_comment": "CALL Game.Flight.Fill240Attributes.Entry заполняет 240 байтов, затем проваливание Game.Flight.Fill240Attributes.Entry выполняет второй такой же проход"
+    },
+    {
+      "file": "Source/Game/Flight/RebaseSunAgainstStation.asm",
+      "old_comment": "Два CALL71CE и проваливание в третий обеспечивают обработку всех трёх осей",
+      "new_comment": "Два CALL Game.Flight.RebaseCoordinateAxis.Entry и проваливание в третий обеспечивают обработку всех трёх осей"
+    },
+    {
+      "file": "Source/Game/Flight/ReportBoardingAndReturnToTitle.asm",
+      "old_comment": "выведено сообщение, восстановлен SP, JP739E",
+      "new_comment": "выведено сообщение, восстановлен SP, JP Game.Flight.ShowTitleAndSelectControls.WaitRelease"
+    },
+    {
+      "file": "Source/Game/Flight/ResetFlightControls.asm",
+      "old_comment": "FF08..FF0C=0,InputMotion.Speed + 1=12, далее очистка клавиш Game.Flight.ClearFlightKeyEvents.Entry",
+      "new_comment": "слова InputMotion.Roll и Pitch обнулены, InputMotion.Speed получает #0C00, далее ClearFlightKeyEvents очищает клавиши"
+    },
+    {
+      "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+      "old_comment": "Game.Flight.ShowTitleAndSelectControls.DrawDemoTitle отдельный вход вывода второй демонстрационной подписи,73D8..73E1 сохранённые нулевые байты",
+      "new_comment": "DrawDemoTitle выводит вторую демонстрационную подпись, перед ним сохранены десять нулевых байтов"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "#FF58..#FFA7 — сорок пар смещение/маска для Game.Input.SetPressedKeyAssignment.Entry",
+      "new_comment": "KeyAssignments содержит сорок пар смещение/маска для Game.Input.SetPressedKeyAssignment.Entry"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "#FFA8..#FFFF — сохранённый хвост снимка, верхние 48 байтов используются Game.Extensions.DrawCircleAndProtectScratchStack.NextOrFinish как временная копия стека",
+      "new_comment": "после KeyAssignments сохранён хвост снимка, его последние 48 байтов ScratchBackup временно хранят копию ScratchStack"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "прямых записей в #FF58..#FFA7 и загрузки этого диапазона для изменения карты",
+      "new_comment": "прямых записей в KeyAssignments или загрузки новой карты назначений клавиш"
+    },
+    {
+      "file": "Source/Game/Input/ScanKeyboardMatrix.asm",
+      "old_comment": "InputState.NumberKeys обнуляется перед опросом цифровых направлений, InputState.ScreenKeys..InputState.ChartKeys целиком не очищаются",
+      "new_comment": "InputState.NumberKeys обнуляется перед опросом цифровых направлений, InputState.SystemKeys..InputState.ChartKeys целиком не очищаются"
+    },
+    {
+      "file": "Source/Game/Input/SetPressedKeyAssignment.asm",
+      "old_comment": "Out: InputState.LastKey получает код символа, один байт в InputState.ScreenKeys..InputState.NumberKeys дополнен маской",
+      "new_comment": "Out: InputState.LastKey получает код символа, один байт в InputState.SystemKeys..InputState.NumberKeys дополнен маской"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "old_comment": "102 байта, FlightEvents десять пар сообщений, D0D1..D0D4 режимы регистра текста, Game.Interface.DispatchDiskAndCommanderState.ShowBoarding",
+      "new_comment": "102 байта, FlightEvents содержит десять пар сообщений, LetterCase, WordStart, CapitalNext и CaseGuard задают режимы текста, ShowBoarding"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchTextToken.asm",
+      "old_comment": "D04B..D04D содержат слово Game.Text.XorCharacterScanlines.XorOpcode и байт состояния, они не исполняются после JP",
+      "new_comment": "GlyphPatch хранит адрес Game.Text.XorCharacterScanlines.XorOpcode, следующий байт сохранён как состояние, после JP эти данные не исполняются"
+    },
+    {
+      "file": "Source/Game/Menus/ClearCharacterRowsBackward.asm",
+      "old_comment": "восстановления HL увеличивает H, EC02..EC13 содержат остаток отдельной процедуры со своим",
+      "new_comment": "восстановления HL увеличивает H, после основного RET сохранён остаток отдельной процедуры со своим"
+    },
+    {
+      "file": "Source/Game/Menus/DrawExplosionAndScanner.asm",
+      "old_comment": "Последний вызов выполнен JP96D9, сохраняющим исходный адрес возврата",
+      "new_comment": "Последний вызов выполнен JP Game.Scanner.DrawScannerObjects.Entry, сохраняющим исходный адрес возврата"
+    },
+    {
+      "file": "Source/Game/Menus/LocalSystemPixelPosition.asm",
+      "old_comment": "BC = координаты для ROM22AA, HL = адрес пикселя, A = бит",
+      "new_comment": "BC = координаты для Rom.PlotAddress, HL = адрес пикселя, A = бит"
+    },
+    {
+      "file": "Source/Game/Menus/LocalSystemPixelPosition.asm",
+      "old_comment": "из GalaxyState.WorkingSeed + FSystemSeed.Syllable и сам продвигает семя, ED59..ED5F таблица данных",
+      "new_comment": "из поля GalaxyState.WorkingSeed + FSystemSeed.Syllable и сам продвигает семя, после RET сохранена семибайтовая таблица"
+    },
+    {
+      "file": "Source/Game/Menus/PlotGalaxySystem.asm",
+      "old_comment": "Координаты передаются ROM22AA как B=24+(127-(GalaxyState.WorkingSeed + FSystemSeed.Y>>1)), C=GalaxyState.WorkingSeed + FSystemSeed.X, результат A задаёт номер",
+      "new_comment": "Координаты передаются Rom.PlotAddress как B=24+(127-(GalaxyState.WorkingSeed + FSystemSeed.Y>>1)), C=GalaxyState.WorkingSeed + FSystemSeed.X, результат A задаёт номер"
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "old_comment": "D060..D062 = рейтинг, поля оборудования пилота",
+      "new_comment": "State.Rating и State.RankState содержат рейтинг, далее используются поля оборудования пилота"
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "old_comment": "таблица F09B..F0A0 задаёт шесть адресов устройств, дополнительные State.AlienComputer и бит 6 State.MissionFlags",
+      "new_comment": "DeviceAddresses задаёт шесть младших байтов адресов устройств, дополнительно проверяются State.AlienComputer и бит 6 State.MissionFlags"
+    },
+    {
+      "file": "Source/Game/Menus/PrintDirectionalLaser.asm",
+      "old_comment": "прочие в F6, F09B..F0A0 затем содержат таблицу адресов обычных устройств",
+      "new_comment": "прочие в F6, следующая DeviceAddresses содержит младшие байты адресов обычных устройств"
+    },
+    {
+      "file": "Source/Game/Menus/PrintStatusFieldAndCargoScreen.asm",
+      "old_comment": "A сохраняется в альтернативном AF, F0AE..F0B7 таблицы рейтинга, Game.Menus.PrintStatusFieldAndCargoScreen.CargoScreen отдельный экран трюма",
+      "new_comment": "A сохраняется в альтернативном AF, после обработчика находятся таблицы рейтинга, CargoScreen открывает экран трюма"
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemStatistics.asm",
+      "old_comment": "EE9B..EE9C сохранены буквально",
+      "new_comment": "два байта после последнего JP сохранены буквально"
+    },
+    {
+      "file": "Source/Game/Menus/ReadVisibleObjectByte.asm",
+      "old_comment": "Для страниц 60/61 возвращается, для других страниц остаётся в бесконечной петле JR Game.Menus.ReadVisibleObjectByte.InvalidObject, ED75..ED77",
+      "new_comment": "для страниц 60/61 возвращается, для других страниц остаётся в цикле InvalidObject, три байта после цикла"
+    },
+    {
+      "file": "Source/Game/Missions/ShowBoardingMessage.asm",
+      "old_comment": "после новой клавиши окно очищено, биты нажатий InputState.ScreenKeys..InputState.DeviceKeys сброшены",
+      "new_comment": "после новой клавиши окно очищено, биты нажатий InputState.SystemKeys..InputState.DeviceKeys сброшены"
+    },
+    {
+      "file": "Source/Game/Missions/ShowBoardingMessage.asm",
+      "old_comment": "окно очищено, после 36 HALT сброшены InputState.ScreenKeys..InputState.DeviceKeys",
+      "new_comment": "окно очищено, после 36 HALT сброшены InputState.SystemKeys..InputState.DeviceKeys"
+    },
+    {
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "old_comment": "Два байта #A1CE..#A1CF сохраняют старый JR за безусловным JP и не достигаются этим путём.",
+      "new_comment": "два байта сразу за безусловным JP сохраняют старый JR и недостижимы этим путём"
+    },
+    {
+      "file": "Source/Game/Motion/DoubleSignedAngle.asm",
+      "old_comment": "После RET лежат два нулевых байта #A28B..#A28C, отдельные данные исходного образа.",
+      "new_comment": "после RET сохранены два нулевых байта, отдельные данные исходного образа"
+    },
+    {
+      "file": "Source/Game/Objects/ActivateEnemyECM.asm",
+      "old_comment": "после RET файл содержит шаблон инициализации слота #B83E..#B85C, матрицу заставки #B85D..#B865 и переключатель SpawnAxis",
+      "new_comment": "после RET находятся ObjectTemplate для инициализации слота, IntroMatrix для заставки и переключатель SpawnAxis"
+    },
+    {
+      "file": "Source/Game/Resources/SkippedSectors.asm",
+      "old_comment": "сохранённый путь cl.C по #CF9C отдельно читает отсюда #CC00..#CEFF в #C500..#C7FF",
+      "new_comment": "сохранённый путь cl.C через DiskUtility.Menu.ConfirmCopy отдельно читает отсюда #CC00..#CEFF в #C500..#C7FF"
+    },
+    {
+      "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+      "old_comment": "Общий цикл 990C..9944 имеет продолжение в файле Game.Scanner.ScaleValueAndFinishBackground.Entry, после LDIR переход ScannerCopy.RestoreRow обходит независимый",
+      "new_comment": "CopyBackground продолжается в Game.Scanner.ScaleValueAndFinishBackground.AdvanceCopy, после LDIR переход обходит независимый"
+    },
+    {
+      "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+      "old_comment": "9935..9944 является активным общим хвостом Game.Scanner.SaveScannerBackground.Entry/Game.Scanner.RestoreScannerBackground.Entry с подменяемыми POP/INC/EX",
+      "new_comment": "AdvanceCopy является общим хвостом SaveScannerBackground и RestoreScannerBackground с изменяемыми POP/INC/EX"
+    },
+    {
+      "file": "Source/Game/Scanner/StepScannerStemUp.asm",
+      "old_comment": "L=0F является верхним пределом маркера, POP AF снимает адрес CALL, JP982E завершает объект",
+      "new_comment": "L=0F является верхним пределом маркера, POP AF снимает адрес CALL, JP Game.Scanner.DrawScannerObjects.NextObject завершает объект"
+    },
+    {
+      "file": "Source/Game/Screen/DrawCircleOutline.asm",
+      "old_comment": "состояние окружности #861A..#861D",
+      "new_comment": "поля CircleState.OffsetY, OffsetX, Flags и Radius"
+    },
+    {
+      "file": "Source/Game/Screen/DrawFilledCircle.asm",
+      "old_comment": "состояние окружности #861A..#861D",
+      "new_comment": "поля CircleState.OffsetY, OffsetX, Flags и Radius"
+    },
+    {
+      "file": "Source/Game/Screen/DrawLargeOutline.asm",
+      "old_comment": "состояние окружности #861A..#861D",
+      "new_comment": "поля CircleState.OffsetY, OffsetX, Flags и Radius"
+    },
+    {
+      "file": "Source/Game/Screen/PlanetDistanceHint.asm",
+      "old_comment": "байты #83FE..#8400 образуют LD HL,#2E10",
+      "new_comment": "Entry использует первый байт Game.Screen.SunDistanceHint.Entry как старший операнд LD HL, #2E10"
+    },
+    {
+      "file": "Source/Game/Screen/PreviousCharacterRow.asm",
+      "old_comment": "#8477..#8480 содержат литеральные данные, не последовательность инструкций",
+      "new_comment": "после RET CopySpriteRow сохранены десять байтов данных"
+    },
+    {
+      "file": "Source/Game/Screen/UpdateIndicators.asm",
+      "old_comment": "IndicatorDraw содержит режим, #8524..#853F таблицу экранных адресов",
+      "new_comment": "IndicatorDraw.MarkerMode содержит режим, GaugeAddresses содержит таблицу экранных адресов"
+    },
+    {
+      "file": "Source/Game/Sound/StartLaunchNoise.asm",
+      "old_comment": "байты #96A9..#96AE задают отдельный вход с BC=#C0F0, DE=#C00C",
+      "new_comment": "отдельный вход HyperParams задаёт BC=#C0F0, DE=#C00C"
+    },
+    {
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "old_comment": "D8B4..D8CB переходят к новой строке, сигналу, очистке, сдвигу Y, ожиданию и позиционированию",
+      "new_comment": "хвост после StoreCaseMode содержит переходы к новой строке, сигналу, очистке, сдвигу Y, ожиданию и позиционированию"
+    },
+    {
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "old_comment": "младший байт адреса из таблиц D7F1..D7FE и D7FF..D81E и JP в страницу D8, далее размещены обработчики",
+      "new_comment": "младший байт адреса из двух следующих таблиц, JP (HL) передаёт поток в страницу #D8, далее размещены обработчики"
+    },
+    {
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "old_comment": "первая таблица #D7F1..#D7FE содержит 14 команд, вторая #D7FF..#D81E содержит 32",
+      "new_comment": "таблица MainCommand содержит 14 младших адресов команд, следующая таблица DescCommand содержит 32"
+    },
+    {
+      "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+      "old_comment": "D788..D7A9 содержит остаточные машинные фрагменты, они не исполняются после JP Game.Trade.Newline.Entry",
+      "new_comment": "после JP Game.Trade.Newline.Entry сохранены остаточные машинные фрагменты, этим путём они не исполняются"
+    },
+    {
+      "file": "Source/Game/Trade/ClearPressedKeyBits.asm",
+      "old_comment": "InputState.ScreenKeys..InputState.DeviceKeys=0, HL=InputState.ChartKeys, B=0, прерывания включены",
+      "new_comment": "InputState.SystemKeys..InputState.DeviceKeys=0, HL=InputState.ChartKeys, B=0, прерывания включены"
+    },
+    {
+      "file": "Source/Game/Trade/ErasePreviousCharacter.asm",
+      "old_comment": "операцию, E2EC..E2F7 являются рабочими байтами",
+      "new_comment": "операцию, после RET сохранены двенадцать рабочих байтов"
+    },
+    {
+      "file": "Source/Game/Travel/BuildStationGeometry.asm",
+      "old_comment": "BC, C = биты выбора стороны, 7110..7118 = координаты планеты",
+      "new_comment": "BC, C содержит биты выбора стороны, FlightState.Planet содержит координаты планеты"
+    },
+    {
+      "file": "Source/Game/Travel/BuildStationGeometry.asm",
+      "old_comment": "6048..6050 координаты станции, 6051..6062 её ориентация",
+      "new_comment": "поля X, Y, Z записи Memory.Station содержат координаты станции, AxisX, AxisY, AxisZ её ориентацию"
+    },
+    {
+      "file": "Source/Game/Travel/EnterTargetSystem.asm",
+      "old_comment": "технологию/правительство, обновляет рынок и 18 байт геометрии 7107..7118, затем формирует",
+      "new_comment": "технологию и правительство, обновляет рынок и две тройки координат FlightState.Sun/Planet, затем формирует"
+    },
+    {
+      "file": "Source/Game/Universe/AddSignedStarCoordinate.asm",
+      "old_comment": "7A84..7A9D хранит отдельный переключатель сканера в буквальных машинных байтах.",
+      "new_comment": "ToggleScanner содержит отдельный обработчик переключения проекции сканера"
+    },
+    {
+      "file": "Source/Game/Universe/CheckSpecialSystemOrRandom.asm",
+      "old_comment": "При Z очищает #6048..#604F, задаёт Memory.Station + FSpaceObject.Z.SignHigh=1, энергию Memory.Station + FSpaceObject.Energy=#F0 и State.Mission3=4.",
+      "new_comment": "при Z обнуляет первые восемь байтов координат станции, задаёт её Z.SignHigh=1, Energy=#F0 и State.Mission3=4"
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "old_comment": "Нулевой тип до совпадения означает ошибку, устанавливается SP4120 и выполняется переход Game.Flight.MainGameLoop.DrawObjects.",
+      "new_comment": "Нулевой тип до совпадения означает ошибку, устанавливается SP=ScratchStack + 48 и выполняется переход Game.Flight.MainGameLoop.DrawObjects."
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "old_comment": "AC8B..AC9E строит восемь дробных разрядов, единицы C служат счётчиком.",
+      "new_comment": "Entry строит восемь дробных разрядов, единицы C служат счётчиком"
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "old_comment": "AC9F..ACA1 являются дробными байтами повёрнутой вершины.",
+      "new_comment": "VertexFraction.X, Y и Z являются дробными байтами повёрнутой вершины"
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "old_comment": "B2AA..B2EC строит целую и дробную части отношения.",
+      "new_comment": "Entry строит целую и дробную части отношения"
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "old_comment": "B2ED..B2EE сохраняет два байта старого перехода, Game.Wireframe.DivideSlopeAndDrawScanner.DrawMarker начинает отдельную проекцию сканера.",
+      "new_comment": "за RET сохранены два байта старого перехода, DrawMarker начинает отдельную проекцию сканера"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "old_comment": "выбор единственного байта уже адресованной маски, IX указывает в таблицу #B400",
+      "new_comment": "выбор единственного байта маски, IX указывает в таблицу 8×8 масок в конце Game.Wireframe.RefreshScannerBackground"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "old_comment": "пологие линии выводят горизонтальные группы по таблице масок #B400",
+      "new_comment": "пологие линии выводят горизонтальные группы по таблице 8×8 масок в конце Game.Wireframe.RefreshScannerBackground"
+    },
+    {
+      "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+      "old_comment": "B3FB..B3FF сохраняет пять старых машинных байтов. B400..B43F, 8×8 масок отрезков рендера Game.Wireframe.DrawClippedLine.Entry.",
+      "new_comment": "после основного кода сохранены пять старых машинных байтов и 8×8 масок отрезков для Game.Wireframe.DrawClippedLine.Entry"
+    }
+  ],
+  "operators_unchanged": true
+}

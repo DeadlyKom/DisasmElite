@@ -5,10 +5,10 @@
 ; исходный диапазон #FC10..#FC24
 ; смысловое имя FinishKeyboardRowAndSelectJoystick
 ; In: DE — D содержит число оставшихся рядов, BC — текущий порт
-; Out: до окончания восьми рядов продолжает #FD76, затем выбирает клавиатуру или #FC3D
+; Out: до окончания восьми рядов продолжает Game.Input.ScanKeyboardMatrix.ScanRow, затем выбирает клавиатуру или Game.Input.ResetDemoAndNormalizeControls.DigitalAxes
 ; Corrupt: DE, AF
-; D получает младшую тетраду #FC09, E — настройки #FC0E
-; При режиме 0 направления уже готовы, при 1..3 используются биты цифровых клавиш #FC0F
+; D получает младшую тетраду InputState.FlightKeys, E — настройки InputState.Config
+; При режиме 0 направления уже готовы, при 1..3 используются биты цифровых клавиш InputState.NumberKeys
 ; Обработчик порта Kempston в этой версии отсутствует
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -28,6 +28,7 @@ Entry:          DEC D
 
                 DEC A
                 JR @Game.Input.ResetDemoAndNormalizeControls.DigitalAxes
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #FC25
                 endmodule

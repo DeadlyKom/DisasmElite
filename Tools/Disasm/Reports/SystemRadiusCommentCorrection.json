@@ -1,0 +1,24 @@
+{
+  "file": "Source/Game/Menus/PrintSystemRadius.asm",
+  "instruction_and_data_lines_unchanged": true,
+  "formula": "256 * ((byte(TargetSeed + FSystemSeed.Syllable) AND 15) + 11) + byte(TargetSeed + FSystemSeed.X)",
+  "replaced_raw_reference": "DEBD",
+  "changes": [
+    {
+      "old": "; Вычисление и печать радиуса планеты",
+      "new": "; вычисление и печать радиуса планеты"
+    },
+    {
+      "old": ";   GalaxyState.TargetSeed + FSystemSeed.MixLow = последнее слово семени, GalaxyState.TargetSeed + FSystemSeed.GovBits = среднее",
+      "new": ";   значения полей FSystemSeed.Syllable и FSystemSeed.X целевого семени GalaxyState.TargetSeed"
+    },
+    {
+      "old": ";   Напечатано 256*((GalaxyState.TargetSeed + FSystemSeed.Syllable&15)+11)+DEBD",
+      "new": ";   напечатан радиус планеты в километрах, без дробной части и с шириной поля 5"
+    },
+    {
+      "old": ";   Старший байт радиуса строится из младших 4 бит GalaxyState.TargetSeed + FSystemSeed.Syllable, младший равен GalaxyState.TargetSeed + FSystemSeed.X, формат целый и\n;   ширина 5",
+      "new": ";   радиус = 256 * ((Syllable AND #0F) + 11) + X\n;   Syllable и X в формуле обозначают значения одноимённых байтов FSystemSeed в GalaxyState.TargetSeed"
+    }
+  ]
+}

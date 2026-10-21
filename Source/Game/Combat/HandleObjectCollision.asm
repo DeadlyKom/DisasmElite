@@ -6,20 +6,20 @@
 ; In:
 ;   IX, объект
 ;   IY, модель
-;   память 711F, признак гибели
+;   память FlightState.PlayerDead, признак гибели
 ; Out:
 ;   обновлены энергия объекта, груз, урон или запрос стыковки
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
 ; Близость проверяется отдельно по модулям X/Y/Z, это прямоугольная область.
-; Порог задаёт IY+1, ракета на игрока получает старший байт 1, захватываемый груз младший порог B4.
-; IX+26.1 допускает захват совком D088 только со стороны отрицательного Y и при свободном месте D07C.
-; Тип груза берётся из старшей тетрады IY+0, иначе определяется миссионным состоянием либо случайно.
-; Для станции IX+26.2 проверяются направление и точность совмещения осей, успех ставит 9C9A=1.
+; порог столкновения задаёт FModel.Collision, для ракеты на игрока старшая часть порога равна 1, для подбираемого груза младшая часть равна #B4
+; OBJ_SCOOP_BIT в FSpaceObject.Flags2 допускает захват ковшом State.FuelScoops только со стороны отрицательного Y и при свободном месте State.FreeCargo
+; тип груза берётся из старшей тетрады FModel.Cargo, иначе определяется миссионным состоянием либо случайно
+; для объекта с OBJ_SPECIAL_BIT в FSpaceObject.Flags2 проверяются направление и совмещение осей, успешная стыковка задаёт CombatState.DockRequest=1
 ; Неудачная мягкая стыковка добавляет к переднему урону 12+2*скорость.
-; Обычное столкновение удаляет объект, а урон формируется OR размера IY+1 и байта IY+15.
-; Знак Z выбирает переднюю либо заднюю защиту, общий хвост B5DF снимает ракетные цели.
+; обычное столкновение удаляет объект, урон формируется побитовым OR значений FModel.Collision и младшего байта FModel.Rating
+; Знак Z выбирает переднюю либо заднюю защиту, общий хвост Game.Combat.ReleaseMissileTargets.Entry снимает ракетные цели.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #B4D8
@@ -93,6 +93,8 @@ CheckDistance:  LD L, (IX+FSpaceObject.X.Fraction)
                 INC A
                 JR ScoopCargo
 
+                ; миссия 2 CLOAKING DEVICE, фаза 3 превращает подходящий подобранный контейнер в предмет CLOAKING DEVICE
+                ; описание в Docs/Manual.md, раздел mission-2
 MissionCargo:   LD A, (MissionPhase)
                 SUB #03
                 JR NZ, RandomCargo                                              ; переход, если миссия не находится в состоянии специального груза 3
@@ -152,6 +154,8 @@ DockDamage:     LD HL, FlightState.SoundRequests
                 RET
 
                 ; удаление объекта при обычном ударе
+                ; миссия 2 CLOAKING DEVICE, столкновение с миссионным объектом сбрасывает фазу встречи
+                ; описание в Docs/Manual.md, раздел mission-2
 DestroyImpact:  XOR A
                 CALL Game.Combat.SetObjectEnergyAndDrawMissedLaser.Entry
                 LD B, (IY+FModel.Collision)
@@ -182,7 +186,7 @@ FatalImpact:    INC A
 
 FrontImpact:    LD A, (IY+FModel.Rating)
                 OR B
-                LD (CombatState.FrontDamage), A
+                LD (CombatState.FrontDamage), A                                 ; далее Game.Combat.ReleaseMissileTargets.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B5DF
                 endmodule

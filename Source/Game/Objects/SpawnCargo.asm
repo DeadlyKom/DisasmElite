@@ -11,7 +11,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-;   модель 4, у игрока переход в #BA9E, у исходного объекта в #BB2F
+;   модель 4, у игрока переход в Game.Objects.SpawnPlayerDebris.SpawnDebris, у исходного объекта в Game.Objects.SpawnShipCargoOrPod.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #BAF2
@@ -20,6 +20,7 @@ Entry:          BIT 0, C
                 JR Z, Game.Objects.SpawnShipCargoOrPod.Entry                    ; переход, если груз выбрасывает исходный объект
 
                 JR @Game.Objects.SpawnPlayerDebris.SpawnDebris
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #BAFA
                 endmodule

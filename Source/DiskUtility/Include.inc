@@ -6,7 +6,7 @@ ResetRom:       EQU #0000                                                       
 DosGateway:     EQU #3D2F                                                       ; адрес включения ПЗУ TR-DOS через исполняемый переход
 FileBegin:      EQU $
 
-; первый оверлей читается процедурой #D907 в исходную область #C800
+; первый оверлей читается процедурой Game.Disk.LoadDiskMenuOverlay.Entry в исходную область #C800
                 disp #C800
                 module Menu
                 include "Menu/Include.inc"
@@ -17,7 +17,7 @@ FileBegin:      EQU $
 
                 include "Robot.asm"
 
-; второй оверлей читается процедурой #D99B в ту же область #C800
+; второй оверлей читается процедурой Game.Disk.BlackAttributesAndOverlayState.LoadDemo в ту же область #C800
                 disp #C800
                 module DemoSetup
                 include "DemoSetup/Include.inc"
@@ -26,7 +26,7 @@ FileBegin:      EQU $
                 endmodule
                 ent
 
-; продолжение файла выполняется после исходного переноса в #E6AE
+; продолжение файла выполняется после исходного переноса в DiskUtility.Demo.FrameHook
 ; LDIR переносит #0852 байта, включая #0128 байт основной игры за оверлеем
 ; эти дополнительные байты принадлежат ELITE3.C и не добавляются в cl.C
                 disp #E6AE

@@ -2,13 +2,14 @@
 ; Выбор точности наведения на объект
 ; исходный диапазон #E865..#E885
 ; In:
-;   IY объект, IX4700
+;   IX=Keyboard, IY объект
 ; Out:
 ;   DE=FFF0 при сумме<45, иначе FC00, Flags2=#0A сдвигает E влево дважды
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   E881 является отдельным входом AimNearBody, R после RRCA выбирает SteerToTarget либо его хвост E889
+;   RandomThrottle вызывается переходом из AimNearBody при существующей станции
+;   младший бит R выбирает SteerToTarget с начальным ускорением либо CheckRearAim без него
 ; -----------------------------------------
                 ; выбор точности наведения по сумме координат меньше 45
 AimAtObject:    LD DE, #002D
@@ -31,4 +32,5 @@ AdjustAimMask:  LD A, (IY + FSpaceObject.Flags2)
 RandomThrottle: LD A, R
                 RRCA
                 JR C, CheckRearAim                                              ; переход, если младший бит регистра R установлен, пропустить начальное ускорение
-                ; JP SteerToTarget
+
+                ; JP SteerToTarget, продолжение в SteerTowardTarget.asm

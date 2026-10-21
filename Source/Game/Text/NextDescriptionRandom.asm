@@ -4,15 +4,15 @@
 ; Детерминированный генератор вариантов описания планеты
 ; исходный диапазон #D5E1..#D60A
 ; In:
-;   DECC/DECE = два слова состояния
+;   GalaxyState.TextSeed/GalaxyState.TextSeed + 2 = два слова состояния
 ; Out:
-;   DECC = сумма, DECE = преобразованное старое первое слово, A = старший байт суммы
+;   GalaxyState.TextSeed = сумма, GalaxyState.TextSeed + 2 = преобразованное старое первое слово, A = старший байт суммы
 ; Corrupt:
 ;   HL, DE, AF
 ; Note:
 ;   SLA применяется только к L первого слова, сумма второго слова с полученной парой учитывает
-;   вынесенный бит 7 L через ADC, D5F5 отдельный обработчик товара 0 или 10, который при
-;   выполнении условия EC40 ставит бит 1 D0B0
+;   вынесенный бит 7 L через ADC, Game.Text.NextDescriptionRandom.CheckWarSupply отдельный обработчик товара 0 или 10, который при
+;   выполнении условия Game.Menus.CheckMissionRegionBand.Entry ставит бит 1 State.MissionFlags
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D5E1
@@ -48,6 +48,7 @@ InvasionCall    EQU $ + 1                                                       
                 SET MS_MARK2_BIT, (HL)
 ReturnGoods:    POP AF
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D60B
                 endmodule

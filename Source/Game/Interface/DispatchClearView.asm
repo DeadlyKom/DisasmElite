@@ -6,7 +6,7 @@
 ; In:
 ;   Нет параметров
 ; Out:
-;   Переход в D61D
+;   Переход в Game.Text.ClearViewAndFrame.Entry
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
@@ -15,6 +15,7 @@
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D036
 Entry:          JP Game.Text.ClearViewAndFrame.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D039
                 endmodule

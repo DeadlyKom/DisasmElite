@@ -1,0 +1,400 @@
+{
+  "scope": "восемь физических рабочих областей, оформленных существующими F-типами",
+  "instances": [
+    {
+      "file": "Source/Game/Trade/RestoreTextPosition.asm",
+      "type": "FTextInput",
+      "symbol": "Game.Trade.RestoreTextPosition.InputData",
+      "address": 58260,
+      "size": 4,
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119",
+      "original_bytes": "00000000",
+      "aliases": {
+        "Game.Trade.RestoreTextPosition.Length": 58260,
+        "Game.Trade.RestoreTextPosition.Cursor": 58261,
+        "Game.Trade.RestoreTextPosition.LastKey": 58263
+      },
+      "fields": [
+        {
+          "name": "Length",
+          "kind": "DB",
+          "offset": 0,
+          "initializer": "#00"
+        },
+        {
+          "name": "Cursor",
+          "kind": "DW",
+          "offset": 1,
+          "initializer": "#0000"
+        },
+        {
+          "name": "LastKey",
+          "kind": "DB",
+          "offset": 3,
+          "initializer": "#00"
+        }
+      ]
+    },
+    {
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "type": "FMapViewport",
+      "symbol": "Game.Charts.MapCursorTransformAndKeys.Viewport",
+      "address": 58667,
+      "size": 3,
+      "sha256": "ddedd5b5c8bf9fe99aa35a9bb950d8455456c792cf9a9392d296f74c9d6590ab",
+      "original_bytes": "1018A7",
+      "aliases": {
+        "Game.Charts.MapCursorTransformAndKeys.CrosshairSize": 58667,
+        "Game.Charts.MapCursorTransformAndKeys.Top": 58668,
+        "Game.Charts.MapCursorTransformAndKeys.Bottom": 58669
+      },
+      "fields": [
+        {
+          "name": "CrosshairSize",
+          "kind": "DB",
+          "offset": 0,
+          "initializer": "#10"
+        },
+        {
+          "name": "Top",
+          "kind": "DB",
+          "offset": 1,
+          "initializer": "#18"
+        },
+        {
+          "name": "Bottom",
+          "kind": "DB",
+          "offset": 2,
+          "initializer": "#A7"
+        }
+      ]
+    },
+    {
+      "file": "Source/Game/Disk/DrawScreenStripsAndPrivateStack.asm",
+      "type": "FFlightMessage",
+      "symbol": "Game.Disk.DrawScreenStripsAndPrivateStack.MessageData",
+      "address": 55922,
+      "size": 8,
+      "sha256": "e45ca206fce0d9e78f2dfab14a88ad1baf236f86fd8f271c65e97bf610cbd521",
+      "original_bytes": "00000000000000F5",
+      "aliases": {
+        "Game.Disk.DrawScreenStripsAndPrivateStack.RepeatTimer": 55922,
+        "Game.Disk.DrawScreenStripsAndPrivateStack.Frames": 55923,
+        "Game.Disk.DrawScreenStripsAndPrivateStack.QueuePhase": 55924,
+        "Game.Disk.DrawScreenStripsAndPrivateStack.Column": 55925,
+        "Game.Disk.DrawScreenStripsAndPrivateStack.Token": 55926,
+        "Game.Disk.DrawScreenStripsAndPrivateStack.Reward": 55927,
+        "Game.Disk.DrawScreenStripsAndPrivateStack.DamagedItem": 55929
+      },
+      "fields": [
+        {
+          "name": "RepeatTimer",
+          "kind": "DB",
+          "offset": 0,
+          "initializer": "#00"
+        },
+        {
+          "name": "Frames",
+          "kind": "DB",
+          "offset": 1,
+          "initializer": "#00"
+        },
+        {
+          "name": "QueuePhase",
+          "kind": "DB",
+          "offset": 2,
+          "initializer": "#00"
+        },
+        {
+          "name": "Column",
+          "kind": "DB",
+          "offset": 3,
+          "initializer": "#00"
+        },
+        {
+          "name": "Token",
+          "kind": "DB",
+          "offset": 4,
+          "initializer": "#00"
+        },
+        {
+          "name": "Reward",
+          "kind": "DW",
+          "offset": 5,
+          "initializer": "#0000"
+        },
+        {
+          "name": "DamagedItem",
+          "kind": "DB",
+          "offset": 7,
+          "initializer": "#F5"
+        }
+      ]
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "type": "FFaceState",
+      "symbol": "Game.Objects.GenerateSpaceTraffic.FaceData",
+      "address": 48328,
+      "size": 12,
+      "sha256": "dd0177547c225f62531c153c028ca32e77499e4b4b8b0cf422ab8988943bb6c6",
+      "original_bytes": "59610017802F80F00097AF90",
+      "aliases": {
+        "Game.Objects.GenerateSpaceTraffic.Object": 48328,
+        "Game.Objects.GenerateSpaceTraffic.Scale": 48330,
+        "Game.Objects.GenerateSpaceTraffic.PositionX": 48331,
+        "Game.Objects.GenerateSpaceTraffic.PositionY": 48333,
+        "Game.Objects.GenerateSpaceTraffic.PositionZ": 48335,
+        "Game.Objects.GenerateSpaceTraffic.NormalX": 48337,
+        "Game.Objects.GenerateSpaceTraffic.NormalY": 48338,
+        "Game.Objects.GenerateSpaceTraffic.NormalZ": 48339
+      },
+      "fields": [
+        {
+          "name": "Object",
+          "kind": "DW",
+          "offset": 0,
+          "initializer": "Memory.Missile"
+        },
+        {
+          "name": "Scale",
+          "kind": "DB",
+          "offset": 2,
+          "initializer": "#00"
+        },
+        {
+          "name": "PositionX",
+          "kind": "DW",
+          "offset": 3,
+          "initializer": "#8017"
+        },
+        {
+          "name": "PositionY",
+          "kind": "DW",
+          "offset": 5,
+          "initializer": "#802F"
+        },
+        {
+          "name": "PositionZ",
+          "kind": "DW",
+          "offset": 7,
+          "initializer": "#00F0"
+        },
+        {
+          "name": "NormalX",
+          "kind": "DB",
+          "offset": 9,
+          "initializer": "#97"
+        },
+        {
+          "name": "NormalY",
+          "kind": "DB",
+          "offset": 10,
+          "initializer": "#AF"
+        },
+        {
+          "name": "NormalZ",
+          "kind": "DB",
+          "offset": 11,
+          "initializer": "#90"
+        }
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+      "type": "FSoundState",
+      "symbol": "Game.Flight.ClearNearbyShipSlots.SoundData",
+      "address": 38178,
+      "size": 5,
+      "sha256": "8855508aade16ec573d21e6a485dfd0a7624085c1a14b5ecdd6485de0c6839a4",
+      "original_bytes": "0000000000",
+      "aliases": {
+        "Game.Flight.ClearNearbyShipSlots.Mode": 38178,
+        "Game.Flight.ClearNearbyShipSlots.Duration": 38179,
+        "Game.Flight.ClearNearbyShipSlots.DataCursor": 38181
+      },
+      "fields": [
+        {
+          "name": "Mode",
+          "kind": "DB",
+          "offset": 0,
+          "initializer": "#00"
+        },
+        {
+          "name": "Duration",
+          "kind": "DW",
+          "offset": 1,
+          "initializer": "#0000"
+        },
+        {
+          "name": "DataCursor",
+          "kind": "DW",
+          "offset": 3,
+          "initializer": "#0000"
+        }
+      ]
+    },
+    {
+      "file": "Source/Game/Trade/GenerateMarket.asm",
+      "type": "FMarketWork",
+      "symbol": "Game.Trade.GenerateMarket.MarketData",
+      "address": 57823,
+      "size": 9,
+      "sha256": "3e7077fd2f66d689e0cee6a7cf5b37bf2dca7c979af356d0a31cbc5c85605c7d",
+      "original_bytes": "000000000000000000",
+      "aliases": {
+        "Game.Trade.GenerateMarket.Commodity": 57823,
+        "Game.Trade.GenerateMarket.CargoCursor": 57824,
+        "Game.Trade.GenerateMarket.PriceCursor": 57826,
+        "Game.Trade.GenerateMarket.StockCursor": 57828,
+        "Game.Trade.GenerateMarket.TextPosition": 57830
+      },
+      "fields": [
+        {
+          "name": "Commodity",
+          "kind": "DB",
+          "offset": 0,
+          "initializer": "#00"
+        },
+        {
+          "name": "CargoCursor",
+          "kind": "DW",
+          "offset": 1,
+          "initializer": "#0000"
+        },
+        {
+          "name": "PriceCursor",
+          "kind": "DW",
+          "offset": 3,
+          "initializer": "#0000"
+        },
+        {
+          "name": "StockCursor",
+          "kind": "DW",
+          "offset": 5,
+          "initializer": "#0000"
+        },
+        {
+          "name": "TextPosition",
+          "kind": "DW",
+          "offset": 7,
+          "initializer": "#0000"
+        }
+      ]
+    },
+    {
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "type": "FTradeSnapshot",
+      "symbol": "Game.Trade.PromptCargoQuantityAndRefugees.TradeBackup",
+      "address": 59556,
+      "size": 10,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca",
+      "original_bytes": "00000000000000000000",
+      "aliases": {
+        "Game.Trade.PromptCargoQuantityAndRefugees.CashHigh": 59556,
+        "Game.Trade.PromptCargoQuantityAndRefugees.CashLow": 59558,
+        "Game.Trade.PromptCargoQuantityAndRefugees.CargoCount": 59560,
+        "Game.Trade.PromptCargoQuantityAndRefugees.StockCount": 59561,
+        "Game.Trade.PromptCargoQuantityAndRefugees.FreeCargo": 59562,
+        "Game.Trade.PromptCargoQuantityAndRefugees.Selection": 59563,
+        "Game.Trade.PromptCargoQuantityAndRefugees.Validator": 59564
+      },
+      "fields": [
+        {
+          "name": "CashHigh",
+          "kind": "DW",
+          "offset": 0,
+          "initializer": "#0000"
+        },
+        {
+          "name": "CashLow",
+          "kind": "DW",
+          "offset": 2,
+          "initializer": "#0000"
+        },
+        {
+          "name": "CargoCount",
+          "kind": "DB",
+          "offset": 4,
+          "initializer": "#00"
+        },
+        {
+          "name": "StockCount",
+          "kind": "DB",
+          "offset": 5,
+          "initializer": "#00"
+        },
+        {
+          "name": "FreeCargo",
+          "kind": "DB",
+          "offset": 6,
+          "initializer": "#00"
+        },
+        {
+          "name": "Selection",
+          "kind": "DB",
+          "offset": 7,
+          "initializer": "#00"
+        },
+        {
+          "name": "Validator",
+          "kind": "DW",
+          "offset": 8,
+          "initializer": "#0000"
+        }
+      ]
+    },
+    {
+      "file": "Source/Game/Trade/EquipmentAlreadyOwned.asm",
+      "type": "FEquipmentWork",
+      "symbol": "Game.Trade.EquipmentAlreadyOwned.EquipmentData",
+      "address": 60254,
+      "size": 5,
+      "sha256": "8855508aade16ec573d21e6a485dfd0a7624085c1a14b5ecdd6485de0c6839a4",
+      "original_bytes": "0000000000",
+      "aliases": {
+        "Game.Trade.EquipmentAlreadyOwned.ItemLimit": 60254,
+        "Game.Trade.EquipmentAlreadyOwned.ItemIndex": 60255,
+        "Game.Trade.EquipmentAlreadyOwned.PriceCursor": 60256,
+        "Game.Trade.EquipmentAlreadyOwned.LaserType": 60258
+      },
+      "fields": [
+        {
+          "name": "ItemLimit",
+          "kind": "DB",
+          "offset": 0,
+          "initializer": "#00"
+        },
+        {
+          "name": "ItemIndex",
+          "kind": "DB",
+          "offset": 1,
+          "initializer": "#00"
+        },
+        {
+          "name": "PriceCursor",
+          "kind": "DW",
+          "offset": 2,
+          "initializer": "#0000"
+        },
+        {
+          "name": "LaserType",
+          "kind": "DB",
+          "offset": 4,
+          "initializer": "#00"
+        }
+      ]
+    }
+  ],
+  "original_byte_match": true,
+  "symbol_verification": "passed",
+  "final_verification": {
+    "status": "passed",
+    "image_byte_identical": true,
+    "all_seven_files_identical": true,
+    "build_report": "Tools/Disasm/Reports/BuildVerification.json",
+    "typed_fields_report": "Tools/Disasm/Reports/TypedDataVerification.json",
+    "unchanged_existing_symbols": 5518,
+    "checked_at_utc": "2026-10-21T05:54:53.0569744Z"
+  }
+}

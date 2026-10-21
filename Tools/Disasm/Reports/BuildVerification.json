@@ -1,20 +1,70 @@
 {
-  "checked_at_utc": "2026-10-20T22:26:58Z",
+  "checked_at_utc": "2026-10-21T05:54:53.0569744Z",
   "status": "passed",
-  "method": "sjasmplus_lua",
-  "assembler": "Tools/Sjasmplus/sjasmplus.exe",
+  "method": "existing_image",
   "image": "ELITE3HL.TRD",
   "original": "Tools/Disasm/Disk/original.trd",
   "image_bytes": 655360,
   "byte_identical": true,
+  "sha256": "35784a3be331360d214e182d75c5664aaca1b8d79b62e0d2035a4f9cb5515074",
   "files": [
-    { "file": "00_ELITE3HL.B", "bytes": 16754, "disk_offset": 4096, "source": "Tools/Disasm/Extracted/Active/00_ELITE3HL.B", "identical": true },
-    { "file": "01_ELITE3.B", "bytes": 385, "disk_offset": 20992, "source": "Tools/Disasm/Extracted/Active/01_ELITE3.B", "identical": true },
-    { "file": "02_ELITE3.C", "bytes": 49152, "disk_offset": 21504, "source": "Tools/Disasm/Extracted/Active/02_ELITE3.C", "identical": true },
-    { "file": "03_cl.C", "bytes": 4352, "disk_offset": 70656, "source": "Tools/Disasm/Extracted/Active/03_cl.C", "identical": true },
-    { "file": "04_boot.B", "bytes": 32, "disk_offset": 75008, "source": "Tools/Disasm/Extracted/Active/04_boot.B", "identical": true },
-    { "file": "05_QS1.C", "bytes": 102, "disk_offset": 75264, "source": "Tools/Disasm/Extracted/Active/05_QS1.C", "identical": true },
-    { "file": "06_DEADLY.C", "bytes": 102, "disk_offset": 75520, "source": "Tools/Disasm/Extracted/Active/06_DEADLY.C", "identical": true }
+    {
+      "file": "00_ELITE3HL.B",
+      "bytes": 16754,
+      "disk_offset": 4096,
+      "source": "Tools/Disasm/Extracted/Active/00_ELITE3HL.B",
+      "sha256": "14672fbeaf91bd308e8e40d1ba900bcb3fe2672a81f93148daeb2999837d6bde",
+      "identical": true
+    },
+    {
+      "file": "01_ELITE3.B",
+      "bytes": 385,
+      "disk_offset": 20992,
+      "source": "Tools/Disasm/Extracted/Active/01_ELITE3.B",
+      "sha256": "42a71f0cb4856db88ede1e69e5b85bca3256efb84fc5aaf7957e956f1b02d0b8",
+      "identical": true
+    },
+    {
+      "file": "02_ELITE3.C",
+      "bytes": 49152,
+      "disk_offset": 21504,
+      "source": "Tools/Disasm/Extracted/Active/02_ELITE3.C",
+      "sha256": "d53383a89c841c0859699d928b1f65c671247f970d1e6b9176ac426a2041be61",
+      "identical": true
+    },
+    {
+      "file": "03_cl.C",
+      "bytes": 4352,
+      "disk_offset": 70656,
+      "source": "Tools/Disasm/Extracted/Active/03_cl.C",
+      "sha256": "8c1ea4dc41677e46a67d725844039fa5ad58d4a6c023496be9e2fe5bc149b9d2",
+      "identical": true
+    },
+    {
+      "file": "04_boot.B",
+      "bytes": 32,
+      "disk_offset": 75008,
+      "source": "Tools/Disasm/Extracted/Active/04_boot.B",
+      "sha256": "37d544b60486f805da5e165b81f11eeaee666fcec8155f6dd93daa54acd7a145",
+      "identical": true
+    },
+    {
+      "file": "05_QS1.C",
+      "bytes": 102,
+      "disk_offset": 75264,
+      "source": "Tools/Disasm/Extracted/Active/05_QS1.C",
+      "sha256": "c99f2c8843ba30dd21ee148dbeac48731428f08b5fe2d3825f57411f6b8699f7",
+      "identical": true
+    },
+    {
+      "file": "06_DEADLY.C",
+      "bytes": 102,
+      "disk_offset": 75520,
+      "source": "Tools/Disasm/Extracted/Active/06_DEADLY.C",
+      "sha256": "475068475a465a3f8dc227262f30a283ceceeb1c3ba05f57e68427ba87eef736",
+      "identical": true
+    }
   ],
-  "semantic_audit": "Tools/Disasm/Reports/SemanticAudit.json"
+  "semantic_audit": "Tools/Disasm/Reports/SemanticAudit.json",
+  "note": "Проверен готовый образ, ассемблер не запускался. Совпадение байтов не доказывает полноту смысловых комментариев."
 }

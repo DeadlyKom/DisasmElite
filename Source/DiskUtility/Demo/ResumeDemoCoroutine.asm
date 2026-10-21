@@ -2,14 +2,14 @@
 ; Возобновление сохранённой корутины
 ; исходный диапазон #E6F3..#E708
 ; In:
-;   E6DE указывает 12 байтов сохранённых регистров и адрес продолжения
+;   DiskUtility.Demo.DemoStack указывает 12 байтов сохранённых регистров и адрес продолжения
 ; Out:
 ;   HL, DE, BC, AF, IX, IY восстановлены, SP демо активен
 ; Corrupt:
 ;   восстанавливает HL, DE, BC, AF, IX, IY и SP
 ; Note:
-;   До смены стека ReadKeyboard обновляет физическое состояние 4700..4708
-;   Изменяемый JP E706 идёт ResumePoint либо ManualControl, RET ResumePoint использует сохранённый адрес
+;   До смены стека ReadKeyboard обновляет физическое состояние Keyboard и Keyboard.ScannedMarker
+;   Изменяемый JP DiskUtility.Demo.ResumeJump идёт ResumePoint либо ManualControl, RET ResumePoint использует сохранённый адрес
 ;   CALL YieldToGame
 ; -----------------------------------------
                 ; физические клавиши обновляются до восстановления регистров корутины

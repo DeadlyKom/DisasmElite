@@ -4,9 +4,9 @@
 ; Выбор предупреждений и сообщения о заправке
 ; исходный диапазон #DB2E..#DB90
 ; In:
-;   70FC, 711E, 7129 и состояние оборудования
+;   GaugeState + FGaugeState.Energy4.Current, FlightState.SunScooping, FlightState.AutoDock и состояние оборудования
 ; Out:
-;   Выбран токен очереди либо уменьшен периодический таймер DA72
+;   Выбран токен очереди либо уменьшен периодический таймер FlightMessage
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
@@ -18,6 +18,8 @@
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DB2E
                 ; проверка энергии верхнего банка, затем заправки, автопилота и миссионных сообщений
+                ; миссии 1, 2, 3, полётные сообщения учитывают задания, низкая энергия снимает маскировку
+                ; описание в Docs/Manual.md, раздел mission-1, mission-2, mission-3
 Entry:          LD A, (GaugeState + FGaugeState.Energy4.Current)
                 CP #9F
                 JR C, DropCloak                                                 ; переход, если энергия верхнего банка меньше 159, снять маскировку и запросить предупреждение
@@ -47,7 +49,7 @@ Entry:          LD A, (GaugeState + FGaugeState.Energy4.Current)
 
                 LD A, (MissionNotice)
                 AND A
-                RET NZ                                                          ; выход, если служебный флаг D0BA ненулевой, повторное сообщение запрещено
+                RET NZ                                                          ; выход, если служебный флаг MissionNotice ненулевой, повторное сообщение запрещено
 
                 LD BC, #C202
                 JR QueueAmbient
@@ -80,6 +82,7 @@ DropCloak:      XOR A
                 CALL C, Game.Extensions.AttributeVectorAndEnergyBomb.Entry      ; вызов, если показан полётный экран 0..3, вызвать специальный обработчик события
                 LD BC, #640A
 QueueAmbient:   JP @Game.Travel.SelectQueuedFlightMessage.SetLifetime
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DB91
                 endmodule

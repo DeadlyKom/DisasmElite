@@ -5,7 +5,7 @@
 ; In:
 ;   не требуются
 ; Out:
-;   байт #711F равен 1
+;   байт FlightState.PlayerDead равен 1
 ;   AF, A равен 1
 ; Corrupt:
 ;   AF
@@ -17,6 +17,7 @@
 Entry:          LD A, #01
                 LD (FlightState.PlayerDead), A
                 RET
+
                 ASSERT $ == #82D7
                 endmodule
                 endmodule

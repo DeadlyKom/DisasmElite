@@ -6,12 +6,12 @@
 ; In:
 ;   IX - слот объекта
 ; Out:
-;   IX+0A и IX+0C получают random AND #87
+;   старшие байты FSignWord.SignHigh компонент FSpaceObject.AxisX.X и FSpaceObject.AxisX.Y получают random AND #87
 ; Corrupt:
 ;   AF
 ; Note:
 ;   знак и три младших бита компоненты случайны, остальные биты нулевые
-;   генератор #B799 сохраняет HL и BC, адрес слота не меняется
+;   генератор Game.Combat.NextRandomByte.Entry сохраняет HL и BC, адрес слота не меняется
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #BA83
@@ -22,6 +22,7 @@ Entry:          CALL Game.Combat.NextRandomByte.Entry
                 AND #87
                 LD (IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #BA94
                 endmodule

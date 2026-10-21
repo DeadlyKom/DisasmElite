@@ -4,21 +4,23 @@
 ; список груза, два банка сообщений и защита рабочего стека
 ; исходный диапазон #F0EB..#F8D6
 ; смысловое имя PrintCargoAndMessageBanks
-; In: состояние пилота, для независимого #F8B4 A и сохранённый AF на стеке
-; Out: напечатаны 17 строк товаров через #E268, пустые строки пропускаются
-; Corrupt: HL, DE, BC, AF и поля принтера #E1DF/#E1E0
-; Слова #F11A и #F11C указывают на токенизированные банки #F11E и #F4D0
+; In: состояние пилота, для независимого Game.Extensions.PrintCargoAndMessageBanks.ProjectSafely A и сохранённый AF на стеке
+; Out: напечатаны 17 строк товаров через Game.Trade.PrintNonemptyCargoRow.Entry, пустые строки пропускаются
+; Corrupt: HL, DE, BC, AF и поля принтера MarketWork/MarketWork.CargoCursor
+; Слова MessageTable и MessageTable.Description указывают на токенизированные банки Game.Extensions.PrintCargoAndMessageBanks.MainBank и Game.Extensions.PrintCargoAndMessageBanks.DescBank
 ; Нулевой байт завершает сообщение, управляющие байты и токены раскрывает модуль Text
-; #F8B4 временно заменяет JR в #FEFE на RET и использует стек #4020 для #A6DF
-; Старый SP записывается прямо в операнд #F8CC, затем возвращаются JR, EI и управление #9E47
+; Game.Extensions.PrintCargoAndMessageBanks.ProjectSafely временно заменяет JR в InterruptGate на RET и использует стек Memory.Screen + #0020 для Game.Motion.ProjectObjectAndSelectDetail.Entry
+; Старый SP записывается прямо в операнд Game.Extensions.PrintCargoAndMessageBanks.SavedSP, затем возвращаются JR, EI и управление Game.Combat.UpdateAllSpaceObjects.AfterProject
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #F0EB
                 ; печать переноса строки и отдельного сообщения специального груза
+                ; миссии 1, 7+1, 7+3, признак занятого миссией трюма включает отдельную подпись беженцев либо десанта
+                ; описание в Docs/Manual.md, раздел mission-1, mission-7-1, mission-7-3
 Entry:          CALL Game.Trade.Newline.Entry
                 LD A, (State.MissionFlags)
                 BIT MS_CARGO_BIT, A
-                JR Z, StartCargoList                                            ; переход, если специальный груз по #D0B0.5 отсутствует, перейти к обычному списку
+                JR Z, StartCargoList                                            ; переход, если специальный груз по State.MissionFlags.5 отсутствует, перейти к обычному списку
 
                 LD A, #0C
                 CALL Game.Universe.SelectSpecialCargoText.Entry
@@ -39,11 +41,12 @@ PrintCargoRow:  CALL Game.Trade.PrintNonemptyCargoRow.Entry
                 JR C, PrintCargoRow                                             ; переход, если обработано меньше 17 видов груза, продолжить список
 
                 RET
+
                 ; три сохранённых нулевых байта перед указателями банков сообщений
                 DB #00, #00, #00                                                ; данные #F117..#F119
-                ; слово #F11E — база первого банка токенизированных сообщений
+                ; слово Game.Extensions.PrintCargoAndMessageBanks.MainBank — база первого банка токенизированных сообщений
 MainTable       DW MainBank                                                     ; указатель на основной банк сообщений
-                ; слово #F4D0 — база второго банка токенизированных сообщений
+                ; слово Game.Extensions.PrintCargoAndMessageBanks.DescBank — база второго банка токенизированных сообщений
 DescTable       DW DescBank                                                     ; указатель на банк описаний систем
                 ; банк основной, сообщение #00, {6F}{10}
 MainBank        DB #6F, #10, #00                                                ; основной банк, сообщение 0
@@ -877,6 +880,7 @@ RestoreStack:   LD SP, #0000
                 LD (InterruptGate), A
                 EI
                 JP Game.Combat.UpdateAllSpaceObjects.AfterProject
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #F8D7
                 endmodule

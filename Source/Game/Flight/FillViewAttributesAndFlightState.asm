@@ -10,12 +10,14 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   При D081!=0 используется L&3A, затем HALT синхронизирует запись
-;   Каждая строка получает одну запись и LDDR29 байтов, итого 450 ячеек от 5821 до 59FE
-;   70DC..7118 содержат поля полёта и двух светил,70E0 отдельный JP7366
+;   При State.Mission1!=0 используется L&3A, затем HALT синхронизирует запись
+;   Каждая строка получает одну запись и LDDR29 байтов, итого 450 ячеек от Memory.Attributes + #0021 до Memory.Attributes + #01FE
+;   за кодом лежат InvasionClock, приборы GaugeState, поля FlightState и координаты Sun/Planet
 ; -----------------------------------------
                 ASSERT $ == #70BA
                 ; проверка специального цвета первой миссии
+                ; миссия 1, беженцы, первая миссия ограничивает атрибут вида маской перед заливкой
+                ; описание в Docs/Manual.md, раздел mission-1
 Entry:          LD A, (State.Mission1)
                 AND A
                 JR Z, SyncFill                                                  ; переход, если первая миссия не активна, сохранить исходный цвет
@@ -43,75 +45,150 @@ FillRow:        LD (HL), A
                 DJNZ FillRow
 
                 RET
-                ; 16-битный накопитель времени вторжения, обновляется 9B41 добавкой NOT D08F
+
+                ; 16-битный накопитель времени вторжения, обновляется Game.Combat.UpdateClockAndRotateDistantBodies.Entry добавкой NOT State.Invasion
 InvasionClock   DW #0000                                                        ; хранение FlightState.InvasionClock
                 ; сохранённое слово FFFC, прямых чтений и записей в разобранном коде не найдено
                 DB #FC, #FF                                                     ; #70DE..#70DF
                 ; отдельный стартовый вектор сохраняет стек и настраивает кабину
 StartGame:      JP Game.Flight.PlaySweepingBeeperAndBootstrap.Bootstrap
+
                 ; номер текущего вида,0..3 кабина,7/8 карты
 View            DB #0B                                                          ; хранение FlightState.View
-                ; знако-модульный крен из FF09
+                ; знако-модульный крен из InputMotion.Roll + 1
 Roll            DB #00                                                          ; хранение FlightState.Roll
-                ; знако-модульный тангаж из FF0B
+                ; знако-модульный тангаж из InputMotion.Pitch + 1
 Pitch           DB #00                                                          ; хранение FlightState.Pitch
-                ; текущая скорость из FF0D
+                ; текущая скорость из InputMotion.Speed + 1
 Speed           DB #0C                                                          ; хранение FlightState.Speed
                 ; передний щит, сначала прежнее значение прибора, затем текущее
-FrontShieldPrev DB #00                                                          ; хранение GaugeState + FGaugeState.FrontShield.Previous
-FrontShieldNow  DB #00                                                          ; хранение GaugeState + FGaugeState.FrontShield.Current
-                ; задний щит, прежнее и текущее значения
-RearShieldPrev  DB #00                                                          ; хранение GaugeState + FGaugeState.RearShield.Previous
-RearShieldNow   DB #00                                                          ; хранение GaugeState + FGaugeState.RearShield.Current
-                ; полоса топлива, прежняя и текущая, DEA2 вычисляет 2*fuel+floor(fuel/4)
-FuelPrev        DB #00                                                          ; хранение GaugeState + FGaugeState.Fuel.Previous
-FuelNow         DB #A0                                                          ; хранение GaugeState + FGaugeState.Fuel.Current
-                ; нагрев кабины, прежнее и текущее значения, обновляется 8B3F
-CabinHeatPrev   DB #00                                                          ; хранение GaugeState + FGaugeState.CabinHeat.Previous
-CabinHeatNow    DB #00                                                          ; хранение GaugeState + FGaugeState.CabinHeat.Current
-                ; нагрев лазера, прежнее и текущее значения, изменяется при выстреле
-LaserHeatPrev   DB #00                                                          ; хранение GaugeState + FGaugeState.LaserHeat.Previous
-LaserHeatNow    DB #00                                                          ; хранение GaugeState + FGaugeState.LaserHeat.Current
-                ; высота над планетой, прежнее и текущее значения
-AltitudePrev    DB #00                                                          ; хранение GaugeState + FGaugeState.Altitude.Previous
-AltitudeNow     DB #A0                                                          ; хранение GaugeState + FGaugeState.Altitude.Current
-                ; полоса скорости, прежнее и текущее значения 5*скорость+5
-SpeedPrev       DB #00                                                          ; хранение GaugeState + FGaugeState.Speed.Previous
-SpeedNow        DB #41                                                          ; хранение GaugeState + FGaugeState.Speed.Current
-                ; первый банк энергии, прежнее и текущее значения
-Energy1Prev     DB #FF                                                          ; хранение GaugeState + FGaugeState.Energy1.Previous
-Energy1Now      DB #00                                                          ; хранение GaugeState + FGaugeState.Energy1.Current
-                ; второй банк энергии, прежнее и текущее значения
-Energy2Prev     DB #00                                                          ; хранение GaugeState + FGaugeState.Energy2.Previous
-Energy2Now      DB #00                                                          ; хранение GaugeState + FGaugeState.Energy2.Current
-                ; третий банк энергии, прежнее и текущее значения
-Energy3Prev     DB #00                                                          ; хранение GaugeState + FGaugeState.Energy3.Previous
-Energy3Now      DB #A0                                                          ; хранение GaugeState + FGaugeState.Energy3.Current
-                ; четвёртый банк энергии, прежнее и текущее значения
-Energy4Prev     DB #00                                                          ; хранение GaugeState + FGaugeState.Energy4.Previous
-Energy4Now      DB #A0                                                          ; хранение GaugeState + FGaugeState.Energy4.Current
-                ; индикатор крена, прежняя и текущая позиция относительно 21
-RollPrev        DB #00                                                          ; хранение GaugeState + FGaugeState.Roll.Previous
-RollNow         DB #15                                                          ; хранение GaugeState + FGaugeState.Roll.Current
-                ; индикатор тангажа, прежняя и текущая позиция относительно 21
-PitchPrev       DB #00                                                          ; хранение GaugeState + FGaugeState.Pitch.Previous
-PitchNow        DB #15                                                          ; хранение GaugeState + FGaugeState.Pitch.Current
+FrontShieldPrev EQU Gauges + FGaugeState.FrontShield.Previous                   ; сохранённое имя поля FGaugeState.FrontShield.Previous
+FrontShieldNow  EQU Gauges + FGaugeState.FrontShield.Current                    ; сохранённое имя поля FGaugeState.FrontShield.Current
+RearShieldPrev  EQU Gauges + FGaugeState.RearShield.Previous                    ; сохранённое имя поля FGaugeState.RearShield.Previous
+RearShieldNow   EQU Gauges + FGaugeState.RearShield.Current                     ; сохранённое имя поля FGaugeState.RearShield.Current
+FuelPrev        EQU Gauges + FGaugeState.Fuel.Previous                          ; сохранённое имя поля FGaugeState.Fuel.Previous
+FuelNow         EQU Gauges + FGaugeState.Fuel.Current                           ; сохранённое имя поля FGaugeState.Fuel.Current
+CabinHeatPrev   EQU Gauges + FGaugeState.CabinHeat.Previous                     ; сохранённое имя поля FGaugeState.CabinHeat.Previous
+CabinHeatNow    EQU Gauges + FGaugeState.CabinHeat.Current                      ; сохранённое имя поля FGaugeState.CabinHeat.Current
+LaserHeatPrev   EQU Gauges + FGaugeState.LaserHeat.Previous                     ; сохранённое имя поля FGaugeState.LaserHeat.Previous
+LaserHeatNow    EQU Gauges + FGaugeState.LaserHeat.Current                      ; сохранённое имя поля FGaugeState.LaserHeat.Current
+AltitudePrev    EQU Gauges + FGaugeState.Altitude.Previous                      ; сохранённое имя поля FGaugeState.Altitude.Previous
+AltitudeNow     EQU Gauges + FGaugeState.Altitude.Current                       ; сохранённое имя поля FGaugeState.Altitude.Current
+SpeedPrev       EQU Gauges + FGaugeState.Speed.Previous                         ; сохранённое имя поля FGaugeState.Speed.Previous
+SpeedNow        EQU Gauges + FGaugeState.Speed.Current                          ; сохранённое имя поля FGaugeState.Speed.Current
+Energy1Prev     EQU Gauges + FGaugeState.Energy1.Previous                       ; сохранённое имя поля FGaugeState.Energy1.Previous
+Energy1Now      EQU Gauges + FGaugeState.Energy1.Current                        ; сохранённое имя поля FGaugeState.Energy1.Current
+Energy2Prev     EQU Gauges + FGaugeState.Energy2.Previous                       ; сохранённое имя поля FGaugeState.Energy2.Previous
+Energy2Now      EQU Gauges + FGaugeState.Energy2.Current                        ; сохранённое имя поля FGaugeState.Energy2.Current
+Energy3Prev     EQU Gauges + FGaugeState.Energy3.Previous                       ; сохранённое имя поля FGaugeState.Energy3.Previous
+Energy3Now      EQU Gauges + FGaugeState.Energy3.Current                        ; сохранённое имя поля FGaugeState.Energy3.Current
+Energy4Prev     EQU Gauges + FGaugeState.Energy4.Previous                       ; сохранённое имя поля FGaugeState.Energy4.Previous
+Energy4Now      EQU Gauges + FGaugeState.Energy4.Current                        ; сохранённое имя поля FGaugeState.Energy4.Current
+RollPrev        EQU Gauges + FGaugeState.Roll.Previous                          ; сохранённое имя поля FGaugeState.Roll.Previous
+RollNow         EQU Gauges + FGaugeState.Roll.Current                           ; сохранённое имя поля FGaugeState.Roll.Current
+PitchPrev       EQU Gauges + FGaugeState.Pitch.Previous                         ; сохранённое имя поля FGaugeState.Pitch.Previous
+PitchNow        EQU Gauges + FGaugeState.Pitch.Current                          ; сохранённое имя поля FGaugeState.Pitch.Current
+
+Gauges          FGaugeState {                                                   ; явные исходные значения полей
+                    {                                                           ; FGaugeState.FrontShield, передний щит
+                        #00,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #00                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    },
+                    {                                                           ; FGaugeState.RearShield, задний щит
+                        #00,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #00                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    },
+                    {                                                           ; FGaugeState.Fuel, полоса топлива, 2*fuel+floor(fuel/4)
+                        #00,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #A0                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    },
+                    {                                                           ; FGaugeState.CabinHeat, нагрев кабины
+                        #00,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #00                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    },
+                    {                                                           ; FGaugeState.LaserHeat, нагрев лазера
+                        #00,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #00                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    },
+                    {                                                           ; FGaugeState.Altitude, высота над планетой
+                        #00,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #A0                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    },
+                    {                                                           ; FGaugeState.Speed, полоса скорости, 5*speed+5
+                        #00,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #41                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    },
+                    {                                                           ; FGaugeState.Energy1, нижний банк энергии
+                        #FF,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #00                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    },
+                    {                                                           ; FGaugeState.Energy2, второй банк энергии
+                        #00,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #00                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    },
+                    {                                                           ; FGaugeState.Energy3, третий банк энергии
+                        #00,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #A0                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    },
+                    {                                                           ; FGaugeState.Energy4, верхний банк энергии
+                        #00,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #A0                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    },
+                    {                                                           ; FGaugeState.Roll, позиция крена относительно центра 21
+                        #00,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #15                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    },
+                    {                                                           ; FGaugeState.Pitch, позиция тангажа относительно центра 21
+                        #00,                                                    ; FGauge.Previous, предыдущее значение индикатора
+                        #15                                                     ; FGauge.Current, новое значение для сравнения и вывода
+                    }
+                }
                 ; два сохранённых нулевых байта после тринадцати пар приборов
                 DB #00, #00                                                     ; #7101..#7102
                 ; особое пространство, ненулевое значение запрещает обычные светила и стыковку
 SpaceMode       DB #00                                                          ; хранение FlightState.SpaceMode
                 ; состояние полёта и цвет опасности,0 станция,4 норма,6 зона станции,2 опасность,63 мигание
 FlightStatus    DB #00                                                          ; хранение FlightState.FlightStatus
-                ; копия случайного параметра рынка D06A для текущего выхода, E6EE переносит её в 7105
+                ; копия случайного параметра рынка State.MarketRandom для текущего выхода, Game.Trade.ResetCloakingAndSeedFlightRandom.Entry переносит её в FlightState.RandomByte
 RandomByte      DB #37                                                          ; хранение FlightState.RandomByte
-                ; сохранённый байт 4A перед координатами, DD48 начинает запись только с 7109
+                ; сохранённый байт 4A перед координатами, Game.Travel.BuildPlanetCoordinateByte.Entry начинает запись только с FlightState.Sun + FCoordinate.SignHigh
                 DB #4A                                                          ; #7106..#7106
                 ; три знако-модульные трёхбайтовые координаты солнца, X/Y/Z
-Sun             DB #27, #08, #01, #2A, #4D, #8F, #F2, #88                       ; хранение FlightState.Sun
-                DB #05                                                          ; #710F..#710F
+Sun             FSpacePosition {                                                ; явные исходные значения полей
+                    {                                                           ; FSpacePosition.X
+                        #27,                                                    ; FCoordinate.Fraction, младшие восемь разрядов, дробная часть движения
+                        #08,                                                    ; FCoordinate.Low, средние восемь разрядов координаты
+                        #01                                                     ; FCoordinate.SignHigh, бит 7 задаёт знак, биты 6..0 старшую часть модуля
+                    },
+                    {                                                           ; FSpacePosition.Y
+                        #2A,                                                    ; FCoordinate.Fraction, младшие восемь разрядов, дробная часть движения
+                        #4D,                                                    ; FCoordinate.Low, средние восемь разрядов координаты
+                        #8F                                                     ; FCoordinate.SignHigh, бит 7 задаёт знак, биты 6..0 старшую часть модуля
+                    },
+                    {                                                           ; FSpacePosition.Z
+                        #F2,                                                    ; FCoordinate.Fraction, младшие восемь разрядов, дробная часть движения
+                        #88,                                                    ; FCoordinate.Low, средние восемь разрядов координаты
+                        #05                                                     ; FCoordinate.SignHigh, бит 7 задаёт знак, биты 6..0 старшую часть модуля
+                    }
+                }
                 ; три знако-модульные трёхбайтовые координаты планеты, X/Y/Z
-Planet          DB #00, #00, #00, #00, #00, #00, #00, #80                       ; хранение FlightState.Planet
-                DB #01                                                          ; #7118..#7118
+Planet          FSpacePosition {                                                ; явные исходные значения полей
+                    {                                                           ; FSpacePosition.X
+                        #00,                                                    ; FCoordinate.Fraction, младшие восемь разрядов, дробная часть движения
+                        #00,                                                    ; FCoordinate.Low, средние восемь разрядов координаты
+                        #00                                                     ; FCoordinate.SignHigh, бит 7 задаёт знак, биты 6..0 старшую часть модуля
+                    },
+                    {                                                           ; FSpacePosition.Y
+                        #00,                                                    ; FCoordinate.Fraction, младшие восемь разрядов, дробная часть движения
+                        #00,                                                    ; FCoordinate.Low, средние восемь разрядов координаты
+                        #00                                                     ; FCoordinate.SignHigh, бит 7 задаёт знак, биты 6..0 старшую часть модуля
+                    },
+                    {                                                           ; FSpacePosition.Z
+                        #00,                                                    ; FCoordinate.Fraction, младшие восемь разрядов, дробная часть движения
+                        #80,                                                    ; FCoordinate.Low, средние восемь разрядов координаты
+                        #01                                                     ; FCoordinate.SignHigh, бит 7 задаёт знак, биты 6..0 старшую часть модуля
+                    }
+                }
                 ASSERT $ == #7119
                 endmodule
                 endmodule

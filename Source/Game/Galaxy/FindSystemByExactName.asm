@@ -4,15 +4,15 @@
 ; Поиск системы по полному имени среди 256 планет
 ; исходный диапазон #DF24..#DF5F
 ; In:
-;   DED0 = строка с нулём, D090..D095 = семя галактики
+;   GalaxyState.InputBuffer = строка с нулём, State.GalaxySeed = семя галактики
 ; Out:
 ;   CY=1 если не найдено, CY=0 и выбранная планета при успехе
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
 ;   Сохраняет семя до генерации имени, сравнивает побайтно до общего 0, цикл завершает
-;   переполнение счётчика DF00, при совпадении обновляет данные, имя назначения и расстояние,
-;   DF5E рабочий минимум расстояния
+;   переполнение счётчика GalaxyState.ScanIndex, при совпадении обновляет данные, имя назначения и расстояние,
+;   NearestMetric рабочий минимум расстояния
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DF24
@@ -49,6 +49,7 @@ SelectFound:    CALL Game.Galaxy.RestoreWorkingSystemSeed.Entry
                 CALL Game.Charts.MapCursorTransformAndKeys.Entry
                 CALL Game.Galaxy.CopySystemNameToTarget.Entry
                 JP @Game.Galaxy.FindNearestSystem.SetFuelCost
+
                 ; минимальная квадратичная метрика текущего поиска
 NearestMetric   DW #0000                                                        ; наименьшая квадратичная метрика до курсора
                 ; проверка исходного конца фрагмента

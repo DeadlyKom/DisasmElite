@@ -13,13 +13,13 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IY
 ; Note:
-;   #EF01 может заменить индекс модели B, HL возвращает каталог #6180
-;   указатель заголовка читается из каталог + 4*(B AND 63) + 1 и сохраняется в IX+23/24
-;   31 байт шаблона #B83E копируется в IX+00..1E, поле IX+1F не очищается
-;   энергия берётся из IY+07, скорость равна половине IY+06
-;   флаги IX+21 := (IY+12) AND #6F, EscapePod переносится из бита 7 IY+12 в бит 7 IX+20
-;   младшие три бита IX+20 задаются результатом #D60B, бит 6 включается, IX+25=#7E,IX+26=0
-;   при сброшенном IX+21 bit2 случайны целые X/Y, дробные X/Y и знаки случайны всегда
+;   Game.Menus.ChooseEncounterVariant.Entry может заменить индекс модели B, HL возвращает каталог Memory.ModelIndex
+;   адрес FModel читается из FModelIndex.Address выбранного элемента Memory.ModelIndex и сохраняется в FSpaceObject.Blueprint
+;   31 байт ObjectTemplate заполняет FSpaceObject от X до Pitch включительно, FSpaceObject.Payload не очищается
+;   FSpaceObject.Energy получает FModel.MaxEnergy, FSpaceObject.Speed получает половину FModel.MaxSpeed
+;   FSpaceObject.Hostility получает FModel.Flags после MODEL_AI_MASK, OBJ_ESCAPE_BIT переносится из FModel.Flags в FSpaceObject.Flags
+;   Game.Text.CheckObjectRandomGate.Entry задаёт остаток запусков в FSpaceObject.Flags по OBJ_LAUNCH_MASK, OBJ_ACTIVE_BIT включается, FSpaceObject.Target=#7E, FSpaceObject.Flags2=0
+;   при сброшенном OBJ_HOSTILE_BIT в FSpaceObject.Hostility случайны FSpaceObject.X.Low и FSpaceObject.Y.Low, дробные части и знаки X/Y случайны всегда
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #B898
@@ -56,7 +56,7 @@ ReadBlueprint:  INC HL
                 LD C, A
                 AND MODEL_AI_MASK
                 LD (IX+FSpaceObject.Hostility), A
-                ; расчёт начального запаса запусков, обработчик также читает байт за границей слота IX+27
+                ; расчёт начального запаса запусков с чтением байта сразу за записью, по адресу IX + FSpaceObject, это не дополнительное поле объекта
                 CALL Game.Text.CheckObjectRandomGate.Entry
                 AND OBJ_LAUNCH_MASK
                 RLA
@@ -94,6 +94,7 @@ RandomPosition: CALL Game.Combat.NextRandomByte.Entry
                 RR (IX+FSpaceObject.Y.SignHigh)
                 XOR A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B91E
                 endmodule

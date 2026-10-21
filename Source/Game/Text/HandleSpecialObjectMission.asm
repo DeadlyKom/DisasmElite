@@ -11,8 +11,8 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
-;   Обычный тип меняет биты 2/3 и законность, тип 3C обнуляет IX+22, повторяет проверку области
-;   D67A и уменьшает D08F, завершение очищает D0AF и начисляет FFFF рейтинга, NOP после CALL
+;   обычный тип меняет биты 2/3 и законность, Sidewinder обнуляет FSpaceObject.Energy летящего объекта и повторяет проверку области
+;   Game.Text.CheckMissionRegion.Entry и уменьшает State.Invasion, завершение очищает State.Mission3 и начисляет FFFF рейтинга, NOP после CALL
 ;   является встроенным нулевым порогом
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -20,9 +20,11 @@
                 ; миссия 7+3, ветвь Sidewinder обрабатывает попадание десанта и освобождение системы
                 ; описание в Docs/Manual.md, раздел mission-7-3
                 ; событие особого объекта отмечает выполненное военное задание и изменяет ход вторжения
+                ; миссии 3, 7+3, 7+4, обычная ракета меняет этап попадания, Sidewinder обрабатывает высадку десанта
+                ; описание в Docs/Manual.md, раздел mission-3, mission-7-3, mission-7-4
 Entry:          LD A, (IX+FSpaceObject.Blueprint)
                 CP #3C
-                JR Z, DestroyStation                                            ; переход, если тип объекта равен 3C, выполнить обработку специальной станции
+                JR Z, DestroyStation                                            ; переход, если летящий объект использует модель Sidewinder, обработать высадку десанта
 
                 XOR A
                 SET M3_HIT_BIT, (HL)
@@ -40,6 +42,8 @@ CheckPermit:    INC HL
 ReturnCarry:    SBC A, A
                 RET
 
+                ; миссия 7+3, десант, Sidewinder отмечает высадку и сдвигает фронт до освобождения текущей системы
+                ; описание в Docs/Manual.md, раздел mission-7-3
 DestroyStation: XOR A
                 LD (IX+FSpaceObject.Energy), A
                 CALL Game.Text.CheckMissionRegion.Entry
@@ -70,6 +74,7 @@ ShrinkFront:    LD HL, State.Invasion
                 XOR A
                 INC A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D6F9
                 endmodule

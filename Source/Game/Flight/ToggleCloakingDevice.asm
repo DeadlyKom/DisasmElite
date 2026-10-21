@@ -4,19 +4,21 @@
 ; Переключение маскировки клавишей Y
 ; исходный диапазон #7222..#725B
 ; In:
-;   FC08 bit7, D0B0 bit6 наличие устройства,70FA энергия
+;   InputState bit7, State.MissionFlags bit6 наличие устройства,GaugeState + FGaugeState.Energy3.Current энергия
 ; Out:
-;   D041 изменён, при включении требуется энергия>=40 и снимается конфликт со стыковкой
+;   CloakActive изменён, при включении требуется энергия>=40 и снимается конфликт со стыковкой
 ; Corrupt:
-;   HL, AF, прочие по 6FF8
+;   HL, AF, прочие по Game.Extensions.AttributeVectorAndEnergyBomb.Entry
 ; Note:
-;   Счётчик 7221 опрашивает нажатие через раз, RES7 очищает старый бит и HALT позволяет прерыванию его
+;   Счётчик CloakDivider опрашивает нажатие через раз, RES7 очищает старый бит и HALT позволяет прерыванию его
 ;   обновить
-;   Уменьшение D041 с 1 до 0 выключает устройство, при исходном 0 промежуточное FF остаётся при
+;   Уменьшение CloakActive с 1 до 0 выключает устройство, при исходном 0 промежуточное FF остаётся при
 ;   недостатке энергии, это фактический порядок оригинала
 ; -----------------------------------------
                 ASSERT $ == #7222
                 ; делитель частоты проверки, старая клавиша снимается до HALT
+                ; миссия 2 CLOAKING DEVICE, наличие CLOAKING DEVICE разрешает переключение маскировки клавишей Y
+                ; описание в Docs/Manual.md, раздел mission-2
 Entry:          LD HL, CloakDivider
                 DEC (HL)
                 LD HL, InputState.SystemKeys
@@ -39,7 +41,7 @@ Entry:          LD HL, CloakDivider
                 DEC (HL)
                 JR Z, NormalColour                                              ; переход, если маскировка была включена, выбрать обычный атрибут 7
 
-                ; проверка энергии, при отказе после 0→FF остаётся D041=FF
+                ; проверка энергии, при отказе после 0→FF остаётся CloakActive=FF
                 LD A, (GaugeState + FGaugeState.Energy3.Current)
                 CP #28
                 RET C                                                           ; выход, если третий банк энергии меньше 40, включение прекращается
@@ -58,6 +60,7 @@ CloakedColour:  LD L, #0F
                 ; обычный атрибут после выключения имеет значение 07
 NormalColour:   LD L, #07
 ApplyColour:    JP Game.Extensions.AttributeVectorAndEnergyBomb.Entry
+
                 ASSERT $ == #725C
                 endmodule
                 endmodule

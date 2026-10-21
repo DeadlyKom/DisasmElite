@@ -6,14 +6,14 @@
 ; In:
 ;   HL адрес после DEC H при пересечении восьми пиксельных строк
 ; Out:
-;   HL предыдущая строка либо переход 982E после снятия адреса возврата
+;   HL предыдущая строка либо переход Game.Scanner.DrawScannerObjects.NextObject после снятия адреса возврата
 ; Corrupt:
 ;   HL, AF
 ; Note:
-;   L=0F является верхним пределом маркера, POP AF снимает адрес CALL, JP982E завершает объект
+;   L=0F является верхним пределом маркера, POP AF снимает адрес CALL, JP Game.Scanner.DrawScannerObjects.NextObject завершает объект
 ; -----------------------------------------
                 ASSERT $ == #987C
-                ; проверка верхнего края, переход 982E снимает адрес вызова
+                ; проверка верхнего края, переход Game.Scanner.DrawScannerObjects.NextObject снимает адрес вызова
 Entry:          LD A, L
                 CP #0F
                 JR NZ, PreviousRow                                              ; переход, если верхняя граница L=0F не достигнута, рассчитать предыдущую строку
@@ -30,6 +30,7 @@ PreviousRow:    SUB #20
                 ADD A, #08
                 LD H, A
                 RET
+
                 ASSERT $ == #988E
                 endmodule
                 endmodule

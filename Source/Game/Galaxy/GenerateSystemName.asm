@@ -4,9 +4,9 @@
 ; Генерация имени планеты из трёх или четырёх слогов
 ; исходный диапазон #E01C..#E03C
 ; In:
-;   DEC0..DEC5 = семя
+;   GalaxyState.WorkingSeed = семя
 ; Out:
-;   DEDB содержит до 8 букв, первые 8 байт предварительно очищены, девятый байт не меняется,
+;   GalaxyState.GeneratedName содержит до 8 букв, первые 8 байт предварительно очищены, девятый байт не меняется,
 ;   семя продвинуто 4 раза
 ; Corrupt:
 ;   HL, DE, BC, AF
@@ -33,7 +33,8 @@ ClearName:      LD (HL), #00
                 CALL Game.Galaxy.AppendSystemNameSyllable.Entry
                 CALL Game.Galaxy.AppendSystemNameSyllable.Entry
                 POP AF
-                JR Z, Game.Math.NextRandom                                      ; переход, если бит выбора длины имени сброшен, перейти к последнему шагу семени без печати слога
+                JR Z, Game.Math.NextRandom                                      ; переход, если бит выбора длины имени сброшен, перейти к последнему шагу семени без печати слога, иначе далее Game.Galaxy.AppendSystemNameSyllable.Entry без команды перехода
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E03D
                 endmodule

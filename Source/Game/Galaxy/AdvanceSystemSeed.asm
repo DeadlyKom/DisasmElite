@@ -4,7 +4,7 @@
 ; Переход к семени следующей планеты
 ; исходный диапазон #DFC4..#DFCD
 ; In:
-;   DEC0..DEC5 = текущее семя
+;   GalaxyState.WorkingSeed = текущее семя
 ; Out:
 ;   Семя продвинуто четырьмя шагами NextRandom
 ; Corrupt:
@@ -23,6 +23,7 @@ AdvanceSeed:    PUSH BC
                 DJNZ AdvanceSeed
 
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DFCE
                 endmodule

@@ -10,8 +10,8 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-; Обрабатываются байты IX+10,+16,+22, соответствующие компонентам осей X/Y/Z.
-; Три вызова охватывают весь базис. Углы #9F80/#9F81 содержат команды объекта.
+; поворот меняет FSignWord.SignHigh текущей компоненты осей FSpaceObject.AxisX, FSpaceObject.AxisY и FSpaceObject.AxisZ, IX смещается на слово после каждой компоненты
+; Три вызова охватывают весь базис. Углы RotationState/RotationState.Pitch содержат команды объекта.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #A127
@@ -48,6 +48,7 @@ Entry:          LD A, (RotationState.Pitch)
                 INC IX
                 INC IX
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A173
                 endmodule

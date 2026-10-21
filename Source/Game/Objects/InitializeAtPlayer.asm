@@ -12,8 +12,8 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IY
 ; Note:
-;   #5EC5 вызывает #B898 и также меняет боезапас/груз или подменяет модель по оборудованию
-;   RES7 у IX+0E и IX+16 разворачивает два компонента ориентации
+;   Game.Extensions.CreateMissileOrMissionCraft.Entry вызывает Game.Objects.InitializeObject.Entry и также меняет боезапас/груз или подменяет модель по оборудованию
+;   начальная ориентация делает неотрицательными компоненты FSpaceObject.AxisX.Z и FSpaceObject.AxisZ.X, сбрасывая знак в FSignWord.SignHigh
 ;   обнуляются X дробный/целый, Y целый и Z дробный/целый, остальные компоненты задаёт инициализатор
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -27,6 +27,7 @@ Entry:          CALL Game.Extensions.CreateMissileOrMissionCraft.Entry
                 LD (IX+FSpaceObject.Z.Fraction), A
                 LD (IX+FSpaceObject.Z.Low), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B96B
                 endmodule

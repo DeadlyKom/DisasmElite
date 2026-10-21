@@ -4,24 +4,24 @@
 ; охлаждение лазера, проверка выстрела и нанесение урона цели
 ; исходный диапазон #B63C..#B70E
 ; In:
-;   память B4D7, предыдущее состояние спуска
-;   память FC0B.0, команда огня
-;   память 70F0, температура
-;   память 9C97, номер цели прицела
+;   память LaserRaster.TriggerHeld, предыдущее состояние спуска
+;   память InputState.DeviceKeys.0, команда огня
+;   память GaugeState + FGaugeState.LaserHeat.Current, температура
+;   память CombatState.CrosshairTarget, номер цели прицела
 ; Out:
 ;   обновлены температура, энергия, звуки и состояние цели
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
 ; Каждый вызов охлаждает лазер на 2 с нижним пределом 0. Выстрел запрещён при температуре от #90.
-; Лазер выбирается из D07D..D080 по виду. Тип 1 задаёт маску темпа 1, тип 4 маску 7, остальные 0.
-; Повторное удержание проверяет маску по 9C93, новое нажатие стреляет сразу.
+; Лазер выбирается из State.FrontLaser..State.RightLaser по виду. Тип 1 задаёт маску темпа 1, тип 4 маску 7, остальные 0.
+; Повторное удержание проверяет маску по CombatState.SpawnCounter, новое нажатие стреляет сразу.
 ; Мощность равна 15 для типов ниже 3, 23 для типа 3 и 50 для остальных.
 ; Температура увеличивается на 8 либо 10 с пределом A0, расход энергии увеличивается на 1.
-; Номер цели 8 обозначает станцию, 1 последний слот, адрес равен 6048+(8-номер)*39.
-; Особые объекты IX+26.2, взрывающиеся IX+20.5 и энергия FF не получают обычного урона.
-; Смертельный урон устанавливает IX+20.4 и энергию FF до завершения жизненного цикла.
-; При отсутствии цели и после попадания общий хвост B749 рисует четыре линии луча.
+; Номер цели 8 обозначает станцию, 1 последний слот, адрес равен Memory.Station+(8-номер)*39.
+; объекты с OBJ_SPECIAL_BIT в FSpaceObject.Flags2, с OBJ_EXPLODE_BIT в FSpaceObject.Flags либо с энергией #FF не получают обычного урона
+; смертельный урон устанавливает OBJ_DESTROY_BIT в FSpaceObject.Flags и энергию #FF до завершения жизненного цикла
+; При отсутствии цели и после попадания общий хвост Game.Combat.SetObjectEnergyAndDrawMissedLaser.MissedBeam рисует четыре линии луча.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #B63C
@@ -126,7 +126,7 @@ HitTarget:      CALL Game.Extensions.SetAggressionThenContinue.Entry
                 SET SND_LASER_BIT, (HL)
                 ; проверка специальных и взрывающихся целей
                 BIT OBJ_SPECIAL_BIT, (IX+FSpaceObject.Flags2)
-                JR NZ, @Game.Combat.SetObjectEnergyAndDrawMissedLaser.MissedBeam ; переход, если цель имеет специальный тип IX+26.2
+                JR NZ, @Game.Combat.SetObjectEnergyAndDrawMissedLaser.MissedBeam ; переход, если у цели установлен OBJ_SPECIAL_BIT в FSpaceObject.Flags2 и обычный лазерный урон запрещён
 
                 BIT OBJ_EXPLODE_BIT, (IX+FSpaceObject.Flags)
                 JR NZ, @Game.Combat.SetObjectEnergyAndDrawMissedLaser.MissedBeam ; переход, если цель уже находится в состоянии взрыва
@@ -160,6 +160,7 @@ KillTarget:     XOR A
                 LD (IX+FSpaceObject.Energy), A
                 CALL Game.Universe.SpawnDestructionContentsAndEffects.Entry
                 JR @Game.Combat.SetObjectEnergyAndDrawMissedLaser.MissedBeam
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B70F
                 endmodule

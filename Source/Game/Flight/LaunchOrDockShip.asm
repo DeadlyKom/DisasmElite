@@ -4,21 +4,23 @@
 ; Постановочная последовательность старта либо стыковки
 ; исходный диапазон #93ED..#94F3
 ; In:
-;   7103 межзвёздный режим,7104 текущее состояние полёта
+;   FlightState.SpaceMode межзвёздный режим,FlightState.FlightStatus текущее состояние полёта
 ; Out:
-;   при стыковке 7104=0 и возврат к меню, при запуске 7104=4 и возврат в полёт
+;   при стыковке FlightState.FlightStatus=0 и возврат к меню, при запуске FlightState.FlightStatus=4 и возврат в полёт
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-;   Общая настройка выбирает 8 колец 93E3, порог 48 (#30) и фазы D03F/D040=1
+;   Общая настройка выбирает 8 колец DockDepths, порог 48 (#30) и фазы JumpMode/ViewKeyLock=1
 ;   Стыковка фиксирует скорость 12, блокирует ручное управление, выполняет 47 кадров и проверяет
 ;   предложение Mk4
 ;   Запуск очищает объекты, задаёт положение станции и светил, рисует 36 кадров первой фазы и 11 второй
-;   Пороговые JR и CP тоннеля задаются патчами 932B/9326, после 47 кадров запуска блокировка 7124
-;   снимается, исполнение продолжается 94F4
+;   Пороговые JR и CP тоннеля задаются патчами TunnelFinish/TunnelLimit, после 47 кадров запуска блокировка FlightState.ControlsLocked
+;   снимается, исполнение продолжается Game.Flight.ResetFlightControls.Entry
 ; -----------------------------------------
                 ASSERT $ == #93ED
                 ; проверка обычного пространства перед запуском или посадкой
+                ; миссии 1, 3, 6, 7 INVASION, посадка вызывает предложения заданий, вылет применяет предупреждение первой миссии
+                ; описание в Docs/Manual.md, раздел mission-1, mission-3, mission-6, mission-7-invasion
 Entry:          LD A, (FlightState.SpaceMode)
                 AND A
                 RET NZ                                                          ; выход, если особый режим пространства запрещает запуск или стыковку
@@ -34,12 +36,12 @@ Entry:          LD A, (FlightState.SpaceMode)
                 LD (TunnelFrames), A
                 LD HL, #0101
                 LD (JumpMode), HL
-                ; выбор направления перехода по полётному сигналу 7104
+                ; выбор направления перехода по полётному сигналу FlightState.FlightStatus
                 LD A, (FlightState.FlightStatus)
                 AND A
                 JR Z, LaunchStation                                             ; переход, если корабль находится на станции, выполнить старт
 
-                ; стыковка выбирает хвост 9364 и блокирует управление
+                ; стыковка выбирает хвост Game.Flight.AnimateTransitionTunnel.EndDocking и блокирует управление
                 LD A, #38
                 LD (TunnelFinish), A
                 LD A, #0C
@@ -71,7 +73,7 @@ DockFrame:      PUSH BC
                 CALL Game.Flight.ResetFlightControls.Entry
                 CALL Game.Extensions.OfferUpgradeAndCorrectPosition.Entry
                 CALL Game.Flight.ReportBoardingAndReturnToTitle.Entry
-                ; сохранённый хвост после невозвращающегося 728D, отдельный путь счётчика
+                ; сохранённый хвост после невозвращающегося Game.Flight.ReportBoardingAndReturnToTitle.Entry, отдельный путь счётчика
                 LD A, #07
                 JP Game.Extensions.FillBackwardAndCountDemo.CountDemo
 
@@ -79,7 +81,7 @@ DockFrame:      PUSH BC
 LaunchStation:  LD A, #04
                 LD (FlightState.FlightStatus), A
                 CALL Game.Sound.PlayLaunchSound.Entry
-                ; сброс временных полей, инициализация генератора и хвост 935E
+                ; сброс временных полей, инициализация генератора и хвост Game.Flight.AnimateTransitionTunnel.EndLaunch
                 XOR A
                 LD (CombatState.DockRequest), A
                 LD (FlightState.View), A
@@ -146,7 +148,7 @@ FinalFrame:     PUSH BC
 
                 ; снятие блокировки и общий сброс управления
                 XOR A
-                LD (FlightState.ControlsLocked), A
+                LD (FlightState.ControlsLocked), A                              ; далее Game.Flight.ResetFlightControls.Entry без команды перехода
                 ASSERT $ == #94F4
                 endmodule
                 endmodule

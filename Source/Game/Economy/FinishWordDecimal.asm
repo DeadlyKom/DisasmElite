@@ -4,13 +4,13 @@
 ; Вывод единиц и сброс режима числовой печати
 ; исходный диапазон #D31D..#D333
 ; In:
-;   D2DC = остаток 0..9
+;   DecimalRest = остаток 0..9
 ; Out:
-;   D0CE=0, D0CC=1, A=1
+;   NumberWidth=0, ZeroSuppress=1, A=1
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   После RET в D32D лежит отдельный вход загрузки HL=(D066), DE=(D068) с продолжением в D334
+;   После RET в Game.Economy.FinishWordDecimal.PrintCash лежит отдельный вход загрузки HL=(State.CashHigh), DE=(State.CashLow) с продолжением в Game.Economy.PrintSplitCash.Entry
 ;   для печати денег
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -27,7 +27,7 @@ Entry:          LD HL, (DecimalRest)
 
                 ; внутренний вход печати денег, загрузка обеих групп с основанием 10000
 PrintCash:      LD HL, (State.CashHigh)
-                LD DE, (State.CashLow)
+                LD DE, (State.CashLow)                                          ; далее Game.Economy.PrintSplitCash.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D334
                 endmodule

@@ -4,15 +4,15 @@
 ; Установка новой текущей системы после гиперперехода
 ; исходный диапазон #DCE9..#DD47
 ; In:
-;   DEBA..DEBF = семя выбранной планеты, DEED = её имя
+;   GalaxyState.TargetSeed = семя выбранной планеты, GalaxyState.TargetName = её имя
 ; Out:
-;   D096..D09B и DEE4 обновлены, установлены параметры нового пространства
+;   State.SystemSeed и GalaxyState.CurrentName обновлены, установлены параметры нового пространства
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   D8DD возвращает HL=DEBA и выставляет E07A, копирует 6 байт семени и 8 байт имени, сохраняет
-;   технологию/правительство, обновляет рынок и 18 байт геометрии 7107..7118, затем формирует
-;   станцию через DD60
+;   Game.Text.BeginSystemLaunchState.Entry возвращает HL=GalaxyState и выставляет LaunchPending, копирует 6 байт семени и 8 байт имени, сохраняет
+;   технологию и правительство, обновляет рынок и две тройки координат FlightState.Sun/Planet, затем формирует
+;   станцию через Game.Travel.BuildStationGeometry.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DCE9
@@ -58,6 +58,7 @@ ClearBodies:    LD (HL), A
                 LD C, (HL)
                 CALL Game.Travel.BuildStationGeometry.Entry
                 JP @Game.Travel.LaserTypeAndArrivalEvents.ArrivalEvents
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DD48
                 endmodule

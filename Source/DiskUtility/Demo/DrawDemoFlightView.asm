@@ -4,11 +4,11 @@
 ; In:
 ;   состояние основного игрового рендера
 ; Out:
-;   выполнены 8F0D, копирование 7FBE и маркеры 96D9
+;   выполнены Game.Circles.DrawPendingObjectExplosions.Entry, копирование Game.Screen.CopyFlightView.Entry и маркеры Game.Scanner.DrawScannerObjects.Entry
 ; Corrupt:
-;   HL, DE, BC, AF, IX, альтернативные регистры по 8F0D
+;   HL, DE, BC, AF, IX, альтернативные регистры по Game.Circles.DrawPendingObjectExplosions.Entry
 ; Note:
-;   Этот вызов заменяет 7502, переход 96D9 сохраняет исходный адрес возврата
+;   Этот вызов заменяет Game.Flight.MainGameLoop.DrawIndicators, переход Game.Scanner.DrawScannerObjects.Entry сохраняет исходный адрес возврата
 ; -----------------------------------------
                 ; подложка сферы рисуется до копирования буфера, маркеры накладываются после него
 DrawViewHook:   CALL @Game.Circles.DrawPendingObjectExplosions.Entry

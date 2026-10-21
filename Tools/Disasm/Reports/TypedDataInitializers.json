@@ -1,0 +1,2871 @@
+{
+  "scope": "физические экземпляры существующих типов без изменения размещения и исходных значений",
+  "instances": [
+    {
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "type": "FCoordinate",
+      "symbol": "Game.Flight.MainGameLoop.BodyX",
+      "address": 30074,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {
+        "Game.Flight.MainGameLoop.BodyX": 30074
+      },
+      "anonymous": false,
+      "field_names": [
+        "Fraction",
+        "Low",
+        "SignHigh"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "type": "FCoordinate",
+      "symbol": "Game.Flight.MainGameLoop.BodyY",
+      "address": 30077,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {
+        "Game.Flight.MainGameLoop.BodyY": 30077
+      },
+      "anonymous": false,
+      "field_names": [
+        "Fraction",
+        "Low",
+        "SignHigh"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "type": "FCoordinate",
+      "symbol": "Game.Flight.MainGameLoop.BodyZ",
+      "address": 30080,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {
+        "Game.Flight.MainGameLoop.BodyZ": 30080
+      },
+      "anonymous": false,
+      "field_names": [
+        "Fraction",
+        "Low",
+        "SignHigh"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "type": "FGaugeState",
+      "symbol": "Game.Flight.FillViewAttributesAndFlightState.Gauges",
+      "address": 28903,
+      "size": 26,
+      "sha256": "ad3db223758fdeb539263c1be579cdf0c440a2b2737b14fc409ccdd5c79c2c68",
+      "original_bytes": "0000000000A00000000000A00041FF00000000A000A000150015",
+      "aliases": {
+        "Game.Flight.FillViewAttributesAndFlightState.FrontShieldPrev": 28903,
+        "Game.Flight.FillViewAttributesAndFlightState.FrontShieldNow": 28904,
+        "Game.Flight.FillViewAttributesAndFlightState.RearShieldPrev": 28905,
+        "Game.Flight.FillViewAttributesAndFlightState.RearShieldNow": 28906,
+        "Game.Flight.FillViewAttributesAndFlightState.FuelPrev": 28907,
+        "Game.Flight.FillViewAttributesAndFlightState.FuelNow": 28908,
+        "Game.Flight.FillViewAttributesAndFlightState.CabinHeatPrev": 28909,
+        "Game.Flight.FillViewAttributesAndFlightState.CabinHeatNow": 28910,
+        "Game.Flight.FillViewAttributesAndFlightState.LaserHeatPrev": 28911,
+        "Game.Flight.FillViewAttributesAndFlightState.LaserHeatNow": 28912,
+        "Game.Flight.FillViewAttributesAndFlightState.AltitudePrev": 28913,
+        "Game.Flight.FillViewAttributesAndFlightState.AltitudeNow": 28914,
+        "Game.Flight.FillViewAttributesAndFlightState.SpeedPrev": 28915,
+        "Game.Flight.FillViewAttributesAndFlightState.SpeedNow": 28916,
+        "Game.Flight.FillViewAttributesAndFlightState.Energy1Prev": 28917,
+        "Game.Flight.FillViewAttributesAndFlightState.Energy1Now": 28918,
+        "Game.Flight.FillViewAttributesAndFlightState.Energy2Prev": 28919,
+        "Game.Flight.FillViewAttributesAndFlightState.Energy2Now": 28920,
+        "Game.Flight.FillViewAttributesAndFlightState.Energy3Prev": 28921,
+        "Game.Flight.FillViewAttributesAndFlightState.Energy3Now": 28922,
+        "Game.Flight.FillViewAttributesAndFlightState.Energy4Prev": 28923,
+        "Game.Flight.FillViewAttributesAndFlightState.Energy4Now": 28924,
+        "Game.Flight.FillViewAttributesAndFlightState.RollPrev": 28925,
+        "Game.Flight.FillViewAttributesAndFlightState.RollNow": 28926,
+        "Game.Flight.FillViewAttributesAndFlightState.PitchPrev": 28927,
+        "Game.Flight.FillViewAttributesAndFlightState.PitchNow": 28928
+      },
+      "anonymous": false,
+      "field_names": [
+        "FrontShield",
+        "RearShield",
+        "Fuel",
+        "CabinHeat",
+        "LaserHeat",
+        "Altitude",
+        "Speed",
+        "Energy1",
+        "Energy2",
+        "Energy3",
+        "Energy4",
+        "Roll",
+        "Pitch"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "type": "FSpacePosition",
+      "symbol": "Game.Flight.FillViewAttributesAndFlightState.Sun",
+      "address": 28935,
+      "size": 9,
+      "sha256": "2c2eb8b56f5bb73498c3e54c4a89baa7db450a14b44e58fb3e8c720033e7e58a",
+      "original_bytes": "2708012A4D8FF28805",
+      "aliases": {
+        "Game.Flight.FillViewAttributesAndFlightState.Sun": 28935
+      },
+      "anonymous": false,
+      "field_names": [
+        "X",
+        "Y",
+        "Z"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "type": "FSpacePosition",
+      "symbol": "Game.Flight.FillViewAttributesAndFlightState.Planet",
+      "address": 28944,
+      "size": 9,
+      "sha256": "dece1d1c5790408d070446b8ebf1c2784c1045a60c46656587d3c66291583616",
+      "original_bytes": "000000000000008001",
+      "aliases": {
+        "Game.Flight.FillViewAttributesAndFlightState.Planet": 28944
+      },
+      "anonymous": false,
+      "field_names": [
+        "X",
+        "Y",
+        "Z"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "type": "FObjectEffects",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData",
+      "address": 46162,
+      "size": 5,
+      "sha256": "879e603bed45cdd9b5580604530dda8e59a5d2ee3cb066afa5ce02027d408259",
+      "original_bytes": "A7B4000000",
+      "aliases": {
+        "Game.Wireframe.DrawScannerMarkerSegment.EffectData": 46162,
+        "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Current": 46162,
+        "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Phase": 46164,
+        "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Remaining": 46165,
+        "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Flags": 46166
+      },
+      "anonymous": false,
+      "field_names": [
+        "Current",
+        "Phase",
+        "Remaining",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "type": "FEffectRecord10",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "address": 46167,
+      "size": 10,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca",
+      "original_bytes": "00000000000000000000",
+      "aliases": {
+        "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records": 46167
+      },
+      "anonymous": false,
+      "instance_index": 0,
+      "count": 8,
+      "stride": 10,
+      "base_symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "field_names": [
+        "TypeFlags",
+        "FirstFlags",
+        "FirstX",
+        "FirstY",
+        "SecondFlags",
+        "SecondX",
+        "SecondY",
+        "Timer",
+        "Links",
+        "Fallback"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "type": "FEffectRecord10",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "address": 46177,
+      "size": 10,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca",
+      "original_bytes": "00000000000000000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 1,
+      "count": 8,
+      "stride": 10,
+      "base_symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "field_names": [
+        "TypeFlags",
+        "FirstFlags",
+        "FirstX",
+        "FirstY",
+        "SecondFlags",
+        "SecondX",
+        "SecondY",
+        "Timer",
+        "Links",
+        "Fallback"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "type": "FEffectRecord10",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "address": 46187,
+      "size": 10,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca",
+      "original_bytes": "00000000000000000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 2,
+      "count": 8,
+      "stride": 10,
+      "base_symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "field_names": [
+        "TypeFlags",
+        "FirstFlags",
+        "FirstX",
+        "FirstY",
+        "SecondFlags",
+        "SecondX",
+        "SecondY",
+        "Timer",
+        "Links",
+        "Fallback"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "type": "FEffectRecord10",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "address": 46197,
+      "size": 10,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca",
+      "original_bytes": "00000000000000000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 3,
+      "count": 8,
+      "stride": 10,
+      "base_symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "field_names": [
+        "TypeFlags",
+        "FirstFlags",
+        "FirstX",
+        "FirstY",
+        "SecondFlags",
+        "SecondX",
+        "SecondY",
+        "Timer",
+        "Links",
+        "Fallback"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "type": "FEffectRecord10",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "address": 46207,
+      "size": 10,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca",
+      "original_bytes": "00000000000000000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 4,
+      "count": 8,
+      "stride": 10,
+      "base_symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "field_names": [
+        "TypeFlags",
+        "FirstFlags",
+        "FirstX",
+        "FirstY",
+        "SecondFlags",
+        "SecondX",
+        "SecondY",
+        "Timer",
+        "Links",
+        "Fallback"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "type": "FEffectRecord10",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "address": 46217,
+      "size": 10,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca",
+      "original_bytes": "00000000000000000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 5,
+      "count": 8,
+      "stride": 10,
+      "base_symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "field_names": [
+        "TypeFlags",
+        "FirstFlags",
+        "FirstX",
+        "FirstY",
+        "SecondFlags",
+        "SecondX",
+        "SecondY",
+        "Timer",
+        "Links",
+        "Fallback"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "type": "FEffectRecord10",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "address": 46227,
+      "size": 10,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca",
+      "original_bytes": "00000000000000000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 6,
+      "count": 8,
+      "stride": 10,
+      "base_symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "field_names": [
+        "TypeFlags",
+        "FirstFlags",
+        "FirstX",
+        "FirstY",
+        "SecondFlags",
+        "SecondX",
+        "SecondY",
+        "Timer",
+        "Links",
+        "Fallback"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "type": "FEffectRecord10",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "address": 46237,
+      "size": 10,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca",
+      "original_bytes": "00000000000000000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 7,
+      "count": 8,
+      "stride": 10,
+      "base_symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "field_names": [
+        "TypeFlags",
+        "FirstFlags",
+        "FirstX",
+        "FirstY",
+        "SecondFlags",
+        "SecondX",
+        "SecondY",
+        "Timer",
+        "Links",
+        "Fallback"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "type": "FEffectRecord10",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Scratch",
+      "address": 46247,
+      "size": 10,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca",
+      "original_bytes": "00000000000000000000",
+      "aliases": {
+        "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Scratch": 46247
+      },
+      "anonymous": false,
+      "field_names": [
+        "TypeFlags",
+        "FirstFlags",
+        "FirstX",
+        "FirstY",
+        "SecondFlags",
+        "SecondX",
+        "SecondY",
+        "Timer",
+        "Links",
+        "Fallback"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Station",
+      "address": 24648,
+      "size": 39,
+      "sha256": "c2d90ca66217c433d0496f5903e9f27f8f0155329006525c9663760094c4e4a9",
+      "original_bytes": "202A2A2A2D2D2D220D80EC333030300E0000B80B000D800000225B0000807000C000F0C6637F0C",
+      "aliases": {
+        "Game.Data.ObjectPool.Station": 24648
+      },
+      "anonymous": false,
+      "field_names": [
+        "X",
+        "Y",
+        "Z",
+        "AxisX",
+        "AxisY",
+        "AxisZ",
+        "Speed",
+        "Acceleration",
+        "Roll",
+        "Pitch",
+        "Payload",
+        "Flags",
+        "Hostility",
+        "Energy",
+        "Blueprint",
+        "Target",
+        "Flags2"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Ship1",
+      "address": 24687,
+      "size": 39,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252",
+      "original_bytes": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "aliases": {
+        "Game.Data.ObjectPool.Ship1": 24687
+      },
+      "anonymous": false,
+      "field_names": [
+        "X",
+        "Y",
+        "Z",
+        "AxisX",
+        "AxisY",
+        "AxisZ",
+        "Speed",
+        "Acceleration",
+        "Roll",
+        "Pitch",
+        "Payload",
+        "Flags",
+        "Hostility",
+        "Energy",
+        "Blueprint",
+        "Target",
+        "Flags2"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Ship2",
+      "address": 24726,
+      "size": 39,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252",
+      "original_bytes": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "aliases": {
+        "Game.Data.ObjectPool.Ship2": 24726
+      },
+      "anonymous": false,
+      "field_names": [
+        "X",
+        "Y",
+        "Z",
+        "AxisX",
+        "AxisY",
+        "AxisZ",
+        "Speed",
+        "Acceleration",
+        "Roll",
+        "Pitch",
+        "Payload",
+        "Flags",
+        "Hostility",
+        "Energy",
+        "Blueprint",
+        "Target",
+        "Flags2"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Ship3",
+      "address": 24765,
+      "size": 39,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252",
+      "original_bytes": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "aliases": {
+        "Game.Data.ObjectPool.Ship3": 24765
+      },
+      "anonymous": false,
+      "field_names": [
+        "X",
+        "Y",
+        "Z",
+        "AxisX",
+        "AxisY",
+        "AxisZ",
+        "Speed",
+        "Acceleration",
+        "Roll",
+        "Pitch",
+        "Payload",
+        "Flags",
+        "Hostility",
+        "Energy",
+        "Blueprint",
+        "Target",
+        "Flags2"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Ship4",
+      "address": 24804,
+      "size": 39,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252",
+      "original_bytes": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "aliases": {
+        "Game.Data.ObjectPool.Ship4": 24804
+      },
+      "anonymous": false,
+      "field_names": [
+        "X",
+        "Y",
+        "Z",
+        "AxisX",
+        "AxisY",
+        "AxisZ",
+        "Speed",
+        "Acceleration",
+        "Roll",
+        "Pitch",
+        "Payload",
+        "Flags",
+        "Hostility",
+        "Energy",
+        "Blueprint",
+        "Target",
+        "Flags2"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Ship5",
+      "address": 24843,
+      "size": 39,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252",
+      "original_bytes": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "aliases": {
+        "Game.Data.ObjectPool.Ship5": 24843
+      },
+      "anonymous": false,
+      "field_names": [
+        "X",
+        "Y",
+        "Z",
+        "AxisX",
+        "AxisY",
+        "AxisZ",
+        "Speed",
+        "Acceleration",
+        "Roll",
+        "Pitch",
+        "Payload",
+        "Flags",
+        "Hostility",
+        "Energy",
+        "Blueprint",
+        "Target",
+        "Flags2"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Ship6",
+      "address": 24882,
+      "size": 39,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252",
+      "original_bytes": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "aliases": {
+        "Game.Data.ObjectPool.Ship6": 24882
+      },
+      "anonymous": false,
+      "field_names": [
+        "X",
+        "Y",
+        "Z",
+        "AxisX",
+        "AxisY",
+        "AxisZ",
+        "Speed",
+        "Acceleration",
+        "Roll",
+        "Pitch",
+        "Payload",
+        "Flags",
+        "Hostility",
+        "Energy",
+        "Blueprint",
+        "Target",
+        "Flags2"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Missile",
+      "address": 24921,
+      "size": 39,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252",
+      "original_bytes": "000000000000000000000000000000000000000000000000000000000000000000000000000000",
+      "aliases": {
+        "Game.Data.ObjectPool.Missile": 24921
+      },
+      "anonymous": false,
+      "field_names": [
+        "X",
+        "Y",
+        "Z",
+        "AxisX",
+        "AxisY",
+        "AxisZ",
+        "Speed",
+        "Acceleration",
+        "Roll",
+        "Pitch",
+        "Payload",
+        "Flags",
+        "Hostility",
+        "Energy",
+        "Blueprint",
+        "Target",
+        "Flags2"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 24960,
+      "size": 4,
+      "sha256": "27a636263f1a0732505fb65b086016544b4e66dc6ff13a0467edf6eb5fc2b19f",
+      "original_bytes": "80C66300",
+      "aliases": {
+        "Game.Data.ModelIndex.Entry": 24960
+      },
+      "anonymous": false,
+      "instance_index": 0,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 24964,
+      "size": 4,
+      "sha256": "d48e4b7adc5a33d68dfcd9b75c88d2bc8118b9bf50b843569b6c7e8f55248a11",
+      "original_bytes": "84E36100",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 1,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 24968,
+      "size": 4,
+      "sha256": "8cd03dce96e5b94d8c83e0dc282c3adfaa72ed4bf6b0718d10876410885e2089",
+      "original_bytes": "B0FA6101",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 2,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 24972,
+      "size": 4,
+      "sha256": "63bdfd5eee6c0b984aec91812ee7f1264c869049fbc90c84ac4d116c663ded5e",
+      "original_bytes": "93116201",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 3,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 24976,
+      "size": 4,
+      "sha256": "a5f8a7cb73211118661affdb9998aa221e7f1dbe0788067ed5c9b01ed568a3f4",
+      "original_bytes": "93286201",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 4,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 24980,
+      "size": 4,
+      "sha256": "347b2c39e7a06b65d4ce33477cfe01ef935beaf8ca0f9c859b55dacae05de5e5",
+      "original_bytes": "933F6201",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 5,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 24984,
+      "size": 4,
+      "sha256": "fe703c145c3b7e43470e0b002611aad05d27626cfe5a486cb9fe4251d065344c",
+      "original_bytes": "87566202",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 6,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 24988,
+      "size": 4,
+      "sha256": "8273fd085ea69ffe3c23428055ab1a3d80857bb8bae677aaf547b71c204142b4",
+      "original_bytes": "D06D6202",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 7,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 24992,
+      "size": 4,
+      "sha256": "d00af05bc0bfa94e692233d0499afe1514cc71f4a874e5cfbaa73510e62acb2c",
+      "original_bytes": "C0846202",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 8,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 24996,
+      "size": 4,
+      "sha256": "a632056031c00f61ac6fc0346c8a25d899a3dbab1fb9268f38862b3766e96baf",
+      "original_bytes": "F09B6202",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 9,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25000,
+      "size": 4,
+      "sha256": "b6af36d3b8a67f9868cb7c5cc03a6846da5bfca0e5cdb1086ce6e8578ac83b93",
+      "original_bytes": "F0B26202",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 10,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25004,
+      "size": 4,
+      "sha256": "ce695472ebe4ee00dafd85240d55a526b70af5e2e250d0ea4585ed794b5d9bad",
+      "original_bytes": "F0C96203",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 11,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25008,
+      "size": 4,
+      "sha256": "40be1fc3977ad999524a26c173311bf849e7221b65f9c9029a26348da527f69e",
+      "original_bytes": "F0E06203",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 12,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25012,
+      "size": 4,
+      "sha256": "ae5ca189e6f45ec524e02e2984785819dfe67c8e8f4e4b035baa00f926bb32e7",
+      "original_bytes": "FCF76204",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 13,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25016,
+      "size": 4,
+      "sha256": "ccd5aec7e2bb39c65490bb3ce829857172f6fc8bd23aacc246e20614ac2896fc",
+      "original_bytes": "F00E6303",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 14,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25020,
+      "size": 4,
+      "sha256": "c2b177a7361b065b00b5ac87fa8782f5bc8f25fd6f7b07d29aa910bf88e705cc",
+      "original_bytes": "FF256303",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 15,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25024,
+      "size": 4,
+      "sha256": "605d46ba9cddd52d3c4c1fe09691f71d29f5a5f3ce7937092c75fc09aecfa61a",
+      "original_bytes": "C43C6304",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 16,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25028,
+      "size": 4,
+      "sha256": "065bae2783617aa8e384e207d78853ce9d80ba2a4028a17f4b341facc2a9a47b",
+      "original_bytes": "D4536304",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 17,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25032,
+      "size": 4,
+      "sha256": "341e4e87a5940a5b5234803461db5ec9806d48881dfceb12872ce12ed1a21c50",
+      "original_bytes": "C76A6304",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 18,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25036,
+      "size": 4,
+      "sha256": "c0f01224ec19a8ed35584a9759f66707d80045a8e24edf689c984d5afc284689",
+      "original_bytes": "FF816303",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 19,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25040,
+      "size": 4,
+      "sha256": "14bd58d8bb64fbfc5ff937c79ec6040de1cad7461d5df9169d26967b1239525d",
+      "original_bytes": "D0986302",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 20,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25044,
+      "size": 4,
+      "sha256": "64833bf81d3178b019c72fa76a1781ca2cfb687b1da359900fee3846d8b98b7c",
+      "original_bytes": "D4AF6304",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 21,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 25048,
+      "size": 4,
+      "sha256": "4a5faa21aed619c7c0e0d9058e7edccd8df986901ea2d910fff522990e5f115b",
+      "original_bytes": "D4DD6304",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 22,
+      "count": 23,
+      "stride": 4,
+      "base_symbol": "Game.Data.ModelIndex.Entry",
+      "field_names": [
+        "Flags",
+        "Address",
+        "Class"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28699,
+      "size": 4,
+      "sha256": "763edc08a9588c351bec7ba03d8913640b6c6e02092e2b36e39c962110f19e18",
+      "original_bytes": "13820601",
+      "aliases": {
+        "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams": 28699,
+        "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams.Firearms": 28739
+      },
+      "anonymous": false,
+      "instance_index": 0,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28703,
+      "size": 4,
+      "sha256": "898463086062d4e253076de3ef0818873bf6dc7776a19130147d23fd833f8e79",
+      "original_bytes": "14810A03",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 1,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28707,
+      "size": 4,
+      "sha256": "fbe3464172233b5135641fc7d246e440ff650d524e2d5ae750cba38a41ef559a",
+      "original_bytes": "41830207",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 2,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28711,
+      "size": 4,
+      "sha256": "4c1f49bbd69f7f5e7b3ba5b82ae1b615f5490c6a3c38640eae6c58bcac683717",
+      "original_bytes": "2885E21F",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 3,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28715,
+      "size": 4,
+      "sha256": "32da68a2e731ee2e81e74087de4fbe24000194f58e8112f61028d38c4652a0b1",
+      "original_bytes": "5385FB0F",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 4,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28719,
+      "size": 4,
+      "sha256": "024f355e0fb499166e5928c1103b360f51677861a76f6daea27853a50f83cc9c",
+      "original_bytes": "C4083603",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 5,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28723,
+      "size": 4,
+      "sha256": "1ab8ce98706ef0f2c66337032b22783d3c4be1c14a8cd04082975f5ddb22a596",
+      "original_bytes": "EB1D0878",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 6,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28727,
+      "size": 4,
+      "sha256": "32553ea7e8ca9c8a8f52f2b9faca56f88adb50de824d867df0c9178be9dc162b",
+      "original_bytes": "9A0E3803",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 7,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28731,
+      "size": 4,
+      "sha256": "0e87443d220425cb49258d94a87c2061476d4914d7d2dbc47584ee983ece26d3",
+      "original_bytes": "75062807",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 8,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28735,
+      "size": 4,
+      "sha256": "c4e4fa456829b828087ddcf7884b6d4115e589dfe82373ee81d19b0058292a52",
+      "original_bytes": "4E01111F",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 9,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28739,
+      "size": 4,
+      "sha256": "501d57e04dc7a48be46cece9421a480d23c983c9c50172e68e8a2e686ed48337",
+      "original_bytes": "7C0D1D07",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 10,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28743,
+      "size": 4,
+      "sha256": "85383a259435f6e6b60d3e784ec4876f4c61afc4a7ba9c30495ddc53ca123b2a",
+      "original_bytes": "B089DC3F",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 11,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28747,
+      "size": 4,
+      "sha256": "56dcebd30e5aacf7b0b47f563e46c07d2c9ad693957b5f9f262d4631b7b4dad4",
+      "original_bytes": "20813503",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 12,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28751,
+      "size": 4,
+      "sha256": "e05a6741beef548d2d796e6576ff030787f141374ecb1ec80efbcec6cd694bbe",
+      "original_bytes": "61A14207",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 13,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28755,
+      "size": 4,
+      "sha256": "985219dc40bcc9c1cafcb47efedaa83636e9d2cd3323f41c0e2036a092d7f039",
+      "original_bytes": "ABA2371F",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 14,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28759,
+      "size": 4,
+      "sha256": "41d2b34db679946cd939e1c2a0bcd7113175b16a4179da97ea2ef6be64c5fb4f",
+      "original_bytes": "2DC1FA0F",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 15,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28763,
+      "size": 4,
+      "sha256": "093d5ca25b97e755fabfa9766e7f5d271d3d0c807cc8adb69e1522180ee94d07",
+      "original_bytes": "350FC007",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 16,
+      "count": 17,
+      "stride": 4,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "field_names": [
+        "Price",
+        "Economy",
+        "Stock",
+        "RandomMask"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28767,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {
+        "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices": 28767
+      },
+      "anonymous": false,
+      "instance_index": 0,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28770,
+      "size": 3,
+      "sha256": "fa0a8b8f8774bc4956b5fce54fc3997ee0b462aae1c965ce7e176a06324c7562",
+      "original_bytes": "002C01",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 1,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28773,
+      "size": 3,
+      "sha256": "b2b0a67d58587249b6cbca32483d05900bcf5239c7e81c66887993495929b3ee",
+      "original_bytes": "00A00F",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 2,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28776,
+      "size": 3,
+      "sha256": "b005cc2529dc4d867c17d63f2b5d6d5e7a8fcbfce0309e17cb4c0255272e564f",
+      "original_bytes": "007017",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 3,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28779,
+      "size": 3,
+      "sha256": "b2b0a67d58587249b6cbca32483d05900bcf5239c7e81c66887993495929b3ee",
+      "original_bytes": "00A00F",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 4,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28782,
+      "size": 3,
+      "sha256": "fb50dc0717ff266cf9baf82b1ce7a1c2ef6d9247859680b11a19fb7077f5f222",
+      "original_bytes": "010000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 5,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28785,
+      "size": 3,
+      "sha256": "d8865d43a745fd04f3c7fadcf1c551ac85d26729819d8ab99fd6ac5f16feb662",
+      "original_bytes": "008214",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 6,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28788,
+      "size": 3,
+      "sha256": "fb50dc0717ff266cf9baf82b1ce7a1c2ef6d9247859680b11a19fb7077f5f222",
+      "original_bytes": "010000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 7,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28791,
+      "size": 3,
+      "sha256": "e3ff2465ffbf41a58b15ea6e510aa9415ea1805645e41fdddb9d8843e5926b16",
+      "original_bytes": "002823",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 8,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28794,
+      "size": 3,
+      "sha256": "86fe2f91249a9b1b60f0bbf697a045d8567eafc30f5ce6cff0b58c2c1c56eff3",
+      "original_bytes": "018813",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 9,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28797,
+      "size": 3,
+      "sha256": "86fe2f91249a9b1b60f0bbf697a045d8567eafc30f5ce6cff0b58c2c1c56eff3",
+      "original_bytes": "018813",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 10,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28800,
+      "size": 3,
+      "sha256": "69c492e24afa52c556de5ea70e1b5d7da3f0bc7a5a7fd1d413444c1a42a7e9b3",
+      "original_bytes": "050000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 11,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28803,
+      "size": 3,
+      "sha256": "412c45d603453521684df8f679c7f68f0f22dd7697d37170385c8c7931636298",
+      "original_bytes": "060000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 12,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28806,
+      "size": 3,
+      "sha256": "a6c7638e360d10978cec58d970d030ad87148d27931cfa62356fda3f68f61215",
+      "original_bytes": "00401F",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 13,
+      "count": 14,
+      "stride": 3,
+      "base_symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "field_names": [
+        "High",
+        "Low"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43258,
+      "size": 3,
+      "sha256": "91ae92b6b01de5be11968ba71c5fdf8dcb7417f1acaecd0f233bb0cc5311c686",
+      "original_bytes": "2A5300",
+      "aliases": {
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices": 43258
+      },
+      "anonymous": false,
+      "instance_index": 0,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43261,
+      "size": 3,
+      "sha256": "f6cae3eaa0ae6e48745e76a76cd18a5daad624f25f0e46e1db8f44f34f1b8f2b",
+      "original_bytes": "0A1F02",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 1,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43264,
+      "size": 3,
+      "sha256": "1a120766efc942b2105a814168c8af142706bce22c5ab70e258b066f2ad027ba",
+      "original_bytes": "080400",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 2,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43267,
+      "size": 3,
+      "sha256": "c94a59cdc60b963ae485a6dd3573a52c0f684da6dfa58492fbb9517251c379a0",
+      "original_bytes": "0B0F03",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 3,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43270,
+      "size": 3,
+      "sha256": "8f5546cb40b37edd9116d3076777c9648126074408a9a03ea083551ffd915d7a",
+      "original_bytes": "1C0203",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 4,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43273,
+      "size": 3,
+      "sha256": "a402979a3f12e5d57d7132c87844e35e4d5599357ceec56c022652febcea48bc",
+      "original_bytes": "252D03",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 5,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43276,
+      "size": 3,
+      "sha256": "3b3fe1f34c7a0002b60dce1c51c264fa48c347366c701fbc966d475984849afa",
+      "original_bytes": "1C3403",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 6,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43279,
+      "size": 3,
+      "sha256": "0030c5372186a88a572c75e452e4ba76d88a345b021ea3b69ed3cb956ed21a06",
+      "original_bytes": "163103",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 7,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43282,
+      "size": 3,
+      "sha256": "291c5e591f9764cfa576fc053a0f101c3e9d5aef3e0a5d9111995d40994f70aa",
+      "original_bytes": "1E0800",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 8,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43285,
+      "size": 3,
+      "sha256": "edfdcb7e231b11976de5d8b1849edc0301f9553adcb78dc609a16cb3b9d412a5",
+      "original_bytes": "0E1901",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 9,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43288,
+      "size": 3,
+      "sha256": "2e202d8db40f0a91458efea55735a970019298dba19f35872c88d2171e256dce",
+      "original_bytes": "0E3803",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 10,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43291,
+      "size": 3,
+      "sha256": "c8960949ae6c1bf0c7ea01696aad77954af67d07750412c82ee5cd26d46b4aac",
+      "original_bytes": "080803",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 11,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43294,
+      "size": 3,
+      "sha256": "679ea44e38250a51da4ea6c1b012654b0ef1092fcf19c91221025852457e4f4a",
+      "original_bytes": "160F01",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 12,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43297,
+      "size": 3,
+      "sha256": "34c26657f9c4a8a6a4d7077c823c2a5ed4808e2cf2cd93c595796c83752e9a86",
+      "original_bytes": "091201",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 13,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43300,
+      "size": 3,
+      "sha256": "9567b04feec35b044b653d380fea2833d14e0bfbe1e55fac08b8abc0837b7b3e",
+      "original_bytes": "011301",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 14,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43303,
+      "size": 3,
+      "sha256": "eb42ac89a5c41d4343f31b40c458e64ec1d151c32723c4f52a02ea49afe7b257",
+      "original_bytes": "0C1403",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 15,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43306,
+      "size": 3,
+      "sha256": "d5e8f1dd49acf31e603c42ada2cdc66d7d76cd107b0978d96e85ba8661c10464",
+      "original_bytes": "0B0D03",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 16,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43309,
+      "size": 3,
+      "sha256": "34218e03e256a29f6432ce49261e55fa6399697d5ef594e72b33909b6a1f4fd5",
+      "original_bytes": "020A01",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 17,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43312,
+      "size": 3,
+      "sha256": "351246ee80c8b94a65f6d5f1d6df0aad0c1a3ce7d9bed596ed22207d67660b76",
+      "original_bytes": "0B0801",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 18,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43315,
+      "size": 3,
+      "sha256": "ec15f1e61858cedf9204b36b53aaf40e11029befe2066d1b839a98772768e4d4",
+      "original_bytes": "180801",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 19,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43318,
+      "size": 3,
+      "sha256": "21b3ad6a4fba46e39a8a56a927f985e5b98358504683d0f2551629111f6bb151",
+      "original_bytes": "0A1802",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 20,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43321,
+      "size": 3,
+      "sha256": "0438ea8105067ab81d81a860657a075f254c89982d6e45dc9b450f673a7f6680",
+      "original_bytes": "0B1C02",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 21,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43324,
+      "size": 3,
+      "sha256": "d0b9f4eb026b55604d55c3274f2c8a12daa6884616eeec14b69d1344dabe0376",
+      "original_bytes": "2C0701",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 22,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43327,
+      "size": 3,
+      "sha256": "1cda9b8754cb7c7b59d132e6918f26cdfa879e9048d790e485306598f47d8301",
+      "original_bytes": "2B0B01",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 23,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43330,
+      "size": 3,
+      "sha256": "a8cff34357ade09c63b6e05c311ec4c45268befd15f4c89a9181f2904a08c4c7",
+      "original_bytes": "2F0801",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 24,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43333,
+      "size": 3,
+      "sha256": "05ee04abbe8647202d76cef99a2c3d9ba64dc31b2bd03174064010cacfbc1af4",
+      "original_bytes": "221603",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 25,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43336,
+      "size": 3,
+      "sha256": "9c90fec141ff3cb250e51022b79a3b22c76e980cff793a962744f3cba444ed43",
+      "original_bytes": "261503",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 26,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43339,
+      "size": 3,
+      "sha256": "83171374767a35659e5db52392f002fb5c64ed2c9f95654bfe2c57d5508749ae",
+      "original_bytes": "231203",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 27,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43342,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 28,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43345,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 29,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43348,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 30,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43351,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 31,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43354,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 32,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43357,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 33,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43360,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 34,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43363,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 35,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43366,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 36,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43369,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 37,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43372,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 38,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43375,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 39,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43378,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 40,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43381,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 41,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43384,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 42,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43387,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 43,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43390,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 44,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43393,
+      "size": 3,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c",
+      "original_bytes": "000000",
+      "aliases": {},
+      "anonymous": true,
+      "instance_index": 45,
+      "count": 46,
+      "stride": 3,
+      "base_symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "field_names": [
+        "X",
+        "Y",
+        "Flags"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FMatrix3",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Matrix",
+      "address": 43412,
+      "size": 18,
+      "sha256": "ba78c822d06620b929f37b3b09c82b38ed3dd862b65caedcedf45fa6e9d1a094",
+      "original_bytes": "7E1B81EFF337811D7E3CF36DF2F8F28BF327",
+      "aliases": {
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Matrix": 43412
+      },
+      "anonymous": false,
+      "field_names": [
+        "X",
+        "Y",
+        "Z"
+      ]
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "type": "FProjectionState",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Projection",
+      "address": 43448,
+      "size": 17,
+      "sha256": "64549a801acdd355cd3f7a77b8302e27982e9f2f50b377bc43bc634f01cdcd14",
+      "original_bytes": "02021E1B006A00DF010E38038080000100",
+      "aliases": {
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Depth": 43448,
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.VertexOffset": 43450,
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.X": 43451,
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Y": 43453,
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Z": 43455,
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.ScreenX": 43457,
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.ScreenY": 43458,
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Flags": 43459,
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.SignX": 43460,
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.SignY": 43461,
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.SignZ": 43462,
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Scale": 43463,
+        "Game.Wireframe.AdvanceObjectMetadata.GeometryData.NoCache": 43464
+      },
+      "anonymous": false,
+      "field_names": [
+        "Depth",
+        "VertexOffset",
+        "X",
+        "Y",
+        "Z",
+        "ScreenX",
+        "ScreenY",
+        "Flags",
+        "SignX",
+        "SignY",
+        "SignZ",
+        "Scale",
+        "NoCache"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/SetFuelAndGauge.asm",
+      "type": "FGalaxyState",
+      "symbol": "Game.Travel.SetFuelAndGauge.SystemData",
+      "address": 57018,
+      "size": 73,
+      "sha256": "2e804db4f7e2e48eb652a89aed829984c8b4aefdc96a15f4cef84c539e384a19",
+      "original_bytes": "38AD9C141D15BC57820A63AD38AD9C141D15000000004A414D45534F4E202020004C41564500000000004C41564500000000004C4156450000000000000005030419581B000000DFDE",
+      "aliases": {
+        "Game.Travel.SetFuelAndGauge.TargetSeed": 57018,
+        "Game.Travel.SetFuelAndGauge.WorkingSeed": 57024,
+        "Game.Travel.SetFuelAndGauge.SavedSeed": 57030,
+        "Game.Travel.SetFuelAndGauge.TextSeed": 57036,
+        "Game.Travel.SetFuelAndGauge.InputBuffer": 57040,
+        "Game.Travel.SetFuelAndGauge.GeneratedName": 57051,
+        "Game.Travel.SetFuelAndGauge.CurrentName": 57060,
+        "Game.Travel.SetFuelAndGauge.TargetName": 57069,
+        "Game.Travel.SetFuelAndGauge.Distance": 57078,
+        "Game.Travel.SetFuelAndGauge.Economy": 57080,
+        "Game.Travel.SetFuelAndGauge.Government": 57081,
+        "Game.Travel.SetFuelAndGauge.Technology": 57082,
+        "Game.Travel.SetFuelAndGauge.Population": 57083,
+        "Game.Travel.SetFuelAndGauge.Productivity": 57084,
+        "Game.Travel.SetFuelAndGauge.Reserved": 57086,
+        "Game.Travel.SetFuelAndGauge.ScanIndex": 57088,
+        "Game.Travel.SetFuelAndGauge.NameCursor": 57089
+      },
+      "anonymous": false,
+      "field_names": [
+        "TargetSeed",
+        "WorkingSeed",
+        "SavedSeed",
+        "TextSeed",
+        "InputBuffer",
+        "GeneratedName",
+        "CurrentName",
+        "TargetName",
+        "Distance",
+        "Economy",
+        "Government",
+        "Technology",
+        "Population",
+        "Productivity",
+        "Reserved",
+        "ScanIndex",
+        "NameCursor"
+      ]
+    }
+  ],
+  "instance_count": 127,
+  "source_files": [
+    "Source/Game/Data/SystemBoundaryAndObjects.asm",
+    "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+    "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+    "Source/Game/Flight/MainGameLoop.asm",
+    "Source/Game/Travel/SetFuelAndGauge.asm",
+    "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+    "Source/Game/Wireframe/DrawScannerMarkerSegment.asm"
+  ],
+  "original_symbol_snapshot": "Tools/Disasm/Reports/BeforeTypedDataSymbols.json",
+  "layout_changes": [
+    {
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "structure": "FGalaxyState",
+      "field": "TextSeed",
+      "from": "DS",
+      "to": "TEXT",
+      "size": 4,
+      "layout_unchanged": true
+    },
+    {
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "structure": "FGalaxyState",
+      "field": "InputBuffer",
+      "from": "DS",
+      "to": "TEXT",
+      "size": 11,
+      "layout_unchanged": true
+    },
+    {
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "structure": "FGalaxyState",
+      "field": "GeneratedName",
+      "from": "DS",
+      "to": "TEXT",
+      "size": 9,
+      "layout_unchanged": true
+    },
+    {
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "structure": "FGalaxyState",
+      "field": "CurrentName",
+      "from": "DS",
+      "to": "TEXT",
+      "size": 9,
+      "layout_unchanged": true
+    },
+    {
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "structure": "FGalaxyState",
+      "field": "TargetName",
+      "from": "DS",
+      "to": "TEXT",
+      "size": 9,
+      "layout_unchanged": true
+    },
+    {
+      "file": "Includes/Structs/GameWorkspace.inc",
+      "structure": "FGalaxyState",
+      "field": "Reserved",
+      "from": "DS",
+      "to": "TEXT",
+      "size": 2,
+      "layout_unchanged": true
+    }
+  ],
+  "assembly_verified": true,
+  "validation_before_write": {
+    "each_original_data_block_matches_decoded_image": true,
+    "each_expanded_initializer_matches_original_bytes": true,
+    "only_DB_DW_EQU_declarations_replaced": true,
+    "total_bytes": 908
+  },
+  "final_verification": {
+    "status": "passed",
+    "image_byte_identical": true,
+    "all_seven_files_identical": true,
+    "build_report": "Tools/Disasm/Reports/BuildVerification.json",
+    "typed_fields_report": "Tools/Disasm/Reports/TypedDataVerification.json",
+    "unchanged_existing_symbols": 5518,
+    "checked_at_utc": "2026-10-21T05:54:53.0569744Z"
+  }
+}

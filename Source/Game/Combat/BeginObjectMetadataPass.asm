@@ -6,8 +6,8 @@
 ; In:
 ;   AF, A содержит число управляемых обычных кораблей
 ; Out:
-;   HL, первая запись B457
-;   память 9CB3/B452 обновлена
+;   HL, первая запись ObjectEffects.Records
+;   память ActiveShips/ObjectEffects.Current обновлена
 ; Corrupt:
 ;   нет дополнительных регистров
 ; Note:
@@ -20,6 +20,7 @@ Entry:          LD (ActiveShips), A
                 LD HL, ObjectEffects.Records
                 LD (ObjectEffects.Current), HL
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B71C
                 endmodule

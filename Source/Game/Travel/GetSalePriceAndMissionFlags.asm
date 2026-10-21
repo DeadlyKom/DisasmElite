@@ -4,19 +4,22 @@
 ; Чтение цены продажи с переключаемой специальной надбавкой
 ; исходный диапазон #DE67..#DE96
 ; In:
-;   HL = адрес цены для DE67
+;   HL = адрес цены для Game.Travel.GetSalePriceAndMissionFlags.Entry
 ; Out:
-;   DE = цена из памяти при RET в DE6A либо 10000 при NOP, HL увеличен на 1
+;   HL увеличен на 1
+;   DE = цена из памяти при RET в Game.Travel.GetSalePriceAndMissionFlags.MineralGate либо 10000 при NOP
 ; Corrupt:
 ;   HL, DE
 ; Note:
-;   DE6A является самомодифицируемым NOP/RET, 5E1A записывает RET для обычного товара и NOP при
-;   специальном результате D5B4 для минералов, только NOP допускает замену цены на 10000, DE6F
-;   отдельно обрабатывает биты миссий с выходом DE4C
+;   Game.Travel.GetSalePriceAndMissionFlags.MineralGate является самомодифицируемым NOP/RET, Game.Extensions.HandleSpecialMessageToken.Entry записывает RET для обычного товара и NOP при
+;   специальном результате Game.Text.CheckMineralLifeColony.Entry для минералов, только NOP допускает замену цены на 10000, Game.Travel.GetSalePriceAndMissionFlags.GrantMission
+;   отдельно обрабатывает биты миссий с выходом Game.Travel.LaserTypeAndArrivalEvents.FinishArrival
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DE67
-                ; обычная цена читается из двух байтов, NOP в DE6A включает цену MINERAL LIFE
+                ; обычная цена читается из двух байтов, NOP в Game.Travel.GetSalePriceAndMissionFlags.MineralGate включает цену MINERAL LIFE
+                ; миссия 4 MINERAL LIFE, изменяемый MineralGate разрешает специальную цену живых минералов
+                ; описание в Docs/Manual.md, раздел mission-4
 Entry:          LD E, (HL)
                 INC HL
                 LD D, (HL)
@@ -52,6 +55,7 @@ ThirdMission:   RRCA
                 LD A, #01
                 LD (State.Mission3), A
                 JR @Game.Travel.LaserTypeAndArrivalEvents.FinishArrival
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DE97
                 endmodule

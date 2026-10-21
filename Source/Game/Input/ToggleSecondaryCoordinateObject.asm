@@ -4,16 +4,16 @@
 ; переключение двух наборов координат для дополнительного вида
 ; исходный диапазон #FD02..#FD68
 ; смысловое имя ToggleSecondaryCoordinateObject
-; In: IX — базовый объект, (#7103) — специальный режим
-; Out: IX смещён на 9 либо чередующиеся 0/9, #711C обнулён, #FD03 переключён XOR9
+; In: IX — базовый объект, (FlightState.SpaceMode) — специальный режим
+; Out: IX смещён на 9 либо чередующиеся 0/9, FlightState.StationZone обнулён, InputPhase переключён XOR9
 ; Corrupt: DE, AF, IX
-; Операнд #FD0A задаёт смещение JR Z, исходный 0 не пропускает LD A,#09
-; Команда C в паузе переключает #FD0A между 0 и 2, помощник #6F29 устанавливает 2
+; Операнд InputViewSkip задаёт смещение JR Z, исходный 0 не пропускает LD A,#09
+; Команда C в паузе переключает InputViewSkip между 0 и 2, помощник Game.Extensions.PrintEquipmentAndSelectIcon.SelectIcon устанавливает 2
 ; При смещении 2 нулевая фаза пропускает LD A,#09 и выбирает первое из двух светил
 ; Младший байт базового IX устанавливается отдельной командой LD IXL,#07
-; При #7103!=0 используется абсолютная база #8ABA
-; #FD23..#FD40 — проверка специального допуска, прямой CALL расположен по #E6BB в обработчике приёма беженцев
-; #FD41..#FD68 — таблица 40 кодов символов в порядке сканирования матрицы
+; При FlightState.SpaceMode!=0 используется абсолютная база DistantBodies
+; CheckPilot проверяет специальный допуск по CALL из Game.Charts.NextScreenCharacterRowAndRefugees.OfferRefugees
+; KeyCharacters — таблица 40 кодов символов в порядке сканирования матрицы
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #FD02
@@ -43,35 +43,36 @@ ApplyOffset:    XOR A
 
                 ; миссии 1, 7+1 и 7+3, допуск к перевозке и выбор текста особого груза
                 ; описание в Docs/Manual.md, раздел mission-1, mission-7-1 и mission-7-3
-                ; проверка пилота и военного допуска по прямому вызову #E6BB
+                ; проверка пилота и военного допуска для Game.Charts.NextScreenCharacterRowAndRefugees.OfferRefugees
 CheckPilot:     LD A, (State.Mission1)
                 AND A
                 SCF
-                RET NZ                                                          ; выход, если #D081 ненулевой, вернуть C=1
+                RET NZ                                                          ; выход, если State.Mission1 ненулевой, вернуть C=1
 
-                ; сохранение HL/DE вокруг проверки окружения #EC40
+                ; сохранение HL/DE вокруг проверки окружения Game.Menus.CheckMissionRegionBand.Entry
                 PUSH HL
                 PUSH DE
 InvasionCall    EQU $ + 1                                                       ; операнд CALL проверки вторжения при автопилоте
                 CALL Game.Menus.CheckMissionRegionBand.Entry
                 POP DE
                 POP HL
-                RET NC                                                          ; выход, если проверка #EC40 не дала C=1
+                RET NC                                                          ; выход, если проверка Game.Menus.CheckMissionRegionBand.Entry не дала C=1
 
                 ; выбор кода #9D либо #9E по рангу и маске состояния пилота
                 LD D, #9D
                 LD A, (State.RankState)
                 CP RANK_CAPT_CODE
-                RET C                                                           ; выход, если #D062 меньше #84, вернуть D=#9D и C=1
+                RET C                                                           ; выход, если State.RankState меньше #84, вернуть D=#9D и C=1
 
                 INC D
                 AND RANK_TYPE_MASK
                 XOR RANK_MAJ_CODE
-                RET NZ                                                          ; выход, если маска #D062&8E отличается от #86
+                RET NZ                                                          ; выход, если маска State.RankState&8E отличается от #86
 
                 SCF
                 RET
-                ; 40 кодов символов, индекс (5-E)*8+D-1 соответствует карте #FF58
+
+                ; 40 кодов символов, индекс (5-E)*8+D-1 соответствует карте KeyAssignments
 KeyCharacters   DB #20, #0D, #50, #30, #31, #51, #41, #FF                       ; 40 кодов символов, индекс по позиции клавиши в матрице
                 DB #FF, #4C, #4F, #39, #32, #57, #53, #5A                       ; данные #FD49..#FD50
                 DB #4D, #4B, #49, #38, #33, #45, #44, #58                       ; данные #FD51..#FD58

@@ -6,7 +6,7 @@
 ;   HL, исходная мера близости
 ; Out:
 ;   HL, 2*HL_in + floor(HL_in/2) по модулю 65536
-;   байт #7104 может измениться
+;   байт FlightState.FlightStatus может измениться
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
@@ -51,6 +51,7 @@ CheckRecovery:  LD A, B
                 LD A, #06
 StoreStatus:    LD (FlightState.FlightStatus), A
                 RET
+
                 ASSERT $ == #8302
                 endmodule
                 endmodule

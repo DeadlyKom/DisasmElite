@@ -4,15 +4,15 @@
 ; Проверка условий выдачи специальных миссионных сообщений
 ; исходный диапазон #D6F9..#D754
 ; In:
-;   Рейтинг D062, D08F, D0B0 и координаты системы
+;   Рейтинг State.RankState, State.Invasion, State.MissionFlags и координаты системы
 ; Out:
-;   Возможен показ предложения или установка D0AF=4
+;   Возможен показ предложения или установка State.Mission3=4
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
-;   Для D08F=1 проверяет высокий рейтинг и бит 6, в остальных случаях сопоставляет регион EC40 и
+;   Для State.Invasion=1 проверяет высокий рейтинг и бит 6, в остальных случаях сопоставляет регион Game.Menus.CheckMissionRegionBand.Entry и
 ;   младшие биты рейтинга с флагами наград, предложение AC подтверждается только Y и использует
-;   общий экран D145
+;   общий экран Game.Missions.OfferThirdMission.MessageLayout
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D6F9
@@ -40,7 +40,7 @@ Entry:          CALL Game.Text.CheckMissionRegion.Entry
                 LD D, #B8
                 JR ShowTask
 
-                ; в полосе сопротивления военный этап выбирается младшими битами кода D062
+                ; в полосе сопротивления военный этап выбирается младшими битами кода State.RankState
 WartimeTask:    CALL Game.Menus.CheckMissionRegionBand.Entry
                 RET NC                                                          ; выход, если система вне полосы сопротивления, выдавать военное задание нельзя
 
@@ -85,6 +85,7 @@ ShowTask:       LD E, #17
 OccupiedSystem: LD A, #04
                 LD (State.Mission3), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D755
                 endmodule

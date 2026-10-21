@@ -36,6 +36,7 @@ SubtractTerms:  LD A, L
                 AND A
                 LD H, D
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #AB0B
                 endmodule

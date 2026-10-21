@@ -3,9 +3,9 @@ ShapeIndex      EQU 0                                                           
 ; Рисование знака демо из сетки клеток и пяти фигур
 ; исходный диапазон #ECC7..#ED29
 ; In:
-;   MarkCellMap ED2F, MarkShapes ED5C, ShapeMasks ED2A
+;   MarkCellMap DiskUtility.Demo.MarkCellMap, MarkShapes DiskUtility.Demo.MarkShapes, ShapeMasks DiskUtility.Demo.ShapeMasks
 ; Out:
-;   знак наложен XOR на экран от 405F, повторный вызов стирает
+;   знак наложен XOR на экран от DiskUtility.Demo.MarkOrigin, повторный вызов стирает
 ; Corrupt:
 ;   HL, DE, BC, AF, IX сохраняется
 ; Note:

@@ -6,7 +6,7 @@
 ; In:
 ;   IX, объект
 ;   IY, модель
-;   память A9B8, глубина
+;   память ProjectionState.Depth, глубина
 ; Out:
 ;   IX, объект сохранён
 ;   IY, модель сохранена
@@ -16,10 +16,10 @@
 ; Note:
 ; Восстанавливает ось Z, матрицу, видимость граней и экранные вершины.
 ; Уровень детализации равен max(0,min(31,HI(2*глубина))-2).
-; 61DD рисует рёбра, затем при IX+20.3 выводится лазер.
-; A884 общий вход луча, вершина задана IY+14, конечная точка берётся из 7B37.
-; A89C..A8A6 содержит десять смещений атрибутов и завершающий FF.
-; A8A7 сбрасывает одноразовый признак луча.
+; Game.Extensions.DrawModelAndResources.Entry рисует рёбра, OBJ_LASER_BIT в FSpaceObject.Flags разрешает последующий вывод лазера
+; Game.Wireframe.DrawWireframeObject.DrawLaser является общим входом луча, начальная вершина задана FModel.LaserVertex, конечную точку выбирает Game.Universe.PrepareRandomLaserEndpoint.Entry
+; ScannerAttrs содержит десять смещений атрибутов и завершающий FF.
+; Game.Wireframe.DrawWireframeObject.ClearLaser сбрасывает одноразовый признак луча.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #A84D
@@ -70,12 +70,14 @@ DrawLaser:      CALL Game.Universe.PrepareRandomLaserEndpoint.Entry
                 LD C, A
                 CALL Game.Wireframe.DrawClippedLine.Entry
                 JR ClearLaser
+
                 ; данные смещений атрибутов индикатора
 AttributeList   DB #68, #94, #95, #B4, #B5, #87, #88, #A7                       ; смещения изменяемых атрибутов сканера, #FF завершает таблицу
                 DB #A8, #A8, #FF
                 ; сброс одноразового запроса луча
 ClearLaser:     RES OBJ_LASER_BIT, (IX + FSpaceObject.Flags)
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A8AC
                 endmodule

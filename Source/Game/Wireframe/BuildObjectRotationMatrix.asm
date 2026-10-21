@@ -7,7 +7,7 @@
 ;   IX, объект с осями X и Y
 ; Out:
 ;   IX, исходный объект, старшие байты оси Z восстановлены
-;   IY, матрица #A994
+;   IY, матрица ObjectMatrix
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
@@ -47,6 +47,7 @@ Entry:          LD IY, ObjectMatrix
                 LD (IX + FSpaceObject.AxisZ.Z + FSignWord.SignHigh), H
                 LD (IY + FMatrix3.Z.X + FSignWord.SignHigh), H
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #AF22
                 endmodule

@@ -10,7 +10,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Символ 3A передаётся в общий хвост E2A3
+;   Символ 3A передаётся в общий хвост Game.Trade.PrintMainTokenSpace.PrintSuffix
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E297
@@ -18,6 +18,7 @@
 Entry:          CALL Game.Text.PrintMainToken.Entry
 PrintColon:     LD A, #3A
                 JR @Game.Trade.PrintMainTokenSpace.PrintSuffix
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E29E
                 endmodule

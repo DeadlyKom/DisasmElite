@@ -4,7 +4,7 @@
 ; In:
 ;   записи StartCoroutine,ResumeDemo,YieldToGame
 ; Out:
-;   E6DC стек игры, E6DE стек корутины
+;   DiskUtility.Demo.SavedStacks стек игры, DiskUtility.Demo.DemoStack стек корутины
 ; Corrupt:
 ;   нет, четыре байта данных
 ; Note:

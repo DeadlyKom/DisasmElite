@@ -4,14 +4,14 @@
 ; Отказ повторной установки и откат
 ; исходный диапазон #EB43..#EB62
 ; In:
-;   EB43 выбирает текст 7C, EB47 выбирает 68+E8AB
+;   Game.Trade.EquipmentAlreadyOwned.Entry выбирает текст 7C, Game.Trade.EquipmentAlreadyOwned.PrintItemError выбирает 68+TradeSnapshot.Selection
 ; Out:
 ;   Снимок восстановлен, открыт экран пилота
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
 ;   После имени устройства печатает 1E, выполняет сигнал и паузу, откатывает списание,
-;   EB5E..EB62 содержат предел, индекс, указатель цены и тип лазера
+;   EquipmentWork содержит предел, индекс, указатель цены и тип лазера
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #EB43
@@ -29,14 +29,21 @@ ShowError:      CALL Game.Trade.PrintMainTokenSpace.Entry
                 CALL Game.Trade.TradeBeepAndPause.Entry
                 CALL Game.Trade.RestoreTradeSnapshot.Entry
 ReturnStatus:   JP Game.Menus.OpenCommanderStatus.Entry
-                ; максимальный номер разрешённого оборудования
-ItemLimit       DB #00                                                          ; наибольший номер разрешённого оборудования
-                ; текущий номер пункта при печати оборудования
-ItemIndex       DB #00                                                          ; номер пункта при выводе списка оборудования
-                ; указатель текущей трёхбайтовой цены оборудования
-PriceCursor     DW #0000                                                        ; адрес текущей трёхбайтовой цены оборудования
-                ; код выбранного типа лазера
-LaserType       DB #00                                                          ; код выбранного типа лазера
+
+                ; состояние списка и покупки оборудования
+EquipmentData   FEquipmentWork {
+                    #00,                                                        ; FEquipmentWork.ItemLimit, наибольший номер разрешённого оборудования
+                    #00,                                                        ; FEquipmentWork.ItemIndex, номер пункта при выводе списка оборудования
+                    #0000,                                                      ; FEquipmentWork.PriceCursor, адрес текущей трёхбайтовой цены оборудования
+                    #00                                                         ; FEquipmentWork.LaserType, код выбранного типа лазера
+                }
+                ASSERT $ - EquipmentData == FEquipmentWork
+
+                ; прежние имена указывают на поля экземпляра EquipmentData
+ItemLimit       EQU EquipmentData.ItemLimit                                     ; поле FEquipmentWork.ItemLimit
+ItemIndex       EQU EquipmentData.ItemIndex                                     ; поле FEquipmentWork.ItemIndex
+PriceCursor     EQU EquipmentData.PriceCursor                                   ; поле FEquipmentWork.PriceCursor
+LaserType       EQU EquipmentData.LaserType                                     ; поле FEquipmentWork.LaserType
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EB63
                 endmodule

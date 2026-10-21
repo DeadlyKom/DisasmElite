@@ -10,7 +10,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IY
 ; Note:
-;   первый вызов #BB55, затем при успехе проваливание в ту же процедуру со вторым A=5
+;   первый вызов Game.Objects.SpawnShipDebris.Entry, затем при успехе проваливание в ту же процедуру со вторым A=5
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #BB4D
@@ -18,7 +18,7 @@ Entry:          LD A, #05
                 CALL Game.Objects.SpawnShipDebris.Entry
                 RET NZ                                                          ; выход, если первый минерал не создан
 
-                LD A, #05
+                LD A, #05                                                       ; далее Game.Objects.SpawnShipDebris.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #BB55
                 endmodule

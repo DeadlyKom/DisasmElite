@@ -102,14 +102,14 @@
 | [CheckMenuAbort](../Source/DiskUtility/Menu/CheckMenuAbort.asm) | опрос SPACE с аварийным возвратом к завершению меню |
 | [ClearWorkBuffer](../Source/DiskUtility/Menu/ClearWorkBuffer.asm) | очистка рабочего буфера и области непосредственно под текущим стеком |
 | [ComputeNamePosition](../Source/DiskUtility/Menu/ComputeNamePosition.asm) | расчёт позиции имени в сетке из трёх столбцов и восьми строк |
-| [ConfirmAndPrepareCopy](../Source/DiskUtility/Menu/ConfirmAndPrepareCopy.asm) | подтверждение, чтение и преобразование трёх секторов перед переходом в #C500 |
+| [ConfirmAndPrepareCopy](../Source/DiskUtility/Menu/ConfirmAndPrepareCopy.asm) | подтверждение, чтение и преобразование трёх секторов перед переходом в CopyEntry |
 | [CopyCommanderName](../Source/DiskUtility/Menu/CopyCommanderName.asm) | подстановка текущего имени командира для пустого нового имени |
 | [CopyServiceMessages](../Source/DiskUtility/Menu/CopyServiceMessages.asm) | изменяемые сообщения служебного меню копирования |
 | [CopyServicePointers](../Source/DiskUtility/Menu/CopyServicePointers.asm) | указатели приёмного и форматируемого потоков и параметр дальнейшего перехода |
 | [DispatchMenuCommand](../Source/DiskUtility/Menu/DispatchMenuCommand.asm) | клавиатурный цикл выбора загрузки, сохранения, демонстрации и командира |
 | [DrawCommanderNames](../Source/DiskUtility/Menu/DrawCommanderNames.asm) | вывод до 24 восьмибайтовых имён в трёх столбцах |
 | [EditSaveName](../Source/DiskUtility/Menu/EditSaveName.asm) | ввод имени сохранения и удаление конечных пробелов либо нулей |
-| [EmitRepeatedByte](../Source/DiskUtility/Menu/EmitRepeatedByte.asm) | повторение байта до исчерпания счётчика либо достижения #5800 |
+| [EmitRepeatedByte](../Source/DiskUtility/Menu/EmitRepeatedByte.asm) | повторение байта до исчерпания счётчика либо достижения Memory.Attributes |
 | [EmitSectorPattern](../Source/DiskUtility/Menu/EmitSectorPattern.asm) | развёртывание шаблона дорожки из пар количество/байт |
 | [EnterDiskMenu](../Source/DiskUtility/Menu/EnterDiskMenu.asm) | вход в дисковое меню, восстановление обработчиков и очистка пула объектов |
 | [FormatDecimalDigit](../Source/DiskUtility/Menu/FormatDecimalDigit.asm) | выделение одной десятичной цифры повторным вычитанием веса |
@@ -127,7 +127,7 @@
 | [PreservedSectorReader](../Source/DiskUtility/Menu/PreservedSectorReader.asm) | строка NO SPACE! с перекрывающейся сохранённой последовательностью чтения сектора |
 | [PrintMenuCharacter](../Source/DiskUtility/Menu/PrintMenuCharacter.asm) | вывод одного символа с сохранением указателя списка и счётчиков |
 | [ReadSector](../Source/DiskUtility/Menu/ReadSector.asm) | выбор команды чтения сектора и обработчика входного потока |
-| [ReadWorkBuffer](../Source/DiskUtility/Menu/ReadWorkBuffer.asm) | чтение сектора в общий буфер #606F |
+| [ReadWorkBuffer](../Source/DiskUtility/Menu/ReadWorkBuffer.asm) | чтение сектора в общий буфер DiskBuffer.Work |
 | [SaveNamedCommander](../Source/DiskUtility/Menu/SaveNamedCommander.asm) | поиск совпадающего сохранения либо подготовка создания новой записи |
 | [SectorFormatPattern](../Source/DiskUtility/Menu/SectorFormatPattern.asm) | шаблон байтовых серий для команды форматирования дорожки |
 | [SelectNextSave](../Source/DiskUtility/Menu/SelectNextSave.asm) | выбор следующего командира с проверкой конца списка |
@@ -153,8 +153,8 @@
 | [Bootstrap](../Source/Loader/Bootstrap.asm) | перенос загрузчика из строки REM в исходную область #C800 |
 | [ExchangeState](../Source/Loader/ExchangeState.asm) | взаимный обмен 1024 байт между #5C00..#5FFF и #CC00..#CFFF |
 | [Load](../Source/Loader/Load.asm) | поиск ELITE3.C, загрузка рабочих областей 48 КБ снимка и запуск игры |
-| [MutateMemory](../Source/Loader/MutateMemory.asm) | снятие побитового кодирования файла игры перед входом по адресу #7394 |
-| [Restart](../Source/Loader/Restart.asm) | сохранённая точка перенаправления #C8CB к обработчику игры #7ABF |
+| [MutateMemory](../Source/Loader/MutateMemory.asm) | снятие побитового кодирования файла игры перед входом Loader.GAME_START |
+| [Restart](../Source/Loader/Restart.asm) | сохранённая точка Loader.Restart к Loader.GAME_RESTART |
 | [SaveState](../Source/Loader/SaveState.asm) | сохранение позиции дисковых операций и переключение на системную область игры |
 
 ## Manual
@@ -193,8 +193,60 @@
 | [Include](../Source/Boot/Include.inc) | начальный BASIC-файл диска |
 | [Robot](../Source/DiskUtility/Robot.asm) | сектор состояния ROBOT между двумя исполняемыми оверлеями |
 
+## Последовательное исполнение между файлами
+
+Если последняя ветвь обработчика продолжается без команды перехода, в конце файла стоит
+комментарий `; JP имя, продолжение в файл.asm`. Это указатель следующей команды, дополнительных
+байтов он не создаёт. В соответствующем `Include.inc` непрерывная цепочка отмечена `(0)`, `(1)`
+и далее, её файлы должны сохранять этот порядок. У некоторых файлов есть и другие выходы через
+`RET` или явный переход, таблица ниже описывает только ветвь, достигающую следующего файла.
+
+| Исходный файл | Следующий обработчик |
+|---|---|
+| [WriteWorkBuffer](../Source/DiskUtility/Menu/WriteWorkBuffer.asm) | [WriteSector](../Source/DiskUtility/Menu/WriteSector.asm) |
+| [ReadWorkBuffer](../Source/DiskUtility/Menu/ReadWorkBuffer.asm) | [ReadSector](../Source/DiskUtility/Menu/ReadSector.asm) |
+| [ReadSector](../Source/DiskUtility/Menu/ReadSector.asm) | [SectorTransfer](../Source/DiskUtility/Menu/TransferSector.asm) |
+| [BuildCommanderCatalog](../Source/DiskUtility/Menu/BuildCommanderCatalog.asm) | [MenuInput](../Source/DiskUtility/Menu/DispatchMenuCommand.asm) |
+| [SelectNextSave](../Source/DiskUtility/Menu/SelectNextSave.asm) | [DrawSaveNames](../Source/DiskUtility/Menu/DrawCommanderNames.asm) |
+| [DrawCommanderNames](../Source/DiskUtility/Menu/DrawCommanderNames.asm) | [PrintMenuChar](../Source/DiskUtility/Menu/PrintMenuCharacter.asm) |
+| [GetSelectedSave](../Source/DiskUtility/Menu/GetSelectedSave.asm) | [GetSaveRecord](../Source/DiskUtility/Menu/GetSaveRecord.asm) |
+| [CopyCommanderName](../Source/DiskUtility/Menu/CopyCommanderName.asm) | [SaveCommander](../Source/DiskUtility/Menu/SaveNamedCommander.asm) |
+| [BuildTrackStream](../Source/DiskUtility/Menu/BuildTrackStream.asm) | [EmitFillByte](../Source/DiskUtility/Menu/EmitRepeatedByte.asm) |
+| [FormatDecimalNumber](../Source/DiskUtility/Menu/FormatDecimalNumber.asm) | [DecimalDigit](../Source/DiskUtility/Menu/FormatDecimalDigit.asm) |
+| [YieldWithSteeringBrake](../Source/DiskUtility/Demo/YieldWithSteeringBrake.asm) | [YieldToGame](../Source/DiskUtility/Demo/YieldToGame.asm) |
+| [InitializeDemoScenario](../Source/DiskUtility/Demo/InitializeDemoScenario.asm) | [ApproachBody](../Source/DiskUtility/Demo/ApproachCelestialBody.asm) |
+| [ChooseCelestialTarget](../Source/DiskUtility/Demo/ChooseCelestialTarget.asm) | [AimNearBody](../Source/DiskUtility/Demo/AimAtNearBody.asm) |
+| [ChooseObjectAimPrecision](../Source/DiskUtility/Demo/ChooseObjectAimPrecision.asm) | [SteerToTarget](../Source/DiskUtility/Demo/SteerTowardTarget.asm) |
+| [BrakeForDistantTarget](../Source/DiskUtility/Demo/BrakeForDistantTarget.asm) | [Brake](../Source/DiskUtility/Demo/ApplyBrakeKey.asm) |
+| [PauseWithDemoMark](../Source/DiskUtility/Demo/PauseWithDemoMark.asm) | [XorDemoMark](../Source/DiskUtility/Demo/DrawDemoMarkXor.asm) |
+| [Initialize](../Source/Manual/Initialize.asm) | [ShowMenu](../Source/Manual/Menu.asm) |
+| [ClearAndTitle](../Source/Manual/ClearAndTitle.asm) | [PrintString](../Source/Manual/PrintString.asm) |
+
+## Данные и изменяемый код
+
+[RestartPatch](../Source/DiskUtility/DemoSetup/RestartPatch.asm) содержит шесть байтов команд,
+которые [InstallDemo](../Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm) переносит в
+`OverlayTrack`. При гибели они сохраняют `A` в `LaunchPending` и передают управление игровому
+ожиданию отпускания клавиш. Это шаблон исполняемого кода, расположенный среди данных установщика.
+[InputPatches](../Source/DiskUtility/DemoSetup/VirtualInputPatches.asm) аналогично хранит три
+шаблона длиной 5, 4 и 3 байта для чтения виртуальных клавиш и `FSpaceObject.Energy`.
+
+[SlotFlagCache](../Source/DiskUtility/Demo/ObjectMetadataCache.asm) хранит восемь копий
+`FEffectRecord10.TypeFlags`. [ReadSlotFlags](../Source/DiskUtility/Demo/ReadObjectMetadata.asm)
+обновляет их только если прерванный игровой поток остановлен на `HALT`. Разряд 1, проверяемый
+при выборе боевой цели, является старшим битом числовой группы 0..3. Он допускает группы 2 и 3,
+а отдельным логическим флагом не является. Схема кеша и проверяемые маски приведены рядом с данными.
+
+[MutateMemory](../Source/Loader/MutateMemory.asm) восстанавливает изменённые биты команд и данных
+игры. Её комментарий показывает исходные и восстановленные машинные байты, изменение состояния
+генератора и причину использования 244 сохранённых XOR-поправок при обратной сборке.
+Проверки физической дорожки и защитного сектора находятся отдельно в
+[VerifyTiming](../Source/DiskUtility/Menu/VerifyProtectionTiming.asm) и
+[VerifyMark](../Source/DiskUtility/Menu/VerifyProtectionMark.asm).
+
 ## Основания проверки
 
+- [AuxiliaryCommentReferences.json](../Tools/Disasm/Reports/AuxiliaryCommentReferences.json) — проверка смысловых ссылок, 18 межфайловых продолжений и пяти эквивалентных замен номеров битов
 - [ManualLoaderDocumentationAudit.json](../Tools/Disasm/Reports/ManualLoaderDocumentationAudit.json) — повторное чтение 31 ASM-файла, уточнение контрактов и проверка неизменности команд
 - [DiskUtilityMenuSemantics.json](../Tools/Disasm/Reports/DiskUtilityMenuSemantics.json) — описание всех файлов первого оверлея
 - [DiskUtilityDemoSemantics.json](../Tools/Disasm/Reports/DiskUtilityDemoSemantics.json) — описание установщика и корутины демонстрации

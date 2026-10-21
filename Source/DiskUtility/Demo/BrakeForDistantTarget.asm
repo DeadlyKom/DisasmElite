@@ -2,10 +2,11 @@
 ; Торможение по старшим разрядам удаления Z
 ; исходный диапазон #E9D1..#E9DC
 ; In:
-;   IY, цель с общим положением FSpaceObject.X/Y/Z
 ;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры
+;   IY, цель с общим положением FSpaceObject.X/Y/Z
 ; Out:
-;   Brake только если (IY8&7F)!=0 и(IY7&FC)!=0
+;   Brake вызывается только при ненулевых Z.SignHigh AND #7F и Z.Low AND #FC
+;   оба поля принадлежат FSpaceObject цели по IY
 ; Corrupt:
 ;   AF
 ; Note:
@@ -20,3 +21,5 @@ BrakeWhenFar:   LD A, (IY + FSpaceObject.Z.SignHigh)
                 LD A, (IY + FSpaceObject.Z.Low)
                 AND #FC
                 RET Z                                                           ; выход, если средний байт Z меньше 4, дальнее торможение не требуется
+
+                ; JP Brake, продолжение в ApplyBrakeKey.asm

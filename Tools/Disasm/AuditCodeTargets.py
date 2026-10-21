@@ -9,6 +9,7 @@ import json
 import re
 import sys
 from pathlib import Path
+from functools import lru_cache
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "Tools/Disasm"))
@@ -23,63 +24,87 @@ def source_statement(raw):
     return text.strip()
 
 
+@lru_cache(maxsize=1)
 def structure_layouts():
-    """Поля сериализуемых структур читаются из тех же объявлений, что и сборка."""
-    layouts = {}
-    sizes = {}
-    for name, filename, expected_size in (("FGoods", "Goods.inc", 17),
-                                          ("FSystemSeed", "GameWorkspace.inc", 6),
-                                          ("FCoordinate", "SpaceObject.inc", 3),
-                                          ("FSpacePosition", "GraphicsWorkspace.inc", 9),
-                                          ("FCommander", "Commander.inc", 102)):
-        path = ROOT / "Includes/Structs" / filename
-        fields = []
-        inside = False
-        found = False
+    """Строгое чтение всех существующих STRUCT, включая вложенные поля и массивы."""
+    declarations = {}
+    expected_sizes = {}
+    root = ROOT / "Includes/Structs"
+    for path in sorted(root.glob("*.inc")):
+        current = None
         for number, raw in enumerate(path.read_text("utf-8-sig").splitlines(), 1):
             text = raw.split(";", 1)[0].strip()
-            if re.fullmatch(rf"struct\s+{name}", text, re.I):
-                if found:
-                    raise ValueError(f"Повторное объявление {name}, {path}:{number}")
-                inside = found = True
+            opening = re.fullmatch(r"struct\s+(F\w+)", text, re.I)
+            if opening:
+                name = opening[1]
+                if current is not None or name in declarations:
+                    raise ValueError(f"Повторное или вложенное объявление {name}, {path}:{number}")
+                declarations[name] = []
+                current = name
                 continue
-            if not inside or not text:
+            if current is None:
+                assertion = re.fullmatch(r"ASSERT\s+(F\w+)\s*==\s*([#$][0-9A-Fa-f]+|\d+)", text, re.I)
+                if assertion:
+                    token = assertion[2]
+                    expected_sizes[assertion[1]] = int(token[1:], 16) if token[0] in "#$" else int(token)
+                continue
+            if not text:
                 continue
             if text.lower() == "ends":
-                inside = False
+                current = None
                 continue
-            match = re.fullmatch(r"(\w+)\s+(\w+)(?:\s+(.*))?", text, re.I)
-            if match is None:
-                raise ValueError(f"Неподдержанное поле {name}, {path}:{number}")
-            field, kind, defaults = match.groups()
-            if kind.upper() in {"DB", "DW", "TEXT"}:
+            field = re.fullmatch(r"(\w+)\s+(\w+)(?:\s+(.*))?", text)
+            if field is None:
+                raise ValueError(f"Неподдержанное поле {current}, {path}:{number}")
+            name, kind, defaults = field.groups()
+            if any(item[0] == name for item in declarations[current]):
+                raise ValueError(f"Повторное поле {current}.{name}, {path}:{number}")
+            declarations[current].append((name, kind, defaults, f"{path}:{number}"))
+        if current is not None:
+            raise ValueError(f"Не закрыто объявление {current}, {path}")
+    layouts = {}
+    sizes = {}
+    resolving = set()
+
+    def resolve(name):
+        if name in layouts:
+            return
+        if name in resolving or name not in declarations:
+            raise ValueError(f"Неизвестный или циклически вложенный тип {name}")
+        resolving.add(name)
+        fields = []
+        for field, kind, defaults, context in declarations[name]:
+            if kind.upper() in {"DB", "DW", "TEXT", "DS"}:
                 kind = kind.upper()
-            if kind == "TEXT":
-                count = re.fullmatch(r"(\d+)\s*,\s*\{\s*(?:[#\$][0-9A-Fa-f]+|\d+)\s*\}", defaults or "")
-                if count is None or int(count[1]) == 0:
-                    raise ValueError(f"Неподдержанный размер {name}.{field}, {path}:{number}")
-                count = int(count[1])
+            if kind in {"TEXT", "DS"}:
+                pattern = (r"([#$][0-9A-Fa-f]+|\d+)\s*,\s*\{\s*([#$][0-9A-Fa-f]+|\d+)\s*\}"
+                           if kind == "TEXT" else r"([#$][0-9A-Fa-f]+|\d+)\s*,\s*([#$][0-9A-Fa-f]+|\d+)")
+                array = re.fullmatch(pattern, defaults or "")
+                if array is None:
+                    raise ValueError(f"Неподдержанный массив {name}.{field}, {context}")
+                token = array[1]
+                count = int(token[1:], 16) if token[0] in "#$" else int(token)
+                if count <= 0:
+                    raise ValueError(f"Пустой массив {name}.{field}, {context}")
             elif kind in {"DB", "DW"}:
                 if defaults is None or "," in defaults:
-                    raise ValueError(f"Ожидается одно поле {name}.{field}, {path}:{number}")
+                    raise ValueError(f"Ожидается одно поле {name}.{field}, {context}")
                 count = 2 if kind == "DW" else 1
-            elif kind in layouts:
-                if defaults:
-                    raise ValueError(f"Неподдержанное вложенное поле {name}.{field}, {path}:{number}")
-                count = sizes[kind]
             else:
-                raise ValueError(f"Неподдержанный тип {kind} поля {name}.{field}, {path}:{number}")
-            if any(previous[0] == field for previous in fields):
-                raise ValueError(f"Повторное поле {name}.{field}, {path}:{number}")
+                if defaults:
+                    raise ValueError(f"Неподдержанные значения вложенного поля {name}.{field}, {context}")
+                resolve(kind)
+                count = sizes[kind]
             fields.append((field, kind, count))
-        if not found or inside:
-            raise ValueError(f"Не найдено полное объявление {name}, {path}")
         size = sum(count for _, _, count in fields)
-        if size != expected_size:
-            raise ValueError(f"Размер {name} равен {size}, ожидается {expected_size}, {path}")
+        if name in expected_sizes and size != expected_sizes[name]:
+            raise ValueError(f"Размер {name} равен {size}, ожидается {expected_sizes[name]}")
         layouts[name], sizes[name] = fields, size
-    return layouts
+        resolving.remove(name)
 
+    for name in declarations:
+        resolve(name)
+    return layouts
 
 def initializer_values(text, context):
     """Дерево явных значений с проверкой скобок, запятых и пустых элементов."""
@@ -134,6 +159,8 @@ def initializer_bytes(name, values, layouts, context):
                 raise ValueError(f"Ожидается вложенная структура, {field_context}")
             result.extend(initializer_bytes(kind, value, layouts, field_context))
             continue
+        if kind == "DS":
+            raise ValueError(f"Для явных байтов массива требуется TEXT вместо DS, {field_context}")
         if kind == "TEXT":
             if not isinstance(value, list) or len(value) != count:
                 raise ValueError(f"Ожидается массив из {count} явных байтов, {field_context}")
@@ -163,18 +190,21 @@ def initializer_bytes(name, values, layouts, context):
 
 
 def source_statements(path):
-    """Чтение команд и строгая развёртка FGoods/FCommander в исходные DB/DW."""
-    layouts = None
+    """Чтение команд и строгая развёртка существующих STRUCT в исходные DB/DW."""
+    layouts = structure_layouts()
+    names = {name.lower(): name for name in layouts}
     lines = iter(enumerate(path.read_text("utf-8-sig").splitlines(), 1))
     for number, raw in lines:
         statement = source_statement(raw)
-        opening = re.fullmatch(r"(FGoods|FCommander)\s*(\{.*)", statement, re.I)
+        opening = re.fullmatch(r"(F\w+)\s*(\{.*)", statement, re.I)
         if opening is None:
-            if re.match(r"(?:FGoods|FCommander)\b", statement, re.I):
+            if statement and statement.split(None, 1)[0].lower() in names:
                 raise ValueError(f"Ожидается явный инициализатор {{ ... }}, {path}:{number}")
             yield number, raw, statement
             continue
-        name = "FGoods" if opening[1].lower() == "fgoods" else "FCommander"
+        name = names.get(opening[1].lower())
+        if name is None:
+            raise ValueError(f"Неизвестный тип {opening[1]}, {path}:{number}")
         parts = [opening[2]]
         depth = opening[2].count("{") - opening[2].count("}")
         while depth > 0:
@@ -187,8 +217,6 @@ def source_statements(path):
             depth += part.count("{") - part.count("}")
         context = f"{path}:{number}"
         values = initializer_values(" ".join(parts), context)
-        if layouts is None:
-            layouts = structure_layouts()
         items = initializer_bytes(name, values, layouts, context)
         # Последовательные поля одной ширины объединяются, слова остаются DW.
         # Метка открытия выдаётся ровно один раз и сохраняет привязку local-имён.

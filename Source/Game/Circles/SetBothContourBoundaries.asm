@@ -20,6 +20,7 @@ Entry:          LD A, L
                 LD C, #01
                 LD B, #80
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9004
                 endmodule

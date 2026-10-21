@@ -4,19 +4,19 @@
 ; Вывод восьми объектов на плоскость сканера
 ; исходный диапазон #96D9..#9869
 ; In:
-;   таблица объектов 6048, переключатель проекции 972F, флаг вывода 9C96
+;   таблица объектов Memory.Station, переключатель проекции ScannerRaster.Mode, флаг вывода CombatState.ObjectsPresent
 ; Out:
-;   нанесены вертикальные маркеры, 96C4=1 при наличии подходящего объекта
+;   нанесены вертикальные маркеры, ScannerState.Redraw=1 при наличии подходящего объекта
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
 ;   Пропускаются пустые слоты, модули старших координат >=64 и x²+z²>=0x1600
 ;   Обычная проекция даёт X через сумму половины и четверти координаты, Y/Z через четверть и
 ;   шестнадцатую, берётся старший байт результата
-;   972F переключается 7A84 между AND A и SCF, второй режим передаёт объект B2EF
-;   Маркер состоит из вертикальной ножки и трёхбитной головки, 986A/987C обрезают ножку с удалением
+;   ScannerRaster.Mode переключается Game.Universe.AddSignedStarCoordinate.ToggleScanner между AND A и SCF, второй режим передаёт объект Game.Wireframe.DivideSlopeAndDrawScanner.DrawMarker
+;   Маркер состоит из вертикальной ножки и трёхбитной головки, Game.Scanner.StepScannerStemDown.Entry/Game.Scanner.StepScannerStemUp.Entry обрезают ножку с удалением
 ;   своего адреса возврата
-;   После восьми слотов очищаются 7 строк по 13 байт начиная с 5009
+;   После восьми слотов очищаются 7 строк по 13 байт начиная с Memory.Screen + #1009
 ; -----------------------------------------
                 ASSERT $ == #96D9
                 ; подготовка слоя сканера и проверка разрешения вывода
@@ -69,10 +69,10 @@ CheckSlot:      LD A, (IX + FSpaceObject.Energy)
                 XOR A
                 LD L, (IX + FSpaceObject.X.Fraction)
                 LD H, (IX + FSpaceObject.X.Low)
-                ; SMC,7A84 заменяет AND A на SCF для проекции B2EF
+                ; SMC,Game.Universe.AddSignedStarCoordinate.ToggleScanner заменяет AND A на SCF для проекции Game.Wireframe.DivideSlopeAndDrawScanner.DrawMarker
 ModeOpcode      EQU $                                                           ; код AND A либо SCF, выбор обычной или альтернативной проекции
                 AND A
-                JP C, Game.Wireframe.DivideSlopeAndDrawScanner.DrawMarker       ; переход, если переключатель 972F заменён на SCF, использовать альтернативную проекцию
+                JP C, Game.Wireframe.DivideSlopeAndDrawScanner.DrawMarker       ; переход, если переключатель ScannerRaster.Mode заменён на SCF, использовать альтернативную проекцию
 
                 ; масштаб X через сумму половины и четверти модуля
                 CALL Game.Combat.DivideAndCombatState.Entry
@@ -118,7 +118,7 @@ StoreHeight:    LD (ScannerState.ScaledY), A
 
                 OR #80
 StoreDepth:     LD (ScannerState.ScaledZ), A
-                ; расчёт байта и бита основания относительно центра 558F
+                ; расчёт байта и бита основания относительно центра Memory.Screen + #158F
                 LD HL, Memory.Screen + #158F                                    ; основание отметки сканера, строка 165, байт 15
                 LD A, (ScannerState.ScaledX)
                 AND #7F
@@ -223,7 +223,7 @@ CheckHeight:    LD A, (ScannerState.ScaledY)
                 AND #80
                 JR NZ, DrawStemDown                                             ; переход, если высота Y отрицательна, провести ножку вниз
 
-                ; восходящая ножка рисуется OR, край обрезает 987C
+                ; восходящая ножка рисуется OR, край обрезает Game.Scanner.StepScannerStemUp.Entry
 DrawStemUp:     LD A, (HL)
                 OR C
                 LD (HL), A
@@ -235,7 +235,7 @@ DrawStemUp:     LD A, (HL)
 
                 JR DrawHead
 
-                ; нисходящая ножка рисуется OR, край обрезает 986A
+                ; нисходящая ножка рисуется OR, край обрезает Game.Scanner.StepScannerStemDown.Entry
 DrawStemDown:   LD A, (HL)
                 OR C
                 LD (HL), A
@@ -307,6 +307,7 @@ HeadAcrossBit6: DEC L
                 OR #C0
                 LD (HL), A
                 JR NextObject
+
                 ASSERT $ == #986A
                 endmodule
                 endmodule

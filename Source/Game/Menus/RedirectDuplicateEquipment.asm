@@ -6,7 +6,7 @@
 ; In:
 ;   HL = байт устанавливаемого предмета в странице D0, AF, A = его текущее состояние с битом 7
 ; Out:
-;   При совпадении A+1 с D08E следующий RET ведёт в EB47
+;   При совпадении A+1 с State.ShipUpgrade следующий RET ведёт в Game.Trade.EquipmentAlreadyOwned.PrintItemError
 ; Corrupt:
 ;   HL, AF
 ; Note:
@@ -23,11 +23,12 @@ Entry:          PUSH HL
                 POP HL
                 RET NZ                                                          ; выход, если состояние оборудования плюс один отличается от состояния корабля Mk4, оставить возврат
 
-                ; адрес возврата на стеке заменяется на EB47, вызывающий обработчик выдачи прерывается
+                ; адрес возврата на стеке заменяется на Game.Trade.EquipmentAlreadyOwned.PrintItemError, вызывающий обработчик выдачи прерывается
                 EX (SP), HL
                 LD HL, Game.Trade.EquipmentAlreadyOwned.PrintItemError
                 EX (SP), HL
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EC58
                 endmodule

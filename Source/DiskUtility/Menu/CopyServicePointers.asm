@@ -2,16 +2,16 @@
 ; указатели приёмного и форматируемого потоков и параметр дальнейшего перехода
 ; исходный диапазон #CF96..#CF9B
 ; In:
-;   #C92A/#CDEF/#CD9F/#CF9C
+;   ReadTrackMark, BuildTrackData, FormatTrack, ConfirmCopy
 ; Out:
-;   три слова #4120, #4014, #0100
+;   три слова (Memory.Screen + #0120), DiskStream.Format, #0100
 ; Corrupt:
 ;   нет
 ; Note:
-;   #CF96 используется как начальный адрес чтения дорожки.
-;   #CF98 задаёт буфер построения и отправки форматируемой дорожки.
-;   #CF9A исходно #0100, ConfirmCopy заменяет его подтверждённым DE.
-;   Чтение изменённого #CF9A собственным Menu не найдено.
+;   DiskUtility.Menu.ReadTrackBuffer используется как начальный адрес чтения дорожки.
+;   DiskUtility.Menu.TrackBuffer задаёт буфер построения и отправки форматируемой дорожки.
+;   DiskUtility.Menu.CopyParameter исходно #0100, ConfirmCopy заменяет его подтверждённым DE.
+;   Чтение изменённого DiskUtility.Menu.CopyParameter собственным Menu не найдено.
 ; -----------------------------------------
 ReadTrackBuffer DW #4120                                                        ; начало принимаемого потока дорожки
 TrackBuffer     DW #4014                                                        ; начало потока форматируемой дорожки

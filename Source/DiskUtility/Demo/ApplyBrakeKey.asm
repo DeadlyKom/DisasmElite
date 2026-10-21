@@ -9,7 +9,7 @@
 ; Corrupt:
 ;   флаги не изменяются
 ; Note:
-;   Меняются только биты 0/1 строки IX7
+;   Меняются только KEYBOARD_SP_BIT и KEYBOARD_SS_BIT строки (IX + FKeyboardRows.RowSpaceSMNB)
 ; -----------------------------------------
                 ; согласованная пара клавиш уменьшения скорости
 Brake:          RES KEYBOARD_SP_BIT, (IX + FKeyboardRows.RowSpaceSMNB)

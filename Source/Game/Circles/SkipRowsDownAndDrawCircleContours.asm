@@ -4,17 +4,17 @@
 ; пропуск строк вниз и три контурных построителя
 ; исходный диапазон #9032..#928B
 ; смысловое имя SkipRowsDownAndDrawCircleContours
-; In: #9032 получает B число строк и A координату Y, прочие входы получают регистры дуги
+; In: Game.Circles.SkipRowsDownAndDrawCircleContours.Entry получает B число строк и A координату Y, прочие входы получают регистры дуги
 ; Out: строки пропущены либо построен контур без заполнения середины
-; Corrupt: #9032 меняет HL, AF/BC сохраняет, контуры меняют HL, DE, BC, AF и альтернативные регистры
-; #9060 — контур с фиксированным правым краем, #90FB — два движущихся края, #91F4 — фиксированный левый край
-; Каждый построитель хранит реальный SP в#8623 и снимает AF внешней обёртки при завершении
+; Corrupt: Game.Circles.SkipRowsDownAndDrawCircleContours.Entry меняет HL, AF/BC сохраняет, контуры меняют HL, DE, BC, AF и альтернативные регистры
+; Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc — контур с фиксированным правым краем, Game.Circles.SkipRowsDownAndDrawCircleContours.BothArc — два движущихся края, Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutArc — фиксированный левый край
+; Каждый построитель хранит реальный SP в CircleState.SavedSP и снимает AF внешней обёртки при завершении
 ; Одиночные маски B/C вращаются, перенос означает переход пикселя через границу байта
 ; HL' хранит ошибку окружности, E' растёт по Y, C' растёт от отрицательного X к нулю
 ; При смене знака ошибки переключаются шаги по строкам и пикселям
 ; AF' задаёт ограничитель отсечения, достижение переводит боковую дугу в общий двухкраевой цикл
-; #91AC/#91C0/#91D1 закрывают конечные участки, используя уже поставленные биты экрана
-; Байт#928B — исходный резерв после безусловного перехода, не выполняется
+; Game.Circles.SkipRowsDownAndDrawCircleContours.CloseLeftEnd/Game.Circles.SkipRowsDownAndDrawCircleContours.CloseRightEnd/Game.Circles.SkipRowsDownAndDrawCircleContours.CloseBothEnds закрывают конечные участки, используя уже поставленные биты экрана
+; последний байт файла сохранён как исходный резерв после безусловного перехода и не выполняется
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #9032
@@ -58,7 +58,7 @@ CrossSkipRow:   LD A, L
                 ; проверка нижнего предела буфера
 CheckSkipLimit: LD A, H
                 CP #D0
-                JR C, CountSkipRow                                              ; переход, если H меньше#D0, продолжить пропуск строк
+                JR C, CountSkipRow                                              ; переход, если H меньше #D0, продолжить пропуск строк
 
                 JR EndSkipRows
 
@@ -66,7 +66,7 @@ CheckSkipLimit: LD A, H
 RightCutArc:    LD A, E
                 AND #1F
                 CP #20
-                JR NC, EmptyRightArc                                            ; переход, если индекс столбца не меньше 32, при штатной маске#1F условие недостижимо
+                JR NC, EmptyRightArc                                            ; переход, если индекс столбца не меньше 32, при штатной маске #1F условие недостижимо
 
                 LD A, (CircleState.DirectionDown)
                 AND A
@@ -74,13 +74,13 @@ RightCutArc:    LD A, E
 
                 LD A, #BF
                 CP H
-                JR C, SaveRightStack                                            ; переход, если H выше#BF, строка допустима
+                JR C, SaveRightStack                                            ; переход, если H выше #BF, строка допустима
 
                 JR EmptyRightArc
 
 RightCutBottom: LD A, #CF
                 CP H
-                JR NC, SaveRightStack                                           ; переход, если H не больше#CF, строка допустима
+                JR NC, SaveRightStack                                           ; переход, если H не больше #CF, строка допустима
 
 EmptyRightArc:  POP AF
                 RET
@@ -213,13 +213,13 @@ BothArc:        LD A, E
 
                 LD A, #BF
                 CP H
-                JR C, SaveBothStack                                             ; переход, если H выше#BF, строка допустима
+                JR C, SaveBothStack                                             ; переход, если H выше #BF, строка допустима
 
                 JR EmptyBothArc
 
 BothArcBottom:  LD A, #CF
                 CP H
-                JR NC, SaveBothStack                                            ; переход, если H не больше#CF, строка допустима
+                JR NC, SaveBothStack                                            ; переход, если H не больше #CF, строка допустима
 
 EmptyBothArc:   POP AF
                 RET
@@ -398,7 +398,7 @@ LeaveClosedArc: JP FinishBothArc
 CloseBothEnds:  EXX
                 LD A, (HL)
                 AND A
-                JR Z, FillFirstEnd                                              ; переход, если байт правого края пуст, начать с#FF
+                JR Z, FillFirstEnd                                              ; переход, если байт правого края пуст, начать с #FF
 
                 LD B, A
                 LD A, #FF
@@ -416,7 +416,7 @@ StoreFirstEnd:  LD (HL), A
                 LD A, (HL)
                 LD B, #FF
                 AND A
-                JR Z, StoreSecondEnd                                            ; переход, если байт второго конечного участка пуст, записать#FF
+                JR Z, StoreSecondEnd                                            ; переход, если байт второго конечного участка пуст, записать #FF
 
                 ; поиск границы второго конечного участка
 FindSecondBit:  ADD A, A
@@ -432,7 +432,7 @@ StoreSecondEnd: LD (HL), B
 LeftCutArc:     LD A, L
                 AND #1F
                 CP #20
-                JR NC, EmptyLeftArc                                             ; переход, если индекс столбца не меньше 32, при штатной маске#1F условие недостижимо
+                JR NC, EmptyLeftArc                                             ; переход, если индекс столбца не меньше 32, при штатной маске #1F условие недостижимо
 
                 LD A, (CircleState.DirectionDown)
                 AND A
@@ -440,13 +440,13 @@ LeftCutArc:     LD A, L
 
                 LD A, #BF
                 CP H
-                JR C, SaveLeftStack                                             ; переход, если H выше#BF, строка допустима
+                JR C, SaveLeftStack                                             ; переход, если H выше #BF, строка допустима
 
                 JR EmptyLeftArc
 
 LeftCutBottom:  LD A, #CF
                 CP H
-                JR NC, SaveLeftStack                                            ; переход, если H не больше#CF, строка допустима
+                JR NC, SaveLeftStack                                            ; переход, если H не больше #CF, строка допустима
 
 EmptyLeftArc:   POP AF
                 RET
@@ -563,6 +563,7 @@ LeftSweepError: EXX
 
 LeftSweepDown:  CALL Game.Circles.StepCircleRowDown.Entry
                 JR DrawRightSweep
+
                 ; исходный резерв после безусловного перехода, сохраняется
                 DB #00                                                          ; данные #928B..#928B
                 ; проверка исходного конца фрагмента

@@ -4,13 +4,13 @@
 ; Выбор следующей из восьми галактик
 ; исходный диапазон #DF03..#DF19
 ; In:
-;   D065 = индекс, D090..D095 = исходное семя
+;   State.Galaxy = индекс, State.GalaxySeed = исходное семя
 ; Out:
 ;   Индекс=(индекс+1)&7, каждый байт семени циклически сдвинут влево
 ; Corrupt:
 ;   HL, DE, AF
 ; Note:
-;   Три вызова/хвоста DF1A обрабатывают три слова, независимый RLC каждого байта сохраняет его
+;   Три вызова/хвоста Game.Galaxy.RotateSeedPair.Entry обрабатывают три слова, независимый RLC каждого байта сохраняет его
 ;   старший бит в младшем
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -25,7 +25,7 @@ Entry:          LD HL, State.Galaxy
                 CALL Game.Galaxy.RotateSeedPair.Entry
                 LD HL, State.GalaxySeed + FSystemSeed.GovBits
                 CALL Game.Galaxy.RotateSeedPair.Entry
-                LD HL, State.GalaxySeed + FSystemSeed.MixLow
+                LD HL, State.GalaxySeed + FSystemSeed.MixLow                    ; далее Game.Galaxy.RotateSeedPair.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DF1A
                 endmodule

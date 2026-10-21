@@ -4,16 +4,16 @@
 ; Масштабирование байта и общий хвост копирования фона
 ; исходный диапазон #9924..#9945
 ; In:
-;   HL, L множитель, AF, A второй множитель для входа 9924
+;   HL, L множитель, AF, A второй множитель для входа Game.Scanner.ScaleValueAndFinishBackground.Entry
 ; Out:
-;   A=floor(L*((2*A) mod256)/256), либо завершён общий цикл 9915
+;   A=floor(L*((2*A) mod256)/256), либо завершён общий цикл ScannerCopy.SaveCharRow
 ; Corrupt:
-;   HL, AF для 9924, HL, DE, BC, AF для 9935
+;   HL, AF для Game.Scanner.ScaleValueAndFinishBackground.Entry, HL, DE, BC, AF для ScannerCopy.RestoreRow
 ; Note:
-;   9924 обнуляет H, удваивает A и сбрасывает перенос перед умножением B286
-;   992B..9934, байты прежних команд читаются как управляющий поток альтернативного фона
-;   9935..9944 является активным общим хвостом 98A2/98CD с подменяемыми POP/INC/EX
-;   9945 сохранённый нулевой байт после RET
+;   Game.Scanner.ScaleValueAndFinishBackground.Entry обнуляет H, удваивает A и сбрасывает перенос перед умножением Game.Wireframe.MultiplyClippingDistance.Entry
+;   десять байтов BackdropMap, совпадающих с прежними командами, читаются как управляющий поток альтернативного фона
+;   AdvanceCopy является общим хвостом SaveScannerBackground и RestoreScannerBackground с изменяемыми POP/INC/EX
+;   после общего RET сохранён один нулевой байт, входящих обращений к нему не найдено
 ; -----------------------------------------
                 ASSERT $ == #9924
                 ; отдельный вход масштабирует L на удвоенный байт A, перенос сбрасывается
@@ -21,6 +21,7 @@ Entry:          LD H, #00
                 ADD A, A
                 AND A
                 JP Game.Wireframe.MultiplyClippingDistance.Entry
+
                 ; управляющие байты альтернативного фона, совпадают с прежними машинными командами
 BackdropMap     DB #21, #06, #AC, #06, #21, #00, #ED, #A0                       ; байты прежнего кода, используемые как поток альтернативного фона
                 DB #ED, #A0                                                     ; #9933..#9934
@@ -44,6 +45,7 @@ SelectTarget    EQU $                                                           
                 JR NZ, Game.Scanner.RestoreScannerBackground.CopyCharRow        ; переход, если не все шесть рядов знакомест скопированы, продолжить общий цикл
 
                 RET
+
                 ; сохранённый нулевой байт после общего RET копировщика
                 DB #00                                                          ; #9945..#9945
                 ASSERT $ == #9946

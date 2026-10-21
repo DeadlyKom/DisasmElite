@@ -6,8 +6,8 @@
 ; смысловое имя ComputeRightEdgeMask
 ; In: BC — B содержит левую маску, C содержит Y, AF — A содержит X
 ; Out: HL — правый адрес, B восстановлен, C — правая маска
-; Corrupt: HL, BC — C, AF, #8627
-; Левая маска сохраняется в #8627 на время ROM #22B0
+; Corrupt: HL, BC — C, AF, CircleState.LeftMask
+; Левая маска сохраняется в CircleState.LeftMask на время ROM Rom.PixelFromA
 ; Для заливки #FF сдвигается влево 8-смещение раз, для контура используется RLC
 ; Два байта SET7,H также переключаются патчером буфер/экран
 ; -----------------------------------------
@@ -41,6 +41,7 @@ ShiftRightMask: SLA C
                 LD A, (CircleState.LeftMask)
                 LD B, A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #8A16
                 endmodule

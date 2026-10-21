@@ -20,6 +20,7 @@ RotatePixel:    RRC B
 
                 LD E, L
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #8FED
                 endmodule

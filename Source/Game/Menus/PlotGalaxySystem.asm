@@ -4,14 +4,14 @@
 ; Вывод одной точки на общей карте галактики
 ; исходный диапазон #EC14..#EC3A
 ; In:
-;   DEC1 = Y семени, DEC3 = X семени
+;   GalaxyState.WorkingSeed + FSystemSeed.Y = Y семени, GalaxyState.WorkingSeed + FSystemSeed.X = X семени
 ; Out:
 ;   Соответствующий пиксель инвертирован
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Координаты передаются ROM22AA как B=24+(127-(DEC1>>1)), C=DEC3, результат A задаёт номер
-;   бита в самомодифицируемой инструкции SET по EC36, запись выполняет XOR
+;   Координаты передаются Rom.PlotAddress как B=24+(127-(GalaxyState.WorkingSeed + FSystemSeed.Y>>1)), C=GalaxyState.WorkingSeed + FSystemSeed.X, результат A задаёт номер
+;   бита в самомодифицируемой инструкции SET по GalaxyDotMask, запись выполняет XOR
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #EC14
@@ -38,6 +38,7 @@ PixelMask       EQU $ + 1                                                       
                 XOR B
                 LD (HL), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EC3B
                 endmodule

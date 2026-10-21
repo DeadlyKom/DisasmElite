@@ -7,9 +7,9 @@
 ; In: HL — пара NOP/NOP либо SET7,H, AF — A содержит нижнюю границу
 ; Out: точки преобразования адресов и предельные сравнения обновлены
 ; Corrupt: AF
-; Патчатся #89DA/#89FB/#8A6E, нижние пределы #8A61/#8E18 и верхние/нижние проверки дуг
-; Операнды LD A,#4F/#3F в этом коде меняет #8F74 на#CF/#BF
-; #8FB4..#8FB5 — сохранённый резерв, #8FB6/#8FB7=#FFFF — образец быстрого заполнения
+; Патчатся CircleRaster/CircleRaster.RightBuffer/CircleRaster.FillBuffer, нижние пределы CircleRaster.FillBottom/CircleRaster.NextRow и верхние/нижние проверки дуг
+; Операнды LD A,#4F/#3F в этом коде меняет Game.Circles.SelectCircleBackBuffer.Entry на #CF/#BF
+; CircleFillData.Reserved содержит два сохранённых байта, слово CircleFillWord=#FFFF служит образцом быстрого заполнения
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #8F88
@@ -34,6 +34,7 @@ UpperLimit      EQU $ + 1                                                       
                 LD (CircleRaster.LeftTop), A
                 LD (CircleRaster.PreviousRow), A
                 RET
+
                 ; два исходных резервных байта без установленного потребителя, сохраняются
 CircleFillData  EQU $                                                           ; начало сохранённых рабочих данных, исходное размещение
 .Reserved       DW #0000                                                        ; исходные байты без установленного потребителя

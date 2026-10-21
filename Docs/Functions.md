@@ -72,7 +72,7 @@
 | `#89EF..#8A15` | [ComputeRightEdgeMask](../Source/Game/Circles/ComputeRightEdgeMask.asm) | расчёт экранного адреса и маски правой границы |
 | `#8A16..#8A24` | [PrepareBothClippedCoordinates](../Source/Game/Circles/PrepareBothClippedCoordinates.asm) | координаты итератора для двух отсечённых боковых границ |
 | `#8A25..#8AA2` | [PrepareBothClippedMasksAndFillRows](../Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm) | маски двух отсечённых краёв и общий заполнитель полных строк |
-| `#8AA3..#8ACC` | [UpdateThargoidAndBodyCoords](../Source/Game/Circles/UpdateThargoidAndBodyCoords.asm) | счётчик поражений Thargoid и координаты двух далёких тел |
+| `#8AA3..#8ACC` | [UpdateThargoidAndBodyCoords](../Source/Game/Circles/UpdateThargoidAndBodyCoords.asm) | счётчик обработки удаляемого Thargoid и координаты двух далёких тел |
 | `#8ACD..#8AF6` | [IntegerCircleCathetus](../Source/Game/Circles/IntegerCircleCathetus.asm) | целочисленный катет по радиусу и смещению |
 | `#8AF7..#8B29` | [BeginFilledUnclippedHalf](../Source/Game/Circles/BeginFilledUnclippedHalf.asm) | вход заливки половины круга без бокового отсечения |
 | `#8B2A..#8B3E` | [ScanUpgradeKeyRow](../Source/Game/Circles/ScanUpgradeKeyRow.asm) | проверка пяти клавиш ряда для улучшенного корабля |
@@ -144,11 +144,11 @@
 
 | Адреса | Исходник | Назначение |
 |---|---|---|
-| `#6000..#61DC` | [SystemBoundaryAndObjects](../Source/Game/Data/SystemBoundaryAndObjects.asm) | продолжение смены системы, восемь объектов и индекс 23 моделей |
-| `#AFF0..#B043` | [LegacyClipTables](../Source/Game/Data/LegacyClipTables.asm) | сохранившиеся таблицы предыдущего алгоритма отсечения |
-| `#BE00..#BFFF` | [SquareTables](../Source/Game/Data/SquareTables.asm) | младшие и старшие байты квадратов аргументов 0..255 |
-| `#D000..#D014` | [MenuDispatchTable](../Source/Game/Data/MenuDispatchTable.asm) | семь исполняемых JP основных экранов |
-| `#E07A..#E07F` | [LaunchCounter](../Source/Game/Data/LaunchCounter.asm) | отложенный флаг и счётчик вылетов |
+| `#6000..#61DC` | [SystemBoundaryAndObjects](../Source/Game/Data/SystemBoundaryAndObjects.asm) | продолжение выхода за дальнюю границу координаты Z, начало по Game.Extensions.OfferUpgradeAndCorrectPosition.CorrectCentre |
+| `#AFF0..#B043` | [LegacyClipTables](../Source/Game/Data/LegacyClipTables.asm) | сохранившиеся таблицы предыдущего алгоритма отсечения линий |
+| `#BE00..#BFFF` | [SquareTables](../Source/Game/Data/SquareTables.asm) | точные квадраты всех восьмибитных беззнаковых чисел |
+| `#D000..#D014` | [MenuDispatchTable](../Source/Game/Data/MenuDispatchTable.asm) | первые семь элементов исполняемой таблицы экранов и действий |
+| `#E07A..#E07F` | [LaunchCounter](../Source/Game/Data/LaunchCounter.asm) | флаг отложенного увеличения счётчика при вылете и само значение счётчика |
 
 ## Disk
 
@@ -223,7 +223,7 @@
 | `#FB03..#FB30` | [BuildSmallCircleProfile](../Source/Game/Extensions/BuildSmallCircleProfile.asm) | подготовка строчного профиля малого силуэта |
 | `#FB31..#FB31` | [DrawSmallSilhouetteAlternate](../Source/Game/Extensions/DrawSmallSilhouetteAlternate.asm) | перекрывающийся вход выбора альтернативного профиля |
 | `#FB32..#FBDF` | [DrawSmallSilhouette](../Source/Game/Extensions/DrawSmallSilhouette.asm) | рисование малого силуэта с горизонтальным отсечением |
-| `#FBE0..#FC0F` | [CompareObjectCoordinateDepth](../Source/Game/Extensions/CompareObjectCoordinateDepth.asm) | сравнение модулей координат двух объектов |
+| `#FBE0..#FC0F` | [CompareObjectCoordinateDepth](../Source/Game/Extensions/CompareObjectCoordinateDepth.asm) | сравнение модулей двух координат |
 
 ## Flight
 
@@ -262,7 +262,7 @@
 | `#928C..#9295` | [DrawTransitionTunnelIfActive](../Source/Game/Flight/DrawTransitionTunnelIfActive.asm) | Обновление сообщения и активного тоннеля перехода |
 | `#9296..#9380` | [AnimateTransitionTunnel](../Source/Game/Flight/AnimateTransitionTunnel.asm) | Анимация тоннеля гиперперехода и стыковки |
 | `#9381..#9388` | [PrintMessageAfterMetadataReset](../Source/Game/Flight/PrintMessageAfterMetadataReset.asm) | Печать токена после сброса объектных метаданных |
-| `#9389..#9390` | [RaiseLaserThreshold](../Source/Game/Flight/RaiseLaserThreshold.asm) | Повышение вероятностного порога лазера при маскировке |
+| `#9389..#9390` | [RaiseLaserThreshold](../Source/Game/Flight/RaiseLaserThreshold.asm) | Установка старшего разряда вероятностного порога лазера |
 | `#9391..#93AB` | [SetSelectedLineMetadata](../Source/Game/Flight/SetSelectedLineMetadata.asm) | Изменение выбранной десятибайтовой записи линий |
 | `#93AC..#93EC` | [DivideByteFractionForTunnel](../Source/Game/Flight/DivideByteFractionForTunnel.asm) | Восемь разрядов частного для радиуса тоннеля |
 | `#93ED..#94F3` | [LaunchOrDockShip](../Source/Game/Flight/LaunchOrDockShip.asm) | Постановочная последовательность старта либо стыковки |
@@ -310,7 +310,7 @@
 | `#FEFE..#FF0D` | [InterruptGateAndAcceleration](../Source/Game/Input/InterruptGateAndAcceleration.asm) | изменяемый вход IM2 и продолжение увеличения скорости |
 | `#FF0E..#FF24` | [ClampAndStoreFlightSpeed](../Source/Game/Input/ClampAndStoreFlightSpeed.asm) | ограничение скорости и общий выход управления |
 | `#FF25..#FF4B` | [KeyboardControlInterrupt](../Source/Game/Input/KeyboardControlInterrupt.asm) | обработчик IM2 с отдельным стеком |
-| `#FF4C..#FF52` | [EnableInterruptMode2](../Source/Game/Input/EnableInterruptMode2.asm) | выбор режима IM2 с таблицей в странице #FD00 |
+| `#FF4C..#FF52` | [EnableInterruptMode2](../Source/Game/Input/EnableInterruptMode2.asm) | выбор режима IM2 со старшим байтом адреса таблицы #FD |
 | `#FF53..#FFFF` | [EnableInterruptMode1AndKeyboardMap](../Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm) | возврат в IM1, сохранённый SP и карта назначений клавиш |
 
 ## Interface
@@ -359,7 +359,7 @@
 | `#EEA2..#EEDA` | [BlankLineAndEconomyText](../Source/Game/Menus/BlankLineAndEconomyText.asm) | Два перевода строки и обработчики описания экономики |
 | `#EEDB..#EF00` | [ApplyMissionMarketRestrictions](../Source/Game/Menus/ApplyMissionMarketRestrictions.asm) | Коррекция рынка и миссионного состояния в особых системах |
 | `#EF01..#EF20` | [ChooseEncounterVariant](../Source/Game/Menus/ChooseEncounterVariant.asm) | Случайная замена типа объекта для группы 13..17 |
-| `#EF21..#EF36` | [PrintSystemRadius](../Source/Game/Menus/PrintSystemRadius.asm) | Вычисление и печать радиуса планеты |
+| `#EF21..#EF36` | [PrintSystemRadius](../Source/Game/Menus/PrintSystemRadius.asm) | вычисление и печать радиуса планеты |
 | `#EF37..#EF86` | [CompareSystemSeedToGalaxyBase](../Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm) | Побайтное сравнение шести байтов с базовым семенем галактики |
 | `#EF87..#EFC4` | [OpenCommanderStatus](../Source/Game/Menus/OpenCommanderStatus.asm) | Экран состояния командира |
 | `#EFC5..#EFDF` | [PrintLegalStatus](../Source/Game/Menus/PrintLegalStatus.asm) | Печать правового состояния и подписи рейтинга |
@@ -374,14 +374,14 @@
 
 | Адреса | Исходник | Назначение |
 |---|---|---|
-| `#D0DA..#D0E9` | [DispatchMissionEvents](../Source/Game/Missions/DispatchMissionEvents.asm) | векторы очереди сообщений, предложения миссии, потери топлива, подбора и денежной награды |
-| `#D0EA..#D0F2` | [DispatchRatingAndMissionEnd](../Source/Game/Missions/DispatchRatingAndMissionEnd.asm) | векторы начисления рейтинга и завершения третьей миссии |
-| `#D0F3..#D0F5` | [DispatchEquipmentDamage](../Source/Game/Missions/DispatchEquipmentDamage.asm) | совместимый вход повреждения топлива, устройства либо единицы груза |
-| `#D0F6..#D122` | [ShowBoardingMessage](../Source/Game/Missions/ShowBoardingMessage.asm) | сообщение о захвате корабля с общим хвостом ожидания |
-| `#D123..#D14C` | [OfferThirdMission](../Source/Game/Missions/OfferThirdMission.asm) | предложение третьей миссии и обработка ответа |
-| `#D14D..#D161` | [CompleteThirdMission](../Source/Game/Missions/CompleteThirdMission.asm) | выдача награды за третью миссию |
-| `#D162..#D1C6` | [SpecialMessageAndScoopReward](../Source/Game/Missions/SpecialMessageAndScoopReward.asm) | окно специального сообщения, подбор груза и правовой статус |
-| `#D1C7..#D2DD` | [RatingBountyDamageAndNewCommander](../Source/Game/Missions/RatingBountyDamageAndNewCommander.asm) | рейтинг, денежные награды, повреждения и восстановление командира |
+| `#D0DA..#D0E9` | [DispatchMissionEvents](../Source/Game/Missions/DispatchMissionEvents.asm) | совместимый вход очистки очереди полётных сообщений, Game.Missions.DispatchMissionEvents.Entry |
+| `#D0EA..#D0F2` | [DispatchRatingAndMissionEnd](../Source/Game/Missions/DispatchRatingAndMissionEnd.asm) | совместимый вход прибавления к 24-битовому рейтингу, Game.Missions.DispatchRatingAndMissionEnd.Entry |
+| `#D0F3..#D0F5` | [DispatchEquipmentDamage](../Source/Game/Missions/DispatchEquipmentDamage.asm) | совместимый вход повреждения топлива, устройства либо единицы груза, Game.Missions.DispatchEquipmentDamage.Entry |
+| `#D0F6..#D122` | [ShowBoardingMessage](../Source/Game/Missions/ShowBoardingMessage.asm) | сообщение о захвате корабля с общим хвостом ожидания, Game.Missions.ShowBoardingMessage.Entry |
+| `#D123..#D14C` | [OfferThirdMission](../Source/Game/Missions/OfferThirdMission.asm) | предложение третьей миссии и обработка ответа, Game.Missions.OfferThirdMission.Entry |
+| `#D14D..#D161` | [CompleteThirdMission](../Source/Game/Missions/CompleteThirdMission.asm) | выдача награды за третью миссию, Game.Missions.CompleteThirdMission.Entry |
+| `#D162..#D1C6` | [SpecialMessageAndScoopReward](../Source/Game/Missions/SpecialMessageAndScoopReward.asm) | оформление окна специального сообщения, Game.Missions.SpecialMessageAndScoopReward.Entry |
+| `#D1C7..#D2DD` | [RatingBountyDamageAndNewCommander](../Source/Game/Missions/RatingBountyDamageAndNewCommander.asm) | прибавление к рейтингу и обработка переноса, Game.Missions.RatingBountyDamageAndNewCommander.Entry |
 
 ## Motion
 
@@ -425,7 +425,7 @@
 | Адреса | Исходник | Назначение |
 |---|---|---|
 | `#B82C..#B866` | [ActivateEnemyECM](../Source/Game/Objects/ActivateEnemyECM.asm) | включение ECM по ненулевому запросу C и разрешающему биту 4 регистра B |
-| `#B867..#B869` | [DispatchObjectAction](../Source/Game/Objects/DispatchObjectAction.asm) | передача упакованной команды объекта обработчику #DA51 |
+| `#B867..#B869` | [DispatchObjectAction](../Source/Game/Objects/DispatchObjectAction.asm) | передача упакованной команды объекта обработчику Game.Disk.DrawScreenStripsAndPrivateStack.DrawStrips |
 | `#B86A..#B897` | [SelectObjectAction](../Source/Game/Objects/SelectObjectAction.asm) | диспетчер создания объектов по младшей тетраде команды |
 | `#B898..#B91D` | [InitializeObject](../Source/Game/Objects/InitializeObject.asm) | инициализация слота по индексу четырёхбайтового каталога моделей |
 | `#B91E..#B935` | [SpawnFromObject](../Source/Game/Objects/SpawnFromObject.asm) | создание дочернего объекта с копией координат и осей родителя |
@@ -469,7 +469,7 @@
 | `#96D9..#9869` | [DrawScannerObjects](../Source/Game/Scanner/DrawScannerObjects.asm) | Вывод восьми объектов на плоскость сканера |
 | `#986A..#987B` | [StepScannerStemDown](../Source/Game/Scanner/StepScannerStemDown.asm) | Переход ножки сканера через нижнюю границу знакоместа |
 | `#987C..#988D` | [StepScannerStemUp](../Source/Game/Scanner/StepScannerStemUp.asm) | Переход ножки сканера через верхнюю границу знакоместа |
-| `#988E..#98A1` | [SetYellowFlightStatus](../Source/Game/Scanner/SetYellowFlightStatus.asm) | Выбор жёлтого индикатора при наличии обычного живого объекта |
+| `#988E..#98A1` | [SetYellowFlightStatus](../Source/Game/Scanner/SetYellowFlightStatus.asm) | выбор жёлтого индикатора при наличии обычного живого объекта |
 | `#98A2..#98CC` | [SaveScannerBackground](../Source/Game/Scanner/SaveScannerBackground.asm) | Сохранение чистого фона сканера в линейный буфер |
 | `#98CD..#9923` | [RestoreScannerBackground](../Source/Game/Scanner/RestoreScannerBackground.asm) | Восстановление фона и удаление предыдущих отметок |
 | `#9924..#9945` | [ScaleValueAndFinishBackground](../Source/Game/Scanner/ScaleValueAndFinishBackground.asm) | Масштабирование байта и общий хвост копирования фона |
@@ -707,14 +707,14 @@
 | `#7C60..#7D3D` | [UpdateExtendedObjectEffects](../Source/Game/Universe/UpdateExtendedObjectEffects.asm) | обновление связей объектов и вывод расширенных лучевых эффектов |
 | `#7D3E..#7D4C` | [ApplyEcmToStandardMissile](../Source/Game/Universe/ApplyEcmToStandardMissile.asm) | проверка типа ракеты и установка запроса уничтожения от ECM |
 | `#7D4D..#7DA3` | [DispatchLinkedObjectAction](../Source/Game/Universe/DispatchLinkedObjectAction.asm) | диспетчер действий с назначением цели новой ракете и обработкой лазерной связи |
-| `#7DA4..#7DB4` | [AwardUnlinkedDestructionBounty](../Source/Game/Universe/AwardUnlinkedDestructionBounty.asm) | денежная награда за уничтожение без связанного участника |
-| `#7DB5..#7DC4` | [AwardOrStoreLinkedDestruction](../Source/Game/Universe/AwardOrStoreLinkedDestruction.asm) | приращение рейтинга либо сохранение номера участника уничтожения |
+| `#7DA4..#7DB4` | [AwardUnlinkedDestructionBounty](../Source/Game/Universe/AwardUnlinkedDestructionBounty.asm) | денежная награда за уничтожение без связанного участника, Game.Universe.AwardUnlinkedDestructionBounty.Entry |
+| `#7DB5..#7DC4` | [AwardOrStoreLinkedDestruction](../Source/Game/Universe/AwardOrStoreLinkedDestruction.asm) | приращение рейтинга либо сохранение номера участника уничтожения, Game.Universe.AwardOrStoreLinkedDestruction.Entry |
 | `#7DC5..#7EA8` | [SpawnDestructionContentsAndEffects](../Source/Game/Universe/SpawnDestructionContentsAndEffects.asm) | создание содержимого уничтоженного объекта и расширенные эффекты его проекции |
 | `#7EA9..#7EC7` | [AdvanceCircularObjectEffect](../Source/Game/Universe/AdvanceCircularObjectEffect.asm) | продвижение восьмифазного кругового эффекта объекта |
 | `#7EC8..#7EDD` | [GetObjectMetadataAddress](../Source/Game/Universe/GetObjectMetadataAddress.asm) | вычисление адреса расширенной записи по адресу основного слота |
 | `#7EDE..#7F2C` | [HandleFastTravelStep](../Source/Game/Universe/HandleFastTravelStep.asm) | быстрый перенос небесных тел и станции по команде движения |
 | `#7F2D..#7F63` | [MoveCoordinateDepthBy32](../Source/Game/Universe/MoveCoordinateDepthBy32.asm) | перенос знако-модульной глубины на 32 единицы |
-| `#7F64..#7F80` | [CheckSpecialSystemOrRandom](../Source/Game/Universe/CheckSpecialSystemOrRandom.asm) | особая инициализация станционного слота при Z от #FCEA, иначе получение случайного байта |
+| `#7F64..#7F80` | [CheckSpecialSystemOrRandom](../Source/Game/Universe/CheckSpecialSystemOrRandom.asm) | особая инициализация станционного слота либо получение случайного байта |
 | `#7F81..#7FBD` | [ApplyEnhancedFlightControl](../Source/Game/Universe/ApplyEnhancedFlightControl.asm) | усиление углов и скорости по дополнительной клавише |
 
 ## Wireframe
@@ -752,7 +752,7 @@
 | `#AE8A..#AECB` | [CorrectYAxisComponent](../Source/Game/Wireframe/CorrectYAxisComponent.asm) | коррекция одной компоненты Y для ортогональности к X |
 | `#AECC..#AF21` | [BuildObjectRotationMatrix](../Source/Game/Wireframe/BuildObjectRotationMatrix.asm) | восстановление оси Z и построение матрицы поворота объекта |
 | `#AF22..#AFA7` | [CrossProductComponent](../Source/Game/Wireframe/CrossProductComponent.asm) | разность двух знаковых произведений для компоненты векторного произведения |
-| `#B044..#B285` | [DrawClippedLine](../Source/Game/Wireframe/DrawClippedLine.asm) | арифметическое отсечение и два самомодифицируемых цикла линий OR/XOR |
+| `#B044..#B285` | [DrawClippedLine](../Source/Game/Wireframe/DrawClippedLine.asm) | выбор единственного байта маски, IX указывает в таблицу 8×8 масок в конце Game.Wireframe.RefreshScannerBackground |
 | `#B286..#B29E` | [MultiplyClippingDistance](../Source/Game/Wireframe/MultiplyClippingDistance.asm) | умножение расстояния до границы на коэффициент 8.8 |
 | `#B29F..#B2A9` | [UnscaleClippingRatio](../Source/Game/Wireframe/UnscaleClippingRatio.asm) | восстановление старших разрядов разностей перед делением |
 | `#B2AA..#B3B1` | [DivideSlopeAndDrawScanner](../Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm) | деление разностей линии и альтернативная проекция сканерного маркера |

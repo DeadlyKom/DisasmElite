@@ -40,6 +40,7 @@ StoreQuotient:  LD (IX + FSignWord.Low), C
                 INC IX
                 INC IX
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9EF1
                 endmodule

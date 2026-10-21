@@ -4,13 +4,13 @@
 ; сохранение нагрева и продолжения заливки круга
 ; исходный диапазон #8B3F..#8C28
 ; смысловое имя SetCabinHeatAndContinueFilledCircle
-; In: для #8B3F H — рассчитанный нагрев, #7103 — специальный режим, для #8B4B — состояние дуги
-; Out: #70EE=H либо 0, независимые входы рисуют заполненные строки
+; In: для Game.Circles.SetCabinHeatAndContinueFilledCircle.Entry H — рассчитанный нагрев, FlightState.SpaceMode — специальный режим, для Game.Circles.SetCabinHeatAndContinueFilledCircle.NextArcRow — состояние дуги
+; Out: GaugeState + FGaugeState.CabinHeat.Current=H либо 0, независимые входы рисуют заполненные строки
 ; Corrupt: первый вход AF, построители HL, DE, BC, AF, HL', DE', BC', AF'
-; #8B4B продолжает круг без бокового отсечения, #8BF8 начинает левый отсечённый вариант
+; Game.Circles.SetCabinHeatAndContinueFilledCircle.NextArcRow продолжает круг без бокового отсечения, Game.Circles.SetCabinHeatAndContinueFilledCircle.LeftFixedFill начинает левый отсечённый вариант
 ; Накопитель ошибки HL' увеличивается на 2*y+1 при изменении E' и на 2*x+1 при изменении C'
 ; Знак ошибки выбирает шаг по Y либо сужение горизонтальных краёв
-; #8BD2 — изменяемый JR внутрь шестнадцати PUSH AF, AF=#FFFF, SP указывает в строку экрана
+; Game.Circles.SetCabinHeatAndContinueFilledCircle.FillPairsJump — изменяемый JR внутрь шестнадцати PUSH AF, AF=#FFFF, SP указывает в строку экрана
 ; После заполнения настоящий SP восстанавливается до вызова помощника перехода строки
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -19,7 +19,7 @@
 Entry:          LD A, (FlightState.SpaceMode)
                 AND A
                 LD A, H
-                JR Z, StoreHeat                                                 ; переход, если специальный режим#7103 выключен, сохранить рассчитанный нагрев
+                JR Z, StoreHeat                                                 ; переход, если специальный режим FlightState.SpaceMode выключен, сохранить рассчитанный нагрев
 
                 XOR A
 StoreHeat:      LD (GaugeState + FGaugeState.CabinHeat.Current), A
@@ -148,11 +148,11 @@ SetFillPairs:   LD L, D
                 LD SP, CircleFillWord
                 POP AF
                 LD SP, HL
-                ; изменяемый переход, #8BD3 выбирает нужное число PUSH AF
+                ; изменяемый переход, CircleRaster.BothPairJump выбирает нужное число PUSH AF
 PairJump        EQU $ + 1                                                       ; смещение JR, выбор числа пар байтов для заполнения через PUSH AF
 FillPairsJump:  JR FillPairsJump
 
-                ; шестнадцать команд PUSH AF, каждая записывает два байта#FF в строку
+                ; шестнадцать команд PUSH AF, каждая записывает два байта #FF в строку
                 PUSH AF
                 PUSH AF
                 PUSH AF
@@ -185,21 +185,23 @@ StepFillDown:   CALL Game.Circles.StepCircleRowDown.Entry
 LeftFixedFill:  LD A, L
                 AND #1F
                 CP #20
-                JR NC, EmptyLeftFill                                            ; переход, если индекс столбца не меньше 32, ранний отказ, при штатной маске#1F условие недостижимо
+                JR NC, EmptyLeftFill                                            ; переход, если индекс столбца не меньше 32, ранний отказ, при штатной маске #1F условие недостижимо
 
                 LD A, (CircleState.DirectionDown)
                 AND A
                 JR NZ, LeftFillBottom                                           ; переход, если направление вниз, проверить нижний предел
+
 UpperLimit      EQU $ + 1                                                       ; верхний предел заполнения круга с левым отсечением
                 LD A, #BF
                 CP H
-                JR C, LeftFillStack                                             ; переход, если H выше#BF, строка допустима
+                JR C, LeftFillStack                                             ; переход, если H выше #BF, строка допустима
 
                 JR EmptyLeftFill
+
 LowerLimit      EQU $ + 1                                                       ; нижний предел заполнения круга с левым отсечением
 LeftFillBottom: LD A, #CF
                 CP H
-                JR NC, LeftFillStack                                            ; переход, если H не больше#CF, строка допустима
+                JR NC, LeftFillStack                                            ; переход, если H не больше #CF, строка допустима
 
                 ; возврат с удалением сохранённого AF
 EmptyLeftFill:  POP AF
@@ -222,6 +224,7 @@ FillLeft:       LD A, (HL)
                 ; заполнение внутренних байтов и переход к левой дуге
 FillLeftMiddle: CALL Game.Extensions.FillBackwardAndCountDemo.Entry
                 JR Game.Circles.SelectJumpAndContinueLeftFill.NextLeftRow
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #8C29
                 endmodule

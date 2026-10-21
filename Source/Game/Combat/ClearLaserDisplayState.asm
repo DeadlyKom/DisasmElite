@@ -6,11 +6,11 @@
 ; In:
 ;   нет
 ; Out:
-;   память 7043/7044 обнулена
+;   память MarketTable.FirearmPrice/MarketTable.FirearmEconomy обнулена
 ; Corrupt:
 ;   AF
 ; Note:
-; Общий ранний выход ProcessLaserAndEcm при ненулевом признаке гибели 711F.
+; Общий ранний выход ProcessLaserAndEcm при ненулевом признаке гибели FlightState.PlayerDead.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #B7AC
@@ -19,6 +19,7 @@ Entry:          XOR A
                 LD (MarketTable.FirearmPrice), A
                 LD (MarketTable.FirearmEconomy), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B7B4
                 endmodule

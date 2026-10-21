@@ -4,9 +4,9 @@
 ; Сохранение координат печати
 ; исходный диапазон #E364..#E36A
 ; In:
-;   D045/D046 = текущая позиция
+;   TextPosition/TextRow = текущая позиция
 ; Out:
-;   E1E6/E1E7 = копия позиции, HL = позиция
+;   MarketWork.TextPosition/MarketWork.TextPosition + 1 = копия позиции, HL = позиция
 ; Corrupt:
 ;   HL
 ; Note:
@@ -18,6 +18,7 @@
 Entry:          LD HL, (TextColumn)
                 LD (MarketWork.TextPosition), HL
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E36B
                 endmodule

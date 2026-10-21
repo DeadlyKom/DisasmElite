@@ -1,0 +1,710 @@
+{
+  "changes": [
+    {
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "old_comment": "После серии записей #8DDA восстанавливает SP и выбирает следующую экранную строку",
+      "new_comment": "после серии PUSH AF общий хвост восстанавливает SP из CircleState.SavedSP и выбирает StepFillDown либо шаг вверх"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "old_comment": "Байт#928B — исходный резерв после безусловного перехода, не выполняется",
+      "new_comment": "последний байт файла сохранён как исходный резерв после безусловного перехода и не выполняется"
+    },
+    {
+      "file": "Source/Game/Combat/CalculateFuelPurchasePrice.asm",
+      "old_comment": "отдельный вход по #9BA6 не подтверждён, перекрытие не вводится",
+      "new_comment": "отдельный вход в эту сохранённую последовательность не подтверждён"
+    },
+    {
+      "file": "Source/Game/Combat/DivideAndCombatState.asm",
+      "old_comment": "состояния FlightState.PlayerDead, FlightState.View, лазеры #D07D..#D080 и события InputState.DeviceKeys",
+      "new_comment": "состояния FlightState.PlayerDead, FlightState.View, лазеры State.FrontLaser..State.RightLaser и события InputState.DeviceKeys"
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "old_comment": "Лазер выбирается из D07D..D080 по виду. Тип 1 задаёт маску темпа 1, тип 4 маску 7, остальные 0.",
+      "new_comment": "Лазер выбирается из State.FrontLaser..State.RightLaser по виду. Тип 1 задаёт маску темпа 1, тип 4 маску 7, остальные 0."
+    },
+    {
+      "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
+      "old_comment": "первое чтение A по #9C68 затем безусловно заменяется значением B",
+      "new_comment": "в сохранённом хвосте LegacyCell результат первого LD A, (HL) затем безусловно заменяется значением B"
+    },
+    {
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "old_comment": "память D07D..D080, лазеры по направлениям",
+      "new_comment": "память State.FrontLaser..State.RightLaser, лазеры по направлениям"
+    },
+    {
+      "file": "Source/Game/Data/LaunchCounter.asm",
+      "old_comment": "эти байты не входят в 102-байтную область сохранения #D054..#D0B9",
+      "new_comment": "эти байты не входят в 102-байтную область сохранения State"
+    },
+    {
+      "file": "Source/Game/Disk/LoadDiskMenuOverlay.asm",
+      "old_comment": "паузы, D956..D974 содержит отдельный старый TR-DOS-шлюз, вход D96A ведёт в его общий хвост",
+      "new_comment": "паузы, CallDosInline сохраняет старый TR-DOS-шлюз, EnterDiskRom выполняет его общий выход в ПЗУ"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Coriolis, два абсолютных указателя, пороги #644E, пары вершин #6452",
+      "new_comment": "Coriolis, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Missile, два абсолютных указателя, пороги #64E6, пары вершин #64EB",
+      "new_comment": "Missile, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "EscapePod, Minerals, два абсолютных указателя, пороги #653A, пары вершин #653C",
+      "new_comment": "EscapePod, Minerals, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Alloys, два абсолютных указателя, пороги #656D, пары вершин #6571",
+      "new_comment": "Alloys, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Cargo, Tharglet, два абсолютных указателя, пороги #65AF, пары вершин #65B1",
+      "new_comment": "Cargo, Tharglet, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Asteroid, AsteroidArmed, два абсолютных указателя, пороги #6647, пары вершин #6649",
+      "new_comment": "Asteroid, AsteroidArmed, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Viper, два абсолютных указателя, пороги #66E6, пары вершин #66EE",
+      "new_comment": "Viper, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "CobraPirate, CobraTrader, два абсолютных указателя, пороги #67BA, пары вершин #67C9",
+      "new_comment": "CobraPirate, CobraTrader, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "PythonPirate, PythonTrader, два абсолютных указателя, пороги #6868, пары вершин #686C",
+      "new_comment": "PythonPirate, PythonTrader, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Asp, два абсолютных указателя, пороги #6917, пары вершин #6922",
+      "new_comment": "Asp, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "FerDeLance, два абсолютных указателя, пороги #69D4, пары вершин #69E5",
+      "new_comment": "FerDeLance, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Thargoid, два абсолютных указателя, пороги #6A8E, пары вершин #6A92",
+      "new_comment": "Thargoid, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Sidewinder, два абсолютных указателя, пороги #6AFD, пары вершин #6B02",
+      "new_comment": "Sidewinder, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Adder, два абсолютных указателя, пороги #6B8B, пары вершин #6B92",
+      "new_comment": "Adder, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Thargoid6, два абсолютных указателя, пороги #6C72, пары вершин #6C75",
+      "new_comment": "Thargoid6, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Fighter1, два абсолютных указателя, пороги #6D3A, пары вершин #6D44",
+      "new_comment": "Fighter1, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Fighter2, два абсолютных указателя, пороги #6E00, пары вершин #6E08",
+      "new_comment": "Fighter2, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "old_comment": "Krait, два абсолютных указателя, пороги #6E98, пары вершин #6EA7",
+      "new_comment": "Krait, два абсолютных указателя на следующие ниже таблицы порогов и пар вершин"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawSmallSilhouetteAlternate.asm",
+      "old_comment": "Out: A=#AF перед общей частью #FB33",
+      "new_comment": "Out: A=#AF перед общей частью Game.Extensions.DrawSmallSilhouette.Entry после XOR A"
+    },
+    {
+      "file": "Source/Game/Extensions/EnergyBombAndFlashVectors.asm",
+      "old_comment": "#6FF5 содержит самостоятельный исходный JP Game.Extensions.FlashViewAttributes.Entry, прямой вызывающий адрес в исследуемом коде не найден",
+      "new_comment": "после первого JP сохранён отдельный переход в Game.Extensions.FlashViewAttributes.Entry, прямых входящих вызовов не найдено"
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "old_comment": "Последняя ADD A,A продолжается в следующем файле с адреса #6000",
+      "new_comment": "последняя ADD A, A передаёт поток в Game.Data.SystemBoundaryAndObjects.Continue"
+    },
+    {
+      "file": "Source/Game/Extensions/PrintPlanetInvasionStatus.asm",
+      "old_comment": "Тексты подтверждены собственным вторым банком #F5B9/#F5C6, рекурсией Game.Text.PrintDescriptionByte.Entry/Game.Text.PrintDescriptionToken.Entry и слогами TextSyllables",
+      "new_comment": "токены #56/#57 находятся в MessageTable.Description, раскрываются PrintDescriptionByte и PrintDescriptionToken через TextSyllables"
+    },
+    {
+      "file": "Source/Game/Extensions/PrintPlanetInvasionStatus.asm",
+      "old_comment": "POP HL удаляет возврат к #EE8F, хвостовой JP Game.Text.PrintDescriptionToken.Entry возвращает управление сразу внешнему экрану описания",
+      "new_comment": "POP HL удаляет возврат к записи GalaxyState.TextSeed внутри Game.Menus.PrintSystemStatistics.Description, хвостовой JP возвращает сразу внешнему экрану"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateSpecialCargoStatus.asm",
+      "old_comment": "Out: при Z из Game.Menus.ApplyMissionMarketRestrictions.Entry разность #D07A-#D077 записана в State.Cargo + FGoods.Gemstones либо State.MineralLife",
+      "new_comment": "Out: при Z из ApplyMissionMarketRestrictions разность количеств Gemstones и Minerals записана в State.Cargo + FGoods.Gemstones либо State.MineralLife"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateSpecialCargoStatus.asm",
+      "old_comment": "Если State.Cargo + FGoods.Gemstones<State.Cargo + FGoods.Minerals, сначала L меняется на #87 и C=1 запрещает звуковой сигнал",
+      "new_comment": "если драгоценных камней меньше минералов, L выбирает State.MineralLife, перенос запрещает звуковой сигнал"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndFinishGlyph.asm",
+      "old_comment": "Прямой JP Game.Extensions.UpdateStationAndFinishGlyph.FinishGlyph находится по #D543, PUSH HL по #D507 сохраняет адрес глифа, POP DE его извлекает",
+      "new_comment": "Game.Text.DrawCharacter8x8.Entry сохраняет адрес глифа через PUSH HL и передаёт поток в FinishGlyph, POP DE извлекает этот адрес"
+    },
+    {
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "old_comment": "TunnelPhase меняет цель JR Z с Game.Flight.AnimateTransitionTunnel.ShowFrame на Game.Flight.AnimateTransitionTunnel.FadeTunnel,TunnelLimit порог затухания,TunnelFinish выбирает 9341,Game.Flight.AnimateTransitionTunnel.EndLaunch или Game.Flight.AnimateTransitionTunnel.EndDocking",
+      "new_comment": "TunnelPhase выбирает ShowFrame либо FadeTunnel, TunnelLimit хранит порог затухания, TunnelFinish выбирает завершение гиперперехода, EndLaunch либо EndDocking"
+    },
+    {
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "old_comment": "9341 очищает оба флага перехода и вычитает 190 из 16 глубин,Game.Flight.AnimateTransitionTunnel.EndDocking снимает ViewKeyLock,Game.Flight.AnimateTransitionTunnel.EndDockTunnel снимает JumpMode и",
+      "new_comment": "хвост FadeTunnel обнуляет ViewKeyLock и JumpMode и вычитает 190 из 16 HyperDepths, EndDocking снимает ViewKeyLock, EndDockTunnel снимает JumpMode и"
+    },
+    {
+      "file": "Source/Game/Flight/ClearFlightKeyEvents.asm",
+      "old_comment": "FC08..FC0C=0, далее общий Game.Flight.ClearBytes.Entry",
+      "new_comment": "InputState.ScreenKeys..InputState.ChartKeys=0, далее общий Game.Flight.ClearBytes.Entry"
+    },
+    {
+      "file": "Source/Game/Flight/HandlePauseMenu.asm",
+      "old_comment": "таблице действий 7308",
+      "new_comment": "второй таблице IndexPauseCommandAndHandlers, которая находится сразу после PauseKeyMap"
+    },
+    {
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "old_comment": "SPACE проходит XOR A по 7319 и возвращает C=0, Q входит 731A и сохраняет C=1, оба очищают пять",
+      "new_comment": "SPACE исполняет XOR A перед общим хвостом очистки и возвращает C=0, Q пропускает XOR A и сохраняет C=1, оба очищают пять"
+    },
+    {
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "old_comment": "K по Game.Flight.IndexPauseCommandAndHandlers.ToggleJoystick переключает младшие два бита джойстика, C по 7339 инвертирует bit1 операнда InputViewSkip",
+      "new_comment": "команда K через ToggleJoystick переключает младшие два бита джойстика, команда C инвертирует bit1 операнда InputViewSkip"
+    },
+    {
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "old_comment": "При отсутствии Mk4 JR733E входит на байт DF внутри CALL Game.Galaxy.OnesComplementDifference.ToggleBit1, альтернативная инструкция RST18",
+      "new_comment": "при отсутствии Mk4 переход NoUpgrade исполняет старший байт адреса CALL как RST #18"
+    },
+    {
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "old_comment": "пробел сбрасывает перенос, Q входит 731A с сохранённым переносом",
+      "new_comment": "пробел сбрасывает перенос через XOR A, Q начинает со следующей LD A, #00 и сохраняет перенос"
+    },
+    {
+      "file": "Source/Game/Galaxy/AdvanceGalaxySeed.asm",
+      "old_comment": "State.Galaxy = индекс, D090..D095 = исходное семя",
+      "new_comment": "State.Galaxy = индекс, State.GalaxySeed = исходное семя"
+    },
+    {
+      "file": "Source/Game/Galaxy/AdvanceSystemSeed.asm",
+      "old_comment": "DEC0..DEC5 = текущее семя",
+      "new_comment": "GalaxyState.WorkingSeed = текущее семя"
+    },
+    {
+      "file": "Source/Game/Galaxy/CopySystemNameToTarget.asm",
+      "old_comment": "DEED..DEF4 обновлены, HL=DEE3, DE=DEF5, BC=0",
+      "new_comment": "восемь букв GalaxyState.TargetName обновлены, HL указывает на завершающий ноль GeneratedName, DE на ноль TargetName, BC=0"
+    },
+    {
+      "file": "Source/Game/Galaxy/DeriveSystemProperties.asm",
+      "old_comment": "DEC0..DEC5 = семя планеты",
+      "new_comment": "GalaxyState.WorkingSeed = семя планеты"
+    },
+    {
+      "file": "Source/Game/Galaxy/DeriveSystemProperties.asm",
+      "old_comment": "DEBA..DEBF копия семени, TargetX/TargetY координаты, DEF8..DEFD характеристики",
+      "new_comment": "GalaxyState.TargetSeed копия семени, TargetX/TargetY координаты, поля GalaxyState.Economy, Government, Technology, Population и Productivity характеристики"
+    },
+    {
+      "file": "Source/Game/Galaxy/FindNearestSystem.asm",
+      "old_comment": "TargetX/TargetY = целевая точка, D090..D095 = семя галактики",
+      "new_comment": "TargetX/TargetY = целевая точка, State.GalaxySeed = семя галактики"
+    },
+    {
+      "file": "Source/Game/Galaxy/FindNearestSystem.asm",
+      "old_comment": "DEBA..DEBF параметры выбранной планеты, GalaxyState.TargetName имя, GalaxyState.Distance расстояние от текущей системы",
+      "new_comment": "GalaxyState.TargetSeed параметры выбранной планеты, GalaxyState.TargetName имя, GalaxyState.Distance расстояние от текущей системы"
+    },
+    {
+      "file": "Source/Game/Galaxy/FindSystemByExactName.asm",
+      "old_comment": "GalaxyState.InputBuffer = строка с нулём, D090..D095 = семя галактики",
+      "new_comment": "GalaxyState.InputBuffer = строка с нулём, State.GalaxySeed = семя галактики"
+    },
+    {
+      "file": "Source/Game/Galaxy/GenerateSystemName.asm",
+      "old_comment": "DEC0..DEC5 = семя",
+      "new_comment": "GalaxyState.WorkingSeed = семя"
+    },
+    {
+      "file": "Source/Game/Galaxy/LoadGalaxySeed.asm",
+      "old_comment": "D090..D095 = исходное семя",
+      "new_comment": "State.GalaxySeed = исходное семя"
+    },
+    {
+      "file": "Source/Game/Galaxy/LoadGalaxySeed.asm",
+      "old_comment": "DEC0..DEC5 обновлены, BC=0",
+      "new_comment": "GalaxyState.WorkingSeed обновлены, BC=0"
+    },
+    {
+      "file": "Source/Game/Galaxy/RestoreWorkingSystemSeed.asm",
+      "old_comment": "DEC6..DECB = сохранённое семя",
+      "new_comment": "GalaxyState.SavedSeed = сохранённое семя"
+    },
+    {
+      "file": "Source/Game/Galaxy/RestoreWorkingSystemSeed.asm",
+      "old_comment": "DEC0..DEC5 обновлены, HL=GalaxyState.TextSeed, DE=GalaxyState.SavedSeed, BC=0",
+      "new_comment": "GalaxyState.WorkingSeed обновлены, HL=GalaxyState.TextSeed, DE=GalaxyState.SavedSeed, BC=0"
+    },
+    {
+      "file": "Source/Game/Galaxy/SaveWorkingSystemSeed.asm",
+      "old_comment": "DEC0..DEC5 = рабочее семя",
+      "new_comment": "GalaxyState.WorkingSeed = рабочее семя"
+    },
+    {
+      "file": "Source/Game/Galaxy/SaveWorkingSystemSeed.asm",
+      "old_comment": "DEC6..DECB = копия, BC=0",
+      "new_comment": "GalaxyState.SavedSeed = копия, BC=0"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "общий хвост #FCA6 проверяет именно 0 [6], снимает его и проверяет InputState.ViewJumpKeys.7",
+      "new_comment": "общий хвост Game.Input.ResetDemoAndNormalizeControls.MergeControls проверяет клавишу 0 по SYS_0_BIT, снимает её и проверяет InputState.ViewJumpKeys.7"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode2.asm",
+      "old_comment": "Для принятого байта шины #FF слово #FDFF/#FE00 равно InterruptGate и ведёт в InterruptGate",
+      "new_comment": "при байте шины #FF два последних байта после Game.Input.ScanKeyboardMatrix.GalaxyFormat образуют адрес InterruptGate"
+    },
+    {
+      "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+      "old_comment": "#FC3B содержит сохранённое слово Game.Input.ResetDemoAndNormalizeControls.SwapAxisPairs, исполняемый участок начинается Game.Input.ResetDemoAndNormalizeControls.DigitalAxes",
+      "new_comment": "перед DigitalAxes сохранено слово с адресом SwapAxisPairs, поток этого входа начинается в DigitalAxes"
+    },
+    {
+      "file": "Source/Game/Input/ScanKeyboardMatrix.asm",
+      "old_comment": "InputState.NumberKeys обнуляется перед опросом цифровых направлений, #FC08..#FC0C целиком не очищаются",
+      "new_comment": "InputState.NumberKeys обнуляется перед опросом цифровых направлений, InputState.ScreenKeys..InputState.ChartKeys целиком не очищаются"
+    },
+    {
+      "file": "Source/Game/Input/ScanKeyboardMatrix.asm",
+      "old_comment": "С LaserTariffs размещены параметры и таблицы слогов, с #FDFE три байта #FE поддерживают IM2",
+      "new_comment": "с LaserTariffs размещены параметры и таблицы слогов, три байта #FE после GalaxyFormat поддерживают IM2"
+    },
+    {
+      "file": "Source/Game/Input/ScanKeyboardMatrix.asm",
+      "old_comment": "три байта #FE, вектор при байте шины #FF читается из #FDFF/#FE00",
+      "new_comment": "три байта #FE после GalaxyFormat, последние два дают адрес InterruptGate при байте шины #FF"
+    },
+    {
+      "file": "Source/Game/Input/SetPressedKeyAssignment.asm",
+      "old_comment": "Out: InputState.LastKey получает код символа, один байт в #FC08..#FC0F дополнен маской",
+      "new_comment": "Out: InputState.LastKey получает код символа, один байт в InputState.ScreenKeys..InputState.NumberKeys дополнен маской"
+    },
+    {
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "old_comment": "#FD23..#FD40 — проверка специального допуска, прямой CALL расположен по #E6BB в обработчике приёма беженцев",
+      "new_comment": "CheckPilot проверяет специальный допуск по CALL из Game.Charts.NextScreenCharacterRowAndRefugees.OfferRefugees"
+    },
+    {
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "old_comment": "#FD41..#FD68 — таблица 40 кодов символов в порядке сканирования матрицы",
+      "new_comment": "KeyCharacters — таблица 40 кодов символов в порядке сканирования матрицы"
+    },
+    {
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "old_comment": "проверка пилота и военного допуска по прямому вызову #E6BB",
+      "new_comment": "проверка пилота и военного допуска для Game.Charts.NextScreenCharacterRowAndRefugees.OfferRefugees"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "old_comment": "MapCircleX/MapCircleY координаты курсора, MapRadius радиус топливного круга, D054..D0B9 сериализуемый блок",
+      "new_comment": "MapCircleX/MapCircleY координаты курсора, MapRadius радиус топливного круга, State сериализуемый блок"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "old_comment": "102 байта, D0BD..D0D0 десять пар сообщений, D0D1..D0D4 режимы регистра текста, Game.Interface.DispatchDiskAndCommanderState.ShowBoarding",
+      "new_comment": "102 байта, FlightEvents десять пар сообщений, D0D1..D0D4 режимы регистра текста, Game.Interface.DispatchDiskAndCommanderState.ShowBoarding"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "old_comment": "сохранённое слово D508, адрес загрузки экранной базы",
+      "new_comment": "сохранённый указатель на LD HL, Memory.Screen в Game.Text.DrawCharacter8x8.Entry"
+    },
+    {
+      "file": "Source/Game/Menus/MapCaptionAndGalaxyChart.asm",
+      "old_comment": "Заголовок выведен, при входе EB7D построена карта 256 систем",
+      "new_comment": "заголовок выведен, вход GalaxyChart строит карту 256 систем"
+    },
+    {
+      "file": "Source/Game/Menus/MapCaptionAndGalaxyChart.asm",
+      "old_comment": "Game.Menus.MapCaptionAndGalaxyChart.Entry печатает заголовок, заполняет 64 атрибута цветом 17 и рисует линию Memory.Screen + #0740, EB7D задаёт",
+      "new_comment": "Game.Menus.MapCaptionAndGalaxyChart.Entry печатает заголовок, заполняет 64 атрибута цветом 17 и рисует линию Memory.Screen + #0740, GalaxyChart задаёт"
+    },
+    {
+      "file": "Source/Game/Menus/OpenCommanderStatus.asm",
+      "old_comment": "Сериализуемое состояние D054..D0B9",
+      "new_comment": "Сериализуемое состояние State"
+    },
+    {
+      "file": "Source/Game/Menus/PrintLabelOnUnusedRow.asm",
+      "old_comment": "При ненулевом признаке строки возвращается без вывода, EDDE отдельный экран информации",
+      "new_comment": "при ненулевом признаке строки Entry возвращается без вывода, отдельный вход ShowSystem открывает экран информации"
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemStatistics.asm",
+      "old_comment": "DEF8..DEFD и DEBA..DEBF = характеристики",
+      "new_comment": "поля GalaxyState.Economy, Government, Technology, Population и Productivity и GalaxyState.TargetSeed = характеристики"
+    },
+    {
+      "file": "Source/Game/Missions/ShowBoardingMessage.asm",
+      "old_comment": "после новой клавиши окно очищено, биты нажатий #FC08..#FC0B сброшены",
+      "new_comment": "после новой клавиши окно очищено, биты нажатий InputState.ScreenKeys..InputState.DeviceKeys сброшены"
+    },
+    {
+      "file": "Source/Game/Missions/ShowBoardingMessage.asm",
+      "old_comment": "окно очищено, после 36 HALT сброшены #FC08..#FC0B",
+      "new_comment": "окно очищено, после 36 HALT сброшены InputState.ScreenKeys..InputState.DeviceKeys"
+    },
+    {
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "old_comment": "память #70E4..#70E6, углы LR, DU и скорость игрока",
+      "new_comment": "память FlightState.Roll, FlightState.Pitch и FlightState.Speed, углы LR, DU и скорость игрока"
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "old_comment": "Код цели преобразуется в слот как #6021+(9-код)*39, для допустимых кодов 1..8.",
+      "new_comment": "код цели 1..8 выбирает слот Memory.Station + (8 - код) * FSpaceObject"
+    },
+    {
+      "file": "Source/Game/Resources/CockpitAttrs.asm",
+      "old_comment": "при выводе сканера Game.Scanner.SaveScannerBackground.Entry использует #5B00..#5D6F для 624 байтов чистого фона",
+      "new_comment": "при выводе сканера Game.Scanner.SaveScannerBackground.Entry использует Memory.CockpitAttrs для 624 байтов чистого фона"
+    },
+    {
+      "file": "Source/Game/Resources/SystemShadow.asm",
+      "old_comment": "во время полёта это также продолжение буфера фона сканера #5B00..#5D6F",
+      "new_comment": "во время полёта это также продолжение буфера фона сканера Memory.CockpitAttrs"
+    },
+    {
+      "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+      "old_comment": "ScannerState.Redraw=1 для восстановления, фон 5B00..5D6F",
+      "new_comment": "ScannerState.Redraw=1 для восстановления, фон Memory.CockpitAttrs"
+    },
+    {
+      "file": "Source/Game/Scanner/SaveScannerBackground.asm",
+      "old_comment": "624 байта фона скопированы в 5B00..5D6F",
+      "new_comment": "624 байта фона скопированы в Memory.CockpitAttrs"
+    },
+    {
+      "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+      "old_comment": "9945 сохранённый нулевой байт после RET",
+      "new_comment": "после общего RET сохранён один нулевой байт, входящих обращений к нему не найдено"
+    },
+    {
+      "file": "Source/Game/Screen/ConsumeEscapePod.asm",
+      "old_comment": "далее #8491..#84B4 хранится сжатый по строкам фон компаса шириной три байта",
+      "new_comment": "далее CompassBitmap хранится сжатый по строкам фон компаса шириной три байта"
+    },
+    {
+      "file": "Source/Game/Screen/NextScanline.asm",
+      "old_comment": "байт RET по #7FEF является отдельным сохранённым пустым входом",
+      "new_comment": "последний RET после общего перехода сохранён как отдельный пустой вход"
+    },
+    {
+      "file": "Source/Game/Screen/PlanetDistanceHint.asm",
+      "old_comment": "результат общего хвоста #8402",
+      "new_comment": "результат общей части Game.Screen.SunDistanceHint.Entry после выбора младшего байта адреса"
+    },
+    {
+      "file": "Source/Game/Screen/PlanetDistanceHint.asm",
+      "old_comment": "путь Game.Screen.PlanetDistanceHint.Entry продолжает LD H,#71 по #8402 с L=#10, путь Game.Screen.SunDistanceHint.Entry с L=#07",
+      "new_comment": "оба входа доходят до общей LD H, #71, планетный путь приносит L=#10, солнечный L=#07"
+    },
+    {
+      "file": "Source/Game/Screen/PlanetDistanceHint.asm",
+      "old_comment": "промежуточный RLCA по #8401 не влияет на итог, A затем загружается заново",
+      "new_comment": "при планетном входе операнд LD L, #07 исполняется как RLCA, результат A затем заменяется координатой"
+    },
+    {
+      "file": "Source/Game/Screen/PreviousCharacterRow.asm",
+      "old_comment": "#845F копирует спрайт шириной 3 байта и высотой 24 строки",
+      "new_comment": "подготовка перед CopySpriteRow задаёт 24 строки спрайта по три последовательных байта"
+    },
+    {
+      "file": "Source/Game/Screen/ResetCargoCapacity.asm",
+      "old_comment": "#80D1..#80D2 являются словом сохранённого SP диспетчера, не инструкцией",
+      "new_comment": "MenuDispatch.SavedSP являются словом сохранённого SP диспетчера, не инструкцией"
+    },
+    {
+      "file": "Source/Game/Screen/WriteStridedTriple.asm",
+      "old_comment": "вход Game.Screen.WriteStridedTriple.Entry заканчивается RET по #821D, BC, DE и A сохраняются",
+      "new_comment": "вход Entry заканчивается собственным RET, BC, DE и A сохраняются"
+    },
+    {
+      "file": "Source/Game/Screen/WriteStridedTriple.asm",
+      "old_comment": "общий хвост обработки близкой планеты, вход из #8215",
+      "new_comment": "общий хвост обработки близкой планеты, переход из Game.Screen.UpdateCelestialProximity.Entry"
+    },
+    {
+      "file": "Source/Game/Sound/DivideBC16.asm",
+      "old_comment": "HL и DE не изменяются, единственный RET расположен в #96D5",
+      "new_comment": "HL и DE не изменяются, возврат выполняет общий хвост Game.Sound.DivideBC2.Entry"
+    },
+    {
+      "file": "Source/Game/Sound/PlayLaunchSound.asm",
+      "old_comment": "действующий вход, #93CD переходит сюда командой JP",
+      "new_comment": "действующий вход, Game.Flight.DivideByteFractionForTunnel.FinishTunnel передаёт управление сюда через JP"
+    },
+    {
+      "file": "Source/Game/Sound/StartLaunchNoise.asm",
+      "old_comment": "#9538 вызывает этот вход перед синхронным ожиданием",
+      "new_comment": "Game.Sound.PlayLaunchSound.HyperSound вызывает этот вход перед синхронным ожиданием"
+    },
+    {
+      "file": "Source/Game/Text/ApplyTextCase.asm",
+      "old_comment": "AF, A = символ, D0D1..D0D3 = режимы регистра",
+      "new_comment": "AF, A = символ, LetterCase, WordStart и CapitalNext = режимы регистра"
+    },
+    {
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "old_comment": "Game.Text.CapitalizeNextLetterAndTextCommands.RandomName генерирует случайное имя из слогов описания, D8A9/D8AE задают режим 2/1 в LetterCase,",
+      "new_comment": "RandomName генерирует имя из слогов описания, два входа перед StoreCaseMode задают LetterCase равным 2 либо 1"
+    },
+    {
+      "file": "Source/Game/Text/CheckMineralLifeColony.asm",
+      "old_comment": "колония требует State.Cargo + FGoods.Minerals>=3",
+      "new_comment": "колония требует не меньше трёх тонн в поле State.Cargo + FGoods.Minerals"
+    },
+    {
+      "file": "Source/Game/Text/CheckObjectRandomGate.asm",
+      "old_comment": "D61B/D61C отдельное слово CFF8",
+      "new_comment": "после RET сохранено отдельное слово #CFF8, подтверждённого потребителя не найдено"
+    },
+    {
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "old_comment": "вход основного принтера #D427, LD HL,#2EF2 и следующий NOP задают L=#F2",
+      "new_comment": "JP C из Game.Text.PrintMainToken.Entry выбирает MainCommand, LD HL, #2EF2 и следующий NOP задают L=#F2"
+    },
+    {
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "old_comment": "вход второго принтера #D47B, LD L,#00 и DEC L дают базу второй таблицы #D7FF",
+      "new_comment": "JP C из Game.Text.PrintDescriptionByte.Entry выбирает DescCommand, LD L, #00 и DEC L дают базу второй таблицы команд"
+    },
+    {
+      "file": "Source/Game/Text/DrawViewFrame.asm",
+      "old_comment": "линия Memory.Screen + #17E0, D673/D674 после RET являются отдельными байтами",
+      "new_comment": "линия Memory.Screen + #17E0, после RET сохранены два отдельных байта"
+    },
+    {
+      "file": "Source/Game/Text/FillInnerAttributeRow.asm",
+      "old_comment": "Game.Text.FillInnerAttributeRow.IgnoreToken содержит отдельный RET, D55D/D55E рабочие байты",
+      "new_comment": "IgnoreToken содержит отдельный RET, после него сохранены два байта"
+    },
+    {
+      "file": "Source/Game/Text/InitializeSixTriples.asm",
+      "old_comment": "738E..7393 = шесть старших байтов",
+      "new_comment": "DistantSigns = шесть старших байтов"
+    },
+    {
+      "file": "Source/Game/Text/InitializeSixTriples.asm",
+      "old_comment": "8ABA..8ACB = шесть записей 00, 00, байт",
+      "new_comment": "DistantBodies.First и DistantBodies.Second = шесть записей 00, 00, байт"
+    },
+    {
+      "file": "Source/Game/Text/SetDescriptionModeAndHelpers.asm",
+      "old_comment": "Game.Text.SetDescriptionModeAndHelpers.RowSix/D8F3 устанавливают Y=6 или 10, Game.Text.SetDescriptionModeAndHelpers.PrintLetter печатает байт(HL) кроме 3F, D8FF..D906 содержат",
+      "new_comment": "RowSix и вход непосредственно перед SetRow устанавливают Y=6 либо 10, Game.Text.SetDescriptionModeAndHelpers.PrintLetter печатает байт(HL) кроме 3F, после PrintLetter сохранены восемь байтов, это"
+    },
+    {
+      "file": "Source/Game/Trade/ChooseLaserDirection.asm",
+      "old_comment": "Старый тип через FD89 переводится в номер тарифа EquipmentTable.Base, обе группы денег возвращаются",
+      "new_comment": "старый тип лазера индексирует LaserTariffs от базы LaserTariffs - 1, затем EquipmentTable.Base задаёт возвращаемую цену"
+    },
+    {
+      "file": "Source/Game/Trade/ClearPressedKeyBits.asm",
+      "old_comment": "FC08..FC0B=0, HL=InputState.ChartKeys, B=0, прерывания включены",
+      "new_comment": "InputState.ScreenKeys..InputState.DeviceKeys=0, HL=InputState.ChartKeys, B=0, прерывания включены"
+    },
+    {
+      "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+      "old_comment": "BuyAttributes/E6F9 являются сохранёнными байтами, Game.Trade.ResetCloakingAndSeedFlightRandom.PrepareBuy исправляет нулевую цену, Game.Trade.ResetCloakingAndSeedFlightRandom.OpenBuy начинает меню",
+      "new_comment": "два байта BuyAttributes являются сохранёнными байтами, Game.Trade.ResetCloakingAndSeedFlightRandom.PrepareBuy исправляет нулевую цену, Game.Trade.ResetCloakingAndSeedFlightRandom.OpenBuy начинает меню"
+    },
+    {
+      "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+      "old_comment": "основной вход #E6F1, LD A,(State.MarketRandom)",
+      "new_comment": "основной путь Entry читает State.MarketRandom командой LD A, (nn)"
+    },
+    {
+      "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+      "old_comment": "альтернативный вход Game.Trade.ResetCloakingAndSeedFlightRandom.BusyCargo из #E6B3, LD L,D, затем RET NC по #E6F3",
+      "new_comment": "OfferRefugees переходит в BusyCargo внутрь операнда LD A, (nn), байты исполняются как LD L, D и RET NC"
+    },
+    {
+      "file": "Source/Game/Trade/RestoreTradeSnapshot.asm",
+      "old_comment": "E8A4..E8AA = снимок, текущие указатели неизменны",
+      "new_comment": "TradeSnapshot = снимок, текущие указатели неизменны"
+    },
+    {
+      "file": "Source/Game/Trade/RollbackFailedTrade.asm",
+      "old_comment": "Рабочий снимок E8A4..E8AA",
+      "new_comment": "Рабочий снимок TradeSnapshot"
+    },
+    {
+      "file": "Source/Game/Trade/SnapshotTrade.asm",
+      "old_comment": "E8A4..E8AA содержат деньги, груз, остаток и свободные тонны",
+      "new_comment": "TradeSnapshot содержат деньги, груз, остаток и свободные тонны"
+    },
+    {
+      "file": "Source/Game/Travel/BuildPlanetCoordinateMagnitude.asm",
+      "old_comment": "Запись результата выполняет вызывающий, после RET лежит отдельная инструкция DD5D записи A в",
+      "new_comment": "запись результата выполняет вызывающий, после RET сохранено отдельное LD (nn), A в поле"
+    },
+    {
+      "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+      "old_comment": "вариант исполнения #DCCC, RR A",
+      "new_comment": "обычный путь Witchspace исполняет всю команду RR A"
+    },
+    {
+      "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+      "old_comment": "вариант исполнения #DCCD, RRA",
+      "new_comment": "перекрывающий вход на втором байте RR A исполняет RRA"
+    },
+    {
+      "file": "Source/Game/Travel/EnterTargetSystem.asm",
+      "old_comment": "DEBA..DEBF = семя выбранной планеты, GalaxyState.TargetName = её имя",
+      "new_comment": "GalaxyState.TargetSeed = семя выбранной планеты, GalaxyState.TargetName = её имя"
+    },
+    {
+      "file": "Source/Game/Travel/EnterTargetSystem.asm",
+      "old_comment": "D096..D09B и GalaxyState.CurrentName обновлены, установлены параметры нового пространства",
+      "new_comment": "State.SystemSeed и GalaxyState.CurrentName обновлены, установлены параметры нового пространства"
+    },
+    {
+      "file": "Source/Game/Travel/SelectQueuedFlightMessage.asm",
+      "old_comment": "FlightMessage.Frames = оставшееся время, D0BD..D0D0 = десять пар событий",
+      "new_comment": "FlightMessage.Frames = оставшееся время, FlightEvents = десять пар событий"
+    },
+    {
+      "file": "Source/Game/Universe/AddSignedStarCoordinate.asm",
+      "old_comment": "действующий вызов Game.Flight.IndexPauseCommandAndHandlers.ToggleScanner, обработчик клавиши L таблицы меню паузы #7308",
+      "new_comment": "действующий вызов Game.Flight.IndexPauseCommandAndHandlers.ToggleScanner, обработчик клавиши L второй таблицы команд после PauseKeyMap"
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "old_comment": "70E4..70E6 при нажатии преобразованы",
+      "new_comment": "FlightState.Roll, FlightState.Pitch и FlightState.Speed при нажатии преобразованы"
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "old_comment": "Вход Game.Universe.ApplyEnhancedFlightControl.CheckRefugees вызывается отдельно из #E8B7 для проверки доставки беженцев.",
+      "new_comment": "CheckRefugees вызывается отдельно из Game.Trade.PromptCargoQuantityAndRefugees.UnloadRefugees для проверки доставки беженцев"
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "old_comment": "действующий CALL #E8B7 перед расходом бита 5 по State.MissionFlags",
+      "new_comment": "CALL из Game.Trade.PromptCargoQuantityAndRefugees.UnloadRefugees перед снятием MS_CARGO_BIT в State.MissionFlags"
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "old_comment": "IY, модель для отдельного входа 7B15",
+      "new_comment": "IY, модель для отдельного входа ReadLaserPoint"
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "old_comment": "для 7B15 сохранены две экранные точки",
+      "new_comment": "ReadLaserPoint сохраняет две экранные точки"
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "old_comment": "Отдельный вход 7B15 сохраняет проекцию лазерной вершины IY+14 в+1..3 и вершины 3 в+4..6.",
+      "new_comment": "ReadLaserPoint сохраняет проекцию вершины FModel.LaserVertex и вершины 3 в две тройки экранных координат записи FEffectRecord10"
+    },
+    {
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "old_comment": "память 757A..7582, трёхбайтовые X/Y/Z со знаком",
+      "new_comment": "память Game.Flight.MainGameLoop.BodyX, BodyY и BodyZ, трёхбайтовые X/Y/Z со знаком"
+    },
+    {
+      "file": "Source/Game/Universe/SelectSpecialCargoText.asm",
+      "old_comment": "Используется списком груза Game.Extensions.PrintCargoAndMessageBanks.Entry. Блок 7A39..7A58 после RET хранит 16 звёзд по два байта.",
+      "new_comment": "Используется списком груза Game.Extensions.PrintCargoAndMessageBanks.Entry. Блок StarPoints после RET хранит 16 звёзд по два байта."
+    },
+    {
+      "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+      "old_comment": "память 70E3..70E6, вид, углы и скорость",
+      "new_comment": "память FlightState.View, Roll, Pitch и Speed, вид, углы и скорость"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+      "old_comment": "память 7A39..7A58,16 пар звёзд",
+      "new_comment": "память StarPoints,16 пар звёзд"
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "old_comment": "AD47/Game.Wireframe.DivideFractionAndProjectVertex.ProjectSide выбирают деление на Z либо X согласно виду, сохраняют проекции и знаки.",
+      "new_comment": "проверка FlightState.View в AddObjectPos выбирает деление на Z либо ветвь ProjectSide с глубиной X, затем сохраняются проекции и знаки"
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "old_comment": "B395..B3B1 являются данными фонового рисунка для Game.Wireframe.RefreshScannerBackground.Entry.",
+      "new_comment": "ScannerBlocks являются данными фонового рисунка для Game.Wireframe.RefreshScannerBackground.Entry."
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "old_comment": "переход вверх через границу знакоместа, вход выбирает JR #B25E",
+      "new_comment": "переход вверх через границу знакоместа, изменяемый LineRaster.RunRowOffset выбирает этот хвост JR"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "old_comment": "A89C..A8A6 содержит десять смещений атрибутов и завершающий FF.",
+      "new_comment": "ScannerAttrs содержит десять смещений атрибутов и завершающий FF."
+    },
+    {
+      "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+      "old_comment": "#AE3C..#AE47 содержит двенадцать номеров кораблей демонстрационного выбора.",
+      "new_comment": "DemoModels содержит двенадцать номеров кораблей демонстрационного выбора."
+    },
+    {
+      "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+      "old_comment": "После таблицы сохранены остаточные машинные байты и отдельный RET в #AE4F.",
+      "new_comment": "после DemoModels сохранены остаточные машинные байты и отдельный RET"
+    },
+    {
+      "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+      "old_comment": "фрагмент не включён в действующий список 12 демонстрационных моделей #AE3C..#AE47",
+      "new_comment": "фрагмент не включён в действующий список 12 демонстрационных моделей DemoModels"
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadFaceVisibilityNibble.asm",
+      "old_comment": "Младшая тетрада выбирает один из 16 байтов #A984..#A993.",
+      "new_comment": "Младшая тетрада выбирает один из 16 байтов FaceVisibility."
+    }
+  ],
+  "operators_unchanged": true
+}

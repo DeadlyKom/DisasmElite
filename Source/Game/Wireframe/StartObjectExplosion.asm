@@ -5,13 +5,13 @@
 ; исходный диапазон #A8AC..#A8DD
 ; In:
 ;   IX, объект
-;   память A9C1/A9C2/A9C3/A6DE, центр, знаки и экранный радиус
+;   память ProjectionState.ScreenX/ProjectionState.ScreenY/ProjectionState.Flags/ProjectedRadius, центр, знаки и экранный радиус
 ; Out:
 ;   IX, исходный объект
-;   IX+1C/+1D, экранный центр
-;   IX+1E, упакованные знаки и начальное состояние
-;   IX+1F, радиус
-;   IX+20.5, флаг взрыва
+;   FSpaceObject.Acceleration и FSpaceObject.Roll, экранные координаты центра X и Y
+;   FSpaceObject.Pitch, упакованные знаки и начальное состояние взрыва
+;   FSpaceObject.Payload, радиус взрыва
+;   OBJ_EXPLODE_BIT в FSpaceObject.Flags, объект изображается взрывом
 ; Corrupt:
 ;   BC, AF
 ; Note:
@@ -45,6 +45,7 @@ PackCenterSign: LD C, A
                 LD (IX + FSpaceObject.Pitch), A
                 SET OBJ_EXPLODE_BIT, (IX + FSpaceObject.Flags)
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A8DE
                 endmodule

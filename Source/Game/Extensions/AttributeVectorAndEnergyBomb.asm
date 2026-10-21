@@ -4,20 +4,22 @@
 ; вектор атрибутов, подтверждение меню и энергетическая бомба
 ; исходный диапазон #6FF8..#70A8
 ; смысловое имя AttributeVectorAndEnergyBomb
-; In: для #6FFB A — ответ, HL — изменяемое поле пилота, для #7089 — состояние клавиш
-; Out: #7089 увеличивает EnergyBomb=D08A, ставит #9C95=1 и бит 0 #7128, выполняет 24 вспышки
+; In: для Game.Extensions.AttributeVectorAndEnergyBomb.ConfirmUpgrade A — ответ, HL — изменяемое поле пилота, для Game.Extensions.AttributeVectorAndEnergyBomb.UseEnergyBomb — состояние клавиш
+; Out: Game.Extensions.AttributeVectorAndEnergyBomb.UseEnergyBomb увеличивает EnergyBomb=State.EnergyBomb, ставит CombatState.DestroyAll=1 и бит 0 FlightState.SoundRequests, выполняет 24 вспышки
 ; Corrupt: HL, DE, BC, AF по контракту атрибутных процедур
-; #6FFB при Y обнуляет MineralLife=D087 и записывает #FF в (HL), затем выбирает продолжение меню
-; #700F — помощник чтения строки товара, его байт #7013 заменяется NOP/RET в #5E1A
-; #701B..#705E — 17 четырёхбайтовых записей рынка, #705F..#7088 — 14 трёхбайтовых цен оборудования
-; #7089 проверяет команду FC0B.5 и наличие энергетической бомбы, #FF увеличивается в 0 и расходует её
-; Боевой цикл #9D5F проверяет #9C95, допустимые объекты получают запрос уничтожения IX+20.4
+; Game.Extensions.AttributeVectorAndEnergyBomb.ConfirmUpgrade при Y обнуляет MineralLife=State.MineralLife и записывает #FF в (HL), затем выбирает продолжение меню
+; Game.Extensions.AttributeVectorAndEnergyBomb.ReadCargoByte — помощник чтения строки товара, его байт Game.Extensions.AttributeVectorAndEnergyBomb.ColonyGate заменяется NOP/RET в Game.Extensions.HandleSpecialMessageToken.Entry
+; MarketTable.Base содержит 17 записей рынка по четыре байта, EquipmentTable.Base содержит 14 цен по три байта
+; Game.Extensions.AttributeVectorAndEnergyBomb.UseEnergyBomb проверяет команду InputState.DeviceKeys.5 и наличие энергетической бомбы, #FF увеличивается в 0 и расходует её
+; Боевой цикл Game.Combat.UpdateAllSpaceObjects.CheckMassKill проверяет CombatState.DestroyAll, у допустимых объектов устанавливается OBJ_DESTROY_BIT в FSpaceObject.Flags
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #6FF8
 Entry:          JP Game.Flight.SetViewAttributesWithCloaking.Entry
 
                 ; проверка подтверждения Y перед изменением состояния пилота
+                ; миссия 4 MINERAL LIFE, путь установки трюма сбрасывает колонию только при входном A = #59
+                ; описание в Docs/Manual.md, раздел mission-4
 ConfirmUpgrade: CP #59
                 JR NZ, SelectMenu                                               ; переход, если ответ отличается от Y, пропустить изменения состояния
 
@@ -29,14 +31,16 @@ ConfirmUpgrade: CP #59
 SelectMenu:     LD L, #8E
                 INC A
                 CP (HL)
-                JP Z, Game.Trade.EquipmentAlreadyOwned.PrintItemError           ; переход, если поле #D08E равно нулю, перейти к #EB47
+                JP Z, Game.Trade.EquipmentAlreadyOwned.PrintItemError           ; переход, если поле State.ShipUpgrade равно нулю, перейти к Game.Trade.EquipmentAlreadyOwned.PrintItemError
 
                 JP Game.Trade.InstallPurchasedEquipment.AddCargoSpace
 
                 ; чтение текущего байта строки товара через сохранённый указатель
+                ; миссия 4 MINERAL LIFE, изменяемый ColonyGate задаёт ограничение продажи живых минералов
+                ; описание в Docs/Manual.md, раздел mission-4
 ReadCargoByte:  LD HL, (MarketWork.CargoCursor)
                 LD A, (HL)
-                ; изменяемая точка допуска, #5E1A записывает сюда NOP либо RET
+                ; изменяемая точка допуска, Game.Extensions.HandleSpecialMessageToken.Entry записывает сюда NOP либо RET
 ColonyGate:     NOP
                 ; проверка минимального количества продажи B перед чтением запаса
                 LD A, B
@@ -46,72 +50,201 @@ ColonyGate:     NOP
 
                 LD A, (HL)
                 RET
+
                 ; товар 0, продовольствие, цена / коэффициент и знак экономики / запас / случайная маска
-MarketParams    DB #13, #82, #06, #01                                           ; продовольствие, запись FMarketEntry
-                ; товар 1, текстиль, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #14, #81, #0A, #03                                           ; данные #701F..#7022
-                ; товар 2, радиоактивные материалы, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #41, #83, #02, #07                                           ; данные #7023..#7026
-                ; товар 3, рабы, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #28, #85, #E2, #1F                                           ; данные #7027..#702A
-                ; товар 4, алкоголь, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #53, #85, #FB, #0F                                           ; данные #702B..#702E
-                ; товар 5, предметы роскоши, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #C4, #08, #36, #03                                           ; данные #702F..#7032
-                ; товар 6, наркотики, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #EB, #1D, #08, #78                                           ; данные #7033..#7036
-                ; товар 7, компьютеры, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #9A, #0E, #38, #03                                           ; данные #7037..#703A
-                ; товар 8, машины, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #75, #06, #28, #07                                           ; данные #703B..#703E
-                ; товар 9, сплавы, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #4E, #01, #11, #1F                                           ; данные #703F..#7042
-                ; товар 10, оружие, цена / коэффициент и знак экономики / запас / случайная маска
-.Firearms       DB #7C, #0D, #1D, #07                                           ; оружие, цена и коэффициент изменяются кодом событий
-                ; товар 11, меха, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #B0, #89, #DC, #3F                                           ; данные #7047..#704A
-                ; товар 12, минералы, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #20, #81, #35, #03                                           ; данные #704B..#704E
-                ; товар 13, золото, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #61, #A1, #42, #07                                           ; данные #704F..#7052
-                ; товар 14, платина, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #AB, #A2, #37, #1F                                           ; данные #7053..#7056
-                ; товар 15, драгоценные камни, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #2D, #C1, #FA, #0F                                           ; данные #7057..#705A
-                ; товар 16, инопланетные предметы, цена / коэффициент и знак экономики / запас / случайная маска
-                DB #35, #0F, #C0, #07                                           ; данные #705B..#705E
-                ; цена оборудования 1, старшая денежная группа и младшее слово, потребитель #EB2F
-EquipmentPrices DB #00, #00, #00                                                ; топливо, запись FEquipmentPrice
-                ; цена оборудования 2, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #00, #2C, #01                                                ; данные #7062..#7064
-                ; цена оборудования 3, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #00, #A0, #0F                                                ; данные #7065..#7067
-                ; цена оборудования 4, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #00, #70, #17                                                ; данные #7068..#706A
-                ; цена оборудования 5, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #00, #A0, #0F                                                ; данные #706B..#706D
-                ; цена оборудования 6, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #01, #00, #00                                                ; данные #706E..#7070
-                ; цена оборудования 7, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #00, #82, #14                                                ; данные #7071..#7073
-                ; цена оборудования 8, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #01, #00, #00                                                ; данные #7074..#7076
-                ; цена оборудования 9, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #00, #28, #23                                                ; данные #7077..#7079
-                ; цена оборудования 10, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #01, #88, #13                                                ; данные #707A..#707C
-                ; цена оборудования 11, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #01, #88, #13                                                ; данные #707D..#707F
-                ; цена оборудования 12, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #05, #00, #00                                                ; данные #7080..#7082
-                ; цена оборудования 13, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #06, #00, #00                                                ; данные #7083..#7085
-                ; цена оборудования 14, старшая денежная группа и младшее слово, потребитель #EB2F
-                DB #00, #40, #1F                                                ; данные #7086..#7088
+MarketParams    FMarketEntry {                                                  ; запись 0, FMarketEntry
+                    #13,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #82,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #06,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #01                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 1, FMarketEntry
+                    #14,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #81,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #0A,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #03                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 2, FMarketEntry
+                    #41,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #83,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #02,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #07                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 3, FMarketEntry
+                    #28,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #85,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #E2,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #1F                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 4, FMarketEntry
+                    #53,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #85,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #FB,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #0F                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 5, FMarketEntry
+                    #C4,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #08,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #36,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #03                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 6, FMarketEntry
+                    #EB,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #1D,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #08,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #78                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 7, FMarketEntry
+                    #9A,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #0E,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #38,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #03                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 8, FMarketEntry
+                    #75,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #06,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #28,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #07                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 9, FMarketEntry
+                    #4E,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #01,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #11,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #1F                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 10, FMarketEntry
+                    #7C,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #0D,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #1D,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #07                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 11, FMarketEntry
+                    #B0,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #89,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #DC,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #3F                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 12, FMarketEntry
+                    #20,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #81,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #35,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #03                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 13, FMarketEntry
+                    #61,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #A1,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #42,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #07                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 14, FMarketEntry
+                    #AB,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #A2,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #37,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #1F                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 15, FMarketEntry
+                    #2D,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #C1,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #FA,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #0F                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+
+                FMarketEntry {                                                  ; запись 16, FMarketEntry
+                    #35,                                                        ; FMarketEntry.Price, базовая цена, GenerateMarket масштабирует результат в четыре раза
+                    #0F,                                                        ; FMarketEntry.Economy, знак и модуль коэффициента экономики
+                    #C0,                                                        ; FMarketEntry.Stock, базовый запас до случайной и экономической поправок
+                    #07                                                         ; FMarketEntry.RandomMask, маска случайного параметра системы
+                }
+.Firearms       EQU MarketParams + FGoods.Firearms * FMarketEntry               ; исходная запись параметров оружия
+                ; цена оборудования 1, старшая денежная группа и младшее слово, потребитель Game.Trade.GetEquipmentPriceAddress.Entry
+EquipmentPrices FEquipmentPrice {                                               ; запись 0, FEquipmentPrice
+                    #00,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #0000                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 1, FEquipmentPrice
+                    #00,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #012C                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 2, FEquipmentPrice
+                    #00,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #0FA0                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 3, FEquipmentPrice
+                    #00,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #1770                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 4, FEquipmentPrice
+                    #00,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #0FA0                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 5, FEquipmentPrice
+                    #01,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #0000                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 6, FEquipmentPrice
+                    #00,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #1482                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 7, FEquipmentPrice
+                    #01,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #0000                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 8, FEquipmentPrice
+                    #00,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #2328                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 9, FEquipmentPrice
+                    #01,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #1388                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 10, FEquipmentPrice
+                    #01,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #1388                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 11, FEquipmentPrice
+                    #05,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #0000                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 12, FEquipmentPrice
+                    #06,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #0000                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
+
+                FEquipmentPrice {                                               ; запись 13, FEquipmentPrice
+                    #00,                                                        ; FEquipmentPrice.High, целые тысячи кредитов
+                    #1F40                                                       ; FEquipmentPrice.Low, младшая денежная группа, 0..9999 десятых кредита
+                }
                 ; проверка команды и наличия энергетической бомбы
 UseEnergyBomb:  LD A, (InputState.DeviceKeys)
                 BIT DEV_BOMB_BIT, A
-                RET Z                                                           ; выход, если команда энергетической бомбы в #FC0B.5 не установлена
+                RET Z                                                           ; выход, если команда энергетической бомбы в InputState.DeviceKeys.5 не установлена
 
                 LD HL, State.EnergyBomb
                 LD A, (HL)
@@ -132,6 +265,7 @@ FlashAgain:     CALL Game.Extensions.FlashViewAttributes.Entry
                 JR NZ, FlashAgain                                               ; переход, если из 24 вспышек ещё остались невыполненные
 
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #70A9
                 endmodule

@@ -8,17 +8,17 @@
 ; Out:
 ;   C=1 при найденном ключе, HL указывает связанное значение
 ; Corrupt:
-;   HL, AF, BC сохраняется оболочкой, прочие по ROM16DC
+;   HL, AF, BC сохраняется оболочкой, прочие по Rom.FindKeyPair
 ; Note:
-;   72DD переключает сканер через 7A84,72E3 меняет местами пары передних/задних и боковых лазеров Mk4
-;   SPACE проходит XOR A по 7319 и возвращает C=0, Q входит 731A и сохраняет C=1, оба очищают пять
+;   Game.Flight.IndexPauseCommandAndHandlers.ToggleScanner переключает сканер через Game.Universe.AddSignedStarCoordinate.ToggleScanner,Game.Flight.IndexPauseCommandAndHandlers.SwapLasers меняет местами пары передних/задних и боковых лазеров Mk4
+;   SPACE исполняет XOR A перед общим хвостом очистки и возвращает C=0, Q пропускает XOR A и сохраняет C=1, оба очищают пять
 ;   клавиатурных байтов
-;   K по 7328 переключает младшие два бита джойстика, C по 7339 инвертирует bit1 операнда FD0A
-;   При отсутствии Mk4 JR733E входит на байт DF внутри CALL DFEE, альтернативная инструкция RST18
+;   команда K через ToggleJoystick переключает младшие два бита джойстика, команда C инвертирует bit1 операнда InputViewSkip
+;   при отсутствии Mk4 переход NoUpgrade исполняет старший байт адреса CALL как RST #18
 ;   сохранена буквально
 ; -----------------------------------------
                 ASSERT $ == #72D5
-                ; поиск пары через ROM16DC с сохранением BC вызывающего
+                ; поиск пары через Rom.FindKeyPair с сохранением BC вызывающего
 Entry:          PUSH BC
                 LD C, A
                 CALL Rom.FindKeyPair
@@ -26,15 +26,17 @@ Entry:          PUSH BC
                 POP BC
                 RET
 
-                ; команда L переключает проекцию сканера через 7A84
+                ; команда L переключает проекцию сканера через Game.Universe.AddSignedStarCoordinate.ToggleScanner
 ToggleScanner:  CALL Game.Universe.AddSignedStarCoordinate.ToggleScanner
                 NOP
                 JR AwaitPauseKey
 
                 ; команда A переставляет пары лазеров только после покупки Mk4
+                ; миссия 6 Cobra Mk4, наличие Cobra Mk4 разрешает перестановку направлений лазеров
+                ; описание в Docs/Manual.md, раздел mission-6
 SwapLasers:     LD A, (State.ShipUpgrade)
                 AND A
-                ; без Mk4 вход 733E исполняет DF как RST18, затем 733F пишет байт обратно
+                ; без Mk4 вход Game.Flight.IndexPauseCommandAndHandlers.NoUpgrade исполняет DF как RST18, затем Game.Flight.IndexPauseCommandAndHandlers.StoreOption пишет байт обратно
                 JR Z, NoUpgrade                                                 ; переход, если модернизация Mk4 отсутствует, выполнить перекрывающий вход RST18
 
                 ; перестановка переднего с левым и заднего с правым лазером
@@ -47,6 +49,7 @@ SwapLasers:     LD A, (State.ShipUpgrade)
                 LD L, A
                 LD (State.LeftLaser), HL
                 JR AwaitPauseKey
+
                 ; пары клавиша-маска настройки, B10,D08,F40,R04,Y20,S80, нулевой конец
 PauseKeyMap     DB #42, #10, #44, #08, #46, #40, #52, #04                       ; пары код клавиши и маска изменяемой настройки, завершение нулём
                 DB #59, #20, #53, #80, #00                                      ; #7303..#7307
@@ -58,7 +61,7 @@ ScannerKey:     JR ToggleScanner
 
                 JR SwapLasers
 
-                ; пробел сбрасывает перенос, Q входит 731A с сохранённым переносом
+                ; пробел сбрасывает перенос через XOR A, Q начинает со следующей LD A, #00 и сохраняет перенос
                 XOR A
                 LD A, #00
                 LD L, #08
@@ -87,15 +90,15 @@ SwitchJoystick: LD A, (JoystickMode)
                 XOR D
                 JR StoreOption
 
-                ; команда C переключает бит 1 параметра FD0A через DFEE
+                ; команда C переключает бит 1 параметра InputViewSkip через Game.Galaxy.OnesComplementDifference.ToggleBit1
                 LD HL, InputViewSkip
-                ; альтернативный вход 733E исполняет старший байт DF этой команды как RST18
+                ; альтернативный вход Game.Flight.IndexPauseCommandAndHandlers.NoUpgrade исполняет старший байт DF этой команды как RST18
 NoUpgrade:      EQU $+2                                                         ; старший байт CALL выполняется как RST #18 при отсутствии Mk4
                 CALL Game.Galaxy.OnesComplementDifference.ToggleBit1
                 ; запись настройки и подстановка возврата в ожидание паузы
 StoreOption:    LD (HL), A
 AwaitPauseKey:  LD HL, Game.Flight.HandlePauseMenu.WaitRelease
-                PUSH HL
+                PUSH HL                                                         ; далее Game.Flight.PlaySweepingBeeperAndBootstrap.Entry без команды перехода
                 ASSERT $ == #7344
                 endmodule
                 endmodule

@@ -4,13 +4,13 @@
 ; рисование окружности карты с временной заменой геометрии экрана
 ; исходный диапазон #8E29..#8E63
 ; смысловое имя DrawChartCircleWithPatchedViewport
-; In: #D051=X, #D052=Y, #D053=радиус окружности карты
+; In: MapCircleX=X, MapCircleY=Y, MapRadius=радиус окружности карты
 ; Out: контур нарисован, стандартные патчи области обзора восстановлены
 ; Corrupt: HL, DE, BC, AF, HL', DE', BC', AF'
-; X переводится в модуль относительно 128, Y относительно 96, знаки записываются в#861C
+; X переводится в модуль относительно 128, Y относительно 96, знаки записываются в CircleState.Flags
 ; Биты 2/3 признаков изначально установлены, координаты берутся из однобайтовых полей карты
-; #8E77 применяет 32 байта таблицы карты #8E8D, #86DE рисует контур
-; Затем #8E74 выбирает 32 штатных байта #8EAD и снова вызывает патчер
+; Game.Circles.ApplyCircleViewportPatches.Entry применяет 32 байта таблицы карты CircleViewport, Game.Screen.DrawCircleOutline.Entry рисует контур
+; Затем Game.Circles.CheckBodiesAndRestoreViewport.NormalViewport выбирает 32 штатных байта CircleViewport.Flight и снова вызывает патчер
 ; Перед изменениями DI, патчер заканчивает EI, перед восстановлением снова DI
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -50,6 +50,7 @@ StoreGeometry:  LD (CircleState.OffsetY), A
                 CALL Game.Screen.DrawCircleOutline.Entry
                 DI
                 JR Game.Circles.CheckBodiesAndRestoreViewport.NormalViewport
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #8E64
                 endmodule

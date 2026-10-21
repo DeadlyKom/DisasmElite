@@ -8,8 +8,9 @@
 ; Corrupt:
 ;   AF
 ; Note:
-;   Flags2=#0C всегда отвергается, затем требуются биты метаданных 7=1, 6=0, 4=1
-;   EBD4 принимает готовый A и используется CountCargo, EBDB также общий хвост AllowAttack
+;   Flags2=OBJ_STATION_FL всегда отвергается
+;   затем в TypeFlags требуются FX_ACTIVE_BIT=1, FX_GROUP_BIT=0, FX_SEARCH_BIT=1
+;   DiskUtility.Demo.CheckCargoFlag принимает готовый A и используется CountCargo, DiskUtility.Demo.TestCollectBit также общий хвост AllowAttack
 ; -----------------------------------------
                 ; полное сочетание Flags2=#0C исключает подбор объекта
 RejectCargo:    LD A, (IY + FSpaceObject.Flags2)
@@ -19,16 +20,16 @@ RejectCargo:    LD A, (IY + FSpaceObject.Flags2)
                 CALL ReadSlotFlags
                 ; общая проверка готового классификатора для CountCargo
 CheckCargoFlag: SCF
-                BIT 7, A
-                RET Z                                                           ; выход, если бит 7 классификатора сброшен, вернуть отказ с переносом
+                BIT FX_ACTIVE_BIT, A
+                RET Z                                                           ; выход, если FX_ACTIVE_BIT кешированного TypeFlags сброшен, вернуть отказ с переносом
 
-                BIT 6, A
-                RET NZ                                                          ; выход, если бит 6 классификатора установлен, вернуть отказ с переносом
+                BIT FX_GROUP_BIT, A
+                RET NZ                                                          ; выход, если FX_GROUP_BIT кешированного TypeFlags установлен, вернуть отказ с переносом
 
-                ; бит 4 завершает оба противоположных критерия цели и подбора
+                ; FX_SEARCH_BIT завершает противоположные критерии боевой цели и подбора
 TestCollectBit: SCF
                 BIT 4, A
-                RET Z                                                           ; выход, если бит 4 классификатора сброшен, сохранить перенос результата
+                RET Z                                                           ; выход, если FX_SEARCH_BIT кешированного TypeFlags сброшен, сохранить перенос результата
 
                 AND A
                 RET

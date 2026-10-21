@@ -37,6 +37,7 @@ SubDivisor:     SUB B
                 RET NC                                                          ; выход, если все восемь разрядов частного обработаны
 
                 JR QuotientBit
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #7853
                 endmodule

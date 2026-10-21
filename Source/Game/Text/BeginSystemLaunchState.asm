@@ -6,20 +6,21 @@
 ; In:
 ;   Нет параметров
 ; Out:
-;   E07A=E0, HL=DEBA
+;   LaunchPending=E0, HL=GalaxyState
 ; Corrupt:
 ;   HL
 ; Note:
-;   Байт E07A используется пути запуска/стыковки 93ED→5E55, процедура не сохраняет и не
+;   Байт LaunchPending используется пути запуска/стыковки Game.Flight.LaunchOrDockShip.Entry→Game.Extensions.FillBackwardAndCountDemo.CountDemo, процедура не сохраняет и не
 ;   восстанавливает генератор случайных чисел
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D8DD
-                ; E07A получает маркер однократного увеличения счётчика запуска, HL указывает на целевое семя
+                ; LaunchPending получает маркер однократного увеличения счётчика запуска, HL указывает на целевое семя
 Entry:          LD HL, LaunchPending
                 LD (HL), H
                 LD HL, GalaxyState.TargetSeed
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D8E5
                 endmodule

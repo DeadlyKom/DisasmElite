@@ -16,13 +16,13 @@ FileBegin:      DB #00, #00
                 assert $ - FileBegin = #002D
                 ; восстановление исходных адресов выполнения просмотрщика
                 disp CODE_BASE
-                include "Initialize.asm"
-                include "Menu.asm"
+                include "Initialize.asm"                                        ; (0) жёсткий порядок, последовательное исполнение
+                include "Menu.asm"                                              ; (1) жёсткий порядок, последовательное исполнение
                 include "ShowSection.asm"
                 include "LoadGame.asm"
                 include "State.asm"
-                include "ClearAndTitle.asm"
-                include "PrintString.asm"
+                include "ClearAndTitle.asm"                                     ; (0) жёсткий порядок, последовательное исполнение
+                include "PrintString.asm"                                       ; (1) жёсткий порядок, последовательное исполнение
                 include "Data.asm"
                 include "Interrupt.asm"
                 include "ScrollFrame.asm"
@@ -53,4 +53,4 @@ FileEnd:        EQU $
                 assert FileEnd - FileBegin = FILE_SIZE
                 endmodule
 
-                endif ; ~_MANUAL_INCLUDE_
+                endif                                                           ; ~_MANUAL_INCLUDE_

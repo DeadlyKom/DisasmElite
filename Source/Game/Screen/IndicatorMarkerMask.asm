@@ -5,7 +5,7 @@
 ; In:
 ;   BC, B содержит остаток величины от деления на 8
 ; Out:
-;   продолжение #857E с готовой маской в A
+;   продолжение Game.Screen.DrawIndicatorBar.StoreMask с готовой маской в A
 ; Corrupt:
 ;   BC, AF
 ; Note:
@@ -29,6 +29,7 @@ ShiftMarker:    SRL A
                 DJNZ ShiftMarker
 
 MarkerReady:    JP Game.Screen.DrawIndicatorBar.StoreMask
+
                 ASSERT $ == #8606
                 endmodule
                 endmodule

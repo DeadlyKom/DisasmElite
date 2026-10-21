@@ -8,14 +8,14 @@
 ;   стек, контекст поиска планеты
 ; Out:
 ;   при несовпадении устанавливается бит 0 L
-;   при совпадении выполняется выход в #DFA2
+;   при совпадении выполняется выход в Game.Galaxy.FindNearestSystem.MeasureNearest
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   координаты сравниваются с #D0BB и #D0BC
-;   при совпадении расстояние #DF5E обнуляется и вызывается #E12E
+;   координаты сравниваются с TargetX и TargetY
+;   при совпадении расстояние NearestMetric обнуляется и вызывается Game.Galaxy.SaveWorkingSystemSeed.Entry
 ;   POP HL и POP BC снимают два уровня контекста поиска, это не обычный RET
-;   при несовпадении #DFCE рассчитывает расстояние
+;   при несовпадении Game.Galaxy.SquaredDistanceToTarget.Entry рассчитывает расстояние
 ; -----------------------------------------
                 ; проверка исходного размещения
                 ASSERT $ == #8020
@@ -43,6 +43,7 @@ SaveMatch:      LD HL, #0000
                 POP HL
                 POP BC
                 JP Game.Galaxy.FindNearestSystem.MeasureNearest
+
                 ASSERT $ == #8042
                 endmodule
                 endmodule

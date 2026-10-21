@@ -4,16 +4,16 @@
 ; создание выбрасываемого около игрока обломка или груза
 ; исходный диапазон #BA9C..#BAE7
 ; In:
-;   основной вход выбирает модель 3, внутренний #BA9E принимает модель в A
+;   основной вход выбирает модель 3, внутренний Game.Objects.SpawnPlayerDebris.SpawnDebris принимает модель в A
 ; Out:
 ;   IX - новый объект, Z при успехе и NZ при отсутствии слота
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-;   после #B94A отключается IX+20 bit6 и задаётся случайное направление
+;   после Game.Objects.SpawnAtPlayer.Entry сбрасывается OBJ_ACTIVE_BIT в FSpaceObject.Flags и задаётся случайное направление обломка
 ;   дробные X/Y равны (random AND 63) OR 16, знаки противоположны знакам направления
 ;   Z дробный равен 25, скорость (random AND31) OR8, угол LR случайный
-;   используемый #B950 содержит модификации инвентаря в #5EC5, это не чистое создание слота
+;   используемый Game.Objects.InitializeAtPlayer.Entry содержит модификации инвентаря в Game.Extensions.CreateMissileOrMissionCraft.Entry, это не чистое создание слота
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #BA9C
@@ -49,6 +49,7 @@ SpawnDebris:    CALL Game.Objects.SpawnAtPlayer.Entry
                 LD (IX+FSpaceObject.Speed), A
                 XOR A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #BAE8
                 endmodule

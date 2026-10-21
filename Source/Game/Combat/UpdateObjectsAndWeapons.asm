@@ -10,12 +10,13 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-; Хвостовой переход в 9CB5, вызывающий цикл объектов и обработку лазера/ECM.
+; Хвостовой переход в Game.Combat.AnimateIntroAndObjectPipeline.CombatFrame, вызывающий цикл объектов и обработку лазера/ECM.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #9C80
                 ; переход в общий цикл обновления объектов и оружия
 Entry:          JP @Game.Combat.AnimateIntroAndObjectPipeline.CombatFrame
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9C83
                 endmodule

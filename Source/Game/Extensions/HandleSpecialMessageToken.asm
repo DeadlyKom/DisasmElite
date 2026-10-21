@@ -5,7 +5,7 @@
 ; исходный диапазон #5E1A..#5E35
 ; смысловое имя HandleSpecialMessageToken
 ; In: AF — A содержит номер сообщения
-; Out: хвостовой переход в принтер #D425 или печать сообщения #52 через #D45F
+; Out: хвостовой переход в принтер Game.Text.PrintMainToken.Entry или печать сообщения #52 через Game.Text.PrintDescriptionToken.Entry
 ; Corrupt: HL, DE, BC, AF по контракту вызываемых принтеров
 ; Для токена #DC CheckMineralLifeColony проверяет живую колонию и запас минералов
 ; Только при живой колонии возвращаются A=0 и Z=1, открываются ColonyGate и MineralGate
@@ -16,6 +16,8 @@
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #5E1A
                 ; проверка специального токена и сохранение исходного номера сообщения
+                ; миссия 4 MINERAL LIFE, проверка колонии выбирает название минералов и переключает ограничения продажи
+                ; описание в Docs/Manual.md, раздел mission-4
 Entry:          PUSH AF
                 SUB #DC
                 CALL Z, Game.Text.CheckMineralLifeColony.Entry                  ; вызов, если токен равен #DC, проверить живую колонию и запас минералов
@@ -33,6 +35,7 @@ ApplyGates:     LD (Game.Extensions.AttributeVectorAndEnergyBomb.ColonyGate), A
 ShowColony:     POP AF
                 LD A, #52
                 JP Game.Text.PrintDescriptionToken.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #5E36
                 endmodule

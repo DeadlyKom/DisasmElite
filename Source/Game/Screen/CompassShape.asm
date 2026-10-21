@@ -3,21 +3,22 @@
 ; -----------------------------------------
 ; переход к выбору изображения указателя компаса
 ; In:
-;   байты #7103 и #FD03 задают режим компаса
+;   байты FlightState.SpaceMode и InputPhase задают режим компаса
 ; Out:
-;   HL, адрес изображения #6F11, #6F19 или #6F21
+;   HL, адрес изображения Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons, Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons + 8 или Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons + 16
 ;   DE, #0008
 ; Corrupt:
 ;   HL, DE, AF
 ; Note:
 ;   это хвостовой переход, дополнительный адрес возврата не создаётся
-;   в обычной системе #7103=0 выбирается #6F11
-;   иначе бит 0 по #FD03 выбирает #6F19 или #6F21, в #FD0A записывается #02
-;   вызывается рисованием компаса #8390 перед выбором передней или задней формы
+;   в обычной системе FlightState.SpaceMode=0 выбирается Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons
+;   иначе бит 0 по InputPhase выбирает Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons + 8 или Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons + 16, в InputViewSkip записывается #02
+;   вызывается рисованием компаса Game.Screen.VectorLength.DrawCompass перед выбором передней или задней формы
 ; -----------------------------------------
                 ; проверка исходного размещения
                 ASSERT $ == #8442
 Entry:          JP Game.Extensions.PrintEquipmentAndSelectIcon.SelectIcon
+
                 ASSERT $ == #8445
                 endmodule
                 endmodule

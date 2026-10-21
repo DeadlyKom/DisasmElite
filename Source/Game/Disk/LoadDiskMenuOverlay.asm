@@ -4,14 +4,14 @@
 ; Загрузка первого оверлея cl.C и вызов меню
 ; исходный диапазон #D907..#D974
 ; In:
-;   D983 = позиция cl.C, прерывания могут быть включены
+;   OverlayTrack = позиция cl.C, прерывания могут быть включены
 ; Out:
-;   Восемь секторов загружены в C800, D985 = следующий сектор, результат AF возвращает оверлей
+;   Восемь секторов загружены в DiskUtility.Menu.EnterMenu, DemoTrack = следующий сектор, результат AF возвращает оверлей
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
-;   Сначала гасит атрибуты, читает 8 секторов, вызывает C800, сохраняет AF вокруг сигнала и
-;   паузы, D956..D974 содержит отдельный старый TR-DOS-шлюз, вход D96A ведёт в его общий хвост
+;   Сначала гасит атрибуты, читает 8 секторов, вызывает DiskUtility.Menu.EnterMenu, сохраняет AF вокруг сигнала и
+;   паузы, CallDosInline сохраняет старый TR-DOS-шлюз, EnterDiskRom выполняет его общий выход в ПЗУ
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D907
@@ -70,7 +70,7 @@ Entry:          DI
                 NOP
                 NOP
                 NOP
-                CALL @Game.Resources.SkippedSectors
+                CALL @DiskUtility.Menu.EnterMenu
                 EI
                 PUSH AF
                 CALL Game.Trade.TradeBeepAndPause.Entry
@@ -97,6 +97,7 @@ ReadTrackBytes: LD DE, #0000
 EnterDiskRom:   DI
                 EX (SP), HL
                 JP Rom.CallDosStack
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D975
                 endmodule

@@ -1,0 +1,2818 @@
+{
+  "scope": "ручная привязка миссионных проверок к руководству собственного образа и реестр текстовых обращений к общим полям",
+  "method": "инструкции прочитаны по обработчикам, автоматическая часть проверяет только имена, ссылки и наличие текстовых обращений",
+  "semantic_proof_by_automation": false,
+  "assembler_run": false,
+  "entries": [
+    {
+      "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+      "symbol": "Game.Charts.NextScreenCharacterRowAndRefugees.OfferRefugees",
+      "entry": "OfferRefugees",
+      "fields": [
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-7-1"
+      ],
+      "meaning": "предложение перевозки только при свободном миссионном трюме",
+      "line": 34,
+      "annotation_line": 32,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "symbol": "Game.Circles.UpdateThargoidAndBodyCoords.Entry",
+      "entry": "Entry",
+      "fields": [
+        "AlienComputer"
+      ],
+      "anchors": [
+        "mission-5"
+      ],
+      "meaning": "счётчик обработок модели Thargoid и создание контейнера при нулевом результате",
+      "line": 27,
+      "annotation_line": 25,
+      "external_owner": true
+    },
+    {
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "symbol": "Game.Circles.PrintShipAndContinueRightFill.Entry",
+      "entry": "Entry",
+      "fields": [
+        "ShipUpgrade"
+      ],
+      "anchors": [
+        "mission-6"
+      ],
+      "meaning": "вывод названия модернизированного корабля",
+      "line": 20,
+      "annotation_line": 19,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Circles/ScanUpgradeKeyRow.asm",
+      "symbol": "Game.Circles.ScanUpgradeKeyRow.Entry",
+      "entry": "Entry",
+      "fields": [
+        "ShipUpgrade"
+      ],
+      "anchors": [
+        "mission-6"
+      ],
+      "meaning": "код модернизации выбирает путь чтения ряда клавиатуры",
+      "line": 19,
+      "annotation_line": 18,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "symbol": "Game.Circles.SelectJumpAndContinueLeftFill.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-7-invasion"
+      ],
+      "meaning": "проверка военной области участвует в выборе результата гиперперехода",
+      "line": 20,
+      "annotation_line": 19,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "symbol": "Game.Combat.ProcessLaserAndEcm.CheckEcmLock",
+      "entry": "CheckEcmLock",
+      "fields": [
+        "Mission3",
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-invasion"
+      ],
+      "meaning": "совместная проверка этапа 4 и MS_ACCEPT_BIT запрещает обработку ECM игрока",
+      "line": 66,
+      "annotation_line": 65,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "symbol": "Game.Combat.UpdateAllSpaceObjects.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-invasion",
+        "mission-7-4"
+      ],
+      "meaning": "общее состояние 4 делает станцию враждебной",
+      "line": 29,
+      "annotation_line": 28,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "symbol": "Game.Combat.UpdateAllSpaceObjects.ClearMission",
+      "entry": "ClearMission",
+      "fields": [
+        "MissionPhase"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "уничтожение миссионного корабля либо контейнера сбрасывает фазу встречи",
+      "line": 188,
+      "annotation_line": 187,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+      "symbol": "Game.Combat.UpdateClockAndRotateDistantBodies.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-7-invasion"
+      ],
+      "meaning": "накопитель времени изменяет фронт и ставит сообщение MAYDAY",
+      "line": 25,
+      "annotation_line": 23,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "symbol": "Game.Combat.HandleObjectCollision.MissionCargo",
+      "entry": "MissionCargo",
+      "fields": [
+        "MissionPhase"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "фаза 3 превращает подходящий подобранный контейнер в предмет CLOAKING DEVICE",
+      "line": 98,
+      "annotation_line": 97,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "symbol": "Game.Combat.HandleObjectCollision.DestroyImpact",
+      "entry": "DestroyImpact",
+      "fields": [
+        "MissionPhase"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "столкновение с миссионным объектом сбрасывает фазу встречи",
+      "line": 159,
+      "annotation_line": 158,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
+      "symbol": "Game.Combat.HandleEscapeCapsule.ClearCargo",
+      "entry": "ClearCargo",
+      "fields": [
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-7-1",
+        "mission-7-3"
+      ],
+      "meaning": "спасательная капсула снимает признак особого груза после очистки тоннажных товаров",
+      "line": 63,
+      "annotation_line": 62,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
+      "symbol": "Game.Combat.ApplyPlayerDamage.RecoverEnergy",
+      "entry": "RecoverEnergy",
+      "fields": [
+        "CloakActive"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "включённая маскировка добавляет единицу к расходу энергии",
+      "line": 34,
+      "annotation_line": 33,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.ConfirmUpgrade",
+      "entry": "ConfirmUpgrade",
+      "fields": [
+        "MineralLife"
+      ],
+      "anchors": [
+        "mission-4"
+      ],
+      "meaning": "путь установки трюма сбрасывает колонию только при входном A = #59",
+      "line": 23,
+      "annotation_line": 22,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.ReadCargoByte",
+      "entry": "ReadCargoByte",
+      "fields": [
+        "MineralLife"
+      ],
+      "anchors": [
+        "mission-4"
+      ],
+      "meaning": "изменяемый ColonyGate задаёт ограничение продажи живых минералов",
+      "line": 41,
+      "annotation_line": 40,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "symbol": "Game.Extensions.CreateMissileOrMissionCraft.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Invasion",
+        "MissionFlags",
+        "RankState"
+      ],
+      "anchors": [
+        "mission-7-3"
+      ],
+      "meaning": "проверка войны, занятого трюма и военного кода допускает запуск десанта",
+      "line": 21,
+      "annotation_line": 20,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "symbol": "Game.Extensions.CreateMissileOrMissionCraft.SpendMissile",
+      "entry": "SpendMissile",
+      "fields": [
+        "AlienComputer"
+      ],
+      "anchors": [
+        "mission-5"
+      ],
+      "meaning": "компьютер, AlienItems и клавиша D заменяют ракету специальным кораблём",
+      "line": 48,
+      "annotation_line": 46,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "symbol": "Game.Extensions.PrintCargoAndMessageBanks.Entry",
+      "entry": "Entry",
+      "fields": [
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-7-1",
+        "mission-7-3"
+      ],
+      "meaning": "признак занятого миссией трюма включает отдельную подпись беженцев либо десанта",
+      "line": 20,
+      "annotation_line": 19,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "symbol": "Game.Extensions.SetObjectAggressionFlag.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-invasion"
+      ],
+      "meaning": "общее состояние 4 разрешает агрессивное поведение объекта",
+      "line": 18,
+      "annotation_line": 17,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "symbol": "Game.Extensions.UpdateStationAndSpecialShips.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission3",
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-invasion"
+      ],
+      "meaning": "оккупированная область выбирает военный корабль, состояние 4 исключает обычный Viper",
+      "line": 27,
+      "annotation_line": 26,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "symbol": "Game.Extensions.UpdateStationAndSpecialShips.NearSun",
+      "entry": "NearSun",
+      "fields": [
+        "ShipUpgrade"
+      ],
+      "anchors": [
+        "mission-6"
+      ],
+      "meaning": "околосолнечная ветвь подготавливает особые объекты и предложение Cobra Mk4",
+      "line": 61,
+      "annotation_line": 60,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/HandleSpecialMessageToken.asm",
+      "symbol": "Game.Extensions.HandleSpecialMessageToken.Entry",
+      "entry": "Entry",
+      "fields": [
+        "MineralLife"
+      ],
+      "anchors": [
+        "mission-4"
+      ],
+      "meaning": "проверка колонии выбирает название минералов и переключает ограничения продажи",
+      "line": 21,
+      "annotation_line": 20,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "symbol": "Game.Extensions.OfferUpgradeAndCorrectPosition.Entry",
+      "entry": "Entry",
+      "fields": [
+        "ShipUpgrade",
+        "Mission3",
+        "RankState"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-6",
+        "mission-7-invasion"
+      ],
+      "meaning": "после посадки сначала обрабатываются задания, затем предложение Cobra Mk4",
+      "line": 23,
+      "annotation_line": 22,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateSpecialCargoStatus.asm",
+      "symbol": "Game.Extensions.UpdateSpecialCargoStatus.Entry",
+      "entry": "Entry",
+      "fields": [
+        "MineralLife"
+      ],
+      "anchors": [
+        "mission-4"
+      ],
+      "meaning": "при живой колонии Gemstones расходуются по количеству Minerals",
+      "line": 19,
+      "annotation_line": 17,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "symbol": "Game.Extensions.UpdateInvasionOnRatingOverflow.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission1",
+        "Mission3",
+        "MissionFlags",
+        "Invasion",
+        "MineralLife",
+        "AlienComputer",
+        "RankState"
+      ],
+      "anchors": [
+        "mission-7-invasion"
+      ],
+      "meaning": "проверка старых миссий, оборудования и рейтинга перед запуском вторжения",
+      "line": 24,
+      "annotation_line": 22,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/PrintPlanetInvasionStatus.asm",
+      "symbol": "Game.Extensions.PrintPlanetInvasionStatus.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-7-invasion"
+      ],
+      "meaning": "геометрия выбранной системы определяет подписи OCCUPIED и RESISTING",
+      "line": 22,
+      "annotation_line": 21,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "symbol": "Game.Extensions.ScheduleLinkedObjectLaser.PermitLaser",
+      "entry": "PermitLaser",
+      "fields": [
+        "CloakActive"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "включённая маскировка добавляет случайную проверку допуска лазера противника",
+      "line": 42,
+      "annotation_line": 41,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Flight/ApplyMissionViewColour.asm",
+      "symbol": "Game.Flight.ApplyMissionViewColour.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission1"
+      ],
+      "anchors": [
+        "mission-1"
+      ],
+      "meaning": "активная первая миссия выбирает особую окраску вида",
+      "line": 19,
+      "annotation_line": 18,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Flight/DivideByteFractionForTunnel.asm",
+      "symbol": "Game.Flight.DivideByteFractionForTunnel.FinishTunnel",
+      "entry": "FinishTunnel",
+      "fields": [
+        "Mission1"
+      ],
+      "anchors": [
+        "mission-1"
+      ],
+      "meaning": "после туннеля обычный цвет возвращается только вне первой миссии",
+      "line": 44,
+      "annotation_line": 43,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "symbol": "Game.Flight.FillViewAttributesAndFlightState.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission1"
+      ],
+      "anchors": [
+        "mission-1"
+      ],
+      "meaning": "первая миссия ограничивает атрибут вида маской перед заливкой",
+      "line": 21,
+      "annotation_line": 20,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Flight/MarkMissionViewInitialized.asm",
+      "symbol": "Game.Flight.MarkMissionViewInitialized.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission1"
+      ],
+      "anchors": [
+        "mission-1"
+      ],
+      "meaning": "после вылета отмечается уже показанное предупреждение первой миссии",
+      "line": 19,
+      "annotation_line": 18,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+      "symbol": "Game.Flight.ToggleCloakingDevice.Entry",
+      "entry": "Entry",
+      "fields": [
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "наличие CLOAKING DEVICE разрешает переключение маскировки клавишей Y",
+      "line": 22,
+      "annotation_line": 21,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Flight/TryColonizeMinerals.asm",
+      "symbol": "Game.Flight.TryColonizeMinerals.Entry",
+      "entry": "Entry",
+      "fields": [
+        "MineralLife"
+      ],
+      "anchors": [
+        "mission-4"
+      ],
+      "meaning": "проверка количества минералов, удаления и региона перед появлением колонии",
+      "line": 26,
+      "annotation_line": 24,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Flight/DispatchThirdMissionStage.asm",
+      "symbol": "Game.Flight.DispatchThirdMissionStage.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-3"
+      ],
+      "meaning": "этапы 1 и 2 выбирают предложение, 5 награду, 6 отдельное сообщение",
+      "line": 19,
+      "annotation_line": 17,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Flight/ApplyCloakingViewColour.asm",
+      "symbol": "Game.Flight.ApplyCloakingViewColour.Entry",
+      "entry": "Entry",
+      "fields": [
+        "CloakActive"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "активная маскировка восстанавливает свой цвет полётного вида",
+      "line": 19,
+      "annotation_line": 18,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Flight/SetViewAttributesWithCloaking.asm",
+      "symbol": "Game.Flight.SetViewAttributesWithCloaking.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission1",
+        "CloakActive"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-2"
+      ],
+      "meaning": "общий выбор атрибута учитывает маскировку и далее состояние первой миссии",
+      "line": 19,
+      "annotation_line": 18,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Flight/LaunchOrDockShip.asm",
+      "symbol": "Game.Flight.LaunchOrDockShip.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission1",
+        "Mission3",
+        "ShipUpgrade"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-3",
+        "mission-6",
+        "mission-7-invasion"
+      ],
+      "meaning": "посадка вызывает предложения заданий, вылет применяет предупреждение первой миссии",
+      "line": 24,
+      "annotation_line": 23,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Input/CheckMissionSystem.asm",
+      "symbol": "Game.Input.CheckMissionSystem.Entry",
+      "entry": "Entry",
+      "fields": [
+        "RankState",
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-7-4"
+      ],
+      "meaning": "отставка, военная область и координаты определяют допуск особой станции",
+      "line": 21,
+      "annotation_line": 19,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "symbol": "Game.Input.ToggleSecondaryCoordinateObject.CheckPilot",
+      "entry": "CheckPilot",
+      "fields": [
+        "Mission1",
+        "RankState"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-7-1",
+        "mission-7-3"
+      ],
+      "meaning": "допуск к перевозке и выбор текста беженцев либо десанта",
+      "line": 47,
+      "annotation_line": 45,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Menus/ApplyMissionMarketRestrictions.asm",
+      "symbol": "Game.Menus.ApplyMissionMarketRestrictions.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Invasion",
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-7-invasion",
+        "mission-7-2"
+      ],
+      "meaning": "военная область ограничивает рынок и устанавливает общее состояние 4 либо 0",
+      "line": 22,
+      "annotation_line": 21,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Menus/ApplyMissionMarketRestrictions.asm",
+      "symbol": "Game.Menus.ApplyMissionMarketRestrictions.CheckMinerals",
+      "entry": "CheckMinerals",
+      "fields": [
+        "MineralLife"
+      ],
+      "anchors": [
+        "mission-4"
+      ],
+      "meaning": "живая колония обнуляет рыночный остаток минералов",
+      "line": 41,
+      "annotation_line": 40,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "symbol": "Game.Menus.PrintCombatRankAndEquipment.Entry",
+      "entry": "Entry",
+      "fields": [
+        "RankState"
+      ],
+      "anchors": [
+        "mission-shared-state"
+      ],
+      "meaning": "обычный боевой рейтинг использует тот же старший байт, что и военное состояние",
+      "line": 22,
+      "annotation_line": 21,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "symbol": "Game.Menus.PrintCombatRankAndEquipment.NextEquipment",
+      "entry": "NextEquipment",
+      "fields": [
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-3"
+      ],
+      "meaning": "MS_ACCEPT_BIT выбирает специальное имя первого устройства, поля State.ECM",
+      "line": 51,
+      "annotation_line": 50,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "symbol": "Game.Menus.PrintCombatRankAndEquipment.NextLaser",
+      "entry": "NextLaser",
+      "fields": [
+        "MissionFlags",
+        "AlienComputer"
+      ],
+      "anchors": [
+        "mission-2",
+        "mission-5"
+      ],
+      "meaning": "после лазеров отдельно выводятся ALIEN COMPUTER и CLOAKING DEVICE",
+      "line": 96,
+      "annotation_line": 95,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemStatistics.asm",
+      "symbol": "Game.Menus.PrintSystemStatistics.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-invasion"
+      ],
+      "meaning": "ненулевое общее состояние и совпадение семени разрешают особое описание системы",
+      "line": 22,
+      "annotation_line": 21,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Menus/CheckMissionRegionBand.asm",
+      "symbol": "Game.Menus.CheckMissionRegionBand.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-7-invasion"
+      ],
+      "meaning": "две границы фронта выделяют полосу сопротивления",
+      "line": 21,
+      "annotation_line": 19,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Missions/OfferThirdMission.asm",
+      "symbol": "Game.Missions.OfferThirdMission.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission3",
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-3"
+      ],
+      "meaning": "ответ Y принимает третью миссию, другой ответ сбрасывает её этап",
+      "line": 23,
+      "annotation_line": 21,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Missions/CompleteThirdMission.asm",
+      "symbol": "Game.Missions.CompleteThirdMission.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission3",
+        "MissionFlags",
+        "RankState"
+      ],
+      "anchors": [
+        "mission-3"
+      ],
+      "meaning": "награда увеличивает старший рейтинг и ставит четвёртую отметку без снятия MS_ACCEPT_BIT",
+      "line": 24,
+      "annotation_line": 22,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+      "symbol": "Game.Missions.SpecialMessageAndScoopReward.ClassifyScoop",
+      "entry": "ClassifyScoop",
+      "fields": [
+        "AlienComputer"
+      ],
+      "anchors": [
+        "mission-5"
+      ],
+      "meaning": "специальный контейнер увеличивает код компьютера и выводит его название",
+      "line": 64,
+      "annotation_line": 63,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+      "symbol": "Game.Missions.SpecialMessageAndScoopReward.ScoopItem",
+      "entry": "ScoopItem",
+      "fields": [
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "код предмета FF выдаёт CLOAKING DEVICE",
+      "line": 92,
+      "annotation_line": 91,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+      "symbol": "Game.Missions.SpecialMessageAndScoopReward.AddCargo",
+      "entry": "AddCargo",
+      "fields": [
+        "MineralLife"
+      ],
+      "anchors": [
+        "mission-4"
+      ],
+      "meaning": "колонизация проверяется до увеличения количества подобранных минералов",
+      "line": 119,
+      "annotation_line": 118,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Missions/DispatchMissionEvents.asm",
+      "symbol": "Game.Missions.DispatchMissionEvents.OfferMission",
+      "entry": "OfferMission",
+      "fields": [
+        "Mission3",
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-3"
+      ],
+      "meaning": "вектор предложения третьей миссии передаёт ответ основному обработчику",
+      "line": 36,
+      "annotation_line": 35,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Missions/DispatchMissionEvents.asm",
+      "symbol": "Game.Missions.DispatchMissionEvents.ScoopItem",
+      "entry": "ScoopItem",
+      "fields": [
+        "MissionFlags",
+        "MineralLife",
+        "AlienComputer"
+      ],
+      "anchors": [
+        "mission-2",
+        "mission-4",
+        "mission-5"
+      ],
+      "meaning": "общий вектор подбора разделяет маскировку, компьютер и обычные минералы",
+      "line": 71,
+      "annotation_line": 70,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Missions/DispatchRatingAndMissionEnd.asm",
+      "symbol": "Game.Missions.DispatchRatingAndMissionEnd.EndMission",
+      "entry": "EndMission",
+      "fields": [
+        "Mission3",
+        "MissionFlags",
+        "RankState"
+      ],
+      "anchors": [
+        "mission-3"
+      ],
+      "meaning": "вектор награды за третью миссию",
+      "line": 33,
+      "annotation_line": 32,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "symbol": "Game.Missions.RatingBountyDamageAndNewCommander.Entry",
+      "entry": "Entry",
+      "fields": [
+        "RankState",
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-7-invasion"
+      ],
+      "meaning": "переполнение числового рейтинга передаётся проверке начала войны",
+      "line": 24,
+      "annotation_line": 23,
+      "external_owner": true
+    },
+    {
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "symbol": "Game.Missions.RatingBountyDamageAndNewCommander.ResetCommander",
+      "entry": "ResetCommander",
+      "fields": [
+        "Mission1",
+        "Mission3",
+        "MissionFlags",
+        "Invasion",
+        "MineralLife",
+        "AlienComputer",
+        "RankState"
+      ],
+      "anchors": [
+        "mission-shared-state"
+      ],
+      "meaning": "восстановление полей заданий из изменяемого резерва NewCommander",
+      "line": 256,
+      "annotation_line": 255,
+      "external_owner": true
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "symbol": "Game.Motion.CheckObjectBoxAndChooseCourse.CheckHostility",
+      "entry": "CheckHostility",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-invasion"
+      ],
+      "meaning": "состояние 4 выбирает курс по параметру поведения без обычной проверки станции",
+      "line": 73,
+      "annotation_line": 72,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "symbol": "Game.Motion.GuideMissileAndCheckImpact.FindTarget",
+      "entry": "FindTarget",
+      "fields": [
+        "Mission3",
+        "MissionFlags",
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-3",
+        "mission-7-4"
+      ],
+      "meaning": "попадание в особую цель передаётся общему обработчику ракеты либо десанта",
+      "line": 40,
+      "annotation_line": 39,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.CheckMission",
+      "entry": "CheckMission",
+      "fields": [
+        "MissionPhase"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "фазы особой встречи переключаются при энергетических порогах",
+      "line": 42,
+      "annotation_line": 41,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.CheckEcm",
+      "entry": "CheckEcm",
+      "fields": [
+        "Mission3",
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-invasion"
+      ],
+      "meaning": "совместная проверка этапа 4 и MS_ACCEPT_BIT запрещает ответный ECM",
+      "line": 179,
+      "annotation_line": 178,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "symbol": "Game.Motion.ProcessObjectEnergyAndTactics.ChooseFlight",
+      "entry": "ChooseFlight",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-invasion"
+      ],
+      "meaning": "состояние 4 меняет вероятность и код порождения объектов",
+      "line": 210,
+      "annotation_line": 209,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "symbol": "Game.Motion.ProjectObjectAndSelectDetail.CheckMission",
+      "entry": "CheckMission",
+      "fields": [
+        "MissionPhase"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "первая фаза скрывает каркас корабля с миссионным признаком",
+      "line": 191,
+      "annotation_line": 190,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "symbol": "Game.Motion.SteerObjectAndTryLaser.CheckLaser",
+      "entry": "CheckLaser",
+      "fields": [
+        "RankState"
+      ],
+      "anchors": [
+        "mission-shared-state"
+      ],
+      "meaning": "нулевой старший байт рейтинга уменьшает вероятность лазера, номер миссии здесь не проверяется",
+      "line": 132,
+      "annotation_line": 131,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "symbol": "Game.Objects.GenerateSpaceTraffic.Entry",
+      "entry": "Entry",
+      "fields": [
+        "MissionFlags",
+        "MissionPhase"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "сочетание второй отметки и отсутствия маскировки допускает особую встречу",
+      "line": 24,
+      "annotation_line": 22,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "symbol": "Game.Objects.GenerateSpaceTraffic.EncounterClass",
+      "entry": "EncounterClass",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-invasion"
+      ],
+      "meaning": "общие состояния 1 и 4 принудительно выбирают модели встречи",
+      "line": 103,
+      "annotation_line": 102,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Screen/ChooseEncounterCode.asm",
+      "symbol": "Game.Screen.ChooseEncounterCode.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-invasion"
+      ],
+      "meaning": "состояние 4 выбирает специальный код события",
+      "line": 21,
+      "annotation_line": 20,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Screen/SelectTrafficType.asm",
+      "symbol": "Game.Screen.SelectTrafficType.CheckSpecial",
+      "entry": "CheckSpecial",
+      "fields": [
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-7-invasion"
+      ],
+      "meaning": "область вторжения и полоса сопротивления подменяют тип встречного корабля",
+      "line": 43,
+      "annotation_line": 42,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Text/CheckMineralLifeColony.asm",
+      "symbol": "Game.Text.CheckMineralLifeColony.Entry",
+      "entry": "Entry",
+      "fields": [
+        "MineralLife"
+      ],
+      "anchors": [
+        "mission-4"
+      ],
+      "meaning": "проверка признака гибели и минимального запаса минералов для живой колонии",
+      "line": 23,
+      "annotation_line": 21,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Text/CheckMissionRegion.asm",
+      "symbol": "Game.Text.CheckMissionRegion.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-7-invasion"
+      ],
+      "meaning": "геометрия фронта использует текущую систему и код вторжения",
+      "line": 22,
+      "annotation_line": 20,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Text/CheckSavedSystemRegion.asm",
+      "symbol": "Game.Text.CheckSavedSystemRegion.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-7-invasion"
+      ],
+      "meaning": "общая геометрия фронта применяется к сохранённому семени выбранной системы",
+      "line": 21,
+      "annotation_line": 20,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "symbol": "Game.Text.HandleSpecialObjectMission.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission3",
+        "MissionFlags",
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-3",
+        "mission-7-4"
+      ],
+      "meaning": "обычная ракета меняет этап попадания, Sidewinder обрабатывает высадку десанта",
+      "line": 25,
+      "annotation_line": 24,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "symbol": "Game.Text.HandleSpecialObjectMission.DestroyStation",
+      "entry": "DestroyStation",
+      "fields": [
+        "Mission3",
+        "MissionFlags",
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-7-3"
+      ],
+      "meaning": "Sidewinder отмечает высадку и сдвигает фронт до освобождения текущей системы",
+      "line": 47,
+      "annotation_line": 46,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "symbol": "Game.Text.NextDescriptionRandom.CheckWarSupply",
+      "entry": "CheckWarSupply",
+      "fields": [
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-7-2"
+      ],
+      "meaning": "продажа продовольствия либо оружия в полосе сопротивления ставит вторую отметку",
+      "line": 34,
+      "annotation_line": 32,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "symbol": "Game.Text.OfferRegionDependentMission.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Invasion",
+        "MissionFlags",
+        "RankState",
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-7-invasion"
+      ],
+      "meaning": "место, военный код и отметки определяют выдачу задания либо отставку",
+      "line": 22,
+      "annotation_line": 20,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+      "symbol": "Game.Text.PrintRankWithMissionSuffix.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Invasion",
+        "RankState"
+      ],
+      "anchors": [
+        "mission-7-invasion"
+      ],
+      "meaning": "общий принтер добавляет воинское звание и отметку отставки",
+      "line": 21,
+      "annotation_line": 19,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Trade/GetEquipmentStateAddress.asm",
+      "symbol": "Game.Trade.GetEquipmentStateAddress.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission1"
+      ],
+      "anchors": [
+        "mission-shared-state"
+      ],
+      "meaning": "адрес State.Mission1 служит базой индекса оборудования, состояние миссии не читается",
+      "line": 20,
+      "annotation_line": 19,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "symbol": "Game.Trade.PromptCargoQuantityAndRefugees.UnloadRefugees",
+      "entry": "UnloadRefugees",
+      "fields": [
+        "Mission1",
+        "MissionFlags",
+        "MineralLife"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-4",
+        "mission-7-1"
+      ],
+      "meaning": "разрешённая высадка снимает особый груз, выдаёт Gemstones и сбрасывает колонию",
+      "line": 62,
+      "annotation_line": 61,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Trade/MissionRegionMetric.asm",
+      "symbol": "Game.Trade.MissionRegionMetric.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Invasion"
+      ],
+      "anchors": [
+        "mission-7-invasion"
+      ],
+      "meaning": "метрика координат используется общей проверкой фронта",
+      "line": 21,
+      "annotation_line": 20,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Trade/MissionRegionMetric.asm",
+      "symbol": "Game.Trade.MissionRegionMetric.BoardRefugees",
+      "entry": "BoardRefugees",
+      "fields": [
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-7-1",
+        "mission-7-3"
+      ],
+      "meaning": "ответ Y очищает товары и свободный тоннаж, затем занимает трюм",
+      "line": 34,
+      "annotation_line": 32,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
+      "symbol": "Game.Trade.TradeTitleAndSellLoop.SellCargo",
+      "entry": "SellCargo",
+      "fields": [
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-7-2"
+      ],
+      "meaning": "продажа передаёт тип товара проверке военной поставки",
+      "line": 26,
+      "annotation_line": 25,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+      "symbol": "Game.Travel.CommitJumpFuelAndMishap.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission1"
+      ],
+      "anchors": [
+        "mission-1"
+      ],
+      "meaning": "активная первая миссия направляет переход в общий сброс заданий",
+      "line": 22,
+      "annotation_line": 21,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+      "symbol": "Game.Travel.GetSalePriceAndMissionFlags.Entry",
+      "entry": "Entry",
+      "fields": [
+        "MineralLife"
+      ],
+      "anchors": [
+        "mission-4"
+      ],
+      "meaning": "изменяемый MineralGate разрешает специальную цену живых минералов",
+      "line": 23,
+      "annotation_line": 22,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+      "symbol": "Game.Travel.GetSalePriceAndMissionFlags.GrantMission",
+      "entry": "GrantMission",
+      "fields": [
+        "Mission1",
+        "Mission3",
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-dispatch"
+      ],
+      "meaning": "входная маска и общие отметки выбирают очередную старую миссию",
+      "line": 33,
+      "annotation_line": 31,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "symbol": "Game.Travel.LaserTypeAndArrivalEvents.ArrivalEvents",
+      "entry": "ArrivalEvents",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-3"
+      ],
+      "meaning": "прибытие меняет этап задания и проверяет семя целевой системы",
+      "line": 32,
+      "annotation_line": 31,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "symbol": "Game.Travel.LaserTypeAndArrivalEvents.CheckGrant",
+      "entry": "CheckGrant",
+      "fields": [
+        "RankState",
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-dispatch"
+      ],
+      "meaning": "старший счётчик переходов разрешает выдачу события по маске рейтинга",
+      "line": 73,
+      "annotation_line": 72,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Travel/TickJumpCountdown.asm",
+      "symbol": "Game.Travel.TickJumpCountdown.ClearMissions",
+      "entry": "ClearMissions",
+      "fields": [
+        "Mission1",
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-3"
+      ],
+      "meaning": "общий переход очищает активные старые миссии и предупреждение",
+      "line": 44,
+      "annotation_line": 43,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
+      "symbol": "Game.Travel.UpdateAmbientFlightMessage.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission1",
+        "Mission3",
+        "CloakActive"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-2",
+        "mission-3"
+      ],
+      "meaning": "полётные сообщения учитывают задания, низкая энергия снимает маскировку",
+      "line": 23,
+      "annotation_line": 22,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Travel/BuildStationGeometry.asm",
+      "symbol": "Game.Travel.BuildStationGeometry.MissionStage",
+      "entry": "MissionStage",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-3",
+        "mission-7-4"
+      ],
+      "meaning": "помеченное событие станционного слота переводит общее состояние в этап 5",
+      "line": 101,
+      "annotation_line": 100,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "symbol": "Game.Universe.ApplyEnhancedFlightControl.CheckRefugees",
+      "entry": "CheckRefugees",
+      "fields": [
+        "Invasion",
+        "RankState",
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-7-1"
+      ],
+      "meaning": "проверка разрешения высадки, военный путь ставит первую отметку",
+      "line": 68,
+      "annotation_line": 67,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Universe/CheckSpecialSystemOrRandom.asm",
+      "symbol": "Game.Universe.CheckSpecialSystemOrRandom.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-7-4"
+      ],
+      "meaning": "Z от проверки особой системы задаёт положение станции и состояние 4",
+      "line": 25,
+      "annotation_line": 23,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "symbol": "Game.Universe.InitializeExtendedObjectMetadata.StoreFlags",
+      "entry": "StoreFlags",
+      "fields": [
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "наличие маскировки участвует в случайном допуске энергетического эффекта объекта",
+      "line": 76,
+      "annotation_line": 75,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Universe/SelectSpecialCargoText.asm",
+      "symbol": "Game.Universe.SelectSpecialCargoText.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Invasion",
+        "RankState"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-7-1",
+        "mission-7-3"
+      ],
+      "meaning": "военное состояние выбирает текст беженцев либо десанта",
+      "line": 21,
+      "annotation_line": 20,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "symbol": "Game.Universe.SpawnDestructionContentsAndEffects.Entry",
+      "entry": "Entry",
+      "fields": [
+        "MissionPhase"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "уничтожение миссионного корабля переводит встречу в фазу специального контейнера",
+      "line": 31,
+      "annotation_line": 30,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+      "symbol": "Game.Trade.ResetCloakingAndSeedFlightRandom.Entry",
+      "entry": "Entry",
+      "fields": [
+        "CloakActive"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "подготовка полёта записывает переданное состояние маскировки",
+      "line": 21,
+      "annotation_line": 20,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+      "symbol": "Game.Trade.ResetCloakingAndSeedFlightRandom.BusyCargo",
+      "entry": "BusyCargo",
+      "fields": [
+        "MissionFlags"
+      ],
+      "anchors": [
+        "mission-1",
+        "mission-7-1",
+        "mission-7-3"
+      ],
+      "meaning": "перекрывающийся вход прекращает предложение покупки при занятом миссионном трюме",
+      "line": 27,
+      "annotation_line": 26,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Universe/HandleFastTravelStep.asm",
+      "symbol": "Game.Universe.HandleFastTravelStep.Entry",
+      "entry": "Entry",
+      "fields": [
+        "MissionPhase"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "быстрое перемещение обнуляет фазу второй миссии при очистке окружения",
+      "line": 25,
+      "annotation_line": 24,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm",
+      "symbol": "Game.Menus.CompareSystemSeedToGalaxyBase.Entry",
+      "entry": "Entry",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-3"
+      ],
+      "meaning": "побайтовое сравнение семени определяет совпадение с целевой системой задания",
+      "line": 21,
+      "annotation_line": 20,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "symbol": "Game.Data.SystemBoundaryAndObjects.PlaceBodies",
+      "entry": "PlaceBodies",
+      "fields": [
+        "Mission3"
+      ],
+      "anchors": [
+        "mission-7-4"
+      ],
+      "meaning": "размещение небесных тел вызывает особую проверку станционного слота",
+      "line": 47,
+      "annotation_line": 46,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "symbol": "Game.Flight.IndexPauseCommandAndHandlers.SwapLasers",
+      "entry": "SwapLasers",
+      "fields": [
+        "ShipUpgrade"
+      ],
+      "anchors": [
+        "mission-6"
+      ],
+      "meaning": "наличие Cobra Mk4 разрешает перестановку направлений лазеров",
+      "line": 37,
+      "annotation_line": 36,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Combat/AnimateIntroAndObjectPipeline.asm",
+      "symbol": "Game.Combat.AnimateIntroAndObjectPipeline.MissionPhase",
+      "entry": "MissionPhase",
+      "fields": [
+        "MissionPhase"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "отдельный рабочий байт хранит фазу появления и подбора миссионного предмета",
+      "line": 24,
+      "annotation_line": 23,
+      "external_owner": false
+    },
+    {
+      "file": "Source/Game/Interface/DispatchFlightMessage.asm",
+      "symbol": "Game.Interface.DispatchFlightMessage.CloakActive",
+      "entry": "CloakActive",
+      "fields": [
+        "CloakActive"
+      ],
+      "anchors": [
+        "mission-2"
+      ],
+      "meaning": "рабочий флаг включённой маскировки отделён от признака наличия устройства",
+      "line": 27,
+      "annotation_line": 26,
+      "external_owner": false
+    }
+  ],
+  "entry_count": 101,
+  "field_inventory": [
+    {
+      "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+      "line": 34,
+      "code": "OfferRefugees:  LD A, (State.MissionFlags)",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Charts.NextScreenCharacterRowAndRefugees.OfferRefugees"
+      ]
+    },
+    {
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "line": 33,
+      "code": "LD HL, State.AlienComputer",
+      "fields": [
+        "AlienComputer"
+      ],
+      "handlers": [
+        "Game.Circles.UpdateThargoidAndBodyCoords.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "line": 66,
+      "code": "CheckEcmLock:   LD A, (State.MissionFlags)",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Combat.ProcessLaserAndEcm.CheckEcmLock"
+      ]
+    },
+    {
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "line": 70,
+      "code": "LD A, (State.Mission3)",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Combat.ProcessLaserAndEcm.CheckEcmLock"
+      ]
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 29,
+      "code": "Entry:          LD A, (State.Mission3)",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Combat.UpdateAllSpaceObjects.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+      "line": 26,
+      "code": "LD A, (State.Invasion)",
+      "fields": [
+        "Invasion"
+      ],
+      "handlers": [
+        "Game.Combat.UpdateClockAndRotateDistantBodies.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+      "line": 37,
+      "code": "LD HL, State.Invasion",
+      "fields": [
+        "Invasion"
+      ],
+      "handlers": [
+        "Game.Combat.UpdateClockAndRotateDistantBodies.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 27,
+      "code": "LD (State.MineralLife), A",
+      "fields": [
+        "MineralLife"
+      ],
+      "handlers": [
+        "Game.Extensions.AttributeVectorAndEnergyBomb.ConfirmUpgrade",
+        "Game.Extensions.AttributeVectorAndEnergyBomb.ReadCargoByte"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "line": 26,
+      "code": "LD A, (State.Invasion)",
+      "fields": [
+        "Invasion"
+      ],
+      "handlers": [
+        "Game.Extensions.CreateMissileOrMissionCraft.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "line": 30,
+      "code": "LD A, (State.MissionFlags)",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Extensions.CreateMissileOrMissionCraft.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "line": 34,
+      "code": "LD A, (State.RankState)",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Extensions.CreateMissileOrMissionCraft.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "line": 49,
+      "code": "LD A, (State.AlienComputer)",
+      "fields": [
+        "AlienComputer"
+      ],
+      "handlers": [
+        "Game.Extensions.CreateMissileOrMissionCraft.SpendMissile"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "line": 21,
+      "code": "LD A, (State.MissionFlags)",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Extensions.PrintCargoAndMessageBanks.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "line": 18,
+      "code": "Entry:          LD A, (State.Mission3)",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Extensions.SetObjectAggressionFlag.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "line": 24,
+      "code": "Entry:          LD A, (State.Invasion)",
+      "fields": [
+        "Invasion"
+      ],
+      "handlers": [
+        "Game.Extensions.UpdateInvasionOnRatingOverflow.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "line": 29,
+      "code": "LD A, (State.Mission1)",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Extensions.UpdateInvasionOnRatingOverflow.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "line": 30,
+      "code": "LD L, LOW State.Mission3",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Extensions.UpdateInvasionOnRatingOverflow.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "line": 35,
+      "code": "LD L, LOW State.AlienComputer",
+      "fields": [
+        "AlienComputer"
+      ],
+      "handlers": [
+        "Game.Extensions.UpdateInvasionOnRatingOverflow.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "line": 41,
+      "code": "LD A, (State.Invasion)",
+      "fields": [
+        "Invasion"
+      ],
+      "handlers": [
+        "Game.Extensions.UpdateInvasionOnRatingOverflow.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "line": 50,
+      "code": "CheckRating:    LD A, (State.RankState)",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Extensions.UpdateInvasionOnRatingOverflow.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "line": 59,
+      "code": "LD L, LOW State.MissionFlags",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Extensions.UpdateInvasionOnRatingOverflow.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "line": 64,
+      "code": "LD (State.RankState), A",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Extensions.UpdateInvasionOnRatingOverflow.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "line": 65,
+      "code": "LD (State.Invasion), A",
+      "fields": [
+        "Invasion"
+      ],
+      "handlers": [
+        "Game.Extensions.UpdateInvasionOnRatingOverflow.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "line": 47,
+      "code": "LD A, (State.Mission3)",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Extensions.UpdateStationAndSpecialShips.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/ApplyMissionViewColour.asm",
+      "line": 19,
+      "code": "Entry:          LD A, (State.Mission1)",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Flight.ApplyMissionViewColour.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/DispatchThirdMissionStage.asm",
+      "line": 19,
+      "code": "Entry:          LD A, (State.Mission3)",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Flight.DispatchThirdMissionStage.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/DivideByteFractionForTunnel.asm",
+      "line": 44,
+      "code": "FinishTunnel:   LD A, (State.Mission1)",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Flight.DivideByteFractionForTunnel.FinishTunnel"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "line": 21,
+      "code": "Entry:          LD A, (State.Mission1)",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Flight.FillViewAttributesAndFlightState.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/MarkMissionViewInitialized.asm",
+      "line": 19,
+      "code": "Entry:          LD A, (State.Mission1)",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Flight.MarkMissionViewInitialized.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+      "line": 35,
+      "code": "LD HL, State.MissionFlags",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Flight.ToggleCloakingDevice.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/TryColonizeMinerals.asm",
+      "line": 26,
+      "code": "Entry:          LD A, (State.MineralLife)",
+      "fields": [
+        "MineralLife"
+      ],
+      "handlers": [
+        "Game.Flight.TryColonizeMinerals.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Flight/TryColonizeMinerals.asm",
+      "line": 51,
+      "code": "LD (State.MineralLife), A",
+      "fields": [
+        "MineralLife"
+      ],
+      "handlers": [
+        "Game.Flight.TryColonizeMinerals.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Input/CheckMissionSystem.asm",
+      "line": 21,
+      "code": "Entry:          LD A, (State.RankState)",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Input.CheckMissionSystem.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "line": 47,
+      "code": "CheckPilot:     LD A, (State.Mission1)",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Input.ToggleSecondaryCoordinateObject.CheckPilot"
+      ]
+    },
+    {
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "line": 63,
+      "code": "LD A, (State.RankState)",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Input.ToggleSecondaryCoordinateObject.CheckPilot"
+      ]
+    },
+    {
+      "file": "Source/Game/Menus/ApplyMissionMarketRestrictions.asm",
+      "line": 38,
+      "code": "StoreInvasion:  LD (State.Mission3), A",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Menus.ApplyMissionMarketRestrictions.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "line": 22,
+      "code": "Entry:          LD HL, State.RankState",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Menus.PrintCombatRankAndEquipment.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "line": 57,
+      "code": "LD A, (State.MissionFlags)",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Menus.PrintCombatRankAndEquipment.NextEquipment",
+        "Game.Menus.PrintCombatRankAndEquipment.NextLaser"
+      ]
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "line": 106,
+      "code": "LD A, (State.AlienComputer)",
+      "fields": [
+        "AlienComputer"
+      ],
+      "handlers": [
+        "Game.Menus.PrintCombatRankAndEquipment.NextLaser"
+      ]
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "line": 110,
+      "code": "LD A, (State.MissionFlags)",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Menus.PrintCombatRankAndEquipment.NextEquipment",
+        "Game.Menus.PrintCombatRankAndEquipment.NextLaser"
+      ]
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemStatistics.asm",
+      "line": 48,
+      "code": "LD A, (State.Mission3)",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Menus.PrintSystemStatistics.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Missions/CompleteThirdMission.asm",
+      "line": 24,
+      "code": "Entry:          LD HL, State.RankState",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Missions.CompleteThirdMission.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Missions/CompleteThirdMission.asm",
+      "line": 27,
+      "code": "LD (State.Mission3), A",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Missions.CompleteThirdMission.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Missions/CompleteThirdMission.asm",
+      "line": 28,
+      "code": "LD HL, State.MissionFlags",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Missions.CompleteThirdMission.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Missions/OfferThirdMission.asm",
+      "line": 31,
+      "code": "LD (State.Mission3), A",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Missions.OfferThirdMission.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Missions/OfferThirdMission.asm",
+      "line": 35,
+      "code": "AcceptMission:  LD HL, State.MissionFlags",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Missions.OfferThirdMission.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Missions/OfferThirdMission.asm",
+      "line": 38,
+      "code": "LD (State.Mission3), A",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Missions.OfferThirdMission.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 76,
+      "code": "LD A, (State.Mission3)",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Motion.CheckObjectBoxAndChooseCourse.CheckHostility"
+      ]
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "line": 80,
+      "code": "LD HL, State.Mission3",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Motion.GuideMissileAndCheckImpact.FindTarget"
+      ]
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 182,
+      "code": "LD A, (State.Mission3)",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Motion.ProcessObjectEnergyAndTactics.CheckEcm",
+        "Game.Motion.ProcessObjectEnergyAndTactics.ChooseFlight"
+      ]
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 186,
+      "code": "LD A, (State.MissionFlags)",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Motion.ProcessObjectEnergyAndTactics.CheckEcm"
+      ]
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "line": 224,
+      "code": "LD A, (State.Mission3)",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Motion.ProcessObjectEnergyAndTactics.CheckEcm",
+        "Game.Motion.ProcessObjectEnergyAndTactics.ChooseFlight"
+      ]
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 141,
+      "code": "LD A, (State.RankState)",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Motion.SteerObjectAndTryLaser.CheckLaser"
+      ]
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "line": 41,
+      "code": "LD A, (State.MissionFlags)",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Objects.GenerateSpaceTraffic.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "line": 106,
+      "code": "LD A, (State.Mission3)",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Objects.GenerateSpaceTraffic.EncounterClass"
+      ]
+    },
+    {
+      "file": "Source/Game/Screen/ChooseEncounterCode.asm",
+      "line": 21,
+      "code": "Entry:          LD A, (State.Mission3)",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Screen.ChooseEncounterCode.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/CheckMineralLifeColony.asm",
+      "line": 23,
+      "code": "Entry:          LD A, (State.MineralLife)",
+      "fields": [
+        "MineralLife"
+      ],
+      "handlers": [
+        "Game.Text.CheckMineralLifeColony.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/CheckMineralLifeColony.asm",
+      "line": 39,
+      "code": "LD (State.MineralLife), A",
+      "fields": [
+        "MineralLife"
+      ],
+      "handlers": [
+        "Game.Text.CheckMineralLifeColony.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/CheckMissionRegion.asm",
+      "line": 27,
+      "code": "LD A, (State.Invasion)",
+      "fields": [
+        "Invasion"
+      ],
+      "handlers": [
+        "Game.Text.CheckMissionRegion.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "line": 51,
+      "code": "LD HL, State.Mission3",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Text.HandleSpecialObjectMission.Entry",
+        "Game.Text.HandleSpecialObjectMission.DestroyStation"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "line": 57,
+      "code": "ShrinkFront:    LD HL, State.Invasion",
+      "fields": [
+        "Invasion"
+      ],
+      "handlers": [
+        "Game.Text.HandleSpecialObjectMission.Entry",
+        "Game.Text.HandleSpecialObjectMission.DestroyStation"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "line": 68,
+      "code": "LD HL, State.Mission3",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Text.HandleSpecialObjectMission.Entry",
+        "Game.Text.HandleSpecialObjectMission.DestroyStation"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "line": 47,
+      "code": "LD HL, State.MissionFlags",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Text.NextDescriptionRandom.CheckWarSupply"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "line": 26,
+      "code": "LD A, (State.Invasion)",
+      "fields": [
+        "Invasion"
+      ],
+      "handlers": [
+        "Game.Text.OfferRegionDependentMission.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "line": 30,
+      "code": "LD L, LOW State.RankState",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Text.OfferRegionDependentMission.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "line": 47,
+      "code": "LD HL, State.RankState",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Text.OfferRegionDependentMission.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "line": 57,
+      "code": "LD A, (State.MissionFlags)",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Text.OfferRegionDependentMission.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "line": 67,
+      "code": "OfferVolunteer: LD A, (State.MissionFlags)",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Text.OfferRegionDependentMission.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "line": 86,
+      "code": "LD (State.Mission3), A",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Text.OfferRegionDependentMission.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+      "line": 22,
+      "code": "LD A, (State.Invasion)",
+      "fields": [
+        "Invasion"
+      ],
+      "handlers": [
+        "Game.Text.PrintRankWithMissionSuffix.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+      "line": 26,
+      "code": "LD A, (State.RankState)",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Text.PrintRankWithMissionSuffix.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+      "line": 41,
+      "code": "LD A, (State.RankState)",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Text.PrintRankWithMissionSuffix.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Trade/GetEquipmentStateAddress.asm",
+      "line": 20,
+      "code": "Entry:          LD HL, State.Mission1",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Trade.GetEquipmentStateAddress.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "line": 62,
+      "code": "UnloadRefugees: LD A, (State.Mission1)",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Trade.PromptCargoQuantityAndRefugees.UnloadRefugees"
+      ]
+    },
+    {
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "line": 66,
+      "code": "LD HL, State.MissionFlags",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Trade.PromptCargoQuantityAndRefugees.UnloadRefugees"
+      ]
+    },
+    {
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "line": 72,
+      "code": "LD (State.MineralLife), A",
+      "fields": [
+        "MineralLife"
+      ],
+      "handlers": [
+        "Game.Trade.PromptCargoQuantityAndRefugees.UnloadRefugees"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+      "line": 22,
+      "code": "Entry:          LD A, (State.Mission1)",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Travel.CommitJumpFuelAndMishap.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+      "line": 39,
+      "code": "LD (State.Mission1), A",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Travel.GetSalePriceAndMissionFlags.GrantMission"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+      "line": 56,
+      "code": "LD (State.Mission3), A",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Travel.GetSalePriceAndMissionFlags.GrantMission"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "line": 42,
+      "code": "LD HL, State.Mission3",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Travel.LaserTypeAndArrivalEvents.ArrivalEvents"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "line": 62,
+      "code": "StoreMission:   LD (State.Mission3), A",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Travel.LaserTypeAndArrivalEvents.ArrivalEvents"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "line": 63,
+      "code": "CountArrival:   LD HL, State.RankState",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Travel.LaserTypeAndArrivalEvents.CheckGrant"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "line": 77,
+      "code": "LD L, LOW State.MissionFlags",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Travel.LaserTypeAndArrivalEvents.CheckGrant"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/TickJumpCountdown.asm",
+      "line": 45,
+      "code": "LD (State.Mission3), A",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Travel.TickJumpCountdown.ClearMissions"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/TickJumpCountdown.asm",
+      "line": 46,
+      "code": "LD A, (State.Mission1)",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Travel.TickJumpCountdown.ClearMissions"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/TickJumpCountdown.asm",
+      "line": 51,
+      "code": "LD (State.Mission1), A",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Travel.TickJumpCountdown.ClearMissions"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
+      "line": 42,
+      "code": "LD A, (State.Mission3)",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Travel.UpdateAmbientFlightMessage.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
+      "line": 46,
+      "code": "LD A, (State.Mission1)",
+      "fields": [
+        "Mission1"
+      ],
+      "handlers": [
+        "Game.Travel.UpdateAmbientFlightMessage.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "line": 76,
+      "code": "LD A, (State.Invasion)",
+      "fields": [
+        "Invasion"
+      ],
+      "handlers": [
+        "Game.Universe.ApplyEnhancedFlightControl.CheckRefugees"
+      ]
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "line": 81,
+      "code": "LD A, (State.RankState)",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Universe.ApplyEnhancedFlightControl.CheckRefugees"
+      ]
+    },
+    {
+      "file": "Source/Game/Universe/CheckSpecialSystemOrRandom.asm",
+      "line": 39,
+      "code": "LD (State.Mission3), A",
+      "fields": [
+        "Mission3"
+      ],
+      "handlers": [
+        "Game.Universe.CheckSpecialSystemOrRandom.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "line": 85,
+      "code": "LD A, (State.MissionFlags)",
+      "fields": [
+        "MissionFlags"
+      ],
+      "handlers": [
+        "Game.Universe.InitializeExtendedObjectMetadata.StoreFlags"
+      ]
+    },
+    {
+      "file": "Source/Game/Universe/SelectSpecialCargoText.asm",
+      "line": 21,
+      "code": "Entry:          LD A, (State.Invasion)",
+      "fields": [
+        "Invasion"
+      ],
+      "handlers": [
+        "Game.Universe.SelectSpecialCargoText.Entry"
+      ]
+    },
+    {
+      "file": "Source/Game/Universe/SelectSpecialCargoText.asm",
+      "line": 25,
+      "code": "LD A, (State.RankState)",
+      "fields": [
+        "RankState"
+      ],
+      "handlers": [
+        "Game.Universe.SelectSpecialCargoText.Entry"
+      ]
+    }
+  ],
+  "field_inventory_count": 94,
+  "inventory_limit": "реестр прямых текстовых обращений State.*, косвенные обращения и общие продолжения дополнительно перечислены вручную в entries",
+  "manual": "Docs/Manual.md",
+  "source_manual_text_unchanged": true,
+  "source_manual_text_sha256": "421e72cdbb1acfd87da9752bdc94da9d296d918a31a0b62cd388af25c2eafb1a",
+  "validated_symbols": 101,
+  "validated_manual_anchors": 13,
+  "annotation_source_files": [
+    "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+    "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+    "Source/Game/Circles/ScanUpgradeKeyRow.asm",
+    "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+    "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+    "Source/Game/Combat/AnimateIntroAndObjectPipeline.asm",
+    "Source/Game/Combat/ApplyPlayerDamage.asm",
+    "Source/Game/Combat/HandleEscapeCapsule.asm",
+    "Source/Game/Combat/HandleObjectCollision.asm",
+    "Source/Game/Combat/ProcessLaserAndEcm.asm",
+    "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+    "Source/Game/Data/SystemBoundaryAndObjects.asm",
+    "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+    "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+    "Source/Game/Extensions/HandleSpecialMessageToken.asm",
+    "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+    "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+    "Source/Game/Extensions/PrintPlanetInvasionStatus.asm",
+    "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+    "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+    "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+    "Source/Game/Extensions/UpdateSpecialCargoStatus.asm",
+    "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+    "Source/Game/Flight/ApplyCloakingViewColour.asm",
+    "Source/Game/Flight/ApplyMissionViewColour.asm",
+    "Source/Game/Flight/DispatchThirdMissionStage.asm",
+    "Source/Game/Flight/DivideByteFractionForTunnel.asm",
+    "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+    "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+    "Source/Game/Flight/LaunchOrDockShip.asm",
+    "Source/Game/Flight/MarkMissionViewInitialized.asm",
+    "Source/Game/Flight/SetViewAttributesWithCloaking.asm",
+    "Source/Game/Flight/ToggleCloakingDevice.asm",
+    "Source/Game/Flight/TryColonizeMinerals.asm",
+    "Source/Game/Input/CheckMissionSystem.asm",
+    "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+    "Source/Game/Interface/DispatchFlightMessage.asm",
+    "Source/Game/Menus/ApplyMissionMarketRestrictions.asm",
+    "Source/Game/Menus/CheckMissionRegionBand.asm",
+    "Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm",
+    "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+    "Source/Game/Menus/PrintSystemStatistics.asm",
+    "Source/Game/Missions/CompleteThirdMission.asm",
+    "Source/Game/Missions/DispatchMissionEvents.asm",
+    "Source/Game/Missions/DispatchRatingAndMissionEnd.asm",
+    "Source/Game/Missions/OfferThirdMission.asm",
+    "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+    "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+    "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+    "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+    "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+    "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+    "Source/Game/Objects/GenerateSpaceTraffic.asm",
+    "Source/Game/Screen/ChooseEncounterCode.asm",
+    "Source/Game/Screen/SelectTrafficType.asm",
+    "Source/Game/Text/CheckMineralLifeColony.asm",
+    "Source/Game/Text/CheckMissionRegion.asm",
+    "Source/Game/Text/CheckSavedSystemRegion.asm",
+    "Source/Game/Text/HandleSpecialObjectMission.asm",
+    "Source/Game/Text/NextDescriptionRandom.asm",
+    "Source/Game/Text/OfferRegionDependentMission.asm",
+    "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+    "Source/Game/Trade/GetEquipmentStateAddress.asm",
+    "Source/Game/Trade/MissionRegionMetric.asm",
+    "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+    "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+    "Source/Game/Trade/TradeTitleAndSellLoop.asm",
+    "Source/Game/Travel/BuildStationGeometry.asm",
+    "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+    "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+    "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+    "Source/Game/Travel/TickJumpCountdown.asm",
+    "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
+    "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+    "Source/Game/Universe/CheckSpecialSystemOrRandom.asm",
+    "Source/Game/Universe/HandleFastTravelStep.asm",
+    "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+    "Source/Game/Universe/SelectSpecialCargoText.asm",
+    "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm"
+  ],
+  "source_code_change_policy": "только комментарии, перед каждой записью сравнивались все строки инструкций и данных без комментариев",
+  "last_annotation_pass_changed_files": [
+    "Source/Game/Combat/ProcessLaserAndEcm.asm",
+    "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+    "Source/Game/Combat/HandleEscapeCapsule.asm",
+    "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+    "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+    "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+    "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+    "Source/Game/Flight/SetViewAttributesWithCloaking.asm",
+    "Source/Game/Flight/LaunchOrDockShip.asm",
+    "Source/Game/Menus/ApplyMissionMarketRestrictions.asm",
+    "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+    "Source/Game/Menus/PrintSystemStatistics.asm",
+    "Source/Game/Missions/DispatchMissionEvents.asm",
+    "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+    "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+    "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+    "Source/Game/Objects/GenerateSpaceTraffic.asm",
+    "Source/Game/Screen/ChooseEncounterCode.asm",
+    "Source/Game/Text/HandleSpecialObjectMission.asm",
+    "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+    "Source/Game/Travel/TickJumpCountdown.asm",
+    "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
+    "Source/Game/Travel/BuildStationGeometry.asm",
+    "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+    "Source/Game/Universe/SelectSpecialCargoText.asm",
+    "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm"
+  ],
+  "line_reference_note": "номера строк обновлены после итогового оформления, устойчивые ссылки заданы file, symbol и anchors",
+  "coverage_by_anchor": {
+    "mission-1": 18,
+    "mission-2": 21,
+    "mission-3": 25,
+    "mission-4": 11,
+    "mission-5": 5,
+    "mission-6": 6,
+    "mission-7-1": 9,
+    "mission-7-2": 3,
+    "mission-7-3": 10,
+    "mission-7-4": 7,
+    "mission-7-invasion": 25,
+    "mission-dispatch": 2,
+    "mission-shared-state": 4
+  },
+  "validation": {
+    "missing_symbols": 0,
+    "missing_manual_anchors": 0,
+    "missing_source_annotations": 0,
+    "missing_markdown_files": 0,
+    "uncovered_direct_field_references": 0,
+    "duplicate_manual_anchors": 0,
+    "source_manual_text_sha256_matches": true,
+    "assembler_run": false,
+    "runtime_tested": false,
+    "semantic_proof_by_automation": false
+  },
+  "final_source_layout_verified": true
+}

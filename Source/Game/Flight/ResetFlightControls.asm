@@ -6,11 +6,11 @@
 ; In:
 ;   без параметров
 ; Out:
-;   FF08..FF0C=0,FF0D=12, далее очистка клавиш 94FE
+;   слова InputMotion.Roll и Pitch обнулены, InputMotion.Speed получает #0C00, далее ClearFlightKeyEvents очищает клавиши
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   F9AB возвращает HL=FF08,B=5 и обнуляет 80 байтов объектных метаданных,9503 очищает пять байтов
+;   Game.Extensions.ResetObjectMetadata.Entry возвращает HL=InputMotion.Roll,B=5 и обнуляет 80 байтов объектных метаданных,Game.Flight.ClearBytes.Entry очищает пять байтов
 ;   управления
 ; -----------------------------------------
                 ASSERT $ == #94F4
@@ -18,7 +18,7 @@
 Entry:          LD B, #05
                 CALL Game.Extensions.ResetObjectMetadata.Entry
                 CALL Game.Flight.ClearBytes.Entry
-                LD (HL), #0C
+                LD (HL), #0C                                                    ; далее Game.Flight.ClearFlightKeyEvents.Entry без команды перехода
                 ASSERT $ == #94FE
                 endmodule
                 endmodule

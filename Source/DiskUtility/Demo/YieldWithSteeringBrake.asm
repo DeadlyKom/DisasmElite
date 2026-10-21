@@ -3,14 +3,16 @@
 ; исходный диапазон #E70A..#E72F
 ; In:
 ;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры
-;   IX=4700, флаги объектов, наличие ковша D088 и свободный трюм D07C
+;   IX=Keyboard, флаги объектов, наличие ковша State.FuelScoops и свободный трюм State.FreeCargo
 ; Out:
 ;   клавиша J снята при доступном грузе, поворот по S/X включает торможение
 ; Corrupt:
 ;   HL, AF, затем полный контракт YieldToGame
 ; Note:
-;   Проверяется побитовое D07C AND D088, не две независимые проверки ненулевых величин
-;   IX6.3 соответствует J, IX7.0/1 пробел/Symbol Shift, IX0.2/IX1.1 X/S
+;   Проверяется побитовое State.FreeCargo AND State.FuelScoops, не две независимые проверки ненулевых величин
+;   J задаётся KEYBOARD_J_BIT в FKeyboardRows.RowEnterLKJH
+;   SPACE и Symbol Shift задаются KEYBOARD_SP_BIT и KEYBOARD_SS_BIT в FKeyboardRows.RowSpaceSMNB
+;   тангаж проверяется по KEYBOARD_X_BIT в FKeyboardRows.RowShiftZXCV и KEYBOARD_S_BIT в FKeyboardRows.RowASDFG
 ; -----------------------------------------
                 ; подсчёт доступной комбинации объектных признаков перед разрешением J
 YieldWithBrake: CALL CountCargo
@@ -34,3 +36,4 @@ CheckPitchKeys: BIT KEYBOARD_X_BIT, (IX + FKeyboardRows.RowShiftZXCV)
                 ; пробел снимается, Symbol Shift устанавливается перед уступкой кадра
 BrakeForPitch:  RES KEYBOARD_SP_BIT, (IX + FKeyboardRows.RowSpaceSMNB)
                 SET KEYBOARD_SS_BIT, (IX + FKeyboardRows.RowSpaceSMNB)
+                ; JP YieldToGame, продолжение в YieldToGame.asm

@@ -4,7 +4,7 @@
 ; подготовка строки круга с отсечённым левым краем
 ; исходный диапазон #89A1..#89C2
 ; смысловое имя PrepareLeftClippedCircle
-; In: рабочие смещения и радиус через #89C3
+; In: рабочие смещения и радиус через Game.Circles.LoadCircleIterationCoordinates.Entry
 ; Out: правый край вычислен, E задаёт столбец 1, B — маска левого края
 ; Corrupt: HL, DE, BC, AF, BC', DE'
 ; Правая координата равна 128+r-B
@@ -29,13 +29,14 @@ Entry:          CALL Game.Circles.LoadCircleIterationCoordinates.Entry
                 LD A, (CircleState.OutlineOnly)
                 AND A
                 LD A, B
-                JR NZ, OutlineMask                                              ; переход, если выбран контур, заменить сплошную левую маску на#80
+                JR NZ, OutlineMask                                              ; переход, если выбран контур, заменить сплошную левую маску на #80
 
                 LD B, #FF
                 RET
 
 OutlineMask:    LD B, #80
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #89C3
                 endmodule

@@ -1,7 +1,7 @@
                 ifndef _VARIABLES_INPUT_
                 define _VARIABLES_INPUT_
 
-InputMotion     EQU Game.Input.InterruptGateAndAcceleration.Roll                ; адрес структуры FInputMotion
+InputMotion     EQU Game.Input.InterruptGateAndAcceleration.MotionData          ; адрес структуры FInputMotion
 .Roll           EQU InputMotion + FInputMotion.Roll                             ; крен, знако-модульное слово с дробной частью в младшем байте
 .Pitch          EQU InputMotion + FInputMotion.Pitch                            ; тангаж, знако-модульное слово с дробной частью в младшем байте
 .Speed          EQU InputMotion + FInputMotion.Speed                            ; неотрицательная скорость, дробная часть в младшем байте

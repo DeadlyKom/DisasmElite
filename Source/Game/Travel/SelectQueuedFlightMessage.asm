@@ -4,14 +4,14 @@
 ; Выбор следующего события из очереди сообщений
 ; исходный диапазон #DAB4..#DAE5
 ; In:
-;   DA73 = оставшееся время, D0BD..D0D0 = десять пар событий
+;   FlightMessage.Frames = оставшееся время, FlightEvents = десять пар событий
 ; Out:
-;   DA75 = X сообщения, DA76 = токен, DA73=14 при выборе
+;   FlightMessage.Column = X сообщения, FlightMessage.Token = токен, FlightMessage.Frames=14 при выборе
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Сначала обновляет отсчёт прыжка, активное сообщение передаётся DAEF, при пустой строке
-;   чередует обычные и вторичные сообщения по биту 0 DA74, ищет первый установленный бит 7 в
+;   Сначала обновляет отсчёт прыжка, активное сообщение передаётся Game.Travel.SetMessageCoordinatesAndRender.TickMessage, при пустой строке
+;   чередует обычные и вторичные сообщения по биту 0 FlightMessage.QueuePhase, ищет первый установленный бит 7 в
 ;   паре и снимает его
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -49,7 +49,7 @@ BeepMessage:    PUSH BC
                 CALL Game.Trade.OptionalBeep.Entry
                 POP BC
 SetLifetime:    LD A, #0E
-                LD (FlightMessage.Frames), A
+                LD (FlightMessage.Frames), A                                    ; далее Game.Travel.SetMessageCoordinatesAndRender.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DAE6
                 endmodule

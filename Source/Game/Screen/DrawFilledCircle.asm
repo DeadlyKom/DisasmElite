@@ -3,16 +3,16 @@
 ; -----------------------------------------
 ; рисование заполненного круга с быстрым путём для малого радиуса
 ; In:
-;   состояние окружности #861A..#861D
+;   поля CircleState.OffsetY, OffsetX, Flags и Radius
 ; Out:
 ;   изображение круга в буфере либо ранний выход
 ; Corrupt:
 ;   HL, DE, BC, AF, HL', DE', BC', AF'
 ; Note:
-;   #FB31 выбирает заполненный профиль малого силуэта
+;   Game.Extensions.DrawSmallSilhouetteAlternate.Entry выбирает заполненный профиль малого силуэта
 ;   при радиусе от 9 возвращает A=радиус и запускается общий алгоритм
 ;   меньший круг уже нарисован или отброшен быстрым путём, повторное рисование не требуется
-;   большой круг рисуется с запрещёнными прерываниями, общий выход #86EC включает EI
+;   большой круг рисуется с запрещёнными прерываниями, общий хвост Game.Screen.DrawLargeOutline.Entry включает EI
 ; -----------------------------------------
                 ; проверка исходного размещения
                 ASSERT $ == #86D0
@@ -26,6 +26,7 @@ Entry:          CALL Game.Extensions.DrawSmallSilhouetteAlternate.Entry
                 XOR A
                 LD (CircleState.OutlineOnly), A
                 JP Game.Screen.DrawLargeOutline.DrawAndEnable
+
                 ASSERT $ == #86DE
                 endmodule
                 endmodule

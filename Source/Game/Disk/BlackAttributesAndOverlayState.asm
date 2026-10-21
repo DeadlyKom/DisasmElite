@@ -6,13 +6,13 @@
 ; In:
 ;   Нет параметров
 ; Out:
-;   HL=5B00, BC=0, атрибуты 5800..5AFF равны 0
+;   HL=Memory.CockpitAttrs, BC=0, все 768 байтов Memory.Attributes равны 0
 ; Corrupt:
 ;   HL, BC, AF
 ; Note:
-;   D983/D985 хранят позиции дисковых оверлеев, D99B отдельно читает сектор робота в 606F,
-;   восемь секторов оверлея в C800, копирует 102 байта робота в D054 и передаёт управление C800,
-;   D9BF/D9C0 параметры дискового устройства
+;   OverlayTrack/DemoTrack хранят позиции дисковых оверлеев, Game.Disk.BlackAttributesAndOverlayState.LoadDemo отдельно читает сектор робота в DiskBuffer.Work,
+;   восемь секторов оверлея в DiskUtility.DemoSetup.EnterInstaller, копирует 102 байта робота в State и передаёт управление DiskUtility.DemoSetup.EnterInstaller,
+;   DriveFlags/DiskParameter параметры дискового устройства
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D975
@@ -27,6 +27,7 @@ ClearAttribute: LD (HL), C
                 DJNZ ClearAttribute
 
                 RET
+
                 ; начальные сектор и дорожка оверлея cl.C
 OverlayTrack    DW #1904                                                        ; сектор и дорожка дискового оверлея cl.C
                 ; сектор и дорожка загрузки демо и его командира
@@ -35,7 +36,7 @@ DemoTrack       DW #0000                                                        
                 DB #00, #00, #00, #00, #00, #00, #00, #00                       ; #D987..#D98E
                 DB #00, #00, #00, #00, #00, #00, #00, #00                       ; #D98F..#D996
                 DB #00, #00, #00, #00                                           ; #D997..#D99A
-                ; загрузка демо, один сектор командира и восемь секторов кода по #C800
+                ; загрузка демо, один сектор командира и восемь секторов кода по DiskUtility.DemoSetup.EnterInstaller
 LoadDemo:       DI
                 LD DE, (DemoTrack)
                 LD HL, Memory.Objects
@@ -49,7 +50,8 @@ LoadDemo:       DI
                 LD BC, #0066
                 LDIR
                 EI
-                JP @Game.Resources.SkippedSectors
+                JP @DiskUtility.DemoSetup.EnterInstaller
+
                 ; параметры дискового устройства, bit1 включает преобразование дорожки
 DriveFlags      DB #16                                                          ; параметр диска, бит 1 включает пересчёт дорожки и стороны
                 ; байт параметра внутреннего вызова TR-DOS

@@ -5,7 +5,7 @@
 ; исходный диапазон #8F74..#8F87
 ; смысловое имя SelectCircleBackBuffer
 ; In: нет
-; Out: подготовлены границы #C0..#CF, HL=#FCCB, A=#D0, далее выполняется#8F88
+; Out: подготовлены границы #C0..#CF, HL=#FCCB, A=#D0, далее выполняется Game.Circles.PatchCircleScreenTarget.Entry
 ; Corrupt: HL, AF
 ; #FCCB даёт байты CB FC, то есть SET7,H, в трёх местах вычисления адреса
 ; Меняются также операнды самого патчера, чтобы его последующие записи использовали новые пределы
@@ -20,7 +20,7 @@ Entry:          LD A, #C0
                 LD A, #BF
                 LD (CircleRaster.TargetTop), A
                 LD HL, #FCCB
-                LD A, #D0
+                LD A, #D0                                                       ; далее Game.Circles.PatchCircleScreenTarget.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #8F88
                 endmodule

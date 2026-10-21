@@ -1,0 +1,42 @@
+[
+  {
+    "file": "Source/Game/Sound/StartLaunchNoise.asm",
+    "instruction_and_data_lines_unchanged": true,
+    "changes": [
+      {
+        "old": "вход Game.Sound.StartLaunchNoise.Entry задаёт BC=Memory.Screen + #1002, DE=Memory.Screen + #0020 и запрещает прерывания",
+        "new": "вход Game.Sound.StartLaunchNoise.Entry задаёт 80 отсчётов в пакете, шаг задержки +2,\n;   начальную задержку 64 и 32 пакета, при запрещённых прерываниях"
+      }
+    ]
+  },
+  {
+    "file": "Source/Game/Sound/PlayDestructionSound.asm",
+    "instruction_and_data_lines_unchanged": true,
+    "changes": [
+      {
+        "old": "SoundState=0, FlightState.SoundRequests=0",
+        "new": "SoundState.Mode=0, FlightState.SoundRequests=0"
+      }
+    ]
+  },
+  {
+    "file": "Source/Game/Sound/UpdateSound.asm",
+    "instruction_and_data_lines_unchanged": true,
+    "changes": [
+      {
+        "old": "SoundState - текущий режим",
+        "new": "SoundState.Mode - текущий режим"
+      }
+    ]
+  },
+  {
+    "file": "Source/Game/Sound/PlayLaunchSound.asm",
+    "instruction_and_data_lines_unchanged": true,
+    "changes": [
+      {
+        "old": "звук завершён, SoundState и FlightState.SoundRequests обнулены",
+        "new": "звук завершён, SoundState.Mode и FlightState.SoundRequests обнулены"
+      }
+    ]
+  }
+]

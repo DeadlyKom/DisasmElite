@@ -1,0 +1,22 @@
+[
+  {
+    "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+    "old_comment": "102 байта, FlightEvents содержит десять пар сообщений, LetterCase, WordStart, CapitalNext и CaseGuard задают режимы текста, ShowBoarding",
+    "new_comment": "102 байта, FlightEvents содержит десять пар сообщений, LetterCase, WordStart, CapitalNext и TextMode задают режимы текста, ShowBoarding"
+  },
+  {
+    "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+    "old_comment": "DeviceAddresses задаёт шесть младших байтов адресов устройств, дополнительно проверяются State.AlienComputer и бит 6 State.MissionFlags",
+    "new_comment": "DeviceFields задаёт шесть младших байтов адресов устройств, дополнительно проверяются State.AlienComputer и бит 6 State.MissionFlags"
+  },
+  {
+    "file": "Source/Game/Menus/PrintDirectionalLaser.asm",
+    "old_comment": "прочие в F6, следующая DeviceAddresses содержит младшие байты адресов обычных устройств",
+    "new_comment": "прочие в F6, следующая DeviceFields содержит младшие байты адресов обычных устройств"
+  },
+  {
+    "file": "Source/Game/Universe/SelectSpecialCargoText.asm",
+    "old_comment": "AF, A равен 0C при State.Invasion<2 или State.RankState<84, иначе BC",
+    "new_comment": "AF, A равен #0C при State.Invasion<2 или State.RankState<#84, иначе #BC"
+  }
+]

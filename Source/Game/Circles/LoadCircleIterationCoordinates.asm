@@ -4,7 +4,7 @@
 ; загрузка исходных координат итератора дуги
 ; исходный диапазон #89C3..#89D3
 ; смысловое имя LoadCircleIterationCoordinates
-; In: #861E/#861F — рабочие модули, #861C/#861D — признаки и радиус
+; In: CircleState.ClipY/CircleState.ClipX — рабочие модули, CircleState.Flags/CircleState.Radius — признаки и радиус
 ; Out: BC и DE загружены из памяти, C'=-радиус, E'=0
 ; Corrupt: DE, BC, AF, BC' — C', DE' — E'
 ; HL и альтернативный HL сохраняются, старшие D'/B' задаются внешней обёрткой
@@ -21,6 +21,7 @@ Entry:          LD BC, (CircleState.ClipY)
                 LD E, #00
                 EXX
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #89D4
                 endmodule

@@ -4,14 +4,14 @@
 ; синхронный звук гиперперехода
 ; исходный диапазон #953D..#9547
 ; In:
-;   #FC0E - бит 7 разрешения звука
+;   InputState.Config - бит 7 разрешения звука
 ; Out:
-;   возврат после завершения эффекта через #9551
+;   возврат после завершения эффекта через Game.Sound.PlayDestructionSound.PlayNoise
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
 ;   вход SFX_Play задаёт шумовые параметры BC=#C010, DE=#100A
-;   общий завершающий путь обнуляет запросы #7128 и выполняет EI
+;   общий завершающий путь обнуляет запросы FlightState.SoundRequests и выполняет EI
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #953D
@@ -21,6 +21,7 @@ Entry:          LD A, (InputState.Config)
 
                 CALL Game.Sound.StartHyperjumpNoise.Entry
                 JR @Game.Sound.PlayDestructionSound.PlayNoise
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9548
                 endmodule

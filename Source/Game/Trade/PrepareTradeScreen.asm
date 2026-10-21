@@ -10,7 +10,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Использует таблицу E8D8 и строку приглашения D54F
+;   Использует таблицу TradeAttrs и строку приглашения Game.Text.SetPromptAttributes.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E8D9
@@ -19,6 +19,7 @@ Entry:          CALL Game.Trade.TradeTitleAndSellLoop.Entry
                 LD DE, TradeAttrs
                 CALL Game.Text.ApplyAttributeRuns.Entry
                 JP Game.Text.SetPromptAttributes.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E8E5
                 endmodule

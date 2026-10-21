@@ -4,15 +4,15 @@
 ; Очистка десяти событий и обработка клавиш гиперперехода
 ; исходный диапазон #DB91..#DC28
 ; In:
-;   Нет параметров для DB91, биты 4/5 FC0A для DBA2
+;   Нет параметров для Game.Travel.ClearFlightEventsAndHandleJump.Entry, биты 4/5 InputState.ViewJumpKeys для Game.Travel.ClearFlightEventsAndHandleJump.CheckJumpKeys
 ; Out:
-;   Очередь очищена либо установлен отсчёт DBA1=21
+;   Очередь очищена либо установлен отсчёт JumpCountdown=21
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   DB91 снимает бит 7 десяти пар и обнуляет DA76, DBA2 поглощает биты клавиш, запрещает
-;   повторный запуск отсчёта, проверяет гиперпривод D08D или расстояние и запас топлива, D03F=2
-;   означает галактический переход, D03F=1 обычный
+;   Game.Travel.ClearFlightEventsAndHandleJump.Entry снимает бит 7 десяти пар и обнуляет FlightMessage.Token, Game.Travel.ClearFlightEventsAndHandleJump.CheckJumpKeys поглощает биты клавиш, запрещает
+;   повторный запуск отсчёта, проверяет гиперпривод State.GalacticDrive или расстояние и запас топлива, JumpMode=2
+;   означает галактический переход, JumpMode=1 обычный
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DB91
@@ -27,9 +27,10 @@ ClearEvent:     RES EVENT_WAIT_BIT, (HL)
                 XOR A
                 LD (FlightMessage.Token), A
                 RET
+
                 ; остаток отсчёта гиперперехода, ноль означает отсутствие отсчёта
 JumpCountdown   DB #00                                                          ; остаток отсчёта гиперперехода, ноль означает отсутствие отсчёта
-                ; клавиши перехода читаются из маски FC0A и сразу погашаются после обработки
+                ; клавиши перехода читаются из маски InputState.ViewJumpKeys и сразу погашаются после обработки
 CheckJumpKeys:  LD HL, InputState.ViewJumpKeys
                 LD A, (HL)
                 AND VIEW_JUMP_MASK
@@ -45,7 +46,7 @@ CheckJumpKeys:  LD HL, InputState.ViewJumpKeys
 
                 LD A, (FlightState.FlightStatus)
                 AND A
-                JR Z, ShowCountdown                                             ; переход, если поле 7104 нулевое, отменить или отклонить запрос перехода
+                JR Z, ShowCountdown                                             ; переход, если поле FlightState.FlightStatus нулевое, отменить или отклонить запрос перехода
 
                 BIT VIEW_GALAX_BIT, B
                 JR Z, CheckDistance                                             ; переход, если бит 5 клавиш не установлен, проверять обычный гиперпереход
@@ -108,6 +109,7 @@ ShowCountdown:  CALL Game.Text.ClearViewAndFrame.Entry
                 CALL Game.Trade.Wait36Interrupts.Entry
                 CALL Game.Trade.ClearPressedKeyBits.Entry
                 JP Game.Menus.OpenCommanderStatus.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DC29
                 endmodule

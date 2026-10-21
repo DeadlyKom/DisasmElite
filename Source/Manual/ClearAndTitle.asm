@@ -19,3 +19,4 @@ ClearAndTitle:  ; очистка экрана ROM и печать заголов
 
                 ; проверка исходной границы блока
                 assert $ = #9777
+                ; JP PrintString, продолжение в PrintString.asm

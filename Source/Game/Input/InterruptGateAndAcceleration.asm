@@ -4,11 +4,11 @@
 ; изменяемый вход IM2 и продолжение увеличения скорости
 ; исходный диапазон #FEFE..#FF0D
 ; смысловое имя InterruptGateAndAcceleration
-; In: аппаратный IM2 читает вектор #FEFE, для #FF00 HL — скорость, DE=#00A0, B — клавиши
-; Out: #FEFE передаёт управление #FF25, #FF00 увеличивает скорость при единственной команде разгона
+; In: аппаратный IM2 читает вектор InterruptGate, для Game.Input.InterruptGateAndAcceleration.Accelerate HL — скорость, DE=#00A0, B — клавиши
+; Out: InterruptGate передаёт управление Game.Input.KeyboardControlInterrupt.Entry, Game.Input.InterruptGateAndAcceleration.Accelerate увеличивает скорость при единственной команде разгона
 ; Corrupt: по контракту соответствующего продолжения
-; Байт #18 в #FEFE заменяется на RET (#C9) при временном использовании стека #4020
-; #FF08/#FF0A/#FF0C — слова крена, тангажа и скорости, это не команды
+; Байт #18 в InterruptGate заменяется на RET (#C9) при временном использовании стека Memory.Screen + #0020
+; InputMotion.Roll/InputMotion.Pitch/InputMotion.Speed — слова крена, тангажа и скорости, это не команды
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #FEFE
@@ -22,12 +22,17 @@ Accelerate:     BIT FLY_BRAKE_BIT, B
                 ; расчёт увеличения скорости на один шаг
                 ADD HL, DE
                 JP @Game.Input.ClampAndStoreFlightSpeed.SpeedLimit
+
                 ; слово крена, знак в бите 15 и отдельный модуль
-Roll            DW #0000                                                        ; крен, знако-модульное слово с дробной частью в младшем байте
-                ; слово тангажа в том же знако-модульном формате
-Pitch           DW #0000                                                        ; тангаж, знако-модульное слово с дробной частью в младшем байте
-                ; слово неотрицательной скорости
-Speed           DW #0C00                                                        ; неотрицательная скорость, дробная часть в младшем байте
+MotionData      FInputMotion {
+                    #0000,                                                      ; FInputMotion.Roll, крен, знако-модульное слово с дробной частью в младшем байте
+                    #0000,                                                      ; FInputMotion.Pitch, тангаж, знако-модульное слово с дробной частью в младшем байте
+                    #0C00                                                       ; FInputMotion.Speed, неотрицательная скорость, дробная часть в младшем байте
+                }
+
+Roll            EQU MotionData.Roll                                             ; адрес поля FInputMotion.Roll
+Pitch           EQU MotionData.Pitch                                            ; адрес поля FInputMotion.Pitch
+Speed           EQU MotionData.Speed                                            ; адрес поля FInputMotion.Speed
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #FF0E
                 endmodule

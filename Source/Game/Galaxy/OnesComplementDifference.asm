@@ -11,7 +11,7 @@
 ;   AF
 ; Note:
 ;   Отрицательная разность инвертируется CPL без INC, поэтому отличается от точного абсолютного
-;   значения на 1, DFEE отдельные байты LD A, (HL), XOR2, RET
+;   значения на 1, Game.Galaxy.OnesComplementDifference.ToggleBit1 отдельные байты LD A, (HL), XOR2, RET
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DFEA
@@ -26,6 +26,7 @@ Entry:          SUB B
 ToggleBit1:     LD A, (HL)
                 XOR #02
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DFF2
                 endmodule

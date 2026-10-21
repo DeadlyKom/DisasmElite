@@ -4,13 +4,13 @@
 ; Расчёт экономики, правительства, технологии, населения и производительности
 ; исходный диапазон #E08C..#E106
 ; In:
-;   DEC0..DEC5 = семя планеты
+;   GalaxyState.WorkingSeed = семя планеты
 ; Out:
-;   DEBA..DEBF копия семени, D0BB/D0BC координаты, DEF8..DEFD характеристики
+;   GalaxyState.TargetSeed копия семени, TargetX/TargetY координаты, поля GalaxyState.Economy, Government, Technology, Population и Productivity характеристики
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   e=DEC1&7, g=(DEC2>>3)&7, при g<2 устанавливается e bit1, t=(DEC3&3)+(e XOR7)+ceil(g/2),
+;   e=GalaxyState.WorkingSeed + FSystemSeed.Y&7, g=(GalaxyState.WorkingSeed + FSystemSeed.GovBits>>3)&7, при g<2 устанавливается e bit1, t=(GalaxyState.WorkingSeed + FSystemSeed.X&3)+(e XOR7)+ceil(g/2),
 ;   p=4*t+e+g+1, продуктивность=((e XOR7)+3)*(g+4)*p*8 по модулю 65536
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -78,6 +78,7 @@ Technology:     LD A, (GalaxyState.Economy)
                 LD HL, (GalaxyState.WorkingSeed + FSystemSeed.MixLow)
                 LD (GalaxyState.TargetSeed + FSystemSeed.MixLow), HL
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E107
                 endmodule

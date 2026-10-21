@@ -1,9 +1,9 @@
 {
-  "documentation_local_links_checked": 1524,
+  "documentation_local_links_checked": 1785,
   "broken_links": [],
   "game_bytes": 49152,
   "game_fragments_reviewed": 598,
-  "game_instructions": 15165,
+  "game_instructions": 15055,
   "auxiliary": {
     "disk_utility_fragments": 115,
     "disk_utility_reviewed": 115,
@@ -15,7 +15,7 @@
   },
   "source_format_issues": 0,
   "build_status": "passed",
-  "build_checked_at_utc": "2026-10-20T21:20:40.3296442Z",
+  "build_checked_at_utc": "2026-10-21T05:54:53.0569744Z",
   "trd_bytes": 655360,
   "trd_sha256": "35784a3be331360d214e182d75c5664aaca1b8d79b62e0d2035a4f9cb5515074",
   "all_seven_files_identical": true,
@@ -50,11 +50,89 @@
     "all_seven_files_identical": true
   },
   "variable_names": {
-    "bindings_checked": 634,
+    "bindings_checked": 636,
     "address_issues": [],
     "raw_memory_operands": [],
     "raw_indexed_operands": [],
     "registry": "Tools/Disasm/Reports/VariableAudit.json",
     "documentation": "Docs/Variables.md"
+  },
+  "source_layout_files_checked": 799,
+  "typed_data": {
+    "instance_count": 179,
+    "bytes_checked": 1786,
+    "field_addresses_checked": 1172,
+    "unchanged_existing_symbols": 5518,
+    "changed_existing_symbols": {},
+    "removed_lookup_placeholders": {
+      "Memory.Game.Travel.SetFuelAndGauge.WorkingSeed": "устранён неразрешённый локальный кандидат поиска, определения в Source/Includes нет"
+    },
+    "passed": true,
+    "report": "Tools/Disasm/Reports/TypedDataVerification.json"
+  },
+  "commander_initializers": {
+    "records": 5,
+    "bytes_checked": 510,
+    "field_addresses_checked": 485,
+    "report": "Tools/Disasm/Reports/CommanderInitializers.json"
+  },
+  "mission_annotations": {
+    "entry_count": 101,
+    "field_inventory_count": 94,
+    "validated_symbols": 101,
+    "validated_manual_anchors": 13,
+    "source_manual_text_sha256": "421e72cdbb1acfd87da9752bdc94da9d296d918a31a0b62cd388af25c2eafb1a",
+    "validation": {
+      "missing_symbols": 0,
+      "missing_manual_anchors": 0,
+      "missing_source_annotations": 0,
+      "missing_markdown_files": 0,
+      "uncovered_direct_field_references": 0,
+      "duplicate_manual_anchors": 0,
+      "source_manual_text_sha256_matches": true,
+      "assembler_run": false,
+      "runtime_tested": false,
+      "semantic_proof_by_automation": false
+    },
+    "source_files": 81
+  },
+  "fallthrough": {
+    "game_boundaries": 82,
+    "auxiliary_boundaries": 18,
+    "include_chain_files": 145,
+    "game_report": "Tools/Disasm/Reports/FallThroughAudit.json",
+    "auxiliary_report": "Tools/Disasm/Reports/AuxiliaryCommentReferences.json"
+  },
+  "build_method": "та же задача Build, что используется по Ctrl+B в VS Code, локальный sjasmplus и встроенный Lua",
+  "last_assembly": {
+    "errors": 0,
+    "warnings": 0,
+    "compiled_lines": 49299
+  },
+  "external_original_compared_byte_for_byte": true,
+  "external_original_note": "Полный образ дополнительно сравнен с исходным ELITE3HL.TRD из пользовательской папки Spectrum/All/Games/TRD, все 655360 байтов совпали.",
+  "active_build_and_tool_paths_relative": true,
+  "comment_reference_check": {
+    "raw_indexed_field_comments": [],
+    "unresolved_qualified_comment_names": [],
+    "numeric_review": "Tools/Disasm/Reports/FinalCommentNumberReview.json",
+    "indexed_review": "Tools/Disasm/Reports/IndexedCommentNames.json",
+    "current_inventory": "Tools/Disasm/Reports/FinalCommentReferences.json",
+    "code_and_data_unchanged_by_last_comment_edits": true
+  },
+  "final_registry_sync": "Tools/Disasm/Reports/CommentRegistrySync.json",
+  "final_documentation_validation": {
+    "reviewed_fragments": 598,
+    "format_passed": true,
+    "local_links": 1785,
+    "broken_links": [],
+    "mission_line_references_valid": true,
+    "git_diff_check": "passed"
+  },
+  "vscode_build_shortcut_verified": {
+    "key": "Ctrl+B",
+    "command": "workbench.action.tasks.build",
+    "binding_scope": "существующие пользовательские настройки VS Code, проверены без изменений",
+    "task": ".vscode/tasks.json"
   }
 }

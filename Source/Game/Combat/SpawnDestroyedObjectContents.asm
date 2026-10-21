@@ -11,12 +11,13 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-; Хвостовой переход в расширенный обработчик 7DC5.
+; Хвостовой переход в расширенный обработчик Game.Universe.SpawnDestructionContentsAndEffects.Entry.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #B70F
                 ; переход к выбору содержимого уничтоженного объекта
 Entry:          JP Game.Universe.SpawnDestructionContentsAndEffects.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B712
                 endmodule

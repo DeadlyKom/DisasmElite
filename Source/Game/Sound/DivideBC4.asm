@@ -16,7 +16,7 @@
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #96CD
 Entry:          SRL B
-                RR C
+                RR C                                                            ; далее Game.Sound.DivideBC2.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #96D1
                 endmodule

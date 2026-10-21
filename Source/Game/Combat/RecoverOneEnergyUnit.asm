@@ -4,14 +4,14 @@
 ; восстановление единицы энергии либо двух щитов
 ; исходный диапазон #9AE2..#9AFA
 ; In:
-;   банки 70FC/70FA/70F8/70F6 и щиты 70E8/70EA
+;   банки GaugeState + FGaugeState.Energy4.Current/GaugeState + FGaugeState.Energy3.Current/GaugeState + FGaugeState.Energy2.Current/GaugeState + FGaugeState.Energy1.Current и щиты GaugeState + FGaugeState.FrontShield.Current/GaugeState + FGaugeState.RearShield.Current
 ; Out:
 ;   первый неполный банк увеличен на 1 либо щиты увеличены до A0
 ; Corrupt:
 ;   HL, BC, AF
 ; Note:
 ; Банки просматриваются от верхнего к нижнему. После первого увеличения немедленный RET.
-; Только когда все четыре полны, увеличиваются оба щита. Второй щит обрабатывает общий хвост 9AFB.
+; Только когда все четыре полны, увеличиваются оба щита. Второй щит обрабатывает общий хвост Game.Combat.RecoverShieldUnit.Entry.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #9AE2
@@ -32,7 +32,7 @@ NextBank:       DEC HL
                 ; восстановление щитов после заполнения всех банков
                 LD HL, GaugeState + FGaugeState.FrontShield.Current
                 CALL Game.Combat.RecoverShieldUnit.Entry
-                LD HL, GaugeState + FGaugeState.RearShield.Current
+                LD HL, GaugeState + FGaugeState.RearShield.Current              ; далее Game.Combat.RecoverShieldUnit.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9AFB
                 endmodule

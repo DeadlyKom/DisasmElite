@@ -12,11 +12,11 @@
 ; Corrupt:
 ;   HL, AF
 ; Note:
-;   вход #8217 заканчивается RET по #821D, BC, DE и A сохраняются
-;   независимый вход #821E продолжает UpdateCelestialProximity
+;   вход Entry заканчивается собственным RET, BC, DE и A сохраняются
+;   независимый вход Game.Screen.WriteStridedTriple.PlanetIsNear продолжает UpdateCelestialProximity
 ;   близкая планета проверяется на столкновение, затем устанавливается высота
-;   для компаса безусловно выбирается слот станции #6048
-;   при #711D=#FF длина берётся по старшим словам, иначе по младшим
+;   для компаса безусловно выбирается слот станции Memory.Station
+;   при FlightState.StationFar=#FF длина берётся по старшим словам, иначе по младшим
 ;   для нормирования нулевая длина заменяется #FFFF, чтобы избежать нулевого делителя
 ; -----------------------------------------
                 ; проверка исходного размещения
@@ -30,7 +30,7 @@ Entry:          LD (HL), D
                 ADD HL, DE
                 RET
 
-                ; общий хвост обработки близкой планеты, вход из #8215
+                ; общий хвост обработки близкой планеты, переход из Game.Screen.UpdateCelestialProximity.Entry
 PlanetIsNear:   LD A, #01
                 LD (CompassState.PlanetNear), A
                 JR NZ, SelectStation                                            ; переход, если старшие координаты требуют обработки станции без высоты
@@ -60,7 +60,7 @@ SelectStation:  LD A, #01
                 LD A, (FlightState.StationFar)
                 INC A
                 LD IX, Memory.Station
-                JR Z, Game.Screen.CompassNearAxis.HighWordLength                ; переход, если #711D=#FF, станционный вектор нормируется по старшим словам
+                JR Z, Game.Screen.CompassNearAxis.HighWordLength                ; переход, если FlightState.StationFar=#FF, станционный вектор нормируется по старшим словам
 
                 CALL Game.Screen.VectorLength.Entry
                 LD A, H
@@ -79,6 +79,7 @@ NormalizeX:     EX DE, HL
                 POP DE
                 CALL Game.Screen.CompassNearAxis.Entry
                 JR Game.Screen.CompassNearAxis.StoreCompassY
+
                 ASSERT $ == #8271
                 endmodule
                 endmodule

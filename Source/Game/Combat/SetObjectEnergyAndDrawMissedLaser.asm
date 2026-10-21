@@ -4,16 +4,16 @@
 ; запись энергии объекта и отдельный рисунок свободного лазерного луча
 ; исходный диапазон #B743..#B798
 ; In:
-;   AF, A содержит новую энергию для B743
+;   AF, A содержит новую энергию для Game.Combat.SetObjectEnergyAndDrawMissedLaser.Entry
 ;   IX, объект
 ; Out:
-;   IX+22 обновлён, установлен FABA.7
-;   для входа B749 выведены четыре линии лазера
+;   FSpaceObject.Energy обновлён, установлен LASER_PASS_BIT в LaserThreshold
+;   для входа Game.Combat.SetObjectEnergyAndDrawMissedLaser.MissedBeam выведены четыре линии лазера
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-; B743 заканчивается переходом в 9389. B749 отдельный вход случайного рассеивания лазера.
-; Малые случайные смещения D/E равны 0 либо 2, два знаковых бита сохраняются в B4D6.
+; Game.Combat.SetObjectEnergyAndDrawMissedLaser.Entry заканчивается переходом в Game.Flight.RaiseLaserThreshold.Entry. Game.Combat.SetObjectEnergyAndDrawMissedLaser.MissedBeam отдельный вход случайного рассеивания лазера.
+; Малые случайные смещения D/E равны 0 либо 2, два знаковых бита сохраняются в LaserRaster.
 ; Четыре линии соединяют смещённую центральную точку с двумя парами внешних точек.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -68,6 +68,7 @@ MissedBeam:     CALL Game.Combat.NextRandomByte.Entry
                 OR #01
                 LD C, A
                 JP Game.Wireframe.DrawClippedLine.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B799
                 endmodule

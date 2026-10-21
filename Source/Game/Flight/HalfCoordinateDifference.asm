@@ -10,7 +10,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Младшие дробные байты координат не участвуют, хвост 9CA5 ведёт в Math.HalfDelta
+;   Младшие дробные байты координат не участвуют, хвост Game.Combat.CreateWreckAndDamageState.SignedDelta ведёт в Math.HalfDelta
 ; -----------------------------------------
                 ASSERT $ == #71E4
                 ; чтение старших слов координат для общей операции полуразности
@@ -19,6 +19,7 @@ Entry:          LD H, (IY+FCoordinate.SignHigh)
                 LD D, (IX+FCoordinate.SignHigh)
                 LD E, (IX+FCoordinate.Low)
                 JP @Game.Combat.CreateWreckAndDamageState.SignedDelta
+
                 ASSERT $ == #71F3
                 endmodule
                 endmodule

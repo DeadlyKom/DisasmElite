@@ -4,13 +4,13 @@
 ; Сообщение ошибки торговли перед откатом
 ; исходный диапазон #E81C..#E82E
 ; In:
-;   E81C выбирает C5, E820 выбирает CE, E822 принимает токен A
+;   Game.Trade.TradeErrorMessage.Entry выбирает C5, Game.Trade.TradeErrorMessage.NoCargoSpace выбирает CE, Game.Trade.TradeErrorMessage.ShowError принимает токен A
 ; Out:
 ;   Состояние восстановлено, A=1 и CY=1
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Печатает при X=3 сообщение ошибки и токен 3F, затем продолжает E82F
+;   Печатает при X=3 сообщение ошибки и токен 3F, затем продолжает Game.Trade.RollbackFailedTrade.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E81C

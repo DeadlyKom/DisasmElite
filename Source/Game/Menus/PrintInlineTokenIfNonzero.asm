@@ -22,7 +22,7 @@ Entry:          POP HL
                 AND A
                 RET Z                                                           ; выход, если исходный A нулевой, пропустить уже прочитанный встроенный токен
 
-                LD A, B
+                LD A, B                                                         ; далее Game.Menus.PrintEquipmentLine.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #F06F
                 endmodule

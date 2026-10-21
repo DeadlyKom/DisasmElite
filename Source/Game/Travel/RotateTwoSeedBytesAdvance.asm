@@ -24,6 +24,7 @@ Entry:          LD E, (HL)
                 LD (HL), D
                 INC HL
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DC8E
                 endmodule

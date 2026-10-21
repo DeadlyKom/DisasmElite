@@ -6,7 +6,7 @@
 ; In:
 ;   Нет параметров
 ; Out:
-;   D045=0, A=0, Z=1, CY=0
+;   TextPosition=0, A=0, Z=1, CY=0
 ; Corrupt:
 ;   AF
 ; Note:
@@ -14,10 +14,11 @@
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E2B7
-                ; сброс колонки, вход E2B8 принимает заранее подготовленный A
+                ; сброс колонки, вход Game.Trade.ResetTextColumn.SetColumn принимает заранее подготовленный A
 Entry:          XOR A
 SetColumn:      LD (TextColumn), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E2BC
                 endmodule

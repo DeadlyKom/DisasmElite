@@ -20,6 +20,7 @@ Entry:          CALL Game.Trade.OptionalBeep.Entry
                 LD A, #01
                 SCF
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E83C
                 endmodule

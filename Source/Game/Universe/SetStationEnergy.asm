@@ -6,7 +6,7 @@
 ; In:
 ;   IX, станционный слот
 ; Out:
-;   IX+22 равен F0
+;   FSpaceObject.Energy станционного слота равен #F0
 ; Corrupt:
 ;   AF
 ; Note:
@@ -18,6 +18,7 @@
 Entry:          LD A, #F0
                 LD (IX+FSpaceObject.Energy), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #7898
                 endmodule

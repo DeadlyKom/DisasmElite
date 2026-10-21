@@ -4,9 +4,9 @@
 ; Звуковой сигнал по разрешению настройки
 ; исходный диапазон #E1E8..#E1F6
 ; In:
-;   Бит 7 FC0E разрешает звук
+;   Бит 7 InputState.Config разрешает звук
 ; Out:
-;   При разрешении передаёт HL=128, DE=96 в ROM 03B5
+;   При разрешении передаёт HL=128, DE=96 в ROM Rom.Beeper
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
@@ -23,6 +23,7 @@ Entry:          LD A, (InputState.Config)
                 LD HL, #0080
                 LD DE, #0060
                 JP Rom.Beeper
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E1F7
                 endmodule

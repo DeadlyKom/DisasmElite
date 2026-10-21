@@ -528,7 +528,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 33,
+          "line": 35,
           "code": "LD (Game.Input.KeyboardControlInterrupt.KeyboardCall), HL"
         }
       ]
@@ -543,7 +543,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 36,
+          "line": 38,
           "code": "LD (Game.Input.ScanKeyboardMatrix.RowPort), HL"
         }
       ]
@@ -558,7 +558,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 38,
+          "line": 40,
           "code": "LD (Game.Input.ScanKeyboardMatrix.ScanRow), HL"
         }
       ]
@@ -573,7 +573,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 40,
+          "line": 42,
           "code": "LD (Game.Input.ScanKeyboardMatrix.KeyReadTail), HL"
         }
       ]
@@ -588,7 +588,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 61,
+          "line": 63,
           "code": "LD (Game.Flight.MainGameLoop.DeathTarget), HL"
         }
       ]
@@ -603,7 +603,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 78,
+          "line": 80,
           "code": "LD (Game.Menus.OpenCommanderStatus.FormatCall), HL"
         }
       ]
@@ -618,7 +618,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 79,
+          "line": 81,
           "code": "LD (Game.Menus.PrintStatusFieldAndCargoScreen.FormatCall), HL"
         }
       ]
@@ -633,7 +633,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 82,
+          "line": 84,
           "code": "LD (Game.Flight.LaunchOrDockShip.RestoreCall), HL"
         }
       ]
@@ -648,7 +648,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 85,
+          "line": 87,
           "code": "LD (Game.Flight.MainGameLoop.DrawCall), HL"
         }
       ]
@@ -663,7 +663,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 88,
+          "line": 90,
           "code": "LD (Game.Missions.RatingBountyDamageAndNewCommander.CargoOffset), HL"
         }
       ]
@@ -678,7 +678,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 93,
+          "line": 95,
           "code": "LD (Game.Input.ToggleSecondaryCoordinateObject.InvasionCall), HL"
         }
       ]
@@ -693,7 +693,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 94,
+          "line": 96,
           "code": "LD (Game.Universe.ApplyEnhancedFlightControl.InvasionCall), HL"
         }
       ]
@@ -936,12 +936,12 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/Menu/FormatTrack.asm",
-          "line": 24,
+          "line": 25,
           "code": "FormatTrack:    LD (DiskBuffer.SavedSP), SP"
         },
         {
           "file": "Source/DiskUtility/Menu/FormatTrack.asm",
-          "line": 56,
+          "line": 57,
           "code": "LD SP, (DiskBuffer.SavedSP)"
         }
       ]
@@ -956,7 +956,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 91,
+          "line": 93,
           "code": "LD (Game.Screen.SelectTrafficType.InvasionCall), HL"
         }
       ]
@@ -1532,7 +1532,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Menus/PrintSystemStatistics.asm",
-          "line": 58,
+          "line": 60,
           "code": "LD (GalaxyState.TextSeed), HL"
         },
         {
@@ -1626,7 +1626,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
-          "line": 69,
+          "line": 71,
           "code": "LD (GalaxyState.CurrentName), A"
         }
       ]
@@ -1663,7 +1663,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
-          "line": 70,
+          "line": 72,
           "code": "LD (GalaxyState.TargetName), A"
         }
       ]
@@ -1720,12 +1720,12 @@
         },
         {
           "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
-          "line": 67,
+          "line": 68,
           "code": "LD HL, (GalaxyState.Distance)"
         },
         {
           "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
-          "line": 24,
+          "line": 26,
           "code": "LD A, (GalaxyState.Distance)"
         }
       ]
@@ -1837,7 +1837,7 @@
         },
         {
           "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
-          "line": 33,
+          "line": 35,
           "code": "LD A, (GalaxyState.Economy)"
         }
       ]
@@ -2025,7 +2025,7 @@
         },
         {
           "file": "Source/Game/Menus/PrintSystemStatistics.asm",
-          "line": 24,
+          "line": 26,
           "code": "LD HL, (GalaxyState.Productivity)"
         }
       ]
@@ -2274,12 +2274,12 @@
         },
         {
           "file": "Source/Game/Sound/StartLaunchNoise.asm",
-          "line": 22,
+          "line": 23,
           "code": "LD (SoundState.Mode), A"
         },
         {
           "file": "Source/Game/Sound/StartLaunchNoise.asm",
-          "line": 47,
+          "line": 48,
           "code": "LD (SoundState.Mode), A"
         },
         {
@@ -2970,12 +2970,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 69,
+          "line": 71,
           "code": "LD (OrdinarySeen), A"
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 106,
+          "line": 108,
           "code": "LD (OrdinarySeen), A"
         },
         {
@@ -3027,37 +3027,37 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/HandleObjectCollision.asm",
-          "line": 96,
+          "line": 98,
           "code": "MissionCargo:   LD A, (MissionPhase)"
         },
         {
           "file": "Source/Game/Combat/HandleObjectCollision.asm",
-          "line": 100,
+          "line": 102,
           "code": "LD (MissionPhase), A"
         },
         {
           "file": "Source/Game/Combat/HandleObjectCollision.asm",
-          "line": 161,
+          "line": 165,
           "code": "LD A, (MissionPhase)"
         },
         {
           "file": "Source/Game/Combat/HandleObjectCollision.asm",
-          "line": 166,
+          "line": 170,
           "code": "LD (MissionPhase), A"
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 168,
+          "line": 170,
           "code": "LD A, (MissionPhase)"
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 185,
+          "line": 189,
           "code": "LD (MissionPhase), A"
         },
         {
           "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
-          "line": 188,
+          "line": 191,
           "code": "CheckMission:   LD A, (MissionPhase)"
         },
         {
@@ -3072,22 +3072,22 @@
         },
         {
           "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
-          "line": 92,
+          "line": 97,
           "code": "LD (MissionPhase), A"
         },
         {
           "file": "Source/Game/Universe/HandleFastTravelStep.asm",
-          "line": 48,
+          "line": 50,
           "code": "LD (MissionPhase), A"
         },
         {
           "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
-          "line": 32,
+          "line": 34,
           "code": "LD A, (MissionPhase)"
         },
         {
           "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
-          "line": 40,
+          "line": 42,
           "code": "LD (MissionPhase), A"
         }
       ]
@@ -3113,12 +3113,12 @@
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 56,
+          "line": 58,
           "code": "LD A, (ActiveShips)"
         },
         {
           "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
-          "line": 207,
+          "line": 213,
           "code": "LD A, (ActiveShips)"
         }
       ]
@@ -3139,7 +3139,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/ReleaseMissileTargets.asm",
-          "line": 23,
+          "line": 30,
           "code": "Entry:          LD A, (ObjectIndex)"
         },
         {
@@ -3202,7 +3202,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
-          "line": 27,
+          "line": 29,
           "code": "LD (CloakDivider), A"
         }
       ]
@@ -3234,17 +3234,17 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
-          "line": 80,
+          "line": 83,
           "code": "LD A, (JoystickMode)"
         },
         {
           "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
-          "line": 86,
+          "line": 89,
           "code": "SwitchJoystick: LD A, (JoystickMode)"
         },
         {
           "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
-          "line": 77,
+          "line": 78,
           "code": "SaveJoystick:   LD (JoystickMode), A"
         }
       ]
@@ -3281,7 +3281,7 @@
         },
         {
           "file": "Source/Game/Universe/HandleFastTravelStep.asm",
-          "line": 60,
+          "line": 62,
           "code": "StorePhase:     LD (FastTravel), A"
         }
       ]
@@ -3325,7 +3325,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Universe/HandleFastTravelStep.asm",
-          "line": 55,
+          "line": 57,
           "code": "LD (FastSpawnPhase), A"
         }
       ]
@@ -3377,7 +3377,7 @@
         },
         {
           "file": "Source/Game/Flight/LaunchOrDockShip.asm",
-          "line": 30,
+          "line": 32,
           "code": "LD (TunnelRings), A"
         }
       ]
@@ -3501,7 +3501,7 @@
         },
         {
           "file": "Source/Game/Flight/LaunchOrDockShip.asm",
-          "line": 34,
+          "line": 36,
           "code": "LD (TunnelFrames), A"
         }
       ]
@@ -3580,7 +3580,7 @@
         },
         {
           "file": "Source/Game/Flight/LaunchOrDockShip.asm",
-          "line": 28,
+          "line": 30,
           "code": "LD (TunnelDepths), HL"
         }
       ]
@@ -3644,7 +3644,7 @@
         },
         {
           "file": "Source/Game/Flight/LaunchOrDockShip.asm",
-          "line": 32,
+          "line": 34,
           "code": "LD (TunnelLimit), A"
         }
       ]
@@ -3681,12 +3681,12 @@
         },
         {
           "file": "Source/Game/Flight/LaunchOrDockShip.asm",
-          "line": 44,
+          "line": 46,
           "code": "LD (TunnelFinish), A"
         },
         {
           "file": "Source/Game/Flight/LaunchOrDockShip.asm",
-          "line": 90,
+          "line": 92,
           "code": "LD (TunnelFinish), A"
         }
       ]
@@ -3723,17 +3723,17 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
-          "line": 257,
+          "line": 284,
           "code": "LD (JumpCountdown), A"
         },
         {
           "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
-          "line": 42,
+          "line": 43,
           "code": "LD A, (JumpCountdown)"
         },
         {
           "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
-          "line": 85,
+          "line": 86,
           "code": "LD (JumpCountdown), A"
         }
       ]
@@ -3893,7 +3893,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Extensions/PrintEquipmentAndSelectIcon.asm",
-          "line": 54,
+          "line": 55,
           "code": "LD A, (InputPhase)"
         },
         {
@@ -3975,17 +3975,17 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
-          "line": 28,
+          "line": 30,
           "code": "LD (MarketWork.Commodity), A"
         },
         {
           "file": "Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm",
-          "line": 51,
+          "line": 53,
           "code": "LD (MarketWork.Commodity), A"
         },
         {
           "file": "Source/Game/Menus/PrintSystemStatistics.asm",
-          "line": 43,
+          "line": 45,
           "code": "LD (MarketWork.Commodity), A"
         },
         {
@@ -4082,17 +4082,17 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
-          "line": 94,
+          "line": 96,
           "code": "LD HL, (MarketWork.CargoCursor)"
         },
         {
           "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
-          "line": 37,
+          "line": 41,
           "code": "ReadCargoByte:  LD HL, (MarketWork.CargoCursor)"
         },
         {
           "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
-          "line": 30,
+          "line": 32,
           "code": "LD (MarketWork.CargoCursor), HL"
         },
         {
@@ -4194,7 +4194,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm",
-          "line": 53,
+          "line": 55,
           "code": "LD (MarketWork.PriceCursor), HL"
         },
         {
@@ -4219,17 +4219,17 @@
         },
         {
           "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
-          "line": 31,
+          "line": 33,
           "code": "NextCommodity:  LD HL, (MarketWork.PriceCursor)"
         },
         {
           "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
-          "line": 34,
+          "line": 36,
           "code": "LD (MarketWork.PriceCursor), HL"
         },
         {
           "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
-          "line": 82,
+          "line": 84,
           "code": "LD HL, (MarketWork.PriceCursor)"
         }
       ]
@@ -4286,7 +4286,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm",
-          "line": 55,
+          "line": 57,
           "code": "LD (MarketWork.StockCursor), HL"
         },
         {
@@ -4611,7 +4611,7 @@
         },
         {
           "file": "Source/Game/Trade/GetEquipmentStateAddress.asm",
-          "line": 19,
+          "line": 21,
           "code": "LD A, (TradeSnapshot.Selection)"
         },
         {
@@ -4656,7 +4656,7 @@
         },
         {
           "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
-          "line": 66,
+          "line": 68,
           "code": "LD A, (TradeSnapshot.Selection)"
         }
       ]
@@ -4901,7 +4901,7 @@
         },
         {
           "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
-          "line": 25,
+          "line": 26,
           "code": "StoreLaser:     LD (EquipmentWork.LaserType), A"
         }
       ]
@@ -5462,7 +5462,7 @@
         },
         {
           "file": "Source/Game/Flight/LaunchOrDockShip.asm",
-          "line": 36,
+          "line": 38,
           "code": "LD (JumpMode), HL"
         },
         {
@@ -5482,12 +5482,12 @@
         },
         {
           "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
-          "line": 61,
+          "line": 62,
           "code": "LD (JumpMode), A"
         },
         {
           "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
-          "line": 82,
+          "line": 83,
           "code": "LD (JumpMode), A"
         },
         {
@@ -5569,7 +5569,7 @@
         },
         {
           "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
-          "line": 86,
+          "line": 91,
           "code": "LD (ViewKeyLock), A"
         }
       ]
@@ -5621,42 +5621,42 @@
         },
         {
           "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
-          "line": 39,
+          "line": 41,
           "code": "LD A, (CloakActive)"
         },
         {
           "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
-          "line": 46,
+          "line": 48,
           "code": "LD A, (CloakActive)"
         },
         {
           "file": "Source/Game/Flight/ApplyCloakingViewColour.asm",
-          "line": 17,
+          "line": 19,
           "code": "Entry:          LD A, (CloakActive)"
         },
         {
           "file": "Source/Game/Flight/SetViewAttributesWithCloaking.asm",
-          "line": 17,
+          "line": 19,
           "code": "Entry:          LD A, (CloakActive)"
         },
         {
           "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
-          "line": 93,
+          "line": 94,
           "code": "LD (CloakActive), A"
         },
         {
           "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
-          "line": 42,
+          "line": 44,
           "code": "LD A, (CloakActive)"
         },
         {
           "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
-          "line": 19,
+          "line": 21,
           "code": "Entry:          LD (CloakActive), A"
         },
         {
           "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
-          "line": 76,
+          "line": 78,
           "code": "LD (CloakActive), A"
         }
       ]
@@ -5758,7 +5758,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
-          "line": 19,
+          "line": 21,
           "code": "LD (TextColumn), HL"
         },
         {
@@ -5783,12 +5783,12 @@
         },
         {
           "file": "Source/Game/Flight/MainGameLoop.asm",
-          "line": 141,
+          "line": 142,
           "code": "LD (TextColumn), HL"
         },
         {
           "file": "Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm",
-          "line": 41,
+          "line": 43,
           "code": "LD (TextColumn), HL"
         },
         {
@@ -5843,12 +5843,12 @@
         },
         {
           "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
-          "line": 102,
+          "line": 103,
           "code": "LD (TextColumn), HL"
         },
         {
           "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
-          "line": 37,
+          "line": 39,
           "code": "LD (TextColumn), HL"
         },
         {
@@ -5962,12 +5962,12 @@
         },
         {
           "file": "Source/Game/Combat/ReleaseMissileTargets.asm",
-          "line": 42,
+          "line": 50,
           "code": "LD A, (AimState)"
         },
         {
           "file": "Source/Game/Combat/ReleaseMissileTargets.asm",
-          "line": 50,
+          "line": 58,
           "code": "LD (AimState), A"
         },
         {
@@ -5982,7 +5982,7 @@
         },
         {
           "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
-          "line": 91,
+          "line": 96,
           "code": "LD (AimState), A"
         }
       ]
@@ -6241,22 +6241,22 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Flight/MarkMissionViewInitialized.asm",
-          "line": 22,
+          "line": 24,
           "code": "LD (MissionNotice), A"
         },
         {
           "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
-          "line": 91,
+          "line": 92,
           "code": "LD (MissionNotice), A"
         },
         {
           "file": "Source/Game/Travel/TickJumpCountdown.asm",
-          "line": 50,
+          "line": 52,
           "code": "LD (MissionNotice), A"
         },
         {
           "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
-          "line": 48,
+          "line": 50,
           "code": "LD A, (MissionNotice)"
         },
         {
@@ -6353,7 +6353,7 @@
         },
         {
           "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
-          "line": 236,
+          "line": 263,
           "code": "LD (TargetX), A"
         }
       ]
@@ -6435,7 +6435,7 @@
         },
         {
           "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
-          "line": 238,
+          "line": 265,
           "code": "LD (TargetY), A"
         }
       ]
@@ -6665,12 +6665,12 @@
         },
         {
           "file": "Source/Game/Menus/PrintSystemStatistics.asm",
-          "line": 26,
+          "line": 28,
           "code": "LD (NumberWidth), A"
         },
         {
           "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
-          "line": 92,
+          "line": 94,
           "code": "LD (NumberWidth), A"
         },
         {
@@ -6737,7 +6737,7 @@
         },
         {
           "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
-          "line": 104,
+          "line": 105,
           "code": "LD (LetterCase), A"
         },
         {
@@ -6918,7 +6918,7 @@
         },
         {
           "file": "Source/Game/Flight/MainGameLoop.asm",
-          "line": 135,
+          "line": 136,
           "code": "LD HL, (TextBasePatch)"
         }
       ]
@@ -6949,7 +6949,7 @@
         },
         {
           "file": "Source/Game/Combat/ReleaseMissileTargets.asm",
-          "line": 46,
+          "line": 54,
           "code": "LD A, (MissileTarget)"
         }
       ]
@@ -7050,7 +7050,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Disk/BlackAttributesAndOverlayState.asm",
-          "line": 40,
+          "line": 41,
           "code": "LD DE, (DemoTrack)"
         },
         {
@@ -7147,7 +7147,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
-          "line": 86,
+          "line": 87,
           "code": "LD (FlightMessage.Frames), A"
         },
         {
@@ -7195,12 +7195,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
-          "line": 21,
+          "line": 23,
           "code": "LD (FlightMessage.Column), A"
         },
         {
           "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
-          "line": 34,
+          "line": 36,
           "code": "LD A, (FlightMessage.Column)"
         }
       ]
@@ -7242,7 +7242,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
-          "line": 81,
+          "line": 83,
           "code": "DamageItem:     LD A, (FlightMessage.Token)"
         },
         {
@@ -7252,17 +7252,17 @@
         },
         {
           "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
-          "line": 23,
+          "line": 25,
           "code": "LD (FlightMessage.Token), A"
         },
         {
           "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
-          "line": 38,
+          "line": 40,
           "code": "LD A, (FlightMessage.Token)"
         },
         {
           "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
-          "line": 45,
+          "line": 47,
           "code": "PrintText:      LD A, (FlightMessage.Token)"
         }
       ]
@@ -7289,12 +7289,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
-          "line": 56,
+          "line": 58,
           "code": "LD (FlightMessage.Reward), DE"
         },
         {
           "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
-          "line": 59,
+          "line": 61,
           "code": "PrintFuel:      LD HL, (FlightMessage.Reward)"
         }
       ]
@@ -7321,12 +7321,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
-          "line": 113,
+          "line": 115,
           "code": "QueueDamage:    LD (FlightMessage.DamagedItem), A"
         },
         {
           "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
-          "line": 48,
+          "line": 50,
           "code": "SpecialPrefix:  LD A, (FlightMessage.DamagedItem)"
         }
       ]
@@ -8988,7 +8988,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 33,
+          "line": 35,
           "code": "LD (Game.Input.KeyboardControlInterrupt.KeyboardCall), HL"
         }
       ]
@@ -9004,7 +9004,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 36,
+          "line": 38,
           "code": "LD (Game.Input.ScanKeyboardMatrix.RowPort), HL"
         }
       ]
@@ -9020,7 +9020,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 40,
+          "line": 42,
           "code": "LD (Game.Input.ScanKeyboardMatrix.KeyReadTail), HL"
         }
       ]
@@ -9036,7 +9036,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 61,
+          "line": 63,
           "code": "LD (Game.Flight.MainGameLoop.DeathTarget), HL"
         }
       ]
@@ -9052,7 +9052,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 82,
+          "line": 84,
           "code": "LD (Game.Flight.LaunchOrDockShip.RestoreCall), HL"
         }
       ]
@@ -9068,7 +9068,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 85,
+          "line": 87,
           "code": "LD (Game.Flight.MainGameLoop.DrawCall), HL"
         }
       ]
@@ -9084,7 +9084,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 94,
+          "line": 96,
           "code": "LD (Game.Universe.ApplyEnhancedFlightControl.InvasionCall), HL"
         }
       ]
@@ -9120,7 +9120,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 78,
+          "line": 80,
           "code": "LD (Game.Menus.OpenCommanderStatus.FormatCall), HL"
         }
       ]
@@ -9136,7 +9136,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 79,
+          "line": 81,
           "code": "LD (Game.Menus.PrintStatusFieldAndCargoScreen.FormatCall), HL"
         }
       ]
@@ -9152,7 +9152,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 88,
+          "line": 90,
           "code": "LD (Game.Missions.RatingBountyDamageAndNewCommander.CargoOffset), HL"
         }
       ]
@@ -9168,7 +9168,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 93,
+          "line": 95,
           "code": "LD (Game.Input.ToggleSecondaryCoordinateObject.InvasionCall), HL"
         }
       ]
@@ -9188,7 +9188,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 48,
+          "line": 50,
           "code": "LD A, (FlightState.StationZone)"
         },
         {
@@ -9208,7 +9208,7 @@
         },
         {
           "file": "Source/Game/Screen/SelectTrafficType.asm",
-          "line": 50,
+          "line": 53,
           "code": "LD A, (FlightState.StationZone)"
         },
         {
@@ -9218,7 +9218,7 @@
         },
         {
           "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
-          "line": 68,
+          "line": 70,
           "code": "LD (FlightState.StationZone), A"
         }
       ]
@@ -9238,7 +9238,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Flight/LaunchOrDockShip.asm",
-          "line": 86,
+          "line": 88,
           "code": "LD (FlightState.StationFar), A"
         },
         {
@@ -9253,7 +9253,7 @@
         },
         {
           "file": "Source/Game/Universe/HandleFastTravelStep.asm",
-          "line": 37,
+          "line": 39,
           "code": "LD A, (FlightState.StationFar)"
         },
         {
@@ -9288,7 +9288,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
-          "line": 92,
+          "line": 93,
           "code": "LD (FlightState.SunScooping), A"
         },
         {
@@ -9298,12 +9298,12 @@
         },
         {
           "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
-          "line": 90,
+          "line": 95,
           "code": "LD (FlightState.SunScooping), A"
         },
         {
           "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
-          "line": 25,
+          "line": 27,
           "code": "LD A, (FlightState.SunScooping)"
         }
       ]
@@ -9333,7 +9333,7 @@
         },
         {
           "file": "Source/Game/Combat/HandleObjectCollision.asm",
-          "line": 180,
+          "line": 184,
           "code": "LD (FlightState.PlayerDead), A"
         },
         {
@@ -9343,12 +9343,12 @@
         },
         {
           "file": "Source/Game/Flight/MainGameLoop.asm",
-          "line": 111,
+          "line": 112,
           "code": "LD A, (FlightState.PlayerDead)"
         },
         {
           "file": "Source/Game/Flight/MainGameLoop.asm",
-          "line": 161,
+          "line": 162,
           "code": "LD (FlightState.PlayerDead), A"
         },
         {
@@ -9378,12 +9378,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 33,
+          "line": 35,
           "code": "SelectRaster:   LD A, (FlightState.XorObjects)"
         },
         {
           "file": "Source/Game/Flight/MainGameLoop.asm",
-          "line": 118,
+          "line": 119,
           "code": "LD (FlightState.XorObjects), A"
         },
         {
@@ -9413,12 +9413,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Flight/LaunchOrDockShip.asm",
-          "line": 52,
+          "line": 54,
           "code": "LD (FlightState.ControlsLocked), A"
         },
         {
           "file": "Source/Game/Flight/LaunchOrDockShip.asm",
-          "line": 149,
+          "line": 151,
           "code": "LD (FlightState.ControlsLocked), A"
         },
         {
@@ -9428,12 +9428,12 @@
         },
         {
           "file": "Source/Game/Flight/MainGameLoop.asm",
-          "line": 120,
+          "line": 121,
           "code": "LD (FlightState.ControlsLocked), A"
         },
         {
           "file": "Source/Game/Flight/MainGameLoop.asm",
-          "line": 160,
+          "line": 161,
           "code": "LD (FlightState.ControlsLocked), A"
         }
       ]
@@ -9458,12 +9458,12 @@
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 44,
+          "line": 46,
           "code": "LD A, (CombatState.SpawnCounter)"
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 46,
+          "line": 48,
           "code": "LD (CombatState.SpawnCounter), A"
         },
         {
@@ -9473,7 +9473,7 @@
         },
         {
           "file": "Source/Game/Universe/HandleFastTravelStep.asm",
-          "line": 59,
+          "line": 61,
           "code": "LD (CombatState.SpawnCounter), A"
         }
       ]
@@ -9498,17 +9498,17 @@
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 72,
+          "line": 74,
           "code": "LD (CombatState.ShipsPresent), A"
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 114,
+          "line": 116,
           "code": "LD (CombatState.ShipsPresent), A"
         },
         {
           "file": "Source/Game/Universe/HandleFastTravelStep.asm",
-          "line": 43,
+          "line": 45,
           "code": "CheckShips:     LD A, (CombatState.ShipsPresent)"
         }
       ]
@@ -9528,12 +9528,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 115,
+          "line": 117,
           "code": "CheckMassKill:  LD A, (CombatState.DestroyAll)"
         },
         {
           "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
-          "line": 125,
+          "line": 258,
           "code": "LD (CombatState.DestroyAll), A"
         },
         {
@@ -9563,7 +9563,7 @@
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 71,
+          "line": 73,
           "code": "LD (CombatState.ObjectsPresent), A"
         },
         {
@@ -9603,12 +9603,12 @@
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 68,
+          "line": 70,
           "code": "LD (CombatState.CrosshairTarget), A"
         },
         {
           "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
-          "line": 157,
+          "line": 158,
           "code": "LD (CombatState.CrosshairTarget), A"
         },
         {
@@ -9638,12 +9638,12 @@
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 136,
+          "line": 138,
           "code": "LD (CombatState.Danger), A"
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 141,
+          "line": 143,
           "code": "LD A, (CombatState.Danger)"
         },
         {
@@ -9653,7 +9653,7 @@
         },
         {
           "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
-          "line": 53,
+          "line": 55,
           "code": "LD (CombatState.Danger), A"
         }
       ]
@@ -9673,12 +9673,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/HandleObjectCollision.asm",
-          "line": 140,
+          "line": 142,
           "code": "LD (CombatState.DockRequest), A"
         },
         {
           "file": "Source/Game/Flight/LaunchOrDockShip.asm",
-          "line": 84,
+          "line": 86,
           "code": "LD (CombatState.DockRequest), A"
         },
         {
@@ -9708,12 +9708,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
-          "line": 78,
+          "line": 80,
           "code": "LD A, (CombatState.EcmTimer)"
         },
         {
           "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
-          "line": 84,
+          "line": 86,
           "code": "LD (CombatState.EcmTimer), A"
         },
         {
@@ -9723,7 +9723,7 @@
         },
         {
           "file": "Source/Game/Flight/LaunchOrDockShip.asm",
-          "line": 50,
+          "line": 52,
           "code": "LD (CombatState.EcmTimer), A"
         },
         {
@@ -9733,17 +9733,17 @@
         },
         {
           "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
-          "line": 96,
+          "line": 98,
           "code": "LD A, (CombatState.EcmTimer)"
         },
         {
           "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
-          "line": 186,
+          "line": 190,
           "code": "CheckEcmTimer:  LD A, (CombatState.EcmTimer)"
         },
         {
           "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
-          "line": 200,
+          "line": 204,
           "code": "LD (CombatState.EcmTimer), A"
         },
         {
@@ -9773,22 +9773,22 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
-          "line": 41,
-          "code": "LD A, (CombatState.EnergyDrain)"
-        },
-        {
-          "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
-          "line": 96,
+          "line": 43,
           "code": "LD A, (CombatState.EnergyDrain)"
         },
         {
           "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
           "line": 98,
+          "code": "LD A, (CombatState.EnergyDrain)"
+        },
+        {
+          "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+          "line": 100,
           "code": "LD (CombatState.EnergyDrain), A"
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 65,
+          "line": 67,
           "code": "LD (CombatState.EnergyDrain), A"
         }
       ]
@@ -9808,37 +9808,37 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
-          "line": 34,
+          "line": 36,
           "code": "LD A, (CombatState.FrontDamage)"
         },
         {
           "file": "Source/Game/Combat/HandleObjectCollision.asm",
-          "line": 147,
+          "line": 149,
           "code": "LD A, (CombatState.FrontDamage)"
         },
         {
           "file": "Source/Game/Combat/HandleObjectCollision.asm",
-          "line": 151,
+          "line": 153,
           "code": "LD (CombatState.FrontDamage), A"
         },
         {
           "file": "Source/Game/Combat/HandleObjectCollision.asm",
-          "line": 185,
+          "line": 189,
           "code": "LD (CombatState.FrontDamage), A"
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 67,
+          "line": 69,
           "code": "LD (CombatState.FrontDamage), A"
         },
         {
           "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
-          "line": 181,
+          "line": 183,
           "code": "DamageFront:    LD A, (CombatState.FrontDamage)"
         },
         {
           "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
-          "line": 183,
+          "line": 185,
           "code": "LD (CombatState.FrontDamage), A"
         }
       ]
@@ -9858,27 +9858,27 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/ApplyPlayerDamage.asm",
-          "line": 37,
+          "line": 39,
           "code": "LD A, (CombatState.RearDamage)"
         },
         {
           "file": "Source/Game/Combat/HandleObjectCollision.asm",
-          "line": 175,
+          "line": 179,
           "code": "LD (CombatState.RearDamage), A"
         },
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 66,
+          "line": 68,
           "code": "LD (CombatState.RearDamage), A"
         },
         {
           "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
-          "line": 176,
+          "line": 178,
           "code": "LD A, (CombatState.RearDamage)"
         },
         {
           "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
-          "line": 178,
+          "line": 180,
           "code": "LD (CombatState.RearDamage), A"
         }
       ]
@@ -10595,7 +10595,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
-          "line": 149,
+          "line": 151,
           "code": "LD (CircleRaster.LeftPairJump), A"
         }
       ]
@@ -10652,7 +10652,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
-          "line": 135,
+          "line": 137,
           "code": "LD (CircleRaster.RightPairJump), A"
         }
       ]
@@ -10757,7 +10757,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
-          "line": 866,
+          "line": 869,
           "code": "LD (ObjectRaster.TargetValue), A"
         }
       ]
@@ -10776,12 +10776,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
-          "line": 176,
+          "line": 177,
           "code": "LD (ObjectRaster.PixelMode), HL"
         },
         {
           "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
-          "line": 202,
+          "line": 203,
           "code": "LD (ObjectRaster.PixelMode), HL"
         }
       ]
@@ -10862,7 +10862,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 39,
+          "line": 41,
           "code": "PatchRaster:    LD (LineRaster.SteepPixel), A"
         }
       ]
@@ -10976,7 +10976,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DrawClippedLine.asm",
-          "line": 500,
+          "line": 501,
           "code": "LD (LineRaster.MaskOffset), A"
         }
       ]
@@ -10995,7 +10995,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 40,
+          "line": 42,
           "code": "LD (LineRaster.FirstPixel), A"
         }
       ]
@@ -11014,7 +11014,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 41,
+          "line": 43,
           "code": "LD (LineRaster.FullPixel), A"
         }
       ]
@@ -11033,7 +11033,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 42,
+          "line": 44,
           "code": "LD (LineRaster.LastPixel), A"
         }
       ]
@@ -11052,7 +11052,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DrawClippedLine.asm",
-          "line": 494,
+          "line": 495,
           "code": "LD (LineRaster.NextBit), A"
         }
       ]
@@ -11135,7 +11135,7 @@
         },
         {
           "file": "Source/Game/Universe/HandleFastTravelStep.asm",
-          "line": 36,
+          "line": 38,
           "code": "LD HL, (CompassState.SunNear)"
         }
       ]
@@ -11309,7 +11309,7 @@
         },
         {
           "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
-          "line": 153,
+          "line": 155,
           "code": "LD (CircleState.OffsetY), HL"
         }
       ]
@@ -11454,7 +11454,7 @@
         },
         {
           "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
-          "line": 148,
+          "line": 150,
           "code": "LD (CircleState.Flags), HL"
         }
       ]
@@ -11759,37 +11759,37 @@
         },
         {
           "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
-          "line": 42,
+          "line": 44,
           "code": "SaveRealStack:  LD (CircleState.SavedSP), SP"
         },
         {
           "file": "Source/Game/Circles/CrossCircleCharacterRowDown.asm",
-          "line": 40,
+          "line": 41,
           "code": "LD SP, (CircleState.SavedSP)"
         },
         {
           "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
-          "line": 80,
+          "line": 82,
           "code": "FinishRight:    LD SP, (CircleState.SavedSP)"
         },
         {
           "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
-          "line": 163,
+          "line": 165,
           "code": "LD SP, (CircleState.SavedSP)"
         },
         {
           "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
-          "line": 95,
+          "line": 97,
           "code": "FinishLeft:     LD SP, (CircleState.SavedSP)"
         },
         {
           "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
-          "line": 177,
+          "line": 179,
           "code": "LD SP, (CircleState.SavedSP)"
         },
         {
           "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
-          "line": 211,
+          "line": 215,
           "code": "RightFillStack: LD (CircleState.SavedSP), SP"
         },
         {
@@ -11804,7 +11804,7 @@
         },
         {
           "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
-          "line": 209,
+          "line": 211,
           "code": "LeftFillStack:  LD (CircleState.SavedSP), SP"
         },
         {
@@ -11899,17 +11899,17 @@
         },
         {
           "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
-          "line": 161,
+          "line": 163,
           "code": "LD A, (CircleState.DirectionDown)"
         },
         {
           "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
-          "line": 175,
+          "line": 177,
           "code": "LD A, (CircleState.DirectionDown)"
         },
         {
           "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
-          "line": 192,
+          "line": 194,
           "code": "LD A, (CircleState.DirectionDown)"
         },
         {
@@ -12273,22 +12273,22 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
-          "line": 97,
+          "line": 99,
           "code": "LD (SteeringVector.X), HL"
         },
         {
           "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
-          "line": 109,
+          "line": 111,
           "code": "LD (SteeringVector.X), HL"
         },
         {
           "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
-          "line": 56,
+          "line": 58,
           "code": "LD (SteeringVector.X), HL"
         },
         {
           "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
-          "line": 71,
+          "line": 73,
           "code": "LD HL, (SteeringVector.X)"
         }
       ]
@@ -12303,22 +12303,22 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
-          "line": 99,
+          "line": 101,
           "code": "LD (SteeringVector.Y), HL"
         },
         {
           "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
-          "line": 111,
+          "line": 113,
           "code": "LD (SteeringVector.Y), HL"
         },
         {
           "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
-          "line": 58,
+          "line": 60,
           "code": "LD (SteeringVector.Y), HL"
         },
         {
           "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
-          "line": 67,
+          "line": 69,
           "code": "LD HL, (SteeringVector.Y)"
         }
       ]
@@ -12333,17 +12333,17 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
-          "line": 101,
+          "line": 103,
           "code": "LD (SteeringVector.Z), HL"
         },
         {
           "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
-          "line": 113,
+          "line": 115,
           "code": "LD (SteeringVector.Z), HL"
         },
         {
           "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
-          "line": 60,
+          "line": 62,
           "code": "LD (SteeringVector.Z), HL"
         }
       ]
@@ -12383,7 +12383,7 @@
         },
         {
           "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
-          "line": 125,
+          "line": 127,
           "code": "LD A, (ProjectedRadius)"
         },
         {
@@ -12466,7 +12466,7 @@
         },
         {
           "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
-          "line": 196,
+          "line": 199,
           "code": "SelectDetail:   LD HL, (ProjectionState.Depth)"
         },
         {
@@ -12481,7 +12481,7 @@
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 53,
+          "line": 54,
           "code": "LD A, (ProjectionState.Depth)"
         },
         {
@@ -12516,7 +12516,7 @@
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 186,
+          "line": 187,
           "code": "LD A, (ProjectionState.VertexOffset)"
         },
         {
@@ -12536,32 +12536,32 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 73,
+          "line": 74,
           "code": "LD (ProjectionState.X), HL"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 91,
+          "line": 92,
           "code": "LD DE, (ProjectionState.X)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 96,
+          "line": 97,
           "code": "LD (ProjectionState.X), HL"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 128,
+          "line": 129,
           "code": "LD DE, (ProjectionState.X)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 153,
+          "line": 154,
           "code": "LD HL, (ProjectionState.X)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 161,
+          "line": 162,
           "code": "LD HL, (ProjectionState.X)"
         },
         {
@@ -12586,27 +12586,27 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 76,
+          "line": 77,
           "code": "LD (ProjectionState.Y), HL"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 103,
+          "line": 104,
           "code": "LD DE, (ProjectionState.Y)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 108,
+          "line": 109,
           "code": "LD (ProjectionState.Y), HL"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 135,
+          "line": 136,
           "code": "LD DE, (ProjectionState.Y)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 160,
+          "line": 161,
           "code": "LD DE, (ProjectionState.Y)"
         },
         {
@@ -12631,22 +12631,22 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 79,
+          "line": 80,
           "code": "LD (ProjectionState.Z), HL"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 115,
+          "line": 116,
           "code": "LD DE, (ProjectionState.Z)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 120,
+          "line": 121,
           "code": "LD (ProjectionState.Z), HL"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 136,
+          "line": 137,
           "code": "LD HL, (ProjectionState.Z)"
         },
         {
@@ -12686,27 +12686,27 @@
         },
         {
           "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
-          "line": 201,
+          "line": 204,
           "code": "LD A, (ProjectionState.ScreenX)"
         },
         {
           "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
-          "line": 149,
+          "line": 151,
           "code": "LD HL, (ProjectionState.ScreenX)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 134,
+          "line": 135,
           "code": "LD (ProjectionState.ScreenX), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 159,
+          "line": 160,
           "code": "LD (ProjectionState.ScreenX), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 193,
+          "line": 194,
           "code": "LD A, (ProjectionState.ScreenX)"
         },
         {
@@ -12746,22 +12746,22 @@
         },
         {
           "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
-          "line": 206,
+          "line": 209,
           "code": "LD A, (ProjectionState.ScreenY)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 142,
+          "line": 143,
           "code": "LD (ProjectionState.ScreenY), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 167,
+          "line": 168,
           "code": "LD (ProjectionState.ScreenY), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 196,
+          "line": 197,
           "code": "LD A, (ProjectionState.ScreenY)"
         },
         {
@@ -12791,22 +12791,22 @@
         },
         {
           "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
-          "line": 214,
+          "line": 217,
           "code": "LD A, (ProjectionState.Flags)"
         },
         {
           "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
-          "line": 136,
+          "line": 138,
           "code": "LD A, (ProjectionState.Flags)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 185,
+          "line": 186,
           "code": "LD (ProjectionState.Flags), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 206,
+          "line": 207,
           "code": "LD A, (ProjectionState.Flags)"
         },
         {
@@ -12826,17 +12826,17 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 97,
+          "line": 98,
           "code": "LD (ProjectionState.SignX), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 143,
+          "line": 144,
           "code": "LD A, (ProjectionState.SignX)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 168,
+          "line": 169,
           "code": "LD A, (ProjectionState.SignX)"
         }
       ]
@@ -12851,12 +12851,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 109,
+          "line": 110,
           "code": "LD (ProjectionState.SignY), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 175,
+          "line": 176,
           "code": "PackSigns:      LD A, (ProjectionState.SignY)"
         }
       ]
@@ -12871,17 +12871,17 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 121,
+          "line": 122,
           "code": "LD (ProjectionState.SignZ), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 146,
+          "line": 147,
           "code": "LD A, (ProjectionState.SignZ)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 171,
+          "line": 172,
           "code": "LD A, (ProjectionState.SignZ)"
         }
       ]
@@ -12896,7 +12896,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 67,
+          "line": 68,
           "code": "LD (ProjectionState.Scale), A"
         },
         {
@@ -12926,7 +12926,7 @@
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 82,
+          "line": 83,
           "code": "LD (ProjectionState.NoCache), A"
         },
         {
@@ -13025,32 +13025,32 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 72,
+          "line": 73,
           "code": "LD (VertexFraction.X), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 92,
+          "line": 93,
           "code": "LD A, (VertexFraction.X)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 99,
+          "line": 100,
           "code": "LD (VertexFraction.X), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 129,
+          "line": 130,
           "code": "LD A, (VertexFraction.X)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 156,
+          "line": 157,
           "code": "LD A, (VertexFraction.X)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 164,
+          "line": 165,
           "code": "LD A, (VertexFraction.X)"
         },
         {
@@ -13070,27 +13070,27 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 75,
+          "line": 76,
           "code": "LD (VertexFraction.Y), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 104,
+          "line": 105,
           "code": "LD A, (VertexFraction.Y)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 111,
+          "line": 112,
           "code": "LD (VertexFraction.Y), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 137,
+          "line": 138,
           "code": "LD A, (VertexFraction.Y)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 162,
+          "line": 163,
           "code": "LD A, (VertexFraction.Y)"
         },
         {
@@ -13110,32 +13110,32 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 78,
+          "line": 79,
           "code": "LD (VertexFraction.Z), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 116,
+          "line": 117,
           "code": "LD A, (VertexFraction.Z)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 123,
+          "line": 124,
           "code": "LD (VertexFraction.Z), A"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 131,
+          "line": 132,
           "code": "LD A, (VertexFraction.Z)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 139,
+          "line": 140,
           "code": "LD A, (VertexFraction.Z)"
         },
         {
           "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
-          "line": 154,
+          "line": 155,
           "code": "LD A, (VertexFraction.Z)"
         },
         {
@@ -13205,7 +13205,7 @@
         },
         {
           "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
-          "line": 116,
+          "line": 118,
           "code": "LD HL, (ObjectEffects.Current)"
         },
         {
@@ -13215,7 +13215,7 @@
         },
         {
           "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
-          "line": 79,
+          "line": 81,
           "code": "CheckEffects:   LD HL, (ObjectEffects.Current)"
         },
         {
@@ -13300,7 +13300,7 @@
         },
         {
           "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
-          "line": 20,
+          "line": 22,
           "code": "LD A, (ObjectEffects.Flags)"
         },
         {
@@ -13315,7 +13315,7 @@
         },
         {
           "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
-          "line": 63,
+          "line": 67,
           "code": "LD (ObjectEffects.Flags), A"
         },
         {
@@ -13574,7 +13574,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
-          "line": 73,
+          "line": 75,
           "code": "LD A, (DistantBodies.First.Z + FCoordinate.SignHigh)"
         }
       ]
@@ -13589,7 +13589,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
-          "line": 67,
+          "line": 69,
           "code": "LD A, (DistantBodies.Second.Z + FCoordinate.SignHigh)"
         }
       ]
@@ -13799,7 +13799,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 91,
+          "line": 93,
           "code": "LD (Game.Screen.SelectTrafficType.InvasionCall), HL"
         }
       ]
@@ -13888,7 +13888,7 @@
         },
         {
           "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
-          "line": 134,
+          "line": 135,
           "code": "LD A, (InputState.ViewJumpKeys)"
         },
         {
@@ -13903,12 +13903,12 @@
         },
         {
           "file": "Source/Game/Universe/HandleFastTravelStep.asm",
-          "line": 23,
+          "line": 25,
           "code": "Entry:          LD A, (InputState.ViewJumpKeys)"
         },
         {
           "file": "Source/Game/Universe/HandleFastTravelStep.asm",
-          "line": 27,
+          "line": 29,
           "code": "LD (InputState.ViewJumpKeys), A"
         }
       ]
@@ -13928,7 +13928,7 @@
         },
         {
           "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
-          "line": 112,
+          "line": 245,
           "code": "UseEnergyBomb:  LD A, (InputState.DeviceKeys)"
         },
         {
@@ -13993,12 +13993,12 @@
         },
         {
           "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
-          "line": 70,
+          "line": 71,
           "code": "LD A, (InputState.LastKey)"
         },
         {
           "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
-          "line": 140,
+          "line": 141,
           "code": "LD (InputState.LastKey), A"
         },
         {
@@ -14038,7 +14038,7 @@
         },
         {
           "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
-          "line": 107,
+          "line": 108,
           "code": "LD A, (InputState.Config)"
         },
         {
@@ -14073,7 +14073,7 @@
         },
         {
           "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
-          "line": 41,
+          "line": 43,
           "code": "LD A, (InputState.Config)"
         }
       ]
@@ -14088,7 +14088,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
-          "line": 51,
+          "line": 52,
           "code": "LD A, (InputState.NumberKeys)"
         },
         {
@@ -14166,7 +14166,7 @@
         },
         {
           "file": "Source/Game/Travel/TickJumpCountdown.asm",
-          "line": 61,
+          "line": 63,
           "code": "LD (EquipmentTable.FuelPrice), A"
         }
       ]
@@ -14211,7 +14211,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
-          "line": 91,
+          "line": 93,
           "code": "LD (Game.Extensions.DrawCompressedEdges.FrameCounter), A"
         }
       ]
@@ -14299,7 +14299,7 @@
       "direct_memory_references": [
         {
           "file": "Source/DiskUtility/DemoSetup/InstallDemoOverlay.asm",
-          "line": 92,
+          "line": 94,
           "code": "LD (Game.Text.NextDescriptionRandom.InvasionCall), HL"
         }
       ]
@@ -14358,7 +14358,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
-          "line": 49,
+          "line": 50,
           "code": "LD (Game.Extensions.PrintCargoAndMessageBanks.PulseLaserTail), HL"
         }
       ]
@@ -14373,7 +14373,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
-          "line": 51,
+          "line": 53,
           "code": "LD A, (State.Cargo + FGoods.AlienItems)"
         }
       ]
@@ -14388,7 +14388,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
-          "line": 24,
+          "line": 26,
           "code": "LD A, (State.CashHigh + 1)"
         }
       ]
@@ -14403,7 +14403,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
-          "line": 28,
+          "line": 30,
           "code": "LD A, (Memory.Objects + FSpaceObject.Flags2)"
         }
       ]
@@ -14418,12 +14418,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
-          "line": 108,
+          "line": 112,
           "code": "LD A, (Memory.Objects + FSpaceObject.Energy)"
         },
         {
           "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
-          "line": 119,
+          "line": 123,
           "code": "LD (Memory.Objects + FSpaceObject.Energy), A"
         }
       ]
@@ -14438,7 +14438,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
-          "line": 105,
+          "line": 109,
           "code": "LD (CargoEvent), HL"
         }
       ]
@@ -14453,12 +14453,12 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
-          "line": 868,
+          "line": 871,
           "code": "LD (InterruptGate), A"
         },
         {
           "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
-          "line": 877,
+          "line": 880,
           "code": "LD (InterruptGate), A"
         }
       ]
@@ -14473,7 +14473,7 @@
       "direct_memory_references": [
         {
           "file": "Source/Game/Extensions/PrintEquipmentAndSelectIcon.asm",
-          "line": 53,
+          "line": 54,
           "code": "LD (InputViewSkip), A"
         }
       ]

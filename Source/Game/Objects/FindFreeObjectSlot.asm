@@ -11,8 +11,8 @@
 ; Corrupt:
 ;   DE, BC, AF, IX
 ; Note:
-;   проверяются #606F,#6096,#60BD,#60E4,#610B,#6132
-;   свободен слот с нулевой энергией IX+22, станция #6048 и ракета #6159 исключены
+;   проверяются Memory.Objects,Game.Data.ObjectPool.Ship2,Game.Data.ObjectPool.Ship3,Game.Data.ObjectPool.Ship4,Game.Data.ObjectPool.Ship5,Game.Data.ObjectPool.Ship6
+;   свободен слот с FSpaceObject.Energy=0, станция Memory.Station и ракета Memory.Missile исключены
 ;   при отсутствии слота INC B после DJNZ устанавливает NZ, значение A не является кодом ошибки
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -31,6 +31,7 @@ CheckSlot:      ADD IX, DE
                 ; формирование NZ после исчерпания всех шести слотов
                 INC B
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B94A
                 endmodule

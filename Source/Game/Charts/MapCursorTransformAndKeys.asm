@@ -4,15 +4,15 @@
 ; Преобразование координат малого курсора и обработчики его движения
 ; исходный диапазон #E46F..#E52D
 ; In:
-;   D0BB/D0BC = координаты цели, D099/D097 = текущая система, E52B = размер
+;   TargetX/TargetY = координаты цели, State.SystemSeed + FSystemSeed.X/State.SystemSeed + FSystemSeed.Y = текущая система, MapViewport.CrosshairSize = размер
 ; Out:
-;   D051/D052 = экранные координаты, курсор инвертирован если видим
+;   MapCircleX/MapCircleY = экранные координаты, курсор инвертирован если видим
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
 ;   На общей карте X=цель X, Y=цель Y/2+24, на местной X=97+4*dx, Y=96+2*dy с отсечением
-;   переполнений и Y вне 25..166, E4D4/E4E6 меняют Y на 2, E4F9/E509 меняют X на 1, E51A
-;   возвращает координаты текущей системы, E52B..E52D параметры размера и границ
+;   переполнений и Y вне 25..166, Game.Charts.MapCursorTransformAndKeys.CursorUp/Game.Charts.MapCursorTransformAndKeys.CursorDown меняют Y на 2, Game.Charts.MapCursorTransformAndKeys.CursorLeft/Game.Charts.MapCursorTransformAndKeys.CursorRight меняют X на 1, Game.Charts.MapCursorTransformAndKeys.CurrentSystem
+;   возвращает координаты текущей системы, MapViewport.CrosshairSize, Top и Bottom задают размер и границы курсора
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E46F
@@ -145,12 +145,19 @@ CurrentSystem:  CALL Entry
                 LD A, (State.SystemSeed + FSystemSeed.Y)
                 LD (TargetY), A
                 JR RedrawCursor
-                ; ширина перекрестия, 10 для общей карты
-CrosshairSize   DB #10                                                          ; полуширина перекрестия карты в пикселях
-                ; верхняя граница области карты
-Top             DB #18                                                          ; верхняя строка области карты
-                ; нижняя граница области карты
-Bottom          DB #A7                                                          ; нижняя строка области карты
+
+                ; размер перекрестия и вертикальные границы карты
+Viewport        FMapViewport {
+                    #10,                                                        ; FMapViewport.CrosshairSize, полуширина перекрестия карты в пикселях
+                    #18,                                                        ; FMapViewport.Top, верхняя строка области карты
+                    #A7                                                         ; FMapViewport.Bottom, нижняя строка области карты
+                }
+                ASSERT $ - Viewport == FMapViewport
+
+                ; прежние имена указывают на поля экземпляра Viewport
+CrosshairSize   EQU Viewport.CrosshairSize                                      ; поле FMapViewport.CrosshairSize
+Top             EQU Viewport.Top                                                ; поле FMapViewport.Top
+Bottom          EQU Viewport.Bottom                                             ; поле FMapViewport.Bottom
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E52E
                 endmodule

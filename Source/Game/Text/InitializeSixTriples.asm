@@ -4,9 +4,9 @@
 ; Инициализация шести трёхбайтовых записей
 ; исходный диапазон #D5CB..#D5E0
 ; In:
-;   738E..7393 = шесть старших байтов
+;   DistantSigns = шесть старших байтов
 ; Out:
-;   8ABA..8ACB = шесть записей 00, 00, байт
+;   DistantBodies.First и DistantBodies.Second = шесть записей 00, 00, байт
 ; Corrupt:
 ;   AF, HL', DE', BC'
 ; Note:
@@ -31,6 +31,7 @@ InitTriple:     LD A, (DE)
 
                 EXX
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D5E1
                 endmodule

@@ -4,15 +4,15 @@
 ; Сохранение чистого фона сканера в линейный буфер
 ; исходный диапазон #98A2..#98CC
 ; In:
-;   экран 5049, буфер 5B00, 96C4 наличие старых маркеров
+;   экран Memory.Screen + #1049, буфер Memory.CockpitAttrs, ScannerState.Redraw наличие старых маркеров
 ; Out:
-;   624 байта фона скопированы в 5B00..5D6F
+;   624 байта фона скопированы в Memory.CockpitAttrs
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Сначала 98CD восстанавливает прошлый фон, затем меняются семь байтов команд общего цикла
-;   Для сохранения 9912/9939=EX DE,HL, 9915/991A=PUSH HL, 9935=POP HL, 9936=INC H, 9940=NOP
-;   Переход 990C использует тот же LDIR, что восстановление 98CD
+;   Сначала Game.Scanner.RestoreScannerBackground.Entry восстанавливает прошлый фон, затем меняются семь байтов команд общего цикла
+;   Для сохранения ScannerCopy/ScannerCopy.SelectScreen=EX DE,HL, ScannerCopy.SaveCharRow/ScannerCopy.SavePixelRow=PUSH HL, ScannerCopy.RestoreRow=POP HL, ScannerCopy.AdvanceRow=INC H, ScannerCopy.SelectTarget=NOP
+;   Переход Game.Scanner.RestoreScannerBackground.CopyBackground использует тот же LDIR, что восстановление Game.Scanner.RestoreScannerBackground.Entry
 ; -----------------------------------------
                 ASSERT $ == #98A2
                 ; удаление старых маркеров перед новым снимком фона
@@ -41,6 +41,7 @@ Entry:          CALL Game.Scanner.RestoreScannerBackground.Entry
                 LD HL, ScannerCopy.SelectScreen
                 LD (HL), A
                 JR Game.Scanner.RestoreScannerBackground.CopyBackground
+
                 ASSERT $ == #98CD
                 endmodule
                 endmodule

@@ -19,6 +19,7 @@ Entry:          PUSH HL
                 SBC HL, DE
                 POP HL
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D3D3
                 endmodule

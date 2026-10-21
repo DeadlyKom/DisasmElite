@@ -4,13 +4,13 @@
 ; Замена лазера с возвратом цены прежнего
 ; исходный диапазон #EAE0..#EB26
 ; In:
-;   ASCII 0..3, EB62 = новый тип
+;   ASCII 0..3, EquipmentWork.LaserType = новый тип
 ; Out:
-;   D07D+направление = новый лазер, прежний компенсирован деньгами
+;   State.FrontLaser+направление = новый лазер, прежний компенсирован деньгами
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Старый тип через FD89 переводится в номер тарифа 705F, обе группы денег возвращаются
+;   старый тип лазера индексирует LaserTariffs от базы LaserTariffs - 1, затем EquipmentTable.Base задаёт возвращаемую цену
 ;   отдельно, другая клавиша восстанавливает снимок
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -55,6 +55,7 @@ LaserSuccess:   CALL Game.Trade.ShowTradeSuccess.Entry
 
 CancelLaser:    CALL Game.Trade.RestoreTradeSnapshot.Entry
                 JR @Game.Trade.EquipmentAlreadyOwned.ReturnStatus
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EB27
                 endmodule

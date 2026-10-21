@@ -1,9 +1,9 @@
                 module Wireframe
                 module DrawClippedLine
-                ; выбор единственного байта уже адресованной маски, IX указывает в таблицу #B400
+                ; выбор единственного байта маски, IX указывает в таблицу 8×8 масок в конце Game.Wireframe.RefreshScannerBackground
 MaskByte:       EQU 0
 ; -----------------------------------------
-; отсечение отрезка и наложение его растрового изображения в буфер #C000
+; отсечение отрезка и наложение его растрового изображения в буфер Memory.Frame
 ;
 ; In:
 ;   HL, H модуль X и L модуль Y первого конца
@@ -11,14 +11,14 @@ MaskByte:       EQU 0
 ;   BC, C содержит пары знаков, биты 0..1 для HL, 2..3 для DE
 ;   PROJ_POSY_BIT каждой пары задаёт Y=63+модуль вместо 63-модуль
 ;   PROJ_NEGX_BIT каждой пары задаёт X=127-модуль вместо 127+модуль
-;   #9CBB заранее выбирает OR или XOR в четырёх изменяемых командах
+;   Game.Combat.UpdateAllSpaceObjects.Entry заранее выбирает OR или XOR в четырёх изменяемых командах
 ; Out:
 ;   пиксели отрезка наложены выбранной операцией либо отрезок отброшен
 ; Corrupt:
 ;   HL, DE, BC, AF, HL', DE', BC', AF'
 ;
 ; отсечение пересчитывает внешние концы отношением приращений в формате 8.8
-; #B29F учитывает девятые разряды, #B286 умножает наклон на превышение границы
+; Game.Wireframe.UnscaleClippingRatio.Entry учитывает девятые разряды, Game.Wireframe.MultiplyClippingDistance.Entry умножает наклон на превышение границы
 ; после каждого отсечения управление возвращается к проверке новых концов
 ; предел Y равен 63, внешняя X исправляется на 119
 ; предварительный тест отбрасывает оба модуля X >=120 с одним знаком
@@ -27,23 +27,23 @@ MaskByte:       EQU 0
 ; это точное поведение оригинала, упрощать его до идеального clip нельзя
 ;
 ; крутые линии выводят по одному пикселю на строку с накоплением ошибки
-; пологие линии выводят горизонтальные группы по таблице масок #B400
-; #9CD1 выбирает OR при нулевом #7120 и XOR при ненулевом
-; коды #B6/#AE записываются в #B1B7, #B232, #B244 и #B252
+; пологие линии выводят горизонтальные группы по таблице 8×8 масок в конце Game.Wireframe.RefreshScannerBackground
+; Game.Combat.UpdateAllSpaceObjects.PatchRaster выбирает OR при нулевом FlightState.XorObjects и XOR при ненулевом
+; коды #B6/#AE записываются в LineRaster.SteepPixel, LineRaster.FirstPixel, LineRaster.FullPixel и LineRaster.LastPixel
 ; сортировка концов делает приращение X всегда положительным
 ; протяжённость X равна разности модулей при одном знаке и сумме плюс 1 при разных
 ; поэтому горизонталь с общим знаком X не включает правый конец
 ; протяжённость Y всегда содержит дополнительную строку, включая оба конца
 ; наклон Y выбирает INC H или DEC H и два разных перехода между знакоместами
-; ветви вверх #B1DB и #B273 исполняются после изменения смещений JR
+; ветви вверх Game.Wireframe.DrawClippedLine.SteepUp и Game.Wireframe.DrawClippedLine.ShallowUp исполняются после изменения смещений JR
 ;
 ; самомодификация крутого цикла:
-;   #B1B5 код шага по строке, #B1BD дробный шаг, #B1C7 смещение ветви
+;   LineRaster код шага по строке, LineRaster.SteepFraction дробный шаг, LineRaster.SteepRowOffset смещение ветви
 ; самомодификация пологого цикла:
-;   #B20D код шага, #B20F целая часть, #B212 дробная часть
-;   #B231 смещение маски, #B25D следующий бит, #B25F смещение ветви
+;   LineRaster.RunStep код шага, LineRaster.RunLength целая часть, LineRaster.RunFraction дробная часть
+;   LineRaster.MaskOffset смещение маски, LineRaster.NextBit следующий бит, LineRaster.RunRowOffset смещение ветви
 ; IX сохраняется и восстанавливается в пологом цикле
-; ROM #22B1 вычисляет адрес пикселя, память ROM нужна во время выполнения
+; ROM Rom.PixelAddress вычисляет адрес пикселя, память ROM нужна во время выполнения
 ; -----------------------------------------
                 ; проверка исходного начала процедуры
                 ASSERT $ == #B044
@@ -325,7 +325,7 @@ PixelYReady:    LD B, A
 
 SubtractPixelX: SUB D
 PixelXReady:    LD C, A
-                ; преобразование B=y и C=x процедурой ROM, бит 7 переносит адрес в #C000
+                ; преобразование B=y и C=x процедурой ROM, бит 7 переносит адрес в Memory.Frame
                 LD A, B
                 CALL Rom.PixelAddress
                 SET 7, H
@@ -436,7 +436,7 @@ SteepDown:      DJNZ SteepStep
                 LD H, A
                 JR SteepPixel
 
-                ; переход к предыдущей строке, вход выбирает изменённый JR #B1C6
+                ; переход к предыдущей строке, вход выбирает изменённый JR Game.Wireframe.DrawClippedLine.SteepRowJump
 SteepUp:        DJNZ SteepStep
 
                 LD B, #08
@@ -474,6 +474,7 @@ Shallow:        LD A, D
                 LD IXH, #B4
                 LD A, #80
                 JR AddRunError
+
                 ; изменяемая команда движения на одну строку
 RunOpcode       EQU $                                                           ; код INC H либо DEC H для пологого отрезка
 ShallowStep:    INC H
@@ -549,6 +550,7 @@ RowDone:        DEC E
 
                 POP IX
                 RET
+
                 ; восстановление начального бита следующей строки из изменяемого операнда
 NextBit         EQU $ + 1                                                       ; номер первого пикселя следующей строки в операнде LD C
 LoadNextBit:    LD C, #00
@@ -572,7 +574,7 @@ ShallowDown:    DJNZ ShallowStep
                 LD H, A
                 JR ShallowRow
 
-                ; переход вверх через границу знакоместа, вход выбирает JR #B25E
+                ; переход вверх через границу знакоместа, изменяемый LineRaster.RunRowOffset выбирает этот хвост JR
 ShallowUp:      DJNZ ShallowStep
 
                 LD B, #08
@@ -588,6 +590,7 @@ ShallowUp:      DJNZ ShallowStep
                 SUB B
                 LD H, A
                 JR ShallowRow
+
                 ; проверка исходной границы процедуры
                 ASSERT $ == #B286
                 endmodule

@@ -4,14 +4,14 @@
 ; Уменьшение и отображение отсчёта гиперперехода
 ; исходный диапазон #DC29..#DC82
 ; In:
-;   DBA1 = отсчёт в половинах отображаемой единицы
+;   JumpCountdown = отсчёт в половинах отображаемой единицы
 ; Out:
 ;   Печатается прежнее значение>>1 либо начинается переход
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Нулевой отсчёт ничего не делает, при достижении 0 очищает очередь, D03F=2 очищает активные
-;   миссии и запускает галактическое преобразование, затем выбирает систему и входит DCE9
+;   Нулевой отсчёт ничего не делает, при достижении 0 очищает очередь, JumpMode=2 очищает активные
+;   миссии и запускает галактическое преобразование, затем выбирает систему и входит Game.Travel.EnterTargetSystem.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DC29
@@ -39,6 +39,8 @@ CommitJump:     CALL Game.Travel.ClearFlightEventsAndHandleJump.Entry
                 SUB #02
                 JR NZ, Game.Travel.CommitJumpFuelAndMishap.Entry                ; переход, если режим перехода не равен 2, выполнять обычный гиперпереход
 
+                ; миссии 1, 3, общий переход очищает активные старые миссии и предупреждение
+                ; описание в Docs/Manual.md, раздел mission-1, mission-3
 ClearMissions:  XOR A
                 LD (State.Mission3), A
                 LD A, (State.Mission1)
@@ -66,6 +68,7 @@ UseGalDrive:    CALL Game.Extensions.ConsumeGalacticDriveCharge.Entry
                 LD (State.LegalStatus), A
                 CALL Game.Galaxy.SelectNearestSystemWithCursor.Entry
                 JR Game.Travel.EnterTargetSystem.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DC83
                 endmodule

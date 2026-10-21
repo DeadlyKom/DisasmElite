@@ -6,11 +6,11 @@
 ; In:
 ;   IX/IY указывают трёхбайтовые координаты
 ; Out:
-;   IY+1/IY+2 получают удвоенную знако-модульную полуразность, IX/IY увеличены на 3
+;   поля FCoordinate.Low и FCoordinate.SignHigh по IY получают удвоенную знако-модульную полуразность, IX и IY переходят к следующим координатам
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-;   Сначала 71E4 вычисляет floor(abs(delta)/2), удвоение возвращает чётный модуль, исходный знак
+;   Сначала Game.Flight.HalfCoordinateDifference.Entry вычисляет floor(abs(delta)/2), удвоение возвращает чётный модуль, исходный знак
 ;   восстанавливается через перенос
 ; -----------------------------------------
                 ASSERT $ == #71CE
@@ -27,6 +27,7 @@ StoreAxis:      LD (IY+FCoordinate.SignHigh), H
                 ADD IY, DE
                 ADD IX, DE
                 RET
+
                 ASSERT $ == #71E4
                 endmodule
                 endmodule

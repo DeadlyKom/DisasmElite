@@ -4,9 +4,9 @@
 ; Копирование имени в буфер назначения
 ; исходный диапазон #E080..#E08B
 ; In:
-;   DEDB = имя 8 байт
+;   GalaxyState.GeneratedName = имя 8 байт
 ; Out:
-;   DEED..DEF4 обновлены, HL=DEE3, DE=DEF5, BC=0
+;   восемь букв GalaxyState.TargetName обновлены, HL указывает на завершающий ноль GeneratedName, DE на ноль TargetName, BC=0
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
@@ -20,6 +20,7 @@ Entry:          LD BC, #0008
                 LD DE, GalaxyState.TargetName
                 LDIR
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E08C
                 endmodule

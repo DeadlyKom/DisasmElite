@@ -1,7 +1,7 @@
                 module Objects
                 module DispatchObjectAction
 ; -----------------------------------------
-; передача упакованной команды объекта обработчику #DA51
+; передача упакованной команды объекта обработчику Game.Disk.DrawScreenStripsAndPrivateStack.DrawStrips
 ; исходный диапазон #B867..#B869
 ; In:
 ;   AF - младшая тетрада A код действия, старшая параметр
@@ -11,12 +11,13 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-;   обёртка #DA51 сохраняет SP в #DA60, использует стек #4020 и вызывает #B86A при DI
+;   обёртка Game.Disk.DrawScreenStripsAndPrivateStack.DrawStrips сохраняет SP в ScreenStack, использует стек Memory.Screen + #0020 и вызывает Game.Objects.SelectObjectAction.Entry при DI
 ;   сам этот трёхбайтовый вход содержит только JP, собственных локальных данных нет
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #B867
 Entry:          JP @Game.Disk.DrawScreenStripsAndPrivateStack.DrawStrips
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B86A
                 endmodule

@@ -1,7 +1,7 @@
                 module Missions
                 module DispatchRatingAndMissionEnd
 ; -----------------------------------------
-; совместимый вход прибавления к 24-битовому рейтингу, #D0EA
+; совместимый вход прибавления к 24-битовому рейтингу, Game.Missions.DispatchRatingAndMissionEnd.Entry
 ; исходный диапазон #D0EA..#D0F2
 ; In:
 ;   DE, приращение младших 16 бит рейтинга
@@ -11,7 +11,7 @@
 ; Corrupt:
 ;   HL, AF
 ; Note:
-;   только перенос из младшего слова запускает #5E78 и событие #D0C9
+;   только перенос из младшего слова запускает Game.Extensions.UpdateInvasionOnRatingOverflow.Entry и событие FlightEvents + 6 * FFlightEvent + FFlightEvent.ColumnFlags
 ;   соседний EndMission является независимым входом завершения третьей миссии
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -19,7 +19,7 @@
 Entry:          JP Game.Missions.RatingBountyDamageAndNewCommander.Entry
 
 ; -----------------------------------------
-; вектор награды за третью миссию, #D0ED
+; вектор награды за третью миссию, Game.Missions.DispatchRatingAndMissionEnd.EndMission
 ; In:
 ;   состояние командира задано, прерывания включены
 ; Out:
@@ -28,7 +28,10 @@ Entry:          JP Game.Missions.RatingBountyDamageAndNewCommander.Entry
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; -----------------------------------------
+                ; миссия 3, вектор награды за третью миссию
+                ; описание в Docs/Manual.md, раздел mission-3
 EndMission:     JP Game.Missions.CompleteThirdMission.Entry
+
                 ; сохранённые три нулевых байта между векторами
                 DB #00, #00, #00                                                ; #D0F0..#D0F2
                 ; проверка исходного конца фрагмента

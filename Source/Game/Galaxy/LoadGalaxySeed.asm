@@ -4,13 +4,13 @@
 ; Копирование базового семени галактики в рабочее
 ; исходный диапазон #E126..#E12D
 ; In:
-;   D090..D095 = исходное семя
+;   State.GalaxySeed = исходное семя
 ; Out:
-;   DEC0..DEC5 обновлены, BC=0
+;   GalaxyState.WorkingSeed обновлены, BC=0
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Настраивает указатели и использует общий 6 байтный LDIR по E13C
+;   Настраивает указатели и использует общий 6 байтный LDIR по Game.Galaxy.RestoreWorkingSystemSeed.CopySeed
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E126
@@ -18,6 +18,7 @@
 Entry:          LD HL, State.GalaxySeed
                 LD DE, GalaxyState.WorkingSeed
                 JR @Game.Galaxy.RestoreWorkingSystemSeed.CopySeed
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E12E
                 endmodule

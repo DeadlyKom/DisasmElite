@@ -10,17 +10,17 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
-;   D9C1 выбирает чтение IX=2F1B, D9C7 выбирает запись IX=2D73, выбранный адрес сохраняется в
-;   операнд D9E5, при E=16 сектор обнуляется и дорожка увеличивается, вызывающий отключает
+;   Game.Disk.TransferDiskSectors.Entry выбирает чтение IX=DosReadSector, Game.Disk.TransferDiskSectors.Write выбирает запись IX=DosWriteSector, выбранный адрес сохраняется в
+;   операнд DiskSavedIX, при E=16 сектор обнуляется и дорожка увеличивается, вызывающий отключает
 ;   прерывания
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D9C1
-                ; выбор внутреннего обработчика чтения TR-DOS, запись имеет отдельный вход D9C7
+                ; выбор внутреннего обработчика чтения TR-DOS, запись имеет отдельный вход Game.Disk.TransferDiskSectors.Write
 Entry:          LD IX, DosReadSector
                 JR PrepareSector
 
-                ; вход записи секторов, IX выбирает внутреннюю процедуру TR-DOS #2D73
+                ; вход записи секторов, IX выбирает внутреннюю процедуру TR-DOS DosWriteSector
 Write:          LD IX, DosWriteSector
                 ; передача очередного сектора и продвижение адреса буфера на 256 байтов
 PrepareSector:  LD (DiskSavedIX), IX
@@ -59,6 +59,7 @@ NextSector:     POP BC
                 DJNZ TransferSector
 
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DA14
                 endmodule

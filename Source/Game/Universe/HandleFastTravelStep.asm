@@ -4,22 +4,24 @@
 ; быстрый перенос небесных тел и станции по команде движения
 ; исходный диапазон #7EDE..#7F2C
 ; In:
-;   память FC0A.6, команда
-;   память 7103/711D/81A4/9C94, ограничения
+;   память InputState.ViewJumpKeys.6, команда
+;   память FlightState.SpaceMode/FlightState.StationFar/CompassState/CombatState.ShipsPresent, ограничения
 ; Out:
 ;   очищены обычные объекты, координаты сдвинуты по Z
-;   7EDD получает 1
+;   FastTravel получает 1
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
-; Команда снимается сразу после чтения. В обычной системе нужны 711D=FF и нулевое слово 81A4.
+; Команда снимается сразу после чтения. В обычной системе нужны FlightState.StationFar=FF и нулевое слово CompassState.
 ; Наличие обычного корабля запрещает перенос. Успех сбрасывает миссионное состояние и очищает окружение.
-; Операнд 7F0B циклически вращается 55/AA, через раз задаёт счётчик появления 9C93=1.
-; Два CALL сдвигают координаты 7107/7110, затем поток падает в 7F2D для станции 6048.
+; Операнд FastSpawnPhase циклически вращается 55/AA, через раз задаёт счётчик появления CombatState.SpawnCounter=1.
+; Два CALL сдвигают координаты FlightState.Sun/FlightState.Planet, затем поток падает в Game.Universe.MoveCoordinateDepthBy32.Entry для станции Memory.Station.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #7EDE
                 ; чтение и снятие команды быстрого движения
+                ; миссия 2 CLOAKING DEVICE, быстрое перемещение обнуляет фазу второй миссии при очистке окружения
+                ; описание в Docs/Manual.md, раздел mission-2
 Entry:          LD A, (InputState.ViewJumpKeys)
                 BIT VIEW_FAST_BIT, A
                 PUSH AF
@@ -38,7 +40,7 @@ Entry:          LD A, (InputState.ViewJumpKeys)
                 INC A
                 OR H
                 OR L
-                RET NZ                                                          ; выход, если станционный режим либо слово 81A4 не допускают быстрого переноса
+                RET NZ                                                          ; выход, если станционный режим либо слово CompassState не допускают быстрого переноса
 
 CheckShips:     LD A, (CombatState.ShipsPresent)
                 AND A
@@ -63,7 +65,7 @@ StorePhase:     LD (FastTravel), A
                 CALL Game.Universe.MoveCoordinateDepthBy32.Entry
                 LD IX, FlightState.Planet
                 CALL Game.Universe.MoveCoordinateDepthBy32.Entry
-                LD IX, Memory.Station
+                LD IX, Memory.Station                                           ; далее Game.Universe.MoveCoordinateDepthBy32.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #7F2D
                 endmodule

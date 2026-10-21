@@ -2,7 +2,7 @@
 ; Звуковое действие с задержкой
 ; исходный диапазон #E832..#E83B
 ; In:
-;   вызов игрового E1E8 и E35E
+;   вызов игрового Game.Trade.OptionalBeep.Entry и Game.Trade.Wait36Interrupts.Entry
 ; Out:
 ;   A=1,C=1 после сигнала и 36 HALT
 ; Corrupt:

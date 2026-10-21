@@ -5,7 +5,7 @@
 ; In:
 ;   две области памяти исходного снимка и действующего BASIC/TR-DOS
 ; Out:
-;   HL = #6000, DE = #D000, BC = #0000, A = #00, флаг Z установлен
+;   HL = Loader.SNAP_MIDDLE, DE = Loader.SNAP_HIGH, BC = #0000, A = #00, флаг Z установлен
 ; Corrupt:
 ;   HL, DE, BC, AF, AF'
 ; Note:

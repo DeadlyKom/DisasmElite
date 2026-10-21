@@ -10,7 +10,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Каждый байт раскрывает D425, указатель сохраняется вокруг печати, CY устанавливается на
+;   Каждый байт раскрывает Game.Text.PrintMainToken.Entry, указатель сохраняется вокруг печати, CY устанавливается на
 ;   конечном нуле
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -26,6 +26,7 @@ Entry:          LD A, (HL)
                 CALL Game.Text.PrintMainToken.Entry
                 POP HL
                 JR Game.Trade.PrintZeroTerminatedString.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E31E
                 endmodule

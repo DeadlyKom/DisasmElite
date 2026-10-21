@@ -4,13 +4,13 @@
 ; маски двух отсечённых краёв и общий заполнитель полных строк
 ; исходный диапазон #8A25..#8AA2
 ; смысловое имя PrepareBothClippedMasksAndFillRows
-; In: для #8A25 HL — строка, #8629 — режим, для #8A37/#8A4E A — Y и B — число строк
+; In: для Game.Circles.PrepareBothClippedMasksAndFillRows.Entry HL — строка, CircleState.OutlineOnly — режим, для Game.Circles.PrepareBothClippedMasksAndFillRows.PatchUpward/Game.Circles.PrepareBothClippedMasksAndFillRows.PatchDownward A — Y и B — число строк
 ; Out: маски подготовлены либо заполнено до B строк по 30 байтов
 ; Corrupt: HL, DE, BC, AF, заполнитель сохраняет DE/BC/AF
-; #8A37 задаёт движение вверх, #8A4E вниз записью четырёх двухбайтовых патчей
-; #8A85 выбирает LD A,H/DEC H либо INC H/LD A,H
-; #8A92 выбирает SUB32 либо ADD32, #8A98 — ADD8 либо SUB8
-; #8A9E задаёт предел #C0/JR NC вверх либо #D0/JR C вниз
+; Game.Circles.PrepareBothClippedMasksAndFillRows.PatchUpward задаёт движение вверх, Game.Circles.PrepareBothClippedMasksAndFillRows.PatchDownward вниз записью четырёх двухбайтовых патчей
+; CircleRaster.RowStep выбирает LD A,H/DEC H либо INC H/LD A,H
+; CircleRaster.CellStep выбирает SUB32 либо ADD32, CircleRaster.ThirdStep — ADD8 либо SUB8
+; CircleRaster.LimitBranch задаёт предел #C0/JR NC вверх либо #D0/JR C вниз
 ; Заполняются столбцы 1..30 через один байт #FF и LDDR длиной 29
 ; Исходные NOP в общем теле являются местами исполняемых патчей
 ; -----------------------------------------
@@ -100,16 +100,19 @@ CellStep        EQU $                                                           
                 LD L, A
                 LD A, H
                 JR C, CheckViewport                                             ; переход, если изменение младшего байта адреса дало перенос или заём, проверить предел трети
+
 ThirdStep       EQU $                                                           ; пара ADD A,#08 либо SUB #08, коррекция трети экрана
                 ADD A, #08
                 LD H, A
                 JR CountRow
+
                 ; проверка предела экрана с изменяемым сравнением и условием
 LimitBranch     EQU $ + 1                                                       ; операнд CP и код следующего JR, предел и условие продолжения
 CheckViewport:  CP #00
-                JR NC, CountRow                                                 ; переход, если патч верхнего режима даёт H не ниже#C0, продолжить строки
+                JR NC, CountRow                                                 ; переход, если патч верхнего режима даёт H не ниже #C0, продолжить строки
 
                 JR RestoreContext
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #8AA3
                 endmodule

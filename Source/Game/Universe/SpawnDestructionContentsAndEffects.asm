@@ -5,7 +5,7 @@
 ; исходный диапазон #7DC5..#7EA8
 ; In:
 ;   BC, C содержит мощность лазера для условия C=32
-;   AF, Z от BIT4,(IX+20) при отдельном входе 7E02
+;   AF, Z отражает проверку OBJ_DESTROY_BIT поля FSpaceObject.Flags при отдельном входе Game.Universe.SpawnDestructionContentsAndEffects.RenderEffects
 ;   IX, объект
 ;   IY, модель
 ; Out:
@@ -15,17 +15,19 @@
 ; Note:
 ; Основной вход выбирает действие 6 для миссионного содержимого либо непустого младшего типа модели.
 ; При максимальной энергии модели от 55 выбирается действие 5, при энергии 3C и мощности 32 действие 8.
-; Отдельный 7E02 вызывается из проекции A6DF, запрос уничтожения передаётся в A8AC.
+; Отдельный Game.Universe.SpawnDestructionContentsAndEffects.RenderEffects вызывается из проекции Game.Motion.ProjectObjectAndSelectDetail.Entry, запрос уничтожения передаётся в Game.Wireframe.StartObjectExplosion.Entry.
 ; Без запроса тип A0 запускает концентрические окружности, bit3 другого типа управляет энергетическим эффектом.
 ; Энергетический эффект выбирает маску 78/38/0C по энергии, вращениями извлекает соответствующий бит записи.
 ; Единичный бит увеличивает энергию и возвращает обычный вывод, нулевой уменьшает энергию и скрывает каркас.
 ; Круговой эффект уменьшает исходный радиус на фазу с нижним пределом 4 и рисует от 2 до 5 окружностей.
 ; После каждого круга радиус растёт на удвоенный текущий счётчик, фазы 0..2 дополнительно показывают каркас.
-; A7D9 и A878 являются двумя внешними продолжениями, собственного общего RET у эффектов нет.
+; Game.Motion.ProjectObjectAndSelectDetail.CheckMission и Game.Wireframe.DrawWireframeObject.CheckLaser являются двумя внешними продолжениями, собственного общего RET у эффектов нет.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #7DC5
                 ; проверка миссионного содержимого уничтоженного объекта
+                ; миссия 2 CLOAKING DEVICE, уничтожение миссионного корабля переводит встречу в фазу специального контейнера
+                ; описание в Docs/Manual.md, раздел mission-2
 Entry:          BIT OBJ_MISSION_BIT, (IX+FSpaceObject.Flags2)
                 JR Z, NormalLoot                                                ; переход, если объект не помечен миссионным bit6
 
@@ -179,6 +181,7 @@ CheckWireframe: JP C, Game.Motion.ProjectObjectAndSelectDetail.CheckMission     
                 CALL Game.Extensions.GetViewAdjustedProjectedPoint.Entry
                 CALL Game.Extensions.StorePairedObjectDirections.Entry
 FinishObject:   JP Game.Wireframe.DrawWireframeObject.CheckLaser
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #7EA9
                 endmodule

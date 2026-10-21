@@ -4,19 +4,21 @@
 ; Вывод производительности, радиуса и описания планеты
 ; исходный диапазон #EE3C..#EE9C
 ; In:
-;   DEF8..DEFD и DEBA..DEBF = характеристики
+;   поля GalaxyState.Economy, Government, Technology, Population и Productivity и GalaxyState.TargetSeed = характеристики
 ; Out:
-;   Показана статистика, подготовлены семена описания DECC/DECE
+;   Показана статистика, подготовлены семена описания GalaxyState.TextSeed/GalaxyState.TextSeed + 2
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Производительность печатается целым шириной 5, радиус вычисляет EF21, при активной миссии и
-;   совпадении семени с D090 печатается 57, обычный путь вызывает 6ED4 и возвращает A=5,
-;   EE9B..EE9C сохранены буквально
+;   Производительность печатается целым шириной 5, радиус вычисляет Game.Menus.PrintSystemRadius.Entry, при активной миссии и
+;   совпадении семени с State.GalaxySeed печатается 57, обычный путь вызывает Game.Extensions.PrintPlanetInvasionStatus.Entry и возвращает A=5,
+;   два байта после последнего JP сохранены буквально
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #EE3C
                 ; производительность, радиус и описание выводятся из рассчитанных свойств цели
+                ; миссии 3, 7 INVASION, ненулевое общее состояние и совпадение семени разрешают особое описание системы
+                ; описание в Docs/Manual.md, раздел mission-3, mission-7-invasion
 Entry:          LD A, #29
                 CALL Game.Menus.PrintTokenAndBlankLine.Entry
                 LD A, #6F
@@ -60,7 +62,8 @@ Description:    CALL Game.Extensions.PrintPlanetInvasionStatus.Entry
                 LD (GalaxyState.TextSeed + 2), HL
                 LD A, #05
                 RET
-                ; остаточное слово D45F после завершения описания системы
+
+                ; остаточное слово Game.Text.PrintDescriptionToken.Entry после завершения описания системы
                 DB #5F, #D4                                                     ; #EE9B..#EE9C
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EE9D

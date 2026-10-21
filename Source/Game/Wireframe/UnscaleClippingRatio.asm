@@ -7,7 +7,7 @@
 ;   HL, H и L содержат частично уменьшенные разности
 ;   BC, биты 7/6 C содержат их старшие разряды
 ; Out:
-;   HL, отношение разностей в формате 8.8 через общий хвост B2AA
+;   HL, отношение разностей в формате 8.8 через общий хвост Game.Wireframe.DivideSlopeAndDrawScanner.Entry
 ;   DE, исходное значение
 ; Corrupt:
 ;   BC, AF
@@ -25,7 +25,7 @@ Entry:          LD A, C
                 RLCA
                 RR H
                 RLCA
-                RR L
+                RR L                                                            ; далее Game.Wireframe.DivideSlopeAndDrawScanner.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B2AA
                 endmodule

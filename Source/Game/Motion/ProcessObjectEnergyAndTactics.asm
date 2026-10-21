@@ -14,12 +14,12 @@
 ;   HL, DE, BC, AF
 ; Note:
 ; Энергия восстанавливается на 1, у моделей с максимумом не ниже #F0 на 4, затем ограничивается максимумом.
-; Для второй миссии #9CB2 регулирует переходы фаз при энергиях #34/#50 и дополнительный расход энергии.
-; Ниже половины максимума возможен запуск из low3 IX+20, ниже восьмой части выбирается спасение.
-; Успех создания потомка проверяется по Z. Капсула сбрасывает IX+20.7 и IX+20.6.
-; Отдельная ветвь модели с IY+12=4 ищет ведущий объект с IX+21=#0C, иначе переводит объект в особое состояние.
-; IX+25.0 разрешает ответный ECM при обнаруженной ракетной угрозе.
-; Обычные корабли продолжают в #A42F, особые IX+26.2 могут порождать объекты через диспетчер A403.
+; Для второй миссии MissionPhase регулирует переходы фаз при энергиях #34/#50 и дополнительный расход энергии.
+; ниже половины максимальной энергии возможен запуск при ненулевом остатке FSpaceObject.Flags по OBJ_LAUNCH_MASK, ниже восьмой части выбирается спасение
+; успех создания потомка проверяется по Z, выпуск капсулы сбрасывает OBJ_ESCAPE_BIT и OBJ_ACTIVE_BIT в FSpaceObject.Flags родителя
+; ветвь с FModel.Flags=#04 ищет живой ведущий объект с FSpaceObject.Hostility=#0C, отсутствие ведущего переводит текущий объект в подбираемое состояние
+; TARGET_ECM_BIT в FSpaceObject.Target разрешает ответный ECM при обнаруженной ракетной угрозе
+; обычные корабли продолжают в Game.Motion.CheckObjectBoxAndChooseCourse.ChooseCourse, OBJ_SPECIAL_BIT в FSpaceObject.Flags2 допускает порождение через Game.Motion.CallObjectActionPreservingPointers.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #A2C0
@@ -37,6 +37,8 @@ ClampEnergy:    CP C
                 JR C, CheckMission                                              ; переход, если восстановленная энергия превысила максимум модели
 
                 LD A, C
+                ; миссия 2 CLOAKING DEVICE, фазы особой встречи переключаются при энергетических порогах
+                ; описание в Docs/Manual.md, раздел mission-2
 CheckMission:   LD B, A
                 ; проверка фазы второй миссии и её энергетических порогов
                 LD A, (CloakActive)
@@ -144,7 +146,7 @@ CheckCargoPod:  LD A, (IY + FModel.Cargo)
                 ; поиск ведущего для специальной группы объектов
 CheckLeader:    LD A, (IY + FModel.Flags)
                 CP #04
-                JR NZ, CheckEcm                                                 ; переход, если модель не относится к группе с признаком IY+12=4
+                JR NZ, CheckEcm                                                 ; переход, если FModel.Flags отличается от #04 и поиск ведущего объекта не требуется
 
                 PUSH IX
                 LD IX, Memory.Station
@@ -172,16 +174,18 @@ LeaderResult:   POP IX
                 RET
 
                 ; проверка возможности ответного применения ECM
+                ; миссии 3, 7 INVASION, совместная проверка этапа 4 и MS_ACCEPT_BIT запрещает ответный ECM
+                ; описание в Docs/Manual.md, раздел mission-3, mission-7-invasion
 CheckEcm:       BIT TARGET_ECM_BIT, (IX + FSpaceObject.Target)
                 JR Z, ChooseFlight                                              ; переход, если объект не оборудован ECM
 
                 LD A, (State.Mission3)
                 CP #04
-                JR NZ, CheckEcmTimer                                            ; переход, если режим D0AF отличается от 4 и специальное ограничение не действует
+                JR NZ, CheckEcmTimer                                            ; переход, если режим State.Mission3 отличается от 4 и специальное ограничение не действует
 
                 LD A, (State.MissionFlags)
                 BIT MS_ACCEPT_BIT, A
-                JR NZ, ChooseFlight                                             ; переход, если в режиме 4 установлен запрет ECM D0B0.7
+                JR NZ, ChooseFlight                                             ; переход, если в режиме 4 установлен запрет ECM State.MissionFlags.7
 
 CheckEcmTimer:  LD A, (CombatState.EcmTimer)
                 AND A
@@ -201,12 +205,14 @@ CheckEcmTimer:  LD A, (CombatState.EcmTimer)
 EcmPadding:     NOP
                 NOP
                 ; выбор обычного полёта либо порождения особым объектом
+                ; миссии 3, 7 INVASION, состояние 4 меняет вероятность и код порождения объектов
+                ; описание в Docs/Manual.md, раздел mission-3, mission-7-invasion
 ChooseFlight:   BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)
                 JR Z, Game.Motion.CheckObjectBoxAndChooseCourse.ChooseCourse    ; переход, если объект обычный и должен перейти к выбору курса
 
                 LD A, (ActiveShips)
                 CP #04
-                RET NC                                                          ; выход, если счётчик #9CB3 уже достиг ограничения 4
+                RET NC                                                          ; выход, если счётчик ActiveShips уже достиг ограничения 4
 
                 CALL Game.Combat.NextRandomByte.Entry
                 BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)
@@ -230,7 +236,7 @@ ChooseFlight:   BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)
 PeacefulSpawn:  CP #02
                 RET NC                                                          ; выход, если случайное число не меньше 2 и мирное порождение пропускается
 
-                LD A, #24
+                LD A, #24                                                       ; далее Game.Motion.CallObjectActionPreservingPointers.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A403
                 endmodule

@@ -64,7 +64,8 @@ TryLowerRow:    LD HL, TextRow
                 INC (HL)
                 LD A, (HL)
                 CP #17
-                RET NC                                                          ; выход, если нижняя попытка достигла строки 23, места для имени нет
+                RET NC                                                          ; выход, если нижняя попытка достигла строки 23, места для имени нет, иначе далее Game.Menus.PrintLabelOnUnusedRow.Entry без команды перехода
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EDC5
                 endmodule

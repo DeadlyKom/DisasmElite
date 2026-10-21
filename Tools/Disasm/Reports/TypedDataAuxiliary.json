@@ -1,0 +1,507 @@
+{
+  "status": "applied_and_verified",
+  "layout_source": "AuditCodeTargets.structure_layouts()",
+  "reference": "Tools/Disasm/Research/GameCode.bin",
+  "reference_address_base": "#4000",
+  "files": [
+    {
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "physical_start": "#8619",
+      "physical_bytes": 18,
+      "original_bytes_hex": "00001F0C46001F606100FCCF000010010120",
+      "original_data_sha256": "496041f187acf9609ae49c7935c8894fcad3565ab9d13a569d2c9cf91c01e7f3",
+      "instances": [
+        {
+          "name": "Game.Screen.WriteIndicatorMask.CircleFields",
+          "type": "FCircleState",
+          "start": "#861A",
+          "size": 17,
+          "values": [
+            "#00",
+            "#1F",
+            "#0C",
+            "#46",
+            "#00",
+            "#1F",
+            "#60",
+            "#61",
+            "#00",
+            "#CFFC",
+            "#0000",
+            "#10",
+            "#01",
+            "#01",
+            "#20"
+          ],
+          "bytes_hex": "001F0C46001F606100FCCF000010010120"
+        }
+      ],
+      "old_symbols_preserved": {
+        "Game.Screen.WriteIndicatorMask.CircleData": "#8619",
+        "Game.Screen.WriteIndicatorMask.CircleData.Cathetus": "#8622",
+        "Game.Screen.WriteIndicatorMask.CircleData.ClipX": "#861F",
+        "Game.Screen.WriteIndicatorMask.CircleData.ClipY": "#861E",
+        "Game.Screen.WriteIndicatorMask.CircleData.DirectionDown": "#8628",
+        "Game.Screen.WriteIndicatorMask.CircleData.Flags": "#861C",
+        "Game.Screen.WriteIndicatorMask.CircleData.LeftMask": "#8627",
+        "Game.Screen.WriteIndicatorMask.CircleData.OffsetX": "#861B",
+        "Game.Screen.WriteIndicatorMask.CircleData.OffsetY": "#861A",
+        "Game.Screen.WriteIndicatorMask.CircleData.OutlineOnly": "#8629",
+        "Game.Screen.WriteIndicatorMask.CircleData.PatchCount": "#862A",
+        "Game.Screen.WriteIndicatorMask.CircleData.Radicand": "#8625",
+        "Game.Screen.WriteIndicatorMask.CircleData.Radius": "#861D",
+        "Game.Screen.WriteIndicatorMask.CircleData.Reserved": "#8619",
+        "Game.Screen.WriteIndicatorMask.CircleData.SavedSP": "#8623",
+        "Game.Screen.WriteIndicatorMask.CircleData.ScreenX": "#8621",
+        "Game.Screen.WriteIndicatorMask.CircleData.ScreenY": "#8620"
+      },
+      "old_symbol_count": 17,
+      "canonical_statements_and_bytes_equal": true,
+      "source_before_sha256": "52c540b06965ba755379ae7ffc8a8108ab5b6f3f06170ae147f5b31399d39c20",
+      "source_after_sha256": "c3aefc705b3214e6a0f37b9d4138048bc23977dc76471dc545113c9b9ae825da"
+    },
+    {
+      "file": "Source/Game/Screen/RestrictDockingView.asm",
+      "physical_start": "#81A3",
+      "physical_bytes": 6,
+      "original_bytes_hex": "000000000000",
+      "original_data_sha256": "b0f66adc83641586656866813fd9dd0b8ebb63796075661ba45d1aa8089e1d44",
+      "instances": [
+        {
+          "name": "Game.Screen.RestrictDockingView.CompassFields",
+          "type": "FCompassState",
+          "start": "#81A4",
+          "size": 5,
+          "values": [
+            "#00",
+            "#00",
+            "#00",
+            "#00",
+            "#00"
+          ],
+          "bytes_hex": "0000000000"
+        }
+      ],
+      "old_symbols_preserved": {
+        "Game.Screen.RestrictDockingView.CompassData": "#81A3",
+        "Game.Screen.RestrictDockingView.CompassData.Behind": "#81A8",
+        "Game.Screen.RestrictDockingView.CompassData.PlanetNear": "#81A5",
+        "Game.Screen.RestrictDockingView.CompassData.Reserved": "#81A3",
+        "Game.Screen.RestrictDockingView.CompassData.SunNear": "#81A4",
+        "Game.Screen.RestrictDockingView.CompassData.X": "#81A6",
+        "Game.Screen.RestrictDockingView.CompassData.Y": "#81A7"
+      },
+      "old_symbol_count": 7,
+      "canonical_statements_and_bytes_equal": true,
+      "source_before_sha256": "90614bc7bdcdfda063e16ae8e2ca47a2135cb5dcd7d4bf697064c6d275b2e5c0",
+      "source_after_sha256": "911eb63eaf370b55ff4ec9b9777f3d5ee9d4da9a97e8d17d21666f69a5fbaa33"
+    },
+    {
+      "file": "Source/Game/Motion/ScaleAxisHighByte.asm",
+      "physical_start": "#9F80",
+      "physical_bytes": 2,
+      "original_bytes_hex": "948C",
+      "original_data_sha256": "7f91dad39624060bc039941abc607aef3d2219e067725d55dea569f33af9ac42",
+      "instances": [
+        {
+          "name": "Game.Motion.ScaleAxisHighByte.RotationData",
+          "type": "FRotationState",
+          "start": "#9F80",
+          "size": 2,
+          "values": [
+            "#94",
+            "#8C"
+          ],
+          "bytes_hex": "948C"
+        }
+      ],
+      "old_symbols_preserved": {
+        "Game.Motion.ScaleAxisHighByte.RotationData": "#9F80",
+        "Game.Motion.ScaleAxisHighByte.RotationData.Pitch": "#9F81",
+        "Game.Motion.ScaleAxisHighByte.RotationData.Roll": "#9F80"
+      },
+      "old_symbol_count": 3,
+      "canonical_statements_and_bytes_equal": true,
+      "source_before_sha256": "764d09dbd29725f8d8c42a33084da5fd5cd436a4073af47789ddf7b61bc8619e",
+      "source_after_sha256": "0308b05c9169eb6f7481b7abdb6474f6f157df362d195cb24b6fabeaa418c334"
+    },
+    {
+      "file": "Source/Game/Motion/AnimateIntroObject.asm",
+      "physical_start": "#A2B8",
+      "physical_bytes": 8,
+      "original_bytes_hex": "0000000000000000",
+      "original_data_sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+      "instances": [
+        {
+          "name": "Game.Motion.AnimateIntroObject.SteeringData",
+          "type": "FSteeringVector",
+          "start": "#A2B8",
+          "size": 8,
+          "values": [
+            "#0000",
+            "#0000",
+            "#0000",
+            "#0000"
+          ],
+          "bytes_hex": "0000000000000000"
+        }
+      ],
+      "old_symbols_preserved": {
+        "Game.Motion.AnimateIntroObject.SteeringData": "#A2B8",
+        "Game.Motion.AnimateIntroObject.SteeringData.Length": "#A2BE",
+        "Game.Motion.AnimateIntroObject.SteeringData.X": "#A2B8",
+        "Game.Motion.AnimateIntroObject.SteeringData.Y": "#A2BA",
+        "Game.Motion.AnimateIntroObject.SteeringData.Z": "#A2BC"
+      },
+      "old_symbol_count": 5,
+      "canonical_statements_and_bytes_equal": true,
+      "source_before_sha256": "cbf150f507c3475357ce335bb0ca658aef33b0a024f167f9dab6ab9c10dcea06",
+      "source_after_sha256": "2608bd541057ee6054c12fa39ef0e3b9278e404870fdbef148227047fb2353d1"
+    },
+    {
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "physical_start": "#8ABA",
+      "physical_bytes": 19,
+      "original_bytes_hex": "00000300000000000300008300000000000303",
+      "original_data_sha256": "0ffd9d8f087f8dcffee757b8b84606d29ba2376d2c2acfab7ac0c038826da63a",
+      "instances": [
+        {
+          "name": "Game.Circles.UpdateThargoidAndBodyCoords.FirstPosition",
+          "type": "FSpacePosition",
+          "start": "#8ABA",
+          "size": 9,
+          "values": [
+            [
+              "#00",
+              "#00",
+              "#03"
+            ],
+            [
+              "#00",
+              "#00",
+              "#00"
+            ],
+            [
+              "#00",
+              "#00",
+              "#03"
+            ]
+          ],
+          "bytes_hex": "000003000000000003"
+        },
+        {
+          "name": "Game.Circles.UpdateThargoidAndBodyCoords.SecondPosition",
+          "type": "FSpacePosition",
+          "start": "#8AC3",
+          "size": 9,
+          "values": [
+            [
+              "#00",
+              "#00",
+              "#83"
+            ],
+            [
+              "#00",
+              "#00",
+              "#00"
+            ],
+            [
+              "#00",
+              "#00",
+              "#03"
+            ]
+          ],
+          "bytes_hex": "000083000000000003"
+        }
+      ],
+      "old_symbols_preserved": {
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData": "#8ABA",
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.FirstX": "#8ABA",
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.FirstY": "#8ABD",
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.FirstZ": "#8AC0",
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.Reserved": "#8ACC",
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.SecondX": "#8AC3",
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.SecondY": "#8AC6",
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.SecondZ": "#8AC9"
+      },
+      "old_symbol_count": 8,
+      "canonical_statements_and_bytes_equal": true,
+      "source_before_sha256": "892d0f53ceb7f2a38e22b1cd23eb0827283f77a2285a9e3cd500a60c4c877cdd",
+      "source_after_sha256": "416caabc1870984ef63083f4ba7c7382676d96de5f926a013201da2a2d00677b"
+    },
+    {
+      "file": "Source/Game/Sound/StartHyperjumpNoise.asm",
+      "physical_start": "#96C0",
+      "physical_bytes": 5,
+      "original_bytes_hex": "0000000000",
+      "original_data_sha256": "8855508aade16ec573d21e6a485dfd0a7624085c1a14b5ecdd6485de0c6839a4",
+      "instances": [
+        {
+          "name": "Game.Sound.StartHyperjumpNoise.ScanData",
+          "type": "FScannerState",
+          "start": "#96C0",
+          "size": 5,
+          "values": [
+            "#00",
+            "#00",
+            "#00",
+            "#00",
+            "#00"
+          ],
+          "bytes_hex": "0000000000"
+        }
+      ],
+      "old_symbols_preserved": {
+        "Game.Sound.StartHyperjumpNoise.ObjectIndex": "#96C3",
+        "Game.Sound.StartHyperjumpNoise.Redraw": "#96C4",
+        "Game.Sound.StartHyperjumpNoise.ScaledX": "#96C0",
+        "Game.Sound.StartHyperjumpNoise.ScaledY": "#96C1",
+        "Game.Sound.StartHyperjumpNoise.ScaledZ": "#96C2"
+      },
+      "old_symbol_count": 5,
+      "canonical_statements_and_bytes_equal": true,
+      "source_before_sha256": "81e1701e31c09134f236550a06b0b23ce80447c8ac5ba709c7ebe31c76ff348c",
+      "source_after_sha256": "294692bd9a7705bd493f432218b7921a596040abe5a6dd2abab64dd4d734fd3f"
+    },
+    {
+      "file": "Source/Game/Input/InterruptGateAndAcceleration.asm",
+      "physical_start": "#FF08",
+      "physical_bytes": 6,
+      "original_bytes_hex": "00000000000C",
+      "original_data_sha256": "b6d5bcc8c8328d2d8b2dbba9dc0df66a8e34b5cfc42355c23efa7acc70839bec",
+      "instances": [
+        {
+          "name": "Game.Input.InterruptGateAndAcceleration.MotionData",
+          "type": "FInputMotion",
+          "start": "#FF08",
+          "size": 6,
+          "values": [
+            "#0000",
+            "#0000",
+            "#0C00"
+          ],
+          "bytes_hex": "00000000000C"
+        }
+      ],
+      "old_symbols_preserved": {
+        "Game.Input.InterruptGateAndAcceleration.Pitch": "#FF0A",
+        "Game.Input.InterruptGateAndAcceleration.Roll": "#FF08",
+        "Game.Input.InterruptGateAndAcceleration.Speed": "#FF0C"
+      },
+      "old_symbol_count": 3,
+      "canonical_statements_and_bytes_equal": true,
+      "source_before_sha256": "8bb559ba77bd88817aba6f6aa3a3bcb6c93197723fe21ccc182e694d9d402df0",
+      "source_after_sha256": "79a75658011730c9a67272d1587769eef9ed7b90ab941bff6fdbf7b6e4bc4067"
+    },
+    {
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "physical_start": "#FC08",
+      "physical_bytes": 8,
+      "original_bytes_hex": "0000000000FF8C00",
+      "original_data_sha256": "256e371a0c6e092edb1007e0bc5af1819b6b1ab17b9f309e8a9810a79f0105a7",
+      "instances": [
+        {
+          "name": "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents",
+          "type": "FInputState",
+          "start": "#FC08",
+          "size": 8,
+          "values": [
+            "#00",
+            "#00",
+            "#00",
+            "#00",
+            "#00",
+            "#FF",
+            "#8C",
+            "#00"
+          ],
+          "bytes_hex": "0000000000FF8C00"
+        }
+      ],
+      "old_symbols_preserved": {
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents": "#FC08",
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.ChartKeys": "#FC0C",
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.Config": "#FC0E",
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.DeviceKeys": "#FC0B",
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.FlightKeys": "#FC09",
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.LastKey": "#FC0D",
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.NumberKeys": "#FC0F",
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.ViewJumpKeys": "#FC0A"
+      },
+      "old_symbol_count": 8,
+      "canonical_statements_and_bytes_equal": true,
+      "source_before_sha256": "d8d06ec96e7301d538b867b8375457603d36394837dd48819a7f9696c89a0dbb",
+      "source_after_sha256": "ab2891688cbcebe71b8cd5a2d6ff197247486f21a08b5446c5dcb7484d70cd12"
+    }
+  ],
+  "totals": {
+    "files": 8,
+    "instances": 9,
+    "typed_bytes": 69,
+    "physical_bytes_checked": 72,
+    "old_symbols_checked": 56
+  },
+  "validation": "Existing source DB/DW bytes matched GameCode.bin before edits; new explicit initializers were expanded using the shared parser and the complete file statement/byte stream was compared unchanged, ignoring non-emitting EQU aliases. Original addresses of all old data labels were checked against ELITE3HL.sym. No build run by this agent.",
+  "instances": [
+    {
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "type": "FCircleState",
+      "symbol": "Game.Screen.WriteIndicatorMask.CircleFields",
+      "address": 34330,
+      "size": 17,
+      "sha256": "defc1677774dd2fbf0e1b5d725f3f328662d72bbbe7a5d1f7adb4fd72302d459",
+      "original_bytes": "001F0C46001F606100FCCF000010010120",
+      "aliases": {
+        "Game.Screen.WriteIndicatorMask.CircleData.Cathetus": 34338,
+        "Game.Screen.WriteIndicatorMask.CircleData.ClipX": 34335,
+        "Game.Screen.WriteIndicatorMask.CircleData.ClipY": 34334,
+        "Game.Screen.WriteIndicatorMask.CircleData.DirectionDown": 34344,
+        "Game.Screen.WriteIndicatorMask.CircleData.Flags": 34332,
+        "Game.Screen.WriteIndicatorMask.CircleData.LeftMask": 34343,
+        "Game.Screen.WriteIndicatorMask.CircleData.OffsetX": 34331,
+        "Game.Screen.WriteIndicatorMask.CircleData.OffsetY": 34330,
+        "Game.Screen.WriteIndicatorMask.CircleData.OutlineOnly": 34345,
+        "Game.Screen.WriteIndicatorMask.CircleData.PatchCount": 34346,
+        "Game.Screen.WriteIndicatorMask.CircleData.Radicand": 34341,
+        "Game.Screen.WriteIndicatorMask.CircleData.Radius": 34333,
+        "Game.Screen.WriteIndicatorMask.CircleData.SavedSP": 34339,
+        "Game.Screen.WriteIndicatorMask.CircleData.ScreenX": 34337,
+        "Game.Screen.WriteIndicatorMask.CircleData.ScreenY": 34336
+      }
+    },
+    {
+      "file": "Source/Game/Screen/RestrictDockingView.asm",
+      "type": "FCompassState",
+      "symbol": "Game.Screen.RestrictDockingView.CompassFields",
+      "address": 33188,
+      "size": 5,
+      "sha256": "8855508aade16ec573d21e6a485dfd0a7624085c1a14b5ecdd6485de0c6839a4",
+      "original_bytes": "0000000000",
+      "aliases": {
+        "Game.Screen.RestrictDockingView.CompassData.Behind": 33192,
+        "Game.Screen.RestrictDockingView.CompassData.PlanetNear": 33189,
+        "Game.Screen.RestrictDockingView.CompassData.SunNear": 33188,
+        "Game.Screen.RestrictDockingView.CompassData.X": 33190,
+        "Game.Screen.RestrictDockingView.CompassData.Y": 33191
+      }
+    },
+    {
+      "file": "Source/Game/Motion/ScaleAxisHighByte.asm",
+      "type": "FRotationState",
+      "symbol": "Game.Motion.ScaleAxisHighByte.RotationData",
+      "address": 40832,
+      "size": 2,
+      "sha256": "7f91dad39624060bc039941abc607aef3d2219e067725d55dea569f33af9ac42",
+      "original_bytes": "948C",
+      "aliases": {
+        "Game.Motion.ScaleAxisHighByte.RotationData": 40832,
+        "Game.Motion.ScaleAxisHighByte.RotationData.Pitch": 40833,
+        "Game.Motion.ScaleAxisHighByte.RotationData.Roll": 40832
+      }
+    },
+    {
+      "file": "Source/Game/Motion/AnimateIntroObject.asm",
+      "type": "FSteeringVector",
+      "symbol": "Game.Motion.AnimateIntroObject.SteeringData",
+      "address": 41656,
+      "size": 8,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc",
+      "original_bytes": "0000000000000000",
+      "aliases": {
+        "Game.Motion.AnimateIntroObject.SteeringData": 41656,
+        "Game.Motion.AnimateIntroObject.SteeringData.Length": 41662,
+        "Game.Motion.AnimateIntroObject.SteeringData.X": 41656,
+        "Game.Motion.AnimateIntroObject.SteeringData.Y": 41658,
+        "Game.Motion.AnimateIntroObject.SteeringData.Z": 41660
+      }
+    },
+    {
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "type": "FSpacePosition",
+      "symbol": "Game.Circles.UpdateThargoidAndBodyCoords.FirstPosition",
+      "address": 35514,
+      "size": 9,
+      "sha256": "8e55f5d92bd5caf05134874f402df27f36b6a3551aee0106cdacc569e3c95f72",
+      "original_bytes": "000003000000000003",
+      "aliases": {
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData": 35514,
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.FirstX": 35514,
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.FirstY": 35517,
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.FirstZ": 35520
+      }
+    },
+    {
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "type": "FSpacePosition",
+      "symbol": "Game.Circles.UpdateThargoidAndBodyCoords.SecondPosition",
+      "address": 35523,
+      "size": 9,
+      "sha256": "76c0a7ca73e6d07a434d6ace53d08662cafd2f397593b96a5fff1571359a83d7",
+      "original_bytes": "000083000000000003",
+      "aliases": {
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.SecondX": 35523,
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.SecondY": 35526,
+        "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.SecondZ": 35529
+      }
+    },
+    {
+      "file": "Source/Game/Sound/StartHyperjumpNoise.asm",
+      "type": "FScannerState",
+      "symbol": "Game.Sound.StartHyperjumpNoise.ScanData",
+      "address": 38592,
+      "size": 5,
+      "sha256": "8855508aade16ec573d21e6a485dfd0a7624085c1a14b5ecdd6485de0c6839a4",
+      "original_bytes": "0000000000",
+      "aliases": {
+        "Game.Sound.StartHyperjumpNoise.ObjectIndex": 38595,
+        "Game.Sound.StartHyperjumpNoise.Redraw": 38596,
+        "Game.Sound.StartHyperjumpNoise.ScaledX": 38592,
+        "Game.Sound.StartHyperjumpNoise.ScaledY": 38593,
+        "Game.Sound.StartHyperjumpNoise.ScaledZ": 38594
+      }
+    },
+    {
+      "file": "Source/Game/Input/InterruptGateAndAcceleration.asm",
+      "type": "FInputMotion",
+      "symbol": "Game.Input.InterruptGateAndAcceleration.MotionData",
+      "address": 65288,
+      "size": 6,
+      "sha256": "b6d5bcc8c8328d2d8b2dbba9dc0df66a8e34b5cfc42355c23efa7acc70839bec",
+      "original_bytes": "00000000000C",
+      "aliases": {
+        "Game.Input.InterruptGateAndAcceleration.Pitch": 65290,
+        "Game.Input.InterruptGateAndAcceleration.Roll": 65288,
+        "Game.Input.InterruptGateAndAcceleration.Speed": 65292
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "type": "FInputState",
+      "symbol": "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents",
+      "address": 64520,
+      "size": 8,
+      "sha256": "256e371a0c6e092edb1007e0bc5af1819b6b1ab17b9f309e8a9810a79f0105a7",
+      "original_bytes": "0000000000FF8C00",
+      "aliases": {
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents": 64520,
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.ChartKeys": 64524,
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.Config": 64526,
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.DeviceKeys": 64523,
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.FlightKeys": 64521,
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.LastKey": 64525,
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.NumberKeys": 64527,
+        "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents.ViewJumpKeys": 64522
+      }
+    }
+  ],
+  "scope": "девять физических экземпляров существующих F-типов в восьми файлах",
+  "final_verification": {
+    "status": "passed",
+    "image_byte_identical": true,
+    "all_seven_files_identical": true,
+    "build_report": "Tools/Disasm/Reports/BuildVerification.json",
+    "typed_fields_report": "Tools/Disasm/Reports/TypedDataVerification.json",
+    "unchanged_existing_symbols": 5518,
+    "checked_at_utc": "2026-10-21T05:54:53.0569744Z"
+  }
+}

@@ -10,7 +10,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   E2A3 является общим хвостом печати завершающего символа
+;   Game.Trade.PrintMainTokenSpace.PrintSuffix является общим хвостом печати завершающего символа
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E29E
@@ -18,6 +18,7 @@
 Entry:          CALL Game.Text.PrintMainToken.Entry
                 LD A, #20
 PrintSuffix:    JP Game.Text.PrintMainToken.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E2A6
                 endmodule

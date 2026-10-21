@@ -10,8 +10,8 @@
 ; Corrupt:
 ;   HL, AF
 ; Note:
-;   E6AE..E6C5 отдельно начинают проверку приёма беженцев по биту 5 D0B0 и специальному условию
-;   FD23, это не продолжение после RET
+;   OfferRefugees отдельно начинает проверку приёма беженцев по MS_CARGO_BIT в State.MissionFlags и специальному условию
+;   Game.Input.ToggleSecondaryCoordinateObject.CheckPilot, это не продолжение после RET
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E6A3
@@ -25,11 +25,12 @@ Entry:          LD A, L
                 SUB #08
                 LD H, A
                 RET
+
                 ; сохранённый нулевой байт после перехода экранной строки
                 DB #00                                                          ; #E6AD..#E6AD
                 ; миссии 1 и 7+1, предложение перевозки при свободном миссионном трюме
                 ; описание в Docs/Manual.md, раздел mission-1 и mission-7-1
-                ; проверка предложения перевозки беженцев через специальный допуск #FD23
+                ; проверка предложения перевозки беженцев через специальный допуск Game.Input.ToggleSecondaryCoordinateObject.CheckPilot
 OfferRefugees:  LD A, (State.MissionFlags)
                 BIT MS_CARGO_BIT, A
                 JR NZ, @Game.Trade.ResetCloakingAndSeedFlightRandom.BusyCargo   ; переход, если бит 5 флагов миссии установлен, трюм уже занят беженцами или десантом
@@ -42,6 +43,7 @@ OfferRefugees:  LD A, (State.MissionFlags)
 
                 CALL Game.Missions.SpecialMessageAndScoopReward.Entry
                 JR Game.Trade.MissionRegionMetric.BoardRefugees
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E6C6
                 endmodule

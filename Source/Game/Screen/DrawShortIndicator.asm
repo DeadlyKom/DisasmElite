@@ -34,6 +34,7 @@ DrawShortRow:   LD A, C
                 DJNZ DrawShortRow
 
                 RET
+
                 ASSERT $ == #85E1
                 endmodule
                 endmodule

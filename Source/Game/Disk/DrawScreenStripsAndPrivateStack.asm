@@ -4,14 +4,14 @@
 ; Копирование полос экрана и альтернативный стек сортировки
 ; исходный диапазон #DA2F..#DA79
 ; In:
-;   Параметры для входа DA2F не требуются
+;   Параметры для входа Game.Disk.DrawScreenStripsAndPrivateStack.Entry не требуются
 ; Out:
-;   Две полосы скопированы, байт 7FE4 восстановлен в CD
+;   Две полосы скопированы, байт Game.Screen.SwapAndSkipRow.NextRowCall восстановлен в CD
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Временно меняет CALL на JP в 7FE4, копирует 6 строк 4140→4520 и 4 строки 50E0→4340, DA53
-;   отдельно вызывает B86A на SP=4020 с DI/EI, DA64..DA79 содержат состояние сообщений
+;   Временно меняет CALL на JP в Game.Screen.SwapAndSkipRow.NextRowCall, копирует 6 строк Memory.Screen + #0140→Memory.Screen + #0520 и 4 строки Memory.Screen + #10E0→Memory.Screen + #0340
+;   DrawStrips отдельно вызывает Game.Objects.SelectObjectAction.Entry на SP=Memory.Screen + #0020 с DI/EI
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DA2F
@@ -41,6 +41,7 @@ SavedSP         EQU $ + 1                                                       
                 LD SP, #0000
                 EI
                 RET
+
                 ; сохранённая рабочая область между стековым обработчиком и состоянием сообщений
                 DB #00, #00, #00, #00, #00, #00, #00, #00                       ; #DA64..#DA6B
                 DB #00, #00                                                     ; #DA6C..#DA6D
@@ -48,20 +49,26 @@ SavedSP         EQU $ + 1                                                       
                 DB #FF, #FF                                                     ; продолжение данных #DA6E..#DA6F
 SaveSelection   DB #FF                                                          ; индекс выбранного командира в дисковом меню
 SavePageStart   DB #FF                                                          ; индекс первого командира отображаемой страницы
-                ; таймер повторения предупреждения
-RepeatTimer     DB #00                                                          ; таймер повторного предупреждения
-                ; оставшееся время текущего сообщения
-Frames          DB #00                                                          ; оставшееся время показа сообщения
-                ; счётчик чередования основной очереди и фоновых сообщений
-QueuePhase      DB #00                                                          ; фаза чередования очереди и фоновых сообщений
-                ; колонка текущего сообщения
-Column          DB #00                                                          ; столбец текущего сообщения
-                ; код текущего сообщения, FD повреждение, E2 денежная награда
-Token           DB #00                                                          ; токен текущего сообщения
-                ; двухбайтовая сумма текущей денежной награды
-Reward          DW #0000                                                        ; денежная награда для сообщения о премии
-                ; номер повреждённого предмета для специального сообщения
-DamagedItem     DB #F5                                                          ; код повреждённого оборудования
+                ; состояние показа текущего полётного сообщения
+MessageData     FFlightMessage {
+                    #00,                                                        ; FFlightMessage.RepeatTimer, таймер повторного предупреждения
+                    #00,                                                        ; FFlightMessage.Frames, оставшееся время показа сообщения
+                    #00,                                                        ; FFlightMessage.QueuePhase, фаза чередования очереди и фоновых сообщений
+                    #00,                                                        ; FFlightMessage.Column, столбец текущего сообщения
+                    #00,                                                        ; FFlightMessage.Token, токен текущего сообщения
+                    #0000,                                                      ; FFlightMessage.Reward, денежная награда для сообщения о премии
+                    #F5                                                         ; FFlightMessage.DamagedItem, код повреждённого оборудования
+                }
+                ASSERT $ - MessageData == FFlightMessage
+
+                ; прежние имена указывают на поля экземпляра MessageData
+RepeatTimer     EQU MessageData.RepeatTimer                                     ; поле FFlightMessage.RepeatTimer
+Frames          EQU MessageData.Frames                                          ; поле FFlightMessage.Frames
+QueuePhase      EQU MessageData.QueuePhase                                      ; поле FFlightMessage.QueuePhase
+Column          EQU MessageData.Column                                          ; поле FFlightMessage.Column
+Token           EQU MessageData.Token                                           ; поле FFlightMessage.Token
+Reward          EQU MessageData.Reward                                          ; поле FFlightMessage.Reward
+DamagedItem     EQU MessageData.DamagedItem                                     ; поле FFlightMessage.DamagedItem
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DA7A
                 endmodule

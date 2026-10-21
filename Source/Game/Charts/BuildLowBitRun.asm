@@ -23,6 +23,7 @@ NextBit:        SCF
 
                 LD D, A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E621
                 endmodule

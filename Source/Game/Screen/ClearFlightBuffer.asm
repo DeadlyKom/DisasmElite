@@ -5,7 +5,7 @@
 ; In:
 ;   не требуются
 ; Out:
-;   буфер #C000..#CFDF подготовлен для нового кадра
+;   область Memory.Frame..Memory.Frame + #0FDF подготовлена для нового кадра
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
@@ -59,6 +59,7 @@ Entry:          DI
                 LDDR
                 EI
                 RET
+
                 ASSERT $ == #80B4
                 endmodule
                 endmodule

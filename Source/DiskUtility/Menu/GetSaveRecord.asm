@@ -4,7 +4,7 @@
 ; In:
 ;   AF, A содержит номер записи
 ; Out:
-;   HL=#5000+16*A
+;   HL=DiskBuffer.Catalog+16*A
 ;   AF, A содержит первый байт имени, Z=1 для пустой записи
 ; Corrupt:
 ;   HL, AF

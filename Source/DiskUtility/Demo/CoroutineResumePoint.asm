@@ -8,7 +8,7 @@
 ; Corrupt:
 ;   нет
 ; Note:
-;   Адрес этого RET хранится в изменяемом JP E706
+;   Адрес этого RET хранится в изменяемом JP DiskUtility.Demo.ResumeJump
 ; -----------------------------------------
                 ; возврат по адресу CALL YieldToGame, оставшемуся на стеке демо
 ResumePoint:    RET

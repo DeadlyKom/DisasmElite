@@ -21,7 +21,7 @@ ViewKeyLock     EQU Game.Interface.DispatchFlightMessage.ViewKeyLock            
 CloakActive     EQU Game.Interface.DispatchFlightMessage.CloakActive            ; флаг, включена маскировка корабля
 MissionNotice   EQU Game.Interface.DispatchDiskAndCommanderState.MissionNotice  ; флаг, повторное миссионное предупреждение уже подготовлено
 FlightEvents    EQU Game.Interface.DispatchDiskAndCommanderState.FlightEvents   ; десять пар очереди, координата с битом ожидания и токен
-FlightMessage   EQU Game.Disk.DrawScreenStripsAndPrivateStack.RepeatTimer       ; адрес структуры FFlightMessage
+FlightMessage   EQU Game.Disk.DrawScreenStripsAndPrivateStack.MessageData       ; адрес структуры FFlightMessage
 .RepeatTimer    EQU FlightMessage + FFlightMessage.RepeatTimer                  ; таймер повторного предупреждения
 .Frames         EQU FlightMessage + FFlightMessage.Frames                       ; оставшееся время показа сообщения
 .QueuePhase     EQU FlightMessage + FFlightMessage.QueuePhase                   ; фаза чередования очереди и фоновых сообщений

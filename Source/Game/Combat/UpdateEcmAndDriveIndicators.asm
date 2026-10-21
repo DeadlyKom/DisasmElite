@@ -4,14 +4,14 @@
 ; обновление двух индикаторов в полётном виде
 ; исходный диапазон #9B01..#9B13
 ; In:
-;   память 70E3, вид
-;   память 9C9B/711C, состояния ECM и режима движения
+;   память FlightState.View, вид
+;   память CombatState.EcmTimer/FlightState.StationZone, состояния ECM и режима движения
 ; Out:
-;   атрибуты 5AD5/5AD6 обновлены
+;   атрибуты Memory.Attributes + #02D5/Memory.Attributes + #02D6 обновлены
 ; Corrupt:
 ;   HL, AF
 ; Note:
-; Первый индикатор рисуется вызовом 9B14, второй продолжением в тот же общий хвост.
+; Первый индикатор рисуется вызовом Game.Combat.SetIndicatorAndPrintMissileStock.Entry, второй продолжением в тот же общий хвост.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #9B01
@@ -24,7 +24,7 @@ Entry:          LD A, (FlightState.View)
                 LD A, (CombatState.EcmTimer)
                 CALL Game.Combat.SetIndicatorAndPrintMissileStock.Entry
                 INC HL
-                LD A, (FlightState.StationZone)
+                LD A, (FlightState.StationZone)                                 ; далее Game.Combat.SetIndicatorAndPrintMissileStock.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9B14
                 endmodule

@@ -11,8 +11,8 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IY
 ; Note:
-;   новый слот создаётся #B91E, #BA27 меняет его ориентацию
-;   IX+26=#0A, IX+20 bit6 сброшен, IX+1D bit7 включает постоянное вращение
+;   новый слот создаётся Game.Objects.SpawnFromObject.Entry, Game.Objects.AlternateSpawnAxes.Entry меняет его ориентацию
+;   FSpaceObject.Flags2=#0A, OBJ_ACTIVE_BIT в FSpaceObject.Flags сброшен, бит 7 FSpaceObject.Roll включает постоянное вращение
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #BB55
@@ -33,6 +33,7 @@ Entry:          PUSH IX
                 POP IX
                 XOR A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #BB75
                 endmodule

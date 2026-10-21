@@ -13,8 +13,8 @@ SYS_COPY        EQU #CC00                                                       
 SYS_SIZE        EQU #0400                                                       ; размер обмениваемой системной области
 GAME_RANDOM     EQU #E063                                                       ; генератор из трёх слов в #DEC0..#DEC5
 GAME_START      EQU #7394                                                       ; исходная точка запуска загруженной игры
-GAME_RESTART    EQU #7ABF                                                       ; сброс стека и переход к #74F4
-GAME_DISKPOS    EQU #D983                                                       ; сохранённое слово из #5CF4
+GAME_RESTART    EQU #7ABF                                                       ; сброс стека и переход к Game.Flight.MainGameLoop.DrawObjects
+GAME_DISKPOS    EQU #D983                                                       ; сохранённое слово из Loader.TRDOS_CUR
 
 
 ; системные переменные BASIC, исходное размещение ZX Spectrum

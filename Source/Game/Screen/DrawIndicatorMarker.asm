@@ -10,8 +10,8 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, BC'
 ; Note:
-;   меняет непосредственные операнды #8597 и #85B9 на 0 вместо #FF
-;   начальная маска #856D становится 3, затем выполняется общий вход #855B
+;   меняет непосредственные операнды IndicatorDraw.BodyFill и IndicatorDraw.FullFill на 0 вместо #FF
+;   начальная маска IndicatorDraw.BoundaryMask становится 3, затем выполняется общий вход Game.Screen.DrawIndicatorBar.ReadBarAddress
 ;   это данные самомодифицируемых LD, а не отдельные переменные
 ; -----------------------------------------
                 ; проверка исходного размещения
@@ -24,6 +24,7 @@ Entry:          LD B, A
                 LD A, #03
                 LD (IndicatorDraw.BoundaryMask), A
                 JR Game.Screen.DrawIndicatorBar.ReadBarAddress
+
                 ASSERT $ == #854F
                 endmodule
                 endmodule

@@ -10,7 +10,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   EB2D является отдельным обработчиком AND A, RET для ввода пункта без побочных действий
+;   Game.Trade.EquipmentPaymentFailed.AcceptInput является отдельным обработчиком AND A, RET для ввода пункта без побочных действий
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #EB27
@@ -21,6 +21,7 @@ Entry:          CALL Game.Trade.TradeErrorMessage.Entry
                 ; успешный возврат без переноса для общего пути покупки
 AcceptInput:    AND A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EB2F
                 endmodule

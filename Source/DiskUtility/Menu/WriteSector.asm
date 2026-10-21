@@ -11,7 +11,7 @@
 ; Corrupt:
 ;   DE, BC, AF
 ; Note:
-;   #C8CB получает команду #A4, #C8CF получает адрес WriteFdcStream (#CA3B).
+;   DiskUtility.Menu.TransferCmd получает команду #A4, DiskUtility.Menu.TransferCall получает адрес WriteFdcStream (DiskUtility.Menu.WriteFdcStream).
 ;   Переход SectorTransfer сохраняет исходный адрес буфера и повторяет обмен до длины 256 байтов.
 ;   Отдельного ограничения числа повторов и возврата ошибки здесь нет.
 ; -----------------------------------------

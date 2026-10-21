@@ -10,10 +10,10 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-;   начальный порог C вычисляется из байтов пилота #D06E,#D071,#D075
+;   начальный порог C вычисляется из байтов пилота State.Cargo + FGoods.Slaves,State.Cargo + FGoods.Narcotics,State.Cargo + FGoods.Firearms
 ;   предусмотрена ветвь миссии 2 с моделями 13/15, отдельное появление модели 6
 ;   ветви миссии 3=4 и=1 принудительно выбирают модели 15 и 10
-;   остальные ветви учитывают правительство #D09D и случайность, запускают одиночные корабли или группу 2..4
+;   остальные ветви учитывают правительство State.Government и случайность, запускают одиночные корабли или группу 2..4
 ;   при любой неудаче FindFreeObjectSlot генерация завершается без повторного поиска
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -61,15 +61,15 @@ Entry:          LD A, (State.Cargo + FGoods.Slaves)
 ; In:
 ;   IX, существующий корабль
 ; Out:
-;   IX+26.6 и IX+20.2 установлены
-;   далее общий генератор группы #BCAB
+;   OBJ_MISSION_BIT в FSpaceObject.Flags2 и OBJ_LAUNCH4_BIT в FSpaceObject.Flags установлены
+;   далее общий генератор группы Game.Objects.GenerateSpaceTraffic.GroupCount
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
 ;   сохранённая процедура, прямые входящие переходы не найдены
-;   бит 6 по IX+26 используется признаком особого миссионного корабля
-;   бит 2 по IX+20 входит в младший трёхбитный счётчик запусков
-;   #BCAB выбирает 2..4 корабля и создаёт модели 16 или 17 до заполнения доступных слотов
+;   OBJ_MISSION_BIT в FSpaceObject.Flags2 отмечает особый корабль второй миссии
+;   OBJ_LAUNCH4_BIT в FSpaceObject.Flags задаёт вес 4 в трёхбитовом остатке запусков
+;   Game.Objects.GenerateSpaceTraffic.GroupCount выбирает 2..4 корабля и создаёт модели 16 или 17 до заполнения доступных слотов
 ; -----------------------------------------
 MissionGroup:   ; установка особого признака корабля перед созданием группы сопровождения
                 SET OBJ_MISSION_BIT, (IX+FSpaceObject.Flags2)
@@ -98,6 +98,8 @@ PickEncounter:  CALL Game.Combat.NextRandomByte.Entry
                 RET
 
                 ; выбор встречи по миссии, правительству и случайному классу
+                ; миссии 3, 7 INVASION, общие состояния 1 и 4 принудительно выбирают модели встречи
+                ; описание в Docs/Manual.md, раздел mission-3, mission-7-invasion
 EncounterClass: LD B, A
                 AND #07
                 LD E, A
@@ -214,15 +216,29 @@ SpawnMember:    CALL Game.Objects.FindFreeObjectSlot.Entry
                 JR NZ, SpawnMember                                              ; переход, если в группе остались корабли для создания
 
                 RET
-Object          DW #6159                                                        ; сохранённый адрес исходного объекта из IX
-Scale           DB #00                                                          ; сдвиг нормали из FModel.NormalScale
-PositionX       DW #8017                                                        ; знако-модульная координата X для скалярного произведения
-PositionY       DW #802F                                                        ; знако-модульная координата Y для скалярного произведения
-PositionZ       DB #F0                                                          ; знако-модульная координата Z для скалярного произведения
-                DB #00                                                          ; продолжение данных #BCD0..#BCD0
-NormalX         DB #97                                                          ; преобразованная знаковая компонента нормали X
-NormalY         DB #AF                                                          ; преобразованная знаковая компонента нормали Y
-NormalZ         DB #90                                                          ; преобразованная знаковая компонента нормали Z
+
+                ; рабочие данные расчёта видимости граней
+FaceData        FFaceState {
+                    Memory.Missile,                                             ; FFaceState.Object, сохранённый адрес исходного объекта из IX
+                    #00,                                                        ; FFaceState.Scale, сдвиг нормали из FModel.NormalScale
+                    #8017,                                                      ; FFaceState.PositionX, знако-модульная координата X для скалярного произведения
+                    #802F,                                                      ; FFaceState.PositionY, знако-модульная координата Y для скалярного произведения
+                    #00F0,                                                      ; FFaceState.PositionZ, знако-модульная координата Z для скалярного произведения
+                    #97,                                                        ; FFaceState.NormalX, преобразованная знаковая компонента нормали X
+                    #AF,                                                        ; FFaceState.NormalY, преобразованная знаковая компонента нормали Y
+                    #90                                                         ; FFaceState.NormalZ, преобразованная знаковая компонента нормали Z
+                }
+                ASSERT $ - FaceData == FFaceState
+
+                ; прежние имена указывают на поля экземпляра FaceData
+Object          EQU FaceData.Object                                             ; поле FFaceState.Object
+Scale           EQU FaceData.Scale                                              ; поле FFaceState.Scale
+PositionX       EQU FaceData.PositionX                                          ; поле FFaceState.PositionX
+PositionY       EQU FaceData.PositionY                                          ; поле FFaceState.PositionY
+PositionZ       EQU FaceData.PositionZ                                          ; поле FFaceState.PositionZ
+NormalX         EQU FaceData.NormalX                                            ; поле FFaceState.NormalX
+NormalY         EQU FaceData.NormalY                                            ; поле FFaceState.NormalY
+NormalZ         EQU FaceData.NormalZ                                            ; поле FFaceState.NormalZ
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #BCD4
                 endmodule

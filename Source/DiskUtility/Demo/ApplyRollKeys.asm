@@ -4,9 +4,8 @@
 ; In:
 ;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры
 ;   IY, цель с общим положением FSpaceObject.X/Y/Z
-;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры
 ; Out:
-;   клавиша 1, таймер EA80 младший FF, один из M/N
+;   клавиша 1, таймер DiskUtility.Demo.ActionTimer младший FF, один из M/N
 ; Corrupt:
 ;   AF
 ; Note:

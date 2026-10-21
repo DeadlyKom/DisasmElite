@@ -6,21 +6,21 @@
 ; In:
 ;   IX, управляемый объект
 ;   IY, описание модели
-;   память A2B8/A2BA/A2BC, ненормализованный вектор к выбранному направлению
+;   память SteeringVector/SteeringVector.Y/SteeringVector.Z, ненормализованный вектор к выбранному направлению
 ; Out:
 ;   IX, исходный объект
 ;   IY, исходная модель
-;   команды IX+1C/+1D/+1E и накопленный урон игроку обновлены
+;   поля FSpaceObject.Acceleration, FSpaceObject.Roll и FSpaceObject.Pitch и накопленный урон игроку обновлены
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-; Нормализует направление, сохраняет длину A2BE и вычисляет три проекции на базис корабля.
+; Нормализует направление, сохраняет длину SteeringVector.Length и вычисляет три проекции на базис корабля.
 ; LR ограничен 15, DU рассчитывается при небольшом отклонении LR. Знак команды помещается в бит 6.
-; IX+25.7 задаёт принудительное ускорение 2 и ранний выход.
+; TARGET_ACCL_BIT в FSpaceObject.Target задаёт принудительное ускорение 2 и ранний выход
 ; Обычный выбор ускорения зависит от расстояния и того, направлен ли корабль к цели. Для ракет пороги меньше.
 ; Лазер требует враждебности, правильного курса, случайного разрешения модели и допустимой дальности.
-; FA84 проверяет окончательное наведение и устанавливает IX+20.3 для изображения луча.
-; Попадание добавляет 7 к переднему либо заднему накопителю урона и ставит звуковой флаг #7128.6.
+; Game.Extensions.ScheduleLinkedObjectLaser.Entry проверяет окончательное наведение и устанавливает OBJ_LASER_BIT в FSpaceObject.Flags для изображения луча
+; Попадание добавляет 7 к переднему либо заднему накопителю урона и ставит звуковой флаг FlightState.SoundRequests.6.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #A587
@@ -100,7 +100,7 @@ PackPitch:      SLA L
                 ; проверка принудительного ускорения
 CheckForced:    XOR A
                 BIT TARGET_ACCL_BIT, (IX + FSpaceObject.Target)
-                JR Z, StoreForced                                               ; переход, если принудительное ускорение IX+25.7 выключено
+                JR Z, StoreForced                                               ; переход, если TARGET_ACCL_BIT в FSpaceObject.Target сброшен и требуется обычный расчёт ускорения
 
                 LD A, #02
 StoreForced:    LD (IX + FSpaceObject.Acceleration), A
@@ -127,6 +127,8 @@ CheckRange:     CP B
                 INC B
 StoreSpeedup:   LD (IX + FSpaceObject.Acceleration), B
                 ; проверка враждебности, направления и вероятности выстрела
+                ; общие поля миссий и обычного полёта, нулевой старший байт рейтинга уменьшает вероятность лазера, номер миссии здесь не проверяется
+                ; описание в Docs/Manual.md, раздел mission-shared-state
 CheckLaser:     BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)
                 RET Z                                                           ; выход, если объект не враждебен и стрелять не должен
 
@@ -138,7 +140,7 @@ CheckLaser:     BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)
                 LD B, (IY + FModel.LaserChance)
                 LD A, (State.RankState)
                 AND A
-                JR NZ, TryLaser                                                 ; переход, если боевой показатель D062 ненулевой и вероятность модели не уменьшается
+                JR NZ, TryLaser                                                 ; переход, если боевой показатель State.RankState ненулевой и вероятность модели не уменьшается
 
                 SRL B
 TryLaser:       CALL Game.Combat.NextRandomByte.Entry
@@ -148,7 +150,7 @@ TryLaser:       CALL Game.Combat.NextRandomByte.Entry
                 ; проверка типа объекта, дальности и точности наведения
                 LD A, (IX + FSpaceObject.Flags2)
                 AND OBJ_CLASS_MASK
-                RET NZ                                                          ; выход, если младшая тетрада IX+26 обозначает специальный объект без обычного лазера
+                RET NZ                                                          ; выход, если FSpaceObject.Flags2 после OBJ_CLASS_MASK обозначает специальный объект без обычного лазера
 
                 LD A, D
                 CP #0C
@@ -158,7 +160,7 @@ TryLaser:       CALL Game.Combat.NextRandomByte.Entry
                 RET NC                                                          ; выход, если первая проверка угла наведения не пройдена
 
                 CALL Game.Extensions.ScheduleLinkedObjectLaser.Entry
-                RET NC                                                          ; выход, если расширенная проверка FA84 не разрешила попадание
+                RET NC                                                          ; выход, если расширенная проверка Game.Extensions.ScheduleLinkedObjectLaser.Entry не разрешила попадание
 
                 LD A, D
                 CP #04
@@ -199,6 +201,7 @@ CheckBrake:     CP B
                 DEC B
 StoreBrake:     LD (IX + FSpaceObject.Acceleration), B
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A69D
                 endmodule

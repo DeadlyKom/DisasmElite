@@ -6,21 +6,21 @@
 ; In:
 ;   IX, объект
 ;   IY, описание модели
-;   память B452, указатель расширенных метаданных объекта
+;   память ObjectEffects.Current, указатель расширенных метаданных объекта
 ; Out:
-;   память A9B8, глубина
-;   память A9C1/A9C2/A9C3, проекция центра и знаки
-;   память A6DE, экранный радиус
+;   память ProjectionState.Depth, глубина
+;   память ProjectionState.ScreenX/ProjectionState.ScreenY/ProjectionState.Flags, проекция центра и знаки
+;   память ProjectedRadius, экранный радиус
 ;   графический буфер и флаги прицеливания обновлены
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-; D7AA сначала сбрасывает два поля метаданных в FF и возвращает текущий вид.
+; Game.Text.InvalidateObjectLineCache.Entry сначала сбрасывает два поля метаданных в FF и возвращает текущий вид.
 ; Для переднего/заднего вида глубина Z, для боковых X, знак выбирается направлением камеры.
-; Делитель AC69 строит проекции координат и радиуса, затем проверяется пересечение с областью 256×128.
-; Проверка близости к прицелу содержит патч LD A,0/NOP/NOP, поэтому #9C97 этой ветвью только обнуляется.
-; Переход #7E02 обрабатывает уничтожение и расширенные эффекты, обычный возврат потока в #A7D9.
-; В первой фазе второй миссии IX+26.6 скрывает каркас.
+; Делитель Game.Wireframe.DivideProjectionRatio.Entry строит проекции координат и радиуса, затем проверяется пересечение с областью 256×128.
+; Проверка близости к прицелу содержит патч LD A,0/NOP/NOP, поэтому CombatState.CrosshairTarget этой ветвью только обнуляется.
+; Переход Game.Universe.SpawnDestructionContentsAndEffects.RenderEffects обрабатывает уничтожение и расширенные эффекты, обычный возврат потока в Game.Motion.ProjectObjectAndSelectDetail.CheckMission.
+; в первой фазе второй миссии OBJ_MISSION_BIT в FSpaceObject.Flags2 скрывает каркас
 ; Близкий объект рисуется каркасом, далёкий блоком 2×2 пикселя. Общий хвост всегда обрабатывает лазер.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -149,6 +149,7 @@ CheckCrosshair: LD A, B
                 LD A, (IX + FSpaceObject.Z.Low)
                 CP #2C
                 JR NC, CheckAwayMode                                            ; переход, если глубина не меньше #2C и патч прицеливания не применяется
+
                 ; патч версии, накопитель прицеливания получает только ноль
 TargetValue     EQU $ + 1                                                       ; операнд LD A,0, значение записи в номер цели прицела
                 LD A, #00
@@ -180,11 +181,13 @@ CheckAxis:      LD B, A
                 JR NC, DispatchEffect                                           ; переход, если сумма экранных отклонений не меньше #20
 
                 RES OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)
-                ; передача уничтожения и расширенных эффектов обработчику #7E02
+                ; передача уничтожения и расширенных эффектов обработчику Game.Universe.SpawnDestructionContentsAndEffects.RenderEffects
 DispatchEffect: BIT OBJ_DESTROY_BIT, (IX + FSpaceObject.Flags)
                 JP Game.Universe.SpawnDestructionContentsAndEffects.RenderEffects
 
                 ; продолжение после эффектов, проверка миссионной видимости
+                ; миссия 2 CLOAKING DEVICE, первая фаза скрывает каркас корабля с миссионным признаком
+                ; описание в Docs/Manual.md, раздел mission-2
 CheckMission:   LD A, (MissionPhase)
                 DEC A
                 JR NZ, SelectDetail                                             ; переход, если миссия не находится в первой фазе
@@ -247,6 +250,7 @@ DrawFarDot:     CALL Game.Motion.XorFarObjectPixel.Entry
                 DEC B
                 CALL Game.Motion.XorFarObjectPixel.Entry
                 JP Game.Wireframe.FinishObjectAndDrawLaser.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A83C
                 endmodule

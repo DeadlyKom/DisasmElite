@@ -4,7 +4,7 @@
 ; Печать одного или двух символов слоговой таблицы
 ; исходный диапазон #D595..#D5B3
 ; In:
-;   AF, A=D7..FF для FD99 либо 80..9F при входе D59C для FDB3
+;   AF, A=D7..FF для TextSyllables либо 80..9F при входе Game.Text.PrintTwoLetterSyllable.MainSyllable для NameSyllables
 ; Out:
 ;   Слог напечатан с текущими правилами регистра
 ; Corrupt:
@@ -36,6 +36,7 @@ FindPair:       ADD A, A
                 RET Z                                                           ; выход, если вторая буква слога равна заполнителю ?, не печатать её
 
                 JP Game.Text.ApplyTextCase.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D5B4
                 endmodule

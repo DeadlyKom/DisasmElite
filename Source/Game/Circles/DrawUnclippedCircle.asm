@@ -4,7 +4,7 @@
 ; вывод двух половин круга без бокового отсечения
 ; исходный диапазон #87C8..#87D3
 ; смысловое имя DrawUnclippedCircle
-; In: рабочие параметры круга #861A..#8621
+; In: параметры CircleState от OffsetY до ScreenX
 ; Out: верхняя и нижняя половины нарисованы
 ; Corrupt: HL, DE, BC, AF, HL', DE', BC', AF'
 ; Перед каждой половиной адреса и маски рассчитываются заново
@@ -17,6 +17,7 @@ Entry:          CALL Game.Circles.PrepareUnclippedCircle.Entry
                 CALL Game.Screen.UnclippedArcUp.Entry
                 CALL Game.Circles.PrepareUnclippedCircle.Entry
                 JP Game.Screen.UnclippedArcDown.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #87D4
                 endmodule

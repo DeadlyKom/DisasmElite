@@ -10,13 +10,14 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   После D45F переходит к общему хвосту E29A
+;   После Game.Text.PrintDescriptionToken.Entry переходит к общему хвосту Game.Trade.PrintMainTokenColon.PrintColon
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E292
                 ; второй текстовый токен завершается общим хвостом печати двоеточия
 Entry:          CALL Game.Text.PrintDescriptionToken.Entry
                 JR @Game.Trade.PrintMainTokenColon.PrintColon
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E297
                 endmodule

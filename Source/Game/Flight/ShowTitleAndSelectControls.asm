@@ -6,16 +6,16 @@
 ; In:
 ;   состояние начального экрана и клавиатуры
 ; Out:
-;   SPACE или джойстик запускает восстановление командира и основной цикл 7471
+;   SPACE или джойстик запускает восстановление командира и основной цикл Game.Flight.MainGameLoop.Entry
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-;   Циклический индекс 7470 выбирает 12 моделей через таблицу AE3C, значения 12..15 пропускаются
-;   Коды джойстика 2/3 берутся из битов 1/3 FC0F, SPACE выбирает клавиатуру 0, младшие 2 бита FC0E
+;   Циклический индекс DemoModel выбирает 12 моделей через таблицу DemoModels, значения 12..15 пропускаются
+;   Коды джойстика 2/3 берутся из битов 1/3 InputState.NumberKeys, SPACE выбирает клавиатуру 0, младшие 2 бита InputState.Config
 ;   заменяются
-;   Сбрасывает полётные флаги, строит интерфейс 817E, открывает состояние пилота D015 и инициализирует
-;   скорость 94F4
-;   7426 отдельный вход вывода второй демонстрационной подписи,73D8..73E1 сохранённые нулевые байты
+;   Сбрасывает полётные флаги, строит интерфейс Game.Screen.SaveCockpit.Entry, открывает состояние пилота Game.Interface.DispatchStatusAndChartKeys.Entry и инициализирует
+;   скорость Game.Flight.ResetFlightControls.Entry
+;   DrawDemoTitle выводит вторую демонстрационную подпись, перед ним сохранены десять нулевых байтов
 ; -----------------------------------------
                 ASSERT $ == #7394
                 ; начальный передний вид и сброс текущего режима
@@ -31,7 +31,7 @@ WaitRelease:    LD HL, Memory.Station + FSpaceObject.Roll
                 INC A
                 JR NZ, WaitRelease                                              ; переход, если клавиша ещё удерживается, повторить ожидание отпускания
 
-                ; выбор следующей из двенадцати моделей по таблице AE3C
+                ; выбор следующей из двенадцати моделей по таблице DemoModels
                 LD HL, DemoModel
 NextModel:      INC (HL)
                 LD A, (HL)
@@ -55,6 +55,7 @@ AnimateModel:   CALL Game.Screen.ClearFlightBuffer.Entry
                 LD HL, InputState.NumberKeys
                 HALT
                 JR ChooseControls
+
                 ; десять сохранённых нулевых байтов, цикл демонстрации перепрыгивает их
                 DB #00, #00, #00, #00, #00, #00, #00, #00                       ; #73D8..#73DF
                 DB #00, #00                                                     ; #73E0..#73E1
@@ -103,6 +104,7 @@ DrawDemoTitle:  CALL Game.Flight.DrawDemoHeading.Entry
                 LD HL, #0E01
                 LD A, #06
                 JR @Game.Flight.DrawTitleCaption.PrintCaption
+
                 ASSERT $ == #7430
                 endmodule
                 endmodule

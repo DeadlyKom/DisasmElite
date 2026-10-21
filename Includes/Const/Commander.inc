@@ -43,7 +43,7 @@ M3_HIT_BIT      EQU 3                                                           
 M3_STAGE_BIT    EQU 2                                                           ; бит числового этапа, разрешающий сохранить отметку попадания
 ALIEN_OWN_BIT   EQU 0                                                           ; флаг, установлен ALIEN COMPUTER
 ALIEN_OWN_MASK  EQU 1 << ALIEN_OWN_BIT                                          ; маска наличия ALIEN COMPUTER
-ALIEN_COUNT_MSK EQU #FE                                                         ; биты 7..1, счётчик поражений проверяемой модели
+ALIEN_COUNT_MSK EQU #FE                                                         ; биты 7..1, числовая часть счётчика обработки удаляемой модели
 MIN_BLOCK_BIT   EQU 7                                                           ; флаг, живая колония недоступна
 MIN_SIZE_MASK   EQU #7F                                                         ; числовая часть состояния колонии
 INV_ATTACK_BIT  EQU 7                                                           ; флаг, наступательная фаза вторжения

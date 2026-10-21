@@ -10,8 +10,8 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Для пунктов 1..14 адрес равен 705F+3*(A-1), для индекса >=14 помощник 80B4 выбирает
-;   отдельную цену по 0667 с нулевым смещением
+;   Для пунктов 1..14 адрес равен EquipmentTable.Base+3*(A-1), для индекса >=14 помощник Game.Screen.CargoTripleOffset.Entry выбирает
+;   отдельную цену по LegacyPrice с нулевым смещением
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #EB2F
@@ -20,6 +20,7 @@ Entry:          DEC A
                 LD HL, EquipmentTable.Base
                 CALL Game.Screen.CargoTripleOffset.Entry
                 JR Game.Trade.AddByteOffsetToHL.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EB38
                 endmodule

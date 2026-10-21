@@ -1,0 +1,131 @@
+{
+  "bindings": [
+    {
+      "file": "Includes/Variables/Charts.inc",
+      "symbol": "TextInput",
+      "old": "Game.Trade.RestoreTextPosition.Length",
+      "new": "Game.Trade.RestoreTextPosition.InputData"
+    },
+    {
+      "file": "Includes/Variables/Charts.inc",
+      "symbol": "MapViewport",
+      "old": "Game.Charts.MapCursorTransformAndKeys.CrosshairSize",
+      "new": "Game.Charts.MapCursorTransformAndKeys.Viewport"
+    },
+    {
+      "file": "Includes/Variables/Flight.inc",
+      "symbol": "FlightMessage",
+      "old": "Game.Disk.DrawScreenStripsAndPrivateStack.RepeatTimer",
+      "new": "Game.Disk.DrawScreenStripsAndPrivateStack.MessageData"
+    },
+    {
+      "file": "Includes/Variables/Galaxy.inc",
+      "symbol": "GalaxyState",
+      "old": "Game.Travel.SetFuelAndGauge.TargetSeed",
+      "new": "Game.Travel.SetFuelAndGauge.SystemData"
+    },
+    {
+      "file": "Includes/Variables/GameState.inc",
+      "symbol": "GaugeState",
+      "old": "Game.Flight.FillViewAttributesAndFlightState.FrontShieldPrev",
+      "new": "Game.Flight.FillViewAttributesAndFlightState.Gauges"
+    },
+    {
+      "file": "Includes/Variables/Graphics.inc",
+      "symbol": "CircleState",
+      "old": "Game.Screen.WriteIndicatorMask.CircleData.OffsetY",
+      "new": "Game.Screen.WriteIndicatorMask.CircleFields"
+    },
+    {
+      "file": "Includes/Variables/Graphics.inc",
+      "symbol": "CompassState",
+      "old": "Game.Screen.RestrictDockingView.CompassData.SunNear",
+      "new": "Game.Screen.RestrictDockingView.CompassFields"
+    },
+    {
+      "file": "Includes/Variables/Graphics.inc",
+      "symbol": "RotationState",
+      "old": "Game.Motion.ScaleAxisHighByte.RotationData.Roll",
+      "new": "Game.Motion.ScaleAxisHighByte.RotationData"
+    },
+    {
+      "file": "Includes/Variables/Graphics.inc",
+      "symbol": "SteeringVector",
+      "old": "Game.Motion.AnimateIntroObject.SteeringData.X",
+      "new": "Game.Motion.AnimateIntroObject.SteeringData"
+    },
+    {
+      "file": "Includes/Variables/Graphics.inc",
+      "symbol": "ScannerState",
+      "old": "Game.Sound.StartHyperjumpNoise.ScaledX",
+      "new": "Game.Sound.StartHyperjumpNoise.ScanData"
+    },
+    {
+      "file": "Includes/Variables/Input.inc",
+      "symbol": "InputMotion",
+      "old": "Game.Input.InterruptGateAndAcceleration.Roll",
+      "new": "Game.Input.InterruptGateAndAcceleration.MotionData"
+    },
+    {
+      "file": "Includes/Variables/Objects.inc",
+      "symbol": "FaceState",
+      "old": "Game.Objects.GenerateSpaceTraffic.Object",
+      "new": "Game.Objects.GenerateSpaceTraffic.FaceData"
+    },
+    {
+      "file": "Includes/Variables/Sound.inc",
+      "symbol": "SoundState",
+      "old": "Game.Flight.ClearNearbyShipSlots.Mode",
+      "new": "Game.Flight.ClearNearbyShipSlots.SoundData"
+    },
+    {
+      "file": "Includes/Variables/Trade.inc",
+      "symbol": "MarketWork",
+      "old": "Game.Trade.GenerateMarket.Commodity",
+      "new": "Game.Trade.GenerateMarket.MarketData"
+    },
+    {
+      "file": "Includes/Variables/Trade.inc",
+      "symbol": "TradeSnapshot",
+      "old": "Game.Trade.PromptCargoQuantityAndRefugees.CashHigh",
+      "new": "Game.Trade.PromptCargoQuantityAndRefugees.TradeBackup"
+    },
+    {
+      "file": "Includes/Variables/Trade.inc",
+      "symbol": "EquipmentWork",
+      "old": "Game.Trade.EquipmentAlreadyOwned.ItemLimit",
+      "new": "Game.Trade.EquipmentAlreadyOwned.EquipmentData"
+    },
+    {
+      "file": "Includes/Variables/GameState.inc",
+      "symbol": "RandomSeed",
+      "old": "Game.Travel.SetFuelAndGauge.WorkingSeed",
+      "new": "Game.Travel.SetFuelAndGauge.SystemData + FGalaxyState.WorkingSeed",
+      "reason": "прямая ссылка на физический экземпляр устраняет лишний проход разрешения алиасов"
+    },
+    {
+      "file": "Includes/Variables/Graphics.inc",
+      "symbol": "ProjectionState",
+      "old": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Depth",
+      "new": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Projection",
+      "reason": "прямая ссылка на физический экземпляр устраняет лишний проход разрешения алиасов"
+    },
+    {
+      "file": "Includes/Variables/Graphics.inc",
+      "symbol": "DistantBodies",
+      "old": "Game.Circles.UpdateThargoidAndBodyCoords.DistantData.FirstX",
+      "new": "Game.Circles.UpdateThargoidAndBodyCoords.FirstPosition",
+      "reason": "прямая ссылка на физический экземпляр устраняет лишний проход разрешения алиасов"
+    }
+  ],
+  "note": "Только выражения прежних алиасов, все прежние значения проверяются по финальной сборке",
+  "final_verification": {
+    "status": "passed",
+    "image_byte_identical": true,
+    "all_seven_files_identical": true,
+    "build_report": "Tools/Disasm/Reports/BuildVerification.json",
+    "typed_fields_report": "Tools/Disasm/Reports/TypedDataVerification.json",
+    "unchanged_existing_symbols": 5518,
+    "checked_at_utc": "2026-10-21T05:54:53.0569744Z"
+  }
+}

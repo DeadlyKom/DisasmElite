@@ -10,11 +10,11 @@
 ; Corrupt:
 ;   HL, BC, AF
 ; Note:
-;   вход #8271 использует два младших байта координаты, дробный вход A обнуляется
-;   общий хвост вычисления находится по #82BB
-;   вход #827A является независимым продолжением дальнего компаса
+;   вход Game.Screen.CompassNearAxis.Entry использует два младших байта координаты, дробный вход A обнуляется
+;   общий хвост вычисления находится по Game.Screen.CompassFarAxis.ScaleAxis
+;   вход Game.Screen.CompassNearAxis.FarCompass является независимым продолжением дальнего компаса
 ;   он рассчитывает длину по старшим словам, затем нормирует X и Y
-;   X сохраняется в #81A6, Y в #81A7, признак задней полусферы в #81A8
+;   X сохраняется в CompassState.X, Y в CompassState.Y, признак задней полусферы в CompassState.Behind
 ; -----------------------------------------
                 ; проверка исходного размещения
                 ASSERT $ == #8271
@@ -55,6 +55,7 @@ StoreCompassY:  LD (CompassState.Y), A
                 LD A, #01
 StoreSide:      LD (CompassState.Behind), A
                 JP Game.Screen.VectorLength.DrawCompass
+
                 ASSERT $ == #82B0
                 endmodule
                 endmodule

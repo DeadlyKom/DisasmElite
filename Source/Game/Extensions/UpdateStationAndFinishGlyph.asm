@@ -4,15 +4,15 @@
 ; обновление станции и отдельный хвост вывода знака
 ; исходный диапазон #5DC8..#5DFA
 ; смысловое имя UpdateStationAndFinishGlyph
-; In: #5DC8 получает #7103, для #5DF0 HL — экран, на стеке адрес глифа перед возвратом
-; Out: #5DC8 при нулевом #7103 передаёт управление #7861, #5DF0 выводит восемь строк знака
-; Corrupt: для #5DF0 HL, DE, BC, AF, для #5DC8 по контракту расчёта станции
-; #5DD0..#5DEF — четыре восьмибайтовых знака дополнительного шрифта
-; Прямой JP #5DF0 находится по #D543, PUSH HL по #D507 сохраняет адрес глифа, POP DE его извлекает
-; #5DF0 задаёт B=8 и вызывает #D546, исходный XOR накладывает глиф, патч D548=NOP разрешает перезапись
-; Исходный снимок содержит OUT (#0F),A по #5DF3 и #5DF8, но Loader.Load до запуска игры заменяет обе пары байтов нулями
+; In: Game.Extensions.UpdateStationAndFinishGlyph.Entry получает FlightState.SpaceMode, для Game.Extensions.UpdateStationAndFinishGlyph.FinishGlyph HL — экран, на стеке адрес глифа перед возвратом
+; Out: Game.Extensions.UpdateStationAndFinishGlyph.Entry при нулевом FlightState.SpaceMode передаёт управление Game.Universe.UpdateStationCoordinates.Entry, Game.Extensions.UpdateStationAndFinishGlyph.FinishGlyph выводит восемь строк знака
+; Corrupt: для Game.Extensions.UpdateStationAndFinishGlyph.FinishGlyph HL, DE, BC, AF, для Game.Extensions.UpdateStationAndFinishGlyph.Entry по контракту расчёта станции
+; перед FinishGlyph сохранены четыре восьмибайтовых знака дополнительного шрифта
+; Game.Text.DrawCharacter8x8.Entry сохраняет адрес глифа через PUSH HL и передаёт поток в FinishGlyph, POP DE извлекает этот адрес
+; Game.Extensions.UpdateStationAndFinishGlyph.FinishGlyph задаёт B=8 и вызывает Game.Text.XorCharacterScanlines.Entry, исходный XOR накладывает глиф, патч Game.Text.XorCharacterScanlines.XorOpcode=NOP разрешает перезапись
+; Исходный снимок содержит OUT (#0F),A по Game.Extensions.UpdateStationAndFinishGlyph.AuxPortFirst и Game.Extensions.UpdateStationAndFinishGlyph.AuxPortNext, но Loader.Load до запуска игры заменяет обе пары байтов нулями
 ; На штатном пути вместо каждой команды выполняются два NOP, периферийного вывода здесь нет
-; Без патча первый A был бы колонкой D045, второй — последним записанным пиксельным байтом, полный порт равен A*256+#0F
+; Без патча первый A был бы колонкой TextPosition, второй — последним записанным пиксельным байтом, полный порт равен A*256+#0F
 ; Историческое назначение отключённых команд не установлено, байты снимка сохраняются для точного восстановления диска
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -23,6 +23,7 @@ Entry:          LD A, (FlightState.SpaceMode)
                 RET NZ                                                          ; выход, если активно особое пространство и станция не обновляется
 
                 JP Game.Universe.UpdateStationCoordinates.Entry
+
                 ; четыре дополнительных восьмибайтовых знака, между двумя независимыми входами
 ExtraGlyphs     DB #00, #00, #00, #00, #00, #08, #08, #10                       ; четыре дополнительных глифа, начало соответствует коду #2C
                 DB #00, #00, #00, #00, #3E, #00, #00, #00                       ; данные #5DD8..#5DDF
@@ -35,6 +36,7 @@ AuxPortFirst    OUT (#0F), A                                                    
                 CALL Game.Text.XorCharacterScanlines.Entry
 AuxPortNext     OUT (#0F), A                                                    ; две команды NOP после патча загрузчиком
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #5DFB
                 endmodule

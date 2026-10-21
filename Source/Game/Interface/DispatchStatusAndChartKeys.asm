@@ -10,9 +10,9 @@
 ; Corrupt:
 ;   По контракту выбранного обработчика
 ; Note:
-;   D015 открывает состояние пилота, D018 грузовой отсек, D01B/D01E меняют X, D021/D024 меняют
-;   Y, D027 возвращает курсор к текущей системе, D02A выбирает ближайшую планету, D02D ищет по
-;   имени, D030 меняет галактику
+;   Game.Interface.DispatchStatusAndChartKeys.Entry открывает состояние пилота, Game.Interface.DispatchStatusAndChartKeys.OpenCargo грузовой отсек, Game.Interface.DispatchStatusAndChartKeys.CursorLeft/Game.Interface.DispatchStatusAndChartKeys.CursorRight меняют X, Game.Interface.DispatchStatusAndChartKeys.CursorDown/Game.Interface.DispatchStatusAndChartKeys.CursorUp меняют
+;   Y, Game.Interface.DispatchStatusAndChartKeys.CurrentSystem возвращает курсор к текущей системе, Game.Interface.DispatchStatusAndChartKeys.SelectSystem выбирает ближайшую планету, Game.Interface.DispatchStatusAndChartKeys.FindSystem ищет по
+;   имени, Game.Interface.DispatchStatusAndChartKeys.NextGalaxy меняет галактику
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D015
@@ -36,6 +36,7 @@ SelectSystem:   JP Game.Charts.TextInputLoop.SelectSystem
 FindSystem:     JP Game.Charts.FindSystemNameDialog.Entry
 
 NextGalaxy:     JP Game.Galaxy.AdvanceGalaxySeed.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D033
                 endmodule

@@ -12,10 +12,10 @@
 ; Corrupt:
 ;   HL, AF
 ; Note:
-; Первый JP передаёт управление Divide. Следующие данные содержат старые JP B044 и JP B7B4.
-; 9C93, счётчик появления объектов. 9C94, наличие обычного корабля. 9C95, массовый запрос уничтожения.
-; 9C96, наличие отображаемого объекта. 9C97, номер цели прицела.
-; 9C99, опасная обстановка. 9C9A, запрос стыковки. 9C9B, время действия ECM.
+; Первый JP передаёт управление Divide. Следующие данные содержат старые JP Game.Wireframe.DrawClippedLine.Entry и JP Game.Combat.ProcessLaserAndEcm.Entry.
+; CombatState.SpawnCounter, счётчик появления объектов. CombatState.ShipsPresent, наличие обычного корабля. CombatState.DestroyAll, массовый запрос уничтожения.
+; CombatState.ObjectsPresent, наличие отображаемого объекта. CombatState.CrosshairTarget, номер цели прицела.
+; CombatState.Danger, опасная обстановка. CombatState.DockRequest, запрос стыковки. CombatState.EcmTimer, время действия ECM.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #9C89
@@ -30,12 +30,12 @@ Entry:          JP Game.Math.Divide
 ;   HL, DE, проекции концов
 ;   BC, C содержит знаки координат
 ; Out:
-;   действие и результат построителя #B044
+;   действие и результат построителя Game.Wireframe.DrawClippedLine.Entry
 ; Corrupt:
 ;   HL, DE, BC, AF, HL', DE', BC', AF'
 ; Note:
 ;   сохранённый вход таблицы совместимости, прямые входящие переходы не найдены
-;   JP не добавляет адрес возврата, контракт совпадает с #B044
+;   JP не добавляет адрес возврата, контракт совпадает с Game.Wireframe.DrawClippedLine.Entry
 ; -----------------------------------------
 LineVector:     ; совместимый переход к выводу пространственного ребра
                 JP Game.Wireframe.DrawClippedLine.Entry
@@ -43,9 +43,9 @@ LineVector:     ; совместимый переход к выводу прос
 ; -----------------------------------------
 ; совместимый переход к обработке прицела, лазера и ECM
 ; In:
-;   состояния #711F, #70E3, лазеры #D07D..#D080 и события #FC0B
+;   состояния FlightState.PlayerDead, FlightState.View, лазеры State.FrontLaser..State.RightLaser и события InputState.DeviceKeys
 ; Out:
-;   прицел, лазер и ECM обновлены через #B7B4
+;   прицел, лазер и ECM обновлены через Game.Combat.ProcessLaserAndEcm.Entry
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
@@ -53,6 +53,7 @@ LineVector:     ; совместимый переход к выводу прос
 ; -----------------------------------------
 Weapons:        ; совместимый переход к обработке прицела, лазера и ECM
                 JP Game.Combat.ProcessLaserAndEcm.Entry
+
                 ; исходные байты вне раскрываемого входа
                 DB #00                                                          ; сохранённый байт исходного блока
 SpawnCounter    DB #00                                                          ; счётчик появления, уменьшение до нуля запускает диспетчер объектов

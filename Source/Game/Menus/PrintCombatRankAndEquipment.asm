@@ -4,19 +4,21 @@
 ; Печать боевого звания и установленного оборудования
 ; исходный диапазон #EFE0..#F067
 ; In:
-;   D060..D062 = рейтинг, поля оборудования пилота
+;   State.Rating и State.RankState содержат рейтинг, далее используются поля оборудования пилота
 ; Out:
 ;   Показаны звание, устройства, четыре лазера и расширения
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
-;   При D062=0 сравнивает D061 с порогами 08, 10, 20, 40, 80, FF, иначе D062 с 02, 0A, 19, FF,
-;   таблица F09B..F0A0 задаёт шесть адресов устройств, дополнительные D086 и бит 6 D0B0
-;   проверяются отдельно, завершает рамкой D646
+;   При State.RankState=0 сравнивает State.Rating + 1 с порогами 08, 10, 20, 40, 80, FF, иначе State.RankState с 02, 0A, 19, FF,
+;   DeviceFields задаёт шесть младших байтов адресов устройств, дополнительно проверяются State.AlienComputer и бит 6 State.MissionFlags
+;   проверяются отдельно, завершает рамкой Game.Text.DrawViewFrame.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #EFE0
                 ; старший байт рейтинга выбирает нужную половину таблицы порогов боевого звания
+                ; общие поля миссий и обычного полёта, обычный боевой рейтинг использует тот же старший байт, что и военное состояние
+                ; описание в Docs/Manual.md, раздел mission-shared-state
 Entry:          LD HL, State.RankState
                 LD A, (HL)
                 AND A
@@ -41,9 +43,11 @@ PrintRank:      LD A, B
                 CALL Game.Text.PrintRankWithMissionSuffix.Entry
                 LD A, #11
                 CALL Game.Menus.PrintEquipmentLine.Entry
-                ; шесть адресов устройств читаются из таблицы младших байтов в F09B
+                ; шесть адресов устройств читаются из таблицы младших байтов в DeviceFields
                 LD BC, #06FE
                 LD HL, DeviceFields - 1                                         ; позиция перед первым адресом устройства, цикл начинает с INC HL
+                ; миссия 3, MS_ACCEPT_BIT выбирает специальное имя первого устройства, поля State.ECM
+                ; описание в Docs/Manual.md, раздел mission-3
 NextEquipment:  INC C
                 INC HL
                 PUSH BC
@@ -68,10 +72,10 @@ NextEquipment:  INC C
                 LD A, #30
                 SUB B
                 CALL Game.Trade.PrintMainTokenSpace.Entry
-                ; специальная подпись устройства зависит от сохранённого бита 7 маски D0B0&C
+                ; специальная подпись устройства зависит от сохранённого бита 7 маски State.MissionFlags&C
 SpecialName:    POP AF
                 PUSH AF
-                JR NC, StandardName                                             ; переход, если сохранённый бит 7 маски D0B0&C сброшен, не печатать специальную подпись
+                JR NC, StandardName                                             ; переход, если сохранённый бит 7 маски State.MissionFlags&C сброшен, не печатать специальную подпись
 
                 LD A, #CF
                 CALL Game.Text.PrintDescriptionToken.Entry
@@ -87,6 +91,8 @@ RestoreItem:    POP AF
 
                 ; четыре направления лазеров перечисляются независимо от шести устройств
                 LD HL, State.FrontLaser
+                ; миссии 2, 5, после лазеров отдельно выводятся ALIEN COMPUTER и CLOAKING DEVICE
+                ; описание в Docs/Manual.md, раздел mission-2, mission-5
 NextLaser:      PUSH BC
                 PUSH HL
                 CALL Game.Menus.PrintDirectionalLaser.Entry
@@ -96,7 +102,7 @@ NextLaser:      PUSH BC
                 DEC C
                 JR NZ, NextLaser                                                ; переход, если остались поля установленного оборудования, продолжить перебор
 
-                ; отдельно выводятся ALIEN COMPUTER и дополнительный предмет по биту 6 D0B0
+                ; отдельно выводятся ALIEN COMPUTER и дополнительный предмет по биту 6 State.MissionFlags
                 LD A, (State.AlienComputer)
                 RRCA                                                            ; перенос получает ALIEN_OWN_BIT
                 LD A, #F3
@@ -106,7 +112,8 @@ NextLaser:      PUSH BC
                 CALL Game.Menus.PrintInlineTokenIfNonzero.Entry
                 DB #7D                                                          ; аргумент вызываемой процедуры из потока команд
                 JP Game.Text.DrawViewFrame.Entry
-                ; остаточное слово D646 после перехода к рисованию рамки
+
+                ; остаточное слово Game.Text.DrawViewFrame.Entry после перехода к рисованию рамки
                 DB #46, #D6                                                     ; #F066..#F067
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #F068

@@ -10,7 +10,7 @@
 ;   HL, DE, BC, AF
 ; Note:
 ;   после чтения трёх слов удаляет их знаковые биты
-;   основное нормирование и квадратный корень выполняются общим входом #8327
+;   основное нормирование и квадратный корень выполняются общим входом Game.Screen.VectorLength.Normalize
 ; -----------------------------------------
                 ; проверка исходного размещения
                 ASSERT $ == #8315
@@ -20,6 +20,7 @@ Entry:          CALL Game.Screen.LoadVectorWords.Entry
                 RES 7, B
                 LD A, #01
                 JR Game.Screen.VectorLength.Normalize
+
                 ASSERT $ == #8322
                 endmodule
                 endmodule

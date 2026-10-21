@@ -43,6 +43,7 @@ OverflowSkip:   CP #7A
 ProductHigh     EQU OverflowSkip + 1                                            ; вход LD A,D во второй байт инструкции CP
                 POP DE
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B29F
                 endmodule

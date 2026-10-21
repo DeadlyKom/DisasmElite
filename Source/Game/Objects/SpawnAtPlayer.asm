@@ -11,7 +11,7 @@
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
 ;   тип временно сохранён в C, FindFreeObjectSlot его не изменяет
-;   после LD A,C выполнение без RET продолжается в #B950
+;   после LD A,C выполнение без RET продолжается в Game.Objects.InitializeAtPlayer.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #B94A
@@ -19,7 +19,7 @@ Entry:          LD C, A
                 CALL Game.Objects.FindFreeObjectSlot.Entry
                 RET NZ                                                          ; выход, если среди шести обычных слотов нет свободного
 
-                LD A, C
+                LD A, C                                                         ; далее Game.Objects.InitializeAtPlayer.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B950
                 endmodule

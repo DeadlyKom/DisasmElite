@@ -11,8 +11,8 @@
 ;   HL, BC, AF
 ; Note:
 ;   модуль координаты задаётся HL и дробным байтом A
-;   #9C89 вызывает деление #AFA8, три пары RL B и RLA выделяют масштаб компаса
-;   знак берётся из исходного старшего байта координаты IX+2
+;   Game.Combat.DivideAndCombatState.Entry вызывает деление Game.Math.Divide, три пары RL B и RLA выделяют масштаб компаса
+;   знак берётся из исходного FCoordinate.SignHigh координаты по IX
 ; -----------------------------------------
                 ; проверка исходного размещения
                 ASSERT $ == #82B0
@@ -36,6 +36,7 @@ ScaleAxis:      CALL Game.Combat.DivideAndCombatState.Entry
 
                 OR #80
 AxisReady:      RET
+
                 ASSERT $ == #82D1
                 endmodule
                 endmodule

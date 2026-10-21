@@ -4,15 +4,15 @@
 ; синхронное воспроизведение шума разрушения и таблица эффектов
 ; исходный диапазон #9548..#9578
 ; In:
-;   #FC0E - бит 7 разрешения звука
+;   InputState.Config - бит 7 разрешения звука
 ; Out:
-;   #9522=0, #7128=0, прерывания разрешены
+;   SoundState.Mode=0, FlightState.SoundRequests=0, прерывания разрешены
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   вызов #95CF и цикл #9551 воспроизводят шум до нулевого режима
+;   вызов Game.Sound.StartExplosionNoise.Entry и цикл Game.Sound.PlayDestructionSound.PlayNoise воспроизводят шум до нулевого режима
 ;   общий цикл также используется звуками старта и гиперперехода
-;   таблица #9561 содержит адреса #9678,#9674,#9692,#965E,#9641,#9648,#9657,#9657
+;   таблица Game.Sound.PlayDestructionSound.EffectJumps содержит адреса Game.Sound.StepPitchSweep.SlowNoise,Game.Sound.StepPitchSweep.FastNoise,Game.Sound.StepPitchSweep.ChainedNoise,Game.Sound.StepPitchSweep.ShiftedTone,Game.Sound.StepPitchSweep.FallingTone,Game.Sound.StepPitchSweep.LongTone,Game.Sound.StepPitchSweep.AddedTone,Game.Sound.StepPitchSweep.AddedTone
 ;   режим прерываний вызывающего кода не сохраняется, нормальный выход выполняет EI
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -37,13 +37,13 @@ EndSound:       LD (FlightState.SoundRequests), A
 ; -----------------------------------------
 ; исполняемая таблица восьми звуковых запросов
 ; In:
-;   HL, адрес элемента выбирается диспетчером #9579
+;   HL, адрес элемента выбирается диспетчером Game.Sound.UpdateSound.Entry
 ; Out:
 ;   переход к установщику соответствующего эффекта
 ; Corrupt:
 ;   по контракту выбранного установщика
 ; Note:
-;   диспетчер вычисляет #9561 + 3*номер младшего установленного бита #7128
+;   диспетчер вычисляет Game.Sound.PlayDestructionSound.EffectJumps + 3*номер младшего установленного бита FlightState.SoundRequests
 ;   каждый элемент является JP, адрес вызывающего сохраняется без нового CALL
 ; -----------------------------------------
 EffectJumps:    ; исполняемая таблица восьми звуковых запросов
@@ -62,6 +62,7 @@ EffectJumps:    ; исполняемая таблица восьми звуко�
                 JP Game.Sound.StepPitchSweep.AddedTone
 
                 JP Game.Sound.StepPitchSweep.AddedTone
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9579
                 endmodule

@@ -4,15 +4,15 @@
 ; Вывод восьмистрочного символа в экран Spectrum
 ; исходный диапазон #D4E1..#D545
 ; In:
-;   AF, A = код от 20, D045/D046 = символьные координаты
+;   AF, A = код от 20, TextPosition/TextRow = символьные координаты
 ; Out:
-;   Курсор X увеличен, символ выведен в 4000 либо C000
+;   Курсор X увеличен, символ выведен в Memory.Screen либо Memory.Frame
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
 ;   X увеличивается до рисования, при X>=32 переносится в 1 и увеличивается Y, адрес шрифта
-;   получает из 5DFB, смещение глифа=(A-20)*8, пиксельный адрес строится по нелинейной раскладке
-;   Spectrum, D50A является старшим байтом базы экрана, продолжение через 5DF0
+;   получает из Game.Extensions.SelectCharacterFont.Entry, смещение глифа=(A-20)*8, пиксельный адрес строится по нелинейной раскладке
+;   Spectrum, TextScreenHigh является старшим байтом базы экрана, продолжение через Game.Extensions.UpdateStationAndFinishGlyph.FinishGlyph
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D4E1
@@ -77,6 +77,7 @@ RowOffset:      LD C, #00
                 LD C, A
                 ADD HL, BC
                 JP Game.Extensions.UpdateStationAndFinishGlyph.FinishGlyph
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D546
                 endmodule

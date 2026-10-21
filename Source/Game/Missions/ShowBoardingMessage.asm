@@ -1,14 +1,14 @@
                 module Missions
                 module ShowBoardingMessage
 ; -----------------------------------------
-; сообщение о захвате корабля с общим хвостом ожидания, #D0F6
+; сообщение о захвате корабля с общим хвостом ожидания, Game.Missions.ShowBoardingMessage.Entry
 ; исходный диапазон #D0F6..#D122
 ; In:
 ;   AF, A содержит номер сообщения второй таблицы
-;   прерывания включены, обработчик клавиатуры обновляет #FC0D
+;   прерывания включены, обработчик клавиатуры обновляет InputState.LastKey
 ; Out:
 ;   сообщения #0B, входное A, #5D и #5A выведены последовательно
-;   после новой клавиши окно очищено, биты нажатий #FC08..#FC0B сброшены
+;   после новой клавиши окно очищено, биты нажатий InputState.SystemKeys..InputState.DeviceKeys сброшены
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
@@ -31,13 +31,13 @@ Entry:          PUSH AF
                 LD A, #5A
                 CALL Game.Text.PrintDescriptionToken.Entry
 ; -----------------------------------------
-; сигнал, ожидание новой клавиши и очистка сообщения, #D114
+; сигнал, ожидание новой клавиши и очистка сообщения, Game.Missions.ShowBoardingMessage.FinishMessage
 ; In:
-;   прерывания включены, #FC0D обновляется обработчиком клавиатуры
+;   прерывания включены, InputState.LastKey обновляется обработчиком клавиатуры
 ; Out:
 ;   сигнал выдан при разрешённом звуке, новая клавиша принята
-;   окно очищено, после 36 HALT сброшены #FC08..#FC0B
-;   HL, #FC0C
+;   окно очищено, после 36 HALT сброшены InputState.SystemKeys..InputState.DeviceKeys
+;   HL, InputState.ChartKeys
 ;   BC, B=0
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
@@ -50,6 +50,7 @@ FinishMessage:  CALL Game.Trade.OptionalBeep.Entry
                 CALL Game.Text.ClearViewAndFrame.Entry
                 CALL Game.Trade.Wait36Interrupts.Entry
                 JP Game.Trade.ClearPressedKeyBits.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D123
                 endmodule

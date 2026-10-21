@@ -4,13 +4,13 @@
 ; Квадратичная метрика от заданной точки до выбранной
 ; исходный диапазон #DFCE..#DFE9
 ; In:
-;   BC, B = исходный X, AF, A = исходный Y, D0BB/D0BC = цель
+;   BC, B = исходный X, AF, A = исходный Y, TargetX/TargetY = цель
 ; Out:
 ;   HL=dx*dx+floor(dy/2)^2
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   DFEA даёт модуль разности с исходной асимметрией отрицательного направления, затем два
+;   Game.Galaxy.OnesComplementDifference.Entry даёт модуль разности с исходной асимметрией отрицательного направления, затем два
 ;   беззнаковых умножения и сложение, входной Y сохраняется через PUSH AF/POP BC
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -31,6 +31,7 @@ AddYDistance:   CALL Game.Galaxy.OnesComplementDifference.Entry
                 POP DE
                 ADD HL, DE
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DFEA
                 endmodule

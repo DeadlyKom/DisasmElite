@@ -10,8 +10,8 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   переход к #8173 сохраняет информационный режим обычным путём
-;   #81A3..#81A8 содержат состояние близости тел и координаты указателя компаса
+;   переход к Game.Screen.SelectScreen.StoreView сохраняет информационный режим обычным путём
+;   CompassData содержит резервный байт, CompassState.SunNear и поля CompassState.X, Y, Behind указателя компаса
 ; -----------------------------------------
                 ; проверка исходного размещения
                 ASSERT $ == #819A
@@ -22,13 +22,22 @@ Entry:          CP #04
                 XOR A
                 LD (FlightState.View), A
                 RET
-CompassData     EQU $                                                           ; начало сохранённых рабочих данных, исходное размещение
-.Reserved       DB #00                                                          ; исходный байт без установленного чтения или записи
-.SunNear        DB #00                                                          ; флаг, солнце прошло проверку ближнего диапазона координат
-.PlanetNear     DB #00                                                          ; флаг, планета обрабатывается в ближнем диапазоне
-.X              DB #00                                                          ; нормированная горизонтальная координата указателя
-.Y              DB #00                                                          ; нормированная вертикальная координата указателя
-.Behind         DB #00                                                          ; флаг, объект компаса находится позади корабля
+
+CompassData     EQU $                                                           ; исходная база блока с отдельным резервным байтом
+.Reserved       DB #00                                                          ; исходный резервный байт перед структурой FCompassState
+.SunNear        EQU CompassFields.SunNear                                       ; адрес поля FCompassState.SunNear
+.PlanetNear     EQU CompassFields.PlanetNear                                    ; адрес поля FCompassState.PlanetNear
+.X              EQU CompassFields.X                                             ; адрес поля FCompassState.X
+.Y              EQU CompassFields.Y                                             ; адрес поля FCompassState.Y
+.Behind         EQU CompassFields.Behind                                        ; адрес поля FCompassState.Behind
+
+CompassFields   FCompassState {
+                    #00,                                                        ; FCompassState.SunNear, флаг, солнце в ближнем диапазоне
+                    #00,                                                        ; FCompassState.PlanetNear, флаг, планета в ближнем диапазоне
+                    #00,                                                        ; FCompassState.X, нормированная координата X
+                    #00,                                                        ; FCompassState.Y, нормированная координата Y
+                    #00                                                         ; FCompassState.Behind, флаг, цель за кораблём
+                }
                 ASSERT $ == #81A9
                 endmodule
                 endmodule

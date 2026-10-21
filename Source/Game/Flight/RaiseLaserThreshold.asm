@@ -19,6 +19,7 @@ Entry:          PUSH HL
                 SET LASER_PASS_BIT, (HL)
                 POP HL
                 RET
+
                 ASSERT $ == #9391
                 endmodule
                 endmodule

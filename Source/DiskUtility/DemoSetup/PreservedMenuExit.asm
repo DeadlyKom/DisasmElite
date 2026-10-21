@@ -4,13 +4,13 @@
 ; In:
 ;   игровые обработчики текста и экрана
 ; Out:
-;   восстановлены патчи печати, очищено 273 байта 606F..617F, A=1
+;   восстановлены патчи печати, очищено 273 байта начиная с DiskBuffer.Work, A=1
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Основной вход C800 сюда не передаёт управление, код сохранён в образе
-;   После D975 B=0, первая запись и LDIR272 обнуляют 273 байта
-;   CALL D421 поглощает встроенный токен 08, он не исполняется
+;   Основной вход DiskUtility.DemoSetup.EnterInstaller сюда не передаёт управление, код сохранён в образе
+;   После Game.Disk.BlackAttributesAndOverlayState.Entry B=0, первая запись и LDIR272 обнуляют 273 байта
+;   CALL Game.Text.PrintInlineToken.Entry поглощает встроенный токен 08, он не исполняется
 ; -----------------------------------------
                 ; остаточный путь временно выключает очистку строки и восстанавливает XOR символов
 LegacyMenuExit: LD A, #C9
@@ -26,7 +26,7 @@ LegacyMenuExit: LD A, #C9
                 CALL @Game.Text.PrintInlineToken.Entry
                 DB #08                                                          ; данные #C819..#C819
                 CALL @Game.Disk.BlackAttributesAndOverlayState.Entry
-                ; нулевой B после D975 размножается на 273 байта объектного пула
+                ; нулевой B после Game.Disk.BlackAttributesAndOverlayState.Entry размножается на 273 байта объектного пула
                 LD HL, Memory.Objects
                 LD DE, Memory.Objects + 1
                 LD (HL), B

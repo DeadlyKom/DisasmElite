@@ -4,11 +4,11 @@
 ; пометка события объекта и условная повторная инициализация его метаданных
 ; исходный диапазон #F916..#F92C
 ; смысловое имя MarkObjectEventAndUpdateMetadata
-; In: HL — байт состояния, AF — сохраняемое значение для #9C96, IX — объект
-; Out: #9C96=A, бит 7 (HL) установлен, при разрешённых условиях вызвана #7A9E
-; Corrupt: HL, DE, BC, AF по контракту #7A9E
+; In: HL — байт состояния, AF — сохраняемое значение для CombatState.ObjectsPresent, IX — объект
+; Out: CombatState.ObjectsPresent=A, бит 7 (HL) установлен, при разрешённых условиях вызвана Game.Universe.InitializeExtendedObjectMetadata.Entry
+; Corrupt: HL, DE, BC, AF по контракту Game.Universe.InitializeExtendedObjectMetadata.Entry
 ; INC/DEC проверяют прежнее значение (HL), SET не меняет полученные флаги
-; При прежнем нуле #7A9E вызывается сразу, иначе нужны бит 6 (HL) и бит 1 IX+26
+; При прежнем нуле Game.Universe.InitializeExtendedObjectMetadata.Entry вызывается сразу, иначе нужны FX_GROUP_BIT в (HL) и OBJ_SCOOP_BIT в FSpaceObject.Flags2 объекта IX
 ; AF вокруг самого вызова сохраняется, но входные флаги до проверок не сохраняются
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -32,6 +32,7 @@ UpdateMetadata: PUSH AF
                 CALL Game.Universe.InitializeExtendedObjectMetadata.Entry
                 POP AF
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #F92D
                 endmodule

@@ -4,15 +4,15 @@
 ; Размещение станции относительно новой планеты
 ; исходный диапазон #DD60..#DDEB
 ; In:
-;   BC, C = биты выбора стороны, 7110..7118 = координаты планеты
+;   BC, C содержит биты выбора стороны, FlightState.Planet содержит координаты планеты
 ; Out:
-;   6048..6050 координаты станции, 6051..6062 её ориентация
+;   поля X, Y, Z записи Memory.Station содержат координаты станции, AxisX, AxisY, AxisZ её ориентацию
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
 ;   Копирует 9 байт координат, выбирает одну из осей по битам C, сдвигает модуль относительно
 ;   планеты, очищает 18 байт матрицы и ставит направляющие 7F/FF, часть маршрутов переходит в
-;   DE22 для событий миссии
+;   Game.Travel.LaserTypeAndArrivalEvents.StoreMission для событий миссии
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DD60
@@ -96,6 +96,8 @@ VerticalAxis:   LD BC, Memory.Station + FSpaceObject.AxisZ + FSignWord.SignHigh
                 LD A, #FF
                 JR StoreAxes
 
+                ; миссии 3, 7+4, помеченное событие станционного слота переводит общее состояние в этап 5
+                ; описание в Docs/Manual.md, раздел mission-3, mission-7-4
 MissionStage:   LD A, #05
                 JR @Game.Travel.LaserTypeAndArrivalEvents.StoreMission
 
@@ -103,6 +105,7 @@ AxisPositive:   LD A, #7F
 StoreAxes:      LD (BC), A
                 LD (DE), A
 FinishGeometry: RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DDEC
                 endmodule

@@ -20,6 +20,7 @@ Entry:          LD (HL), A
                 DJNZ Game.Text.FillBytes.Entry
 
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D568
                 endmodule

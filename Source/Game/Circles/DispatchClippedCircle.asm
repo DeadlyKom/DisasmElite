@@ -10,11 +10,11 @@
 ;   CircleState.Radius, радиус окружности
 ; Out: видимая часть круга передана подходящему обработчику, полностью внешние случаи отброшены
 ; Corrupt: HL, DE, BC, AF, HL', DE', BC', AF'
-; #8620 получает 64±Y, #8621 получает 128±X, рабочие модули сохраняются в #861E/#861F
+; CircleState.ScreenY получает 64±Y, CircleState.ScreenX получает 128±X, рабочие модули сохраняются в CircleState.ClipY/CircleState.ClipX
 ; Бит 0 признаков выбирает знак X, бит 1 выбирает знак Y, биты 2/3 участвуют в проверках допустимости проекции
 ; Узкая область обзора имеет полуширину 120 и полувысоту 64, патчер карты меняет эти пределы
 ; Внешние углы проверяются по r²-dy²-dx² без вычисления квадратного корня
-; #8736 — центр внутри, #874B — снаружи по X, #875E — снаружи по Y, #878E — снаружи по обеим осям
+; Game.Circles.DispatchClippedCircle.InnerCenter — центр внутри, Game.Circles.DispatchClippedCircle.MeasureSideGap — снаружи по X, Game.Circles.DispatchClippedCircle.OuterY — снаружи по Y, Game.Circles.DispatchClippedCircle.OuterCorner — снаружи по обеим осям
 ; Флаги вертикального сравнения временно хранятся в AF', BIT сохраняет перенос от CP
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -171,6 +171,7 @@ OuterCorner:    LD A, B
                 JP NC, Game.Circles.DrawCornerWideCircle.Entry                  ; переход, если круг достигает дальней боковой границы, нужен широкий угловой вариант
 
 NarrowCorner:   JP Game.Circles.DrawCornerClippedArc.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #87BF
                 endmodule

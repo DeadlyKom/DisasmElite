@@ -4,7 +4,7 @@
 ; чтение признаков вершины через текущий указатель модели
 ; исходный диапазон #AA31..#AA3C
 ; In:
-;   память 6FEB, адрес записи признаков
+;   память Game.Extensions.DrawCompressedEdges.FlagsStream, адрес записи признаков
 ; Out:
 ;   HL, адрес записи
 ;   AF, A содержит прочитанный байт с установленным битом 0
@@ -23,6 +23,7 @@ Entry:          LD HL, (Game.Extensions.DrawCompressedEdges.FlagsStream)
                 LD (VertexFlags.Current), A
                 OR #01
                 RET
+
                 ; сохранённые байты между процедурами
                 DB #9C, #B8
                 ; проверка исходного конца фрагмента

@@ -4,14 +4,14 @@
 ; Печать непустого слота трюма
 ; исходный диапазон #E268..#E27E
 ; In:
-;   E1E0 = предыдущий слот, E1DF = индекс товара
+;   MarketWork.CargoCursor = предыдущий слот, MarketWork = индекс товара
 ; Out:
 ;   Указатель увеличен, CY=1 при пустом слоте
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Имя выводится через 5E1A, который также меняет DE6A и 7013 для специального товара, далее
-;   количество и единица через E27F
+;   Имя выводится через Game.Extensions.HandleSpecialMessageToken.Entry, который также меняет Game.Travel.GetSalePriceAndMissionFlags.MineralGate и Game.Extensions.AttributeVectorAndEnergyBomb.ColonyGate для специального товара, далее
+;   количество и единица через Game.Trade.PrintCargoQuantity.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E268

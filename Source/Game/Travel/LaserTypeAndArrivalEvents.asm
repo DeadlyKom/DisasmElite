@@ -4,14 +4,15 @@
 ; Выбор типа лазера и обработка прибытия
 ; исходный диапазон #DDEC..#DE66
 ; In:
-;   AF, A = номер оборудования, BC, B = обычный тип лазера для DDEC
+;   BC, B = обычный тип лазера для Game.Travel.LaserTypeAndArrivalEvents.Entry
+;   AF, A = номер оборудования
 ; Out:
-;   EB62 = B либо 42 для пункта 15
+;   EquipmentWork.LaserType = B либо 42 для пункта 15
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   DDF7 отдельный обработчик прибытия, проверяет миссии и совпадение семян, увеличивает 16
-;   битный счётчик D063, DE4C ставит D040=1 и сбрасывает экранные/полётные флаги, законность
+;   Game.Travel.LaserTypeAndArrivalEvents.ArrivalEvents отдельный обработчик прибытия, проверяет миссии и совпадение семян, увеличивает 16
+;   битный счётчик State.JumpCount, Game.Travel.LaserTypeAndArrivalEvents.FinishArrival ставит ViewKeyLock=1 и сбрасывает экранные/полётные флаги, законность
 ;   новой системы влияет на дальнейшее событие
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -26,6 +27,8 @@ StoreLaser:     LD (EquipmentWork.LaserType), A
                 RET
 
                 ; обработка миссионных состояний и счётчика прибытия в новую систему
+                ; миссия 3, прибытие меняет этап задания и проверяет семя целевой системы
+                ; описание в Docs/Manual.md, раздел mission-3
 ArrivalEvents:  LD A, (State.Galaxy)
                 AND A
 ArrivalGate     EQU $                                                           ; изменяемый JR Z событий прибытия, временный RET подавляет этот хвост
@@ -48,7 +51,7 @@ ArrivalGate     EQU $                                                           
                 JR CheckTarget
 
 CheckStage:     CP #03
-                JR NZ, CheckTarget                                              ; переход, если состояние миссии не равно 3, сохранить выбранный этап
+                JR NZ, CheckTarget                                              ; переход, если исходное State.Mission3 не равно 4, не записывать этап 3
 
                 LD (HL), A
 CheckTarget:    LD HL, State.SystemSeed
@@ -65,6 +68,8 @@ CountArrival:   LD HL, State.RankState
                 JR NZ, CheckGrant                                               ; переход, если младший байт счётчика переходов не переполнился
 
                 INC (HL)
+                ; общая выдача миссий 1..3, старший счётчик переходов разрешает выдачу события по маске рейтинга
+                ; описание в Docs/Manual.md, раздел mission-dispatch
 CheckGrant:     BIT JUMP_MSN_BIT, (HL)
                 RES JUMP_MSN_BIT, (HL)
                 JR Z, RandomPolice                                              ; переход, если у старшего байта счётчика нет бита 7, специальный допуск не установлен
@@ -78,7 +83,7 @@ RandomPolice:   LD HL, FlightState.RandomByte
                 AND #07
                 RRA
                 CP (HL)
-                JR C, FinishArrival                                             ; переход, если номер текущей галактики меньше порога события, пропустить выдачу миссии
+                JR C, FinishArrival                                             ; переход, если FlightState.RandomByte больше половины разности 7 - State.Government, пропустить событие полиции
 
                 LD HL, Memory.Station + FSpaceObject.Roll
                 RES 7, (HL)
@@ -93,6 +98,7 @@ FinishArrival:  LD A, #01
                 LD A, #A0
                 LD (GaugeState + FGaugeState.Altitude.Current), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DE67
                 endmodule

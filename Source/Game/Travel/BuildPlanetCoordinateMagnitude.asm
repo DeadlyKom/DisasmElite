@@ -10,8 +10,8 @@
 ; Corrupt:
 ;   HL, DE, AF
 ; Note:
-;   Запись результата выполняет вызывающий, после RET лежит отдельная инструкция DD5D записи A в
-;   7118 с продолжением DD60
+;   запись результата выполняет вызывающий, после RET сохранено отдельное LD (nn), A в поле
+;   FlightState.Planet + 2 * FCoordinate + FCoordinate.SignHigh с продолжением Game.Travel.BuildStationGeometry.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DD53
@@ -26,7 +26,7 @@ Entry:          EX DE, HL
                 ADD A, C
                 RET
 
-                LD (FlightState.Planet + 2 * FCoordinate + FCoordinate.SignHigh), A
+                LD (FlightState.Planet + 2 * FCoordinate + FCoordinate.SignHigh), A ; далее Game.Travel.BuildStationGeometry.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DD60
                 endmodule

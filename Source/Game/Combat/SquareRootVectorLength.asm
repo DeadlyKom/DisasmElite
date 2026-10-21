@@ -16,6 +16,7 @@
                 ASSERT $ == #9C86
                 ; переход к общей процедуре квадратного корня
 Entry:          JP Game.Math.SquareRoot
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9C89
                 endmodule

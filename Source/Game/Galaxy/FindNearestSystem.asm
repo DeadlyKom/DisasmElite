@@ -4,20 +4,20 @@
 ; Поиск системы с минимальной метрикой до курсора
 ; исходный диапазон #DF74..#DFC3
 ; In:
-;   D0BB/D0BC = целевая точка, D090..D095 = семя галактики
+;   TargetX/TargetY = целевая точка, State.GalaxySeed = семя галактики
 ; Out:
-;   DEBA..DEBF параметры выбранной планеты, DEED имя, DEF6 расстояние от текущей системы
+;   GalaxyState.TargetSeed параметры выбранной планеты, GalaxyState.TargetName имя, GalaxyState.Distance расстояние от текущей системы
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
 ;   Перебирает 256 семян, сохраняет лучшее 6 байтное семя, равная метрика заменяет прежнего
-;   кандидата, затем генерирует данные/имя и повторно измеряет расстояние от D099/D097, точное
-;   совпадение координат в 8020 немедленно завершает поиск через DFA2 со снятием вложенного
+;   кандидата, затем генерирует данные/имя и повторно измеряет расстояние от State.SystemSeed + FSystemSeed.X/State.SystemSeed + FSystemSeed.Y, точное
+;   совпадение координат в Game.Screen.MatchTargetPlanet.Entry немедленно завершает поиск через Game.Galaxy.FindNearestSystem.MeasureNearest со снятием вложенного
 ;   адреса возврата
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DF74
-                ; перебор систем с хранением минимальной квадратичной метрики в DF5E
+                ; перебор систем с хранением минимальной квадратичной метрики в NearestMetric
 Entry:          CALL Game.Galaxy.LoadGalaxySeed.Entry
                 LD HL, #FFFF
                 LD (NearestMetric), HL
@@ -56,6 +56,7 @@ SetFuelCost:    LD A, (State.SystemSeed + FSystemSeed.X)
                 CALL Game.Galaxy.DistanceMetricToFuel.Entry
                 AND A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DFC4
                 endmodule

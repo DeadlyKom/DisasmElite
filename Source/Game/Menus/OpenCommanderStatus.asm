@@ -4,14 +4,14 @@
 ; Экран состояния командира
 ; исходный диапазон #EF87..#EFC4
 ; In:
-;   Сериализуемое состояние D054..D0B9
+;   Сериализуемое состояние State
 ; Out:
-;   70E3=11, показан заголовок и начало сведений пилота
+;   FlightState.View=11, показан заголовок и начало сведений пилота
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
-;   Настраивает атрибуты FD8E, вызывает расширения F90E/8D38, выводит поля 2/3 и сообщения 5/7,
-;   дальше без RET продолжается EFC5
+;   Настраивает атрибуты StatusFormat, вызывает расширения Game.Extensions.SetExtendedTextCursor.Entry/Game.Circles.PrintShipAndContinueRightFill.Entry, выводит поля 2/3 и сообщения 5/7,
+;   дальше без RET продолжается Game.Menus.PrintLegalStatus.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #EF87
@@ -31,7 +31,7 @@ FormatCall      EQU $ + 1                                                       
                 CALL Game.Circles.PrintShipAndContinueRightFill.Entry
                 NOP
                 NOP
-                ; два поля состояния выводятся последовательно через общий обработчик F0A1
+                ; два поля состояния выводятся последовательно через общий обработчик Game.Menus.PrintStatusFieldAndCargoScreen.Entry
                 LD A, #02
                 CALL Game.Menus.PrintStatusFieldAndCargoScreen.Entry
                 LD A, #03

@@ -1,7 +1,7 @@
                 ifndef _VARIABLES_GRAPHICS_
                 define _VARIABLES_GRAPHICS_
 
-CircleState     EQU Game.Screen.WriteIndicatorMask.CircleData.OffsetY           ; адрес структуры FCircleState
+CircleState     EQU Game.Screen.WriteIndicatorMask.CircleFields                 ; адрес структуры FCircleState
 .OffsetY        EQU CircleState + FCircleState.OffsetY                          ; модуль вертикального смещения центра
 .OffsetX        EQU CircleState + FCircleState.OffsetX                          ; модуль горизонтального смещения центра
 .Flags          EQU CircleState + FCircleState.Flags                            ; знаки и признаки диапазона центра, схема в FCircleState
@@ -18,7 +18,7 @@ CircleState     EQU Game.Screen.WriteIndicatorMask.CircleData.OffsetY           
 .OutlineOnly    EQU CircleState + FCircleState.OutlineOnly                      ; режим окружности, 0 заливка, 1 только контур
 .PatchCount     EQU CircleState + FCircleState.PatchCount                       ; число байтов патча области обзора
 
-ProjectionState EQU Game.Wireframe.AdvanceObjectMetadata.GeometryData.Depth     ; адрес структуры FProjectionState
+ProjectionState EQU Game.Wireframe.AdvanceObjectMetadata.GeometryData.Projection ; адрес структуры FProjectionState
 .Depth          EQU ProjectionState + FProjectionState.Depth                    ; глубина объекта, младший байт затем переиспользуется как уровень детализации
 .VertexOffset   EQU ProjectionState + FProjectionState.VertexOffset             ; смещение трёхбайтовой записи в таблице экранных вершин
 .X              EQU ProjectionState + FProjectionState.X                        ; повёрнутая X-компонента, затем X с добавленным положением объекта
@@ -33,24 +33,24 @@ ProjectionState EQU Game.Wireframe.AdvanceObjectMetadata.GeometryData.Depth     
 .Scale          EQU ProjectionState + FProjectionState.Scale                    ; число левых сдвигов для повышенной точности ближней вершины
 .NoCache        EQU ProjectionState + FProjectionState.NoCache                  ; флаг, произведения предыдущей вершины нельзя использовать
 
-CompassState    EQU Game.Screen.RestrictDockingView.CompassData.SunNear         ; адрес структуры FCompassState
+CompassState    EQU Game.Screen.RestrictDockingView.CompassFields               ; адрес структуры FCompassState
 .SunNear        EQU CompassState + FCompassState.SunNear                        ; флаг, солнце в ближнем диапазоне
 .PlanetNear     EQU CompassState + FCompassState.PlanetNear                     ; флаг, планета в ближнем диапазоне
 .X              EQU CompassState + FCompassState.X                              ; координата X компаса
 .Y              EQU CompassState + FCompassState.Y                              ; координата Y компаса
 .Behind         EQU CompassState + FCompassState.Behind                         ; флаг, цель за кораблём
 
-RotationState   EQU Game.Motion.ScaleAxisHighByte.RotationData.Roll             ; адрес структуры FRotationState
+RotationState   EQU Game.Motion.ScaleAxisHighByte.RotationData                  ; адрес структуры FRotationState
 .Roll           EQU RotationState + FRotationState.Roll                         ; угол крена
 .Pitch          EQU RotationState + FRotationState.Pitch                        ; угол тангажа
 
-SteeringVector  EQU Game.Motion.AnimateIntroObject.SteeringData.X               ; адрес структуры FSteeringVector
+SteeringVector  EQU Game.Motion.AnimateIntroObject.SteeringData                 ; адрес структуры FSteeringVector
 .X              EQU SteeringVector + FSteeringVector.X                          ; X вектора к цели
 .Y              EQU SteeringVector + FSteeringVector.Y                          ; Y вектора к цели
 .Z              EQU SteeringVector + FSteeringVector.Z                          ; Z вектора к цели
 .Length         EQU SteeringVector + FSteeringVector.Length                     ; длина вектора к цели
 
-DistantBodies   EQU Game.Circles.UpdateThargoidAndBodyCoords.DistantData.FirstX ; два вектора далёких тел
+DistantBodies   EQU Game.Circles.UpdateThargoidAndBodyCoords.FirstPosition      ; два вектора далёких тел
 .First          EQU DistantBodies                                               ; первый вектор
 .Second         EQU DistantBodies + FSpacePosition                              ; второй вектор
 .First.X        EQU DistantBodies.First + FSpacePosition.X                      ; координата X
@@ -172,7 +172,7 @@ VertexRaster    EQU Game.Wireframe.AnyPackedFaceVisible.FaceCombine             
 .FaceCombine    EQU Game.Wireframe.AnyPackedFaceVisible.FaceCombine             ; код OR B, объединение видимости двух граней
 .FaceAddress    EQU Game.Wireframe.ReadFaceVisibilityNibble.FaceAddress         ; младший байт адреса чтения флага выбранной грани
 
-ScannerState    EQU Game.Sound.StartHyperjumpNoise.ScaledX                      ; адрес структуры FScannerState
+ScannerState    EQU Game.Sound.StartHyperjumpNoise.ScanData                     ; адрес структуры FScannerState
 .ScaledX        EQU ScannerState + FScannerState.ScaledX                        ; масштабированная X, знак в бите 7
 .ScaledY        EQU ScannerState + FScannerState.ScaledY                        ; масштабированная высота Y, знак в бите 7
 .ScaledZ        EQU ScannerState + FScannerState.ScaledZ                        ; масштабированная глубина Z, знак в бите 7

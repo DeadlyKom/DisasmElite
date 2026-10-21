@@ -6,7 +6,7 @@
 ; In:
 ;   HL адрес после INC H при пересечении восьми пиксельных строк
 ; Out:
-;   HL следующая строка либо переход 982E после снятия адреса возврата
+;   HL следующая строка либо переход Game.Scanner.DrawScannerObjects.NextObject после снятия адреса возврата
 ; Corrupt:
 ;   HL, AF
 ; Note:
@@ -33,6 +33,7 @@ AdjustHigh:     LD A, H
                 SUB #08
                 LD H, A
                 RET
+
                 ASSERT $ == #987C
                 endmodule
                 endmodule

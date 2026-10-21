@@ -15,6 +15,7 @@
 Entry:          OR (HL)
                 LD (HL), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #FB03
                 endmodule

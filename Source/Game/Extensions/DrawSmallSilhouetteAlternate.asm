@@ -4,11 +4,11 @@
 ; перекрывающийся вход выбора альтернативного профиля
 ; исходный диапазон #FB31..#FB31
 ; смысловое имя DrawSmallSilhouetteAlternate
-; In: параметры силуэта в #861A..#861D
-; Out: A=#AF перед общей частью #FB33
-; Corrupt: по контракту общего рендера #FB32
+; In: CircleState.OffsetY, OffsetX, Flags и Radius задают силуэт
+; Out: A=#AF перед общей частью Game.Extensions.DrawSmallSilhouette.Entry после XOR A
+; Corrupt: по контракту общего рендера Game.Extensions.DrawSmallSilhouette.Entry
 ; Байт #3E вместе с первым байтом следующего файла #AF образует LD A,#AF
-; Вход #FB32 трактует тот же #AF как XOR A, поэтому объединять или выравнивать входы нельзя
+; Вход Game.Extensions.DrawSmallSilhouette.Entry трактует тот же #AF как XOR A, поэтому объединять или выравнивать входы нельзя
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #FB31

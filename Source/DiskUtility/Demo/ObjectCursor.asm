@@ -4,7 +4,7 @@
 ; In:
 ;   NextObject читает и пишет
 ; Out:
-;   исходно 6048, при обходе 606F..6159
+;   исходно Memory.Station, при обходе семь слотов FSpaceObject начиная с Memory.Objects
 ; Corrupt:
 ;   нет, слово данных
 ; Note:

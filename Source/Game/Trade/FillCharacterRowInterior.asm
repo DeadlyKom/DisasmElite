@@ -29,6 +29,7 @@ FillByte:       LD (HL), A
                 DJNZ RasterRow
 
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E38D
                 endmodule

@@ -1,0 +1,1495 @@
+{
+  "changes": [
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "Corrupt: HL, DE, BC, AF, CircleState.SavedSP/#8624",
+      "new_comment": "Corrupt: HL, DE, BC, AF, CircleState.SavedSP/CircleState.SavedSP + 1"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 0, карта, значение#60 записывается по#86FB",
+      "new_comment": "патч 0, карта, значение#60 записывается поGame.Circles.DispatchClippedCircle.Entry + #0D"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 1, карта, значение#60 записывается по#8714",
+      "new_comment": "патч 1, карта, значение#60 записывается поGame.Circles.DispatchClippedCircle.FinishCenterX + #06"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 2, карта, значение#80 записывается по#871A",
+      "new_comment": "патч 2, карта, значение#80 записывается поGame.Circles.DispatchClippedCircle.FinishCenterX + #0C"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 3, карта, значение#80 записывается по#873B",
+      "new_comment": "патч 3, карта, значение#80 записывается поGame.Circles.DispatchClippedCircle.InnerCenter + #05"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 4, карта, значение#80 записывается по#8744",
+      "new_comment": "патч 4, карта, значение#80 записывается поGame.Circles.DispatchClippedCircle.CheckHalfWidth + #05"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 5, карта, значение#80 записывается по#87FF",
+      "new_comment": "патч 5, карта, значение#80 записывается поGame.Circles.DrawWideCircleAcrossBothSides.FarSideLimit + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 6, карта, значение#80 записывается по#8804",
+      "new_comment": "патч 6, карта, значение#80 записывается поGame.Circles.DrawWideCircleAcrossBothSides.SaveFarLimit + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 7, карта, значение#7F записывается по#889A",
+      "new_comment": "патч 7, карта, значение#7F записывается поGame.Circles.DrawOneSideClippedCircle.SideLimit + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 8, карта, значение#1F записывается по#8FDE",
+      "new_comment": "патч 8, карта, значение#1F записывается поGame.Circles.SetRightContourBoundary.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 9, карта, значение#00 записывается по#89B3",
+      "new_comment": "патч 9, карта, значение#00 записывается поGame.Circles.PrepareLeftClippedCircle.Entry + #12"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 11, карта, значение#00 записывается по#89DB",
+      "new_comment": "патч 11, карта, значение#00 записывается поCircleRaster.LeftBuffer + 1"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 13, карта, значение#00 записывается по#89FC",
+      "new_comment": "патч 13, карта, значение#00 записывается поCircleRaster.RightBuffer + 1"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 14, карта, значение#80 записывается по#8A1B",
+      "new_comment": "патч 14, карта, значение#80 записывается поGame.Circles.PrepareBothClippedCoordinates.Entry + #05"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 15, карта, значение#00 записывается по#8FFD",
+      "new_comment": "патч 15, карта, значение#00 записывается поGame.Circles.SetBothContourBoundaries.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 16, карта, значение#FF записывается по#9008",
+      "new_comment": "патч 16, карта, значение#FF записывается поGame.Circles.SkipViewportRowsUp.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 17, карта, значение#00 записывается по#900C",
+      "new_comment": "патч 17, карта, значение#00 записывается поGame.Circles.SkipViewportRowsUp.Entry + #08"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 18, карта, значение#00 записывается по#900D",
+      "new_comment": "патч 18, карта, значение#00 записывается поGame.Circles.SkipViewportRowsUp.Entry + #09"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 19, карта, значение#28 записывается по#902D",
+      "new_comment": "патч 19, карта, значение#28 записывается поGame.Circles.SkipViewportRowsUp.CheckTop + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 20, карта, значение#FF записывается по#9036",
+      "new_comment": "патч 20, карта, значение#FF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 21, карта, значение#00 записывается по#903A",
+      "new_comment": "патч 21, карта, значение#00 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.Entry + #08"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 22, карта, значение#00 записывается по#903B",
+      "new_comment": "патч 22, карта, значение#00 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.Entry + #09"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 23, карта, значение#58 записывается по#905B",
+      "new_comment": "патч 23, карта, значение#58 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.CheckSkipLimit + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 24, карта, значение#57 записывается по#9075",
+      "new_comment": "патч 24, карта, значение#57 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.RightCutBottom + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 25, карта, значение#3F записывается по#906E",
+      "new_comment": "патч 25, карта, значение#3F записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc + #0E"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 26, карта, значение#3F записывается по#9106",
+      "new_comment": "патч 26, карта, значение#3F записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.BothArc + #0B"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 27, карта, значение#57 записывается по#910D",
+      "new_comment": "патч 27, карта, значение#57 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.BothArcBottom + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 28, карта, значение#57 записывается по#9209",
+      "new_comment": "патч 28, карта, значение#57 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.LeftCutBottom + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 29, карта, значение#3F записывается по#9202",
+      "new_comment": "патч 29, карта, значение#3F записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.LeftCutArc + #0E"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 0, обзор, значение#40 записывается по#86FB",
+      "new_comment": "патч 0, обзор, значение#40 записывается поGame.Circles.DispatchClippedCircle.Entry + #0D"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 1, обзор, значение#40 записывается по#8714",
+      "new_comment": "патч 1, обзор, значение#40 записывается поGame.Circles.DispatchClippedCircle.FinishCenterX + #06"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 2, обзор, значение#78 записывается по#871A",
+      "new_comment": "патч 2, обзор, значение#78 записывается поGame.Circles.DispatchClippedCircle.FinishCenterX + #0C"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 3, обзор, значение#78 записывается по#873B",
+      "new_comment": "патч 3, обзор, значение#78 записывается поGame.Circles.DispatchClippedCircle.InnerCenter + #05"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 4, обзор, значение#78 записывается по#8744",
+      "new_comment": "патч 4, обзор, значение#78 записывается поGame.Circles.DispatchClippedCircle.CheckHalfWidth + #05"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 5, обзор, значение#88 записывается по#87FF",
+      "new_comment": "патч 5, обзор, значение#88 записывается поGame.Circles.DrawWideCircleAcrossBothSides.FarSideLimit + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 6, обзор, значение#78 записывается по#8804",
+      "new_comment": "патч 6, обзор, значение#78 записывается поGame.Circles.DrawWideCircleAcrossBothSides.SaveFarLimit + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 7, обзор, значение#77 записывается по#889A",
+      "new_comment": "патч 7, обзор, значение#77 записывается поGame.Circles.DrawOneSideClippedCircle.SideLimit + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 8, обзор, значение#1E записывается по#8FDE",
+      "new_comment": "патч 8, обзор, значение#1E записывается поGame.Circles.SetRightContourBoundary.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 9, обзор, значение#01 записывается по#89B3",
+      "new_comment": "патч 9, обзор, значение#01 записывается поGame.Circles.PrepareLeftClippedCircle.Entry + #12"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 11, обзор, значение#FC записывается по#89DB",
+      "new_comment": "патч 11, обзор, значение#FC записывается поCircleRaster.LeftBuffer + 1"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 13, обзор, значение#FC записывается по#89FC",
+      "new_comment": "патч 13, обзор, значение#FC записывается поCircleRaster.RightBuffer + 1"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 14, обзор, значение#88 записывается по#8A1B",
+      "new_comment": "патч 14, обзор, значение#88 записывается поGame.Circles.PrepareBothClippedCoordinates.Entry + #05"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 15, обзор, значение#01 записывается по#8FFD",
+      "new_comment": "патч 15, обзор, значение#01 записывается поGame.Circles.SetBothContourBoundaries.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 16, обзор, значение#F7 записывается по#9008",
+      "new_comment": "патч 16, обзор, значение#F7 записывается поGame.Circles.SkipViewportRowsUp.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 17, обзор, значение#CB записывается по#900C",
+      "new_comment": "патч 17, обзор, значение#CB записывается поGame.Circles.SkipViewportRowsUp.Entry + #08"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 18, обзор, значение#FC записывается по#900D",
+      "new_comment": "патч 18, обзор, значение#FC записывается поGame.Circles.SkipViewportRowsUp.Entry + #09"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 19, обзор, значение#C0 записывается по#902D",
+      "new_comment": "патч 19, обзор, значение#C0 записывается поGame.Circles.SkipViewportRowsUp.CheckTop + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 20, обзор, значение#F7 записывается по#9036",
+      "new_comment": "патч 20, обзор, значение#F7 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.Entry + #04"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 21, обзор, значение#CB записывается по#903A",
+      "new_comment": "патч 21, обзор, значение#CB записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.Entry + #08"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 22, обзор, значение#FC записывается по#903B",
+      "new_comment": "патч 22, обзор, значение#FC записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.Entry + #09"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 23, обзор, значение#D0 записывается по#905B",
+      "new_comment": "патч 23, обзор, значение#D0 записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.CheckSkipLimit + #02"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 24, обзор, значение#CF записывается по#9075",
+      "new_comment": "патч 24, обзор, значение#CF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.RightCutBottom + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 25, обзор, значение#BF записывается по#906E",
+      "new_comment": "патч 25, обзор, значение#BF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc + #0E"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 26, обзор, значение#BF записывается по#9106",
+      "new_comment": "патч 26, обзор, значение#BF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.BothArc + #0B"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 27, обзор, значение#CF записывается по#910D",
+      "new_comment": "патч 27, обзор, значение#CF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.BothArcBottom + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 28, обзор, значение#CF записывается по#9209",
+      "new_comment": "патч 28, обзор, значение#CF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.LeftCutBottom + #01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "патч 29, обзор, значение#BF записывается по#9202",
+      "new_comment": "патч 29, обзор, значение#BF записывается поGame.Circles.SkipRowsDownAndDrawCircleContours.LeftCutArc + #0E"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 0, #86FB, карта#60, обзор#40",
+      "new_comment": "адрес патча 0, Game.Circles.DispatchClippedCircle.Entry + #0D, карта#60, обзор#40"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 1, #8714, карта#60, обзор#40",
+      "new_comment": "адрес патча 1, Game.Circles.DispatchClippedCircle.FinishCenterX + #06, карта#60, обзор#40"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 2, #871A, карта#80, обзор#78",
+      "new_comment": "адрес патча 2, Game.Circles.DispatchClippedCircle.FinishCenterX + #0C, карта#80, обзор#78"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 3, #873B, карта#80, обзор#78",
+      "new_comment": "адрес патча 3, Game.Circles.DispatchClippedCircle.InnerCenter + #05, карта#80, обзор#78"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 4, #8744, карта#80, обзор#78",
+      "new_comment": "адрес патча 4, Game.Circles.DispatchClippedCircle.CheckHalfWidth + #05, карта#80, обзор#78"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 5, #87FF, карта#80, обзор#88",
+      "new_comment": "адрес патча 5, Game.Circles.DrawWideCircleAcrossBothSides.FarSideLimit + #01, карта#80, обзор#88"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 6, #8804, карта#80, обзор#78",
+      "new_comment": "адрес патча 6, Game.Circles.DrawWideCircleAcrossBothSides.SaveFarLimit + #02, карта#80, обзор#78"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 7, #889A, карта#7F, обзор#77",
+      "new_comment": "адрес патча 7, Game.Circles.DrawOneSideClippedCircle.SideLimit + #02, карта#7F, обзор#77"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 8, #8FDE, карта#1F, обзор#1E",
+      "new_comment": "адрес патча 8, Game.Circles.SetRightContourBoundary.Entry + #04, карта#1F, обзор#1E"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 9, #89B3, карта#00, обзор#01",
+      "new_comment": "адрес патча 9, Game.Circles.PrepareLeftClippedCircle.Entry + #12, карта#00, обзор#01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 11, #89DB, карта#00, обзор#FC",
+      "new_comment": "адрес патча 11, CircleRaster.LeftBuffer + 1, карта#00, обзор#FC"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 13, #89FC, карта#00, обзор#FC",
+      "new_comment": "адрес патча 13, CircleRaster.RightBuffer + 1, карта#00, обзор#FC"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 14, #8A1B, карта#80, обзор#88",
+      "new_comment": "адрес патча 14, Game.Circles.PrepareBothClippedCoordinates.Entry + #05, карта#80, обзор#88"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 15, #8FFD, карта#00, обзор#01",
+      "new_comment": "адрес патча 15, Game.Circles.SetBothContourBoundaries.Entry + #04, карта#00, обзор#01"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 16, #9008, карта#FF, обзор#F7",
+      "new_comment": "адрес патча 16, Game.Circles.SkipViewportRowsUp.Entry + #04, карта#FF, обзор#F7"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 17, #900C, карта#00, обзор#CB",
+      "new_comment": "адрес патча 17, Game.Circles.SkipViewportRowsUp.Entry + #08, карта#00, обзор#CB"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 18, #900D, карта#00, обзор#FC",
+      "new_comment": "адрес патча 18, Game.Circles.SkipViewportRowsUp.Entry + #09, карта#00, обзор#FC"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 19, #902D, карта#28, обзор#C0",
+      "new_comment": "адрес патча 19, Game.Circles.SkipViewportRowsUp.CheckTop + #02, карта#28, обзор#C0"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 20, #9036, карта#FF, обзор#F7",
+      "new_comment": "адрес патча 20, Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #04, карта#FF, обзор#F7"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 21, #903A, карта#00, обзор#CB",
+      "new_comment": "адрес патча 21, Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #08, карта#00, обзор#CB"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 22, #903B, карта#00, обзор#FC",
+      "new_comment": "адрес патча 22, Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #09, карта#00, обзор#FC"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 23, #905B, карта#58, обзор#D0",
+      "new_comment": "адрес патча 23, Game.Circles.SkipRowsDownAndDrawCircleContours.CheckSkipLimit + #02, карта#58, обзор#D0"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 24, #9075, карта#57, обзор#CF",
+      "new_comment": "адрес патча 24, Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutBottom + #01, карта#57, обзор#CF"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 25, #906E, карта#3F, обзор#BF",
+      "new_comment": "адрес патча 25, Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc + #0E, карта#3F, обзор#BF"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 26, #9106, карта#3F, обзор#BF",
+      "new_comment": "адрес патча 26, Game.Circles.SkipRowsDownAndDrawCircleContours.BothArc + #0B, карта#3F, обзор#BF"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 27, #910D, карта#57, обзор#CF",
+      "new_comment": "адрес патча 27, Game.Circles.SkipRowsDownAndDrawCircleContours.BothArcBottom + #01, карта#57, обзор#CF"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 28, #9209, карта#57, обзор#CF",
+      "new_comment": "адрес патча 28, Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutBottom + #01, карта#57, обзор#CF"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "old_comment": "адрес патча 29, #9202, карта#3F, обзор#BF",
+      "new_comment": "адрес патча 29, Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutArc + #0E, карта#3F, обзор#BF"
+    },
+    {
+      "file": "Source/Game/Circles/IntegerCircleCathetus.asm",
+      "old_comment": "Corrupt: AF и CircleState.Radicand/#8626, HL/DE/BC сохраняются",
+      "new_comment": "Corrupt: AF и CircleState.Radicand/CircleState.Radicand + 1, HL/DE/BC сохраняются"
+    },
+    {
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "old_comment": "#8FB4..#8FB5 — сохранённый резерв, CircleFillWord/#8FB7=#FFFF — образец быстрого заполнения",
+      "new_comment": "#8FB4..#8FB5 — сохранённый резерв, CircleFillWord/CircleFillWord + 1=#FFFF — образец быстрого заполнения"
+    },
+    {
+      "file": "Source/Game/Combat/NextRandomByte.asm",
+      "old_comment": "память RandomState/B7AB, состояние генератора",
+      "new_comment": "память RandomState/Game.Combat.NextRandomByte.RandomSeed + 1, состояние генератора"
+    },
+    {
+      "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+      "old_comment": "память FlightState.InvasionClock/70DD, счётчик",
+      "new_comment": "память FlightState.InvasionClock/FlightState.InvasionClock + 1, счётчик"
+    },
+    {
+      "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+      "old_comment": "При отрицательной кодировке переполнение сообщает состояние через CargoEvent/D0C8.",
+      "new_comment": "При отрицательной кодировке переполнение сообщает состояние через CargoEvent/CargoEvent + FFlightEvent.Token."
+    },
+    {
+      "file": "Source/Game/Combat/UpdateEcmAndDriveIndicators.asm",
+      "old_comment": "атрибуты 5AD5/5AD6 обновлены",
+      "new_comment": "атрибуты Memory.Attributes + #02D5/Memory.Attributes + #02D6 обновлены"
+    },
+    {
+      "file": "Source/Game/Data/SquareTables.asm",
+      "old_comment": "старший байт находится по #BF00 + n",
+      "new_comment": "старший байт находится по Game.Data.SquareTables.Entry + #0100 + n"
+    },
+    {
+      "file": "Source/Game/Disk/ReactionOnPrivateStack.asm",
+      "old_comment": "Сохраняет SP в операнд ReactionStack, временно использует 4220, прерывания самостоятельно не",
+      "new_comment": "Сохраняет SP в операнд ReactionStack, временно использует Memory.Screen + #0220, прерывания самостоятельно не"
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "old_comment": "Резервная станция с номером 8 допускается по энергии #606A и случайному биту",
+      "new_comment": "Резервная станция с номером 8 допускается по энергии Memory.Station + FSpaceObject.Energy и случайному биту"
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "old_comment": "переход, если знаки #7118 и IX+08 различаются, продолжить с Game.Data.SystemBoundaryAndObjects.ClampZ",
+      "new_comment": "переход, если знаки FlightState.Planet + 2 * FCoordinate + FCoordinate.SignHigh и IX+08 различаются, продолжить с Game.Data.SystemBoundaryAndObjects.ClampZ"
+    },
+    {
+      "file": "Source/Game/Extensions/PrintPlanetInvasionStatus.asm",
+      "old_comment": "Out: вне зоны возвращается HL=(DEBC), внутри печатается OCCUPIED либо RESISTING",
+      "new_comment": "Out: вне зоны возвращается HL=(GalaxyState.TargetSeed + FSystemSeed.GovBits), внутри печатается OCCUPIED либо RESISTING"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "old_comment": "Out: HL=#D0C9, состояние вторжения и код военного допуска скорректированы",
+      "new_comment": "Out: HL=FlightEvents + 6 * FFlightEvent + FFlightEvent.ColumnFlags, состояние вторжения и код военного допуска скорректированы"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "old_comment": "При A=7..11 создаётся Asp типа#0D, очередь CargoEvent/D0C8 получает #80/#F4, то есть запрос и токен предложения Cobra Mk4",
+      "new_comment": "При A=7..11 создаётся Asp типа#0D, очередь CargoEvent/CargoEvent + FFlightEvent.Token получает #80/#F4, то есть запрос и токен предложения Cobra Mk4"
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "old_comment": "Каждая строка получает одну запись и LDDR29 байтов, итого 450 ячеек от 5821 до 59FE",
+      "new_comment": "Каждая строка получает одну запись и LDDR29 байтов, итого 450 ячеек от Memory.Attributes + #0021 до Memory.Attributes + #01FE"
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "old_comment": "знако-модульный крен из FF09",
+      "new_comment": "знако-модульный крен из InputMotion.Roll + 1"
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "old_comment": "знако-модульный тангаж из FF0B",
+      "new_comment": "знако-модульный тангаж из InputMotion.Pitch + 1"
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "old_comment": "текущая скорость из FF0D",
+      "new_comment": "текущая скорость из InputMotion.Speed + 1"
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "old_comment": "сохранённый байт 4A перед координатами, Game.Travel.BuildPlanetCoordinateByte.Entry начинает запись только с 7109",
+      "new_comment": "сохранённый байт 4A перед координатами, Game.Travel.BuildPlanetCoordinateByte.Entry начинает запись только с FlightState.Sun + FCoordinate.SignHigh"
+    },
+    {
+      "file": "Source/Game/Flight/InitializeViewAttributes.asm",
+      "old_comment": "5820..59FF заполнены 07, HL=5A00,B=0",
+      "new_comment": "5820..59FF заполнены 07, HL=Memory.Attributes + #0200,B=0"
+    },
+    {
+      "file": "Source/Game/Flight/InitializeViewAttributes.asm",
+      "old_comment": "два прохода Game.Flight.Fill240Attributes.Entry заполняют 480 атрибутов от 5820",
+      "new_comment": "два прохода Game.Flight.Fill240Attributes.Entry заполняют 480 атрибутов от Memory.Attributes + #0020"
+    },
+    {
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "old_comment": "Game.Flight.MainGameLoop.SavedSP хранит начальный SP, #757A..#7582 содержат рабочие координаты светила",
+      "new_comment": "Game.Flight.MainGameLoop.SavedSP хранит начальный SP, BodyX, BodyY и BodyZ содержат рабочие координаты светила"
+    },
+    {
+      "file": "Source/Game/Flight/RebaseSunAgainstStation.asm",
+      "old_comment": "старшие слова трёх координат FlightState.Sun изменены, IX=6051,IY=FlightState.Planet",
+      "new_comment": "старшие слова трёх координат FlightState.Sun изменены, IX=Memory.Station + FSpaceObject.AxisX,IY=FlightState.Planet"
+    },
+    {
+      "file": "Source/Game/Flight/ReportBoardingAndReturnToTitle.asm",
+      "old_comment": "6065 поле станции,Game.Flight.MainGameLoop.SavedSP сохранённый SP",
+      "new_comment": "Memory.Station + FSpaceObject.Roll поле станции,Game.Flight.MainGameLoop.SavedSP сохранённый SP"
+    },
+    {
+      "file": "Source/Game/Flight/ResetFlightControls.asm",
+      "old_comment": "FF08..FF0C=0,FF0D=12, далее очистка клавиш Game.Flight.ClearFlightKeyEvents.Entry",
+      "new_comment": "FF08..FF0C=0,InputMotion.Speed + 1=12, далее очистка клавиш Game.Flight.ClearFlightKeyEvents.Entry"
+    },
+    {
+      "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+      "old_comment": "станции 6069",
+      "new_comment": "станции Memory.Station + FSpaceObject.Hostility"
+    },
+    {
+      "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+      "old_comment": "FF09/FF0B знако-модульные углы, FF0D скорость",
+      "new_comment": "InputMotion.Roll + 1/InputMotion.Pitch + 1 знако-модульные углы, InputMotion.Speed + 1 скорость"
+    },
+    {
+      "file": "Source/Game/Galaxy/AppendSystemNameSyllable.asm",
+      "old_comment": "DEC5 = источник индекса, GalaxyState.NameCursor = выходной указатель",
+      "new_comment": "GalaxyState.WorkingSeed + FSystemSeed.Syllable = источник индекса, GalaxyState.NameCursor = выходной указатель"
+    },
+    {
+      "file": "Source/Game/Galaxy/AppendSystemNameSyllable.asm",
+      "old_comment": "Индекс DEC5 AND31, нулевой индекс пропускает слог, таблица NameSyllables по 2 байта, второй символ 3F",
+      "new_comment": "Индекс GalaxyState.WorkingSeed + FSystemSeed.Syllable AND31, нулевой индекс пропускает слог, таблица NameSyllables по 2 байта, второй символ 3F"
+    },
+    {
+      "file": "Source/Game/Galaxy/DeriveSystemProperties.asm",
+      "old_comment": "e=DEC1&7, g=(DEC2>>3)&7, при g<2 устанавливается e bit1, t=(DEC3&3)+(e XOR7)+ceil(g/2),",
+      "new_comment": "e=GalaxyState.WorkingSeed + FSystemSeed.Y&7, g=(GalaxyState.WorkingSeed + FSystemSeed.GovBits>>3)&7, при g<2 устанавливается e bit1, t=(GalaxyState.WorkingSeed + FSystemSeed.X&3)+(e XOR7)+ceil(g/2),"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "Y [7] - флаг, клавиша Y, пара карты #FF9C",
+      "new_comment": "Y [7] - флаг, клавиша Y, пара карты KeyAssignments + 68"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "0 [6] - флаг, клавиша 0, пара карты #FF5E",
+      "new_comment": "0 [6] - флаг, клавиша 0, пара карты KeyAssignments + 6"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "I [5] - флаг, клавиша I, пара карты #FF7C",
+      "new_comment": "I [5] - флаг, клавиша I, пара карты KeyAssignments + 36"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "O [4] - флаг, клавиша O, пара карты #FF6C",
+      "new_comment": "O [4] - флаг, клавиша O, пара карты KeyAssignments + 20"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "P [3] - флаг, клавиша P, пара карты #FF5C",
+      "new_comment": "P [3] - флаг, клавиша P, пара карты KeyAssignments + 4"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "K [2] - флаг, клавиша K, пара карты #FF7A",
+      "new_comment": "K [2] - флаг, клавиша K, пара карты KeyAssignments + 34"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "L [1] - флаг, клавиша L, пара карты #FF6A",
+      "new_comment": "L [1] - флаг, клавиша L, пара карты KeyAssignments + 18"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "EN [0] - флаг, клавиша ENTER, пара карты #FF5A",
+      "new_comment": "EN [0] - флаг, клавиша ENTER, пара карты KeyAssignments + 2"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "SS [5] - флаг, клавиша SYMBOL SHIFT, пара карты #FF68",
+      "new_comment": "SS [5] - флаг, клавиша SYMBOL SHIFT, пара карты KeyAssignments + 16"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "S [3] - флаг, клавиша S, пара карты #FF74",
+      "new_comment": "S [3] - флаг, клавиша S, пара карты KeyAssignments + 28"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "X [2] - флаг, клавиша X, пара карты #FF86",
+      "new_comment": "X [2] - флаг, клавиша X, пара карты KeyAssignments + 46"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "M [1] - флаг, клавиша M, пара карты #FF78",
+      "new_comment": "M [1] - флаг, клавиша M, пара карты KeyAssignments + 32"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "N [0] - флаг, клавиша N, пара карты #FF88",
+      "new_comment": "N [0] - флаг, клавиша N, пара карты KeyAssignments + 48"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "CS [7] - флаг, клавиша CAPS SHIFT, пара карты #FF66",
+      "new_comment": "CS [7] - флаг, клавиша CAPS SHIFT, пара карты KeyAssignments + 14"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "J [6] - флаг, клавиша J, пара карты #FF8A",
+      "new_comment": "J [6] - флаг, клавиша J, пара карты KeyAssignments + 50"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "G [5] - флаг, клавиша G, пара карты #FFA4",
+      "new_comment": "G [5] - флаг, клавиша G, пара карты KeyAssignments + 76"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "H [4] - флаг, клавиша H, пара карты #FF9A",
+      "new_comment": "H [4] - флаг, клавиша H, пара карты KeyAssignments + 66"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "4 [3] - флаг, клавиша 4, пара карты #FF90",
+      "new_comment": "4 [3] - флаг, клавиша 4, пара карты KeyAssignments + 56"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "3 [2] - флаг, клавиша 3, пара карты #FF80",
+      "new_comment": "3 [2] - флаг, клавиша 3, пара карты KeyAssignments + 40"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "2 [1] - флаг, клавиша 2, пара карты #FF70",
+      "new_comment": "2 [1] - флаг, клавиша 2, пара карты KeyAssignments + 24"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "1 [0] - флаг, клавиша 1, пара карты #FF60",
+      "new_comment": "1 [0] - флаг, клавиша 1, пара карты KeyAssignments + 8"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "C [7] - флаг, клавиша C, пара карты #FF96",
+      "new_comment": "C [7] - флаг, клавиша C, пара карты KeyAssignments + 62"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "Q [6] - флаг, клавиша Q, пара карты #FF62",
+      "new_comment": "Q [6] - флаг, клавиша Q, пара карты KeyAssignments + 10"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "W [5] - флаг, клавиша W, пара карты #FF72",
+      "new_comment": "W [5] - флаг, клавиша W, пара карты KeyAssignments + 26"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "E [4] - флаг, клавиша E, пара карты #FF82",
+      "new_comment": "E [4] - флаг, клавиша E, пара карты KeyAssignments + 42"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "U [3] - флаг, клавиша U, пара карты #FF8C",
+      "new_comment": "U [3] - флаг, клавиша U, пара карты KeyAssignments + 52"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "F [2] - флаг, клавиша F, пара карты #FF94",
+      "new_comment": "F [2] - флаг, клавиша F, пара карты KeyAssignments + 60"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "T [1] - флаг, клавиша T, пара карты #FFA2",
+      "new_comment": "T [1] - флаг, клавиша T, пара карты KeyAssignments + 74"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "A [0] - флаг, клавиша A, пара карты #FF64",
+      "new_comment": "A [0] - флаг, клавиша A, пара карты KeyAssignments + 12"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "R [6] - флаг, клавиша R, пара карты #FF92",
+      "new_comment": "R [6] - флаг, клавиша R, пара карты KeyAssignments + 58"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "D [5] - флаг, клавиша D, пара карты #FF84",
+      "new_comment": "D [5] - флаг, клавиша D, пара карты KeyAssignments + 44"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "B [4] - флаг, клавиша B, пара карты #FF98",
+      "new_comment": "B [4] - флаг, клавиша B, пара карты KeyAssignments + 64"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "7 [4] - флаг, клавиша 7, пара карты #FF8E",
+      "new_comment": "7 [4] - флаг, клавиша 7, пара карты KeyAssignments + 54"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "6 [3] - флаг, клавиша 6, пара карты #FF9E",
+      "new_comment": "6 [3] - флаг, клавиша 6, пара карты KeyAssignments + 70"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "8 [2] - флаг, клавиша 8, пара карты #FF7E",
+      "new_comment": "8 [2] - флаг, клавиша 8, пара карты KeyAssignments + 38"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "5 [1] - флаг, клавиша 5, пара карты #FFA0",
+      "new_comment": "5 [1] - флаг, клавиша 5, пара карты KeyAssignments + 72"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "old_comment": "9 [0] - флаг, клавиша 9, пара карты #FF6E",
+      "new_comment": "9 [0] - флаг, клавиша 9, пара карты KeyAssignments + 22"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode2.asm",
+      "old_comment": "выбор режима IM2 с таблицей в странице #FD00",
+      "new_comment": "выбор режима IM2 со старшим байтом адреса таблицы #FD"
+    },
+    {
+      "file": "Source/Game/Math/NextRandom.asm",
+      "old_comment": "три последовательных слова состояния по адресам Memory.RandomSeed, #DEC2, #DEC4",
+      "new_comment": "три последовательных слова состояния по адресам Memory.RandomSeed, GalaxyState.WorkingSeed + FSystemSeed.GovBits, GalaxyState.WorkingSeed + FSystemSeed.MixLow"
+    },
+    {
+      "file": "Source/Game/Math/NextRandom.asm",
+      "old_comment": "каждый вызов меняет состояние, один XOR загрузчика также попадает в #DEC2",
+      "new_comment": "каждый вызов меняет состояние, один XOR загрузчика также попадает в GalaxyState.WorkingSeed + FSystemSeed.GovBits"
+    },
+    {
+      "file": "Source/Game/Math/Square.asm",
+      "old_comment": "старшие байты находятся в странице #BF00",
+      "new_comment": "старшие байты находятся в странице Game.Data.SquareTables.Entry + #0100"
+    },
+    {
+      "file": "Source/Game/Menus/BlankLineAndEconomyText.asm",
+      "old_comment": "выбирает токен BC/F7 по старшему биту DEBE для типа населения",
+      "new_comment": "выбирает токен BC/F7 по старшему биту GalaxyState.TargetSeed + FSystemSeed.MixLow для типа населения"
+    },
+    {
+      "file": "Source/Game/Menus/LocalSystemPixelPosition.asm",
+      "old_comment": "DEC1/DEC3 = координаты планеты, State.SystemSeed + FSystemSeed.Y/State.SystemSeed + FSystemSeed.X = центр",
+      "new_comment": "GalaxyState.WorkingSeed + FSystemSeed.Y/GalaxyState.WorkingSeed + FSystemSeed.X = координаты планеты, State.SystemSeed + FSystemSeed.Y/State.SystemSeed + FSystemSeed.X = центр"
+    },
+    {
+      "file": "Source/Game/Menus/LocalSystemPixelPosition.asm",
+      "old_comment": "из DEC5 и сам продвигает семя, ED59..ED5F таблица данных",
+      "new_comment": "из GalaxyState.WorkingSeed + FSystemSeed.Syllable и сам продвигает семя, ED59..ED5F таблица данных"
+    },
+    {
+      "file": "Source/Game/Menus/MapCaptionAndGalaxyChart.asm",
+      "old_comment": "Game.Menus.MapCaptionAndGalaxyChart.Entry печатает заголовок, заполняет 64 атрибута цветом 17 и рисует линию 4740, EB7D задаёт",
+      "new_comment": "Game.Menus.MapCaptionAndGalaxyChart.Entry печатает заголовок, заполняет 64 атрибута цветом 17 и рисует линию Memory.Screen + #0740, EB7D задаёт"
+    },
+    {
+      "file": "Source/Game/Menus/PlotGalaxySystem.asm",
+      "old_comment": "DEC1 = Y семени, DEC3 = X семени",
+      "new_comment": "GalaxyState.WorkingSeed + FSystemSeed.Y = Y семени, GalaxyState.WorkingSeed + FSystemSeed.X = X семени"
+    },
+    {
+      "file": "Source/Game/Menus/PlotGalaxySystem.asm",
+      "old_comment": "Координаты передаются ROM22AA как B=24+(127-(DEC1>>1)), C=DEC3, результат A задаёт номер",
+      "new_comment": "Координаты передаются ROM22AA как B=24+(127-(GalaxyState.WorkingSeed + FSystemSeed.Y>>1)), C=GalaxyState.WorkingSeed + FSystemSeed.X, результат A задаёт номер"
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "old_comment": "При State.RankState=0 сравнивает D061 с порогами 08, 10, 20, 40, 80, FF, иначе State.RankState с 02, 0A, 19, FF,",
+      "new_comment": "При State.RankState=0 сравнивает State.Rating + 1 с порогами 08, 10, 20, 40, 80, FF, иначе State.RankState с 02, 0A, 19, FF,"
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemRadius.asm",
+      "old_comment": "DEBE = последнее слово семени, DEBC = среднее",
+      "new_comment": "GalaxyState.TargetSeed + FSystemSeed.MixLow = последнее слово семени, GalaxyState.TargetSeed + FSystemSeed.GovBits = среднее"
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemRadius.asm",
+      "old_comment": "Напечатано 256*((DEBF&15)+11)+DEBD",
+      "new_comment": "Напечатано 256*((GalaxyState.TargetSeed + FSystemSeed.Syllable&15)+11)+DEBD"
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemRadius.asm",
+      "old_comment": "Старший байт радиуса строится из младших 4 бит DEBF, младший равен DEBD, формат целый и",
+      "new_comment": "Старший байт радиуса строится из младших 4 бит GalaxyState.TargetSeed + FSystemSeed.Syllable, младший равен GalaxyState.TargetSeed + FSystemSeed.X, формат целый и"
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemStatistics.asm",
+      "old_comment": "Показана статистика, подготовлены семена описания GalaxyState.TextSeed/DECE",
+      "new_comment": "Показана статистика, подготовлены семена описания GalaxyState.TextSeed/GalaxyState.TextSeed + 2"
+    },
+    {
+      "file": "Source/Game/Missions/DispatchMissionEvents.asm",
+      "old_comment": "ненулевой запас и указатель прибора обнулены, #D0CF.7 установлен",
+      "new_comment": "ненулевой запас и указатель прибора обнулены, FlightEvents + 9 * FFlightEvent + FFlightEvent.ColumnFlags.7 установлен"
+    },
+    {
+      "file": "Source/Game/Missions/DispatchMissionEvents.asm",
+      "old_comment": "ненулевая сумма прибавлена к деньгам, FlightMessage.Reward хранит сумму, #D0C5.7 установлен",
+      "new_comment": "ненулевая сумма прибавлена к деньгам, FlightMessage.Reward хранит сумму, FlightEvents + 4 * FFlightEvent + FFlightEvent.ColumnFlags.7 установлен"
+    },
+    {
+      "file": "Source/Game/Missions/DispatchRatingAndMissionEnd.asm",
+      "old_comment": "только перенос из младшего слова запускает Game.Extensions.UpdateInvasionOnRatingOverflow.Entry и событие #D0C9",
+      "new_comment": "только перенос из младшего слова запускает Game.Extensions.UpdateInvasionOnRatingOverflow.Entry и событие FlightEvents + 6 * FFlightEvent + FFlightEvent.ColumnFlags"
+    },
+    {
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "old_comment": "при переносе старший байт увеличен, обработаны вторжение и событие #D0C9",
+      "new_comment": "при переносе старший байт увеличен, обработаны вторжение и событие FlightEvents + 6 * FFlightEvent + FFlightEvent.ColumnFlags"
+    },
+    {
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "old_comment": "иначе CashLow/CashHigh увеличены, FlightMessage.Reward содержит исходную сумму, #D0C5.7=1",
+      "new_comment": "иначе CashLow/CashHigh увеличены, FlightMessage.Reward содержит исходную сумму, FlightEvents + 4 * FFlightEvent + FFlightEvent.ColumnFlags.7=1"
+    },
+    {
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "old_comment": "после повреждения создаётся событие #D0C3 и код предмета в FlightMessage.DamagedItem, обновляются цвета приборов",
+      "new_comment": "после повреждения создаётся событие FlightEvents + 3 * FFlightEvent + FFlightEvent.ColumnFlags и код предмета в FlightMessage.DamagedItem, обновляются цвета приборов"
+    },
+    {
+      "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+      "old_comment": "формирование события подбора с текстовым кодом в очереди CargoEvent/D0C8",
+      "new_comment": "формирование события подбора с текстовым кодом в очереди CargoEvent/CargoEvent + FFlightEvent.Token"
+    },
+    {
+      "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+      "old_comment": "CargoEvent=#8B, #D0C8=входное A",
+      "new_comment": "CargoEvent=#8B, CargoEvent + FFlightEvent.Token=входное A"
+    },
+    {
+      "file": "Source/Game/Motion/SquareVectorComponent.asm",
+      "old_comment": "Таблицы Game.Data.SquareTables.Entry/#BF00 содержат младшие и старшие байты квадратов.",
+      "new_comment": "Таблицы Game.Data.SquareTables.Entry/Game.Data.SquareTables.Entry + #0100 содержат младшие и старшие байты квадратов."
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "old_comment": "проверка выделенного ракетного слота Memory.Station + #0111",
+      "new_comment": "проверка выделенного ракетного слота Memory.Missile"
+    },
+    {
+      "file": "Source/Game/Resources/CockpitAttrs.asm",
+      "old_comment": "PrnCockpit по Game.Screen.RestoreCockpit.Entry копирует буфер в видеопамять #5A00",
+      "new_comment": "PrnCockpit по Game.Screen.RestoreCockpit.Entry копирует буфер в видеопамять Memory.Attributes + #0200"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "old_comment": "расчёт байта и бита основания относительно центра 558F",
+      "new_comment": "расчёт байта и бита основания относительно центра Memory.Screen + #158F"
+    },
+    {
+      "file": "Source/Game/Scanner/SetCockpitDeviceAttributes.asm",
+      "old_comment": "Виды 0..3 используют 5A23, прочие 5B23, второе поле смещено на 21 столбец",
+      "new_comment": "Виды 0..3 используют Memory.Attributes + #0223, прочие Memory.Attributes + #0323, второе поле смещено на 21 столбец"
+    },
+    {
+      "file": "Source/Game/Screen/CompassShape.asm",
+      "old_comment": "HL, адрес изображения Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons, #6F19 или #6F21",
+      "new_comment": "HL, адрес изображения Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons, Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons + 8 или Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons + 16"
+    },
+    {
+      "file": "Source/Game/Screen/CompassShape.asm",
+      "old_comment": "иначе бит 0 по InputPhase выбирает #6F19 или #6F21, в InputViewSkip записывается #02",
+      "new_comment": "иначе бит 0 по InputPhase выбирает Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons + 8 или Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons + 16, в InputViewSkip записывается #02"
+    },
+    {
+      "file": "Source/Game/Screen/DrawFilledCircle.asm",
+      "old_comment": "большой круг рисуется с запрещёнными прерываниями, общий выход #86EC включает EI",
+      "new_comment": "большой круг рисуется с запрещёнными прерываниями, общий хвост Game.Screen.DrawLargeOutline.Entry включает EI"
+    },
+    {
+      "file": "Source/Game/Screen/RestoreCockpit.asm",
+      "old_comment": "кабина в Memory.Screen + #1000, атрибуты в #5A00",
+      "new_comment": "кабина в Memory.Screen + #1000, атрибуты в Memory.Attributes + #0200"
+    },
+    {
+      "file": "Source/Game/Screen/SaveCockpit.asm",
+      "old_comment": "экран Memory.Screen + #1000 и атрибуты #5A00 содержат кабину",
+      "new_comment": "экран Memory.Screen + #1000 и атрибуты Memory.Attributes + #0200 содержат кабину"
+    },
+    {
+      "file": "Source/Game/Screen/SunDistanceHint.asm",
+      "old_comment": "вариант исполнения #8401, RLCA",
+      "new_comment": "байт операнда Game.Screen.SunDistanceHint.Entry при проходе от планетного входа исполняется как RLCA"
+    },
+    {
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "old_comment": "квадраты старших байтов берутся из таблицы Game.Data.SquareTables.Entry/#BF00",
+      "new_comment": "квадраты старших байтов берутся из таблицы Game.Data.SquareTables.Entry/Game.Data.SquareTables.Entry + #0100"
+    },
+    {
+      "file": "Source/Game/Sound/StepDataTone.asm",
+      "old_comment": "ToneShift/#95F3 - изменяемая первая операция преобразования отсчёта",
+      "new_comment": "ToneShift/ToneShift + 1 - изменяемая первая операция преобразования отсчёта"
+    },
+    {
+      "file": "Source/Game/Text/ApplyAttributeRuns.asm",
+      "old_comment": "Выбранные участки атрибутов равны 5, байты 5822/5823 равны 7",
+      "new_comment": "Выбранные участки атрибутов равны 5, байты Memory.Attributes + #0022/Memory.Attributes + #0023 равны 7"
+    },
+    {
+      "file": "Source/Game/Text/ApplyAttributeRuns.asm",
+      "old_comment": "Начало 5841, старшие 5 бит команды задают длину заливки, младшие 3 бита число строк до",
+      "new_comment": "Начало Memory.Attributes + #0041, старшие 5 бит команды задают длину заливки, младшие 3 бита число строк до"
+    },
+    {
+      "file": "Source/Game/Text/CheckObjectRandomGate.asm",
+      "old_comment": "D061, часть рейтинга",
+      "new_comment": "State.Rating + 1, часть рейтинга"
+    },
+    {
+      "file": "Source/Game/Text/CheckObjectRandomGate.asm",
+      "old_comment": "Два младших бита результата Game.Combat.NextRandomByte.Entry дают ранний отказ при 0, иначе вычисляется(D061 OR [IX+27])",
+      "new_comment": "Два младших бита результата Game.Combat.NextRandomByte.Entry дают ранний отказ при 0, иначе вычисляется(State.Rating + 1 OR [IX+27])"
+    },
+    {
+      "file": "Source/Game/Text/CheckSavedSystemRegion.asm",
+      "old_comment": "DEC7/DEC9 = координаты, после CALL требуется один встроенный байт",
+      "new_comment": "GalaxyState.SavedSeed + FSystemSeed.Y/GalaxyState.SavedSeed + FSystemSeed.X = координаты, после CALL требуется один встроенный байт"
+    },
+    {
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "old_comment": "после DEC L/LD H,#D7 получается база первой таблицы #D7F1",
+      "new_comment": "после DEC L/LD H,#D7 получается база таблицы управляющих команд основной печати"
+    },
+    {
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "old_comment": "вариант исполнения #D7E5, NOP",
+      "new_comment": "нулевой байт операнда Game.Text.DrawProjectedSunAndTextDispatch.DescCommand исполняется как NOP при основном входе"
+    },
+    {
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "old_comment": "токен 0 основной таблицы, младший байт пустого обработчика #D884",
+      "new_comment": "токен 0 основной таблицы выбирает RET в конце Game.Text.CapitalizeNextLetterAndTextCommands.Entry"
+    },
+    {
+      "file": "Source/Game/Text/DrawViewFrame.asm",
+      "old_comment": "линия 57E0, D673/D674 после RET являются отдельными байтами",
+      "new_comment": "линия Memory.Screen + #17E0, D673/D674 после RET являются отдельными байтами"
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "old_comment": "переход, если тип объекта равен 3C, выполнить обработку специальной станции",
+      "new_comment": "переход, если летящий объект использует модель Sidewinder, обработать высадку десанта"
+    },
+    {
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "old_comment": "GalaxyState.TextSeed/DECE = два слова состояния",
+      "new_comment": "GalaxyState.TextSeed/GalaxyState.TextSeed + 2 = два слова состояния"
+    },
+    {
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "old_comment": "GalaxyState.TextSeed = сумма, DECE = преобразованное старое первое слово, A = старший байт суммы",
+      "new_comment": "GalaxyState.TextSeed = сумма, GalaxyState.TextSeed + 2 = преобразованное старое первое слово, A = старший байт суммы"
+    },
+    {
+      "file": "Source/Game/Text/SetPromptAttributes.asm",
+      "old_comment": "Тридцать байт от 5AA1 равны 5",
+      "new_comment": "Тридцать байт от Memory.Attributes + #02A1 равны 5"
+    },
+    {
+      "file": "Source/Game/Trade/RestoreTextPosition.asm",
+      "old_comment": "MarketWork.TextPosition/E1E7 = сохранённая позиция",
+      "new_comment": "MarketWork.TextPosition/MarketWork.TextPosition + 1 = сохранённая позиция"
+    },
+    {
+      "file": "Source/Game/Trade/SaveTextPosition.asm",
+      "old_comment": "MarketWork.TextPosition/E1E7 = копия позиции, HL = позиция",
+      "new_comment": "MarketWork.TextPosition/MarketWork.TextPosition + 1 = копия позиции, HL = позиция"
+    },
+    {
+      "file": "Source/Game/Travel/BuildPlanetCoordinateMagnitude.asm",
+      "old_comment": "7118 с продолжением Game.Travel.BuildStationGeometry.Entry",
+      "new_comment": "FlightState.Planet + 2 * FCoordinate + FCoordinate.SignHigh с продолжением Game.Travel.BuildStationGeometry.Entry"
+    },
+    {
+      "file": "Source/Game/Travel/EmptyFuelWithWarning.asm",
+      "old_comment": "При ненулевом запасе бит 7 D0CF установлен и топливо обнулено",
+      "new_comment": "При ненулевом запасе бит 7 FlightEvents + 9 * FFlightEvent + FFlightEvent.ColumnFlags установлен и топливо обнулено"
+    },
+    {
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "old_comment": "переход, если номер текущей галактики меньше порога события, пропустить выдачу миссии",
+      "new_comment": "переход, если FlightState.RandomByte больше половины разности 7 - State.Government, пропустить событие полиции"
+    },
+    {
+      "file": "Source/Game/Travel/SetFuelAndGauge.asm",
+      "old_comment": "и рабочих переменных до DF02",
+      "new_comment": "и рабочих переменных до GalaxyState.NameCursor + 1"
+    },
+    {
+      "file": "Source/Game/Universe/AwardUnlinkedDestructionBounty.asm",
+      "old_comment": "при нулевой сумме событие не создаётся, иначе сумма записывается в FlightMessage.Reward и ставится #D0C5.7",
+      "new_comment": "при нулевой сумме событие не создаётся, иначе сумма записывается в FlightMessage.Reward и ставится FlightEvents + 4 * FFlightEvent + FFlightEvent.ColumnFlags.7"
+    },
+    {
+      "file": "Source/Game/Universe/CheckSpecialSystemOrRandom.asm",
+      "old_comment": "При Z очищает #6048..#604F, задаёт #6050=1, энергию #606A=#F0 и State.Mission3=4.",
+      "new_comment": "При Z очищает #6048..#604F, задаёт Memory.Station + FSpaceObject.Z.SignHigh=1, энергию Memory.Station + FSpaceObject.Energy=#F0 и State.Mission3=4."
+    },
+    {
+      "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+      "old_comment": "При определённом общем признаке возвращает состояние энергии станции 606A.",
+      "new_comment": "При определённом общем признаке возвращает состояние энергии станции Memory.Station + FSpaceObject.Energy."
+    },
+    {
+      "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+      "old_comment": "после LD A,(HL) записывает L в Game.Extensions.PrintCargoAndMessageBanks.PulseLaserTail и H в #F3D9, затем выполняет HALT и RET",
+      "new_comment": "после LD A,(HL) записывает L в Game.Extensions.PrintCargoAndMessageBanks.PulseLaserTail и H в Game.Extensions.PrintCargoAndMessageBanks.PulseLaserTail + 1, затем выполняет HALT и RET"
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyBytesApprox.asm",
+      "old_comment": "Таблицы Game.Data.SquareTables.Entry/#BF00 разделяют младшие и старшие байты квадратов.",
+      "new_comment": "Таблицы Game.Data.SquareTables.Entry/Game.Data.SquareTables.Entry + #0100 разделяют младшие и старшие байты квадратов."
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyHighByteApprox.asm",
+      "old_comment": "Вычитаются только старшие байты квадратов #BF00, заём младших байтов не учитывается.",
+      "new_comment": "Вычитаются только старшие байты квадратов Game.Data.SquareTables.Entry + #0100, заём младших байтов не учитывается."
+    },
+    {
+      "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+      "old_comment": "Таблица ScannerAttrs задаёт адреса #5A00+(смещение+1), завершается FF.",
+      "new_comment": "Таблица ScannerAttrs задаёт адреса Memory.Attributes + #0200+(смещение+1), завершается FF."
+    }
+  ],
+  "verified_expressions": {
+    "4220": "Memory.Screen + #0220",
+    "4740": "Memory.Screen + #0740",
+    "558F": "Memory.Screen + #158F",
+    "57E0": "Memory.Screen + #17E0",
+    "604F": "Memory.Station + FSpaceObject.Z.Low",
+    "6050": "Memory.Station + FSpaceObject.Z.SignHigh",
+    "6051": "Memory.Station + FSpaceObject.AxisX",
+    "6065": "Memory.Station + FSpaceObject.Roll",
+    "6069": "Memory.Station + FSpaceObject.Hostility",
+    "606A": "Memory.Station + FSpaceObject.Energy",
+    "6F19": "Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons + 8",
+    "6F21": "Game.Extensions.PrintEquipmentAndSelectIcon.ModeIcons + 16",
+    "70DD": "FlightState.InvasionClock + 1",
+    "7109": "FlightState.Sun + FCoordinate.SignHigh",
+    "7118": "FlightState.Planet + 2 * FCoordinate + FCoordinate.SignHigh",
+    "7393": "DistantSigns + 5",
+    "7579": "Game.Flight.MainGameLoop.SavedSP + 1",
+    "8624": "CircleState.SavedSP + 1",
+    "8626": "CircleState.Radicand + 1",
+    "8FB5": "Game.Circles.PatchCircleScreenTarget.CircleFillData.Reserved + 1",
+    "8FB7": "CircleFillWord + 1",
+    "95F3": "ToneShift + 1",
+    "B7AB": "Game.Combat.NextRandomByte.RandomSeed + 1",
+    "BF00": "Game.Data.SquareTables.Entry + #0100",
+    "D061": "State.Rating + 1",
+    "D0C3": "FlightEvents + 3 * FFlightEvent + FFlightEvent.ColumnFlags",
+    "D0C5": "FlightEvents + 4 * FFlightEvent + FFlightEvent.ColumnFlags",
+    "D0C8": "CargoEvent + FFlightEvent.Token",
+    "D0C9": "FlightEvents + 6 * FFlightEvent + FFlightEvent.ColumnFlags",
+    "D0CF": "FlightEvents + 9 * FFlightEvent + FFlightEvent.ColumnFlags",
+    "DECE": "GalaxyState.TextSeed + 2",
+    "DF02": "GalaxyState.NameCursor + 1",
+    "E1E7": "MarketWork.TextPosition + 1",
+    "F3D9": "Game.Extensions.PrintCargoAndMessageBanks.PulseLaserTail + 1",
+    "FF09": "InputMotion.Roll + 1",
+    "FF0B": "InputMotion.Pitch + 1",
+    "FF0D": "InputMotion.Speed + 1",
+    "5820": "Memory.Attributes + #0020",
+    "5821": "Memory.Attributes + #0021",
+    "5822": "Memory.Attributes + #0022",
+    "5823": "Memory.Attributes + #0023",
+    "5841": "Memory.Attributes + #0041",
+    "59FE": "Memory.Attributes + #01FE",
+    "59FF": "Memory.Attributes + #01FF",
+    "5A00": "Memory.Attributes + #0200",
+    "5A23": "Memory.Attributes + #0223",
+    "5AA1": "Memory.Attributes + #02A1",
+    "5AD5": "Memory.Attributes + #02D5",
+    "5AD6": "Memory.Attributes + #02D6",
+    "5AFF": "Memory.Attributes + #02FF",
+    "5B1F": "Memory.Attributes + #031F",
+    "5B23": "Memory.Attributes + #0323",
+    "DEBA": "GalaxyState.TargetSeed + FSystemSeed.NameBits",
+    "DEBB": "GalaxyState.TargetSeed + FSystemSeed.Y",
+    "DEBC": "GalaxyState.TargetSeed + FSystemSeed.GovBits",
+    "DEBD": "GalaxyState.TargetSeed + FSystemSeed.X",
+    "DEBE": "GalaxyState.TargetSeed + FSystemSeed.MixLow",
+    "DEBF": "GalaxyState.TargetSeed + FSystemSeed.Syllable",
+    "DEC0": "GalaxyState.WorkingSeed + FSystemSeed.NameBits",
+    "DEC1": "GalaxyState.WorkingSeed + FSystemSeed.Y",
+    "DEC2": "GalaxyState.WorkingSeed + FSystemSeed.GovBits",
+    "DEC3": "GalaxyState.WorkingSeed + FSystemSeed.X",
+    "DEC4": "GalaxyState.WorkingSeed + FSystemSeed.MixLow",
+    "DEC5": "GalaxyState.WorkingSeed + FSystemSeed.Syllable",
+    "DEC6": "GalaxyState.SavedSeed + FSystemSeed.NameBits",
+    "DEC7": "GalaxyState.SavedSeed + FSystemSeed.Y",
+    "DEC8": "GalaxyState.SavedSeed + FSystemSeed.GovBits",
+    "DEC9": "GalaxyState.SavedSeed + FSystemSeed.X",
+    "DECA": "GalaxyState.SavedSeed + FSystemSeed.MixLow",
+    "DECB": "GalaxyState.SavedSeed + FSystemSeed.Syllable",
+    "FF58": "KeyAssignments",
+    "FF5A": "KeyAssignments + 2",
+    "FF5C": "KeyAssignments + 4",
+    "FF5E": "KeyAssignments + 6",
+    "FF60": "KeyAssignments + 8",
+    "FF62": "KeyAssignments + 10",
+    "FF64": "KeyAssignments + 12",
+    "FF66": "KeyAssignments + 14",
+    "FF68": "KeyAssignments + 16",
+    "FF6A": "KeyAssignments + 18",
+    "FF6C": "KeyAssignments + 20",
+    "FF6E": "KeyAssignments + 22",
+    "FF70": "KeyAssignments + 24",
+    "FF72": "KeyAssignments + 26",
+    "FF74": "KeyAssignments + 28",
+    "FF76": "KeyAssignments + 30",
+    "FF78": "KeyAssignments + 32",
+    "FF7A": "KeyAssignments + 34",
+    "FF7C": "KeyAssignments + 36",
+    "FF7E": "KeyAssignments + 38",
+    "FF80": "KeyAssignments + 40",
+    "FF82": "KeyAssignments + 42",
+    "FF84": "KeyAssignments + 44",
+    "FF86": "KeyAssignments + 46",
+    "FF88": "KeyAssignments + 48",
+    "FF8A": "KeyAssignments + 50",
+    "FF8C": "KeyAssignments + 52",
+    "FF8E": "KeyAssignments + 54",
+    "FF90": "KeyAssignments + 56",
+    "FF92": "KeyAssignments + 58",
+    "FF94": "KeyAssignments + 60",
+    "FF96": "KeyAssignments + 62",
+    "FF98": "KeyAssignments + 64",
+    "FF9A": "KeyAssignments + 66",
+    "FF9C": "KeyAssignments + 68",
+    "FF9E": "KeyAssignments + 70",
+    "FFA0": "KeyAssignments + 72",
+    "FFA2": "KeyAssignments + 74",
+    "FFA4": "KeyAssignments + 76",
+    "FFA6": "KeyAssignments + 78",
+    "86FB": "Game.Circles.DispatchClippedCircle.Entry + #0D",
+    "8714": "Game.Circles.DispatchClippedCircle.FinishCenterX + #06",
+    "871A": "Game.Circles.DispatchClippedCircle.FinishCenterX + #0C",
+    "873B": "Game.Circles.DispatchClippedCircle.InnerCenter + #05",
+    "8744": "Game.Circles.DispatchClippedCircle.CheckHalfWidth + #05",
+    "87FF": "Game.Circles.DrawWideCircleAcrossBothSides.FarSideLimit + #01",
+    "8804": "Game.Circles.DrawWideCircleAcrossBothSides.SaveFarLimit + #02",
+    "889A": "Game.Circles.DrawOneSideClippedCircle.SideLimit + #02",
+    "8FDE": "Game.Circles.SetRightContourBoundary.Entry + #04",
+    "89B3": "Game.Circles.PrepareLeftClippedCircle.Entry + #12",
+    "8A1B": "Game.Circles.PrepareBothClippedCoordinates.Entry + #05",
+    "8FFD": "Game.Circles.SetBothContourBoundaries.Entry + #04",
+    "9008": "Game.Circles.SkipViewportRowsUp.Entry + #04",
+    "900C": "Game.Circles.SkipViewportRowsUp.Entry + #08",
+    "900D": "Game.Circles.SkipViewportRowsUp.Entry + #09",
+    "902D": "Game.Circles.SkipViewportRowsUp.CheckTop + #02",
+    "9036": "Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #04",
+    "903A": "Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #08",
+    "903B": "Game.Circles.SkipRowsDownAndDrawCircleContours.Entry + #09",
+    "905B": "Game.Circles.SkipRowsDownAndDrawCircleContours.CheckSkipLimit + #02",
+    "9075": "Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutBottom + #01",
+    "906E": "Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc + #0E",
+    "9106": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothArc + #0B",
+    "910D": "Game.Circles.SkipRowsDownAndDrawCircleContours.BothArcBottom + #01",
+    "9209": "Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutBottom + #01",
+    "9202": "Game.Circles.SkipRowsDownAndDrawCircleContours.LeftCutArc + #0E",
+    "89DB": "CircleRaster.LeftBuffer + 1",
+    "89FC": "CircleRaster.RightBuffer + 1"
+  },
+  "code_hashes": [
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "code_sha256": "185fda4ec2e361409e255e8318d025470aed38fbda64b4414bac2e4d4c459259"
+    },
+    {
+      "file": "Source/Game/Circles/IntegerCircleCathetus.asm",
+      "code_sha256": "493993d17cf2e3ec44f308cf2e4bc81224990ee3c9965584d0899df8c272420d"
+    },
+    {
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "code_sha256": "80c7c978f948012f011f299b1b32449b7d80168e98deffbfa15366eaaaff4eb1"
+    },
+    {
+      "file": "Source/Game/Combat/NextRandomByte.asm",
+      "code_sha256": "c2434b1563b2d0f6a89a3d506151e30af8fac28008a573f130a0586e623719ec"
+    },
+    {
+      "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+      "code_sha256": "f7d29a3ff3cc8fb7ad4c31129f489a467a879f771a63fd06320f99aaf459754e"
+    },
+    {
+      "file": "Source/Game/Combat/UpdateEcmAndDriveIndicators.asm",
+      "code_sha256": "021405369c0f79b34bc60f3715e209cb1d89e0646e729d90b46bf4148f7f84f2"
+    },
+    {
+      "file": "Source/Game/Data/SquareTables.asm",
+      "code_sha256": "f9ab602ea0b45c6926ca724a94bf26ac2bcc3726d36fb657a3648327b7ac14b2"
+    },
+    {
+      "file": "Source/Game/Disk/ReactionOnPrivateStack.asm",
+      "code_sha256": "55ced7593a01f1d5fc0f6e354eb5788d46b9bfc10caa58069aa0fcaf9682c67a"
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "code_sha256": "08836d8fc77bce42841e19fbd7db576c163c4000d0ee09a35bedba628fd21a1b"
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "code_sha256": "a86f2e5e310360004950d0a78de1e4a269257b666e894a6e8b9a460dc1fb9791"
+    },
+    {
+      "file": "Source/Game/Extensions/PrintPlanetInvasionStatus.asm",
+      "code_sha256": "a176c0ee0cab38c9ee8889b2a4b25fff30f36e910078c07d6cf4a16468fc5fa6"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "code_sha256": "68ee12f24ca73d1e594e84f315945ac5b83db56a2fd3791c031b6894d123dcb6"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "code_sha256": "a48db6f56f53d9cec150a91d7d5087cd1c5f299f7f14c9df630b03e44d393317"
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "code_sha256": "473c8caad9bd7ea84f7b566046cf463c09e7ac7c2f2b2b4fc301122bfa03dfe2"
+    },
+    {
+      "file": "Source/Game/Flight/InitializeViewAttributes.asm",
+      "code_sha256": "5207f8b2cf521f66b6e5f42a58b5b76cbccd06b7985066cc83afe77be8c70956"
+    },
+    {
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "code_sha256": "2cd06e3c1350df07e2ff37bc9a8f08338a14451cc8aae7f816d1470a0859248d"
+    },
+    {
+      "file": "Source/Game/Flight/RebaseSunAgainstStation.asm",
+      "code_sha256": "62bdbd5984f25cf4f6f697cb68e54e7c1a77d9863b40f44828fd499091354f0e"
+    },
+    {
+      "file": "Source/Game/Flight/ReportBoardingAndReturnToTitle.asm",
+      "code_sha256": "74409c2b22c53c636fd521469154cafd369cba85484a6208096539a0880ac39d"
+    },
+    {
+      "file": "Source/Game/Flight/ResetFlightControls.asm",
+      "code_sha256": "c09d180aa60ffb8e58b8e54d36fdd8f058a0fe12ab47d00d4a0624c6427227a5"
+    },
+    {
+      "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+      "code_sha256": "02d7079116c8e70158dcf8561fbe6e0db73212c6a56b65a2f9e5e117410e18e7"
+    },
+    {
+      "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+      "code_sha256": "9893c9ac805fab98cdb8402da0128eb6770f957dec66e9c27e956b73fd3edfa4"
+    },
+    {
+      "file": "Source/Game/Galaxy/AppendSystemNameSyllable.asm",
+      "code_sha256": "144cbb02082427c4858998709a0a38d7f6dc9b9cdb12a0573e757a3b9de6a643"
+    },
+    {
+      "file": "Source/Game/Galaxy/DeriveSystemProperties.asm",
+      "code_sha256": "a5518473c8db03bc0052bec9d57f5f5918826cf6ff2d54cadb736cf708286974"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "code_sha256": "339cfad0399b521de3cd67e6d7f7f1298df3c608ca9206491aac8587dee91d78"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode2.asm",
+      "code_sha256": "d352f8449f2ec5b02f41f7138dc8b37fb1eff476504b6f57b3b1e2ed1aea9842"
+    },
+    {
+      "file": "Source/Game/Math/NextRandom.asm",
+      "code_sha256": "4a8f9900635385a5420b7eb40a9cf1ba9c28601aa28664a6e9946ccb0e2368b3"
+    },
+    {
+      "file": "Source/Game/Math/Square.asm",
+      "code_sha256": "320bf50170e0a8976b6f3c1abd70d99e7636dba6e1547c95c3ba9bb4c0b42d2e"
+    },
+    {
+      "file": "Source/Game/Menus/BlankLineAndEconomyText.asm",
+      "code_sha256": "951e3fe6b379e5083995aa10139f3c1a73475e361b967cdc57aa348039fa416c"
+    },
+    {
+      "file": "Source/Game/Menus/LocalSystemPixelPosition.asm",
+      "code_sha256": "3e03e58c45c806058da0edd1884946fa9b30167881d22cb8643027e0b37f25b3"
+    },
+    {
+      "file": "Source/Game/Menus/MapCaptionAndGalaxyChart.asm",
+      "code_sha256": "abcf7ddacda977b0430e8b8839b39e78df5df8401c9442705b6cc5fa986018da"
+    },
+    {
+      "file": "Source/Game/Menus/PlotGalaxySystem.asm",
+      "code_sha256": "083dc16aaaa189cdd90a844b355189d16e5569b8b92a0178fc5d4f4eebb8175c"
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "code_sha256": "76f37377758c3b10cdec5194756db2f01c0bd4228ea420ecaf505aba2286631b"
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemRadius.asm",
+      "code_sha256": "923b9650f8e0a2c954fd58431904da7b0aec8f19404b11a580759aee9a8dfe94"
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemStatistics.asm",
+      "code_sha256": "4389cfa8ebd89014e79012a8f7b9553acf784ab313d47f8d0d51da7dc9dfa803"
+    },
+    {
+      "file": "Source/Game/Missions/DispatchMissionEvents.asm",
+      "code_sha256": "612a6ea6d523b09ec5d4935f45cc1f6413d3cb0de67ce5fc46651091893d7265"
+    },
+    {
+      "file": "Source/Game/Missions/DispatchRatingAndMissionEnd.asm",
+      "code_sha256": "06210757eb06a997482f263f4ec4371388b4ecf2817056afa5110bafda2f30fc"
+    },
+    {
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "code_sha256": "3e2bdf57c1774158c3e4842a6792b2b0fafcd395bc8b5a20cd92678be2cea97f"
+    },
+    {
+      "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+      "code_sha256": "851a75066167c6f3abd3b65d7ebf64c2bd0c75460b3b6dbc861d47640a933b2f"
+    },
+    {
+      "file": "Source/Game/Motion/SquareVectorComponent.asm",
+      "code_sha256": "ea8de83fa250e5b56cd9aae21b1aaf5389fa2d251d730d34f474ecdea51e7b6d"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "code_sha256": "e070b973674e05f6c9ee92e3888625c473c005321158af5cee494fddb09a0269"
+    },
+    {
+      "file": "Source/Game/Resources/CockpitAttrs.asm",
+      "code_sha256": "de8673163c785174ce58961beea05f201134fe3121d731fd68f80ff8f04b26c4"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "code_sha256": "f34f1bf0bd708d31d73c7a3bd8df6194abe6060f062a47e3eb58db9d22032473"
+    },
+    {
+      "file": "Source/Game/Scanner/SetCockpitDeviceAttributes.asm",
+      "code_sha256": "1c58e392c04ddbf3480fb6c4a5f5479f2114d3d02869e533f97a893b1e666c0d"
+    },
+    {
+      "file": "Source/Game/Screen/CompassShape.asm",
+      "code_sha256": "6df8601ba672c39c06920b5d9120c153c10b707de89c72843f14d9e80b374b4a"
+    },
+    {
+      "file": "Source/Game/Screen/DrawFilledCircle.asm",
+      "code_sha256": "5521d77f1ee33372b136bc2ea2864b8586ca3cffc30d21b12e8c100a40203116"
+    },
+    {
+      "file": "Source/Game/Screen/RestoreCockpit.asm",
+      "code_sha256": "9444014b55d5fca2ccdafa435490c40f3773a3aad72f191634e0f8d2abe2c0b6"
+    },
+    {
+      "file": "Source/Game/Screen/SaveCockpit.asm",
+      "code_sha256": "fdc6d6e5e61f5d675c5d3a29a34fc49f262171219345201e7770f62f49dbde9a"
+    },
+    {
+      "file": "Source/Game/Screen/SunDistanceHint.asm",
+      "code_sha256": "36e972e84d4dff9bdbb7eeb12eb53440cac035bd7e6588a0848486cdcf816600"
+    },
+    {
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "code_sha256": "e5c81639372d074c38ab96b3d68ffb960f60e74d8b00bdb5b3f028ecca4a65c6"
+    },
+    {
+      "file": "Source/Game/Sound/StepDataTone.asm",
+      "code_sha256": "8dc86c0496fb5a42e97941528f0faebd6ae851640ccc35e08f4ebb0c7465a406"
+    },
+    {
+      "file": "Source/Game/Text/ApplyAttributeRuns.asm",
+      "code_sha256": "756cd498afce5e28db965b1ec0cbd1a24ef079a01485e3c3a48373431590999e"
+    },
+    {
+      "file": "Source/Game/Text/CheckObjectRandomGate.asm",
+      "code_sha256": "406256998e9b2c56c90cb47858e10731ae5398c0c0d9d9bc6cf89d997a114a4c"
+    },
+    {
+      "file": "Source/Game/Text/CheckSavedSystemRegion.asm",
+      "code_sha256": "bcdd616ec947054f3e19af19a7b287e872fec59210ea60806507d07cacaf7ad5"
+    },
+    {
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "code_sha256": "2ea981324a86450d90b2a41b6c20ef8e7617f5995c41aef59f14f43e323e4e3e"
+    },
+    {
+      "file": "Source/Game/Text/DrawViewFrame.asm",
+      "code_sha256": "abae9ba02b2e7784f7426ac1d685b366a8f3b4b14115bf3ad4829df468ceabec"
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "code_sha256": "3501bf3e27feae7ee93d03bf2a7c47028fab2ac2a53725c049240ac84baad4d2"
+    },
+    {
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "code_sha256": "550ee9ae0258ebace61848c935b2264c7b08ca2a82fd90f01904d7bd4e2df7d8"
+    },
+    {
+      "file": "Source/Game/Text/SetPromptAttributes.asm",
+      "code_sha256": "c89004a8716f9d3ecadf07e8f74ebbb9809a6f888dcebb591d890eab7301ec80"
+    },
+    {
+      "file": "Source/Game/Trade/RestoreTextPosition.asm",
+      "code_sha256": "112427b0136021d7b57da9913dcd302ecccdece5d8b227c9219db90440831cc4"
+    },
+    {
+      "file": "Source/Game/Trade/SaveTextPosition.asm",
+      "code_sha256": "e19d80d5141bd49a259888cc2cde3b83ebfb3217af49125bbcf5dedd902fdd27"
+    },
+    {
+      "file": "Source/Game/Travel/BuildPlanetCoordinateMagnitude.asm",
+      "code_sha256": "84571f87fc02af2af7b93d690ef750fcadf7b4933cd274537c11b88ca1f43909"
+    },
+    {
+      "file": "Source/Game/Travel/EmptyFuelWithWarning.asm",
+      "code_sha256": "465218f816c6f2828e10bed5b835e45d462e795c41a43d90557a05ced4ee08d8"
+    },
+    {
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "code_sha256": "cde0211818f3bd70b5285319de6173864ca54b6411ef617466d844aaa73c14a8"
+    },
+    {
+      "file": "Source/Game/Travel/SetFuelAndGauge.asm",
+      "code_sha256": "6eff75eaae06163e1ef692bdde9ecdc40bafd39aee6f00b632d40caf342d57b1"
+    },
+    {
+      "file": "Source/Game/Universe/AwardUnlinkedDestructionBounty.asm",
+      "code_sha256": "27d184b080d8a5ea2acdd6c7814aa77723ebd57cde2fdf2dd65e11549d311ad8"
+    },
+    {
+      "file": "Source/Game/Universe/CheckSpecialSystemOrRandom.asm",
+      "code_sha256": "042d6eab0e2600ff36563b22d3e9c90b7460d9589fb0e962b7e6e5bd8a144a97"
+    },
+    {
+      "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+      "code_sha256": "cd885dcbf9550bc35b34df40b9b4cc59469493b51b5723c578366d6965499893"
+    },
+    {
+      "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+      "code_sha256": "cba664d1a1d7bfe646aabe84e49311798e9ad0fdc889a5212917d930f240c0ba"
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyBytesApprox.asm",
+      "code_sha256": "047018ca26e03fa3a1cfeb456b23efb1f6626258b85ce9a08ee5c4dd387d316d"
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyHighByteApprox.asm",
+      "code_sha256": "287bbdae43298e7c4680416f2a26e5478ded5f09ccb0728ff7c6f946c58a4cce"
+    },
+    {
+      "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+      "code_sha256": "044983c9f97bc7e19fa37c0c6d21c1498355ba787c250db961d8a2a694b1b943"
+    }
+  ]
+}

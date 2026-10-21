@@ -4,23 +4,25 @@
 ; выбор условия гиперперехода и продолжение левой заливки
 ; исходный диапазон #8C3C..#8D2A
 ; смысловое имя ChooseHyperjumpConditionAndContinueLeftFill
-; In: для #8C3C состояние задания, для #8C4A — регистры итератора левой дуги
-; Out: первый вход возвращает #7105 либо#F9 по переносу, остальные входы рисуют круг
+; In: для Game.Circles.SelectJumpAndContinueLeftFill.Entry состояние задания, для Game.Circles.SelectJumpAndContinueLeftFill.NextLeftRow — регистры итератора левой дуги
+; Out: первый вход возвращает FlightState.RandomByte либо #F9 по переносу, остальные входы рисуют круг
 ; Corrupt: HL, DE, BC, AF по проверке, построитель также альтернативные регистры
-; При активном вторжении #D67A поглощает байт#78 как порог, при раннем отказе тот же байт выполняется как LD A,B без изменения C
-; #8C4A продолжает заливку с фиксированным левым краем, #8CF8 начинает правый отсечённый вариант
+; При активном вторжении Game.Text.CheckMissionRegion.Entry поглощает байт #78 как порог, при раннем отказе тот же байт выполняется как LD A,B без изменения C
+; Game.Circles.SelectJumpAndContinueLeftFill.NextLeftRow продолжает заливку с фиксированным левым краем, Game.Circles.SelectJumpAndContinueLeftFill.RightFixedFill начинает правый отсечённый вариант
 ; AF' хранит ограничитель C' для перехода к общему неотсечённому построителю
-; #8CD2 выбирает начало серии PUSH AF, #8CD3 хранит число пропускаемых команд
+; Game.Circles.SelectJumpAndContinueLeftFill.FillPairsJump выбирает начало серии PUSH AF, CircleRaster.LeftPairJump хранит число пропускаемых команд
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #8C3C
-                ; проверка задания с встроенным параметром#78 после CALL
+                ; проверка задания с встроенным параметром #78 после CALL
+                ; миссия 7 INVASION, проверка военной области участвует в выборе результата гиперперехода
+                ; описание в Docs/Manual.md, раздел mission-7-invasion
 Entry:          CALL Game.Text.CheckMissionRegion.Entry
                 LD A, B
                 CALL C, Game.Combat.NextRandomByte.Entry                        ; вызов, если проверка задания разрешила случайный вариант
                 ; выбор штатного либо специального байта гиперперехода
                 LD A, (FlightState.RandomByte)
-                RET NC                                                          ; выход, если проверки не оставили C=1, вернуть штатный байт#7105
+                RET NC                                                          ; выход, если проверки не оставили C=1, вернуть штатный байт FlightState.RandomByte
 
                 LD A, #F9
                 RET
@@ -142,7 +144,7 @@ LeftSweepError: EXX
                 JR NC, SetFillPairs                                             ; переход, если число внутренних байтов чётное, отдельный байт не требуется
 
                 LD (HL), #FF
-                ; расчёт числа пар#FF для быстрого заполнения
+                ; расчёт числа пар #FF для быстрого заполнения
 SetFillPairs:   LD L, D
                 SUB #11
                 CPL
@@ -187,21 +189,23 @@ StepFillDown:   CALL Game.Circles.StepCircleRowDown.Entry
 RightFixedFill: LD A, E
                 AND #1F
                 CP #20
-                JR NC, EmptyRightFill                                           ; переход, если индекс столбца не меньше 32, при штатной маске#1F условие недостижимо
+                JR NC, EmptyRightFill                                           ; переход, если индекс столбца не меньше 32, при штатной маске #1F условие недостижимо
 
                 LD A, (CircleState.DirectionDown)
                 AND A
                 JR NZ, RightBottom                                              ; переход, если направление вниз, проверить нижний предел
+
 UpperLimit      EQU $ + 1                                                       ; верхний предел заполнения круга с правым отсечением
                 LD A, #BF
                 CP H
-                JR C, RightFillStack                                            ; переход, если H выше#BF, строка допустима
+                JR C, RightFillStack                                            ; переход, если H выше #BF, строка допустима
 
                 JR EmptyRightFill
+
 LowerLimit      EQU $ + 1                                                       ; нижний предел заполнения круга с правым отсечением
 RightBottom:    LD A, #CF
                 CP H
-                JR NC, RightFillStack                                           ; переход, если H не больше#CF, строка допустима
+                JR NC, RightFillStack                                           ; переход, если H не больше #CF, строка допустима
 
                 ; возврат с удалением сохранённого AF
 EmptyRightFill: POP AF
@@ -226,6 +230,7 @@ FillToRight:    LD D, L
                 ; заполнение середины и переход к правой дуге
 FillRightCore:  CALL Game.Extensions.FillBackwardAndCountDemo.Entry
                 JR Game.Circles.PrintShipAndContinueRightFill.NextRightRow
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #8D2B
                 endmodule

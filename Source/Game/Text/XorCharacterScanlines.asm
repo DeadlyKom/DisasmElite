@@ -10,12 +10,12 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Байт D548 содержит XOR C, подмена на NOP превращает наложение в прямую запись, B=0 означает
+;   Байт Game.Text.XorCharacterScanlines.XorOpcode содержит XOR C, подмена на NOP превращает наложение в прямую запись, B=0 означает
 ;   256 итераций
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D546
-                ; восемь строк глифа накладываются XOR, патч D548=NOP переключает на перезапись
+                ; восемь строк глифа накладываются XOR, патч Game.Text.XorCharacterScanlines.XorOpcode=NOP переключает на перезапись
 Entry:          LD A, (DE)
                 LD C, (HL)
 XorOpcode       XOR C                                                           ; XOR C либо NOP, способ переноса глифа на экран
@@ -25,6 +25,7 @@ XorOpcode       XOR C                                                           
                 DJNZ Game.Text.XorCharacterScanlines.Entry
 
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D54F
                 endmodule

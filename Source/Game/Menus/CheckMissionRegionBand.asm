@@ -4,7 +4,7 @@
 ; Проверка полосы между двумя специальными границами
 ; исходный диапазон #EC40..#EC4A
 ; In:
-;   Координаты и состояние миссии по контракту D67A
+;   Координаты и состояние миссии по контракту Game.Text.CheckMissionRegion.Entry
 ; Out:
 ;   CY отражает попадание между двумя проверками
 ; Corrupt:
@@ -26,6 +26,7 @@ Entry:          CALL Game.Text.CheckMissionRegion.Entry
                 NOP
                 CCF
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EC4B
                 endmodule

@@ -3,14 +3,14 @@
 ; -----------------------------------------
 ; установка контурного режима и общий выход построителя окружности
 ; In:
-;   состояние окружности #861A..#861D
+;   поля CircleState.OffsetY, OffsetX, Flags и Radius
 ; Out:
 ;   контур нарисован, прерывания включены
 ; Corrupt:
 ;   HL, DE, BC, AF, HL', DE', BC', AF'
 ; Note:
-;   вход #86E4 записывает 1 в режим #8629 и вызывает #86EE
-;   вход #86E9 используется также заполненным кругом с уже установленным нулевым режимом
+;   вход Game.Screen.DrawLargeOutline.Entry записывает 1 в режим CircleState.OutlineOnly и вызывает Game.Circles.DispatchClippedCircle.Entry
+;   вход Game.Screen.DrawLargeOutline.DrawAndEnable используется также заполненным кругом с уже установленным нулевым режимом
 ;   EI выполняется безусловно, прежнее состояние IFF не восстанавливается
 ; -----------------------------------------
                 ; проверка исходного размещения
@@ -22,6 +22,7 @@ Entry:          LD A, #01
 DrawAndEnable:  CALL Game.Circles.DispatchClippedCircle.Entry
                 EI
                 RET
+
                 ASSERT $ == #86EE
                 endmodule
                 endmodule

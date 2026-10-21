@@ -2,20 +2,20 @@
 ; загрузка выбранного командира и общий хвост обновления его резервной копии
 ; исходный диапазон #CC41..#CC71
 ; In:
-;   #DA70, выбранная запись
-;   каталог #5000, поля сектора и дорожки по смещениям 14/15
+;   SaveSelection, выбранная запись
+;   каталог DiskBuffer.Catalog, поля FTrDosEntry.FirstSector и FTrDosEntry.FirstTrack
 ; Out:
-;   после копирования HL=#D0BA, DE=#D298, BC=#0100
-;   #D054..#D0B9 и резерв #D232..#D297 содержат 102 байта
+;   после копирования HL=State + FCommander, DE=Game.Missions.RatingBountyDamageAndNewCommander.NewCommander + FCommander, BC=#0100
+;   State и Game.Missions.RatingBountyDamageAndNewCommander.NewCommander содержат по FCommander
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
 ;   IX после выбора записи указывает FTrDosEntry в DiskBuffer.Catalog
 ;   Пустая запись возвращает до чтения, но B уже равен 1 и сам по себе не доказывает успех.
-;   #D9C1 читает один сектор по каталожному DE в #606F.
-;   Первый LDIR переносит 102 байта в активного командира #D054.
-;   Общий вход #CC65 копирует активного командира в резерв, затем INC B формирует B=1.
-;   #CC65 используется также при завершении сохранения и отмене ввода имени.
+;   Game.Disk.TransferDiskSectors.Entry читает один сектор по каталожному DE в DiskBuffer.Work.
+;   Первый LDIR переносит 102 байта в активного командира State.Name.
+;   Общий вход DiskUtility.Menu.BackupPilot копирует активного командира в резерв, затем INC B формирует B=1.
+;   DiskUtility.Menu.BackupPilot используется также при завершении сохранения и отмене ввода имени.
 ; -----------------------------------------
 LoadCommander:  CALL GetSelected
                 PUSH HL

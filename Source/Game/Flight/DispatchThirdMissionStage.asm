@@ -4,9 +4,9 @@
 ; Диспетчер экранов этапов третьей миссии
 ; исходный диапазон #7278..#728C
 ; In:
-;   D0AF номер этапа
+;   State.Mission3 номер этапа
 ; Out:
-;   этапы 1/2 вызывают предложение D0DD,5 завершение D0ED,6 сообщение D4
+;   этапы 1/2 вызывают предложение Game.Missions.DispatchMissionEvents.OfferMission,5 завершение Game.Missions.DispatchRatingAndMissionEnd.EndMission,6 сообщение D4
 ; Corrupt:
 ;   HL, DE, BC, AF, IX по экранным обработчикам
 ; Note:
@@ -32,6 +32,7 @@ OfferStage:     JP Z, Game.Missions.DispatchMissionEvents.OfferMission          
                 JR Z, @Game.Flight.ReportBoardingAndReturnToTitle.RestartTitle  ; переход, если состояние третьей миссии равно 6, вывести сообщение D4
 
                 RET
+
                 ASSERT $ == #728D
                 endmodule
                 endmodule

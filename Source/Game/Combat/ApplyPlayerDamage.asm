@@ -4,15 +4,15 @@
 ; восстановление и расход энергии игрока за такт
 ; исходный диапазон #9A59..#9A8C
 ; In:
-;   память 7104, признак активного полёта
-;   память 9CA2/9CA3/9CA4, расходы энергии и урон щитам
+;   память FlightState.FlightStatus, признак активного полёта
+;   память CombatState.EnergyDrain/CombatState.FrontDamage/CombatState.RearDamage, расходы энергии и урон щитам
 ; Out:
 ;   обновлены банки энергии, щиты и признак гибели
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-; Если верхний банк не полон, 7104 получает #63. Затем применяется восстановление и урон обоим щитам.
-; Маскировка D041 добавляет единицу расхода энергии. B=4 задаёт четыре шага расхода в хвосте 9A8D.
+; Если верхний банк не полон, FlightState.FlightStatus получает #63. Затем применяется восстановление и урон обоим щитам.
+; Маскировка CloakActive добавляет единицу расхода энергии. B=4 задаёт четыре шага расхода в хвосте Game.Combat.DrainEnergyBanks.Entry.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #9A59
@@ -29,6 +29,8 @@ Entry:          LD HL, FlightState.FlightStatus
                 LD A, #63
                 LD (FlightState.FlightStatus), A
                 ; восстановление энергии перед применением урона щитам
+                ; миссия 2 CLOAKING DEVICE, включённая маскировка добавляет единицу к расходу энергии
+                ; описание в Docs/Manual.md, раздел mission-2
 RecoverEnergy:  CALL Game.Combat.RecoverPlayerEnergy.Entry
                 LD HL, GaugeState + FGaugeState.FrontShield.Current
                 LD A, (CombatState.FrontDamage)
@@ -43,7 +45,7 @@ RecoverEnergy:  CALL Game.Combat.RecoverPlayerEnergy.Entry
 
                 INC A
 DrainCost:      LD C, A
-                LD B, #04
+                LD B, #04                                                       ; далее Game.Combat.DrainEnergyBanks.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9A8D
                 endmodule

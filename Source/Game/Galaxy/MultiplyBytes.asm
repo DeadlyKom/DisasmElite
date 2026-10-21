@@ -28,6 +28,7 @@ MultiplyBit:    SRL D
 NextBit:        DJNZ MultiplyBit
 
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E01C
                 endmodule

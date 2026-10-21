@@ -2,10 +2,10 @@
                 module MenuDispatchTable
 ; -----------------------------------------
 ; первые семь элементов исполняемой таблицы экранов и действий
-; диспетчер #813E рассчитывает #D000 + A * 3 и записывает результат
-; в операнд CALL по #8154, поэтому записи являются командами JP, а не DW
+; диспетчер Game.Screen.DispatchMenu.Entry рассчитывает Game.Interface.MenuDispatchTable.Entry + A * 3 и записывает результат
+; в операнд CALL по MenuDispatch.Target, поэтому записи являются командами JP, а не DW
 ; RET выбранного обработчика возвращает управление диспетчеру
-; следующие элементы продолжаются в файле входа #D015
+; следующие элементы продолжаются в файле входа Game.Interface.DispatchStatusAndChartKeys.Entry
 ; код действия в A задаёт элемент, отдельного контроля границ здесь нет
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -23,6 +23,7 @@ Entry:          JP Game.Charts.NextScreenCharacterRowAndRefugees.OfferRefugees  
                 JP Game.Menus.PrintLabelOnUnusedRow.ShowSystem                  ; действие 5, информация о планете
 
                 JP Game.Menus.CompareSystemSeedToGalaxyBase.MarketPrices        ; действие 6, рыночные цены
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D015
                 endmodule

@@ -2,9 +2,9 @@
 ; подстановка текущего имени командира для пустого нового имени
 ; исходный диапазон #CCB2..#CCBF
 ; In:
-;   #D054..#D05B, имя активного командира
+;   State.Name, имя активного командира
 ; Out:
-;   #DED0..#DED7 заполнены именем, #DED8 содержит C
+;   восемь байтов SaveName заполнены именем, SaveName.Extension содержит C
 ;   BC=0, поток продолжается SaveCommander
 ; Corrupt:
 ;   HL, DE, BC, AF
@@ -18,3 +18,4 @@ CopyPilotName:  LD HL, State.Name
                 LDIR
                 LD A, #43
                 LD (DE), A
+                ; JP SaveCommander, продолжение в SaveNamedCommander.asm

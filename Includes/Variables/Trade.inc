@@ -1,14 +1,14 @@
                 ifndef _VARIABLES_TRADE_
                 define _VARIABLES_TRADE_
 
-MarketWork      EQU Game.Trade.GenerateMarket.Commodity                         ; адрес структуры FMarketWork
+MarketWork      EQU Game.Trade.GenerateMarket.MarketData                        ; адрес структуры FMarketWork
 .Commodity      EQU MarketWork + FMarketWork.Commodity                          ; номер текущего товара, 0..16
 .CargoCursor    EQU MarketWork + FMarketWork.CargoCursor                        ; адрес количества выбранного товара в трюме
 .PriceCursor    EQU MarketWork + FMarketWork.PriceCursor                        ; адрес двухбайтовой цены выбранного товара
 .StockCursor    EQU MarketWork + FMarketWork.StockCursor                        ; адрес остатка выбранного товара на станции
 .TextPosition   EQU MarketWork + FMarketWork.TextPosition                       ; сохранённые столбец и строка печати
 MarketPrices    EQU Game.Trade.GenerateMarket.MarketPrices                      ; семнадцать двухбайтовых рыночных цен
-TradeSnapshot   EQU Game.Trade.PromptCargoQuantityAndRefugees.CashHigh          ; адрес структуры FTradeSnapshot
+TradeSnapshot   EQU Game.Trade.PromptCargoQuantityAndRefugees.TradeBackup       ; адрес структуры FTradeSnapshot
 .CashHigh       EQU TradeSnapshot + FTradeSnapshot.CashHigh                     ; сохранённое старшее слово денег перед сделкой
 .CashLow        EQU TradeSnapshot + FTradeSnapshot.CashLow                      ; сохранённое младшее слово денег перед сделкой
 .CargoCount     EQU TradeSnapshot + FTradeSnapshot.CargoCount                   ; сохранённое количество товара в трюме
@@ -16,7 +16,7 @@ TradeSnapshot   EQU Game.Trade.PromptCargoQuantityAndRefugees.CashHigh          
 .FreeCargo      EQU TradeSnapshot + FTradeSnapshot.FreeCargo                    ; сохранённый свободный объём трюма
 .Selection      EQU TradeSnapshot + FTradeSnapshot.Selection                    ; введённое количество товара либо номер покупаемого оборудования
 .Validator      EQU TradeSnapshot + FTradeSnapshot.Validator                    ; адрес проверки очередного изменения количества
-EquipmentWork   EQU Game.Trade.EquipmentAlreadyOwned.ItemLimit                  ; адрес структуры FEquipmentWork
+EquipmentWork   EQU Game.Trade.EquipmentAlreadyOwned.EquipmentData              ; адрес структуры FEquipmentWork
 .ItemLimit      EQU EquipmentWork + FEquipmentWork.ItemLimit                    ; наибольший номер разрешённого оборудования
 .ItemIndex      EQU EquipmentWork + FEquipmentWork.ItemIndex                    ; номер пункта при выводе списка оборудования
 .PriceCursor    EQU EquipmentWork + FEquipmentWork.PriceCursor                  ; адрес текущей трёхбайтовой цены оборудования

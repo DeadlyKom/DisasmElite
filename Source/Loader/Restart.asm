@@ -1,11 +1,11 @@
                 ifndef _LOADER_RESTART_
                 define _LOADER_RESTART_
 ; -----------------------------------------
-; сохранённая точка перенаправления #C8CB к обработчику игры #7ABF
+; сохранённая точка перенаправления Loader.Restart к обработчику игры Loader.GAME_RESTART
 ; In:
 ;   состояние игры, ожидаемое исходным обработчиком
 ; Out:
-;   переход к #7ABF, где устанавливается SP = #4120 и выполняется JP #74F4
+;   переход к Loader.GAME_RESTART, где устанавливается SP = Loader.START_STACK и выполняется JP Game.Flight.MainGameLoop.DrawObjects
 ; Corrupt:
 ;   непосредственный JP регистры не изменяет
 ; Note:

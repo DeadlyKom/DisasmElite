@@ -4,19 +4,21 @@
 ; Списание топлива и выбор обычного выхода либо межзвёздной встречи
 ; исходный диапазон #DC8E..#DCE8
 ; In:
-;   DEF6 = расстояние в десятых, D082 = топливо
+;   GalaxyState.Distance = расстояние в десятых, State.Fuel = топливо
 ; Out:
-;   Топливо уменьшено, legalstatus поделён на 2, переход в DCE9 либо DE4C
+;   Топливо уменьшено, legalstatus поделён на 2, переход в Game.Travel.EnterTargetSystem.Entry либо Game.Travel.LaserTypeAndArrivalEvents.FinishArrival
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Ненулевой D081 перенаправляет в отмену миссии DC4E, клавишный бит 6 FC0E либо случайное F9
+;   Ненулевой State.Mission1 перенаправляет в отмену миссии Game.Travel.TickJumpCountdown.ClearMissions, клавишный бит 6 InputState.Config либо случайное F9
 ;   вызывает межзвёздное пространство, координаты текущей и целевой систем заменяются
 ;   полусуммой, имена очищаются
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DC8E
                 ; списание топлива и изменение правового статуса при обычном переходе
+                ; миссия 1, беженцы, активная первая миссия направляет переход в общий сброс заданий
+                ; описание в Docs/Manual.md, раздел mission-1
 Entry:          LD A, (State.Mission1)
                 AND A
                 JR NZ, @Game.Travel.TickJumpCountdown.ClearMissions             ; переход, если первая миссия активна, использовать специальную обработку перехода
@@ -52,8 +54,8 @@ Witchspace:     INC A
                 LD DE, TargetX
                 LD A, (DE)
                 ADD A, (HL)
-; вариант исполнения #DCCC, RR A
-; вариант исполнения #DCCD, RRA
+; обычный путь Witchspace исполняет всю команду RR A
+; перекрывающий вход на втором байте RR A исполняет RRA
                 DB #CB, #1F                                                     ; перекрывающиеся команды, байты сохранены буквально
                 LD (HL), A
                 LD (DE), A
@@ -69,6 +71,7 @@ Witchspace:     INC A
                 LD (GalaxyState.CurrentName), A
                 LD (GalaxyState.TargetName), A
                 JP @Game.Travel.LaserTypeAndArrivalEvents.FinishArrival
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DCE9
                 endmodule

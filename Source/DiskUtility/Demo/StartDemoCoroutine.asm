@@ -4,7 +4,7 @@
 ; In:
 ;   SP стека игры
 ; Out:
-;   E6DC сохранён, SP=EF00, переход InitScenario
+;   DiskUtility.Demo.SavedStacks сохранён, SP=DiskUtility.Demo.StackTop, переход InitScenario
 ; Corrupt:
 ;   HL, SP
 ; Note:
@@ -13,7 +13,7 @@
                 ; выбор следующего пути возобновления до переключения стека
 StartCoroutine: LD HL, ResumeDemo
                 LD (DemoDispatch+1), HL
-                ; сохранение стека игрового обработчика и создание стека демо вниз от EF00
+                ; сохранение стека игрового обработчика и создание стека демо вниз от DiskUtility.Demo.StackTop
                 LD (SavedStacks), SP
                 LD SP, StackTop
                 JP InitScenario

@@ -10,13 +10,14 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   E2A6 выполняет первый перевод, общий хвост EEA5 второй
+;   Game.Trade.PrintTokenNewline.Entry выполняет первый перевод, общий хвост Game.Menus.BlankLineAndEconomyText.SecondNewline второй
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #EE9D
-                ; печать токена заканчивается пустой строкой через общий хвост EEA2
+                ; печать токена заканчивается пустой строкой через общий хвост Game.Menus.BlankLineAndEconomyText.Entry
 Entry:          CALL Game.Trade.PrintTokenNewline.Entry
                 JR @Game.Menus.BlankLineAndEconomyText.SecondNewline
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EEA2
                 endmodule

@@ -10,7 +10,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   AF сохраняется вокруг первой команды, команды интерпретируются диспетчером D7E2
+;   AF сохраняется вокруг первой команды, команды интерпретируются диспетчером Game.Text.DrawProjectedSunAndTextDispatch.MainCommand
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E2F8
@@ -22,6 +22,7 @@ Entry:          PUSH AF
                 CALL Game.Text.PrintMainToken.Entry
                 LD A, #08
                 JP Game.Text.PrintMainToken.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E306
                 endmodule

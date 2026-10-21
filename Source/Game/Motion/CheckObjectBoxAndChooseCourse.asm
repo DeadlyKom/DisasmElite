@@ -4,21 +4,21 @@
 ; проверка близости объекта и выбор курса приближения либо удаления
 ; исходный диапазон #A40F..#A4B4
 ; In:
-;   DE, порог для X/Y при входе A40F
+;   DE, порог для X/Y при входе Game.Motion.CheckObjectBoxAndChooseCourse.Entry
 ;   IX, объект
-;   IY, модель при входе в общий хвост A42F
+;   IY, модель при входе в общий хвост Game.Motion.CheckObjectBoxAndChooseCourse.ChooseCourse
 ; Out:
-;   AF, при входе A40F перенос означает попадание в область по всем трём координатам
-;   при входе A42F обновлены вектор наведения, команды вращения и ускорение
+;   AF, при входе Game.Motion.CheckObjectBoxAndChooseCourse.Entry перенос означает попадание в область по всем трём координатам
+;   при входе Game.Motion.CheckObjectBoxAndChooseCourse.ChooseCourse обновлены вектор наведения, команды вращения и ускорение
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-; A40F проверяет прямоугольную область, не сферическое расстояние. Для Z предел увеличен на #0200.
-; A42F является отдельным продолжением тактики из A2C0 и не вызывается самой проверкой близости.
-; Внутренний радиус #0200 и больший порог для IX+26.5 создают гистерезис сближения/удаления.
-; A47C записывает прямой вектор от игрока к объекту и ставит IX+26.5.
-; A498 записывает обратный вектор к игроку и сбрасывает IX+26.5, это также вход наведения ракеты на игрока.
-; Оба пути переходят в общий автопилот A587.
+; Game.Motion.CheckObjectBoxAndChooseCourse.Entry проверяет прямоугольную область, не сферическое расстояние. Для Z предел увеличен на #0200.
+; Game.Motion.CheckObjectBoxAndChooseCourse.ChooseCourse является отдельным продолжением тактики из Game.Motion.ProcessObjectEnergyAndTactics.Entry и не вызывается самой проверкой близости.
+; пороги X/Y #0200 и #0A00 при установленном OBJ_RETREAT_BIT в FSpaceObject.Flags2 образуют гистерезис выбора курса, порог Z дополнительно увеличивается на #0200
+; Game.Motion.CheckObjectBoxAndChooseCourse.FlyAway записывает вектор от игрока к объекту и устанавливает OBJ_RETREAT_BIT в FSpaceObject.Flags2
+; Game.Motion.CheckObjectBoxAndChooseCourse.FlyToward записывает вектор к игроку и сбрасывает OBJ_RETREAT_BIT в FSpaceObject.Flags2, этот вход также наводит ракету на игрока
+; Оба пути переходят в общий автопилот Game.Motion.SteerObjectAndTryLaser.Entry.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #A40F
@@ -46,13 +46,13 @@ Entry:          LD H, (IX + FSpaceObject.X.Low)
 
                 ; отдельный вход выбора курса после энергетической реакции
 ChooseCourse:   CALL Game.Wireframe.ReadObjectTacticsGates.Entry
-                RET NC                                                          ; выход, если проверка состояния B4C4 не разрешает обновление курса
+                RET NC                                                          ; выход, если проверка состояния Game.Wireframe.ReadObjectTacticsGates.Entry не разрешает обновление курса
 
-                JR Z, CheckInnerBox                                             ; переход, если проверка B4C4 не требует изменения враждебности
+                JR Z, CheckInnerBox                                             ; переход, если проверка Game.Wireframe.ReadObjectTacticsGates.Entry не требует изменения враждебности
 
                 LD A, (State.Rating)
                 CP #28
-                JR C, CheckInnerBox                                             ; переход, если показатель D060 меньше #28 и враждебность не устанавливается
+                JR C, CheckInnerBox                                             ; переход, если показатель State.Rating меньше #28 и враждебность не устанавливается
 
                 SET OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)
                 ; проверка внутренней области и гистерезиса удаления
@@ -68,19 +68,21 @@ CheckInnerBox:  LD DE, #0200
                 JR C, FlyAway                                                   ; переход, если объект остаётся внутри внешней области гистерезиса
 
                 ; проверка враждебности и станционного контекста
+                ; миссии 3, 7 INVASION, состояние 4 выбирает курс по параметру поведения без обычной проверки станции
+                ; описание в Docs/Manual.md, раздел mission-3, mission-7-invasion
 CheckHostility: BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)
                 RET Z                                                           ; выход, если объект мирный и отдельное преследование не требуется
 
                 LD A, (State.Mission3)
                 CP #04
-                JR Z, CheckBehavior                                             ; переход, если режим D0AF равен 4 и используется непосредственная проверка поведения
+                JR Z, CheckBehavior                                             ; переход, если режим State.Mission3 равен 4 и используется непосредственная проверка поведения
 
                 LD A, (Memory.Station + FSpaceObject.Energy)
                 AND A
                 JR Z, CheckBehavior                                             ; переход, если станционный слот пуст и используется непосредственная проверка поведения
 
                 BIT OBJ_FLEE_BIT, (IX + FSpaceObject.Hostility)
-                JR Z, FlyToward                                                 ; переход, если у объекта сброшен IX+21.3 и выбирается курс к игроку
+                JR Z, FlyToward                                                 ; переход, если OBJ_FLEE_BIT в FSpaceObject.Hostility сброшен и выбирается курс к игроку
 
                 JR FlyAway
 
@@ -88,7 +90,7 @@ CheckHostility: BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)
 CheckBehavior:  LD A, (IX + FSpaceObject.Target)
                 AND TARGET_AI_MASK
                 CP #08
-                JR NC, FlyToward                                                ; переход, если параметр поведения IX+25 не меньше 8 и выбирается курс к игроку
+                JR NC, FlyToward                                                ; переход, если значение FSpaceObject.Target после TARGET_AI_MASK не меньше 8 и выбирается курс к игроку
 
                 SET TARGET_ACCL_BIT, (IX + FSpaceObject.Target)
                 ; создание вектора удаления от игрока
@@ -114,6 +116,7 @@ FlyToward:      PUSH IX
                 POP IX
                 RES OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)
 SteerCourse:    JP Game.Motion.SteerObjectAndTryLaser.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A4B5
                 endmodule

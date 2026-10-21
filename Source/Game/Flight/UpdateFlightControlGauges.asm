@@ -4,9 +4,9 @@
 ; Перенос управления в скорость и шкалы вращения
 ; исходный диапазон #713C..#717A
 ; In:
-;   FF09/FF0B знако-модульные углы, FF0D скорость
+;   InputMotion.Roll + 1/InputMotion.Pitch + 1 знако-модульные углы, InputMotion.Speed + 1 скорость
 ; Out:
-;   70E4/70E5 углы,70FE/7100 позиции шкал,70E6 скорость,70F4=5*скорость+5
+;   FlightState.Roll/FlightState.Pitch углы,GaugeState + FGaugeState.Roll.Current/GaugeState + FGaugeState.Pitch.Current позиции шкал,FlightState.Speed скорость,GaugeState + FGaugeState.Speed.Current=5*скорость+5
 ; Corrupt:
 ;   HL, BC, AF
 ; Note:
@@ -56,6 +56,7 @@ StorePitch:     LD (GaugeState + FGaugeState.Pitch.Current), A
                 ADD A, #05
                 LD (GaugeState + FGaugeState.Speed.Current), A
                 RET
+
                 ASSERT $ == #717B
                 endmodule
                 endmodule

@@ -10,20 +10,20 @@
                 include "StartDemoCoroutine.asm"
                 include "ResumeDemoCoroutine.asm"
                 include "CoroutineResumePoint.asm"
-                include "YieldWithSteeringBrake.asm"
-                include "YieldToGame.asm"
+                include "YieldWithSteeringBrake.asm"                            ; (0) жёсткий порядок, последовательное исполнение
+                include "YieldToGame.asm"                                       ; (1) жёсткий порядок, последовательное исполнение
                 include "CompareCoordinateSum.asm"
                 include "CompareWords.asm"
-                include "InitializeDemoScenario.asm"
-                include "ApproachCelestialBody.asm"
+                include "InitializeDemoScenario.asm"                            ; (0) жёсткий порядок, последовательное исполнение
+                include "ApproachCelestialBody.asm"                             ; (1) жёсткий порядок, последовательное исполнение
                 include "FollowStation.asm"
                 include "CheckDemoRestart.asm"
                 include "ReservedDemoBytes.asm"
                 include "BeepAndWait.asm"
-                include "ChooseCelestialTarget.asm"
-                include "AimAtNearBody.asm"
-                include "ChooseObjectAimPrecision.asm"                          ; (0)
-                include "SteerTowardTarget.asm"                                 ; (1)
+                include "ChooseCelestialTarget.asm"                             ; (0) жёсткий порядок, последовательное исполнение
+                include "AimAtNearBody.asm"                                     ; (1) жёсткий порядок, последовательное исполнение
+                include "ChooseObjectAimPrecision.asm"                          ; (0) жёсткий порядок, последовательное исполнение
+                include "SteerTowardTarget.asm"                                 ; (1) жёсткий порядок, последовательное исполнение
                 include "ChooseRollFromSign.asm"
                 include "ApplyRollKeys.asm"
                 include "RollWindowCounter.asm"
@@ -32,8 +32,8 @@
                 include "ApplyPitchKeys.asm"
                 include "PitchWindowCounter.asm"
                 include "ApplyDefenceKeys.asm"
-                include "BrakeForDistantTarget.asm"
-                include "ApplyBrakeKey.asm"
+                include "BrakeForDistantTarget.asm"                             ; (0) жёсткий порядок, последовательное исполнение
+                include "ApplyBrakeKey.asm"                                     ; (1) жёсткий порядок, последовательное исполнение
                 include "ApplyAccelerationKey.asm"
                 include "ReverseCourse.asm"
                 include "ManualKeyboardMode.asm"
@@ -55,8 +55,8 @@
                 include "CountPlayerSeekingMissiles.asm"
                 include "ClearMainKeyboardRows.asm"
                 include "CheckInterruptedHalt.asm"
-                include "PauseWithDemoMark.asm"
-                include "DrawDemoMarkXor.asm"
+                include "PauseWithDemoMark.asm"                                 ; (0) жёсткий порядок, последовательное исполнение
+                include "DrawDemoMarkXor.asm"                                   ; (1) жёсткий порядок, последовательное исполнение
                 include "DemoMarkShapeMasks.asm"
                 include "DemoMarkCellMap.asm"
                 include "DemoMarkCellShapes.asm"

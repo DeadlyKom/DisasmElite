@@ -10,12 +10,14 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Использует асимметричный DFEA, квадрат X и половину разности Y, E6D6 отдельно запрашивает Y,
-;   очищает 18 байт груза и ставит бит 5 D0B0 для занятого миссией трюма
+;   Использует асимметричный Game.Galaxy.OnesComplementDifference.Entry, квадрат X и половину разности Y, Game.Trade.MissionRegionMetric.BoardRefugees отдельно запрашивает Y,
+;   очищает 18 байт груза и ставит бит 5 State.MissionFlags для занятого миссией трюма
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E6C6
                 ; квадрат отклонения от X=92 дополняется общим расчётом вертикальной метрики относительно Y=0
+                ; миссия 7 INVASION, метрика координат используется общей проверкой фронта
+                ; описание в Docs/Manual.md, раздел mission-7-invasion
 Entry:          PUSH AF
                 LD A, #5C
                 CALL Game.Galaxy.OnesComplementDifference.Entry
@@ -43,6 +45,7 @@ ClearCargo:     LD (HL), A
                 LD L, #B0
                 SET MS_CARGO_BIT, (HL)
 ReturnCargo:    JP @Game.Menus.PrintStatusFieldAndCargoScreen.CargoScreen
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E6EE
                 endmodule

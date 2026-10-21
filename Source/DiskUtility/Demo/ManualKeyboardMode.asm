@@ -8,7 +8,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Восстанавливает JP E706→ResumePoint, затем бесконечно ReadKeyboard/YieldToGame
+;   Восстанавливает JP DiskUtility.Demo.ResumeJump→ResumePoint, затем бесконечно ReadKeyboard/YieldToGame
 ;   V обрабатывается общим YieldToGame и позволяет вернуться к сценарию
 ; -----------------------------------------
                 ; восстановление обычного возврата корутины перед ручным циклом

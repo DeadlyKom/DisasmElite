@@ -4,15 +4,15 @@
 ; Тональный сигнал с меняющейся задержкой и вход начальной подготовки
 ; исходный диапазон #7344..#736F
 ; In:
-;   основной вход без параметров,7366 получает текущий SP
+;   основной вход без параметров,Game.Flight.PlaySweepingBeeperAndBootstrap.Bootstrap получает текущий SP
 ; Out:
-;   24 полных импульса на порту FE, шесть HALT, отдельно 7366 сохраняет SP в 7578
+;   24 полных импульса на порту FE, шесть HALT, отдельно Game.Flight.PlaySweepingBeeperAndBootstrap.Bootstrap сохраняет SP в Game.Flight.MainGameLoop.SavedSP
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
 ;   Шесть групп по четыре периода, перед каждым периодом E=(2*E+5) mod256, два DJNZ задают высокий и
 ;   низкий полупериоды
-;   7366 вызывает 94F4 и 8042, затем линейно продолжается в 7370, это отдельный вход из 70E0
+;   Game.Flight.PlaySweepingBeeperAndBootstrap.Bootstrap вызывает Game.Flight.ResetFlightControls.Entry и Game.Screen.RestoreCockpitIfNeeded.Entry, затем линейно продолжается в Game.Flight.TryColonizeMinerals.Entry, это отдельный вход из Game.Flight.FillViewAttributesAndFlightState.StartGame
 ;   Первые периоды имеют E=5,15,35,75,155,59,123,251, далее последовательность сходится к 251,
 ;   прерывания разрешены для HALT
 ; -----------------------------------------
@@ -52,7 +52,7 @@ LowDelay:       DJNZ LowDelay
                 ; отдельный стартовый вход сохраняет SP и подготавливает кабину
 Bootstrap:      LD (Game.Flight.MainGameLoop.SavedSP), SP
                 CALL Game.Flight.ResetFlightControls.Entry
-                CALL Game.Screen.RestoreCockpitIfNeeded.Entry
+                CALL Game.Screen.RestoreCockpitIfNeeded.Entry                   ; далее Game.Flight.TryColonizeMinerals.Entry без команды перехода
                 ASSERT $ == #7370
                 endmodule
                 endmodule

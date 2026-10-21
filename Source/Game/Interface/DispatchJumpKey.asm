@@ -4,17 +4,18 @@
 ; Вектор обработки запроса гиперперехода
 ; исходный диапазон #D042..#D047
 ; In:
-;   Биты 4 и 5 байта FC0A задают запрос
+;   Биты 4 и 5 байта InputState.ViewJumpKeys задают запрос
 ; Out:
-;   Переход в DBA2
+;   Переход в Game.Travel.ClearFlightEventsAndHandleJump.CheckJumpKeys
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   После JP лежат D045 X печати, D046 Y печати и D047 состояние прицела
+;   После JP лежат TextPosition X печати, TextRow Y печати и AimState состояние прицела
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D042
 Entry:          JP @Game.Travel.ClearFlightEventsAndHandleJump.CheckJumpKeys
+
                 ; колонка текстового курсора, штатно 0..31
 TextColumn      DB #00                                                          ; столбец печати текста
                 ; строка текстового курсора, штатно 0..23

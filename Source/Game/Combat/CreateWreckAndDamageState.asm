@@ -10,13 +10,14 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-; 9C9F переходит в B618. Байты 9CA2/9CA3/9CA4 хранят расход энергии и урон передней/задней защите.
-; 9CA5 отдельный JP HalfDelta, далее сохранены JP9F82, JPA28D и рабочий байт 9CAE.
+; Game.Combat.CreateWreckAndDamageState.Entry переходит в Game.Combat.CreatePlayerWreckScene.Entry. Байты CombatState.EnergyDrain/CombatState.FrontDamage/CombatState.RearDamage хранят расход энергии и урон передней/задней защите.
+; Game.Combat.CreateWreckAndDamageState.SignedDelta отдельный JP HalfDelta, далее сохранены JP Game.Motion.UpdateObjectCoordinatesAndRotation.Entry, JP Game.Motion.AnimateIntroObject.Entry и рабочий байт OrdinarySeen.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #9C9F
                 ; переход к созданию сцены обломков
 Entry:          JP Game.Combat.CreatePlayerWreckScene.Entry
+
                 ; данные расхода энергии и двух накопителей урона
 EnergyDrain     DB #00                                                          ; накопленный расход энергии за объектный кадр, включая лазер и ECM
 FrontDamage     DB #00                                                          ; накопленный урон передней защите от лазеров и столкновений
@@ -24,7 +25,7 @@ RearDamage      DB #00                                                          
                 ; отдельный совместимый вход знаковой полуразности
 SignedDelta:    JP Game.Math.HalfDelta
 
-                ; сохранённые переходы пересчёта и демонстрации, рабочий байт 9CAE
+                ; сохранённые переходы пересчёта и демонстрации, рабочий байт OrdinarySeen
 
 ; -----------------------------------------
 ; совместимый переход к пересчёту положения и базиса объекта
@@ -44,9 +45,9 @@ MoveObjects:    ; совместимый переход к пересчёту п
 ; -----------------------------------------
 ; совместимый переход к вращению объекта демонстрации
 ; In:
-;   память #6159, демонстрационный объект и указатель модели
+;   память Memory.Missile, демонстрационный объект и указатель модели
 ; Out:
-;   демонстрационный объект повёрнут и выведен через #A28D
+;   демонстрационный объект повёрнут и выведен через Game.Motion.AnimateIntroObject.Entry
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
@@ -54,6 +55,7 @@ MoveObjects:    ; совместимый переход к пересчёту п
 ; -----------------------------------------
 RotateDemo:     ; совместимый переход к вращению объекта демонстрации
                 JP Game.Motion.AnimateIntroObject.Entry
+
                 ; исходные байты вне раскрываемого входа
 OrdinarySeen    DB #00                                                          ; энергия последнего живого объекта без Flags2.bit2, ноль если таких объектов нет
                 ; проверка исходного конца фрагмента

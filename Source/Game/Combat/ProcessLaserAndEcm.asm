@@ -4,20 +4,20 @@
 ; вывод прицела, обработка лазерного огня и ECM
 ; исходный диапазон #B7B4..#B82B
 ; In:
-;   память 711F, состояние гибели
-;   память 70E3, направление обзора
-;   память D07D..D080, лазеры по направлениям
-;   память FC0B, события управления
+;   память FlightState.PlayerDead, состояние гибели
+;   память FlightState.View, направление обзора
+;   память State.FrontLaser..State.RightLaser, лазеры по направлениям
+;   память InputState.DeviceKeys, события управления
 ; Out:
-;   прицел и оружие обновлены, расход ECM добавлен в 9CA2
+;   прицел и оружие обновлены, расход ECM добавлен в CombatState.EnergyDrain
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
 ; При наличии лазера рисует четыре коротких отрезка прицела и вызывает FireLaser.
-; D0B0.7 совместно с режимом D0AF=4 запрещает дальнейшую обработку ECM.
-; Бит 4 события клавиатуры снимается после чтения. При неактивном ECM управление передаётся B82C.
-; Активный таймер 9C9B уменьшается, при нуле снимается старший бит D085.
-; Ставит звук 7128.5 и добавляет единицу расхода энергии при ненулевом коде оборудования.
+; State.MissionFlags.7 совместно с режимом State.Mission3=4 запрещает дальнейшую обработку ECM.
+; Бит 4 события клавиатуры снимается после чтения. При неактивном ECM управление передаётся Game.Objects.ActivateEnemyECM.Entry.
+; Активный таймер CombatState.EcmTimer уменьшается, при нуле снимается старший бит State.ECM.
+; Ставит звук FlightState.SoundRequests.5 и добавляет единицу расхода энергии при ненулевом коде оборудования.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #B7B4
@@ -61,9 +61,11 @@ Entry:          LD A, (FlightState.PlayerDead)
                 CALL Game.Wireframe.DrawClippedLine.Entry
                 CALL Game.Combat.FirePlayerLaser.Entry
                 ; проверка специального ограничения ECM
+                ; миссии 3, 7 INVASION, совместная проверка этапа 4 и MS_ACCEPT_BIT запрещает обработку ECM игрока
+                ; описание в Docs/Manual.md, раздел mission-3, mission-7-invasion
 CheckEcmLock:   LD A, (State.MissionFlags)
                 BIT MS_ACCEPT_BIT, A
-                JR Z, ReadEcm                                                   ; переход, если специальный запрет D0B0.7 не установлен
+                JR Z, ReadEcm                                                   ; переход, если специальный запрет State.MissionFlags.7 не установлен
 
                 LD A, (State.Mission3)
                 CP #04
@@ -97,6 +99,7 @@ EcmCost:        LD HL, FlightState.SoundRequests
                 INC A
                 LD (CombatState.EnergyDrain), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B82C
                 endmodule

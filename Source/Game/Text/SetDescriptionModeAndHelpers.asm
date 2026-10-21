@@ -4,18 +4,18 @@
 ; Выбор режима второй текстовой таблицы
 ; исходный диапазон #D8E5..#D906
 ; In:
-;   Нет параметров для D8E5/D8E9
+;   Нет параметров для Game.Text.SetDescriptionModeAndHelpers.Entry/Game.Text.SetDescriptionModeAndHelpers.Disable
 ; Out:
-;   D420=1 для D8E5, D420=0 для D8E9
+;   TextDecodeMode=1 для Game.Text.SetDescriptionModeAndHelpers.Entry, TextDecodeMode=0 для Game.Text.SetDescriptionModeAndHelpers.Disable
 ; Corrupt:
 ;   AF
 ; Note:
-;   D8EF/D8F3 устанавливают Y=6 или 10, D8F8 печатает байт(HL) кроме 3F, D8FF..D906 содержат
+;   RowSix и вход непосредственно перед SetRow устанавливают Y=6 либо 10, Game.Text.SetDescriptionModeAndHelpers.PrintLetter печатает байт(HL) кроме 3F, после PrintLetter сохранены восемь байтов, это
 ;   отдельные данные
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D8E5
-                ; включение второй таблицы описаний, дополнительный вход D8E9 выключает этот режим
+                ; включение второй таблицы описаний, дополнительный вход Game.Text.SetDescriptionModeAndHelpers.Disable выключает этот режим
 Entry:          LD A, #01
                 JR StoreMode
 
@@ -36,6 +36,7 @@ PrintLetter:    LD A, (HL)
                 RET Z                                                           ; выход, если символ слога является заполнителем ?, пропустить его
 
                 JP Game.Text.PrintMainToken.Entry
+
                 ; сохранённые восемь байтов между текстовыми обработчиками и дисковым меню
                 DB #00, #00, #00, #0C, #12, #12, #13, #80                       ; #D8FF..#D906
                 ; проверка исходного конца фрагмента

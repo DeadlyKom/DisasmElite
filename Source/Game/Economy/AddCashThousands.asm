@@ -6,7 +6,7 @@
 ; In:
 ;   DE = число тысяч
 ; Out:
-;   D066 увеличено по модулю 65536
+;   State.CashHigh увеличено по модулю 65536
 ; Corrupt:
 ;   HL, AF
 ; Note:
@@ -19,6 +19,7 @@ Entry:          LD HL, (State.CashHigh)
                 ADD HL, DE
                 LD (State.CashHigh), HL
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D3EF
                 endmodule

@@ -2,15 +2,15 @@
 ; Уступка кадра с сохранением состояния корутины
 ; исходный диапазон #E730..#E768
 ; In:
-;   SP демо, E6DC стек игры
+;   SP демо, DiskUtility.Demo.SavedStacks стек игры
 ; Out:
 ;   шесть пар сохранены в демо, возврат на стек игры
 ; Corrupt:
 ;   HL, AF для обработки клавиш, SP, остальные сохраняются в стеке
 ; Note:
-;   Аппаратная Z по FEFE.1 перенаправляет следующий ResumeDemo в ManualControl
-;   Аппаратная V по FEFE.4 сбрасывает стек EF00 и выбирает FollowStation/ApproachBody по знаку Z планеты 7118
-;   Обычный путь сохраняет AF,BC,DE,HL,IX,IY, затем E6DE=SP и SP=(E6DC), RET возвращается в FrameHook
+;   Аппаратная Z по InterruptGate.1 перенаправляет следующий ResumeDemo в ManualControl
+;   Аппаратная V по InterruptGate.4 сбрасывает стек DiskUtility.Demo.StackTop и выбирает FollowStation/ApproachBody по знаку FlightState.Planet + FSpacePosition.Z + FCoordinate.SignHigh
+;   Обычный путь сохраняет AF,BC,DE,HL,IX,IY, затем DiskUtility.Demo.DemoStack=SP и SP=(DiskUtility.Demo.SavedStacks), RET возвращается в FrameHook
 ; -----------------------------------------
                 ; сохранение AF и прямое чтение физического ряда CAPS SHIFT,Z,X,C,V
 YieldToGame:    PUSH AF

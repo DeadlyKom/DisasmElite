@@ -4,14 +4,14 @@
 ; Косвенный вызов и обработчик покупки груза
 ; исходный диапазон #E7DA..#E81B
 ; In:
-;   HL = адрес обработчика для E7DA, E8AB = количество для E7DB
+;   HL = адрес обработчика для Game.Trade.IndirectTradeCallbackAndBuy.Entry, TradeSnapshot.Selection = количество для Game.Trade.IndirectTradeCallbackAndBuy.BuyQuantity
 ; Out:
 ;   CY=0 при покупке, CY=1 при обработанной ошибке
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   JP(HL) сохраняет возврат CALL, E7DB делает снимок, проверяет запас станции, списывает цену
-;   каждой единицы, проверяет тоннаж и переполнение груза, D1B5 меняет legal status при
+;   JP(HL) сохраняет возврат CALL, Game.Trade.IndirectTradeCallbackAndBuy.BuyQuantity делает снимок, проверяет запас станции, списывает цену
+;   каждой единицы, проверяет тоннаж и переполнение груза, Game.Missions.SpecialMessageAndScoopReward.CheckIllegal меняет legal status при
 ;   незаконном товаре
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -62,6 +62,7 @@ AddCargo:       LD HL, (MarketWork.CargoCursor)
 
 NotEnoughStock: LD A, #B0
                 JR @Game.Trade.TradeErrorMessage.ShowError
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E81C
                 endmodule

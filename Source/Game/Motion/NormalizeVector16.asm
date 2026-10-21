@@ -38,6 +38,7 @@ Entry:          PUSH IX
                 CALL Game.Motion.DivideVectorComponent.Entry
                 POP IX
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9E98
                 endmodule

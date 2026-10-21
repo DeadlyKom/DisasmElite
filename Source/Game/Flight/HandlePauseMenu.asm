@@ -4,14 +4,14 @@
 ; Меню паузы с изменением настроек и возвратом в игру
 ; исходный диапазон #72A3..#72D3
 ; In:
-;   FC0A bit7 запрос паузы,FC0D код символа,FC0E настройки
+;   InputState.ViewJumpKeys bit7 запрос паузы,InputState.LastKey код символа,InputState.Config настройки
 ; Out:
 ;   без запроса C=0, SPACE возобновляет с C=0, Q возвращает C=1 для перезапуска
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Сначала ждёт отпускания клавиши, затем ROM INDEXER ищет символ в таблице битовых настроек 72FB и
-;   таблице действий 7308
+;   Сначала ждёт отпускания клавиши, затем ROM INDEXER ищет символ в таблице битовых настроек PauseKeyMap и
+;   второй таблице IndexPauseCommandAndHandlers, которая находится сразу после PauseKeyMap
 ;   Первая таблица переключает маску XOR, вторая заменяет адрес возврата на обработчик страницы 73
 ;   через EX(SP),HL
 ; -----------------------------------------
@@ -44,7 +44,7 @@ ReadPauseKey:   HALT
                 POP HL
                 JR ReadPauseKey
 
-                ; инверсия маски выбранной настройки в FC0E
+                ; инверсия маски выбранной настройки в InputState.Config
 ToggleOption:   LD A, (HL)
                 POP HL
                 XOR (HL)
@@ -56,6 +56,7 @@ RunPauseAction: LD L, (HL)
                 EX (SP), HL
                 LD A, (HL)
                 RET
+
                 ASSERT $ == #72D4
                 endmodule
                 endmodule

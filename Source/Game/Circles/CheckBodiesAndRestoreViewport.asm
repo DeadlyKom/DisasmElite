@@ -4,13 +4,13 @@
 ; проверка оценок расстояний и вход восстановления патчей
 ; исходный диапазон #8E64..#8E76
 ; смысловое имя CheckSunAndPlanetDistanceAndRestoreViewport
-; In: координаты солнца и планеты для #8400/#83FE
-; Out: A и C-флаг выражают последовательные сравнения с#10 и#35
+; In: координаты солнца и планеты для Game.Screen.SunDistanceHint.Entry/Game.Screen.PlanetDistanceHint.Entry
+; Out: A и C-флаг выражают последовательные сравнения с #10 и #35
 ; Corrupt: HL, AF
 ; Если оценка солнца вернула перенос и A<#10, возвращается C=1 сразу
 ; Иначе оценивается планета, после CCF ранний RET NC отклоняет исходный перенос
 ; Последний CP#35 возвращает C=1 при оценке планеты меньше 53
-; Независимый вход #8E74 загружает таблицу штатных патчей и проваливается в#8E77
+; Независимый вход Game.Circles.CheckBodiesAndRestoreViewport.NormalViewport загружает таблицу штатных патчей и проваливается в Game.Circles.ApplyCircleViewportPatches.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #8E64
@@ -30,7 +30,7 @@ CheckPlanet:    CALL Game.Screen.PlanetDistanceHint.Entry
                 RET
 
                 ; выбор таблицы возврата к штатной области обзора
-NormalViewport: LD HL, CircleViewport.Flight
+NormalViewport: LD HL, CircleViewport.Flight                                    ; далее Game.Circles.ApplyCircleViewportPatches.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #8E77
                 endmodule

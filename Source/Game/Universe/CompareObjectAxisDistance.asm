@@ -44,6 +44,7 @@ SameSign:       SUB E
 
                 NEG
                 JR CheckRange
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #7B6A
                 endmodule

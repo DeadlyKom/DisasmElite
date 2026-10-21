@@ -6,15 +6,15 @@
 ; In:
 ;   HL, адрес атрибута
 ;   AF, A содержит состояние для основного входа
-;   память D083, запас ракет для отдельного 9B1B
+;   память State.Missiles, запас ракет для отдельного Game.Combat.SetIndicatorAndPrintMissileStock.PrintStock
 ; Out:
 ;   байт атрибута равен 7 при ненулевом состоянии, иначе 0
-;   для 9B1B напечатаны четыре позиции ракет
+;   для Game.Combat.SetIndicatorAndPrintMissileStock.PrintStock напечатаны четыре позиции ракет
 ; Corrupt:
-;   AF, для 9B1B также HL, DE, BC
+;   AF, для Game.Combat.SetIndicatorAndPrintMissileStock.PrintStock также HL, DE, BC
 ; Note:
-; Первый RET завершает простой индикатор. 9B1B является отдельным входом печати запаса ракет.
-; Устанавливает текстовую позицию (2,23), временно заменяет байт по D04B на 0, после печати пишет A9.
+; Первый RET завершает простой индикатор. Game.Combat.SetIndicatorAndPrintMissileStock.PrintStock является отдельным входом печати запаса ракет.
+; Устанавливает текстовую позицию (2,23), временно заменяет байт по GlyphPatch на 0, после печати пишет A9.
 ; Каждая из четырёх позиций получает символ #25 при наличии ракеты, иначе #40.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -51,6 +51,7 @@ PrintMissile:   CALL Game.Text.PrintMainToken.Entry
                 POP HL
                 LD (HL), #A9
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9B41
                 endmodule

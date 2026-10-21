@@ -1,0 +1,1838 @@
+{
+  "scope": "все физические F-инициализаторы Source/Game, байты и реальные поля по .sym",
+  "instance_count": 179,
+  "named_instances": 71,
+  "bytes_checked": 1786,
+  "field_addresses_checked": 1172,
+  "types": {
+    "FMapViewport": 1,
+    "FSpacePosition": 4,
+    "FSpaceObject": 8,
+    "FModelIndex": 23,
+    "FFlightMessage": 1,
+    "FMarketEntry": 17,
+    "FEquipmentPrice": 14,
+    "FInputState": 1,
+    "FModel": 23,
+    "FSoundState": 1,
+    "FGaugeState": 1,
+    "FCoordinate": 3,
+    "FInputMotion": 1,
+    "FCommander": 2,
+    "FFlightEvent": 10,
+    "FSteeringVector": 1,
+    "FRotationState": 1,
+    "FFaceState": 1,
+    "FCompassState": 1,
+    "FCircleState": 1,
+    "FScannerState": 1,
+    "FEquipmentWork": 1,
+    "FMarketWork": 1,
+    "FTradeSnapshot": 1,
+    "FTextInput": 1,
+    "FGalaxyState": 1,
+    "FProjectedVertex": 46,
+    "FMatrix3": 1,
+    "FProjectionState": 1,
+    "FObjectEffects": 1,
+    "FEffectRecord10": 9
+  },
+  "instances": [
+    {
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "line": 150,
+      "type": "FMapViewport",
+      "symbol": "Game.Charts.MapCursorTransformAndKeys.Viewport",
+      "address": 58667,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "ddedd5b5c8bf9fe99aa35a9bb950d8455456c792cf9a9392d296f74c9d6590ab"
+    },
+    {
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "line": 55,
+      "type": "FSpacePosition",
+      "symbol": "Game.Circles.UpdateThargoidAndBodyCoords.FirstPosition",
+      "address": 35514,
+      "size": 9,
+      "original_bytes_equal": true,
+      "sha256": "8e55f5d92bd5caf05134874f402df27f36b6a3551aee0106cdacc569e3c95f72"
+    },
+    {
+      "file": "Source/Game/Circles/UpdateThargoidAndBodyCoords.asm",
+      "line": 73,
+      "type": "FSpacePosition",
+      "symbol": "Game.Circles.UpdateThargoidAndBodyCoords.SecondPosition",
+      "address": 35523,
+      "size": 9,
+      "original_bytes_equal": true,
+      "sha256": "76c0a7ca73e6d07a434d6ace53d08662cafd2f397593b96a5fff1571359a83d7"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 75,
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Station",
+      "address": 24648,
+      "size": 39,
+      "original_bytes_equal": true,
+      "sha256": "c2d90ca66217c433d0496f5903e9f27f8f0155329006525c9663760094c4e4a9"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 119,
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Ship1",
+      "address": 24687,
+      "size": 39,
+      "original_bytes_equal": true,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 163,
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Ship2",
+      "address": 24726,
+      "size": 39,
+      "original_bytes_equal": true,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 207,
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Ship3",
+      "address": 24765,
+      "size": 39,
+      "original_bytes_equal": true,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 251,
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Ship4",
+      "address": 24804,
+      "size": 39,
+      "original_bytes_equal": true,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 295,
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Ship5",
+      "address": 24843,
+      "size": 39,
+      "original_bytes_equal": true,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 339,
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Ship6",
+      "address": 24882,
+      "size": 39,
+      "original_bytes_equal": true,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 383,
+      "type": "FSpaceObject",
+      "symbol": "Game.Data.ObjectPool.Missile",
+      "address": 24921,
+      "size": 39,
+      "original_bytes_equal": true,
+      "sha256": "94c11ed3c3c73016adb92416352678e169cbe47bb48bc27e5e9d466115b06252"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 437,
+      "type": "FModelIndex",
+      "symbol": "Game.Data.ModelIndex.Entry",
+      "address": 24960,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "27a636263f1a0732505fb65b086016544b4e66dc6ff13a0467edf6eb5fc2b19f"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 443,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 24964,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "d48e4b7adc5a33d68dfcd9b75c88d2bc8118b9bf50b843569b6c7e8f55248a11"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 449,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 24968,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "8cd03dce96e5b94d8c83e0dc282c3adfaa72ed4bf6b0718d10876410885e2089"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 455,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 24972,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "63bdfd5eee6c0b984aec91812ee7f1264c869049fbc90c84ac4d116c663ded5e"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 461,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 24976,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "a5f8a7cb73211118661affdb9998aa221e7f1dbe0788067ed5c9b01ed568a3f4"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 467,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 24980,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "347b2c39e7a06b65d4ce33477cfe01ef935beaf8ca0f9c859b55dacae05de5e5"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 473,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 24984,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "fe703c145c3b7e43470e0b002611aad05d27626cfe5a486cb9fe4251d065344c"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 479,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 24988,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "8273fd085ea69ffe3c23428055ab1a3d80857bb8bae677aaf547b71c204142b4"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 485,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 24992,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "d00af05bc0bfa94e692233d0499afe1514cc71f4a874e5cfbaa73510e62acb2c"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 491,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 24996,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "a632056031c00f61ac6fc0346c8a25d899a3dbab1fb9268f38862b3766e96baf"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 497,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25000,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "b6af36d3b8a67f9868cb7c5cc03a6846da5bfca0e5cdb1086ce6e8578ac83b93"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 503,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25004,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "ce695472ebe4ee00dafd85240d55a526b70af5e2e250d0ea4585ed794b5d9bad"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 509,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25008,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "40be1fc3977ad999524a26c173311bf849e7221b65f9c9029a26348da527f69e"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 515,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25012,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "ae5ca189e6f45ec524e02e2984785819dfe67c8e8f4e4b035baa00f926bb32e7"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 521,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25016,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "ccd5aec7e2bb39c65490bb3ce829857172f6fc8bd23aacc246e20614ac2896fc"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 527,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25020,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "c2b177a7361b065b00b5ac87fa8782f5bc8f25fd6f7b07d29aa910bf88e705cc"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 533,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25024,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "605d46ba9cddd52d3c4c1fe09691f71d29f5a5f3ce7937092c75fc09aecfa61a"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 539,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25028,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "065bae2783617aa8e384e207d78853ce9d80ba2a4028a17f4b341facc2a9a47b"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 545,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25032,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "341e4e87a5940a5b5234803461db5ec9806d48881dfceb12872ce12ed1a21c50"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 551,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25036,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "c0f01224ec19a8ed35584a9759f66707d80045a8e24edf689c984d5afc284689"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 557,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25040,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "14bd58d8bb64fbfc5ff937c79ec6040de1cad7461d5df9169d26967b1239525d"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 563,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25044,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "64833bf81d3178b019c72fa76a1781ca2cfb687b1da359900fee3846d8b98b7c"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 569,
+      "type": "FModelIndex",
+      "symbol": null,
+      "address": 25048,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "4a5faa21aed619c7c0e0d9058e7edccd8df986901ea2d910fff522990e5f115b"
+    },
+    {
+      "file": "Source/Game/Disk/DrawScreenStripsAndPrivateStack.asm",
+      "line": 53,
+      "type": "FFlightMessage",
+      "symbol": "Game.Disk.DrawScreenStripsAndPrivateStack.MessageData",
+      "address": 55922,
+      "size": 8,
+      "original_bytes_equal": true,
+      "sha256": "e45ca206fce0d9e78f2dfab14a88ad1baf236f86fd8f271c65e97bf610cbd521"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 55,
+      "type": "FMarketEntry",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.MarketParams",
+      "address": 28699,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "763edc08a9588c351bec7ba03d8913640b6c6e02092e2b36e39c962110f19e18"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 62,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28703,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "898463086062d4e253076de3ef0818873bf6dc7776a19130147d23fd833f8e79"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 69,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28707,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "fbe3464172233b5135641fc7d246e440ff650d524e2d5ae750cba38a41ef559a"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 76,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28711,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "4c1f49bbd69f7f5e7b3ba5b82ae1b615f5490c6a3c38640eae6c58bcac683717"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 83,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28715,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "32da68a2e731ee2e81e74087de4fbe24000194f58e8112f61028d38c4652a0b1"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 90,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28719,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "024f355e0fb499166e5928c1103b360f51677861a76f6daea27853a50f83cc9c"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 97,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28723,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "1ab8ce98706ef0f2c66337032b22783d3c4be1c14a8cd04082975f5ddb22a596"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 104,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28727,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "32553ea7e8ca9c8a8f52f2b9faca56f88adb50de824d867df0c9178be9dc162b"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 111,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28731,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "0e87443d220425cb49258d94a87c2061476d4914d7d2dbc47584ee983ece26d3"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 118,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28735,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "c4e4fa456829b828087ddcf7884b6d4115e589dfe82373ee81d19b0058292a52"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 125,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28739,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "501d57e04dc7a48be46cece9421a480d23c983c9c50172e68e8a2e686ed48337"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 132,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28743,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "85383a259435f6e6b60d3e784ec4876f4c61afc4a7ba9c30495ddc53ca123b2a"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 139,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28747,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "56dcebd30e5aacf7b0b47f563e46c07d2c9ad693957b5f9f262d4631b7b4dad4"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 146,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28751,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "e05a6741beef548d2d796e6576ff030787f141374ecb1ec80efbcec6cd694bbe"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 153,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28755,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "985219dc40bcc9c1cafcb47efedaa83636e9d2cd3323f41c0e2036a092d7f039"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 160,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28759,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "41d2b34db679946cd939e1c2a0bcd7113175b16a4179da97ea2ef6be64c5fb4f"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 167,
+      "type": "FMarketEntry",
+      "symbol": null,
+      "address": 28763,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "093d5ca25b97e755fabfa9766e7f5d271d3d0c807cc8adb69e1522180ee94d07"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 175,
+      "type": "FEquipmentPrice",
+      "symbol": "Game.Extensions.AttributeVectorAndEnergyBomb.EquipmentPrices",
+      "address": 28767,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 180,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28770,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "fa0a8b8f8774bc4956b5fce54fc3997ee0b462aae1c965ce7e176a06324c7562"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 185,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28773,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "b2b0a67d58587249b6cbca32483d05900bcf5239c7e81c66887993495929b3ee"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 190,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28776,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "b005cc2529dc4d867c17d63f2b5d6d5e7a8fcbfce0309e17cb4c0255272e564f"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 195,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28779,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "b2b0a67d58587249b6cbca32483d05900bcf5239c7e81c66887993495929b3ee"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 200,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28782,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "fb50dc0717ff266cf9baf82b1ce7a1c2ef6d9247859680b11a19fb7077f5f222"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 205,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28785,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "d8865d43a745fd04f3c7fadcf1c551ac85d26729819d8ab99fd6ac5f16feb662"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 210,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28788,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "fb50dc0717ff266cf9baf82b1ce7a1c2ef6d9247859680b11a19fb7077f5f222"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 215,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28791,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "e3ff2465ffbf41a58b15ea6e510aa9415ea1805645e41fdddb9d8843e5926b16"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 220,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28794,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "86fe2f91249a9b1b60f0bbf697a045d8567eafc30f5ce6cff0b58c2c1c56eff3"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 225,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28797,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "86fe2f91249a9b1b60f0bbf697a045d8567eafc30f5ce6cff0b58c2c1c56eff3"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 230,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28800,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "69c492e24afa52c556de5ea70e1b5d7da3f0bc7a5a7fd1d413444c1a42a7e9b3"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 235,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28803,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "412c45d603453521684df8f679c7f68f0f22dd7697d37170385c8c7931636298"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 240,
+      "type": "FEquipmentPrice",
+      "symbol": null,
+      "address": 28806,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "a6c7638e360d10978cec58d970d030ad87148d27931cfa62356fda3f68f61215"
+    },
+    {
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "line": 48,
+      "type": "FInputState",
+      "symbol": "Game.Extensions.CompareObjectCoordinateDepth.KeyEvents",
+      "address": 64520,
+      "size": 8,
+      "original_bytes_equal": true,
+      "sha256": "256e371a0c6e092edb1007e0bc5af1819b6b1ab17b9f309e8a9810a79f0105a7"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 23,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Missile",
+      "address": 25059,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "3ca1a4300e6f5358ba0c10c15f88df14f4f3b4f72e287153c19e626589c65de9"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 44,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.EscapePod",
+      "address": 25082,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "1dab15954bdd34fb70977153f43c81b50b1c86c64e579f83c0d1bcc8f5825537"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 65,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Alloys",
+      "address": 25105,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "5b66751411d04986960e0744f6cb2192b421737fbbab7075c6faf2ac7e3cdac4"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 86,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Cargo",
+      "address": 25128,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "44c051dbc908f607663147487cf60831952afe4544f2ee1cc6dce925a3e31d89"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 107,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Minerals",
+      "address": 25151,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "abd4101cf19e5f54c865a9c7b51e4268c13dc8604f40939e25efaaee4d05b687"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 128,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Asteroid",
+      "address": 25174,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "5c9ba181afb4ee26307908fc97c12184dd5690a0d9862c9f1f98aff1f13f5f69"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 149,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.AsteroidArmed",
+      "address": 25197,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "f580c29f205dda928866ab715461f3efdf60c79fa919915ba56c10ce667da099"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 170,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Viper",
+      "address": 25220,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "b2df6fbfd1fec8ec2fad7f13c50c72e1599c8ae1070b3f5393deee6696456ede"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 191,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.CobraTrader",
+      "address": 25243,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "78e475c16805e52666b8f934b8ad1ddea4f71b00cc8635aa2f3234df995fb047"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 212,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.PythonTrader",
+      "address": 25266,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "938e824337bba7969591210d156e95e9cac56afec53e3faab04fb186b27021a1"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 233,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.PythonPirate",
+      "address": 25289,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "620f020fee0b5e4735b466ee1bdceb8025bdbe119641ba9ca6d035a24eb5e133"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 254,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.CobraPirate",
+      "address": 25312,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "215a7ab38dfefd5a6a82303de8e31bf01cad8017c361c2a0d869a285f0aac1c8"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 275,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Asp",
+      "address": 25335,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "bc87fc0dc78853f156ee6ae3ec4be377fba4faeea59a19187dd193a2e233d84c"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 296,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.FerDeLance",
+      "address": 25358,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "db5e74e211bbe8d012c08cfdfc1378f7b46d85631b1a24d4221be4fcd64d215d"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 317,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Thargoid",
+      "address": 25381,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "296bfa6490eb827a77f0d0828984aadd9f743bdf7c0d83bf228973f493dd71a7"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 338,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Sidewinder",
+      "address": 25404,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "878692583a38e0fa993d02a52863fe3b3a41d338578bfee055b245df0663d38e"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 359,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Adder",
+      "address": 25427,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "76f611f802a02d0085db44b959a4e6e2887c33ce078a436f86d9c2579c3d9bdc"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 380,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Tharglet",
+      "address": 25450,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "0da298aade66992ca11e39a7d847fcf432c053ce1369b49822c6dce420f23d59"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 401,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Thargoid6",
+      "address": 25473,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "4db06f541ae6561fc67b64cfda4dbc59feddc82919116e1d4fa77ac7a38dca32"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 422,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Fighter1",
+      "address": 25496,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "1655ac7ae2c1bdf6e0b9af37db5f424a5b981a9673ca07ff7a7b38adc028cdb9"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 443,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Fighter2",
+      "address": 25519,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "9a52df528cdd02e1f65655273fa38aa1cae907024a4034b84f101cd22dabe494"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 464,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Coriolis",
+      "address": 25542,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "6715b5f061adf7b43920cfbe8c40e6a269f12f3e689791628a57b370a1064b83"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 485,
+      "type": "FModel",
+      "symbol": "Game.Extensions.DrawModelAndResources.Krait",
+      "address": 25565,
+      "size": 23,
+      "original_bytes_equal": true,
+      "sha256": "c9e1a476dffb01175bc4f1362b75490ab8bf04b30e39292ad4a560e33cd3c4da"
+    },
+    {
+      "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+      "line": 31,
+      "type": "FSoundState",
+      "symbol": "Game.Flight.ClearNearbyShipSlots.SoundData",
+      "address": 38178,
+      "size": 5,
+      "original_bytes_equal": true,
+      "sha256": "8855508aade16ec573d21e6a485dfd0a7624085c1a14b5ecdd6485de0c6839a4"
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "line": 92,
+      "type": "FGaugeState",
+      "symbol": "Game.Flight.FillViewAttributesAndFlightState.Gauges",
+      "address": 28903,
+      "size": 26,
+      "original_bytes_equal": true,
+      "sha256": "ad3db223758fdeb539263c1be579cdf0c440a2b2737b14fc409ccdd5c79c2c68"
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "line": 157,
+      "type": "FSpacePosition",
+      "symbol": "Game.Flight.FillViewAttributesAndFlightState.Sun",
+      "address": 28935,
+      "size": 9,
+      "original_bytes_equal": true,
+      "sha256": "2c2eb8b56f5bb73498c3e54c4a89baa7db450a14b44e58fb3e8c720033e7e58a"
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "line": 175,
+      "type": "FSpacePosition",
+      "symbol": "Game.Flight.FillViewAttributesAndFlightState.Planet",
+      "address": 28944,
+      "size": 9,
+      "original_bytes_equal": true,
+      "sha256": "dece1d1c5790408d070446b8ebf1c2784c1045a60c46656587d3c66291583616"
+    },
+    {
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 172,
+      "type": "FCoordinate",
+      "symbol": "Game.Flight.MainGameLoop.BodyX",
+      "address": 30074,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 177,
+      "type": "FCoordinate",
+      "symbol": "Game.Flight.MainGameLoop.BodyY",
+      "address": 30077,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 182,
+      "type": "FCoordinate",
+      "symbol": "Game.Flight.MainGameLoop.BodyZ",
+      "address": 30080,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Input/InterruptGateAndAcceleration.asm",
+      "line": 27,
+      "type": "FInputMotion",
+      "symbol": "Game.Input.InterruptGateAndAcceleration.MotionData",
+      "address": 65288,
+      "size": 6,
+      "original_bytes_equal": true,
+      "sha256": "b6d5bcc8c8328d2d8b2dbba9dc0df66a8e34b5cfc42355c23efa7acc70839bec"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 28,
+      "type": "FCommander",
+      "symbol": "Game.Interface.DispatchDiskAndCommanderState.Commander",
+      "address": 53332,
+      "size": 102,
+      "original_bytes_equal": true,
+      "sha256": "0a9e60f3453e276ed0050683835aded1b858cfa809192add36efc4ea2b45af31"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 134,
+      "type": "FFlightEvent",
+      "symbol": "Game.Interface.DispatchDiskAndCommanderState.FlightEvents",
+      "address": 53437,
+      "size": 2,
+      "original_bytes_equal": true,
+      "sha256": "721c8cff48605be3d89c49285e036b0bc2bbaffcd4bb96186a8b902dcd9e11a9"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 139,
+      "type": "FFlightEvent",
+      "symbol": "Game.Interface.DispatchDiskAndCommanderState.IncomingEvent",
+      "address": 53439,
+      "size": 2,
+      "original_bytes_equal": true,
+      "sha256": "c051156a2fe34db4d5fed8133e0a8a291932e8d1ec7c44928e10b6b0193f6051"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 143,
+      "type": "FFlightEvent",
+      "symbol": null,
+      "address": 53441,
+      "size": 2,
+      "original_bytes_equal": true,
+      "sha256": "ce87a31dffaffc82b1ea8a7dc06b79a3e1b55a8da72fcd416e70ea87948a9252"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 147,
+      "type": "FFlightEvent",
+      "symbol": null,
+      "address": 53443,
+      "size": 2,
+      "original_bytes_equal": true,
+      "sha256": "e7df433d434150633bce46f7b6eb7fd3bfce8c196ba85169baf22ec58b6e9760"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 151,
+      "type": "FFlightEvent",
+      "symbol": null,
+      "address": 53445,
+      "size": 2,
+      "original_bytes_equal": true,
+      "sha256": "63122a26d877c8f80b0544db95133ed4646916aba06062334b419c2da97ea05d"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 156,
+      "type": "FFlightEvent",
+      "symbol": "Game.Interface.DispatchDiskAndCommanderState.CargoEvent",
+      "address": 53447,
+      "size": 2,
+      "original_bytes_equal": true,
+      "sha256": "cbe2268747c9c8072c7f9926f2288f270637dc55bb9d14d3368361d5e47d25be"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 161,
+      "type": "FFlightEvent",
+      "symbol": null,
+      "address": 53449,
+      "size": 2,
+      "original_bytes_equal": true,
+      "sha256": "c98a6e0165853a202683f9ce23e44185cd7d26ed8f05c3b55c81a447b2533f2c"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 166,
+      "type": "FFlightEvent",
+      "symbol": "Game.Interface.DispatchDiskAndCommanderState.ZeroEvent",
+      "address": 53451,
+      "size": 2,
+      "original_bytes_equal": true,
+      "sha256": "b413f47d13ee2fe6c845b2ee141af81de858df4ec549a58b7970bb96645bc8d2"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 171,
+      "type": "FFlightEvent",
+      "symbol": "Game.Interface.DispatchDiskAndCommanderState.WidthEvent",
+      "address": 53453,
+      "size": 2,
+      "original_bytes_equal": true,
+      "sha256": "96a296d224f285c67bee93c30f8a309157f0daa35dc5b87e410b78630a09cfc7"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 175,
+      "type": "FFlightEvent",
+      "symbol": null,
+      "address": 53455,
+      "size": 2,
+      "original_bytes_equal": true,
+      "sha256": "a4189a3ea2a3a65ff645917d60ccb0a6b6f7d4a9d36b9ea699028649c9b34c3c"
+    },
+    {
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "line": 139,
+      "type": "FCommander",
+      "symbol": "Game.Missions.RatingBountyDamageAndNewCommander.NewCommander",
+      "address": 53810,
+      "size": 102,
+      "original_bytes_equal": true,
+      "sha256": "fd9e7e71f404dc164991a704a982a3a9f3284f3f5bc4d8084df4a20b0f7a8df2"
+    },
+    {
+      "file": "Source/Game/Motion/AnimateIntroObject.asm",
+      "line": 37,
+      "type": "FSteeringVector",
+      "symbol": "Game.Motion.AnimateIntroObject.SteeringData",
+      "address": 41656,
+      "size": 8,
+      "original_bytes_equal": true,
+      "sha256": "af5570f5a1810b7af78caf4bc70a660f0df51e42baf91d4de5b2328de0e83dfc"
+    },
+    {
+      "file": "Source/Game/Motion/ScaleAxisHighByte.asm",
+      "line": 34,
+      "type": "FRotationState",
+      "symbol": "Game.Motion.ScaleAxisHighByte.RotationData",
+      "address": 40832,
+      "size": 2,
+      "original_bytes_equal": true,
+      "sha256": "7f91dad39624060bc039941abc607aef3d2219e067725d55dea569f33af9ac42"
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "line": 221,
+      "type": "FFaceState",
+      "symbol": "Game.Objects.GenerateSpaceTraffic.FaceData",
+      "address": 48328,
+      "size": 12,
+      "original_bytes_equal": true,
+      "sha256": "dd0177547c225f62531c153c028ca32e77499e4b4b8b0cf422ab8988943bb6c6"
+    },
+    {
+      "file": "Source/Game/Screen/RestrictDockingView.asm",
+      "line": 34,
+      "type": "FCompassState",
+      "symbol": "Game.Screen.RestrictDockingView.CompassFields",
+      "address": 33188,
+      "size": 5,
+      "original_bytes_equal": true,
+      "sha256": "8855508aade16ec573d21e6a485dfd0a7624085c1a14b5ecdd6485de0c6839a4"
+    },
+    {
+      "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+      "line": 55,
+      "type": "FCircleState",
+      "symbol": "Game.Screen.WriteIndicatorMask.CircleFields",
+      "address": 34330,
+      "size": 17,
+      "original_bytes_equal": true,
+      "sha256": "defc1677774dd2fbf0e1b5d725f3f328662d72bbbe7a5d1f7adb4fd72302d459"
+    },
+    {
+      "file": "Source/Game/Sound/StartHyperjumpNoise.asm",
+      "line": 24,
+      "type": "FScannerState",
+      "symbol": "Game.Sound.StartHyperjumpNoise.ScanData",
+      "address": 38592,
+      "size": 5,
+      "original_bytes_equal": true,
+      "sha256": "8855508aade16ec573d21e6a485dfd0a7624085c1a14b5ecdd6485de0c6839a4"
+    },
+    {
+      "file": "Source/Game/Trade/EquipmentAlreadyOwned.asm",
+      "line": 34,
+      "type": "FEquipmentWork",
+      "symbol": "Game.Trade.EquipmentAlreadyOwned.EquipmentData",
+      "address": 60254,
+      "size": 5,
+      "original_bytes_equal": true,
+      "sha256": "8855508aade16ec573d21e6a485dfd0a7624085c1a14b5ecdd6485de0c6839a4"
+    },
+    {
+      "file": "Source/Game/Trade/GenerateMarket.asm",
+      "line": 129,
+      "type": "FMarketWork",
+      "symbol": "Game.Trade.GenerateMarket.MarketData",
+      "address": 57823,
+      "size": 9,
+      "original_bytes_equal": true,
+      "sha256": "3e7077fd2f66d689e0cee6a7cf5b37bf2dca7c979af356d0a31cbc5c85605c7d"
+    },
+    {
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "line": 38,
+      "type": "FTradeSnapshot",
+      "symbol": "Game.Trade.PromptCargoQuantityAndRefugees.TradeBackup",
+      "address": 59556,
+      "size": 10,
+      "original_bytes_equal": true,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca"
+    },
+    {
+      "file": "Source/Game/Trade/RestoreTextPosition.asm",
+      "line": 23,
+      "type": "FTextInput",
+      "symbol": "Game.Trade.RestoreTextPosition.InputData",
+      "address": 58260,
+      "size": 4,
+      "original_bytes_equal": true,
+      "sha256": "df3f619804a92fdb4057192dc43dd748ea778adc52bc498ce80524c014b81119"
+    },
+    {
+      "file": "Source/Game/Travel/SetFuelAndGauge.asm",
+      "line": 54,
+      "type": "FGalaxyState",
+      "symbol": "Game.Travel.SetFuelAndGauge.SystemData",
+      "address": 57018,
+      "size": 73,
+      "original_bytes_equal": true,
+      "sha256": "2e804db4f7e2e48eb652a89aed829984c8b4aefdc96a15f4cef84c539e384a19"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 35,
+      "type": "FProjectedVertex",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Vertices",
+      "address": 43258,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "91ae92b6b01de5be11968ba71c5fdf8dcb7417f1acaecd0f233bb0cc5311c686"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 41,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43261,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "f6cae3eaa0ae6e48745e76a76cd18a5daad624f25f0e46e1db8f44f34f1b8f2b"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 47,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43264,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "1a120766efc942b2105a814168c8af142706bce22c5ab70e258b066f2ad027ba"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 53,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43267,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "c94a59cdc60b963ae485a6dd3573a52c0f684da6dfa58492fbb9517251c379a0"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 59,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43270,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "8f5546cb40b37edd9116d3076777c9648126074408a9a03ea083551ffd915d7a"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 65,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43273,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "a402979a3f12e5d57d7132c87844e35e4d5599357ceec56c022652febcea48bc"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 71,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43276,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "3b3fe1f34c7a0002b60dce1c51c264fa48c347366c701fbc966d475984849afa"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 77,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43279,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "0030c5372186a88a572c75e452e4ba76d88a345b021ea3b69ed3cb956ed21a06"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 83,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43282,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "291c5e591f9764cfa576fc053a0f101c3e9d5aef3e0a5d9111995d40994f70aa"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 89,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43285,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "edfdcb7e231b11976de5d8b1849edc0301f9553adcb78dc609a16cb3b9d412a5"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 95,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43288,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "2e202d8db40f0a91458efea55735a970019298dba19f35872c88d2171e256dce"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 101,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43291,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "c8960949ae6c1bf0c7ea01696aad77954af67d07750412c82ee5cd26d46b4aac"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 107,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43294,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "679ea44e38250a51da4ea6c1b012654b0ef1092fcf19c91221025852457e4f4a"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 113,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43297,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "34c26657f9c4a8a6a4d7077c823c2a5ed4808e2cf2cd93c595796c83752e9a86"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 119,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43300,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "9567b04feec35b044b653d380fea2833d14e0bfbe1e55fac08b8abc0837b7b3e"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 125,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43303,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "eb42ac89a5c41d4343f31b40c458e64ec1d151c32723c4f52a02ea49afe7b257"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 131,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43306,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "d5e8f1dd49acf31e603c42ada2cdc66d7d76cd107b0978d96e85ba8661c10464"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 137,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43309,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "34218e03e256a29f6432ce49261e55fa6399697d5ef594e72b33909b6a1f4fd5"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 143,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43312,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "351246ee80c8b94a65f6d5f1d6df0aad0c1a3ce7d9bed596ed22207d67660b76"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 149,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43315,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "ec15f1e61858cedf9204b36b53aaf40e11029befe2066d1b839a98772768e4d4"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 155,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43318,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "21b3ad6a4fba46e39a8a56a927f985e5b98358504683d0f2551629111f6bb151"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 161,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43321,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "0438ea8105067ab81d81a860657a075f254c89982d6e45dc9b450f673a7f6680"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 167,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43324,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "d0b9f4eb026b55604d55c3274f2c8a12daa6884616eeec14b69d1344dabe0376"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 173,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43327,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "1cda9b8754cb7c7b59d132e6918f26cdfa879e9048d790e485306598f47d8301"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 179,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43330,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "a8cff34357ade09c63b6e05c311ec4c45268befd15f4c89a9181f2904a08c4c7"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 185,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43333,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "05ee04abbe8647202d76cef99a2c3d9ba64dc31b2bd03174064010cacfbc1af4"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 191,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43336,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "9c90fec141ff3cb250e51022b79a3b22c76e980cff793a962744f3cba444ed43"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 197,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43339,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "83171374767a35659e5db52392f002fb5c64ed2c9f95654bfe2c57d5508749ae"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 203,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43342,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 209,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43345,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 215,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43348,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 221,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43351,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 227,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43354,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 233,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43357,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 239,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43360,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 245,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43363,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 251,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43366,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 257,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43369,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 263,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43372,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 269,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43375,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 275,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43378,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 281,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43381,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 287,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43384,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 293,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43387,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 299,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43390,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 305,
+      "type": "FProjectedVertex",
+      "symbol": null,
+      "address": 43393,
+      "size": 3,
+      "original_bytes_equal": true,
+      "sha256": "709e80c88487a2411e1ee4dfb9f22a861492d20c4765150c0c794abd70f8147c"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 312,
+      "type": "FMatrix3",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Matrix",
+      "address": 43412,
+      "size": 18,
+      "original_bytes_equal": true,
+      "sha256": "ba78c822d06620b929f37b3b09c82b38ed3dd862b65caedcedf45fa6e9d1a094"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 345,
+      "type": "FProjectionState",
+      "symbol": "Game.Wireframe.AdvanceObjectMetadata.GeometryData.Projection",
+      "address": 43448,
+      "size": 17,
+      "original_bytes_equal": true,
+      "sha256": "64549a801acdd355cd3f7a77b8302e27982e9f2f50b377bc43bc634f01cdcd14"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "line": 40,
+      "type": "FObjectEffects",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData",
+      "address": 46162,
+      "size": 5,
+      "original_bytes_equal": true,
+      "sha256": "879e603bed45cdd9b5580604530dda8e59a5d2ee3cb066afa5ce02027d408259"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "line": 46,
+      "type": "FEffectRecord10",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Records",
+      "address": 46167,
+      "size": 10,
+      "original_bytes_equal": true,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "line": 59,
+      "type": "FEffectRecord10",
+      "symbol": null,
+      "address": 46177,
+      "size": 10,
+      "original_bytes_equal": true,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "line": 72,
+      "type": "FEffectRecord10",
+      "symbol": null,
+      "address": 46187,
+      "size": 10,
+      "original_bytes_equal": true,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "line": 85,
+      "type": "FEffectRecord10",
+      "symbol": null,
+      "address": 46197,
+      "size": 10,
+      "original_bytes_equal": true,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "line": 98,
+      "type": "FEffectRecord10",
+      "symbol": null,
+      "address": 46207,
+      "size": 10,
+      "original_bytes_equal": true,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "line": 111,
+      "type": "FEffectRecord10",
+      "symbol": null,
+      "address": 46217,
+      "size": 10,
+      "original_bytes_equal": true,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "line": 124,
+      "type": "FEffectRecord10",
+      "symbol": null,
+      "address": 46227,
+      "size": 10,
+      "original_bytes_equal": true,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "line": 137,
+      "type": "FEffectRecord10",
+      "symbol": null,
+      "address": 46237,
+      "size": 10,
+      "original_bytes_equal": true,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "line": 149,
+      "type": "FEffectRecord10",
+      "symbol": "Game.Wireframe.DrawScannerMarkerSegment.EffectData.Scratch",
+      "address": 46247,
+      "size": 10,
+      "original_bytes_equal": true,
+      "sha256": "01d448afd928065458cf670b60f5a594d735af0172c8d67f22a81680132681ca"
+    }
+  ],
+  "unchanged_existing_symbols": 5518,
+  "changed_existing_symbols": {},
+  "removed_lookup_placeholders": {
+    "Memory.Game.Travel.SetFuelAndGauge.WorkingSeed": "устранён неразрешённый локальный кандидат поиска, определения в Source/Includes нет"
+  },
+  "passed": true
+}

@@ -4,12 +4,12 @@
 ; расширение экранного радиуса солнца при сверхновой
 ; исходный диапазон #75C0..#75E0
 ; In:
-;   память D0BA, признак сверхновой
-;   память 7583, предыдущий расширенный радиус
-;   память 861D, текущая проекция
+;   память MissionNotice, признак сверхновой
+;   память Game.Flight.MainGameLoop.NovaRadius, предыдущий расширенный радиус
+;   память CircleState.Radius, текущая проекция
 ; Out:
-;   861D/7583, радиус увеличен на 2
-;   711F, признак гибели при переполнении
+;   CircleState.Radius/Game.Flight.MainGameLoop.NovaRadius, радиус увеличен на 2
+;   FlightState.PlayerDead, признак гибели при переполнении
 ; Corrupt:
 ;   AF
 ; Note:
@@ -41,6 +41,7 @@ KillPlayer:     LD A, #01
 StoreRadius:    LD (CircleState.Radius), A
                 LD (Game.Flight.MainGameLoop.NovaRadius), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #75E1
                 endmodule

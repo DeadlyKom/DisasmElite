@@ -4,15 +4,15 @@
 ; Пиксельный адрес Spectrum и вертикальная часть перекрестия
 ; исходный диапазон #E621..#E6A2
 ; In:
-;   BC, C = Y, AF, A = X для E621
+;   BC, C = Y, AF, A = X для Game.Charts.PixelAddressAndVerticalCrosshair.Entry
 ; Out:
-;   HL=4000+((Y&192)<<5)+((Y&7)<<8)+((Y&56)<<2)+(X>>3)
+;   HL=Memory.Screen+((Y&192)<<5)+((Y&7)<<8)+((Y&56)<<2)+(X>>3)
 ; Corrupt:
 ;   HL, AF
 ; Note:
-;   Сдвиги X завершаются AND31, E63F/E644 применяют крайние маски горизонтали, E647 обрезает
-;   вертикаль по E52C/E52D и инвертирует один бит каждой строки, переход к следующей строке
-;   использует E6A3
+;   Сдвиги X завершаются AND31, Game.Charts.PixelAddressAndVerticalCrosshair.XorHighMask/Game.Charts.PixelAddressAndVerticalCrosshair.XorLowMask применяют крайние маски горизонтали, Game.Charts.PixelAddressAndVerticalCrosshair.DrawVertical обрезает
+;   вертикаль по MapViewport.Top/MapViewport.Bottom и инвертирует один бит каждой строки, переход к следующей строке
+;   использует Game.Charts.NextScreenCharacterRowAndRefugees.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E621
@@ -115,6 +115,7 @@ RasterRow:      LD A, (HL)
                 DJNZ RasterRow
 
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E6A3
                 endmodule

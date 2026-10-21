@@ -5,7 +5,7 @@
     "file": "Source/Game/Wireframe/DrawClippedLine.asm",
     "semantic_name": "DrawClippedLine",
     "status": "reviewed",
-    "summary": "арифметическое отсечение и два самомодифицируемых цикла линий OR/XOR",
+    "summary": "выбор единственного байта маски, IX указывает в таблицу 8×8 масок в конце Game.Wireframe.RefreshScannerBackground",
     "evidence": [
       "все инструкции #B044..#B285, вызывающий код, ROM #22B1"
     ],

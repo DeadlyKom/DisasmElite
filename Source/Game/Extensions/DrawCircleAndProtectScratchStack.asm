@@ -4,13 +4,13 @@
 ; вывод кругового объекта и защищённый вызов боевого обработчика
 ; исходный диапазон #F8D7..#F90D
 ; смысловое имя DrawCircleAndProtectScratchStack
-; In: параметры круга в #861A..#861D, для #F8E4 Z — результат внешней проверки
-; Out: первый вход возвращает A=(#861D), второй продолжает бой либо вызывает #9E66
+; In: CircleState.OffsetY, OffsetX, Flags и Radius, для NextOrFinish Z является результатом внешней проверки
+; Out: первый вход возвращает A=(CircleState.Radius), второй продолжает бой либо вызывает Game.Combat.FinishObjectFrame.Entry
 ; Corrupt: HL, DE, BC, AF и буфер экрана по контрактам вызываемых процедур
-; #F8E4 при Z=0 сразу переходит к #9D38
-; При Z=1 48 байтов #40F0..#411F сохраняются в #FFD0..#FFFF, стек меняется на #4120
-; После #9E66 байты и исходный SP восстанавливаются, выполняется EI
-; #F90A — самомодифицируемый операнд LD SP,nn
+; Game.Extensions.DrawCircleAndProtectScratchStack.NextOrFinish при Z=0 сразу переходит к Game.Combat.UpdateAllSpaceObjects.ProcessSlot
+; при Z=1 копирует 48 байтов ScratchStack в ScratchBackup и устанавливает SP сразу за ScratchStack
+; После Game.Combat.FinishObjectFrame.Entry байты и исходный SP восстанавливаются, выполняется EI
+; Game.Extensions.DrawCircleAndProtectScratchStack.SavedSP — самомодифицируемый операнд LD SP,nn
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #F8D7
@@ -22,7 +22,7 @@ Entry:          CALL Game.Circles.SelectCircleBackBuffer.Entry
                 RET
 
                 ; дополнительный вход с проверкой внешнего результата
-NextOrFinish:   JP NZ, Game.Combat.UpdateAllSpaceObjects.ProcessSlot            ; переход, если внешняя проверка дала ненулевой результат, продолжить по #9D38
+NextOrFinish:   JP NZ, Game.Combat.UpdateAllSpaceObjects.ProcessSlot            ; переход, если внешняя проверка дала ненулевой результат, продолжить по Game.Combat.UpdateAllSpaceObjects.ProcessSlot
 
                 ; сохранение SP и 48 байтов области временного стека
                 LD (SavedSP), SP
@@ -31,7 +31,7 @@ NextOrFinish:   JP NZ, Game.Combat.UpdateAllSpaceObjects.ProcessSlot            
                 LD DE, ScratchBackup
                 LD BC, #0030
                 LDIR
-                ; вызов боевого обработчика со стеком #4120
+                ; вызов боевого обработчика со стеком ScratchStack + 48
                 LD SP, ScratchStack + #0030
                 CALL Game.Combat.FinishObjectFrame.Entry
                 DI
@@ -45,6 +45,7 @@ SavedSP         EQU $ + 1                                                       
                 LD SP, #0000
                 EI
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #F90E
                 endmodule

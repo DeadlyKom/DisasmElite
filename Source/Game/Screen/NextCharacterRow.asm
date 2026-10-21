@@ -24,6 +24,7 @@ Entry:          LD A, L
                 SUB #08
                 LD H, A
                 RET
+
                 ASSERT $ == #844F
                 endmodule
                 endmodule

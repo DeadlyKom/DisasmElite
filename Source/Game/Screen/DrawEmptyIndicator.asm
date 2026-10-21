@@ -32,6 +32,7 @@ DrawEmptyRow:   XOR A
                 DJNZ DrawEmptyRow
 
                 RET
+
                 ASSERT $ == #85F5
                 endmodule
                 endmodule

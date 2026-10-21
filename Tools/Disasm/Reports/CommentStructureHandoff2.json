@@ -1,0 +1,107 @@
+[
+  {
+    "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+    "old_comment": "#701B..#705E — 17 четырёхбайтовых записей рынка, #705F..#7088 — 14 трёхбайтовых цен оборудования",
+    "new_comment": "MarketTable.Base содержит 17 записей рынка по четыре байта, EquipmentTable.Base содержит 14 цен по три байта"
+  },
+  {
+    "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+    "old_comment": "A8FA..A983, 46 экранных вершин по три байта. A984..A993, 16 флагов граней.",
+    "new_comment": "ProjectedVerts содержит 46 экранных вершин по три байта, FaceVisibility содержит 16 признаков граней"
+  },
+  {
+    "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+    "old_comment": "A994..A9A5, девять слов матрицы. A9A6..A9B7, девять кэшированных произведений.",
+    "new_comment": "ObjectMatrix содержит девять слов матрицы, VertexProducts содержит девять кэшированных произведений"
+  },
+  {
+    "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+    "old_comment": "ProjectionState.Depth, глубина. ProjectionState.VertexOffset, смещение вершины. A9BB..A9C0, повёрнутые X/Y/Z.",
+    "new_comment": "ProjectionState.Depth хранит глубину, ProjectionState.VertexOffset смещение вершины, поля ProjectionState.X/Y/Z повёрнутые координаты"
+  },
+  {
+    "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+    "old_comment": "A9C1..A9C3, проекции и знаки. A9C4..A9C6, знаки пространственных координат.",
+    "new_comment": "ProjectionState.ScreenX, ScreenY и Flags хранят проекцию, поля SignX, SignY и SignZ хранят знаки пространственных координат"
+  },
+  {
+    "file": "Source/Game/Screen/WriteIndicatorMask.asm",
+    "old_comment": "в режиме IndicatorDraw=1 при маске #80 или #81 предыдущий байт перезаписывается значением #01",
+    "new_comment": "при IndicatorDraw.MarkerMode=1 при маске #80 или #81 предыдущий байт перезаписывается значением #01"
+  },
+  {
+    "file": "Source/Game/Screen/RestrictDockingView.asm",
+    "old_comment": "#81A3..#81A8 содержат состояние близости тел и координаты указателя компаса",
+    "new_comment": "CompassData содержит резервный байт, CompassState.SunNear и поля CompassState.X, Y, Behind указателя компаса"
+  },
+  {
+    "file": "Source/Game/Motion/AnimateIntroObject.asm",
+    "old_comment": "#A2B8..#A2BF являются тремя словами вектора наведения и словом его длины.",
+    "new_comment": "SteeringVector.X, Y и Z содержат три слова вектора наведения, SteeringVector.Length хранит его длину"
+  },
+  {
+    "file": "Source/Game/Sound/StartHyperjumpNoise.asm",
+    "old_comment": "#96C0..#96C4 уже относятся к состоянию сканера, а не к коду проигрывателя",
+    "new_comment": "ScannerState содержит координаты, индекс объекта и признак обновления сканера, исполнение проигрывателя до него не доходит"
+  },
+  {
+    "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+    "old_comment": "#FC04..#FC0F — дополнительные байты и состояния клавиатуры, исполнение после RET не продолжается",
+    "new_comment": "KeyEvents содержит дополнительные байты и состояние клавиатуры InputState, исполнение после RET не продолжается"
+  },
+  {
+    "file": "Source/Game/Trade/RestoreTextPosition.asm",
+    "old_comment": "E394..E397 после RET являются рабочими счётчиками ввода",
+    "new_comment": "TextInput.Length, TextInput.Cursor и TextInput.LastKey после RET содержат состояние редактора строки"
+  },
+  {
+    "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+    "old_comment": "TargetX/TargetY = координаты цели, State.SystemSeed + FSystemSeed.X/State.SystemSeed + FSystemSeed.Y = текущая система, MapViewport = размер",
+    "new_comment": "TargetX/TargetY = координаты цели, State.SystemSeed + FSystemSeed.X/State.SystemSeed + FSystemSeed.Y = текущая система, MapViewport.CrosshairSize = размер"
+  },
+  {
+    "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+    "old_comment": "возвращает координаты текущей системы, E52B..E52D параметры размера и границ",
+    "new_comment": "возвращает координаты текущей системы, MapViewport.CrosshairSize, Top и Bottom задают размер и границы курсора"
+  },
+  {
+    "file": "Source/Game/Disk/DrawScreenStripsAndPrivateStack.asm",
+    "old_comment": "Временно меняет CALL на JP в Game.Screen.SwapAndSkipRow.NextRowCall, копирует 6 строк Memory.Screen + #0140→Memory.Screen + #0520 и 4 строки Memory.Screen + #10E0→Memory.Screen + #0340, DA53",
+    "new_comment": "Временно меняет CALL на JP в Game.Screen.SwapAndSkipRow.NextRowCall, копирует 6 строк Memory.Screen + #0140→Memory.Screen + #0520 и 4 строки Memory.Screen + #10E0→Memory.Screen + #0340"
+  },
+  {
+    "file": "Source/Game/Disk/DrawScreenStripsAndPrivateStack.asm",
+    "old_comment": "отдельно вызывает Game.Objects.SelectObjectAction.Entry на SP=Memory.Screen + #0020 с DI/EI, DA64..DA79 содержат состояние сообщений",
+    "new_comment": "DrawStrips отдельно вызывает Game.Objects.SelectObjectAction.Entry на SP=Memory.Screen + #0020 с DI/EI"
+  },
+  {
+    "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+    "old_comment": "9522..9526 являются активным состоянием звука, режим, DE и указатель данных HL",
+    "new_comment": "SoundState.Mode, Duration и DataCursor содержат активное состояние звука, режим, DE и указатель данных HL"
+  },
+  {
+    "file": "Source/Game/Trade/GenerateMarket.asm",
+    "old_comment": "E1BD..E1DE = 17 цен, D09E..D0AE = 17 количеств",
+    "new_comment": "MarketPrices содержит 17 цен, State.MarketStock содержит 17 количеств по полям FGoods"
+  },
+  {
+    "file": "Source/Game/Trade/GenerateMarket.asm",
+    "old_comment": "E1DF..E1E7 содержат индекс, указатели и позицию печати",
+    "new_comment": "MarketWork содержит индекс товара, указатели груза, цены и остатка, а также сохранённую позицию печати"
+  },
+  {
+    "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+    "old_comment": "MarketWork = товар",
+    "new_comment": "MarketWork.Commodity содержит индекс товара"
+  },
+  {
+    "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+    "old_comment": "E8A4..E8AD является рабочей областью транзакции, Game.Trade.PromptCargoQuantityAndRefugees.UnloadRefugees отдельно проверяет миссию и бит 5",
+    "new_comment": "TradeSnapshot содержит снимок транзакции и параметры ввода, UnloadRefugees отдельно проверяет миссию и бит 5"
+  },
+  {
+    "file": "Source/Game/Trade/EquipmentAlreadyOwned.asm",
+    "old_comment": "EB5E..EB62 содержат предел, индекс, указатель цены и тип лазера",
+    "new_comment": "EquipmentWork содержит предел, индекс, указатель цены и тип лазера"
+  }
+]

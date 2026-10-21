@@ -6,7 +6,7 @@
 ; In:
 ;   AF, A = новая Y
 ; Out:
-;   D046=A при A<24, иначе Y=1 и X=0
+;   TextRow=A при A<24, иначе Y=1 и X=0
 ; Corrupt:
 ;   AF
 ; Note:
@@ -22,6 +22,7 @@ Entry:          LD (TextRow), A
                 LD A, #01
                 LD (TextRow), A
                 JR Game.Trade.ResetTextColumn.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E2D5
                 endmodule

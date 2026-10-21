@@ -4,8 +4,8 @@
 ; координаты итератора для двух отсечённых боковых границ
 ; исходный диапазон #8A16..#8A24
 ; смысловое имя PrepareBothClippedCoordinates
-; In: #861E/#861F — рабочие смещения, #8622 — вычисленный катет
-; Out: BC — рабочие смещения, C'=136-B, E'=#8622
+; In: CircleState.ClipY/CircleState.ClipX — рабочие смещения, CircleState.Cathetus — вычисленный катет
+; Out: BC — рабочие смещения, C'=136-B, E'=CircleState.Cathetus
 ; Corrupt: BC, AF, BC' — C', DE' — E'
 ; Операнд 136 меняется патчером карты на 128, режим экрана меняет систему отсчёта
 ; -----------------------------------------
@@ -21,6 +21,7 @@ Entry:          LD BC, (CircleState.ClipY)
                 LD E, A
                 EXX
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #8A25
                 endmodule

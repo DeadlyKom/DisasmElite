@@ -4,14 +4,14 @@
 ; Два перевода строки и обработчики описания экономики
 ; исходный диапазон #EEA2..#EEDA
 ; In:
-;   Нет параметров для EEA2
+;   Нет параметров для Game.Menus.BlankLineAndEconomyText.Entry
 ; Out:
 ;   Курсор переведён на две строки
 ; Corrupt:
 ;   AF
 ; Note:
-;   EEA8 отдельно печатает класс экономики по DEF8, значение 4 имеет особое название, EECE
-;   выбирает токен BC/F7 по старшему биту DEBE для типа населения
+;   Game.Menus.BlankLineAndEconomyText.EconomyText отдельно печатает класс экономики по GalaxyState.Economy, значение 4 имеет особое название, Game.Menus.BlankLineAndEconomyText.Population
+;   выбирает токен BC/F7 по старшему биту GalaxyState.TargetSeed + FSystemSeed.MixLow для типа населения
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #EEA2
@@ -48,6 +48,7 @@ Population:     LD A, (GalaxyState.TargetSeed + FSystemSeed.MixLow)
 
                 LD A, #F7
 PrintRace:      JP Game.Text.PrintMainToken.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EEDB
                 endmodule

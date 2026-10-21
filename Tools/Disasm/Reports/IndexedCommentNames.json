@@ -1,0 +1,2617 @@
+{
+  "scope": "проверенные и применённые замены числовых IX/IY-полей в комментариях Source/Game и Includes, типы сверены по инструкциям",
+  "changes": [
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "old_comment": "Особые объекты IX+26.2, взрывающиеся IX+20.5 и энергия FF не получают обычного урона.",
+      "new_comment": "объекты с OBJ_SPECIAL_BIT в FSpaceObject.Flags2, с OBJ_EXPLODE_BIT в FSpaceObject.Flags либо с энергией #FF не получают обычного урона",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT DEV_FIRE_BIT, (HL)",
+          "RES DEV_FIRE_BIT, (HL)",
+          "SET SND_HIT_BIT, (HL)",
+          "LD IX, Memory.Station",
+          "ADD IX, DE",
+          "SET SND_LASER_BIT, (HL)",
+          "BIT OBJ_SPECIAL_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT OBJ_EXPLODE_BIT, (IX+FSpaceObject.Flags)",
+          "LD A, (IX+FSpaceObject.Target)",
+          "LD (IX+FSpaceObject.Target), A",
+          "LD A, (IX+FSpaceObject.Energy)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "SET OBJ_DESTROY_BIT, (IX+FSpaceObject.Flags)",
+          "LD (IX+FSpaceObject.Energy), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "old_comment": "Смертельный урон устанавливает IX+20.4 и энергию FF до завершения жизненного цикла.",
+      "new_comment": "смертельный урон устанавливает OBJ_DESTROY_BIT в FSpaceObject.Flags и энергию #FF до завершения жизненного цикла",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT DEV_FIRE_BIT, (HL)",
+          "RES DEV_FIRE_BIT, (HL)",
+          "SET SND_HIT_BIT, (HL)",
+          "LD IX, Memory.Station",
+          "ADD IX, DE",
+          "SET SND_LASER_BIT, (HL)",
+          "BIT OBJ_SPECIAL_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT OBJ_EXPLODE_BIT, (IX+FSpaceObject.Flags)",
+          "LD A, (IX+FSpaceObject.Target)",
+          "LD (IX+FSpaceObject.Target), A",
+          "LD A, (IX+FSpaceObject.Energy)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "SET OBJ_DESTROY_BIT, (IX+FSpaceObject.Flags)",
+          "LD (IX+FSpaceObject.Energy), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "old_comment": "переход, если цель имеет специальный тип IX+26.2",
+      "new_comment": "переход, если у цели установлен OBJ_SPECIAL_BIT в FSpaceObject.Flags2 и обычный лазерный урон запрещён",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT DEV_FIRE_BIT, (HL)",
+          "RES DEV_FIRE_BIT, (HL)",
+          "SET SND_HIT_BIT, (HL)",
+          "LD IX, Memory.Station",
+          "ADD IX, DE",
+          "SET SND_LASER_BIT, (HL)",
+          "BIT OBJ_SPECIAL_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT OBJ_EXPLODE_BIT, (IX+FSpaceObject.Flags)",
+          "LD A, (IX+FSpaceObject.Target)",
+          "LD (IX+FSpaceObject.Target), A",
+          "LD A, (IX+FSpaceObject.Energy)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "SET OBJ_DESTROY_BIT, (IX+FSpaceObject.Flags)",
+          "LD (IX+FSpaceObject.Energy), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "old_comment": "Порог задаёт IY+1, ракета на игрока получает старший байт 1, захватываемый груз младший порог B4.",
+      "new_comment": "порог столкновения задаёт FModel.Collision, для ракеты на игрока старшая часть порога равна 1, для подбираемого груза младшая часть равна #B4",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD E, (IY+FModel.Collision)",
+          "BIT OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)",
+          "LD A, (IX+FSpaceObject.Target)",
+          "CheckCargo:     BIT OBJ_SCOOP_BIT, (IX+FSpaceObject.Flags2)",
+          "CheckDistance:  LD L, (IX+FSpaceObject.X.Fraction)",
+          "LD H, (IX+FSpaceObject.X.Low)",
+          "LD L, (IX+FSpaceObject.Y.Fraction)",
+          "LD H, (IX+FSpaceObject.Y.Low)",
+          "LD L, (IX+FSpaceObject.Z.Fraction)",
+          "LD H, (IX+FSpaceObject.Z.Low)",
+          "LD A, (IX+FSpaceObject.Z.SignHigh)",
+          "BIT OBJ_SCOOP_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT 7, (IX+FSpaceObject.Y.SignHigh)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD A, (IY+FModel.Cargo)",
+          "CheckStation:   BIT OBJ_SPECIAL_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT 7, (IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+          "BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD A, (IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+          "LD A, (IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+          "SET SND_HIT_BIT, (HL)",
+          "LD B, (IY+FModel.Collision)",
+          "BIT OBJ_MISSION_BIT, (IX+FSpaceObject.Flags2)",
+          "SET SND_BLAST_BIT, (HL)",
+          "BIT 7, (IX+FSpaceObject.Z.SignHigh)",
+          "LD A, (IY+FModel.Rating)",
+          "FrontImpact:    LD A, (IY+FModel.Rating)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "old_comment": "IX+26.1 допускает захват совком State.FuelScoops только со стороны отрицательного Y и при свободном месте State.FreeCargo.",
+      "new_comment": "OBJ_SCOOP_BIT в FSpaceObject.Flags2 допускает захват ковшом State.FuelScoops только со стороны отрицательного Y и при свободном месте State.FreeCargo",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD E, (IY+FModel.Collision)",
+          "BIT OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)",
+          "LD A, (IX+FSpaceObject.Target)",
+          "CheckCargo:     BIT OBJ_SCOOP_BIT, (IX+FSpaceObject.Flags2)",
+          "CheckDistance:  LD L, (IX+FSpaceObject.X.Fraction)",
+          "LD H, (IX+FSpaceObject.X.Low)",
+          "LD L, (IX+FSpaceObject.Y.Fraction)",
+          "LD H, (IX+FSpaceObject.Y.Low)",
+          "LD L, (IX+FSpaceObject.Z.Fraction)",
+          "LD H, (IX+FSpaceObject.Z.Low)",
+          "LD A, (IX+FSpaceObject.Z.SignHigh)",
+          "BIT OBJ_SCOOP_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT 7, (IX+FSpaceObject.Y.SignHigh)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD A, (IY+FModel.Cargo)",
+          "CheckStation:   BIT OBJ_SPECIAL_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT 7, (IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+          "BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD A, (IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+          "LD A, (IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+          "SET SND_HIT_BIT, (HL)",
+          "LD B, (IY+FModel.Collision)",
+          "BIT OBJ_MISSION_BIT, (IX+FSpaceObject.Flags2)",
+          "SET SND_BLAST_BIT, (HL)",
+          "BIT 7, (IX+FSpaceObject.Z.SignHigh)",
+          "LD A, (IY+FModel.Rating)",
+          "FrontImpact:    LD A, (IY+FModel.Rating)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "old_comment": "Тип груза берётся из старшей тетрады IY+0, иначе определяется миссионным состоянием либо случайно.",
+      "new_comment": "тип груза берётся из старшей тетрады FModel.Cargo, иначе определяется миссионным состоянием либо случайно",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD E, (IY+FModel.Collision)",
+          "BIT OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)",
+          "LD A, (IX+FSpaceObject.Target)",
+          "CheckCargo:     BIT OBJ_SCOOP_BIT, (IX+FSpaceObject.Flags2)",
+          "CheckDistance:  LD L, (IX+FSpaceObject.X.Fraction)",
+          "LD H, (IX+FSpaceObject.X.Low)",
+          "LD L, (IX+FSpaceObject.Y.Fraction)",
+          "LD H, (IX+FSpaceObject.Y.Low)",
+          "LD L, (IX+FSpaceObject.Z.Fraction)",
+          "LD H, (IX+FSpaceObject.Z.Low)",
+          "LD A, (IX+FSpaceObject.Z.SignHigh)",
+          "BIT OBJ_SCOOP_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT 7, (IX+FSpaceObject.Y.SignHigh)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD A, (IY+FModel.Cargo)",
+          "CheckStation:   BIT OBJ_SPECIAL_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT 7, (IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+          "BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD A, (IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+          "LD A, (IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+          "SET SND_HIT_BIT, (HL)",
+          "LD B, (IY+FModel.Collision)",
+          "BIT OBJ_MISSION_BIT, (IX+FSpaceObject.Flags2)",
+          "SET SND_BLAST_BIT, (HL)",
+          "BIT 7, (IX+FSpaceObject.Z.SignHigh)",
+          "LD A, (IY+FModel.Rating)",
+          "FrontImpact:    LD A, (IY+FModel.Rating)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "old_comment": "Для станции IX+26.2 проверяются направление и точность совмещения осей, успех ставит CombatState.DockRequest=1.",
+      "new_comment": "для объекта с OBJ_SPECIAL_BIT в FSpaceObject.Flags2 проверяются направление и совмещение осей, успешная стыковка задаёт CombatState.DockRequest=1",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD E, (IY+FModel.Collision)",
+          "BIT OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)",
+          "LD A, (IX+FSpaceObject.Target)",
+          "CheckCargo:     BIT OBJ_SCOOP_BIT, (IX+FSpaceObject.Flags2)",
+          "CheckDistance:  LD L, (IX+FSpaceObject.X.Fraction)",
+          "LD H, (IX+FSpaceObject.X.Low)",
+          "LD L, (IX+FSpaceObject.Y.Fraction)",
+          "LD H, (IX+FSpaceObject.Y.Low)",
+          "LD L, (IX+FSpaceObject.Z.Fraction)",
+          "LD H, (IX+FSpaceObject.Z.Low)",
+          "LD A, (IX+FSpaceObject.Z.SignHigh)",
+          "BIT OBJ_SCOOP_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT 7, (IX+FSpaceObject.Y.SignHigh)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD A, (IY+FModel.Cargo)",
+          "CheckStation:   BIT OBJ_SPECIAL_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT 7, (IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+          "BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD A, (IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+          "LD A, (IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+          "SET SND_HIT_BIT, (HL)",
+          "LD B, (IY+FModel.Collision)",
+          "BIT OBJ_MISSION_BIT, (IX+FSpaceObject.Flags2)",
+          "SET SND_BLAST_BIT, (HL)",
+          "BIT 7, (IX+FSpaceObject.Z.SignHigh)",
+          "LD A, (IY+FModel.Rating)",
+          "FrontImpact:    LD A, (IY+FModel.Rating)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Combat/HandleObjectCollision.asm",
+      "old_comment": "Обычное столкновение удаляет объект, а урон формируется OR размера IY+1 и байта IY+15.",
+      "new_comment": "обычное столкновение удаляет объект, урон формируется побитовым OR значений FModel.Collision и младшего байта FModel.Rating",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD E, (IY+FModel.Collision)",
+          "BIT OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)",
+          "LD A, (IX+FSpaceObject.Target)",
+          "CheckCargo:     BIT OBJ_SCOOP_BIT, (IX+FSpaceObject.Flags2)",
+          "CheckDistance:  LD L, (IX+FSpaceObject.X.Fraction)",
+          "LD H, (IX+FSpaceObject.X.Low)",
+          "LD L, (IX+FSpaceObject.Y.Fraction)",
+          "LD H, (IX+FSpaceObject.Y.Low)",
+          "LD L, (IX+FSpaceObject.Z.Fraction)",
+          "LD H, (IX+FSpaceObject.Z.Low)",
+          "LD A, (IX+FSpaceObject.Z.SignHigh)",
+          "BIT OBJ_SCOOP_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT 7, (IX+FSpaceObject.Y.SignHigh)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD A, (IY+FModel.Cargo)",
+          "CheckStation:   BIT OBJ_SPECIAL_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT 7, (IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+          "BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD A, (IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+          "LD A, (IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+          "SET SND_HIT_BIT, (HL)",
+          "LD B, (IY+FModel.Collision)",
+          "BIT OBJ_MISSION_BIT, (IX+FSpaceObject.Flags2)",
+          "SET SND_BLAST_BIT, (HL)",
+          "BIT 7, (IX+FSpaceObject.Z.SignHigh)",
+          "LD A, (IY+FModel.Rating)",
+          "FrontImpact:    LD A, (IY+FModel.Rating)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Combat/SetObjectEnergyAndDrawMissedLaser.asm",
+      "old_comment": "IX+22 обновлён, установлен LaserThreshold.7",
+      "new_comment": "FSpaceObject.Energy обновлён, установлен LASER_PASS_BIT в LaserThreshold",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD (IX+FSpaceObject.Energy), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "old_comment": "Флаги IX+20.4/.5 задают запрос уничтожения и этап взрыва, завершённый объект освобождается с начислением наград.",
+      "new_comment": "OBJ_DESTROY_BIT и OBJ_EXPLODE_BIT в FSpaceObject.Flags задают запрос уничтожения и этап взрыва, завершённый объект освобождается с начислением наград",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "SET OBJ_HOSTILE_BIT, (HL)",
+          "LD IX, Memory.Objects + 5 * FSpaceObject",
+          "CountShips:     LD A, (IX+FSpaceObject.Energy)",
+          "BIT OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "NextCount:      ADD IX, DE",
+          "BIT OBJ_SPECIAL_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT OBJ_NOTSHIP_BIT, (IX+FSpaceObject.Flags2)",
+          "BIT OBJ_SPECIAL_BIT, (IX+FSpaceObject.Flags2)",
+          "LD A, (IY+FModel.MaxSpeed)",
+          "SET OBJ_DESTROY_BIT, (IX+FSpaceObject.Flags)",
+          "CheckDanger:    BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD A, (IX+FSpaceObject.Hostility)",
+          "ReadBlueprint:  LD H, (IX+FSpaceObject.Blueprint+FSignWord.SignHigh)",
+          "LD L, (IX+FSpaceObject.Blueprint)",
+          "LD A, (IX+FSpaceObject.Flags)",
+          "RES OBJ_EXPLODE_BIT, (IX+FSpaceObject.Flags)",
+          "LD (IX+FSpaceObject.Pitch), A",
+          "LD (IX+FSpaceObject.Roll), A",
+          "BIT OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)",
+          "SET SND_BLAST_BIT, (HL)",
+          "BIT OBJ_MISSION_BIT, (IX+FSpaceObject.Flags2)",
+          "CheckMission:   LD A, (IY+FModel.Collision)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD D, (IY+FModel.Bounty+FSignWord.SignHigh)",
+          "LD E, (IY+FModel.Bounty)",
+          "LD D, (IY+FModel.Rating+FSignWord.SignHigh)",
+          "LD E, (IY+FModel.Rating)",
+          "LD A, (IX+FSpaceObject.Hostility)",
+          "BIT OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "ADD IX, DE",
+          "AfterProject:   RES OBJ_LASER_BIT, (IX+FSpaceObject.Flags)",
+          "LD A, (IX+FSpaceObject.Flags)",
+          "SET OBJ_EXPLODE_BIT, (IX+FSpaceObject.Flags)",
+          "RES OBJ_DESTROY_BIT, (IX+FSpaceObject.Flags)",
+          "ADD IX, DE"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Flight/RebaseCoordinateAxis.asm",
+      "old_comment": "IY+1/IY+2 получают удвоенную знако-модульную полуразность, IX/IY увеличены на 3",
+      "new_comment": "поля FCoordinate.Low и FCoordinate.SignHigh по IY получают удвоенную знако-модульную полуразность, IX и IY переходят к следующим координатам",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "SET 7, H",
+          "StoreAxis:      LD (IY+FCoordinate.SignHigh), H",
+          "LD (IY+FCoordinate.Low), L",
+          "ADD IY, DE",
+          "ADD IX, DE"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Menus/ReadVisibleObjectByte.asm",
+      "old_comment": "A=[IX+22], CY от проверки IXH-60<2",
+      "new_comment": "AF, A содержит FSpaceObject.Energy, при возврате CY=1 и старший байт IX равен #60 либо #61",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD A, (IX+FSpaceObject.Energy)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "old_comment": "Скорость ограничена снизу нулём, сверху IY+6, при IX+21.0 верхний предел умножается на четыре.",
+      "new_comment": "скорость ограничена снизу нулём, сверху FModel.MaxSpeed, OBJ_FAST_BIT в FSpaceObject.Hostility увеличивает верхний предел в четыре раза",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD A, (IX + FSpaceObject.Acceleration)",
+          "LD B, (IX + FSpaceObject.Speed)",
+          "BIT 7, A",
+          "LimitSpeed:     LD C, (IY + FModel.MaxSpeed)",
+          "BIT OBJ_FAST_BIT, (IX + FSpaceObject.Hostility)",
+          "StoreSpeed:     LD (IX + FSpaceObject.Speed), A",
+          "LD C, (IX + FSpaceObject.Speed)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "old_comment": "Три вызова Game.Motion.AdvanceOneCoordinate.Entry перемещают объект вдоль его оси X, хранящейся с IX+9.",
+      "new_comment": "три вызова Game.Motion.AdvanceOneCoordinate.Entry перемещают объект вдоль локальной оси FSpaceObject.AxisX",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD A, (IX + FSpaceObject.Acceleration)",
+          "LD B, (IX + FSpaceObject.Speed)",
+          "BIT 7, A",
+          "LimitSpeed:     LD C, (IY + FModel.MaxSpeed)",
+          "BIT OBJ_FAST_BIT, (IX + FSpaceObject.Hostility)",
+          "StoreSpeed:     LD (IX + FSpaceObject.Speed), A",
+          "LD C, (IX + FSpaceObject.Speed)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceOneCoordinate.asm",
+      "old_comment": "IX, компонента направления берётся из IX+9/+10",
+      "new_comment": "IX, смещённая база объекта для текущей компоненты FSpaceObject.AxisX, слово читается через FSignWord.Low и FSignWord.SignHigh",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD D, (IX + FSpaceObject.AxisX + FSignWord.SignHigh)",
+          "LD E, (IX + FSpaceObject.AxisX + FSignWord.Low)",
+          "LD A, (IY + FCoordinate.SignHigh)",
+          "LD H, (IY + FCoordinate.Low)",
+          "LD L, (IY + FCoordinate.Fraction)",
+          "LD (IY + FCoordinate.SignHigh), B",
+          "LD (IY + FCoordinate.Low), H",
+          "LD (IY + FCoordinate.Fraction), L"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "old_comment": "При активном ECM тип ракеты проверяется расширением Game.Universe.ApplyEcmToStandardMissile.Entry, у поражаемой ракеты ставится IX+20.4.",
+      "new_comment": "при активном ECM тип ракеты проверяет Game.Universe.ApplyEcmToStandardMissile.Entry, поражаемой ракете устанавливается OBJ_DESTROY_BIT в FSpaceObject.Flags",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "SET OBJ_DESTROY_BIT, (IX + FSpaceObject.Flags)",
+          "LD IY, Memory.Station - FSpaceObject",
+          "NextTarget:     ADD IY, DE",
+          "BIT OBJ_SPECIAL_BIT, (IY + FSpaceObject.Flags2)",
+          "SET OBJ_HIT_BIT, (IY + FSpaceObject.Flags2)",
+          "DestroyTarget:  SET OBJ_DESTROY_BIT, (IY + FSpaceObject.Flags)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "old_comment": "При попадании устанавливается IY+20.4, специальная миссионная цель дополнительно получает IY+26.7.",
+      "new_comment": "попадание устанавливает OBJ_DESTROY_BIT в FSpaceObject.Flags цели по IY, специальной миссионной цели также устанавливается OBJ_HIT_BIT в FSpaceObject.Flags2",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "SET OBJ_DESTROY_BIT, (IX + FSpaceObject.Flags)",
+          "LD IY, Memory.Station - FSpaceObject",
+          "NextTarget:     ADD IY, DE",
+          "BIT OBJ_SPECIAL_BIT, (IY + FSpaceObject.Flags2)",
+          "SET OBJ_HIT_BIT, (IY + FSpaceObject.Flags2)",
+          "DestroyTarget:  SET OBJ_DESTROY_BIT, (IY + FSpaceObject.Flags)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "old_comment": "Ниже половины максимума возможен запуск из low3 IX+20, ниже восьмой части выбирается спасение.",
+      "new_comment": "ниже половины максимальной энергии возможен запуск при ненулевом остатке FSpaceObject.Flags по OBJ_LAUNCH_MASK, ниже восьмой части выбирается спасение",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD A, (IY + FModel.MaxEnergy)",
+          "LD C, (IX + FSpaceObject.Energy)",
+          "LD (IX + FSpaceObject.Energy), A",
+          "LD B, (IY + FModel.MaxEnergy)",
+          "TryLaunch:      LD A, (IX + FSpaceObject.Flags)",
+          "LD A, (IY + FModel.LaunchMask)",
+          "DEC (IX + FSpaceObject.Flags)",
+          "SET EVENT_WAIT_BIT, (HL)",
+          "CP (IX + FSpaceObject.Target)",
+          "BIT OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)",
+          "RES OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)",
+          "RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "CheckCargoPod:  LD A, (IY + FModel.Cargo)",
+          "CheckLeader:    LD A, (IY + FModel.Flags)",
+          "LD IX, Memory.Station",
+          "FindLeader:     ADD IX, DE",
+          "LD A, (IX + FSpaceObject.Energy)",
+          "LD A, (IX + FSpaceObject.Hostility)",
+          "RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "SET OBJ_SCOOP_BIT, (IX + FSpaceObject.Flags2)",
+          "SRL (IX + FSpaceObject.Speed)",
+          "CheckEcm:       BIT TARGET_ECM_BIT, (IX + FSpaceObject.Target)",
+          "BIT MS_ACCEPT_BIT, A",
+          "LD A, (IX + FSpaceObject.Blueprint)",
+          "ChooseFlight:   BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)",
+          "BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "old_comment": "Успех создания потомка проверяется по Z. Капсула сбрасывает IX+20.7 и IX+20.6.",
+      "new_comment": "успех создания потомка проверяется по Z, выпуск капсулы сбрасывает OBJ_ESCAPE_BIT и OBJ_ACTIVE_BIT в FSpaceObject.Flags родителя",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD A, (IY + FModel.MaxEnergy)",
+          "LD C, (IX + FSpaceObject.Energy)",
+          "LD (IX + FSpaceObject.Energy), A",
+          "LD B, (IY + FModel.MaxEnergy)",
+          "TryLaunch:      LD A, (IX + FSpaceObject.Flags)",
+          "LD A, (IY + FModel.LaunchMask)",
+          "DEC (IX + FSpaceObject.Flags)",
+          "SET EVENT_WAIT_BIT, (HL)",
+          "CP (IX + FSpaceObject.Target)",
+          "BIT OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)",
+          "RES OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)",
+          "RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "CheckCargoPod:  LD A, (IY + FModel.Cargo)",
+          "CheckLeader:    LD A, (IY + FModel.Flags)",
+          "LD IX, Memory.Station",
+          "FindLeader:     ADD IX, DE",
+          "LD A, (IX + FSpaceObject.Energy)",
+          "LD A, (IX + FSpaceObject.Hostility)",
+          "RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "SET OBJ_SCOOP_BIT, (IX + FSpaceObject.Flags2)",
+          "SRL (IX + FSpaceObject.Speed)",
+          "CheckEcm:       BIT TARGET_ECM_BIT, (IX + FSpaceObject.Target)",
+          "BIT MS_ACCEPT_BIT, A",
+          "LD A, (IX + FSpaceObject.Blueprint)",
+          "ChooseFlight:   BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)",
+          "BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "old_comment": "Отдельная ветвь модели с IY+12=4 ищет ведущий объект с IX+21=#0C, иначе переводит объект в особое состояние.",
+      "new_comment": "ветвь с FModel.Flags=#04 ищет живой ведущий объект с FSpaceObject.Hostility=#0C, отсутствие ведущего переводит текущий объект в подбираемое состояние",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD A, (IY + FModel.MaxEnergy)",
+          "LD C, (IX + FSpaceObject.Energy)",
+          "LD (IX + FSpaceObject.Energy), A",
+          "LD B, (IY + FModel.MaxEnergy)",
+          "TryLaunch:      LD A, (IX + FSpaceObject.Flags)",
+          "LD A, (IY + FModel.LaunchMask)",
+          "DEC (IX + FSpaceObject.Flags)",
+          "SET EVENT_WAIT_BIT, (HL)",
+          "CP (IX + FSpaceObject.Target)",
+          "BIT OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)",
+          "RES OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)",
+          "RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "CheckCargoPod:  LD A, (IY + FModel.Cargo)",
+          "CheckLeader:    LD A, (IY + FModel.Flags)",
+          "LD IX, Memory.Station",
+          "FindLeader:     ADD IX, DE",
+          "LD A, (IX + FSpaceObject.Energy)",
+          "LD A, (IX + FSpaceObject.Hostility)",
+          "RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "SET OBJ_SCOOP_BIT, (IX + FSpaceObject.Flags2)",
+          "SRL (IX + FSpaceObject.Speed)",
+          "CheckEcm:       BIT TARGET_ECM_BIT, (IX + FSpaceObject.Target)",
+          "BIT MS_ACCEPT_BIT, A",
+          "LD A, (IX + FSpaceObject.Blueprint)",
+          "ChooseFlight:   BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)",
+          "BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "old_comment": "IX+25.0 разрешает ответный ECM при обнаруженной ракетной угрозе.",
+      "new_comment": "TARGET_ECM_BIT в FSpaceObject.Target разрешает ответный ECM при обнаруженной ракетной угрозе",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD A, (IY + FModel.MaxEnergy)",
+          "LD C, (IX + FSpaceObject.Energy)",
+          "LD (IX + FSpaceObject.Energy), A",
+          "LD B, (IY + FModel.MaxEnergy)",
+          "TryLaunch:      LD A, (IX + FSpaceObject.Flags)",
+          "LD A, (IY + FModel.LaunchMask)",
+          "DEC (IX + FSpaceObject.Flags)",
+          "SET EVENT_WAIT_BIT, (HL)",
+          "CP (IX + FSpaceObject.Target)",
+          "BIT OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)",
+          "RES OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)",
+          "RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "CheckCargoPod:  LD A, (IY + FModel.Cargo)",
+          "CheckLeader:    LD A, (IY + FModel.Flags)",
+          "LD IX, Memory.Station",
+          "FindLeader:     ADD IX, DE",
+          "LD A, (IX + FSpaceObject.Energy)",
+          "LD A, (IX + FSpaceObject.Hostility)",
+          "RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "SET OBJ_SCOOP_BIT, (IX + FSpaceObject.Flags2)",
+          "SRL (IX + FSpaceObject.Speed)",
+          "CheckEcm:       BIT TARGET_ECM_BIT, (IX + FSpaceObject.Target)",
+          "BIT MS_ACCEPT_BIT, A",
+          "LD A, (IX + FSpaceObject.Blueprint)",
+          "ChooseFlight:   BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)",
+          "BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "old_comment": "Обычные корабли продолжают в Game.Motion.CheckObjectBoxAndChooseCourse.ChooseCourse, особые IX+26.2 могут порождать объекты через диспетчер Game.Motion.CallObjectActionPreservingPointers.Entry.",
+      "new_comment": "обычные корабли продолжают в Game.Motion.CheckObjectBoxAndChooseCourse.ChooseCourse, OBJ_SPECIAL_BIT в FSpaceObject.Flags2 допускает порождение через Game.Motion.CallObjectActionPreservingPointers.Entry",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD A, (IY + FModel.MaxEnergy)",
+          "LD C, (IX + FSpaceObject.Energy)",
+          "LD (IX + FSpaceObject.Energy), A",
+          "LD B, (IY + FModel.MaxEnergy)",
+          "TryLaunch:      LD A, (IX + FSpaceObject.Flags)",
+          "LD A, (IY + FModel.LaunchMask)",
+          "DEC (IX + FSpaceObject.Flags)",
+          "SET EVENT_WAIT_BIT, (HL)",
+          "CP (IX + FSpaceObject.Target)",
+          "BIT OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)",
+          "RES OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)",
+          "RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "CheckCargoPod:  LD A, (IY + FModel.Cargo)",
+          "CheckLeader:    LD A, (IY + FModel.Flags)",
+          "LD IX, Memory.Station",
+          "FindLeader:     ADD IX, DE",
+          "LD A, (IX + FSpaceObject.Energy)",
+          "LD A, (IX + FSpaceObject.Hostility)",
+          "RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "SET OBJ_SCOOP_BIT, (IX + FSpaceObject.Flags2)",
+          "SRL (IX + FSpaceObject.Speed)",
+          "CheckEcm:       BIT TARGET_ECM_BIT, (IX + FSpaceObject.Target)",
+          "BIT MS_ACCEPT_BIT, A",
+          "LD A, (IX + FSpaceObject.Blueprint)",
+          "ChooseFlight:   BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)",
+          "BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+      "old_comment": "переход, если модель не относится к группе с признаком IY+12=4",
+      "new_comment": "переход, если FModel.Flags отличается от #04 и поиск ведущего объекта не требуется",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD A, (IY + FModel.MaxEnergy)",
+          "LD C, (IX + FSpaceObject.Energy)",
+          "LD (IX + FSpaceObject.Energy), A",
+          "LD B, (IY + FModel.MaxEnergy)",
+          "TryLaunch:      LD A, (IX + FSpaceObject.Flags)",
+          "LD A, (IY + FModel.LaunchMask)",
+          "DEC (IX + FSpaceObject.Flags)",
+          "SET EVENT_WAIT_BIT, (HL)",
+          "CP (IX + FSpaceObject.Target)",
+          "BIT OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)",
+          "RES OBJ_ESCAPE_BIT, (IX + FSpaceObject.Flags)",
+          "RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "CheckCargoPod:  LD A, (IY + FModel.Cargo)",
+          "CheckLeader:    LD A, (IY + FModel.Flags)",
+          "LD IX, Memory.Station",
+          "FindLeader:     ADD IX, DE",
+          "LD A, (IX + FSpaceObject.Energy)",
+          "LD A, (IX + FSpaceObject.Hostility)",
+          "RES OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "SET OBJ_SCOOP_BIT, (IX + FSpaceObject.Flags2)",
+          "SRL (IX + FSpaceObject.Speed)",
+          "CheckEcm:       BIT TARGET_ECM_BIT, (IX + FSpaceObject.Target)",
+          "BIT MS_ACCEPT_BIT, A",
+          "LD A, (IX + FSpaceObject.Blueprint)",
+          "ChooseFlight:   BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)",
+          "BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "old_comment": "В первой фазе второй миссии IX+26.6 скрывает каркас.",
+      "new_comment": "в первой фазе второй миссии OBJ_MISSION_BIT в FSpaceObject.Flags2 скрывает каркас",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT 1, A",
+          "LD L, (IY + FModel.Collision)",
+          "BIT 1, B",
+          "LD D, (IX + FSpaceObject.X.Low)",
+          "LD E, (IX + FSpaceObject.X.Fraction)",
+          "LD D, (IX + FSpaceObject.Y.Low)",
+          "LD E, (IX + FSpaceObject.Y.Fraction)",
+          "LD B, (IX + FSpaceObject.X.SignHigh)",
+          "LD D, (IX + FSpaceObject.Z.Low)",
+          "LD E, (IX + FSpaceObject.Z.Fraction)",
+          "LD D, (IX + FSpaceObject.Y.Low)",
+          "LD E, (IX + FSpaceObject.Y.Fraction)",
+          "LD B, (IX + FSpaceObject.Z.SignHigh)",
+          "PackProjection: LD A, (IX + FSpaceObject.Y.SignHigh)",
+          "LD A, (IX + FSpaceObject.Z.Low)",
+          "CheckAwayMode:  BIT OBJ_ACTIVE_BIT, (IX + FSpaceObject.Flags)",
+          "BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "BIT 1, A",
+          "LD A, (IX + FSpaceObject.AxisX.Z + FSignWord.SignHigh)",
+          "LD E, (IX + FSpaceObject.Z.Low)",
+          "LD A, (IX + FSpaceObject.AxisX.X + FSignWord.SignHigh)",
+          "LD E, (IX + FSpaceObject.X.Low)",
+          "RES OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)",
+          "DispatchEffect: BIT OBJ_DESTROY_BIT, (IX + FSpaceObject.Flags)",
+          "BIT OBJ_MISSION_BIT, (IX + FSpaceObject.Flags2)",
+          "CP (IY + FModel.DotDistance)",
+          "BIT 0, A",
+          "BIT PROJ_NEGX_BIT, D",
+          "ProjectY:       BIT PROJ_POSY_BIT, D"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/RenormalizeAxisHighBytes.asm",
+      "old_comment": "Обрабатываются байты IX+1,+3,+5, младшие байты не меняются.",
+      "new_comment": "коррекция меняет FSignWord.SignHigh трёх компонент FAxis.X, FAxis.Y и FAxis.Z, младшие байты слов сохраняются",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD L, (IX + FAxis.X + FSignWord.SignHigh)",
+          "LD L, (IX + FAxis.Y + FSignWord.SignHigh)",
+          "LD L, (IX + FAxis.Z + FSignWord.SignHigh)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "old_comment": "Обрабатываются байты IX+10,+16,+22, соответствующие компонентам осей X/Y/Z.",
+      "new_comment": "поворот меняет FSignWord.SignHigh текущей компоненты осей FSpaceObject.AxisX, FSpaceObject.AxisY и FSpaceObject.AxisZ, IX смещается на слово после каждой компоненты",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD B, (IX + FSpaceObject.AxisY + FSignWord.SignHigh)",
+          "LD D, (IX + FSpaceObject.AxisX + FSignWord.SignHigh)",
+          "LD (IX + FSpaceObject.AxisX + FSignWord.SignHigh), A",
+          "LD B, (IX + FSpaceObject.AxisY + FSignWord.SignHigh)",
+          "LD D, (IX + FSpaceObject.AxisZ + FSignWord.SignHigh)",
+          "LD (IX + FSpaceObject.AxisZ + FSignWord.SignHigh), A",
+          "LD B, (IX + FSpaceObject.AxisZ + FSignWord.SignHigh)",
+          "LD D, (IX + FSpaceObject.AxisY + FSignWord.SignHigh)",
+          "LD (IX + FSpaceObject.AxisY + FSignWord.SignHigh), A",
+          "LD B, (IX + FSpaceObject.AxisX + FSignWord.SignHigh)",
+          "LD D, (IX + FSpaceObject.AxisY + FSignWord.SignHigh)",
+          "LD (IX + FSpaceObject.AxisY + FSignWord.SignHigh), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/ScaleAxisHighByte.asm",
+      "old_comment": "Меняется только IX+1, его знак восстанавливается через перенос.",
+      "new_comment": "масштабируется только FSignWord.SignHigh текущего слова по IX, его знак восстанавливается через перенос",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD C, (IX + FSignWord.SignHigh)",
+          "SLA (IX + FSignWord.SignHigh)",
+          "LD (IX + FSignWord.SignHigh), H"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "old_comment": "команды IX+1C/+1D/+1E и накопленный урон игроку обновлены",
+      "new_comment": "поля FSpaceObject.Acceleration, FSpaceObject.Roll и FSpaceObject.Pitch и накопленный урон игроку обновлены",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD IY, SteeringVector.X",
+          "LD IX, SteeringVector.X",
+          "ADD IX, DE",
+          "ADD IX, DE",
+          "ADD IX, DE",
+          "LD (IX + FSpaceObject.Roll), A",
+          "BIT 7, A",
+          "LD (IX + FSpaceObject.Pitch), A",
+          "BIT TARGET_ACCL_BIT, (IX + FSpaceObject.Target)",
+          "StoreForced:    LD (IX + FSpaceObject.Acceleration), A",
+          "BIT OBJ_MISSILE_BIT, (IX + FSpaceObject.Flags2)",
+          "StoreSpeedup:   LD (IX + FSpaceObject.Acceleration), B",
+          "CheckLaser:     BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "LD A, (IX + FSpaceObject.Z.SignHigh)",
+          "XOR (IX + FSpaceObject.AxisX.Z + FSignWord.SignHigh)",
+          "LD B, (IY + FModel.LaserChance)",
+          "LD A, (IX + FSpaceObject.Flags2)",
+          "SET SND_HIT_BIT, (HL)",
+          "BIT 7, (IX + FSpaceObject.Z.SignHigh)",
+          "BIT OBJ_MISSILE_BIT, (IX + FSpaceObject.Flags2)",
+          "StoreBrake:     LD (IX + FSpaceObject.Acceleration), B"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "old_comment": "IX+25.7 задаёт принудительное ускорение 2 и ранний выход.",
+      "new_comment": "TARGET_ACCL_BIT в FSpaceObject.Target задаёт принудительное ускорение 2 и ранний выход",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD IY, SteeringVector.X",
+          "LD IX, SteeringVector.X",
+          "ADD IX, DE",
+          "ADD IX, DE",
+          "ADD IX, DE",
+          "LD (IX + FSpaceObject.Roll), A",
+          "BIT 7, A",
+          "LD (IX + FSpaceObject.Pitch), A",
+          "BIT TARGET_ACCL_BIT, (IX + FSpaceObject.Target)",
+          "StoreForced:    LD (IX + FSpaceObject.Acceleration), A",
+          "BIT OBJ_MISSILE_BIT, (IX + FSpaceObject.Flags2)",
+          "StoreSpeedup:   LD (IX + FSpaceObject.Acceleration), B",
+          "CheckLaser:     BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "LD A, (IX + FSpaceObject.Z.SignHigh)",
+          "XOR (IX + FSpaceObject.AxisX.Z + FSignWord.SignHigh)",
+          "LD B, (IY + FModel.LaserChance)",
+          "LD A, (IX + FSpaceObject.Flags2)",
+          "SET SND_HIT_BIT, (HL)",
+          "BIT 7, (IX + FSpaceObject.Z.SignHigh)",
+          "BIT OBJ_MISSILE_BIT, (IX + FSpaceObject.Flags2)",
+          "StoreBrake:     LD (IX + FSpaceObject.Acceleration), B"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "old_comment": "Game.Extensions.ScheduleLinkedObjectLaser.Entry проверяет окончательное наведение и устанавливает IX+20.3 для изображения луча.",
+      "new_comment": "Game.Extensions.ScheduleLinkedObjectLaser.Entry проверяет окончательное наведение и устанавливает OBJ_LASER_BIT в FSpaceObject.Flags для изображения луча",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD IY, SteeringVector.X",
+          "LD IX, SteeringVector.X",
+          "ADD IX, DE",
+          "ADD IX, DE",
+          "ADD IX, DE",
+          "LD (IX + FSpaceObject.Roll), A",
+          "BIT 7, A",
+          "LD (IX + FSpaceObject.Pitch), A",
+          "BIT TARGET_ACCL_BIT, (IX + FSpaceObject.Target)",
+          "StoreForced:    LD (IX + FSpaceObject.Acceleration), A",
+          "BIT OBJ_MISSILE_BIT, (IX + FSpaceObject.Flags2)",
+          "StoreSpeedup:   LD (IX + FSpaceObject.Acceleration), B",
+          "CheckLaser:     BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "LD A, (IX + FSpaceObject.Z.SignHigh)",
+          "XOR (IX + FSpaceObject.AxisX.Z + FSignWord.SignHigh)",
+          "LD B, (IY + FModel.LaserChance)",
+          "LD A, (IX + FSpaceObject.Flags2)",
+          "SET SND_HIT_BIT, (HL)",
+          "BIT 7, (IX + FSpaceObject.Z.SignHigh)",
+          "BIT OBJ_MISSILE_BIT, (IX + FSpaceObject.Flags2)",
+          "StoreBrake:     LD (IX + FSpaceObject.Acceleration), B"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "old_comment": "переход, если принудительное ускорение IX+25.7 выключено",
+      "new_comment": "переход, если TARGET_ACCL_BIT в FSpaceObject.Target сброшен и требуется обычный расчёт ускорения",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD IY, SteeringVector.X",
+          "LD IX, SteeringVector.X",
+          "ADD IX, DE",
+          "ADD IX, DE",
+          "ADD IX, DE",
+          "LD (IX + FSpaceObject.Roll), A",
+          "BIT 7, A",
+          "LD (IX + FSpaceObject.Pitch), A",
+          "BIT TARGET_ACCL_BIT, (IX + FSpaceObject.Target)",
+          "StoreForced:    LD (IX + FSpaceObject.Acceleration), A",
+          "BIT OBJ_MISSILE_BIT, (IX + FSpaceObject.Flags2)",
+          "StoreSpeedup:   LD (IX + FSpaceObject.Acceleration), B",
+          "CheckLaser:     BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "LD A, (IX + FSpaceObject.Z.SignHigh)",
+          "XOR (IX + FSpaceObject.AxisX.Z + FSignWord.SignHigh)",
+          "LD B, (IY + FModel.LaserChance)",
+          "LD A, (IX + FSpaceObject.Flags2)",
+          "SET SND_HIT_BIT, (HL)",
+          "BIT 7, (IX + FSpaceObject.Z.SignHigh)",
+          "BIT OBJ_MISSILE_BIT, (IX + FSpaceObject.Flags2)",
+          "StoreBrake:     LD (IX + FSpaceObject.Acceleration), B"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "old_comment": "выход, если младшая тетрада IX+26 обозначает специальный объект без обычного лазера",
+      "new_comment": "выход, если FSpaceObject.Flags2 после OBJ_CLASS_MASK обозначает специальный объект без обычного лазера",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD IY, SteeringVector.X",
+          "LD IX, SteeringVector.X",
+          "ADD IX, DE",
+          "ADD IX, DE",
+          "ADD IX, DE",
+          "LD (IX + FSpaceObject.Roll), A",
+          "BIT 7, A",
+          "LD (IX + FSpaceObject.Pitch), A",
+          "BIT TARGET_ACCL_BIT, (IX + FSpaceObject.Target)",
+          "StoreForced:    LD (IX + FSpaceObject.Acceleration), A",
+          "BIT OBJ_MISSILE_BIT, (IX + FSpaceObject.Flags2)",
+          "StoreSpeedup:   LD (IX + FSpaceObject.Acceleration), B",
+          "CheckLaser:     BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "LD A, (IX + FSpaceObject.Z.SignHigh)",
+          "XOR (IX + FSpaceObject.AxisX.Z + FSignWord.SignHigh)",
+          "LD B, (IY + FModel.LaserChance)",
+          "LD A, (IX + FSpaceObject.Flags2)",
+          "SET SND_HIT_BIT, (HL)",
+          "BIT 7, (IX + FSpaceObject.Z.SignHigh)",
+          "BIT OBJ_MISSILE_BIT, (IX + FSpaceObject.Flags2)",
+          "StoreBrake:     LD (IX + FSpaceObject.Acceleration), B"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "old_comment": "Объекты за пределами диапазона освобождаются через энергию IX+22 и снятие ракетных целей.",
+      "new_comment": "объекты за пределами диапазона освобождаются обнулением FSpaceObject.Energy и снятием ракетных целей",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)",
+          "LD (IX + FSpaceObject.Energy), A",
+          "CheckSideRange: LD A, (IX + FSpaceObject.X.SignHigh)",
+          "LD A, (IX + FSpaceObject.Y.SignHigh)",
+          "ADD IX, DE",
+          "LD A, (IX + FSpaceObject.Roll)",
+          "BIT 7, A",
+          "LD (IX + FSpaceObject.Roll), A",
+          "BIT 6, (IX + FSpaceObject.Roll)",
+          "LD A, (IX + FSpaceObject.Pitch)",
+          "BIT 7, A",
+          "LD (IX + FSpaceObject.Pitch), A",
+          "BIT 6, (IX + FSpaceObject.Pitch)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "old_comment": "В командах IX+1D/+1E бит 7 задаёт непрерывное вращение, бит 6 направление, low4 длительность.",
+      "new_comment": "в командах FSpaceObject.Roll и FSpaceObject.Pitch бит 7 задаёт непрерывное вращение, бит 6 направление, младшие четыре бита длительность",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)",
+          "LD (IX + FSpaceObject.Energy), A",
+          "CheckSideRange: LD A, (IX + FSpaceObject.X.SignHigh)",
+          "LD A, (IX + FSpaceObject.Y.SignHigh)",
+          "ADD IX, DE",
+          "LD A, (IX + FSpaceObject.Roll)",
+          "BIT 7, A",
+          "LD (IX + FSpaceObject.Roll), A",
+          "BIT 6, (IX + FSpaceObject.Roll)",
+          "LD A, (IX + FSpaceObject.Pitch)",
+          "BIT 7, A",
+          "LD (IX + FSpaceObject.Pitch), A",
+          "BIT 6, (IX + FSpaceObject.Pitch)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+      "old_comment": "Условие выхода по дальности для объектов с IX+26.2 ослаблено.",
+      "new_comment": "OBJ_SPECIAL_BIT в FSpaceObject.Flags2 ослабляет ограничение дальности удаления объекта",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT OBJ_SPECIAL_BIT, (IX + FSpaceObject.Flags2)",
+          "LD (IX + FSpaceObject.Energy), A",
+          "CheckSideRange: LD A, (IX + FSpaceObject.X.SignHigh)",
+          "LD A, (IX + FSpaceObject.Y.SignHigh)",
+          "ADD IX, DE",
+          "LD A, (IX + FSpaceObject.Roll)",
+          "BIT 7, A",
+          "LD (IX + FSpaceObject.Roll), A",
+          "BIT 6, (IX + FSpaceObject.Roll)",
+          "LD A, (IX + FSpaceObject.Pitch)",
+          "BIT 7, A",
+          "LD (IX + FSpaceObject.Pitch), A",
+          "BIT 6, (IX + FSpaceObject.Pitch)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/FindFreeObjectSlot.asm",
+      "old_comment": "свободен слот с нулевой энергией IX+22, станция Memory.Station и ракета Memory.Missile исключены",
+      "new_comment": "свободен слот с FSpaceObject.Energy=0, станция Memory.Station и ракета Memory.Missile исключены",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD IX, Memory.Station",
+          "CheckSlot:      ADD IX, DE",
+          "LD A, (IX+FSpaceObject.Energy)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "old_comment": "IX+26.6 и IX+20.2 установлены",
+      "new_comment": "OBJ_MISSION_BIT в FSpaceObject.Flags2 и OBJ_LAUNCH4_BIT в FSpaceObject.Flags установлены",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "SET OBJ_MISSION_BIT, (IX+FSpaceObject.Flags2)",
+          "SET OBJ_LAUNCH4_BIT, (IX+FSpaceObject.Flags)",
+          "SET 7, (IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+          "RES OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "LD (IX+FSpaceObject.Roll), A",
+          "BIT 3, B",
+          "EnableEcm:      SET TARGET_ECM_BIT, (IX+FSpaceObject.Target)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "old_comment": "бит 6 по IX+26 используется признаком особого миссионного корабля",
+      "new_comment": "OBJ_MISSION_BIT в FSpaceObject.Flags2 отмечает особый корабль второй миссии",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "SET OBJ_MISSION_BIT, (IX+FSpaceObject.Flags2)",
+          "SET OBJ_LAUNCH4_BIT, (IX+FSpaceObject.Flags)",
+          "SET 7, (IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+          "RES OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "LD (IX+FSpaceObject.Roll), A",
+          "BIT 3, B",
+          "EnableEcm:      SET TARGET_ECM_BIT, (IX+FSpaceObject.Target)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "old_comment": "бит 2 по IX+20 входит в младший трёхбитный счётчик запусков",
+      "new_comment": "OBJ_LAUNCH4_BIT в FSpaceObject.Flags задаёт вес 4 в трёхбитовом остатке запусков",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "SET OBJ_MISSION_BIT, (IX+FSpaceObject.Flags2)",
+          "SET OBJ_LAUNCH4_BIT, (IX+FSpaceObject.Flags)",
+          "SET 7, (IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+          "RES OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "LD (IX+FSpaceObject.Roll), A",
+          "BIT 3, B",
+          "EnableEcm:      SET TARGET_ECM_BIT, (IX+FSpaceObject.Target)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/InitializeAtPlayer.asm",
+      "old_comment": "RES7 у IX+0E и IX+16 разворачивает два компонента ориентации",
+      "new_comment": "начальная ориентация делает неотрицательными компоненты FSpaceObject.AxisX.Z и FSpaceObject.AxisZ.X, сбрасывая знак в FSignWord.SignHigh",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "RES 7, (IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+          "RES 7, (IX+FSpaceObject.AxisZ.X+FSignWord.SignHigh)",
+          "LD (IX+FSpaceObject.X.Fraction), A",
+          "LD (IX+FSpaceObject.X.Low), A",
+          "LD (IX+FSpaceObject.Y.Low), A",
+          "LD (IX+FSpaceObject.Z.Fraction), A",
+          "LD (IX+FSpaceObject.Z.Low), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "old_comment": "указатель заголовка читается из каталог + 4*(B AND 63) + 1 и сохраняется в IX+23/24",
+      "new_comment": "адрес FModel читается из FModelIndex.Address выбранного элемента Memory.ModelIndex и сохраняется в FSpaceObject.Blueprint",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX+FSpaceObject.Blueprint+FSignWord.SignHigh), D",
+          "LD (IX+FSpaceObject.Blueprint), E",
+          "LD A, (IY+FModel.MaxEnergy)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD A, (IY+FModel.Flags)",
+          "LD (IX+FSpaceObject.Hostility), A",
+          "LD (IX+FSpaceObject.Flags), A",
+          "LD A, (IY+FModel.MaxSpeed)",
+          "LD (IX+FSpaceObject.Speed), A",
+          "LD (IX+FSpaceObject.Target), A",
+          "LD (IX+FSpaceObject.Flags2), A",
+          "SET OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD (IX+FSpaceObject.X.Low), A",
+          "LD (IX+FSpaceObject.Y.Low), A",
+          "LD (IX+FSpaceObject.X.Fraction), A",
+          "LD (IX+FSpaceObject.Y.Fraction), A",
+          "RR (IX+FSpaceObject.X.SignHigh)",
+          "RR (IX+FSpaceObject.Y.SignHigh)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "old_comment": "31 байт шаблона ObjectTemplate копируется в IX+00..1E, поле IX+1F не очищается",
+      "new_comment": "31 байт ObjectTemplate заполняет FSpaceObject от X до Pitch включительно, FSpaceObject.Payload не очищается",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX+FSpaceObject.Blueprint+FSignWord.SignHigh), D",
+          "LD (IX+FSpaceObject.Blueprint), E",
+          "LD A, (IY+FModel.MaxEnergy)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD A, (IY+FModel.Flags)",
+          "LD (IX+FSpaceObject.Hostility), A",
+          "LD (IX+FSpaceObject.Flags), A",
+          "LD A, (IY+FModel.MaxSpeed)",
+          "LD (IX+FSpaceObject.Speed), A",
+          "LD (IX+FSpaceObject.Target), A",
+          "LD (IX+FSpaceObject.Flags2), A",
+          "SET OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD (IX+FSpaceObject.X.Low), A",
+          "LD (IX+FSpaceObject.Y.Low), A",
+          "LD (IX+FSpaceObject.X.Fraction), A",
+          "LD (IX+FSpaceObject.Y.Fraction), A",
+          "RR (IX+FSpaceObject.X.SignHigh)",
+          "RR (IX+FSpaceObject.Y.SignHigh)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "old_comment": "энергия берётся из IY+07, скорость равна половине IY+06",
+      "new_comment": "FSpaceObject.Energy получает FModel.MaxEnergy, FSpaceObject.Speed получает половину FModel.MaxSpeed",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX+FSpaceObject.Blueprint+FSignWord.SignHigh), D",
+          "LD (IX+FSpaceObject.Blueprint), E",
+          "LD A, (IY+FModel.MaxEnergy)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD A, (IY+FModel.Flags)",
+          "LD (IX+FSpaceObject.Hostility), A",
+          "LD (IX+FSpaceObject.Flags), A",
+          "LD A, (IY+FModel.MaxSpeed)",
+          "LD (IX+FSpaceObject.Speed), A",
+          "LD (IX+FSpaceObject.Target), A",
+          "LD (IX+FSpaceObject.Flags2), A",
+          "SET OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD (IX+FSpaceObject.X.Low), A",
+          "LD (IX+FSpaceObject.Y.Low), A",
+          "LD (IX+FSpaceObject.X.Fraction), A",
+          "LD (IX+FSpaceObject.Y.Fraction), A",
+          "RR (IX+FSpaceObject.X.SignHigh)",
+          "RR (IX+FSpaceObject.Y.SignHigh)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "old_comment": "флаги IX+21 := (IY+12) AND #6F, EscapePod переносится из бита 7 IY+12 в бит 7 IX+20",
+      "new_comment": "FSpaceObject.Hostility получает FModel.Flags после MODEL_AI_MASK, OBJ_ESCAPE_BIT переносится из FModel.Flags в FSpaceObject.Flags",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX+FSpaceObject.Blueprint+FSignWord.SignHigh), D",
+          "LD (IX+FSpaceObject.Blueprint), E",
+          "LD A, (IY+FModel.MaxEnergy)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD A, (IY+FModel.Flags)",
+          "LD (IX+FSpaceObject.Hostility), A",
+          "LD (IX+FSpaceObject.Flags), A",
+          "LD A, (IY+FModel.MaxSpeed)",
+          "LD (IX+FSpaceObject.Speed), A",
+          "LD (IX+FSpaceObject.Target), A",
+          "LD (IX+FSpaceObject.Flags2), A",
+          "SET OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD (IX+FSpaceObject.X.Low), A",
+          "LD (IX+FSpaceObject.Y.Low), A",
+          "LD (IX+FSpaceObject.X.Fraction), A",
+          "LD (IX+FSpaceObject.Y.Fraction), A",
+          "RR (IX+FSpaceObject.X.SignHigh)",
+          "RR (IX+FSpaceObject.Y.SignHigh)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "old_comment": "младшие три бита IX+20 задаются результатом Game.Text.CheckObjectRandomGate.Entry, бит 6 включается, IX+25=#7E,IX+26=0",
+      "new_comment": "Game.Text.CheckObjectRandomGate.Entry задаёт остаток запусков в FSpaceObject.Flags по OBJ_LAUNCH_MASK, OBJ_ACTIVE_BIT включается, FSpaceObject.Target=#7E, FSpaceObject.Flags2=0",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX+FSpaceObject.Blueprint+FSignWord.SignHigh), D",
+          "LD (IX+FSpaceObject.Blueprint), E",
+          "LD A, (IY+FModel.MaxEnergy)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD A, (IY+FModel.Flags)",
+          "LD (IX+FSpaceObject.Hostility), A",
+          "LD (IX+FSpaceObject.Flags), A",
+          "LD A, (IY+FModel.MaxSpeed)",
+          "LD (IX+FSpaceObject.Speed), A",
+          "LD (IX+FSpaceObject.Target), A",
+          "LD (IX+FSpaceObject.Flags2), A",
+          "SET OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD (IX+FSpaceObject.X.Low), A",
+          "LD (IX+FSpaceObject.Y.Low), A",
+          "LD (IX+FSpaceObject.X.Fraction), A",
+          "LD (IX+FSpaceObject.Y.Fraction), A",
+          "RR (IX+FSpaceObject.X.SignHigh)",
+          "RR (IX+FSpaceObject.Y.SignHigh)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "old_comment": "при сброшенном IX+21 bit2 случайны целые X/Y, дробные X/Y и знаки случайны всегда",
+      "new_comment": "при сброшенном OBJ_HOSTILE_BIT в FSpaceObject.Hostility случайны FSpaceObject.X.Low и FSpaceObject.Y.Low, дробные части и знаки X/Y случайны всегда",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX+FSpaceObject.Blueprint+FSignWord.SignHigh), D",
+          "LD (IX+FSpaceObject.Blueprint), E",
+          "LD A, (IY+FModel.MaxEnergy)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD A, (IY+FModel.Flags)",
+          "LD (IX+FSpaceObject.Hostility), A",
+          "LD (IX+FSpaceObject.Flags), A",
+          "LD A, (IY+FModel.MaxSpeed)",
+          "LD (IX+FSpaceObject.Speed), A",
+          "LD (IX+FSpaceObject.Target), A",
+          "LD (IX+FSpaceObject.Flags2), A",
+          "SET OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD (IX+FSpaceObject.X.Low), A",
+          "LD (IX+FSpaceObject.Y.Low), A",
+          "LD (IX+FSpaceObject.X.Fraction), A",
+          "LD (IX+FSpaceObject.Y.Fraction), A",
+          "RR (IX+FSpaceObject.X.SignHigh)",
+          "RR (IX+FSpaceObject.Y.SignHigh)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "old_comment": "расчёт начального запаса запусков, обработчик также читает байт за границей слота IX+27",
+      "new_comment": "расчёт начального запаса запусков с чтением байта сразу за записью, по адресу IX + FSpaceObject, это не дополнительное поле объекта",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX+FSpaceObject.Blueprint+FSignWord.SignHigh), D",
+          "LD (IX+FSpaceObject.Blueprint), E",
+          "LD A, (IY+FModel.MaxEnergy)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "LD A, (IY+FModel.Flags)",
+          "LD (IX+FSpaceObject.Hostility), A",
+          "LD (IX+FSpaceObject.Flags), A",
+          "LD A, (IY+FModel.MaxSpeed)",
+          "LD (IX+FSpaceObject.Speed), A",
+          "LD (IX+FSpaceObject.Target), A",
+          "LD (IX+FSpaceObject.Flags2), A",
+          "SET OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "BIT OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD (IX+FSpaceObject.X.Low), A",
+          "LD (IX+FSpaceObject.Y.Low), A",
+          "LD (IX+FSpaceObject.X.Fraction), A",
+          "LD (IX+FSpaceObject.Y.Fraction), A",
+          "RR (IX+FSpaceObject.X.SignHigh)",
+          "RR (IX+FSpaceObject.Y.SignHigh)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/RandomizeSpawnDirection.asm",
+      "old_comment": "IX+0A и IX+0C получают random AND #87",
+      "new_comment": "старшие байты FSignWord.SignHigh компонент FSpaceObject.AxisX.X и FSpaceObject.AxisX.Y получают random AND #87",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX+FSpaceObject.AxisX.X+FSignWord.SignHigh), A",
+          "LD (IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "old_comment": "основной вход обменивает IX+0A и IX+10 и инвертирует IX+16 bit7",
+      "new_comment": "основной вход обменивает старшие байты FSpaceObject.AxisX.X и FSpaceObject.AxisY.X и меняет знак FSpaceObject.AxisZ.X, во всех трёх словах используется FSignWord.SignHigh",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD A, (IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+          "LD B, (IX+FSpaceObject.AxisY.X+FSignWord.SignHigh)",
+          "LD (IX+FSpaceObject.AxisY.X+FSignWord.SignHigh), A",
+          "LD (IX+FSpaceObject.AxisX.X+FSignWord.SignHigh), B",
+          "LD A, (IX+FSpaceObject.AxisZ.X+FSignWord.SignHigh)",
+          "LD (IX+FSpaceObject.AxisZ.X+FSignWord.SignHigh), A",
+          "RotateAxes:     LD A, (IX+FSpaceObject.AxisY.X+FSignWord.SignHigh)",
+          "LD B, (IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+          "LD (IX+FSpaceObject.AxisX.X+FSignWord.SignHigh), A",
+          "LD (IX+FSpaceObject.AxisY.X+FSignWord.SignHigh), B",
+          "LD A, (IX+FSpaceObject.AxisY.Y+FSignWord.SignHigh)",
+          "LD B, (IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+          "LD (IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh), A",
+          "LD (IX+FSpaceObject.AxisY.Y+FSignWord.SignHigh), B",
+          "LD A, (IX+FSpaceObject.AxisY.Z+FSignWord.SignHigh)",
+          "LD B, (IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh)",
+          "LD (IX+FSpaceObject.AxisX.Z+FSignWord.SignHigh), A",
+          "LD (IX+FSpaceObject.AxisY.Z+FSignWord.SignHigh), B"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "old_comment": "IX+25 получает код цели, IX+26 bit0 отмечает ракету",
+      "new_comment": "FSpaceObject.Target получает код цели, OBJ_MISSILE_BIT в FSpaceObject.Flags2 отмечает управляемую ракету",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD IX, Memory.Station",
+          "ADD IX, DE",
+          "LD A, (IX+FSpaceObject.Energy)",
+          "LD (IX+FSpaceObject.Z.Fraction), A",
+          "LD (IX+FSpaceObject.Y.Fraction), A",
+          "LD (IX+FSpaceObject.Y.SignHigh), A",
+          "ADD A, (IX+FSpaceObject.Speed)",
+          "LD (IX+FSpaceObject.Speed), A",
+          "StoreTarget:    LD (IX+FSpaceObject.Target), C",
+          "SET OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "old_comment": "после Game.Objects.SpawnAtPlayer.Entry отключается IX+20 bit6 и задаётся случайное направление",
+      "new_comment": "после Game.Objects.SpawnAtPlayer.Entry сбрасывается OBJ_ACTIVE_BIT в FSpaceObject.Flags и задаётся случайное направление обломка",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "RES OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "LD (IX+FSpaceObject.X.Fraction), A",
+          "LD A, (IX+FSpaceObject.AxisX.X+FSignWord.SignHigh)",
+          "LD (IX+FSpaceObject.X.SignHigh), A",
+          "LD (IX+FSpaceObject.Y.Fraction), A",
+          "LD A, (IX+FSpaceObject.AxisX.Y+FSignWord.SignHigh)",
+          "LD (IX+FSpaceObject.Y.SignHigh), A",
+          "LD (IX+FSpaceObject.Z.Fraction), A",
+          "LD (IX+FSpaceObject.Roll), A",
+          "LD (IX+FSpaceObject.Speed), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipCargoOrPod.asm",
+      "old_comment": "у дочернего объекта отключается IX+20 bit6, IX+26=#0A и IX+1D=#80",
+      "new_comment": "у дочернего объекта сбрасывается OBJ_ACTIVE_BIT в FSpaceObject.Flags, FSpaceObject.Flags2=#0A и FSpaceObject.Roll=#80",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "RES OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "LD (IX+FSpaceObject.Flags2), A",
+          "LD (IX+FSpaceObject.Roll), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipClass.asm",
+      "old_comment": "враждебность IX+21 bit2 наследуется от родителя",
+      "new_comment": "дочерний объект наследует OBJ_HOSTILE_BIT поля FSpaceObject.Hostility родителя",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT 0, A",
+          "BIT OBJ_SPECIAL_BIT, (IY+FSpaceObject.Flags2)",
+          "BIT OBJ_HOSTILE_BIT, (IY+FSpaceObject.Hostility)",
+          "SET OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipDebris.asm",
+      "old_comment": "IX+26=#0A, IX+20 bit6 сброшен, IX+1D bit7 включает постоянное вращение",
+      "new_comment": "FSpaceObject.Flags2=#0A, OBJ_ACTIVE_BIT в FSpaceObject.Flags сброшен, бит 7 FSpaceObject.Roll включает постоянное вращение",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX+FSpaceObject.Flags2), A",
+          "RES OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "SET 7, (IX+FSpaceObject.Roll)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Objects/SpawnThargonWave.asm",
+      "old_comment": "каждому задаётся IX+25 bit0, Zm=(random AND 15) OR 4, Ym=0",
+      "new_comment": "каждому объекту устанавливается TARGET_ECM_BIT в FSpaceObject.Target, FSpaceObject.Z.Low=(random AND 15) OR 4, FSpaceObject.Y.Low=0",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "SET TARGET_ECM_BIT, (IX+FSpaceObject.Target)",
+          "LD (IX+FSpaceObject.Z.Low), A",
+          "LD (IX+FSpaceObject.X.Low), A",
+          "LD (IX+FSpaceObject.Y.Low), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Screen/CheckDockingAlignment.asm",
+      "old_comment": "проверяет старшую компоненту оси IX+#1A после удвоения",
+      "new_comment": "проверяет FSignWord.SignHigh компоненты FSpaceObject.AxisZ.Z после удвоения",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD A, (IX + FSpaceObject.AxisZ.Z + FSignWord.SignHigh)",
+          "LD A, (IX + FSpaceObject.X.Fraction)",
+          "OR (IX + FSpaceObject.Y.Fraction)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Screen/CompassFarAxis.asm",
+      "old_comment": "знак берётся из исходного старшего байта координаты IX+2",
+      "new_comment": "знак берётся из исходного FCoordinate.SignHigh координаты по IX",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD A, (IX + FCoordinate.Fraction)",
+          "LD L, (IX + FCoordinate.Low)",
+          "LD H, (IX + FCoordinate.SignHigh)",
+          "RES 7, H",
+          "LD H, (IX + FCoordinate.SignHigh)",
+          "BIT 7, H"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Text/CheckObjectRandomGate.asm",
+      "old_comment": "Два младших бита результата Game.Combat.NextRandomByte.Entry дают ранний отказ при 0, иначе вычисляется(State.Rating + 1 OR [IX+27])",
+      "new_comment": "два младших бита результата Game.Combat.NextRandomByte.Entry дают отказ при 0, иначе старший байт State.Rating объединяется через OR с байтом за записью по IX + FSpaceObject",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "OR (IX+FSpaceObject)",
+          "AND (IY+FModel.LaunchMask)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Text/CheckObjectRandomGate.asm",
+      "old_comment": "AND[IY+0A], где IY+0A содержит маску запусков модели",
+      "new_comment": "результат ограничивается маской FModel.LaunchMask модели по IY, все операнды формулы являются прочитанными значениями байтов",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "OR (IX+FSpaceObject)",
+          "AND (IY+FModel.LaunchMask)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Text/DrawViewFrame.asm",
+      "old_comment": "Верхняя линия начинается Memory.Screen + #0020, на каждой строке ставятся крайние биты IX+0 и IX+1F, нижняя",
+      "new_comment": "верхняя линия начинается Memory.Screen + #0020, IX указывает на экранную строку, крайние биты ставятся в столбцах LeftColumn и RightColumn, нижняя",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "SET 7, (IX+LeftColumn)",
+          "SET 0, (IX+RightColumn)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "old_comment": "Обычный тип меняет биты 2/3 и законность, тип 3C обнуляет IX+22, повторяет проверку области",
+      "new_comment": "обычный тип меняет биты 2/3 и законность, Sidewinder обнуляет FSpaceObject.Energy летящего объекта и повторяет проверку области",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD A, (IX+FSpaceObject.Blueprint)",
+          "SET M3_HIT_BIT, (HL)",
+          "BIT M3_STAGE_BIT, (HL)",
+          "BIT MS_ACCEPT_BIT, (HL)",
+          "LD (IX+FSpaceObject.Energy), A",
+          "SET MS_MARK3_BIT, (HL)",
+          "RES INV_ATTACK_BIT, (HL)",
+          "RES INV_ATTACK_BIT, (HL)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEcmToStandardMissile.asm",
+      "old_comment": "IX+20.6 сброшен и IX+20.4 установлен для этого типа",
+      "new_comment": "для этого типа сброшен OBJ_ACTIVE_BIT и установлен OBJ_DESTROY_BIT в FSpaceObject.Flags",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD A, (IX+FSpaceObject.Blueprint)",
+          "RES OBJ_ACTIVE_BIT, (IX+FSpaceObject.Flags)",
+          "SET OBJ_DESTROY_BIT, (IX+FSpaceObject.Flags)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+      "old_comment": "IX+25, младшая ссылка источника для новой ракеты",
+      "new_comment": "FSpaceObject.Target, младшая ссылка источника для новой ракеты",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD IY, (ObjectEffects.Current)",
+          "LD A, (IY+FEffectRecord10.Links)",
+          "LD (IX+FSpaceObject.Target), A",
+          "CheckType:      BIT FX_GROUP_BIT, (HL)",
+          "SET FX_ALLOW_BIT, (HL)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Universe/FindInteractingObject.asm",
+      "old_comment": "Сначала ракета с младшим адресом модели 6A проверяет собственный IX+25.",
+      "new_comment": "сначала ракета с младшим байтом FSpaceObject.Blueprint=#6A проверяет собственное поле FSpaceObject.Target",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD C, (IY+FEffectRecord10.TypeFlags)",
+          "LD B, (IY+FEffectRecord10.Links)",
+          "LD A, (IX+FSpaceObject.Blueprint)",
+          "BIT OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)",
+          "LD A, (IX+FSpaceObject.Target)",
+          "LD IY, ObjectEffects.Records + FEffectRecord10",
+          "ADD IY, DE"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "old_comment": "Каталог Memory.ModelIndex имеет записи по 4 байта, поиск сравнивает указатель модели с IX+23/+24.",
+      "new_comment": "элементы FModelIndex каталога Memory.ModelIndex содержат адрес модели в Address, поиск сравнивает его с FSpaceObject.Blueprint объекта",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "SET FX_NOSTAT_BIT, (HL)",
+          "FindBlueprint:  LD E, (IX+FSpaceObject.Blueprint)",
+          "LD D, (IX+FSpaceObject.Blueprint+1)",
+          "BIT FX_GROUP_BIT, A",
+          "BIT FX_ENERGY_BIT, C",
+          "RES FX_ENERGY_BIT, (HL)",
+          "BIT MS_CLOAK_BIT, A",
+          "SET FX_ENERGY_BIT, (HL)",
+          "RandomBitFour:  BIT FX_SEARCH_BIT, (HL)",
+          "RES FX_SEARCH_BIT, (HL)",
+          "CheckBitFive:   BIT FX_TIMER_BIT, (HL)",
+          "RES FX_TIMER_BIT, (HL)",
+          "ReadLaserPoint: LD A, (IY+FModel.LaserVertex)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+      "old_comment": "глубина IX+6..8 уменьшена на 32 единицы",
+      "new_comment": "глубина, третья FCoordinate от базы IX, уменьшена на 32 единицы",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD H, (IX+FCoordinate+FCoordinate+FCoordinate.SignHigh)",
+          "LD L, (IX+FCoordinate+FCoordinate+FCoordinate.Low)",
+          "BIT 7, H",
+          "StoreDepth:     LD (IX+FCoordinate+FCoordinate+FCoordinate.SignHigh), H",
+          "LD (IX+FCoordinate+FCoordinate+FCoordinate.Low), L",
+          "LD E, (IX+FCoordinate+FCoordinate+FCoordinate.Fraction)",
+          "LD (IX+FCoordinate+FCoordinate+FCoordinate.SignHigh), A",
+          "LD (IX+FCoordinate+FCoordinate+FCoordinate.Low), H",
+          "LD (IX+FCoordinate+FCoordinate+FCoordinate.Fraction), L"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Universe/SetStationEnergy.asm",
+      "old_comment": "IX+22 равен F0",
+      "new_comment": "FSpaceObject.Energy станционного слота равен #F0",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX+FSpaceObject.Energy), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "old_comment": "AF, Z от BIT4,(IX+20) при отдельном входе Game.Universe.SpawnDestructionContentsAndEffects.RenderEffects",
+      "new_comment": "AF, Z отражает проверку OBJ_DESTROY_BIT поля FSpaceObject.Flags при отдельном входе Game.Universe.SpawnDestructionContentsAndEffects.RenderEffects",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          BIT OBJ_MISSION_BIT, (IX+FSpaceObject.Flags2)",
+          "NormalLoot:     LD H, (IX+FSpaceObject.Blueprint+1)",
+          "LD L, (IX+FSpaceObject.Blueprint)",
+          "BIT FX_ENERGY_BIT, A",
+          "LD A, (IX+FSpaceObject.Flags)",
+          "LD A, (IX+FSpaceObject.Energy)",
+          "INC (IX+FSpaceObject.Energy)",
+          "DEC (IX+FSpaceObject.Energy)",
+          "DEC (IX+FSpaceObject.Energy)",
+          "BIT FX_PHASE4_BIT, A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "old_comment": "Каждый слот имеет счётчик+7, новая задержка зависит от компоненты оси IX+16.",
+      "new_comment": "каждая запись содержит FEffectRecord10.Timer, новая задержка зависит от FSignWord.SignHigh компоненты FSpaceObject.AxisZ.X соответствующего объекта",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "StartSlots:     LD IX, Memory.Station",
+          "BIT FX_TIMER_BIT, (HL)",
+          "TickTimer:      DEC (IY+FEffectRecord10.Timer)",
+          "LD A, (IX+FSpaceObject.AxisZ.X+FSignWord.SignHigh)",
+          "LD (IY+FEffectRecord10.Timer), A",
+          "BIT FX_GROUP_BIT, (HL)",
+          "LD A, (IX+FSpaceObject.Flags)",
+          "BIT FX_TIMER_BIT, (HL)",
+          "CheckEnergy:    LD A, (IX+FSpaceObject.Energy)",
+          "LD A, (IY+FEffectRecord10.Links)",
+          "FindPartner:    RES FX_ACTIVE_BIT, (HL)",
+          "SET FX_ACTIVE_BIT, (HL)",
+          "LD C, (IY+FEffectRecord10.SecondFlags)",
+          "LD D, (IY+FEffectRecord10.SecondX)",
+          "LD E, (IY+FEffectRecord10.SecondY)",
+          "LD B, (IY+FEffectRecord10.FirstFlags)",
+          "LD H, (IY+FEffectRecord10.FirstX)",
+          "LD L, (IY+FEffectRecord10.FirstY)",
+          "ADD IX, DE",
+          "LD (IY+FEffectRecord10.Timer), H"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+      "old_comment": "Ненулевые старшие модули координат или IX+26.7 оставляют дальний режим.",
+      "new_comment": "ненулевые старшие модули координат либо OBJ_FAR_BIT в FSpaceObject.Flags2 оставляют станцию в дальнем режиме",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD IX, Memory.Station",
+          "LD A, (IX+FSpaceObject.Energy)",
+          "LD A, (IX+FSpaceObject.Z.SignHigh)",
+          "LD A, (IX+FSpaceObject.X.SignHigh)",
+          "LD A, (IX+FSpaceObject.Y.SignHigh)",
+          "CheckNearFlag:  BIT OBJ_FAR_BIT, (IX+FSpaceObject.Flags2)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "old_comment": "Game.Extensions.DrawModelAndResources.Entry рисует рёбра, затем при IX+20.3 выводится лазер.",
+      "new_comment": "Game.Extensions.DrawModelAndResources.Entry рисует рёбра, OBJ_LASER_BIT в FSpaceObject.Flags разрешает последующий вывод лазера",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "CheckLaser:     BIT OBJ_LASER_BIT, (IX + FSpaceObject.Flags)",
+          "LD A, (IY + FModel.LaserVertex)",
+          "ClearLaser:     RES OBJ_LASER_BIT, (IX + FSpaceObject.Flags)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "old_comment": "Game.Wireframe.DrawWireframeObject.DrawLaser общий вход луча, вершина задана IY+14, конечная точка берётся из Game.Universe.PrepareRandomLaserEndpoint.Entry.",
+      "new_comment": "Game.Wireframe.DrawWireframeObject.DrawLaser является общим входом луча, начальная вершина задана FModel.LaserVertex, конечную точку выбирает Game.Universe.PrepareRandomLaserEndpoint.Entry",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "CheckLaser:     BIT OBJ_LASER_BIT, (IX + FSpaceObject.Flags)",
+          "LD A, (IY + FModel.LaserVertex)",
+          "ClearLaser:     RES OBJ_LASER_BIT, (IX + FSpaceObject.Flags)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/FinishObjectAndDrawLaser.asm",
+      "old_comment": "BIT 3,(IX+20) задаёт условие луча, Game.Extensions.StorePairedObjectDirections.Entry сохраняет флаги.",
+      "new_comment": "OBJ_LASER_BIT в FSpaceObject.Flags задаёт условие луча, Game.Extensions.StorePairedObjectDirections.Entry сохраняет флаги",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT OBJ_LASER_BIT, (IX + FSpaceObject.Flags)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/LocateFaceNormalData.asm",
+      "old_comment": "DE, E содержит число граней из IY+5, D равен нулю",
+      "new_comment": "DE, E содержит число нормалей FModel.NormalCount модели по IY, D равен нулю",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD E, (IX + FModel.Normals)",
+          "ADD IX, DE",
+          "LD E, (IY + FModel.NormalCount)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/LocateFaceNormalData.asm",
+      "old_comment": "Смещение нормалей берётся из IX+16 и входного D.",
+      "new_comment": "младший байт относительного адреса читается из FModel.Normals модели по IX, старший передан в D",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD E, (IX + FModel.Normals)",
+          "ADD IX, DE",
+          "LD E, (IY + FModel.NormalCount)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/LocateVertexCoordinateData.asm",
+      "old_comment": "DE, D содержит старший байт смещения IY+13",
+      "new_comment": "DE, D содержит старший байт относительного адреса FModel.Vertices модели по IY",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD E, (IY + FModel.Vertices)",
+          "ADD IX, DE"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/LocateVertexCoordinateData.asm",
+      "old_comment": "Сначала IX увеличивается на двухбайтовое смещение IY+12/+13.",
+      "new_comment": "IX увеличивается на относительный адрес FModel.Vertices модели по IY, младший байт читается здесь, старший уже передан в D",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD E, (IY + FModel.Vertices)",
+          "ADD IX, DE"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyScaledVertexComponent.asm",
+      "old_comment": "Модуль элемента матрицы берётся из IY+1, знак обрабатывает вызывающая процедура.",
+      "new_comment": "модуль элемента матрицы извлекается из FSignWord.SignHigh слова по IY, знак учитывает вызывающая процедура",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD C, (IY + FSignWord.SignHigh)",
+          "RES 7, C"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadObjectTacticsGates.asm",
+      "old_comment": "AF, A содержит младшую тетраду метаданных+8, перенос при её нуле, Z при IX+21.1=0",
+      "new_comment": "AF, A содержит младшую тетраду FEffectRecord10.Links, CY установлен при её нуле, Z установлен при сброшенном OBJ_ANGER_BIT в FSpaceObject.Hostility",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT OBJ_ANGER_BIT, (IX + FSpaceObject.Hostility)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadObjectTacticsGates.asm",
+      "old_comment": "HL, метаданные+8",
+      "new_comment": "HL, адрес FEffectRecord10.Links текущей расширенной записи",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT OBJ_ANGER_BIT, (IX + FSpaceObject.Hostility)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "old_comment": "IX+1C/+1D, экранный центр",
+      "new_comment": "FSpaceObject.Acceleration и FSpaceObject.Roll, экранные координаты центра X и Y",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX + FSpaceObject.Acceleration), A",
+          "LD (IX + FSpaceObject.Roll), A",
+          "LD (IX + FSpaceObject.Payload), A",
+          "BIT 0, A",
+          "LD (IX + FSpaceObject.Pitch), A",
+          "SET OBJ_EXPLODE_BIT, (IX + FSpaceObject.Flags)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "old_comment": "IX+1E, упакованные знаки и начальное состояние",
+      "new_comment": "FSpaceObject.Pitch, упакованные знаки и начальное состояние взрыва",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX + FSpaceObject.Acceleration), A",
+          "LD (IX + FSpaceObject.Roll), A",
+          "LD (IX + FSpaceObject.Payload), A",
+          "BIT 0, A",
+          "LD (IX + FSpaceObject.Pitch), A",
+          "SET OBJ_EXPLODE_BIT, (IX + FSpaceObject.Flags)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "old_comment": "IX+1F, радиус",
+      "new_comment": "FSpaceObject.Payload, радиус взрыва",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX + FSpaceObject.Acceleration), A",
+          "LD (IX + FSpaceObject.Roll), A",
+          "LD (IX + FSpaceObject.Payload), A",
+          "BIT 0, A",
+          "LD (IX + FSpaceObject.Pitch), A",
+          "SET OBJ_EXPLODE_BIT, (IX + FSpaceObject.Flags)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "old_comment": "IX+20.5, флаг взрыва",
+      "new_comment": "OBJ_EXPLODE_BIT в FSpaceObject.Flags, объект изображается взрывом",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD (IX + FSpaceObject.Acceleration), A",
+          "LD (IX + FSpaceObject.Roll), A",
+          "LD (IX + FSpaceObject.Payload), A",
+          "BIT 0, A",
+          "LD (IX + FSpaceObject.Pitch), A",
+          "SET OBJ_EXPLODE_BIT, (IX + FSpaceObject.Flags)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "old_comment": "Боевой цикл Game.Combat.UpdateAllSpaceObjects.CheckMassKill проверяет CombatState.DestroyAll, допустимые объекты получают запрос уничтожения IX+20.4",
+      "new_comment": "Боевой цикл Game.Combat.UpdateAllSpaceObjects.CheckMassKill проверяет CombatState.DestroyAll, у допустимых объектов устанавливается OBJ_DESTROY_BIT в FSpaceObject.Flags",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT DEV_BOMB_BIT, A",
+          "SET SND_BOMB_BIT, (HL)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "old_comment": "При бит 0 IX+26 используется собственный IX+25 без поиска",
+      "new_comment": "При OBJ_MISSILE_BIT в FSpaceObject.Flags2 используется собственная цель FSpaceObject.Target без поиска",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD B, (IX+FSpaceObject.Target)",
+          "BIT OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)",
+          "LD A, (IX+FSpaceObject.Flags)",
+          "BIT FX_SEARCH_TICK, (HL)",
+          "BIT FX_SEARCH_TICK, (HL)",
+          "CheckSearch:    BIT FX_SEARCH_BIT, E",
+          "BIT FX_GROUP_BIT, E",
+          "BIT FX_ALLOW_BIT, E",
+          "BIT FX_NOSTAT_BIT, (HL)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "old_comment": "выход, если байт активности IX+20 нулевой",
+      "new_comment": "выход, если FSpaceObject.Flags объекта IX равен нулю",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD B, (IX+FSpaceObject.Target)",
+          "BIT OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)",
+          "LD A, (IX+FSpaceObject.Flags)",
+          "BIT FX_SEARCH_TICK, (HL)",
+          "BIT FX_SEARCH_TICK, (HL)",
+          "CheckSearch:    BIT FX_SEARCH_BIT, E",
+          "BIT FX_GROUP_BIT, E",
+          "BIT FX_ALLOW_BIT, E",
+          "BIT FX_NOSTAT_BIT, (HL)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "old_comment": "Сравниваются IX+2 и исходный IY+5 без знакового бита",
+      "new_comment": "После перехода IY к следующей FCoordinate сравниваются FCoordinate.SignHigh координат IX и IY без знакового бита",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "ADD IY, DE",
+          "LD A, (IY+FCoordinate.SignHigh)",
+          "LD A, (IX+FCoordinate.SignHigh)",
+          "LD A, (IX+FCoordinate.Low)",
+          "CP (IY+FCoordinate.Low)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "old_comment": "При равных старших байтах сравниваются IX+1 и исходный IY+4",
+      "new_comment": "При равных старших модулях сравниваются FCoordinate.Low координат IX и сдвинутого IY",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "ADD IY, DE",
+          "LD A, (IY+FCoordinate.SignHigh)",
+          "LD A, (IX+FCoordinate.SignHigh)",
+          "LD A, (IX+FCoordinate.Low)",
+          "CP (IY+FCoordinate.Low)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "old_comment": "In: IX — первый объект, IY — второй объект до смещения +3",
+      "new_comment": "In: IX — сравниваемая FCoordinate, IY — координата перед следующей сравниваемой FCoordinate",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "ADD IY, DE",
+          "LD A, (IY+FCoordinate.SignHigh)",
+          "LD A, (IX+FCoordinate.SignHigh)",
+          "LD A, (IX+FCoordinate.Low)",
+          "CP (IY+FCoordinate.Low)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+      "old_comment": "сравнение модулей координат двух объектов",
+      "new_comment": "сравнение модулей двух координат",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "ADD IY, DE",
+          "LD A, (IY+FCoordinate.SignHigh)",
+          "LD A, (IX+FCoordinate.SignHigh)",
+          "LD A, (IX+FCoordinate.Low)",
+          "CP (IY+FCoordinate.Low)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "old_comment": "Указатель модели записывается в IX+23/24, порт #FDFE и маска #04 проверяют именно D",
+      "new_comment": "Указатель модели записывается в FSpaceObject.Blueprint объекта IX, порт #FDFE и маска #04 проверяют именно D",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "RES MS_CARGO_BIT, (HL)",
+          "SetBlueprint:   LD (IX+FSpaceObject.Blueprint), L",
+          "LD (IX+FSpaceObject.Blueprint+1), H"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "old_comment": "IY+0E/0F задаёт смещение блока рёбер, IY+04 — количество обрабатываемых записей",
+      "new_comment": "FModel.Edges задаёт относительный адрес блока рёбер, FModel.EdgeCount — количество обрабатываемых записей",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD A, (IX+FSpaceObject.Flags2)",
+          "ReadEdgeBlock:  LD E, (IY+FModel.Edges)",
+          "LD D, (IY+FModel.Edges+1)",
+          "LD B, (IY+FModel.EdgeCount)",
+          "ADD IX, DE",
+          "LD L, (IX+ThresholdPtr)",
+          "LD H, (IX+ThresholdPtr+1)",
+          "LD E, (IX+VertexPtr)",
+          "LD D, (IX+VertexPtr+1)",
+          "BIT EDGE_DIRECT_BIT, A",
+          "TestFace:       LD A, (IX+FaceStream)",
+          "LD A, (IX+FaceStream+1)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "old_comment": "До цикла IX+0..3 читаются как два указателя, в цикле IX продвигается по потоку граней",
+      "new_comment": "До цикла ThresholdPtr и VertexPtr блока IX задают адреса потоков порогов и пар вершин, затем IX продвигается по потоку граней",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD A, (IX+FSpaceObject.Flags2)",
+          "ReadEdgeBlock:  LD E, (IY+FModel.Edges)",
+          "LD D, (IY+FModel.Edges+1)",
+          "LD B, (IY+FModel.EdgeCount)",
+          "ADD IX, DE",
+          "LD L, (IX+ThresholdPtr)",
+          "LD H, (IX+ThresholdPtr+1)",
+          "LD E, (IX+VertexPtr)",
+          "LD D, (IX+VertexPtr+1)",
+          "BIT EDGE_DIRECT_BIT, A",
+          "TestFace:       LD A, (IX+FaceStream)",
+          "LD A, (IX+FaceStream+1)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "old_comment": "IX+4 задаёт текущие грани, IX+5 проверяет следующий байт, FF удерживает указатель",
+      "new_comment": "IX + FaceStream указывает на текущую пару граней, следующий байт #FF удерживает указатель на этой паре",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD A, (IX+FSpaceObject.Flags2)",
+          "ReadEdgeBlock:  LD E, (IY+FModel.Edges)",
+          "LD D, (IY+FModel.Edges+1)",
+          "LD B, (IY+FModel.EdgeCount)",
+          "ADD IX, DE",
+          "LD L, (IX+ThresholdPtr)",
+          "LD H, (IX+ThresholdPtr+1)",
+          "LD E, (IX+VertexPtr)",
+          "LD D, (IX+VertexPtr+1)",
+          "BIT EDGE_DIRECT_BIT, A",
+          "TestFace:       LD A, (IX+FaceStream)",
+          "LD A, (IX+FaceStream+1)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+      "old_comment": "Требуются бит 0 IX+26, ненулевая энергия IX+22 и совпадение IX+25",
+      "new_comment": "Требуются OBJ_MISSILE_BIT в FSpaceObject.Flags2, ненулевая FSpaceObject.Energy и совпадение FSpaceObject.Target с ObjectIndex",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD IX, Memory.Missile",
+          "CheckSlot:      BIT OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)",
+          "LD D, (IX+FSpaceObject.Energy)",
+          "CP (IX+FSpaceObject.Target)",
+          "ADD IX, DE"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm",
+      "old_comment": "При прежнем нуле Game.Universe.InitializeExtendedObjectMetadata.Entry вызывается сразу, иначе нужны бит 6 (HL) и бит 1 IX+26",
+      "new_comment": "При прежнем нуле Game.Universe.InitializeExtendedObjectMetadata.Entry вызывается сразу, иначе нужны FX_GROUP_BIT в (HL) и OBJ_SCOOP_BIT в FSpaceObject.Flags2 объекта IX",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "SET FX_ACTIVE_BIT, (HL)",
+          "BIT FX_GROUP_BIT, (HL)",
+          "BIT OBJ_SCOOP_BIT, (IX+FSpaceObject.Flags2)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+      "old_comment": "переход, если знаки FlightState.Planet + 2 * FCoordinate + FCoordinate.SignHigh и IX+08 различаются, продолжить с Game.Data.SystemBoundaryAndObjects.ClampZ",
+      "new_comment": "переход, если знаки Z планеты в FlightState.Planet + FSpacePosition.Z.SignHigh и текущего тела в IX + FSpacePosition.Z.SignHigh различаются, продолжить с Game.Data.SystemBoundaryAndObjects.ClampZ",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "XOR (IX+FCoordinate+FCoordinate+FCoordinate.SignHigh)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "old_comment": "Если IY+26=#0C, энергия IX+22 обнуляется, иначе требуется бит 1 IY+26 и обнуляется IY+22",
+      "new_comment": "При FSpaceObject.Flags2 второго участника IY = OBJ_STATION_FL обнуляется FSpaceObject.Energy первого IX, иначе нужен OBJ_SCOOP_BIT второго и обнуляется его энергия",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          BIT OBJ_MISSILE_BIT, (IX+FSpaceObject.Flags2)",
+          "LD A, (IY+FSpaceObject.Flags2)",
+          "LD (IY+FSpaceObject.Energy), A",
+          "LD (IX+FSpaceObject.Energy), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "old_comment": "Out: при разрешении выставлен бит 3 IX+20 и обновлён байт в LaserThreshold",
+      "new_comment": "Out: при разрешении установлен OBJ_LASER_BIT в FSpaceObject.Flags объекта IX и обновлён байт LaserThreshold",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD IY, (ObjectEffects.Current)",
+          "LD A, (IY+FEffectRecord10.TypeFlags)",
+          "BIT FX_ALLOW_BIT, A",
+          "CheckLinks:     LD A, (IY+FEffectRecord10.Fallback)",
+          "OR (IY+FEffectRecord10.Links)",
+          "BIT FX_LASER_TICK, (IY+FEffectRecord10.Timer)",
+          "SET LASER_PASS_BIT, (HL)",
+          "SET LASER_BASE_BIT, (HL)",
+          "SET OBJ_LASER_BIT, (IX+FSpaceObject.Flags)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "old_comment": "установка признака отрисовки лазерного луча в IX+20.3",
+      "new_comment": "установка OBJ_LASER_BIT в FSpaceObject.Flags для отрисовки лазерного луча",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD IY, (ObjectEffects.Current)",
+          "LD A, (IY+FEffectRecord10.TypeFlags)",
+          "BIT FX_ALLOW_BIT, A",
+          "CheckLinks:     LD A, (IY+FEffectRecord10.Fallback)",
+          "OR (IY+FEffectRecord10.Links)",
+          "BIT FX_LASER_TICK, (IY+FEffectRecord10.Timer)",
+          "SET LASER_PASS_BIT, (HL)",
+          "SET LASER_BASE_BIT, (HL)",
+          "SET OBJ_LASER_BIT, (IX+FSpaceObject.Flags)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "old_comment": "Out: бит 2 IX+21 установлен, кроме защищённой ветки",
+      "new_comment": "Out: OBJ_HOSTILE_BIT в FSpaceObject.Hostility установлен, кроме защищённой ветки",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT OBJ_NOTSHIP_BIT, (IX+FSpaceObject.Flags2)",
+          "EnableAttack:   SET OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "old_comment": "В остальных режимах бит 3 IX+26 запрещает изменение, все прочие флаги сохраняются",
+      "new_comment": "В остальных режимах OBJ_NOTSHIP_BIT в FSpaceObject.Flags2 запрещает изменение, все прочие флаги сохраняются",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "BIT OBJ_NOTSHIP_BIT, (IX+FSpaceObject.Flags2)",
+          "EnableAttack:   SET OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "old_comment": "Game.Universe.SetStationEnergy.Entry перед копированием задаёт энергию станции #F0, бит враждебности IX+21.2 снимается перед копией",
+      "new_comment": "Game.Universe.SetStationEnergy.Entry перед копированием задаёт энергию станции #F0, OBJ_HOSTILE_BIT в FSpaceObject.Hostility станции снимается перед копией",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD A, (IX+FSpaceObject+FSpaceObject.Energy)",
+          "RES OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)",
+          "LD (IX+FSpaceObject+FSpaceObject.Energy), #7E"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Circles/DetachMissileTarget.asm",
+      "old_comment": "Out: нечётный младший адрес модели ставит запрос уничтожения IY+20.4",
+      "new_comment": "Out: при нечётном младшем байте FSpaceObject.Blueprint устанавливается OBJ_DESTROY_BIT в FSpaceObject.Flags объекта IY",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          BIT 0, (IY + FSpaceObject.Blueprint)",
+          "SET OBJ_DESTROY_BIT, (IY + FSpaceObject.Flags)",
+          "DetachTarget:   LD (IY + FSpaceObject.Flags2), OBJ_LOST_FL",
+          "LD (IY + FSpaceObject.Target), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Circles/DetachMissileTarget.asm",
+      "old_comment": "Для чётного адреса модели IY+26 получает 3, IY+25 получает A",
+      "new_comment": "Для чётного адреса модели FSpaceObject.Flags2 получает OBJ_LOST_FL, FSpaceObject.Target получает A",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          BIT 0, (IY + FSpaceObject.Blueprint)",
+          "SET OBJ_DESTROY_BIT, (IY + FSpaceObject.Flags)",
+          "DetachTarget:   LD (IY + FSpaceObject.Flags2), OBJ_LOST_FL",
+          "LD (IY + FSpaceObject.Target), A"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+      "old_comment": "Обрабатываются объекты с обоими битами #30 в IX+20, параметры круга берутся из +1C..1F",
+      "new_comment": "Обрабатываются объекты со всеми битами OBJ_DEATH_MASK в FSpaceObject.Flags, центр, знаки и радиус берутся из ExplodeX, ExplodeY, SignPhase и Radius",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "LD IX, Memory.Station",
+          "LD A, (IX + FSpaceObject.Flags)",
+          "LD H, (IX + ExplodeX)",
+          "LD L, (IX + ExplodeY)",
+          "LD L, (IX + SignPhase)",
+          "LD H, (IX + Radius)",
+          "RES OBJ_DESTROY_BIT, (IX + FSpaceObject.Flags)",
+          "ADD IX, DE"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "old_comment": "Внутренний радиус #0200 и больший порог для IX+26.5 создают гистерезис сближения/удаления.",
+      "new_comment": "пороги X/Y #0200 и #0A00 при установленном OBJ_RETREAT_BIT в FSpaceObject.Flags2 образуют гистерезис выбора курса, порог Z дополнительно увеличивается на #0200",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD H, (IX + FSpaceObject.X.Low)",
+          "LD L, (IX + FSpaceObject.X.Fraction)",
+          "LD H, (IX + FSpaceObject.Y.Low)",
+          "LD L, (IX + FSpaceObject.Y.Fraction)",
+          "LD H, (IX + FSpaceObject.Z.Low)",
+          "LD L, (IX + FSpaceObject.Z.Fraction)",
+          "SET OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "BIT OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)",
+          "CheckHostility: BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "BIT OBJ_FLEE_BIT, (IX + FSpaceObject.Hostility)",
+          "CheckBehavior:  LD A, (IX + FSpaceObject.Target)",
+          "SET TARGET_ACCL_BIT, (IX + FSpaceObject.Target)",
+          "SET OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)",
+          "RES OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "old_comment": "Game.Motion.CheckObjectBoxAndChooseCourse.FlyAway записывает прямой вектор от игрока к объекту и ставит IX+26.5.",
+      "new_comment": "Game.Motion.CheckObjectBoxAndChooseCourse.FlyAway записывает вектор от игрока к объекту и устанавливает OBJ_RETREAT_BIT в FSpaceObject.Flags2",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD H, (IX + FSpaceObject.X.Low)",
+          "LD L, (IX + FSpaceObject.X.Fraction)",
+          "LD H, (IX + FSpaceObject.Y.Low)",
+          "LD L, (IX + FSpaceObject.Y.Fraction)",
+          "LD H, (IX + FSpaceObject.Z.Low)",
+          "LD L, (IX + FSpaceObject.Z.Fraction)",
+          "SET OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "BIT OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)",
+          "CheckHostility: BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "BIT OBJ_FLEE_BIT, (IX + FSpaceObject.Hostility)",
+          "CheckBehavior:  LD A, (IX + FSpaceObject.Target)",
+          "SET TARGET_ACCL_BIT, (IX + FSpaceObject.Target)",
+          "SET OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)",
+          "RES OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "old_comment": "Game.Motion.CheckObjectBoxAndChooseCourse.FlyToward записывает обратный вектор к игроку и сбрасывает IX+26.5, это также вход наведения ракеты на игрока.",
+      "new_comment": "Game.Motion.CheckObjectBoxAndChooseCourse.FlyToward записывает вектор к игроку и сбрасывает OBJ_RETREAT_BIT в FSpaceObject.Flags2, этот вход также наводит ракету на игрока",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD H, (IX + FSpaceObject.X.Low)",
+          "LD L, (IX + FSpaceObject.X.Fraction)",
+          "LD H, (IX + FSpaceObject.Y.Low)",
+          "LD L, (IX + FSpaceObject.Y.Fraction)",
+          "LD H, (IX + FSpaceObject.Z.Low)",
+          "LD L, (IX + FSpaceObject.Z.Fraction)",
+          "SET OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "BIT OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)",
+          "CheckHostility: BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "BIT OBJ_FLEE_BIT, (IX + FSpaceObject.Hostility)",
+          "CheckBehavior:  LD A, (IX + FSpaceObject.Target)",
+          "SET TARGET_ACCL_BIT, (IX + FSpaceObject.Target)",
+          "SET OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)",
+          "RES OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "old_comment": "переход, если у объекта сброшен IX+21.3 и выбирается курс к игроку",
+      "new_comment": "переход, если OBJ_FLEE_BIT в FSpaceObject.Hostility сброшен и выбирается курс к игроку",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD H, (IX + FSpaceObject.X.Low)",
+          "LD L, (IX + FSpaceObject.X.Fraction)",
+          "LD H, (IX + FSpaceObject.Y.Low)",
+          "LD L, (IX + FSpaceObject.Y.Fraction)",
+          "LD H, (IX + FSpaceObject.Z.Low)",
+          "LD L, (IX + FSpaceObject.Z.Fraction)",
+          "SET OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "BIT OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)",
+          "CheckHostility: BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "BIT OBJ_FLEE_BIT, (IX + FSpaceObject.Hostility)",
+          "CheckBehavior:  LD A, (IX + FSpaceObject.Target)",
+          "SET TARGET_ACCL_BIT, (IX + FSpaceObject.Target)",
+          "SET OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)",
+          "RES OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)"
+        ]
+      }
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "old_comment": "переход, если параметр поведения IX+25 не меньше 8 и выбирается курс к игроку",
+      "new_comment": "переход, если значение FSpaceObject.Target после TARGET_AI_MASK не меньше 8 и выбирается курс к игроку",
+      "evidence": {
+        "kind": "read_actual_instructions_and_declared_structure_fields",
+        "instructions": [
+          "Entry:          LD H, (IX + FSpaceObject.X.Low)",
+          "LD L, (IX + FSpaceObject.X.Fraction)",
+          "LD H, (IX + FSpaceObject.Y.Low)",
+          "LD L, (IX + FSpaceObject.Y.Fraction)",
+          "LD H, (IX + FSpaceObject.Z.Low)",
+          "LD L, (IX + FSpaceObject.Z.Fraction)",
+          "SET OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "BIT OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)",
+          "CheckHostility: BIT OBJ_HOSTILE_BIT, (IX + FSpaceObject.Hostility)",
+          "BIT OBJ_FLEE_BIT, (IX + FSpaceObject.Hostility)",
+          "CheckBehavior:  LD A, (IX + FSpaceObject.Target)",
+          "SET TARGET_ACCL_BIT, (IX + FSpaceObject.Target)",
+          "SET OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)",
+          "RES OBJ_RETREAT_BIT, (IX + FSpaceObject.Flags2)"
+        ]
+      }
+    }
+  ],
+  "unmatched": [],
+  "unknown_symbols": [],
+  "applied": true,
+  "application": {
+    "comments": 112,
+    "files": 64,
+    "verification": [
+      {
+        "file": "Source/Game/Combat/FirePlayerLaser.asm",
+        "instruction_and_data_sha256": "23cb8acbd8fe249739d434a0962b3c26c456ce5e0dd6b521cd1ffe26b307382d",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Combat/HandleObjectCollision.asm",
+        "instruction_and_data_sha256": "c251d5c4b961edf65ce22814225e7370438e418a35887609741bd89394ef6b8d",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Combat/SetObjectEnergyAndDrawMissedLaser.asm",
+        "instruction_and_data_sha256": "7360f4aad8a0d925bd3ef76fe3d05569926b1042aecca0cea6501a5abae12bf2",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+        "instruction_and_data_sha256": "e2a8946b75395bb288e4becb3464466d6f6737b02d1feedf87aa4f6898728150",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Flight/RebaseCoordinateAxis.asm",
+        "instruction_and_data_sha256": "aa33c03692c885156df66d4da70b090c7d1fe2882aebf12347ba8d50840e8764",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Menus/ReadVisibleObjectByte.asm",
+        "instruction_and_data_sha256": "ba6801ba6068a2dc5bc9463e9519ff98b658b2d18f9b40b6f4027a79e5e18232",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+        "instruction_and_data_sha256": "e51f5a8499467120e47ab2cadf79e41497eab3fdc2c698464603eef661c7bcd9",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Motion/AdvanceOneCoordinate.asm",
+        "instruction_and_data_sha256": "6080002ef7c567201fb7da1a7d24939968e92966afcdb075f043f88d4df5bd1f",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+        "instruction_and_data_sha256": "9de6e3fd84bc7ef1b85e592e57e970b874b3fbebc51e424bb634fc2ac4db813e",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Motion/ProcessObjectEnergyAndTactics.asm",
+        "instruction_and_data_sha256": "689be44de458717715774a30e3521ae6642b331b2031dab2e77b479e868fa9be",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+        "instruction_and_data_sha256": "ceb4fe3e2b3b17933521dcdf0d89c14025ae3f6b4f57597e15af96c7f03502a5",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Motion/RenormalizeAxisHighBytes.asm",
+        "instruction_and_data_sha256": "15d8b5d323526c8296ab6d5b8024a90bcff62dbb44d97794f897eb0d634ec57f",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Motion/RotateBasisByObject.asm",
+        "instruction_and_data_sha256": "5d18ec7e0a85f40549ebca942daa2def9c3910ed111c3d6c80785c8e3e2bdbe3",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Motion/ScaleAxisHighByte.asm",
+        "instruction_and_data_sha256": "5f2221838a1f6e3b5546560a4d0b29d6ba868776d411e385bc1124758b3f383e",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+        "instruction_and_data_sha256": "b5b9d57e6d9b680eeadb4f78566fc8691db7f4f71b040eda692a3c60deb9a9f8",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Motion/UpdateObjectCoordinatesAndRotation.asm",
+        "instruction_and_data_sha256": "b69675221ae3fc1b7bb61b57f14cb28d8e86bc4c2d9931c2329de02790409431",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Objects/FindFreeObjectSlot.asm",
+        "instruction_and_data_sha256": "f85fd5fd8c0f3de74ab80e7c6f4830d3b423474e22a686b7e75fcdca8b09655d",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+        "instruction_and_data_sha256": "cabd14288b6cd6908d1a0013c81ef15a4bd12854bd359d078e1ef6a3f826da81",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Objects/InitializeAtPlayer.asm",
+        "instruction_and_data_sha256": "995b04e09565c714b54d5110d0ea0355d55d540d61bbbfaef5ba614668f2333c",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Objects/InitializeObject.asm",
+        "instruction_and_data_sha256": "3371514cce933d6a73c55c3d55124c702af0d80732c92a8374bc12db60399fce",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Objects/RandomizeSpawnDirection.asm",
+        "instruction_and_data_sha256": "c8e28a788777d808d5d2fafca1155788b5185f0987443ec05cff3fdd6e4cb4f1",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+        "instruction_and_data_sha256": "035521d1a500d295618ed646bbdd4f32acc4cb9b65cb4eb891b73c0dcc3ec864",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Objects/SpawnMissile.asm",
+        "instruction_and_data_sha256": "dc9ddc55794854ac7ffa6589bcf28bd6e9bdd229c57a0d42c563c0fb85ac9909",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+        "instruction_and_data_sha256": "1c93f70ef559a3bc298eb9afa6a2f54b9c91c25687f0b425211610eaa4276fcf",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Objects/SpawnShipCargoOrPod.asm",
+        "instruction_and_data_sha256": "f7bdb27cb215f6a99fbdaf81c3bf25189040bb373e94b50bb20e412a4f846d33",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Objects/SpawnShipClass.asm",
+        "instruction_and_data_sha256": "4d9b93462bd5d435456367234027b40a42649e84e0cdab6aae4fb12110e446dd",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Objects/SpawnShipDebris.asm",
+        "instruction_and_data_sha256": "57d53b3de2d704823073b9570deafdf041ceed0967b8c59dd65a9fdd4d16f672",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Objects/SpawnThargonWave.asm",
+        "instruction_and_data_sha256": "ffcaa39975b77de631c842ae3b20fcd947f54e2a736ae78f0a7ac2d7b5411d62",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Screen/CheckDockingAlignment.asm",
+        "instruction_and_data_sha256": "87f6a4b5a294ff1b053eb497cc087862f95d6eb1701589d8818aec3eeecd25f2",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Screen/CompassFarAxis.asm",
+        "instruction_and_data_sha256": "cd6e03c288007ebdb94c87b24a541a90d742667f0abda1e873be6439db64281f",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Text/CheckObjectRandomGate.asm",
+        "instruction_and_data_sha256": "4f56c2e19dd1e5e0c09aa1105af62b00eaa62cd20579beb544e799cf085e2503",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Text/DrawViewFrame.asm",
+        "instruction_and_data_sha256": "7fc6e49488d2b3afad39e508153d394e918b51d54288b5c97ad70c47ee920a7d",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+        "instruction_and_data_sha256": "526bd8b8e38acde251fdcd5c67e03c46ee4d2a092d62ed87357d3cfee8d12000",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Universe/ApplyEcmToStandardMissile.asm",
+        "instruction_and_data_sha256": "78fdaef047855540ce831860995145a7eeefb16ed9a3b88b61df029d1b26c6e2",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+        "instruction_and_data_sha256": "97dbb5d4a0bc4ce674a49c797bf9acb6f24f1c89c8f26cc197d77657d7d9e49a",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Universe/FindInteractingObject.asm",
+        "instruction_and_data_sha256": "5e31f2a6aa0913fe824eb5dc0951bb94a45ec189e5aee6dea4b0eede46759680",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+        "instruction_and_data_sha256": "fdb2b84eac2bcb557e271ce3f25467222103b53ed212cc331a82bc519fe8e49b",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+        "instruction_and_data_sha256": "8a58393897b2afe57c48e21313a27695e9d9d73fcb05e2b016e16e6eca0cddd3",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Universe/SetStationEnergy.asm",
+        "instruction_and_data_sha256": "b5a6cf81104e646f750152163cd7fc4aa93559d6a19ea2a06f71ebfbfe24a4f3",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+        "instruction_and_data_sha256": "2c37484e27358cc83b5a7dc160cc2099536d655a8039baff40c59d2cd22cb9c8",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+        "instruction_and_data_sha256": "db2d8b813994c308ab56cf609ff689ca990a7db14703054722fd252b2be0e702",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Universe/UpdateStationCoordinates.asm",
+        "instruction_and_data_sha256": "ddb70f9dc0ecc225d460ff262df8b00e848bd3329cbcb2dbbe8f5462b417cf98",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+        "instruction_and_data_sha256": "59ef5190becbb5c94027da0829e6cc66aa75714d71639c151a65d7a1d4e3b6a5",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Wireframe/FinishObjectAndDrawLaser.asm",
+        "instruction_and_data_sha256": "6b972c2a05981d3c420eb1e03ecae666acd46a65fb8d4c407ca2e924a82478d8",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Wireframe/LocateFaceNormalData.asm",
+        "instruction_and_data_sha256": "dd393f3f5cfa8578ce6376c0bc01ac6fafd58e34c0080984e0c657e6ce377687",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Wireframe/LocateVertexCoordinateData.asm",
+        "instruction_and_data_sha256": "21381ba781b459e51758d5579622753784b7910c762aa5f6721c5ff87fc40ccb",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Wireframe/MultiplyScaledVertexComponent.asm",
+        "instruction_and_data_sha256": "99c6d0e99982f7d61adff3d5c4d0153d2e551d7858863c0b65da5860a84e3840",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Wireframe/ReadObjectTacticsGates.asm",
+        "instruction_and_data_sha256": "7d533996c8eb77f197f68181573f5ba9c70de3fa902121d13bf8c7da770b4753",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+        "instruction_and_data_sha256": "bfd12826bf461f98314c05766a51f9afd30a2dc7fd0d3686f317c4bb931741c7",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+        "instruction_and_data_sha256": "3ccaa0de491fab0a8aa4b49aba3ef42740f1f708cc94417ef1b286416272b962",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+        "instruction_and_data_sha256": "55afbc49dbfbc6ec530c874fb7bb621b24fd48e97f89595065b86193b76b1deb",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Extensions/CompareObjectCoordinateDepth.asm",
+        "instruction_and_data_sha256": "e32eac1322f04eb36b8ddbf8913cc058afaddd74c5cfeac657611f27da827574",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+        "instruction_and_data_sha256": "f1409dea724645e3b9352f61b2ec8500d50dc3be7bbd5c1a65a85fe406ba54a7",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+        "instruction_and_data_sha256": "878c6f04905a65ecafee63da03611171a4ffb4b1b9a4794f5c9f9d4f9836f045",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+        "instruction_and_data_sha256": "0e8627e908456d84f425d283e6729566aa5a1737c73b7e9d851debb545f73f9b",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm",
+        "instruction_and_data_sha256": "4292d4ef4c3125ed784e4d354c3af1b823793006790b464ee38d5dfdbb9dc036",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Extensions/OfferUpgradeAndCorrectPosition.asm",
+        "instruction_and_data_sha256": "2283236cbfd83591bc0b0cfb10e1c5ab8954ff6160e731541eff47aa3d259631",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+        "instruction_and_data_sha256": "390ded106ce751221b0cd1f6130f6dae732ed01451f279c9d05f80ba46692b05",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+        "instruction_and_data_sha256": "21973eaf1fa6039fa4a3c46dbe27e23f1db914c56fcba43633704bfb17b54a83",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+        "instruction_and_data_sha256": "f2e80d53538b76b00b360b5db80522c4377dce4ececbbf472c8dae475a151ba3",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+        "instruction_and_data_sha256": "93da1d5c0ee7fa0f505c8096df94bd0de2ee6b09b4a91f29883af26d07a7c855",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Circles/DetachMissileTarget.asm",
+        "instruction_and_data_sha256": "54b1df1f022ac9d88331c1dbc622289e218f4ccde40da21488a645dca5ae636c",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Circles/DrawPendingObjectExplosions.asm",
+        "instruction_and_data_sha256": "92d1d8a25309bbf4028a8d0d496eaf9a85e7bef2fc892adde8bb9a3d0908575e",
+        "instruction_and_data_lines_unchanged": true
+      },
+      {
+        "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+        "instruction_and_data_sha256": "4cced5d37e094441e9352133db7243894ab4323fc1a9150d9942db18f49c3179",
+        "instruction_and_data_lines_unchanged": true
+      }
+    ]
+  }
+}

@@ -4,14 +4,14 @@
 ; Проверка пункта и списание цены оборудования
 ; исходный диапазон #E9E6..#EA3A
 ; In:
-;   E8AB = введённый номер, EB5E = текущий предел
+;   TradeSnapshot.Selection = введённый номер, EquipmentWork = текущий предел
 ; Out:
 ;   Цена списана либо восстановлена, выбранный предмет выдан
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Обработчик EB2D снимает CY, номер 0 или вне предела возвращает экран пилота, списание обеих
-;   групп денег защищено снимком, пункт 1 заполняет бак до 70 и сбрасывает цену топлива 7060
+;   Обработчик Game.Trade.EquipmentPaymentFailed.AcceptInput снимает CY, номер 0 или вне предела возвращает экран пилота, списание обеих
+;   групп денег защищено снимком, пункт 1 заполняет бак до 70 и сбрасывает цену топлива EquipmentTable.FuelPrice
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E9E6
@@ -61,6 +61,7 @@ CheckPayment:   JP C, Game.Trade.EquipmentPaymentFailed.Entry                   
                 LD A, #46
                 CALL Game.Travel.SetFuelAndGauge.Entry
                 JP Game.Trade.OpenEquipmentShop.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #EA3B
                 endmodule

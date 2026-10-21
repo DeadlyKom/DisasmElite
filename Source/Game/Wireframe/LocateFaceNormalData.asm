@@ -8,14 +8,14 @@
 ;   IX, начало модели
 ;   IY, начало модели
 ; Out:
-;   DE, E содержит число граней из IY+5, D равен нулю
+;   DE, E содержит число нормалей FModel.NormalCount модели по IY, D равен нулю
 ;   IX, адрес потока признаков
-;   память 6FEB, адрес потока признаков
+;   память Game.Extensions.DrawCompressedEdges.FlagsStream, адрес потока признаков
 ; Corrupt:
 ;   нет дополнительных регистров
 ; Note:
-; Смещение нормалей берётся из IX+16 и входного D.
-; Общий хвост AE16 используется также подготовкой вершин AE01.
+; младший байт относительного адреса читается из FModel.Normals модели по IX, старший передан в D
+; Общий хвост Game.Wireframe.LocateFaceNormalData.StoreStream используется также подготовкой вершин Game.Wireframe.LocateVertexCoordinateData.Entry.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #AE0E
@@ -27,6 +27,7 @@ Entry:          LD E, (IX + FModel.Normals)
 StoreStream:    LD (Game.Extensions.DrawCompressedEdges.FlagsStream), IX
                 LD D, #00
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #AE1D
                 endmodule

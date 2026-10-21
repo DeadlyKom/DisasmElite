@@ -167,7 +167,7 @@
       "literal_bytes": 405,
       "initial_status": "data",
       "semantic_name": "SystemBoundaryAndObjects",
-      "description": "продолжение смены системы, восемь объектов и индекс 23 моделей",
+      "description": "продолжение выхода за дальнюю границу координаты Z, начало по Game.Extensions.OfferUpgradeAndCorrectPosition.CorrectCentre",
       "code_bytes": 72,
       "resource_bytes": 0
     },
@@ -986,7 +986,7 @@
       "literal_bytes": 0,
       "initial_status": "provisional",
       "semantic_name": "AwardUnlinkedDestructionBounty",
-      "description": "денежная награда за уничтожение без связанного участника",
+      "description": "денежная награда за уничтожение без связанного участника, Game.Universe.AwardUnlinkedDestructionBounty.Entry",
       "code_bytes": 17,
       "resource_bytes": 0
     },
@@ -999,7 +999,7 @@
       "literal_bytes": 0,
       "initial_status": "provisional",
       "semantic_name": "AwardOrStoreLinkedDestruction",
-      "description": "приращение рейтинга либо сохранение номера участника уничтожения",
+      "description": "приращение рейтинга либо сохранение номера участника уничтожения, Game.Universe.AwardOrStoreLinkedDestruction.Entry",
       "code_bytes": 16,
       "resource_bytes": 0
     },
@@ -1077,7 +1077,7 @@
       "literal_bytes": 0,
       "initial_status": "provisional",
       "semantic_name": "CheckSpecialSystemOrRandom",
-      "description": "особая инициализация станционного слота при Z от #FCEA, иначе получение случайного байта",
+      "description": "особая инициализация станционного слота либо получение случайного байта",
       "code_bytes": 29,
       "resource_bytes": 0
     },
@@ -2013,7 +2013,7 @@
       "literal_bytes": 19,
       "initial_status": "provisional",
       "semantic_name": "ProcessThargoidCounterAndBodyCoordinates",
-      "description": "счётчик поражений Thargoid и координаты двух далёких тел",
+      "description": "счётчик обработки удаляемого Thargoid и координаты двух далёких тел",
       "code_bytes": 23,
       "resource_bytes": 0
     },
@@ -2403,7 +2403,7 @@
       "literal_bytes": 0,
       "initial_status": "provisional",
       "semantic_name": "RaiseLaserThreshold",
-      "description": "Повышение вероятностного порога лазера при маскировке",
+      "description": "Установка старшего разряда вероятностного порога лазера",
       "code_bytes": 8,
       "resource_bytes": 0
     },
@@ -2741,7 +2741,7 @@
       "literal_bytes": 0,
       "initial_status": "matched_entry",
       "semantic_name": "SetYellowFlightStatus",
-      "description": "Выбор жёлтого индикатора при наличии обычного живого объекта",
+      "description": "выбор жёлтого индикатора при наличии обычного живого объекта",
       "code_bytes": 20,
       "resource_bytes": 0
     },
@@ -3989,7 +3989,7 @@
       "literal_bytes": 84,
       "initial_status": "data",
       "semantic_name": "LegacyClipTables",
-      "description": "сохранившиеся таблицы предыдущего алгоритма отсечения",
+      "description": "сохранившиеся таблицы предыдущего алгоритма отсечения линий",
       "code_bytes": 0,
       "resource_bytes": 0
     },
@@ -4002,7 +4002,7 @@
       "literal_bytes": 1,
       "initial_status": "provisional",
       "semantic_name": "DrawClippedLine",
-      "description": "арифметическое отсечение и два самомодифицируемых цикла линий OR/XOR",
+      "description": "выбор единственного байта маски, IX указывает в таблицу 8×8 масок в конце Game.Wireframe.RefreshScannerBackground",
       "code_bytes": 577,
       "resource_bytes": 0
     },
@@ -4288,7 +4288,7 @@
       "literal_bytes": 0,
       "initial_status": "provisional",
       "semantic_name": "DispatchObjectAction",
-      "description": "передача упакованной команды объекта обработчику #DA51",
+      "description": "передача упакованной команды объекта обработчику Game.Disk.DrawScreenStripsAndPrivateStack.DrawStrips",
       "code_bytes": 3,
       "resource_bytes": 0
     },
@@ -4639,7 +4639,7 @@
       "literal_bytes": 512,
       "initial_status": "data",
       "semantic_name": "SquareTables",
-      "description": "младшие и старшие байты квадратов аргументов 0..255",
+      "description": "точные квадраты всех восьмибитных беззнаковых чисел",
       "code_bytes": 0,
       "resource_bytes": 0
     },
@@ -4678,7 +4678,7 @@
       "literal_bytes": 0,
       "initial_status": "data",
       "semantic_name": "MenuDispatchTable",
-      "description": "семь исполняемых JP основных экранов",
+      "description": "первые семь элементов исполняемой таблицы экранов и действий",
       "code_bytes": 21,
       "resource_bytes": 0
     },
@@ -4795,7 +4795,7 @@
       "literal_bytes": 1,
       "initial_status": "provisional",
       "semantic_name": "DispatchMissionEvents",
-      "description": "векторы очереди сообщений, предложения миссии, потери топлива, подбора и денежной награды",
+      "description": "совместимый вход очистки очереди полётных сообщений, Game.Missions.DispatchMissionEvents.Entry",
       "code_bytes": 15,
       "resource_bytes": 0
     },
@@ -4808,7 +4808,7 @@
       "literal_bytes": 3,
       "initial_status": "provisional",
       "semantic_name": "DispatchRatingAndMissionEnd",
-      "description": "векторы начисления рейтинга и завершения третьей миссии",
+      "description": "совместимый вход прибавления к 24-битовому рейтингу, Game.Missions.DispatchRatingAndMissionEnd.Entry",
       "code_bytes": 6,
       "resource_bytes": 0
     },
@@ -4821,7 +4821,7 @@
       "literal_bytes": 0,
       "initial_status": "provisional",
       "semantic_name": "DispatchEquipmentDamage",
-      "description": "совместимый вход повреждения топлива, устройства либо единицы груза",
+      "description": "совместимый вход повреждения топлива, устройства либо единицы груза, Game.Missions.DispatchEquipmentDamage.Entry",
       "code_bytes": 3,
       "resource_bytes": 0
     },
@@ -4834,7 +4834,7 @@
       "literal_bytes": 0,
       "initial_status": "provisional",
       "semantic_name": "ShowBoardingMessage",
-      "description": "сообщение о захвате корабля с общим хвостом ожидания",
+      "description": "сообщение о захвате корабля с общим хвостом ожидания, Game.Missions.ShowBoardingMessage.Entry",
       "code_bytes": 45,
       "resource_bytes": 0
     },
@@ -4847,7 +4847,7 @@
       "literal_bytes": 0,
       "initial_status": "provisional",
       "semantic_name": "OfferThirdMission",
-      "description": "предложение третьей миссии и обработка ответа",
+      "description": "предложение третьей миссии и обработка ответа, Game.Missions.OfferThirdMission.Entry",
       "code_bytes": 42,
       "resource_bytes": 0
     },
@@ -4860,7 +4860,7 @@
       "literal_bytes": 0,
       "initial_status": "provisional",
       "semantic_name": "CompleteThirdMission",
-      "description": "выдача награды за третью миссию",
+      "description": "выдача награды за третью миссию, Game.Missions.CompleteThirdMission.Entry",
       "code_bytes": 21,
       "resource_bytes": 0
     },
@@ -4873,7 +4873,7 @@
       "literal_bytes": 0,
       "initial_status": "matched_entry",
       "semantic_name": "SpecialMessageAndScoopReward",
-      "description": "окно специального сообщения, подбор груза и правовой статус",
+      "description": "оформление окна специального сообщения, Game.Missions.SpecialMessageAndScoopReward.Entry",
       "code_bytes": 101,
       "resource_bytes": 0
     },
@@ -4886,7 +4886,7 @@
       "literal_bytes": 104,
       "initial_status": "provisional",
       "semantic_name": "RatingBountyDamageAndNewCommander",
-      "description": "рейтинг, денежные награды, повреждения и восстановление командира",
+      "description": "прибавление к рейтингу и обработка переноса, Game.Missions.RatingBountyDamageAndNewCommander.Entry",
       "code_bytes": 175,
       "resource_bytes": 0
     },
@@ -5952,7 +5952,7 @@
       "literal_bytes": 6,
       "initial_status": "data",
       "semantic_name": "LaunchCounter",
-      "description": "отложенный флаг и счётчик вылетов",
+      "description": "флаг отложенного увеличения счётчика при вылете и само значение счётчика",
       "code_bytes": 0,
       "resource_bytes": 0
     },
@@ -7200,7 +7200,7 @@
       "literal_bytes": 0,
       "initial_status": "provisional",
       "semantic_name": "PrintSystemRadius",
-      "description": "Вычисление и печать радиуса планеты",
+      "description": "вычисление и печать радиуса планеты",
       "code_bytes": 22,
       "resource_bytes": 0
     },
@@ -7603,7 +7603,7 @@
       "literal_bytes": 11,
       "initial_status": "provisional",
       "semantic_name": "CompareObjectCoordinateDepth",
-      "description": "сравнение модулей координат двух объектов",
+      "description": "сравнение модулей двух координат",
       "code_bytes": 37,
       "resource_bytes": 0
     },
@@ -7759,7 +7759,7 @@
       "literal_bytes": 0,
       "initial_status": "manual_entry",
       "semantic_name": "EnableInterruptMode2",
-      "description": "выбор режима IM2 с таблицей в странице #FD00",
+      "description": "выбор режима IM2 со старшим байтом адреса таблицы #FD",
       "code_bytes": 7,
       "resource_bytes": 0
     },

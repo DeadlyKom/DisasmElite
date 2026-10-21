@@ -44,7 +44,7 @@ State           EQU Game.Interface.DispatchDiskAndCommanderState.Commander      
 .Technology     EQU State + FCommander.Technology                               ; технологический уровень системы, счёт с нуля
 .Government     EQU State + FCommander.Government                               ; тип правительства системы, 0..7
 .MarketStock    EQU State + FCommander.MarketStock                              ; адрес структуры FGoods, остатки товаров станции
-.Mission3       EQU State + FCommander.Mission3                                 ; этап третьей миссии и отметка попадания
+.Mission3       EQU State + FCommander.Mission3                                 ; этап миссии 3 и служебное состояние войны
 .MissionFlags   EQU State + FCommander.MissionFlags                             ; награды, особое оборудование и занятость трюма миссией
 .SunPosition    EQU State + FCommander.SunPosition                              ; три трёхбайтовые координаты солнца
 
@@ -57,8 +57,8 @@ State           EQU Game.Interface.DispatchDiskAndCommanderState.Commander      
                 module FlightState
 InvasionClock:  EQU Game.Flight.FillViewAttributesAndFlightState.InvasionClock  ; накопитель вторжения, UpdateClockAndRotateDistantBodies прибавляет NOT State.Invasion
 View:           EQU Game.Flight.FillViewAttributesAndFlightState.View           ; номер экрана, четыре вида кабины имеют коды 0..3
-Roll:           EQU Game.Flight.FillViewAttributesAndFlightState.Roll           ; крен игрока в формате знак и модуль, переносится из управления FF09
-Pitch:          EQU Game.Flight.FillViewAttributesAndFlightState.Pitch          ; тангаж игрока в формате знак и модуль, переносится из управления FF0B
+Roll:           EQU Game.Flight.FillViewAttributesAndFlightState.Roll           ; крен игрока в формате знак и модуль, переносится из старшего байта InputMotion.Roll
+Pitch:          EQU Game.Flight.FillViewAttributesAndFlightState.Pitch          ; тангаж игрока в формате знак и модуль, переносится из старшего байта InputMotion.Pitch
 Speed:          EQU Game.Flight.FillViewAttributesAndFlightState.Speed          ; скорость игрока, задаёт перенос объектов и длину полосы скорости
 SpaceMode:      EQU Game.Flight.FillViewAttributesAndFlightState.SpaceMode      ; нуль в обычной системе, ненулевое значение в особом пространстве
 FlightStatus:   EQU Game.Flight.FillViewAttributesAndFlightState.FlightStatus   ; 0 на станции, 4 норма, 6 станционная зона, 2 опасность, #63 мигание
@@ -83,12 +83,12 @@ AutoDock:       EQU Game.Flight.DispatchSoundEffect.AutoDock                    
 ; восстановление начинается с Energy4, после заполнения всех банков растут щиты
 ; -----------------------------------------
                 ; адрес структуры FGaugeState, порядок пар задан в Includes/Structs/Gauge.inc
-GaugeState      EQU Game.Flight.FillViewAttributesAndFlightState.FrontShieldPrev
+GaugeState      EQU Game.Flight.FillViewAttributesAndFlightState.Gauges         
 
 ; -----------------------------------------
 ; рабочие поля объектного кадра, UpdateAllSpaceObjects очищает накопители
 ; ObjectsPresent устанавливается по энергии непустого слота и не означает взрыв
-; #9C98 сохранён без выдуманного имени, подтверждённых потребителей не найдено
+; байт между CrosshairTarget и Danger сохранён, подтверждённых потребителей не найдено
 ; -----------------------------------------
                 module CombatState
 SpawnCounter:   EQU Game.Combat.DivideAndCombatState.SpawnCounter               ; счётчик появления, уменьшение до нуля запускает диспетчер объектов
@@ -125,7 +125,7 @@ Objects:        EQU #606F                                                       
 Missile:        EQU #6159                                                       ; восьмая запись общего массива
 ModelIndex:     EQU #6180                                                       ; 23 четырёхбайтовые записи каталога моделей
 Frame:          EQU #C000                                                       ; буфер полётного вида либо сохранённой кабины
-RandomSeed:     EQU Game.Travel.SetFuelAndGauge.WorkingSeed                     ; три слова рекуррентного генератора
+RandomSeed:     EQU @Game.Travel.SetFuelAndGauge.SystemData + FGalaxyState.WorkingSeed ; три слова рекуррентного генератора
                 endmodule
 
                 module Rom

@@ -4,13 +4,13 @@
 ; Восстановление рабочего семени планеты
 ; исходный диапазон #E136..#E141
 ; In:
-;   DEC6..DECB = сохранённое семя
+;   GalaxyState.SavedSeed = сохранённое семя
 ; Out:
-;   DEC0..DEC5 обновлены, HL=DECC, DE=DEC6, BC=0
+;   GalaxyState.WorkingSeed обновлены, HL=GalaxyState.TextSeed, DE=GalaxyState.SavedSeed, BC=0
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   E13C общий вход копирования ровно 6 байт для трёх процедур
+;   Game.Galaxy.RestoreWorkingSystemSeed.CopySeed общий вход копирования ровно 6 байт для трёх процедур
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E136
@@ -20,6 +20,7 @@ Entry:          LD HL, GalaxyState.SavedSeed
 CopySeed:       LD BC, #0006
                 LDIR
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E142
                 endmodule

@@ -10,7 +10,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-; Ставится звуковой запрос 7128.2 и передний вид 70E3=0.
+; Ставится звуковой запрос FlightState.SoundRequests.2 и передний вид FlightState.View=0.
 ; Все восемь байтов энергии обнуляются, затем диспетчер создаёт два набора обломков.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -33,6 +33,7 @@ ClearSlot:      ADD IX, DE
                 LD A, #15
                 CALL Game.Objects.DispatchObjectAction.Entry
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B63C
                 endmodule

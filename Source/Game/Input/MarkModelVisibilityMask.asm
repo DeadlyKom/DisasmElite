@@ -21,6 +21,7 @@ Entry:          LD A, (IX+FSpaceObject.Blueprint)
 MergeMask:      OR (HL)
                 LD (HL), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #FC33
                 endmodule

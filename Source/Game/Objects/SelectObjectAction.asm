@@ -51,6 +51,7 @@ Entry:          SRL C
                 JP Z, Game.Objects.InitializeIntroModel.Entry                   ; переход, если код действия равен 9
 
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #B898
                 endmodule

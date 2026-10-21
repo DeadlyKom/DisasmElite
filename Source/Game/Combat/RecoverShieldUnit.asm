@@ -21,6 +21,7 @@ Entry:          LD A, (HL)
 
                 INC (HL)
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #9B01
                 endmodule

@@ -17,6 +17,7 @@
                 ; B=20 задаёт число последовательных HALT в общем цикле ожидания прерываний
 Entry:          LD B, #14
                 JR @Game.Trade.Wait36Interrupts.WaitFrame
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E35E
                 endmodule

@@ -7,20 +7,20 @@
 ;   DE, E содержит младшие разряды делимого
 ;   BC, B содержит делитель, C=FE
 ;   AF, A содержит остаток
-;   IX, вершина при отдельном входе ACA2
-;   IY, матрица при входе ACA2
+;   IX, вершина при отдельном входе Game.Wireframe.DivideFractionAndProjectVertex.Project
+;   IY, матрица при входе Game.Wireframe.DivideFractionAndProjectVertex.Project
 ; Out:
-;   BC, C содержит дробное частное для AC8B
-;   при входе ACA2 обновлена экранная запись и продолжен цикл вершин
+;   BC, C содержит дробное частное для Game.Wireframe.DivideFractionAndProjectVertex.Entry
+;   при входе Game.Wireframe.DivideFractionAndProjectVertex.Project обновлена экранная запись и продолжен цикл вершин
 ; Corrupt:
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
-; AC8B..AC9E строит восемь дробных разрядов, единицы C служат счётчиком.
-; AC9F..ACA1 являются дробными байтами повёрнутой вершины.
-; ACA2 выбирает повышенную точность для глубины меньше 4.
-; ACDF извлекает указатель объекта из стека и складывает его положение с вершиной.
-; AD47/AD82 выбирают деление на Z либо X согласно виду, сохраняют проекции и знаки.
-; Закамерная вершина получает FF. ADF2 продвигает потоки и продолжает A9DE.
+; Entry строит восемь дробных разрядов, единицы C служат счётчиком
+; VertexFraction.X, Y и Z являются дробными байтами повёрнутой вершины
+; Game.Wireframe.DivideFractionAndProjectVertex.Project выбирает повышенную точность для глубины меньше 4.
+; Game.Wireframe.DivideFractionAndProjectVertex.AddObjectPos извлекает указатель объекта из стека и складывает его положение с вершиной.
+; проверка FlightState.View в AddObjectPos выбирает деление на Z либо ветвь ProjectSide с глубиной X, затем сохраняются проекции и знаки
+; Закамерная вершина получает FF. Game.Wireframe.DivideFractionAndProjectVertex.NextVertex продвигает потоки и продолжает Game.Wireframe.BuildProjectedVertexTable.ProjectVertex.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #AC8B
@@ -43,6 +43,7 @@ SubtractDiv:    SUB B
                 RET NC                                                          ; выход, если все восемь разрядов частного обработаны
 
                 JR Game.Wireframe.DivideFractionAndProjectVertex.Entry
+
                 ; данные дробных разрядов вершины
 VertexFraction  EQU $                                                           ; начало сохранённых рабочих данных, исходное размещение
 .X              DB #00                                                          ; дополнительные дробные разряды повёрнутой X-компоненты
@@ -220,6 +221,7 @@ NextVertex:     CALL Game.Wireframe.AdvanceVertexFlags.Entry
                 POP IX
                 POP IY
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #AE01
                 endmodule

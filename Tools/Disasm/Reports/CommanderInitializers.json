@@ -1,12 +1,12 @@
 {
-  "scope": "четыре полных экземпляра FCommander в стиле конфигурации HoMM, без изменения исходных байтов и адресов",
-  "initializer_count": 4,
-  "nested_goods_initializers": 8,
+  "scope": "пять экземпляров FCommander, включая изменяемый резерв NewCommander",
+  "initializer_count": 5,
+  "nested_goods_initializers": 10,
   "field_count": 39,
   "instances": [
     {
       "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
-      "line": 27,
+      "line": 28,
       "symbol": "Game.Interface.DispatchDiskAndCommanderState.Commander",
       "address": 53332,
       "size": 102,
@@ -287,6 +287,292 @@
           "offset": 93,
           "size": 9,
           "address": 53425
+        }
+      ]
+    },
+    {
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "line": 139,
+      "symbol": "Game.Missions.RatingBountyDamageAndNewCommander.NewCommander",
+      "address": 53810,
+      "size": 102,
+      "source": "Tools/Disasm/Research/GameCode.bin",
+      "source_offset": 37426,
+      "byte_identical": true,
+      "sha256": "fd9e7e71f404dc164991a704a982a3a9f3284f3f5bc4d8084df4a20b0f7a8df2",
+      "fields": [
+        {
+          "field": "Name",
+          "type": "TEXT",
+          "offset": 0,
+          "size": 11,
+          "address": 53810
+        },
+        {
+          "field": "LegalStatus",
+          "type": "DB",
+          "offset": 11,
+          "size": 1,
+          "address": 53821
+        },
+        {
+          "field": "Rating",
+          "type": "DW",
+          "offset": 12,
+          "size": 2,
+          "address": 53822
+        },
+        {
+          "field": "RankState",
+          "type": "DB",
+          "offset": 14,
+          "size": 1,
+          "address": 53824
+        },
+        {
+          "field": "JumpCount",
+          "type": "DB",
+          "offset": 15,
+          "size": 1,
+          "address": 53825
+        },
+        {
+          "field": "JumpFlags",
+          "type": "DB",
+          "offset": 16,
+          "size": 1,
+          "address": 53826
+        },
+        {
+          "field": "Galaxy",
+          "type": "DB",
+          "offset": 17,
+          "size": 1,
+          "address": 53827
+        },
+        {
+          "field": "CashHigh",
+          "type": "DW",
+          "offset": 18,
+          "size": 2,
+          "address": 53828
+        },
+        {
+          "field": "CashLow",
+          "type": "DW",
+          "offset": 20,
+          "size": 2,
+          "address": 53830
+        },
+        {
+          "field": "MarketRandom",
+          "type": "DB",
+          "offset": 22,
+          "size": 1,
+          "address": 53832
+        },
+        {
+          "field": "Cargo",
+          "type": "FGoods",
+          "offset": 23,
+          "size": 17,
+          "address": 53833
+        },
+        {
+          "field": "FreeCargo",
+          "type": "DB",
+          "offset": 40,
+          "size": 1,
+          "address": 53850
+        },
+        {
+          "field": "FrontLaser",
+          "type": "DB",
+          "offset": 41,
+          "size": 1,
+          "address": 53851
+        },
+        {
+          "field": "RearLaser",
+          "type": "DB",
+          "offset": 42,
+          "size": 1,
+          "address": 53852
+        },
+        {
+          "field": "LeftLaser",
+          "type": "DB",
+          "offset": 43,
+          "size": 1,
+          "address": 53853
+        },
+        {
+          "field": "RightLaser",
+          "type": "DB",
+          "offset": 44,
+          "size": 1,
+          "address": 53854
+        },
+        {
+          "field": "Mission1",
+          "type": "DB",
+          "offset": 45,
+          "size": 1,
+          "address": 53855
+        },
+        {
+          "field": "Fuel",
+          "type": "DB",
+          "offset": 46,
+          "size": 1,
+          "address": 53856
+        },
+        {
+          "field": "Missiles",
+          "type": "DB",
+          "offset": 47,
+          "size": 1,
+          "address": 53857
+        },
+        {
+          "field": "LargeCargo",
+          "type": "DB",
+          "offset": 48,
+          "size": 1,
+          "address": 53858
+        },
+        {
+          "field": "ECM",
+          "type": "DB",
+          "offset": 49,
+          "size": 1,
+          "address": 53859
+        },
+        {
+          "field": "AlienComputer",
+          "type": "DB",
+          "offset": 50,
+          "size": 1,
+          "address": 53860
+        },
+        {
+          "field": "MineralLife",
+          "type": "DB",
+          "offset": 51,
+          "size": 1,
+          "address": 53861
+        },
+        {
+          "field": "FuelScoops",
+          "type": "DB",
+          "offset": 52,
+          "size": 1,
+          "address": 53862
+        },
+        {
+          "field": "EscapePod",
+          "type": "DB",
+          "offset": 53,
+          "size": 1,
+          "address": 53863
+        },
+        {
+          "field": "EnergyBomb",
+          "type": "DB",
+          "offset": 54,
+          "size": 1,
+          "address": 53864
+        },
+        {
+          "field": "EnergyUnit",
+          "type": "DB",
+          "offset": 55,
+          "size": 1,
+          "address": 53865
+        },
+        {
+          "field": "DockComputer",
+          "type": "DB",
+          "offset": 56,
+          "size": 1,
+          "address": 53866
+        },
+        {
+          "field": "GalacticDrive",
+          "type": "DB",
+          "offset": 57,
+          "size": 1,
+          "address": 53867
+        },
+        {
+          "field": "ShipUpgrade",
+          "type": "DB",
+          "offset": 58,
+          "size": 1,
+          "address": 53868
+        },
+        {
+          "field": "Invasion",
+          "type": "DB",
+          "offset": 59,
+          "size": 1,
+          "address": 53869
+        },
+        {
+          "field": "GalaxySeed",
+          "type": "FSystemSeed",
+          "offset": 60,
+          "size": 6,
+          "address": 53870
+        },
+        {
+          "field": "SystemSeed",
+          "type": "FSystemSeed",
+          "offset": 66,
+          "size": 6,
+          "address": 53876
+        },
+        {
+          "field": "Technology",
+          "type": "DB",
+          "offset": 72,
+          "size": 1,
+          "address": 53882
+        },
+        {
+          "field": "Government",
+          "type": "DB",
+          "offset": 73,
+          "size": 1,
+          "address": 53883
+        },
+        {
+          "field": "MarketStock",
+          "type": "FGoods",
+          "offset": 74,
+          "size": 17,
+          "address": 53884
+        },
+        {
+          "field": "Mission3",
+          "type": "DB",
+          "offset": 91,
+          "size": 1,
+          "address": 53901
+        },
+        {
+          "field": "MissionFlags",
+          "type": "DB",
+          "offset": 92,
+          "size": 1,
+          "address": 53902
+        },
+        {
+          "field": "SunPosition",
+          "type": "FSpacePosition",
+          "offset": 93,
+          "size": 9,
+          "address": 53903
         }
       ]
     },
@@ -1149,7 +1435,7 @@
       ]
     }
   ],
-  "unchanged_existing_symbols": 5177,
+  "unchanged_existing_symbols": 5518,
   "changed_existing_symbol_values": {},
   "renamed_symbols": {
     "CommanderDeadly.Cargo": {
@@ -1744,8 +2030,12 @@
   "state_address": 53332,
   "cargo_address": 53355,
   "market_stock_address": 53406,
-  "literal_bytes_checked": 408,
+  "literal_bytes_checked": 510,
   "original_trd_equal": true,
   "trd_bytes": 655360,
-  "sha256": "35784a3be331360d214e182d75c5664aaca1b8d79b62e0d2035a4f9cb5515074"
+  "sha256": "35784a3be331360d214e182d75c5664aaca1b8d79b62e0d2035a4f9cb5515074",
+  "nested_field_addresses_checked": 485,
+  "removed_lookup_placeholders": {
+    "Memory.Game.Travel.SetFuelAndGauge.WorkingSeed": "устранён неразрешённый локальный кандидат поиска, определения в Source/Includes нет"
+  }
 }

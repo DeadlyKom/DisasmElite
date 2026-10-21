@@ -6,7 +6,7 @@
 ; In:
 ;   Нет параметров
 ; Out:
-;   FC08..FC0B=0, HL=FC0C, B=0, прерывания включены
+;   InputState.SystemKeys..InputState.DeviceKeys=0, HL=InputState.ChartKeys, B=0, прерывания включены
 ; Corrupt:
 ;   HL, BC
 ; Note:
@@ -24,6 +24,7 @@ ClearKeyByte:   LD (HL), #00
 
                 EI
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E212
                 endmodule

@@ -12,8 +12,8 @@
 ;   HL, DE, BC, AF, IX, IY
 ; Note:
 ;   классы дают модели 8,9/10,18,15,16/17 соответственно
-;   если IX родителя +26 bit2 сброшен, ориентация дочернего корабля изменяется #BA27
-;   враждебность IX+21 bit2 наследуется от родителя
+;   если IX родителя +26 bit2 сброшен, ориентация дочернего корабля изменяется Game.Objects.AlternateSpawnAxes.Entry
+;   дочерний объект наследует OBJ_HOSTILE_BIT поля FSpaceObject.Hostility родителя
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #B9E7
@@ -57,6 +57,7 @@ SpawnChild:     PUSH IX
                 SET OBJ_HOSTILE_BIT, (IX+FSpaceObject.Hostility)
                 XOR A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #BA27
                 endmodule

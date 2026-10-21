@@ -10,11 +10,11 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   9C18 обновляет запас ракет, D0DA очищает очередь сообщения
-;   Обнуляются прицел ракеты D047, нагрев лазера 70F0, нагрев кабины 70EE, автопилот 7129,9C9B и таймер
-;   капсулы 9C1B
-;   Последняя DJNZ падает в 9974 для обновления атрибутов приборов
-;   Высота 70F2 устанавливается 160, энергия хранится в четырёх банках 70F6/70F8/70FA/70FC
+;   Game.Combat.PrintMissileStock.Entry обновляет запас ракет, Game.Missions.DispatchMissionEvents.Entry очищает очередь сообщения
+;   Обнуляются прицел ракеты AimState, нагрев лазера GaugeState + FGaugeState.LaserHeat.Current, нагрев кабины GaugeState + FGaugeState.CabinHeat.Current, автопилот FlightState.AutoDock,CombatState.EcmTimer и таймер
+;   капсулы MissileCount
+;   Последняя DJNZ падает в Game.Scanner.SetCockpitDeviceAttributes.Entry для обновления атрибутов приборов
+;   Высота GaugeState + FGaugeState.Altitude.Current устанавливается 160, энергия хранится в четырёх банках GaugeState + FGaugeState.Energy1.Current/GaugeState + FGaugeState.Energy2.Current/GaugeState + FGaugeState.Energy3.Current/GaugeState + FGaugeState.Energy4.Current
 ; -----------------------------------------
                 ASSERT $ == #9946
                 ; запас ракет и очередь сообщений обновляются перед стартом
@@ -38,7 +38,7 @@ Entry:          CALL Game.Combat.PrintMissileStock.Entry
 ResetDevice:    LD (HL), A
                 INC HL
                 INC HL
-                DJNZ ResetDevice
+                DJNZ ResetDevice                                                ; далее Game.Scanner.SetCockpitDeviceAttributes.Entry без команды перехода
                 ASSERT $ == #9974
                 endmodule
                 endmodule

@@ -2,13 +2,13 @@
 ; Подсчёт враждебных боевых целей
 ; исходный диапазон #EC22..#EC4D
 ; In:
-;   7 слотов 606F..6159
+;   семь слотов FSpaceObject начиная с Memory.Objects
 ; Out:
 ;   DE, BC, IY сохраняются, A число 0..7, Z при отсутствии
 ; Corrupt:
 ;   AF
 ; Note:
-;   Для зачёта нужны AllowAttack,C=1, кешированный бит 6 и враждебность IY21.2
+;   Для зачёта нужны AllowAttack с C=1, FX_GROUP_BIT и OBJ_HOSTILE_BIT в FSpaceObject.Hostility
 ; -----------------------------------------
                 ; обход семи слотов после станции с сохранением регистров вызывающего
 CountHostiles:  PUSH IY
@@ -17,17 +17,17 @@ CountHostiles:  PUSH IY
                 LD IY, Memory.Station
                 LD DE, FSpaceObject
                 LD BC, #0700
-                ; совмещение допуска цели, класса 6 и признака враждебности
+                ; совмещение допуска цели, группового режима TypeFlags и признака враждебности
 CountHostile:   ADD IY, DE
                 CALL AllowAttack
                 JR NC, NextHostile                                              ; переход, если объект не является допустимой боевой целью, не учитывать его
 
                 CALL ReadSlotFlags
-                BIT 6, A
-                JR Z, NextHostile                                               ; переход, если бит 6 классификатора сброшен, не учитывать объект
+                BIT FX_GROUP_BIT, A
+                JR Z, NextHostile                                               ; переход, если FX_GROUP_BIT кешированного TypeFlags сброшен, не учитывать объект
 
                 BIT OBJ_HOSTILE_BIT, (IY + FSpaceObject.Hostility)
-                JR Z, NextHostile                                               ; переход, если бит 2 враждебности сброшен, не учитывать объект
+                JR Z, NextHostile                                               ; переход, если OBJ_HOSTILE_BIT поля FSpaceObject.Hostility сброшен, не учитывать объект
 
                 INC C
 NextHostile:    DJNZ CountHostile

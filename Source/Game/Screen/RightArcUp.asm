@@ -16,8 +16,8 @@
 ;   PUSH AF создаёт сохранение, все выходы восстанавливают AF через POP AF
 ;   часть выходов по переполнению C' завершается до обратного EXX, ориентация банков не сохраняется
 ;   HL' и D' обнуляют накопители ошибки, B'=#FF задаёт исходную маску
-;   направление #8628 устанавливается в 0
-;   при #8629=0 выполняется заливка по #8CF8, иначе контур по #9060
+;   направление CircleState.DirectionDown устанавливается в 0
+;   при CircleState.OutlineOnly=0 выполняется заливка по Game.Circles.SelectJumpAndContinueLeftFill.RightFixedFill, иначе контур по Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc
 ;   внутренние процедуры временно используют SP для быстрого заполнения, затем восстанавливают его
 ; -----------------------------------------
                 ; проверка исходного размещения
@@ -36,6 +36,7 @@ Entry:          PUSH AF
                 JP NZ, Game.Circles.SkipRowsDownAndDrawCircleContours.RightCutArc ; переход, если выбран контур без заливки
 
                 JP Game.Circles.SelectJumpAndContinueLeftFill.RightFixedFill
+
                 ASSERT $ == #865A
                 endmodule
                 endmodule

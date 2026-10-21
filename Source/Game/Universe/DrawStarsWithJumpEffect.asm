@@ -4,14 +4,14 @@
 ; вывод звёзд с дополнительными проходами при ускоренном перемещении
 ; исходный диапазон #7898..#78B0
 ; In:
-;   память 7EDD, признак ускоренного шага
+;   память FastTravel, признак ускоренного шага
 ; Out:
-;   звёзды выведены, скорость 70E6 может быть заменена
+;   звёзды выведены, скорость FlightState.Speed может быть заменена
 ; Corrupt:
 ;   HL, DE, BC, AF, HL', DE', BC', AF'
 ; Note:
-; При 7EDD=1 сначала вызывается F9A8, затем звёзды выводятся со скоростью 30 и 16.
-; После второго CALL управление последовательно попадает в 78B1 и выполняет ещё один проход.
+; При FastTravel=1 сначала вызывается Game.Extensions.SetSceneFlagAndResetMetadata.Entry, затем звёзды выводятся со скоростью 30 и 16.
+; После второго CALL управление последовательно попадает в Game.Universe.UpdateAndDrawStarField.Entry и выполняет ещё один проход.
 ; При другом состоянии сразу переходит в единственный обычный проход.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -27,7 +27,7 @@ Entry:          LD A, (FastTravel)
                 CALL Game.Universe.UpdateAndDrawStarField.Entry
                 LD A, #10
                 LD (FlightState.Speed), A
-                CALL Game.Universe.UpdateAndDrawStarField.Entry
+                CALL Game.Universe.UpdateAndDrawStarField.Entry                 ; далее Game.Universe.UpdateAndDrawStarField.Entry без команды перехода
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #78B1
                 endmodule

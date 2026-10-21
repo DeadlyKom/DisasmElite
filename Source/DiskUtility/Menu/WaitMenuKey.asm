@@ -2,7 +2,7 @@
 ; ожидание ненулевого кода клавиши от обработчика прерываний
 ; исходный диапазон #CC26..#CC2F
 ; In:
-;   #FC0D, #FF означает отсутствие клавиши
+;   InputState.LastKey, #FF означает отсутствие клавиши
 ;   установленный обработчик прерываний
 ; Out:
 ;   AF, A содержит код клавиши, флаги от DEC A
@@ -18,7 +18,7 @@ WaitMenuKey:    EI
 AwaitInterrupt: HALT
                 LD A, (InputState.LastKey)
                 INC A
-                JR Z, AwaitInterrupt                                            ; переход, если #FC0D содержит #FF и требуется следующее прерывание
+                JR Z, AwaitInterrupt                                            ; переход, если InputState.LastKey содержит #FF и требуется следующее прерывание
 
                 DEC A
                 RET

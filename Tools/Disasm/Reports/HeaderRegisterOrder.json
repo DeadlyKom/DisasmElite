@@ -1,0 +1,291 @@
+{
+  "status": "applied_comment_only",
+  "scope": [
+    "Source/**/*.asm",
+    "Source/**/*.inc",
+    "Includes/**/*.asm",
+    "Includes/**/*.inc"
+  ],
+  "register_order": [
+    "HL",
+    "DE",
+    "BC",
+    "AF",
+    "HL'",
+    "DE'",
+    "BC'",
+    "AF'",
+    "IX",
+    "IY"
+  ],
+  "files_scanned": 799,
+  "sections_scanned": 2050,
+  "changes": [
+    {
+      "file": "Source/Manual/CheckBoundary.asm",
+      "section": "Out",
+      "line": 7,
+      "old": ";   AF - Z установлен при обнаружении запрещённой границы\n;   HL сохранён",
+      "new": ";   HL сохранён\n;   AF - Z установлен при обнаружении запрещённой границы",
+      "reason": "Описание сохранённого HL ставится перед результатом AF",
+      "old_sha256": "53e6af2909a10ac501a8c8fa46567ec0edf7657ba716f086c5aa155d1f455168",
+      "applied_old": ";   AF - Z установлен при обнаружении запрещённой границы\n;   HL сохранён",
+      "applied_new": ";   HL сохранён\n;   AF - Z установлен при обнаружении запрещённой границы"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/AimAtNearBody.asm",
+      "section": "Out",
+      "line": 7,
+      "old": ";   IY=Memory.Station либо FlightState.Planet, маска DE=FF00 либо 0000, затем SteerToTarget",
+      "new": ";   DE=FF00 либо 0000, маска точности\n;   IY=Memory.Station либо FlightState.Planet, затем SteerToTarget",
+      "reason": "Маска DE перечисляется перед указателем IY, альтернативы значений сохранены",
+      "old_sha256": "1e366410b457b9f367f1841871c6b88253784a9884298bf54c5ce0ca58965803",
+      "applied_old": ";   IY=Memory.Station либо FlightState.Planet, маска DE=FF00 либо 0000, затем SteerToTarget",
+      "applied_new": ";   DE=FF00 либо 0000, маска точности\n;   IY=Memory.Station либо FlightState.Planet, затем SteerToTarget"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseCelestialTarget.asm",
+      "section": "Out",
+      "line": 7,
+      "old": ";   IY цель, DE маски точности, переход SteerToTarget или AimNearBody",
+      "new": ";   DE маски точности, IY цель, переход SteerToTarget или AimNearBody",
+      "reason": "Перестановка описаний DE и IY",
+      "old_sha256": "33b55d3bbed1524fbc286efb9e2ae35a808be30f03fa4fa23540059399da435a",
+      "applied_old": ";   IY цель, DE маски точности, переход SteerToTarget или AimNearBody",
+      "applied_new": ";   DE маски точности, IY цель, переход SteerToTarget или AimNearBody"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ChooseObjectAimPrecision.asm",
+      "section": "In",
+      "line": 5,
+      "old": ";   IY объект, IX=Keyboard",
+      "new": ";   IX=Keyboard, IY объект",
+      "reason": "IX перед IY",
+      "old_sha256": "1b1938958f6e49568371bf4002f94772c0c29d0d74ab86bc0aa4fe1fb8c73773",
+      "applied_old": ";   IY объект, IX=Keyboard",
+      "applied_new": ";   IX=Keyboard, IY объект"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/BrakeForDistantTarget.asm",
+      "section": "In",
+      "line": 5,
+      "old": ";   IY, цель с общим положением FSpaceObject.X/Y/Z\n;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры",
+      "new": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z",
+      "reason": "IX перед IY",
+      "old_sha256": "373d37d80fb719555a6a88241d0a42c4313f4d84fe019927556e8164cb7c1c0b",
+      "applied_old": ";   IY, цель с общим положением FSpaceObject.X/Y/Z\n;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры",
+      "applied_new": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/PreservedSteeringEntry.asm",
+      "section": "In",
+      "line": 5,
+      "old": ";   IY, цель с общим положением FSpaceObject.X/Y/Z\n;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры",
+      "new": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z",
+      "reason": "IX перед IY",
+      "old_sha256": "373d37d80fb719555a6a88241d0a42c4313f4d84fe019927556e8164cb7c1c0b",
+      "applied_old": ";   IY, цель с общим положением FSpaceObject.X/Y/Z\n;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры",
+      "applied_new": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/DrawCommanderNames.asm",
+      "section": "Out",
+      "line": 8,
+      "old": ";   BC сохранён\n;   HL, адрес следующей записи либо нулевого окончания",
+      "new": ";   HL, адрес следующей записи либо нулевого окончания\n;   BC сохранён",
+      "reason": "HL перед BC",
+      "old_sha256": "c8af7c3e2ad8989d9011b574934048e82788236b83636a50eaca49dae675b684",
+      "applied_old": ";   BC сохранён\n;   HL, адрес следующей записи либо нулевого окончания",
+      "applied_new": ";   HL, адрес следующей записи либо нулевого окончания\n;   BC сохранён"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/EmitRepeatedByte.asm",
+      "section": "Out",
+      "line": 10,
+      "old": ";   IX, первый незаписанный адрес\n;   B, остаток количества\n;   HL, DE, C сохранены",
+      "new": ";   HL, DE сохранены\n;   BC, B содержит остаток количества, C сохранён\n;   IX, первый незаписанный адрес",
+      "reason": "Сохранённые HL/DE, затем оба компонента BC с прежним назначением, затем IX",
+      "old_sha256": "0cc659c9223f305f058a244a566b13915d28714118e9932dfa7cc796489ac987",
+      "applied_old": ";   IX, первый незаписанный адрес\n;   B, остаток количества\n;   HL, DE, C сохранены",
+      "applied_new": ";   HL, DE сохранены\n;   BC, B содержит остаток количества, C сохранён\n;   IX, первый незаписанный адрес"
+    },
+    {
+      "file": "Source/Game/Galaxy/RotateSeedPair.asm",
+      "section": "Out",
+      "line": 9,
+      "old": ";   DE содержит изменённую пару, HL указывает на второй байт",
+      "new": ";   HL указывает на второй байт, DE содержит изменённую пару",
+      "reason": "Перестановка независимых результатов HL и DE",
+      "old_sha256": "fd6fb655ac75dde86e6b73e77472fc766dfb83b4f4d777eea2d0857f9934a0b1",
+      "applied_old": ";   DE содержит изменённую пару, HL указывает на второй байт",
+      "applied_new": ";   HL указывает на второй байт, DE содержит изменённую пару"
+    },
+    {
+      "file": "Source/Game/Menus/LocalSystemPixelPosition.asm",
+      "section": "Out",
+      "line": 9,
+      "old": ";   BC = координаты для ROM22AA, HL = адрес пикселя, A = бит",
+      "new": ";   HL = адрес пикселя, BC = координаты для ROM22AA, A = бит",
+      "reason": "Результаты HL, BC и A в порядке HL/BC/AF",
+      "old_sha256": "5f3fe9fe53427ac348d2251095c1ba53d238492b189bfdfbc05cbb5a039a6a02",
+      "applied_old": ";   BC = координаты для Rom.PlotAddress, HL = адрес пикселя, A = бит",
+      "applied_new": ";   HL = адрес пикселя, BC = координаты для Rom.PlotAddress, A = бит"
+    },
+    {
+      "file": "Source/Game/Sound/StartHyperjumpNoise.asm",
+      "section": "Out",
+      "line": 9,
+      "old": ";   BC=#C010, DE=#100A переданы общему входу Game.Sound.StartLaunchNoise.DisableIrq",
+      "new": ";   DE=#100A, BC=#C010 переданы общему входу Game.Sound.StartLaunchNoise.DisableIrq",
+      "reason": "DE перед BC, значения остаются привязаны к своим регистрам",
+      "old_sha256": "d5a84582328ae976320755d7c3f07d1459bc5f4c87906c5a622a3abf81081ad5",
+      "applied_old": ";   BC=#C010, DE=#100A переданы общему входу Game.Sound.StartLaunchNoise.DisableIrq",
+      "applied_new": ";   DE=#100A, BC=#C010 переданы общему входу Game.Sound.StartLaunchNoise.DisableIrq"
+    },
+    {
+      "file": "Source/Game/Sound/StartLaunchNoise.asm",
+      "section": "In",
+      "line": 8,
+      "old": ";   для входа Game.Sound.StartLaunchNoise.DisableIrq BC и DE уже содержат параметры эффекта",
+      "new": ";   для входа Game.Sound.StartLaunchNoise.DisableIrq DE и BC уже содержат параметры эффекта",
+      "reason": "DE перед BC в перечне параметров одного входа",
+      "old_sha256": "f51a8b0ef6160bbbc22a80d8c835203ea13df59f0539296a3739a0848839193d",
+      "applied_old": ";   для входа Game.Sound.StartLaunchNoise.DisableIrq BC и DE уже содержат параметры эффекта",
+      "applied_new": ";   для входа Game.Sound.StartLaunchNoise.DisableIrq DE и BC уже содержат параметры эффекта"
+    },
+    {
+      "file": "Source/Game/Sound/StartLaunchNoise.asm",
+      "section": "Out",
+      "line": 33,
+      "old": ";   BC=#C0F0, DE=#C00C, далее общий вход Game.Sound.StartLaunchNoise.DisableIrq",
+      "new": ";   DE=#C00C, BC=#C0F0, далее общий вход Game.Sound.StartLaunchNoise.DisableIrq",
+      "reason": "DE перед BC, значения остаются привязаны к своим регистрам",
+      "old_sha256": "8c51286cc67385b7ff481c75ef8ecd543b85b28ed7720cd38df7b1142b122c6f",
+      "applied_old": ";   BC=#C0F0, DE=#C00C, далее общий вход Game.Sound.StartLaunchNoise.DisableIrq",
+      "applied_new": ";   DE=#C00C, BC=#C0F0, далее общий вход Game.Sound.StartLaunchNoise.DisableIrq"
+    },
+    {
+      "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+      "section": "Out",
+      "line": 9,
+      "old": ";   DE = цена из памяти при RET в Game.Travel.GetSalePriceAndMissionFlags.MineralGate либо 10000 при NOP, HL увеличен на 1",
+      "new": ";   HL увеличен на 1\n;   DE = цена из памяти при RET в Game.Travel.GetSalePriceAndMissionFlags.MineralGate либо 10000 при NOP",
+      "reason": "Независимый результат HL перед DE, условие цены сохранено целиком",
+      "old_sha256": "5db3cdcee1999d7a377e29f946a0db754d46fb037d4d1ab959567eaeeffbc6c0",
+      "applied_old": ";   DE = цена из памяти при RET в Game.Travel.GetSalePriceAndMissionFlags.MineralGate либо 10000 при NOP, HL увеличен на 1",
+      "applied_new": ";   HL увеличен на 1\n;   DE = цена из памяти при RET в Game.Travel.GetSalePriceAndMissionFlags.MineralGate либо 10000 при NOP"
+    },
+    {
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "section": "In",
+      "line": 7,
+      "old": ";   AF, A = номер оборудования, BC, B = обычный тип лазера для Game.Travel.LaserTypeAndArrivalEvents.Entry",
+      "new": ";   BC, B = обычный тип лазера для Game.Travel.LaserTypeAndArrivalEvents.Entry\n;   AF, A = номер оборудования",
+      "reason": "BC перед AF, пояснения B и A не сортируются отдельно от регистров",
+      "old_sha256": "fc2169131651a6451575c23afeb709edbb643f82d781777e3409b3e9f2b2fa8e",
+      "applied_old": ";   AF, A = номер оборудования, BC, B = обычный тип лазера для Game.Travel.LaserTypeAndArrivalEvents.Entry",
+      "applied_new": ";   BC, B = обычный тип лазера для Game.Travel.LaserTypeAndArrivalEvents.Entry\n;   AF, A = номер оборудования"
+    },
+    {
+      "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
+      "section": "In",
+      "line": 7,
+      "old": ";   BC, C = X, B = токен для Game.Travel.SetMessageCoordinatesAndRender.Entry, HL = FlightMessage.Frames и A = прежнее время для Game.Travel.SetMessageCoordinatesAndRender.TickMessage",
+      "new": ";   HL = FlightMessage.Frames для Game.Travel.SetMessageCoordinatesAndRender.TickMessage\n;   BC, C = X, B = токен для Game.Travel.SetMessageCoordinatesAndRender.Entry\n;   A = прежнее время для Game.Travel.SetMessageCoordinatesAndRender.TickMessage",
+      "reason": "HL/BC/A переставлены с явным сохранением принадлежности к двум разным входам",
+      "old_sha256": "a58cc7011795747c682c826b0063daa3a3789a6f9cec795b59dd95f1dd3cc9ad",
+      "applied_old": ";   BC, C = X, B = токен для Game.Travel.SetMessageCoordinatesAndRender.Entry, HL = FlightMessage.Frames и A = прежнее время для Game.Travel.SetMessageCoordinatesAndRender.TickMessage",
+      "applied_new": ";   HL = FlightMessage.Frames для Game.Travel.SetMessageCoordinatesAndRender.TickMessage\n;   BC, C = X, B = токен для Game.Travel.SetMessageCoordinatesAndRender.Entry\n;   A = прежнее время для Game.Travel.SetMessageCoordinatesAndRender.TickMessage"
+    }
+  ],
+  "optional_duplicate_removals": [
+    {
+      "file": "Source/DiskUtility/Demo/ApplyPitchKeys.asm",
+      "section": "In",
+      "line": 5,
+      "old": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z\n;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры",
+      "new": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z",
+      "reason": "Последняя строка IX полностью повторяет первую, удаление дубля сохраняет IX/IY в правильном порядке",
+      "old_sha256": "611a4217832a1241d4d462d450a8401a2592d27c3510547f53745ef2d385a6e4",
+      "applied_old": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z\n;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры",
+      "applied_new": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/ApplyRollKeys.asm",
+      "section": "In",
+      "line": 5,
+      "old": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z\n;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры",
+      "new": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z",
+      "reason": "Последняя строка IX полностью повторяет первую, удаление дубля сохраняет IX/IY в правильном порядке",
+      "old_sha256": "611a4217832a1241d4d462d450a8401a2592d27c3510547f53745ef2d385a6e4",
+      "applied_old": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z\n;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры",
+      "applied_new": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z"
+    },
+    {
+      "file": "Source/DiskUtility/Demo/CollectNearbyTarget.asm",
+      "section": "In",
+      "line": 5,
+      "old": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z\n;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры",
+      "new": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z",
+      "reason": "Последняя строка IX полностью повторяет первую, удаление дубля сохраняет IX/IY в правильном порядке",
+      "old_sha256": "611a4217832a1241d4d462d450a8401a2592d27c3510547f53745ef2d385a6e4",
+      "applied_old": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z\n;   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры",
+      "applied_new": ";   IX, Keyboard, начало восьми полурядов виртуальной клавиатуры\n;   IY, цель с общим положением FSpaceObject.X/Y/Z"
+    }
+  ],
+  "excluded_examples": [
+    {
+      "file": "Source/Manual/NextScanline.asm",
+      "comment": "DE - исходный HL",
+      "reason": "Это отношение результата и входного значения, не перечень регистров"
+    },
+    {
+      "file": "Source/Game/Flight/HalfCoordinateDifference.asm",
+      "comment": "HL знако-модульная половина IY-IX",
+      "reason": "IY-IX задаёт знак и порядок вычисления, переставлять нельзя"
+    },
+    {
+      "file": "Source/Game/Flight/RebaseCoordinateAxis.asm",
+      "comment": "IY+1/IY+2 получают удвоенную знако-модульную полуразность, IX/IY увеличены на 3",
+      "reason": "Первое выражение описывает запись памяти, единственный список выходных регистров IX/IY уже упорядочен"
+    },
+    {
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "comment": "HL, AF, BC сохраняется оболочкой, прочие по ROM16DC",
+      "reason": "HL/AF перечисляют изменяемые регистры, BC описывает сохранность, это разные группы"
+    },
+    {
+      "file": "Source/Game/Flight/TryColonizeMinerals.asm",
+      "comment": "AF, HL сохранён",
+      "reason": "Изменяемый AF и оговорка о сохранности HL не являются одним списком повреждаемых регистров"
+    },
+    {
+      "file": "Source/Game/Combat/SetIndicatorAndPrintMissileStock.asm",
+      "comment": "AF, для Game.Combat.SetIndicatorAndPrintMissileStock.PrintStock также HL, DE, BC",
+      "reason": "Два разных входа имеют разные контракты, каждый перечень уже упорядочен"
+    },
+    {
+      "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+      "comment": "HL, AF для Game.Scanner.ScaleValueAndFinishBackground.Entry, HL, DE, BC, AF для ScannerCopy.RestoreRow",
+      "reason": "Два отдельных упорядоченных списка для разных входов"
+    },
+    {
+      "file": "Source/Game/Universe/SelectSpecialCargoText.asm",
+      "comment": "AF, A равен 0C при State.Invasion<2 или State.RankState<84, иначе BC",
+      "reason": "BC здесь шестнадцатеричный байт токена, а не регистр"
+    },
+    {
+      "file": "Source/DiskUtility/Menu/VerifyProtectionMark.asm",
+      "comment": "AF, C=0/Z=1 при успехе, C=1 при отказе",
+      "reason": "C здесь флаг переноса в AF, а не регистр C"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "comment": "BC, C содержит пары знаков, биты 0..1 для HL, 2..3 для DE",
+      "reason": "HL/DE именуют операнды, чьи знаки закодированы в C, это не список входных регистров"
+    }
+  ],
+  "preservation": "Only this JSON report is written. Each old block exists exactly once in its source at audit time. New text preserves numeric values, formulas, handler names and input/output meanings.",
+  "applied_count": 19,
+  "instruction_stream_unchanged": true
+}

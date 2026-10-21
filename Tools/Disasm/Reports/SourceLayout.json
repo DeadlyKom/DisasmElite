@@ -1,0 +1,5156 @@
+{
+  "scope": "пробел после разделителя операндов и пустая строка после RET/JP/JR",
+  "source_files": 799,
+  "applied": false,
+  "issues_before": [
+    {
+      "file": "Source/Game/Charts/BuildHighBitRun.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Charts/BuildLowBitRun.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Charts/FindSystemNameDialog.asm",
+      "line": 42,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "line": 147,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+      "line": 27,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+      "line": 44,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Charts/PixelAddressAndVerticalCrosshair.asm",
+      "line": 117,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Charts/TextInputLoop.asm",
+      "line": 96,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Charts/XorMapCrosshair.asm",
+      "line": 184,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "line": 62,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/BuildLeftContourPixelMask.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/BuildRightContourPixelMask.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/CheckSystemCoordinateBand.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/ComputeLeftEdgeMask.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/ComputeRightEdgeMask.asm",
+      "line": 43,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/CrossCircleCharacterRowDown.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/CrossCircleCharacterRowDown.asm",
+      "line": 42,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/CrossCircleCharacterRowUp.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/CrossCircleCharacterRowUp.asm",
+      "line": 35,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/DetachMissileTarget.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "line": 173,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+      "line": 52,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+      "line": 102,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/DrawCornerLeftContour.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/DrawCornerRightContour.asm",
+      "line": 24,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+      "line": 58,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/DrawOneSideClippedCircle.asm",
+      "line": 41,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/DrawUnclippedCircle.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/DrawVerticalClippedCircle.asm",
+      "line": 53,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/DrawWideCircleAcrossBothSides.asm",
+      "line": 55,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/IntegerCircleCathetus.asm",
+      "line": 47,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/LoadCircleIterationCoordinates.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "line": 36,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/PrepareBothClippedCoordinates.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "line": 102,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "line": 106,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "line": 112,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/PrepareLeftClippedCircle.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/PrepareRightClippedCircle.asm",
+      "line": 33,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/PrepareUnclippedCircle.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "line": 172,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/ScanUpgradeKeyRow.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "line": 196,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "line": 202,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "line": 230,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/SetBothContourBoundaries.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "line": 192,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "line": 198,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "line": 224,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/SetRightContourBoundary.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "line": 565,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/SkipViewportRowsUp.asm",
+      "line": 58,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/StepCircleRowDown.asm",
+      "line": 18,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Circles/StepCircleRowUp.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/AnimateIntroAndObjectPipeline.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/AnimateIntroAndObjectPipeline.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/ApplyPlayerMotion.asm",
+      "line": 18,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/BeginObjectMetadataPass.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/CalculateFuelPurchasePrice.asm",
+      "line": 63,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/ClearLaserDisplayState.asm",
+      "line": 21,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/CreatePlayerWreckScene.asm",
+      "line": 35,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/CreateWreckAndDamageState.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/CreateWreckAndDamageState.asm",
+      "line": 56,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/DamageShieldAndEnergy.asm",
+      "line": 65,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/DispatchObjectAction.asm",
+      "line": 18,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/DivideAndCombatState.asm",
+      "line": 55,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/DrainEnergyBanks.asm",
+      "line": 41,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/FinishObjectFrame.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "line": 162,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
+      "line": 111,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/InitializeSpawnedObjectLinks.asm",
+      "line": 39,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/MarkRemovedAndReleaseTargets.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/NextRandomByte.asm",
+      "line": 34,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/PrintMissileStock.asm",
+      "line": 18,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "line": 101,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/RecoverShieldUnit.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/ReleaseMissileTargets.asm",
+      "line": 61,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/SetIndicatorAndPrintMissileStock.asm",
+      "line": 53,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/SetObjectEnergyAndDrawMissedLaser.asm",
+      "line": 70,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/SpawnDestroyedObjectContents.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/SquareRootVectorLength.asm",
+      "line": 18,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "line": 257,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+      "line": 71,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Combat/UpdateObjectsAndWeapons.asm",
+      "line": 18,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Data/MenuDispatchTable.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "line": 61,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Disk/BlackAttributesAndOverlayState.asm",
+      "line": 29,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Disk/BlackAttributesAndOverlayState.asm",
+      "line": 52,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Disk/CallDosInternal.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Disk/ConvertTrackForDrive.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Disk/DrawScreenStripsAndPrivateStack.asm",
+      "line": 43,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Disk/LoadDiskMenuOverlay.asm",
+      "line": 99,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Disk/ReactionOnPrivateStack.asm",
+      "line": 24,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Disk/TransferDiskSectors.asm",
+      "line": 61,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Economy/AddCashThousands.asm",
+      "line": 21,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Economy/CompareWordPreserveHL.asm",
+      "line": 21,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Economy/PrintBytePrice.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Economy/PrintDigitOrLeadingZero.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Economy/PrintNumberPadding.asm",
+      "line": 73,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Economy/PrintSplitCash.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Economy/SubtractCashLow.asm",
+      "line": 39,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Economy/SubtractCashThousands.asm",
+      "line": 27,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/AllocateVariantObjectSlot.asm",
+      "line": 55,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 52,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "line": 266,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/BuildSmallCircleProfile.asm",
+      "line": 51,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "line": 119,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/ConsumeGalacticDriveCharge.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "line": 75,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCircleAndProtectScratchStack.asm",
+      "line": 47,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "line": 144,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "line": 173,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/EnergyBombAndFlashVectors.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/FillBackwardAndCountDemo.asm",
+      "line": 56,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+      "line": 39,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/GetViewAdjustedProjectedPoint.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/HandleSpecialMessageToken.asm",
+      "line": 37,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm",
+      "line": 34,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/OrSpriteByte.asm",
+      "line": 17,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "line": 43,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "line": 881,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/PrintEquipmentAndSelectIcon.asm",
+      "line": 39,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/PrintEquipmentAndSelectIcon.asm",
+      "line": 60,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/PrintPlanetInvasionStatus.asm",
+      "line": 33,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/ResetObjectMetadata.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "line": 45,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "line": 79,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/SelectCharacterFont.asm",
+      "line": 39,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/SetAggressionThenContinue.asm",
+      "line": 16,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/SetExtendedTextCursor.asm",
+      "line": 17,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "line": 32,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/StorePairedObjectDirections.asm",
+      "line": 35,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "line": 78,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateSpecialCargoStatus.asm",
+      "line": 35,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndFinishGlyph.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndFinishGlyph.asm",
+      "line": 37,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "line": 125,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Extensions/ValidatePackedObjectTarget.asm",
+      "line": 57,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "line": 172,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/ApplyCloakingViewColour.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/ApplyMissionViewColour.asm",
+      "line": 24,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/ClearBytes.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/DispatchAppendDecimalDigit.asm",
+      "line": 17,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/DispatchChartCircle.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/DispatchDangerIndicator.asm",
+      "line": 17,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/DispatchDeviceAndAppendDigit.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/DispatchSoundEffect.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/DispatchThirdMissionStage.asm",
+      "line": 34,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/DivideByteFractionForTunnel.asm",
+      "line": 50,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/DrawDemoHeading.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/DrawTitleCaption.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/DrawTransitionTunnelIfActive.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/Fill240Attributes.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "line": 47,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "line": 53,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/HalfCoordinateDifference.asm",
+      "line": 21,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/HandleMapCursorKeys.asm",
+      "line": 49,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/HandlePauseMenu.asm",
+      "line": 58,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "line": 51,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 99,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "line": 163,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/MarkMissionViewInitialized.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/PrintMessageAfterMetadataReset.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/RaiseLaserThreshold.asm",
+      "line": 21,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/RebaseCoordinateAxis.asm",
+      "line": 29,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/ReportBoardingAndReturnToTitle.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/SetSelectedLineMetadata.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+      "line": 57,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+      "line": 105,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+      "line": 62,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+      "line": 65,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/TryColonizeMinerals.asm",
+      "line": 52,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+      "line": 58,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/AdvanceSystemSeed.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/CopySystemNameToTarget.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/DeriveSystemProperties.asm",
+      "line": 80,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/DistanceMetricToFuel.asm",
+      "line": 34,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/FindNearestSystem.asm",
+      "line": 58,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/FindSystemByExactName.asm",
+      "line": 51,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/FinishDistanceLine.asm",
+      "line": 17,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/GenerateSystemName.asm",
+      "line": 36,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/LoadGalaxySeed.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/MultiplyBytes.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/OnesComplementDifference.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/RestoreWorkingSystemSeed.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/RotateSeedPair.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/SaveWorkingSystemSeed.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/SelectNearestSystemWithCursor.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Galaxy/SquaredDistanceToTarget.asm",
+      "line": 33,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/CheckMissionSystem.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/ClampAndStoreFlightSpeed.asm",
+      "line": 33,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "line": 125,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode2.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/FinishKeyboardRowAndSelectJoystick.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/IntegrateFlightControls.asm",
+      "line": 200,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/KeyboardControlInterrupt.asm",
+      "line": 42,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/MarkModelVisibilityMask.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+      "line": 46,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+      "line": 141,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/ScanKeyboardMatrix.asm",
+      "line": 40,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/SetPressedKeyAssignment.asm",
+      "line": 54,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "line": 73,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchClearView.asm",
+      "line": 17,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDescriptionToken.asm",
+      "line": 17,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "line": 191,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchFlightMessage.asm",
+      "line": 18,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchJumpKey.asm",
+      "line": 17,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchResetCommander.asm",
+      "line": 17,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Interface/DispatchTextToken.asm",
+      "line": 17,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Math/AddSigned.asm",
+      "line": 78,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Math/Divide.asm",
+      "line": 55,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Math/NextRandom.asm",
+      "line": 42,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Math/Square.asm",
+      "line": 32,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Math/SquareRoot.asm",
+      "line": 143,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/ApplyMissionMarketRestrictions.asm",
+      "line": 45,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/BlankLineAndEconomyText.asm",
+      "line": 50,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/CheckMissionRegionBand.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/ChooseEncounterVariant.asm",
+      "line": 45,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/ClearCharacterRowsBackward.asm",
+      "line": 36,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm",
+      "line": 65,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/DrawExplosionAndScanner.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/LocalSystemPixelPosition.asm",
+      "line": 74,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/MapCaptionAndGalaxyChart.asm",
+      "line": 79,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/NextEquipmentLine.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/OpenLocalChart.asm",
+      "line": 68,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/PlaceLocalSystemLabel.asm",
+      "line": 67,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/PlotGalaxySystem.asm",
+      "line": 40,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "line": 114,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/PrintDirectionalLaser.asm",
+      "line": 41,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/PrintStatusFieldAndCargoScreen.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemRadius.asm",
+      "line": 29,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemStatistics.asm",
+      "line": 64,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/PrintTokenAndBlankLine.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/ReadVisibleObjectByte.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/RedirectDuplicateEquipment.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/Return255.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/ReturnZero.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/VisitLocalChartSystems.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/VisitLocalChartSystems.asm",
+      "line": 34,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/VisitLocalChartSystems.asm",
+      "line": 37,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Menus/VisitLocalChartSystems.asm",
+      "line": 46,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Missions/CompleteThirdMission.asm",
+      "line": 32,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Missions/DispatchEquipmentDamage.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Missions/DispatchMissionEvents.asm",
+      "line": 51,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Missions/DispatchMissionEvents.asm",
+      "line": 84,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Missions/DispatchRatingAndMissionEnd.asm",
+      "line": 33,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Missions/OfferThirdMission.asm",
+      "line": 57,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "line": 285,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Missions/ShowBoardingMessage.asm",
+      "line": 52,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+      "line": 173,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/AddCoordinateDelta.asm",
+      "line": 40,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "line": 132,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/AddSignedAngularProduct.asm",
+      "line": 54,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "line": 66,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceOneCoordinate.asm",
+      "line": 40,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "line": 107,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/CallObjectActionPreservingPointers.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "line": 118,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/DivideVectorComponent.asm",
+      "line": 42,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/DotProductAxisHighBytes.asm",
+      "line": 45,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/DoubleSignedAngle.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "line": 100,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/IsSmallSignedDistance.asm",
+      "line": 27,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/MultiplySignedWordByByte.asm",
+      "line": 42,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/NegatedQuarterCoordinate.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/NormalizeVector16.asm",
+      "line": 40,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 151,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "line": 251,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinate.asm",
+      "line": 32,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinateDifference.asm",
+      "line": 39,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/RenormalizeAxisHighBytes.asm",
+      "line": 39,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "line": 52,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "line": 50,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/SignedByteProductPair.asm",
+      "line": 29,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/SquareVectorComponent.asm",
+      "line": 58,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "line": 203,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/TransformNormalWithObjectCoordinate.asm",
+      "line": 76,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/VelocityComponentDelta.asm",
+      "line": 41,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/XorFarObjectPixel.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Motion/XorFarObjectPixel.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/ActivateEnemyECM.asm",
+      "line": 29,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/AlternateSpawnAxes.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/ComputeFaceVisibility.asm",
+      "line": 100,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/DispatchObjectAction.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/DotProduct16By8.asm",
+      "line": 46,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/FindFreeObjectSlot.asm",
+      "line": 33,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "line": 218,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/InitializeAtPlayer.asm",
+      "line": 29,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "line": 52,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "line": 96,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/RandomizeSpawnDirection.asm",
+      "line": 24,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "line": 47,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/SelectObjectAction.asm",
+      "line": 53,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnCargo.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnEscapePod.asm",
+      "line": 41,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnFromObject.asm",
+      "line": 35,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "line": 60,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "line": 51,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipCargoOrPod.asm",
+      "line": 35,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipClass.asm",
+      "line": 59,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipDebris.asm",
+      "line": 35,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnThargonWave.asm",
+      "line": 47,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnTwoAlloys.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Objects/SpawnTwoShipAlloys.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Scanner/AdvanceScannerObject.asm",
+      "line": 17,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "line": 309,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Scanner/FillCockpitAttributePanel.asm",
+      "line": 29,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Scanner/ResetDangerIndicator.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+      "line": 83,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Scanner/SaveScannerBackground.asm",
+      "line": 43,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+      "line": 46,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Scanner/SetYellowFlightStatus.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Scanner/StepScannerStemDown.asm",
+      "line": 35,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Scanner/StepScannerStemUp.asm",
+      "line": 32,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/CargoTripleOffset.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/CheckDockingAlignment.asm",
+      "line": 39,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/ChooseEncounterCode.asm",
+      "line": 32,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/ClearFlightBuffer.asm",
+      "line": 61,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/CompassFarAxis.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/CompassNearAxis.asm",
+      "line": 57,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/CompassShape.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/ConsumeEscapePod.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/CopyAlternateRows.asm",
+      "line": 36,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/DispatchMenu.asm",
+      "line": 40,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/DrawCircleOutline.asm",
+      "line": 21,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/DrawEmptyIndicator.asm",
+      "line": 34,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/DrawFilledCircle.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "line": 129,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/DrawIndicatorMarker.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/DrawLargeOutline.asm",
+      "line": 24,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/DrawShortIndicator.asm",
+      "line": 36,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/FillRowsDown.asm",
+      "line": 27,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/FillRowsUp.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "line": 94,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/IndicatorMarkerMask.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/LeftArcDown.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/LeftArcUp.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/LengthHighWords.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/LoadVectorWords.asm",
+      "line": 33,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/MatchTargetPlanet.asm",
+      "line": 45,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/NextCharacterRow.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/NextScanline.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/PreviousCharacterRow.asm",
+      "line": 50,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/RepeatEnergyRecovery.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/ResetCargoCapacity.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/RestoreCockpit.asm",
+      "line": 45,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/RestoreCompassBackground.asm",
+      "line": 45,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/RightArcDown.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/RightArcUp.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/SaveCockpit.asm",
+      "line": 32,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/ScaleProximity.asm",
+      "line": 53,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/SelectScreen.asm",
+      "line": 47,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/SelectTrafficType.asm",
+      "line": 47,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/SelectTrafficType.asm",
+      "line": 62,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/SetGameOver.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/SunDistanceHint.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/UnclippedArcDown.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/UnclippedArcUp.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "line": 83,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/UpdateIndicators.asm",
+      "line": 79,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "line": 183,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Screen/WriteStridedTriple.asm",
+      "line": 81,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Sound/DivideBC2.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Sound/PlayDestructionSound.asm",
+      "line": 64,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Sound/PlayHyperjumpSound.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Sound/PlayLaunchSound.asm",
+      "line": 47,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Sound/StartExplosionNoise.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Sound/StartLaunchNoise.asm",
+      "line": 48,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Sound/StepDataTone.asm",
+      "line": 69,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Sound/StepNoise.asm",
+      "line": 52,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Sound/StepPitchSweep.asm",
+      "line": 186,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Sound/UpdateSound.asm",
+      "line": 59,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/ApplyAttributeRuns.asm",
+      "line": 52,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/BeginSystemLaunchState.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "line": 70,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/CheckMineralLifeColony.asm",
+      "line": 41,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/CheckMissionRegion.asm",
+      "line": 62,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/CheckObjectRandomGate.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/CheckSavedSystemRegion.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/DrawCharacter8x8.asm",
+      "line": 79,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 39,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "line": 55,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/DrawViewFrame.asm",
+      "line": 44,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/EquipmentMenuLimit.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/FillBytes.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/FillInnerAttributeRow.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "line": 76,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/InitializeSixTriples.asm",
+      "line": 33,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/InvalidateObjectLineCache.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "line": 50,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "line": 87,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/PrintDescriptionByte.asm",
+      "line": 39,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/PrintDescriptionString.asm",
+      "line": 27,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/PrintDescriptionToken.asm",
+      "line": 27,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/PrintMainToken.asm",
+      "line": 60,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+      "line": 49,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/PrintTwoLetterSyllable.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/SetDescriptionModeAndHelpers.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Text/XorCharacterScanlines.asm",
+      "line": 27,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/AddByteOffsetToHL.asm",
+      "line": 21,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/BuyCargoLoop.asm",
+      "line": 71,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/ChooseLaserDirection.asm",
+      "line": 57,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/ClearPressedKeyBits.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/EquipmentAlreadyOwned.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/EquipmentPaymentFailed.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/ErasePreviousCharacter.asm",
+      "line": 34,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/FillCharacterRowInterior.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/GenerateMarket.asm",
+      "line": 118,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/GetEquipmentPriceAddress.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/HandleEquipmentPurchase.asm",
+      "line": 63,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/IncrementTextRow.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/IndirectTradeCallbackAndBuy.asm",
+      "line": 64,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/InputTradeQuantity.asm",
+      "line": 75,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/MissionRegionMetric.asm",
+      "line": 47,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/OptionalBeep.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/PrepareTradeScreen.asm",
+      "line": 21,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/PrintCargoQuantity.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/PrintDecoratedToken.asm",
+      "line": 24,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/PrintDescriptionColon.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/PrintEmptyStockOrQuantity.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/PrintKilometreSuffix.asm",
+      "line": 33,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/PrintMainTokenColon.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/PrintMainTokenSpace.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/PrintScreenCaption.asm",
+      "line": 21,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/PrintZeroTerminatedString.asm",
+      "line": 28,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "line": 35,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "line": 80,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/ResetTextColumn.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/ResetTradeIterators.asm",
+      "line": 24,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/RestoreTextPosition.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/RestoreTradeSnapshot.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/SaveTextPosition.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/SetTextColumn.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/SetTextRow.asm",
+      "line": 24,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/SnapshotTrade.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/TradeBeepAndPause.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/TradeFeedback.asm",
+      "line": 18,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
+      "line": 91,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/Wait20Interrupts.asm",
+      "line": 19,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/Wait36Interrupts.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Trade/WaitForKeyCode.asm",
+      "line": 24,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/BuildPlanetCoordinateByte.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/BuildStationGeometry.asm",
+      "line": 107,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+      "line": 29,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+      "line": 110,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+      "line": 73,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/EnterTargetSystem.asm",
+      "line": 60,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+      "line": 57,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "line": 100,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/RotateTwoSeedBytesAdvance.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/SetFuelAndGauge.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
+      "line": 64,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/TickJumpCountdown.asm",
+      "line": 70,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
+      "line": 84,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Travel/UpdateFlightMessages.asm",
+      "line": 46,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/AddSignedStarCoordinate.asm",
+      "line": 96,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/AdvanceCircularObjectEffect.asm",
+      "line": 43,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEcmToStandardMissile.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "line": 24,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "line": 96,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/AwardOrStoreLinkedDestruction.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/AwardUnlinkedDestructionBounty.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/CheckLinkedObjectInteraction.asm",
+      "line": 34,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/CheckSpecialSystemOrRandom.asm",
+      "line": 41,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/CompareObjectAxisDistance.asm",
+      "line": 46,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+      "line": 106,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/DivideBodyProjectionFraction.asm",
+      "line": 39,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/DrawSunAndPlanet.asm",
+      "line": 51,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/ExpandNovaRadius.asm",
+      "line": 43,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/FindInteractingObject.asm",
+      "line": 74,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/GetObjectMetadataAddress.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "line": 139,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+      "line": 52,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/PrepareRandomLaserEndpoint.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "line": 291,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/SelectGalaxyOnJump.asm",
+      "line": 54,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/SelectSpecialCargoText.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/SetStationEnergy.asm",
+      "line": 20,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/ShiftSmallBodyProjectionOperands.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "line": 183,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "line": 127,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+      "line": 286,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateCelestialCoordinates.asm",
+      "line": 22,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "line": 180,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/AddRotatedVertexCoordinate.asm",
+      "line": 62,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/AddSignedByteMagnitudes.asm",
+      "line": 38,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceNormalFlags.asm",
+      "line": 29,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "line": 30,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceVertexFlags.asm",
+      "line": 24,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/AnyPackedFaceVisible.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "line": 49,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "line": 66,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/CorrectYAxisComponent.asm",
+      "line": 64,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/CrossProductComponent.asm",
+      "line": 147,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 45,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "line": 222,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "line": 86,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "line": 203,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 476,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 551,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "line": 590,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "line": 37,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "line": 72,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "line": 78,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/FinishObjectAndDrawLaser.asm",
+      "line": 26,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/GetSystemVariationByte.asm",
+      "line": 59,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+      "line": 23,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+      "line": 68,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/LocateFaceNormalData.asm",
+      "line": 29,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/LocateVertexCoordinateData.asm",
+      "line": 34,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyBytesApprox.asm",
+      "line": 44,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+      "line": 45,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyHighByteApprox.asm",
+      "line": 37,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyScaledVertexComponent.asm",
+      "line": 34,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/OrthogonalizeObjectYAxis.asm",
+      "line": 37,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadFaceVisibilityNibble.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadObjectTacticsGates.asm",
+      "line": 31,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadProjectedVertex.asm",
+      "line": 43,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadVertexFlags.asm",
+      "line": 25,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+      "line": 83,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "line": 72,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateDistantVertex.asm",
+      "line": 50,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "line": 127,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/SetTargetDisplayState.asm",
+      "line": 24,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "line": 47,
+      "reason": "нет пустой строки после перехода или выхода"
+    },
+    {
+      "file": "Source/Game/Wireframe/SumCachedVertexProducts.asm",
+      "line": 55,
+      "reason": "нет пустой строки после перехода или выхода"
+    }
+  ],
+  "remaining_issues": [],
+  "changes": [
+    {
+      "file": "Source/Game/Charts/BuildHighBitRun.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Charts/BuildLowBitRun.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Charts/FindSystemNameDialog.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Charts/MapCursorTransformAndKeys.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Charts/NextScreenCharacterRowAndRefugees.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Charts/PixelAddressAndVerticalCrosshair.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Charts/TextInputLoop.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Charts/XorMapCrosshair.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/ApplyCircleViewportPatches.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/BeginFilledUnclippedHalf.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 3
+    },
+    {
+      "file": "Source/Game/Circles/BuildLeftContourPixelMask.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/BuildRightContourPixelMask.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/CheckSystemCoordinateBand.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/ComputeLeftEdgeMask.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/ComputeRightEdgeMask.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/CrossCircleCharacterRowDown.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Circles/CrossCircleCharacterRowUp.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Circles/DetachMissileTarget.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/DispatchClippedCircle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/DrawChartCircleWithPatchedViewport.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/DrawCornerClippedArc.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/DrawCornerLeftContour.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/DrawCornerRightContour.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/DrawCornerWideCircle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/DrawOneSideClippedCircle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/DrawUnclippedCircle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/DrawVerticalClippedCircle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/DrawWideCircleAcrossBothSides.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/IntegerCircleCathetus.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/LoadCircleIterationCoordinates.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/PatchCircleScreenTarget.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/PrepareBothClippedCoordinates.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/PrepareBothClippedMasksAndFillRows.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 3
+    },
+    {
+      "file": "Source/Game/Circles/PrepareLeftClippedCircle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/PrepareRightClippedCircle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/PrepareUnclippedCircle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/PrintShipAndContinueRightFill.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/ScanUpgradeKeyRow.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/SelectJumpAndContinueLeftFill.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 3
+    },
+    {
+      "file": "Source/Game/Circles/SetBothContourBoundaries.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/SetCabinHeatAndContinueFilledCircle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 3
+    },
+    {
+      "file": "Source/Game/Circles/SetRightContourBoundary.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/SkipRowsDownAndDrawCircleContours.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/SkipViewportRowsUp.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/StepCircleRowDown.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Circles/StepCircleRowUp.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/AnimateIntroAndObjectPipeline.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Combat/ApplyPlayerMotion.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/BeginObjectMetadataPass.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/CalculateFuelPurchasePrice.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/ClearLaserDisplayState.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/CreatePlayerWreckScene.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/CreateWreckAndDamageState.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Combat/DamageShieldAndEnergy.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/DispatchObjectAction.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/DivideAndCombatState.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/DrainEnergyBanks.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/FinishObjectFrame.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/FirePlayerLaser.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/HandleEscapeCapsule.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/InitializeSpawnedObjectLinks.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/MarkRemovedAndReleaseTargets.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/NextRandomByte.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/PrintMissileStock.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/ProcessLaserAndEcm.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/RecoverShieldUnit.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/ReleaseMissileTargets.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/SetIndicatorAndPrintMissileStock.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/SetObjectEnergyAndDrawMissedLaser.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/SpawnDestroyedObjectContents.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/SquareRootVectorLength.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/UpdateAllSpaceObjects.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/UpdateClockAndRotateDistantBodies.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Combat/UpdateObjectsAndWeapons.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Data/MenuDispatchTable.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Disk/BlackAttributesAndOverlayState.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Disk/CallDosInternal.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Disk/ConvertTrackForDrive.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Disk/DrawScreenStripsAndPrivateStack.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Disk/LoadDiskMenuOverlay.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Disk/ReactionOnPrivateStack.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Disk/TransferDiskSectors.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Economy/AddCashThousands.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Economy/CompareWordPreserveHL.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Economy/PrintBytePrice.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Economy/PrintDigitOrLeadingZero.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Economy/PrintNumberPadding.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Economy/PrintSplitCash.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Economy/SubtractCashLow.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Economy/SubtractCashThousands.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/AllocateVariantObjectSlot.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/AttributeVectorAndEnergyBomb.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Extensions/BuildSmallCircleProfile.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/ChooseLinkedObjectTarget.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/ConsumeGalacticDriveCharge.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/CreateMissileOrMissionCraft.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCircleAndProtectScratchStack.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/DrawCompressedEdges.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/DrawModelAndResources.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/DrawSmallSilhouette.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/EnergyBombAndFlashVectors.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/FillBackwardAndCountDemo.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/FindLiveTrackedObject.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/GetViewAdjustedProjectedPoint.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/HandleSpecialMessageToken.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/MarkObjectEventAndUpdateMetadata.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/OrSpriteByte.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/PrintCargoAndMessageBanks.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Extensions/PrintEquipmentAndSelectIcon.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Extensions/PrintPlanetInvasionStatus.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/ResetObjectMetadata.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/ResolveSpecialObjectCollision.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/ScheduleLinkedObjectLaser.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/SelectCharacterFont.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/SetAggressionThenContinue.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/SetExtendedTextCursor.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/SetObjectAggressionFlag.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/StorePairedObjectDirections.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateInvasionOnRatingOverflow.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateSpecialCargoStatus.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndFinishGlyph.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Extensions/UpdateStationAndSpecialShips.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Extensions/ValidatePackedObjectTarget.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/AnimateTransitionTunnel.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/ApplyCloakingViewColour.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/ApplyMissionViewColour.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/ClearBytes.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/ClearNearbyShipSlots.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/DispatchAppendDecimalDigit.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/DispatchChartCircle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/DispatchDangerIndicator.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/DispatchDeviceAndAppendDigit.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/DispatchSoundEffect.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/DispatchThirdMissionStage.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/DivideByteFractionForTunnel.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/DrawDemoHeading.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/DrawTitleCaption.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/DrawTransitionTunnelIfActive.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/Fill240Attributes.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Flight/HalfCoordinateDifference.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/HandleMapCursorKeys.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/HandlePauseMenu.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/IndexPauseCommandAndHandlers.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/MainGameLoop.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Flight/MarkMissionViewInitialized.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/PrintMessageAfterMetadataReset.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/RaiseLaserThreshold.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/RebaseCoordinateAxis.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/ReportBoardingAndReturnToTitle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/SetSelectedLineMetadata.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/ShowTitleAndSelectControls.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Flight/ToggleCloakingDevice.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/TryAutomaticDocking.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/TryColonizeMinerals.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Flight/UpdateFlightControlGauges.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/AdvanceSystemSeed.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/CopySystemNameToTarget.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/DeriveSystemProperties.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/DistanceMetricToFuel.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/FindNearestSystem.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/FindSystemByExactName.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/FinishDistanceLine.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/GenerateSystemName.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/LoadGalaxySeed.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/MultiplyBytes.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/OnesComplementDifference.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/RestoreWorkingSystemSeed.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/RotateSeedPair.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/SaveWorkingSystemSeed.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/SelectNearestSystemWithCursor.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Galaxy/SquaredDistanceToTarget.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Input/CheckMissionSystem.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Input/ClampAndStoreFlightSpeed.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode1AndKeyboardMap.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Input/EnableInterruptMode2.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Input/FinishKeyboardRowAndSelectJoystick.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Input/IntegrateFlightControls.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Input/KeyboardControlInterrupt.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Input/MarkModelVisibilityMask.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Input/ResetDemoAndNormalizeControls.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Input/ScanKeyboardMatrix.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Input/SetPressedKeyAssignment.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Input/ToggleSecondaryCoordinateObject.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Interface/DispatchClearView.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDescriptionToken.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Interface/DispatchDiskAndCommanderState.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Interface/DispatchFlightMessage.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Interface/DispatchJumpKey.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Interface/DispatchResetCommander.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Interface/DispatchStatusAndChartKeys.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Interface/DispatchTextToken.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Math/AddSigned.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Math/Divide.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Math/NextRandom.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Math/Square.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Math/SquareRoot.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/ApplyMissionMarketRestrictions.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/BlankLineAndEconomyText.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/CheckMissionRegionBand.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/ChooseEncounterVariant.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/ClearCharacterRowsBackward.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/CompareSystemSeedToGalaxyBase.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/DrawExplosionAndScanner.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/LocalSystemPixelPosition.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/MapCaptionAndGalaxyChart.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/NextEquipmentLine.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/OpenLocalChart.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/PlaceLocalSystemLabel.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/PlotGalaxySystem.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/PrintCombatRankAndEquipment.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/PrintDirectionalLaser.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/PrintStatusFieldAndCargoScreen.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemRadius.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/PrintSystemStatistics.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/PrintTokenAndBlankLine.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/ReadVisibleObjectByte.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/RedirectDuplicateEquipment.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/Return255.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/ReturnZero.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Menus/VisitLocalChartSystems.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 4
+    },
+    {
+      "file": "Source/Game/Missions/CompleteThirdMission.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Missions/DispatchEquipmentDamage.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Missions/DispatchMissionEvents.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Missions/DispatchRatingAndMissionEnd.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Missions/OfferThirdMission.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Missions/RatingBountyDamageAndNewCommander.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Missions/ShowBoardingMessage.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Missions/SpecialMessageAndScoopReward.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/AddCoordinateDelta.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/AddScaledCoordinate.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/AddSignedAngularProduct.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceObjectAlongLocalAxis.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/AdvanceOneCoordinate.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/ApplyPlayerMotionToObject.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/CallObjectActionPreservingPointers.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/CheckObjectBoxAndChooseCourse.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/DivideVectorComponent.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/DotProductAxisHighBytes.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/DoubleSignedAngle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/GuideMissileAndCheckImpact.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/IsSmallSignedDistance.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/MultiplySignedWordByByte.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/NegatedQuarterCoordinate.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/NormalizeVector16.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/ProjectObjectAndSelectDetail.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinate.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/QuarterCoordinateDifference.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/RenormalizeAxisHighBytes.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/RotateAxisByPlayer.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/RotateBasisByObject.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/SignedByteProductPair.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/SquareVectorComponent.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/SteerObjectAndTryLaser.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/TransformNormalWithObjectCoordinate.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/VelocityComponentDelta.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Motion/XorFarObjectPixel.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Objects/ActivateEnemyECM.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/AlternateSpawnAxes.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/ComputeFaceVisibility.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/DispatchObjectAction.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/DotProduct16By8.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/FindFreeObjectSlot.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/GenerateSpaceTraffic.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/InitializeAtPlayer.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/InitializeIntroModel.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/InitializeObject.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/RandomizeSpawnDirection.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/RotateSpawnAxisComponent.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/SelectObjectAction.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/SpawnCargo.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/SpawnEscapePod.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/SpawnFromObject.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/SpawnMissile.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/SpawnPlayerDebris.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipCargoOrPod.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipClass.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/SpawnShipDebris.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/SpawnThargonWave.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/SpawnTwoAlloys.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Objects/SpawnTwoShipAlloys.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Scanner/AdvanceScannerObject.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Scanner/DrawScannerObjects.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Scanner/FillCockpitAttributePanel.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Scanner/ResetDangerIndicator.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Scanner/RestoreScannerBackground.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Scanner/SaveScannerBackground.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Scanner/ScaleValueAndFinishBackground.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Scanner/SetYellowFlightStatus.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Scanner/StepScannerStemDown.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Scanner/StepScannerStemUp.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/CargoTripleOffset.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/CheckDockingAlignment.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/ChooseEncounterCode.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/ClearFlightBuffer.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/CompassFarAxis.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/CompassNearAxis.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/CompassShape.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/ConsumeEscapePod.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/CopyAlternateRows.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/DispatchMenu.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/DrawCircleOutline.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/DrawEmptyIndicator.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/DrawFilledCircle.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/DrawIndicatorBar.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/DrawIndicatorMarker.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/DrawLargeOutline.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/DrawShortIndicator.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/FillRowsDown.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/FillRowsUp.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/HandleScreenKeys.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/IndicatorMarkerMask.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/LeftArcDown.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/LeftArcUp.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/LengthHighWords.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/LoadVectorWords.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/MatchTargetPlanet.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/NextCharacterRow.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/NextScanline.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/PreviousCharacterRow.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/RepeatEnergyRecovery.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/ResetCargoCapacity.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/RestoreCockpit.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/RestoreCompassBackground.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/RightArcDown.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/RightArcUp.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/SaveCockpit.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/ScaleProximity.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/SelectScreen.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/SelectTrafficType.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Screen/SetGameOver.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/SunDistanceHint.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/UnclippedArcDown.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/UnclippedArcUp.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/UpdateCelestialProximity.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/UpdateIndicators.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/VectorLength.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Screen/WriteStridedTriple.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Sound/DivideBC2.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Sound/PlayDestructionSound.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Sound/PlayHyperjumpSound.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Sound/PlayLaunchSound.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Sound/StartExplosionNoise.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Sound/StartLaunchNoise.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Sound/StepDataTone.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Sound/StepNoise.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Sound/StepPitchSweep.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Sound/UpdateSound.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/ApplyAttributeRuns.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/BeginSystemLaunchState.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/CapitalizeNextLetterAndTextCommands.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/CheckMineralLifeColony.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/CheckMissionRegion.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/CheckObjectRandomGate.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/CheckSavedSystemRegion.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/DrawCharacter8x8.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/DrawProjectedSunAndTextDispatch.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Text/DrawViewFrame.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/EquipmentMenuLimit.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/FillBytes.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/FillInnerAttributeRow.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/HandleSpecialObjectMission.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/InitializeSixTriples.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/InvalidateObjectLineCache.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/NextDescriptionRandom.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/OfferRegionDependentMission.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/PrintDescriptionByte.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/PrintDescriptionString.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/PrintDescriptionToken.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/PrintMainToken.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/PrintRankWithMissionSuffix.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/PrintTwoLetterSyllable.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/SetDescriptionModeAndHelpers.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Text/XorCharacterScanlines.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/AddByteOffsetToHL.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/BuyCargoLoop.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/ChooseLaserDirection.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/ClearPressedKeyBits.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/EquipmentAlreadyOwned.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/EquipmentPaymentFailed.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/ErasePreviousCharacter.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/FillCharacterRowInterior.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/GenerateMarket.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/GetEquipmentPriceAddress.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/HandleEquipmentPurchase.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/IncrementTextRow.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/IndirectTradeCallbackAndBuy.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/InputTradeQuantity.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/MissionRegionMetric.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/OptionalBeep.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/PrepareTradeScreen.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/PrintCargoQuantity.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/PrintDecoratedToken.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/PrintDescriptionColon.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/PrintEmptyStockOrQuantity.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/PrintKilometreSuffix.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/PrintMainTokenColon.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/PrintMainTokenSpace.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/PrintScreenCaption.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/PrintZeroTerminatedString.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/PromptCargoQuantityAndRefugees.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Trade/ResetCloakingAndSeedFlightRandom.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/ResetTextColumn.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/ResetTradeIterators.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/RestoreTextPosition.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/RestoreTradeSnapshot.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/SaveTextPosition.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/SetTextColumn.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/SetTextRow.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/SnapshotTrade.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/TradeBeepAndPause.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/TradeFeedback.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/TradeTitleAndSellLoop.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/Wait20Interrupts.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/Wait36Interrupts.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Trade/WaitForKeyCode.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Travel/BuildPlanetCoordinateByte.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Travel/BuildStationGeometry.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Travel/ClearFlightEventsAndHandleJump.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Travel/CommitJumpFuelAndMishap.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Travel/EnterTargetSystem.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Travel/GetSalePriceAndMissionFlags.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Travel/LaserTypeAndArrivalEvents.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Travel/RotateTwoSeedBytesAdvance.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Travel/SetFuelAndGauge.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Travel/SetMessageCoordinatesAndRender.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Travel/TickJumpCountdown.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Travel/UpdateAmbientFlightMessage.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Travel/UpdateFlightMessages.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/AddSignedStarCoordinate.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/AdvanceCircularObjectEffect.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEcmToStandardMissile.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/ApplyEnhancedFlightControl.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Universe/AwardOrStoreLinkedDestruction.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/AwardUnlinkedDestructionBounty.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/CheckLinkedObjectInteraction.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/CheckSpecialSystemOrRandom.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/CompareObjectAxisDistance.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/DispatchLinkedObjectAction.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/DivideBodyProjectionFraction.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/DrawSunAndPlanet.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/ExpandNovaRadius.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/FindInteractingObject.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/GetObjectMetadataAddress.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/InitializeExtendedObjectMetadata.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/MoveCoordinateDepthBy32.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/PrepareRandomLaserEndpoint.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/ProjectCelestialBody.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/SelectGalaxyOnJump.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/SelectSpecialCargoText.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/SetStationEnergy.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/ShiftSmallBodyProjectionOperands.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/SpawnDestructionContentsAndEffects.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/TryObjectInteraction.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/UpdateAndDrawStarField.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/UpdateCelestialCoordinates.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Universe/UpdateExtendedObjectEffects.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/AddRotatedVertexCoordinate.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/AddSignedByteMagnitudes.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceNormalFlags.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceObjectMetadata.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/AdvanceVertexFlags.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/AnyPackedFaceVisible.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildObjectRotationMatrix.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/BuildProjectedVertexTable.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/CorrectYAxisComponent.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/CrossProductComponent.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideFractionAndProjectVertex.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Wireframe/DivideSlopeAndDrawScanner.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawClippedLine.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 3
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/DrawWireframeObject.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Wireframe/FinishObjectAndDrawLaser.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/GetSystemVariationByte.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/InitializeObjectFromModelNumber.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 2
+    },
+    {
+      "file": "Source/Game/Wireframe/LocateFaceNormalData.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/LocateVertexCoordinateData.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyBytesApprox.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyClippingDistance.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyHighByteApprox.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/MultiplyScaledVertexComponent.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/OrthogonalizeObjectYAxis.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadFaceVisibilityNibble.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadObjectTacticsGates.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadProjectedVertex.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/ReadVertexFlags.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/RefreshScannerBackground.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateCoordinateAndCacheProducts.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateDistantVertex.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/RotateNearVertexComponent.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/SetTargetDisplayState.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/StartObjectExplosion.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    },
+    {
+      "file": "Source/Game/Wireframe/SumCachedVertexProducts.asm",
+      "spaces_after_commas": 0,
+      "blank_lines_after_transfers": 1
+    }
+  ],
+  "passed": true
+}

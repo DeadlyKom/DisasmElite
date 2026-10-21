@@ -20,6 +20,7 @@ ClearByte:      LD (HL), A
                 DJNZ ClearByte
 
                 RET
+
                 ASSERT $ == #9509
                 endmodule
                 endmodule

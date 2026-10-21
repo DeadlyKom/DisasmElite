@@ -5,12 +5,12 @@
 ; In:
 ;   системная область BASIC и TR-DOS, доступ к диску
 ; Out:
-;   при отсутствии файла возврат в BASIC, при успехе переход к #7394
+;   при отсутствии файла возврат в BASIC, при успехе переход к Loader.GAME_START
 ; Corrupt:
 ;   HL, DE, BC, AF, AF'
 ;   SP, I, режим прерываний и память снимка
 ; Note:
-;   #5C00..#5FFF сначала читаются в #CC00, чтобы не разрушить TR-DOS
+;   #5C00..#5FFF сначала читаются в Loader.SYS_COPY, чтобы не разрушить TR-DOS
 ;   область #C800..#CFFF исходного снимка целиком не загружается
 ;   #C800..#C909 заняты этим загрузчиком, #CC00..#CFFF служат обменным блоком
 ;   исходное XOR-преобразование снимка сохранено в процедуре MutateMemory
@@ -59,7 +59,7 @@ Load:           ; подготовка имени и типа для поиск�
 .Sector         LD A, E
                 AND DOS_SEC_MASK
                 LD E, A
-                ; чтение четырёх секторов #5C00..#5FFF во временную область #CC00
+                ; чтение четырёх секторов #5C00..#5FFF во временную область Loader.SYS_COPY
                 LD BC, #0405
                 CALL TRDOS_ENTRY
 
@@ -71,7 +71,7 @@ Load:           ; подготовка имени и типа для поиск�
                 LD BC, #6805
                 CALL TRDOS_ENTRY
 
-                ; расчёт дискового адреса блока #D000, девять дорожек от начала
+                ; расчёт дискового адреса блока Loader.SNAP_HIGH, девять дорожек от начала
                 LD HL, (TRDOS_FIRST)
                 LD DE, #0900
                 ADD HL, DE
@@ -104,11 +104,11 @@ Load:           ; подготовка имени и типа для поиск�
                 LD BC, SYS_SIZE
                 LDIR
 
-                ; отключение двух OUT (#0F),A в хвосте печати #5DF0 заменой команд на NOP/NOP
+                ; отключение двух OUT (#0F),A в хвосте печати Game.Extensions.UpdateStationAndFinishGlyph.FinishGlyph заменой команд на NOP/NOP
                 LD HL, #0000
                 LD (Game.Extensions.UpdateStationAndFinishGlyph.AuxPortFirst), HL
                 LD (Game.Extensions.UpdateStationAndFinishGlyph.AuxPortNext), HL
-                ; обнуление исходного слова состояния игры по адресу #DA70
+                ; обнуление исходного слова состояния игры по адресу SaveSelection
                 LD HL, #0000
                 LD (SaveSelection), HL
 

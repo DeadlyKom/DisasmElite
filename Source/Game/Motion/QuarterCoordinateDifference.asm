@@ -37,6 +37,7 @@ Entry:          LD L, (IY + FCoordinate.Fraction)
                 ADD IX, DE
                 ADD IY, DE
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A568
                 endmodule

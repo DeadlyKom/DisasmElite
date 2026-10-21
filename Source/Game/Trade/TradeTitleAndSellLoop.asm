@@ -4,14 +4,14 @@
 ; Заголовок торговли и цикл продажи груза
 ; исходный диапазон #E8E5..#E961
 ; In:
-;   Для E8E5 нет параметров, для E8EA состояние трюма
+;   Для Game.Trade.TradeTitleAndSellLoop.Entry нет параметров, для Game.Trade.TradeTitleAndSellLoop.SellCargo состояние трюма
 ; Out:
-;   E8E5 печатает токен 96, E8EA обслуживает продажу 17 товаров
+;   Game.Trade.TradeTitleAndSellLoop.Entry печатает токен 96, Game.Trade.TradeTitleAndSellLoop.SellCargo обслуживает продажу 17 товаров
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
-;   E935 делает снимок, вычитает количество из груза через 700F, возвращает тоннаж товаров,
-;   затем для каждой единицы вызывает DE67 и D3D3, цена зависит от патча DE6A, служебные коды
+;   Game.Trade.TradeTitleAndSellLoop.SellQuantity делает снимок, вычитает количество из груза через Game.Extensions.AttributeVectorAndEnergyBomb.ReadCargoByte, возвращает тоннаж товаров,
+;   затем для каждой единицы вызывает Game.Travel.GetSalePriceAndMissionFlags.Entry и Game.Economy.AddCashLow.Entry, цена зависит от патча Game.Travel.GetSalePriceAndMissionFlags.MineralGate, служебные коды
 ;   обрабатываются как при покупке
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
@@ -20,7 +20,9 @@
 Entry:          LD A, #96
                 JP Game.Text.PrintDescriptionToken.Entry
 
-                ; подготовка экрана продажи, за CALL #D421 следует однобайтовый токен #CD
+                ; подготовка экрана продажи, за CALL Game.Text.PrintInlineToken.Entry следует однобайтовый токен #CD
+                ; миссия 7+2, военные поставки, продажа передаёт тип товара проверке военной поставки
+                ; описание в Docs/Manual.md, раздел mission-7-2
 SellCargo:      CALL Game.Trade.PrepareTradeScreen.Entry
                 CALL Game.Text.PrintInlineToken.Entry
                 DB #CD                                                          ; параметр предыдущего вызова, не исполняется как инструкция
@@ -77,7 +79,7 @@ SellQuantity:   CALL Game.Trade.SnapshotTrade.Entry
                 LD A, (State.FreeCargo)
                 ADD A, B
                 LD (State.FreeCargo), A
-                ; цена продажи начисляется по одной единице, у MINERAL LIFE её подменяет DE6A
+                ; цена продажи начисляется по одной единице, у MINERAL LIFE её подменяет Game.Travel.GetSalePriceAndMissionFlags.MineralGate
 PayUnit:        PUSH BC
                 LD HL, (MarketWork.PriceCursor)
                 CALL Game.Travel.GetSalePriceAndMissionFlags.Entry
@@ -87,6 +89,7 @@ PayUnit:        PUSH BC
 
                 AND A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E962
                 endmodule

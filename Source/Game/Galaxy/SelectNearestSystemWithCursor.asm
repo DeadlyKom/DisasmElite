@@ -4,14 +4,14 @@
 ; Выбор ближайшей системы с удалением и возвратом XOR-курсора
 ; исходный диапазон #DF60..#DF73
 ; In:
-;   70E3 = экран, D0BB/D0BC = точка поиска
+;   FlightState.View = экран, TargetX/TargetY = точка поиска
 ; Out:
 ;   Выбранная планета и её расстояние обновлены
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   Для экранов 7/8 обрамляет DF74 двумя вызовами XOR-рисования курсора, для остальных переходит
-;   непосредственно DF74
+;   Для экранов 7/8 обрамляет Game.Galaxy.FindNearestSystem.Entry двумя вызовами XOR-рисования курсора, для остальных переходит
+;   непосредственно Game.Galaxy.FindNearestSystem.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #DF60
@@ -26,6 +26,7 @@ Entry:          LD A, (FlightState.View)
                 CALL Game.Charts.MapCursorTransformAndKeys.Entry
                 CALL Game.Galaxy.FindNearestSystem.Entry
                 JP Game.Charts.MapCursorTransformAndKeys.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #DF74
                 endmodule

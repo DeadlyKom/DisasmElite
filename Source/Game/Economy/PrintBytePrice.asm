@@ -10,13 +10,14 @@
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   SCF выбирает денежный формат, переход D2E2 расширяет A до HL
+;   SCF выбирает денежный формат, переход Game.Economy.PrintByteInteger.ExtendByte расширяет A до HL
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #D2DE
                 ; дробный формат, перенос передаёт общему принтеру наличие десятичной точки
 Entry:          SCF
                 JR @Game.Economy.PrintByteInteger.ExtendByte
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #D2E1
                 endmodule

@@ -1,0 +1,22 @@
+[
+  {
+    "file": "Source/Game/Flight/MainGameLoop.asm",
+    "old_comment": "сохранённый неиспользуемый хвост NOP и JR74DF, действующий путь перепрыгивает на Game.Flight.MainGameLoop.DrawIndicators",
+    "new_comment": "сохранённые NOP и JR к завершающему DJNZ цикла MapFrame, действующий путь переходит на DrawIndicators"
+  },
+  {
+    "file": "Source/Game/Flight/FillViewAttributesAndFlightState.asm",
+    "old_comment": "70DC..7118 содержат поля полёта и двух светил,Game.Flight.FillViewAttributesAndFlightState.StartGame отдельный JP7366",
+    "new_comment": "за кодом лежат InvasionClock, приборы GaugeState, поля FlightState и координаты Sun/Planet"
+  },
+  {
+    "file": "Source/Game/Wireframe/DrawScannerMarkerSegment.asm",
+    "old_comment": "Два байта HL записываются непосредственно в код ScannerRaster/#B447.",
+    "new_comment": "два байта HL записываются в ScannerRaster.StepOpcodes и следующий байт, это команды шага B/C"
+  },
+  {
+    "file": "Source/Game/Data/SystemBoundaryAndObjects.asm",
+    "old_comment": "заголовки моделей находятся в области #61E3..#63F3",
+    "new_comment": "заголовки моделей перечислены в каталоге Game.Data.ModelIndex.Entry"
+  }
+]

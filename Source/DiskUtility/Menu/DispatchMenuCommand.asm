@@ -2,10 +2,10 @@
 ; клавиатурный цикл выбора загрузки, сохранения, демонстрации и командира
 ; исходный диапазон #CB1E..#CB68
 ; In:
-;   каталог #5000, состояние выбора #DA70/#DA71
+;   каталог DiskBuffer.Catalog, состояние выбора SaveSelection и SavePageStart
 ; Out:
 ;   SPACE возвращает A=#20/Z=1
-;   1 передаёт управление LoadCommander, 2 EditSaveName, 3 #D99B
+;   1 передаёт управление LoadCommander, 2 EditSaveName, 3 Game.Disk.BlackAttributesAndOverlayState.LoadDemo
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
@@ -30,7 +30,7 @@ MenuInput:      SCF
                 NOP
                 NOP
                 CP #33
-                JP Z, @Game.Disk.BlackAttributesAndOverlayState.LoadDemo        ; переход, если нажата 3 и запрошен вход в демонстрацию #D99B
+                JP Z, @Game.Disk.BlackAttributesAndOverlayState.LoadDemo        ; переход, если нажата 3 и запрошен вход в демонстрацию Game.Disk.BlackAttributesAndOverlayState.LoadDemo
 
                 PUSH AF
                 AND A

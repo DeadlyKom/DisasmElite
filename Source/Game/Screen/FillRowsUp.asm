@@ -5,7 +5,7 @@
 ; In:
 ;   BC, B содержит число строк
 ;   AF, A содержит начальную координату Y
-;   байт #8629, режим контура
+;   байт CircleState.OutlineOnly, режим контура
 ; Out:
 ;   отрисованы или пропущены строки до верхней границы
 ;   DE, B и A сохраняются, C получает исходный A
@@ -13,7 +13,7 @@
 ;   HL, BC, AF
 ; Note:
 ;   A сохраняется через C на время проверки режима
-;   нулевой режим вызывает заполнение #8A37, ненулевой перемещение без заливки #9004
+;   нулевой режим вызывает заполнение Game.Circles.PrepareBothClippedMasksAndFillRows.PatchUpward, ненулевой перемещение без заливки Game.Circles.SkipViewportRowsUp.Entry
 ;   это хвостовой переход, выбранный обработчик возвращается непосредственному вызывающему
 ; -----------------------------------------
                 ; проверка исходного размещения
@@ -26,6 +26,7 @@ Entry:          LD C, A
                 JP NZ, Game.Circles.SkipViewportRowsUp.Entry                    ; переход, если рисуется только контур
 
                 JP Game.Circles.PrepareBothClippedMasksAndFillRows.PatchUpward
+
                 ASSERT $ == #86C4
                 endmodule
                 endmodule

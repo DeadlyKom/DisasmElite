@@ -1,7 +1,7 @@
                 ifndef _VARIABLES_GALAXY_
                 define _VARIABLES_GALAXY_
 
-GalaxyState     EQU Game.Travel.SetFuelAndGauge.TargetSeed                      ; адрес структуры FGalaxyState
+GalaxyState     EQU Game.Travel.SetFuelAndGauge.SystemData                      ; адрес структуры FGalaxyState
 .TargetSeed     EQU GalaxyState + FGalaxyState.TargetSeed                       ; шестибайтовое семя выбранной цели
 .WorkingSeed    EQU GalaxyState + FGalaxyState.WorkingSeed                      ; рабочее семя перебора и генерации имени
 .SavedSeed      EQU GalaxyState + FGalaxyState.SavedSeed                        ; копия рабочего семени на время вложенного перебора

@@ -12,7 +12,7 @@
 ;   HL, DE, BC, AF, IY
 ; Note:
 ;   обмен IX с вершиной стека временно выбирает новый слот и сохраняет родителя
-;   у дочернего объекта отключается IX+20 bit6, IX+26=#0A и IX+1D=#80
+;   у дочернего объекта сбрасывается OBJ_ACTIVE_BIT в FSpaceObject.Flags, FSpaceObject.Flags2=#0A и FSpaceObject.Roll=#80
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #BB2F
@@ -33,6 +33,7 @@ Entry:          PUSH IX
                 XOR A
                 POP IX
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #BB4D
                 endmodule

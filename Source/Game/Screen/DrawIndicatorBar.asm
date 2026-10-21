@@ -10,7 +10,7 @@
 ; Corrupt:
 ;   HL, DE, BC, AF, BC'
 ; Note:
-;   операнды #856D, #8597 и #85B9 задают #FF для заполненной шкалы
+;   операнды IndicatorDraw.BoundaryMask, IndicatorDraw.BodyFill и IndicatorDraw.FullFill задают #FF для заполненной шкалы
 ;   величина разбивается на число полных байтов и остаток по модулю 8
 ;   после заполненных байтов выводится маска границы и очищается оставшаяся часть
 ;   бит 0 последнего байта сохраняет правую границу шкалы
@@ -127,6 +127,7 @@ FillFullRow:    LD (HL), A
                 INC H
                 LD B, E
                 JR DrawFullRow
+
                 ASSERT $ == #85CC
                 endmodule
                 endmodule

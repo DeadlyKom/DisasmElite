@@ -11,8 +11,8 @@
 ; Corrupt:
 ;   DE, BC, AF
 ; Note:
-; Модули удваиваются перед табличным умножением AB0B.
-; Знак в H инвертирован XOR #80 согласно внутреннему формату сумматора AAFB.
+; Модули удваиваются перед табличным умножением Game.Wireframe.MultiplyHighByteApprox.Entry.
+; Знак в H инвертирован XOR #80 согласно внутреннему формату сумматора Game.Wireframe.AddSignedByteMagnitudes.Entry.
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #A69D
@@ -27,6 +27,7 @@ Entry:          LD C, A
                 POP HL
                 LD L, A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #A6AC
                 endmodule

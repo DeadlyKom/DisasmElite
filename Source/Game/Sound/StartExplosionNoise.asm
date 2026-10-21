@@ -6,8 +6,8 @@
 ; In:
 ;   нет
 ; Out:
-;   HL=#0127, DE=#4002, AF - A=#A0
-;   #9522=3, #95AE=#A0, параметры сохранены в #9523/#9525
+;   HL=NoiseRomData, DE=#4002, AF - A=#A0
+;   SoundState=3, NoiseSamples=#A0, параметры сохранены в SoundState.Duration/SoundState.DataCursor
 ; Corrupt:
 ;   HL, DE, AF
 ; Note:
@@ -26,6 +26,7 @@ Entry:          LD A, #03
                 LD (SoundState.Duration), DE
                 LD (SoundState.DataCursor), HL
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #95E7
                 endmodule

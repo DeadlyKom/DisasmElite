@@ -5,11 +5,11 @@
 ; исходный диапазон #FF0E..#FF24
 ; смысловое имя ClampAndStoreFlightSpeed
 ; In: HL — рассчитанная скорость, DE — шаг, C-флаг — заём при торможении
-; Out: #FF0C обновлён, #FC09=0, A=0 и Z=1
+; Out: InputMotion.Speed обновлён, InputState.FlightKeys=0, A=0 и Z=1
 ; Corrupt: HL, AF
-; Вход #FF0E обнуляет скорость при заёме, иначе сразу сохраняет
-; Вход #FF16 отменяет шаг увеличения при достижении бита 5 старшего байта
-; Сброс #FC09 завершает обработку однотактных команд скорости и направлений
+; Вход Game.Input.ClampAndStoreFlightSpeed.Entry обнуляет скорость при заёме, иначе сразу сохраняет
+; Вход Game.Input.ClampAndStoreFlightSpeed.SpeedLimit отменяет шаг увеличения при достижении бита 5 старшего байта
+; Сброс InputState.FlightKeys завершает обработку однотактных команд скорости и направлений
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #FF0E
@@ -31,6 +31,7 @@ StoreSpeed:     LD (InputMotion.Speed), HL
                 XOR A
                 LD (InputState.FlightKeys), A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #FF25
                 endmodule

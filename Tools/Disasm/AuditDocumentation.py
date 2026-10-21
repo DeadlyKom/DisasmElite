@@ -103,6 +103,8 @@ def main():
           f"unresolved {len(unresolved)}, format issues {len(issues)}")
     for item in issues[:30]:
         print(f"{item['file']}:{item['line']} " + ", ".join(item["reasons"]))
+    if issues or missing or unresolved:
+        raise SystemExit(1)
 
 
 if __name__ == "__main__":

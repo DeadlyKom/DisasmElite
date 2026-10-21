@@ -2,16 +2,16 @@
 ; Наведение для подбора допустимого груза
 ; исходный диапазон #EB52..#EB7C
 ; In:
-;    D088 AND D07C ненулевой
+;    State.FuelScoops AND State.FreeCargo ненулевой
 ; Out:
 ;   к выбранному объекту применяются AimAtObject/CollectNear до отказа
 ; Corrupt:
 ;   HL, DE, BC, AF, IY
 ; Note:
 ;   Выбирается следующий слот, RejectCargo возвращает C=0 для доступного груза
-;   При угрозах допускается не больше 2 и прежний нагрев кабины 70ED>=64, при нуле угроз температурная
+;   При угрозах допускается не больше 2 и прежний нагрев кабины Game.Flight.FillViewAttributesAndFlightState.CabinHeatPrev>=64, при нуле угроз температурная
 ;   проверка обходится
-;   Читается именно 70ED, то есть сохранённое отображённое значение прибора, а не текущее 70EE
+;   Читается именно Game.Flight.FillViewAttributesAndFlightState.CabinHeatPrev, то есть сохранённое отображённое значение прибора, а не текущее Game.Flight.FillViewAttributesAndFlightState.CabinHeatNow
 ; -----------------------------------------
                 ; проверка ковша и свободного трюма перед выбором следующего объекта
 CollectCargo:   LD A, (State.FuelScoops)

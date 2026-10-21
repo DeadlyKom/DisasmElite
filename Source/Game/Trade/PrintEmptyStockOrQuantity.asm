@@ -4,13 +4,13 @@
 ; Окончание строки рыночного остатка
 ; исходный диапазон #E24D..#E267
 ; In:
-;   Для E24D нет параметров, для E254 указатель E1E4
+;   Для Game.Trade.PrintEmptyStockOrQuantity.Entry нет параметров, для Game.Trade.PrintEmptyStockOrQuantity.PrintStock указатель MarketWork.StockCursor
 ; Out:
 ;   CY=1 после прочерка, CY=0 после количества
 ; Corrupt:
 ;   HL, DE, BC, AF
 ; Note:
-;   E254 является входом ненулевого количества, все пути завершают строку
+;   Game.Trade.PrintEmptyStockOrQuantity.PrintStock является входом ненулевого количества, все пути завершают строку
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #E24D
@@ -29,6 +29,7 @@ PrintStock:     LD A, #02
                 CALL Game.Trade.Newline.Entry
                 AND A
                 RET
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #E268
                 endmodule

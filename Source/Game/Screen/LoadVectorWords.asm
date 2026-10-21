@@ -31,6 +31,7 @@ Entry:          LD E, (IX + FirstLow)
                 LD L, (IX + ThirdLow)
                 LD H, (IX + ThirdHigh)
                 RET
+
                 ASSERT $ == #8315
                 endmodule
                 endmodule

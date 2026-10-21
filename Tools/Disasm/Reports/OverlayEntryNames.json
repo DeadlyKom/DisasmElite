@@ -1,0 +1,16 @@
+[
+  {
+    "file": "Source/Game/Disk/BlackAttributesAndOverlayState.asm",
+    "old": "JP @Game.Resources.SkippedSectors",
+    "new": "JP @DiskUtility.DemoSetup.EnterInstaller",
+    "address": "C800",
+    "evidence": "Source/DiskUtility/Include.inc maps Menu and DemoSetup overlays to C800"
+  },
+  {
+    "file": "Source/Game/Disk/LoadDiskMenuOverlay.asm",
+    "old": "CALL @Game.Resources.SkippedSectors",
+    "new": "CALL @DiskUtility.Menu.EnterMenu",
+    "address": "C800",
+    "evidence": "Source/DiskUtility/Include.inc maps Menu and DemoSetup overlays to C800"
+  }
+]

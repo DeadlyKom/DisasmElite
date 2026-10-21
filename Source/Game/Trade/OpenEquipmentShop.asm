@@ -6,7 +6,7 @@
 ; In:
 ;   Нет параметров
 ; Out:
-;   Исполнение продолжается перечнем E987
+;   Исполнение продолжается перечнем Game.Trade.ListEquipmentChoices.Entry
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:

@@ -4,15 +4,15 @@
 ; Построение местной карты с двумя проходами по системам
 ; исходный диапазон #EC58..#ECD1
 ; In:
-;   D099/D097 = координаты текущей системы, D082 = топливо
+;   State.SystemSeed + FSystemSeed.X/State.SystemSeed + FSystemSeed.Y = координаты текущей системы, State.Fuel = топливо
 ; Out:
 ;   Показаны звёзды, имена, круг дальности и малый курсор
 ; Corrupt:
 ;   HL, DE, BC, AF, IX
 ; Note:
-;   Обнуляет 24 признака занятости строк A90A, вычисляет насыщенные границы X±19, Y±34 и
-;   записывает их в CP по ECDF/ECE3/ECEA/ECEE, первый проход рисует звёзды через ED27, второй
-;   имена через ED78
+;   Обнуляет 24 признака занятости строк ProjectedVerts + 16, вычисляет насыщенные границы X±19, Y±34 и
+;   записывает их в CP по LocalMapLeft/LocalMapRight/LocalMapTop/LocalMapBottom, первый проход рисует звёзды через Game.Menus.LocalSystemPixelPosition.PlotStar, второй
+;   имена через Game.Menus.PlaceLocalSystemLabel.Entry
 ; -----------------------------------------
                 ; проверка исходного начала фрагмента
                 ASSERT $ == #EC58
@@ -66,6 +66,7 @@ ClearRowUsage:  LD (HL), A
                 LD A, #10
                 LD (MapViewport.CrosshairSize), A
                 JP Game.Charts.MapCursorTransformAndKeys.Entry
+
                 ; проверка исходного конца фрагмента
                 ASSERT $ == #ECD2
                 endmodule
